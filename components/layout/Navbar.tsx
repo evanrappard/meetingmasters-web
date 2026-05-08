@@ -3,22 +3,43 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ShoppingCart, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const navItems = [
-  { label: "STRATEGY & CONCEPT", href: "/en/strategy-concept" },
-  { label: "PLANNING & SUPPORT", href: "/en/planning-support" },
-  { label: "FORMATS", href: "/en/meeting-formats" },
   {
-    label: "CLIENTS",
-    href: "#",
+    label: "Events",
+    href: "/en/events",
     children: [
-      { label: "Testimonials", href: "/en/testimonials" },
-      { label: "CSR", href: "/en/csr" },
-      { label: "Blog", href: "/en/blog" },
+      { label: "Strategy Day", href: "/en/events/strategy-day" },
+      { label: "Virtual Christmas Party", href: "/en/events/christmas-party" },
+      { label: "Kick-off", href: "/en/events/kick-off" },
+      { label: "Community Event", href: "/en/events/community-event" },
+      { label: "All-hands Meeting", href: "/en/events/all-hands" },
+      { label: "All event formats →", href: "/en/events" },
     ],
   },
-  { label: "ESCAPE ROOM", href: "/en/escape-rooms" },
+  { label: "Remote Office", href: "/en/remote-office" },
+  {
+    label: "Games & Tools",
+    href: "/en/games-tools",
+    children: [
+      { label: "EscapeMasters", href: "/en/games-tools/escape-masters" },
+      { label: "R@venHack: Cyber Security", href: "/en/games-tools/ravenhack" },
+      { label: "Onboarding Game", href: "/en/games-tools/onboarding" },
+    ],
+  },
+  { label: "Cases", href: "/en/cases" },
+  {
+    label: "About",
+    href: "/en/about",
+    children: [
+      { label: "Our Team", href: "/en/about/team" },
+      { label: "Quality & Confidentiality", href: "/en/about/quality" },
+      { label: "Partners", href: "/en/about/partners" },
+      { label: "CSR", href: "/en/about/csr" },
+    ],
+  },
+  { label: "Blog", href: "/en/blog" },
 ];
 
 export default function Navbar() {
@@ -41,7 +62,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-5">
           {navItems.map((item) =>
             item.children ? (
               <div
@@ -50,17 +71,20 @@ export default function Navbar() {
                 onMouseEnter={() => setOpenDropdown(item.label)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                <button className="flex items-center gap-1 text-sm font-medium text-[#333333] hover:text-accent transition-colors tracking-wide">
+                <Link
+                  href={item.href}
+                  className="flex items-center gap-1 text-sm font-medium text-[#333333] hover:text-accent transition-colors py-2"
+                >
                   {item.label}
-                  <ChevronDown size={14} />
-                </button>
+                  <ChevronDown size={13} className="opacity-60" />
+                </Link>
                 {openDropdown === item.label && (
-                  <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded shadow-md min-w-[160px] py-1 z-50">
+                  <div className="absolute top-full left-0 mt-0 bg-white border border-gray-200 rounded shadow-lg min-w-[220px] py-1 z-50">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-4 py-2 text-sm text-[#333333] hover:text-accent hover:bg-gray-50 transition-colors"
+                        className="block px-4 py-2.5 text-sm text-[#333333] hover:text-accent hover:bg-gray-50 transition-colors"
                       >
                         {child.label}
                       </Link>
@@ -72,7 +96,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-[#333333] hover:text-accent transition-colors tracking-wide"
+                className="text-sm font-medium text-[#333333] hover:text-accent transition-colors"
               >
                 {item.label}
               </Link>
@@ -83,13 +107,16 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center gap-1 text-xs text-[#666666]">
-            <Link href="/nl/home" className="hover:text-accent">NL</Link>
+            <Link href="/nl/home" className="hover:text-accent transition-colors">NL</Link>
             <span>|</span>
             <Link href="/en/home" className="font-semibold text-accent">EN</Link>
           </div>
-          <button aria-label="Cart" className="text-[#666666] hover:text-accent transition-colors">
-            <ShoppingCart size={20} />
-          </button>
+          <Link
+            href="/en/contact"
+            className="hidden lg:inline-block bg-accent text-white text-sm font-semibold px-5 py-2 rounded hover:bg-accent-dark transition-colors"
+          >
+            Plan a demo
+          </Link>
           <button
             className="lg:hidden text-[#333333]"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -144,10 +171,19 @@ export default function Navbar() {
               </Link>
             )
           )}
-          <div className="flex gap-3 pt-3 text-sm text-[#666666]">
-            <Link href="/nl/home">NL</Link>
-            <span>|</span>
-            <Link href="/en/home" className="font-semibold text-accent">EN</Link>
+          <div className="pt-4 flex flex-col gap-3">
+            <Link
+              href="/en/contact"
+              onClick={() => setMobileOpen(false)}
+              className="bg-accent text-white text-sm font-semibold px-5 py-3 rounded text-center hover:bg-accent-dark transition-colors"
+            >
+              Plan a demo
+            </Link>
+            <div className="flex gap-3 text-sm text-[#666666]">
+              <Link href="/nl/home">NL</Link>
+              <span>|</span>
+              <Link href="/en/home" className="font-semibold text-accent">EN</Link>
+            </div>
           </div>
         </div>
       )}

@@ -1,31 +1,41 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import HeroCarousel from "@/components/ui/HeroCarousel";
 
 export const metadata: Metadata = {
-  title: "MeetingMasters | Online Meeting Professionals",
+  title: "MeetingMasters | Online Gatherings That Matter",
   description:
-    "We transform your online meetings into meaningful encounters. Strategy, facilitation, and technical support for virtual events.",
+    "We design meaningful online gatherings — from large-scale virtual events and escape rooms to structured remote collaboration. For groups of 50 to 500.",
 };
 
-const formats = [
-  "Online brainstorm sessions",
-  "Online company party",
-  "Online Escape Room",
-  "Personal development online",
-  "Online strategy sessions",
-  "Interactive webinars",
-  "Online team development",
-  "Remote office",
-  "Online citizen councils",
-  "Online townhall",
-  "Online World Café",
-  "Annual meeting online",
-  "Online Open Space",
-  "Online conferences",
-  "Online Community Building",
-  "Online sounding board",
+const pillars = [
+  {
+    id: "events",
+    label: "Events",
+    headline: "Online gatherings for 50 to 500 people.",
+    body: "Strategy days, kick-offs, annual meetings, community events, virtual parties. We take care of design, facilitation, and live production. You take care of showing up.",
+    cta: { label: "See what's possible", href: "/en/events" },
+    image: "/images/hero-1.jpg",
+    imageAlt: "Online event with large group",
+  },
+  {
+    id: "remote-office",
+    label: "Remote Office",
+    headline: "A virtual office that actually works.",
+    body: "Not a video call. A permanent online space where your team meets, collaborates, and stays connected — without scheduling everything in advance.",
+    cta: { label: "Explore Remote Office", href: "/en/remote-office" },
+    image: "/images/planning-3.jpg",
+    imageAlt: "Virtual office collaboration",
+  },
+  {
+    id: "games-tools",
+    label: "Games & Tools",
+    headline: "Escape rooms, onboarding games, and custom formats.",
+    body: "EscapeMasters and R@venHack are our ready-to-play formats. Or we build something specific: a custom escape room, an interactive onboarding, a security awareness game.",
+    cta: { label: "See Games & Tools", href: "/en/games-tools" },
+    image: "/images/format-escape.png",
+    imageAlt: "Online escape room",
+  },
 ];
 
 const testimonials = [
@@ -46,181 +56,184 @@ const testimonials = [
   },
 ];
 
-const badges = [
-  "SpatialChat Masters",
-  "Zoom Masters",
-  "Zoom Events Masters",
-  "Teams Masters",
+const clients = [
+  "World Olympians Association",
+  "Bergman Clinics",
+  "Red Cross Netherlands",
+  "ABN AMRO",
+  "Municipality of Amsterdam",
+  "Erasmus University",
+  "Randstad",
+  "Philips",
 ];
 
 export default function HomePage() {
   return (
     <>
-      <HeroCarousel />
-
-      {/* 4-column service overview */}
-      <section className="bg-white py-16">
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                img: "/images/strategy-banner.jpg",
-                alt: "Strategy and concept",
-                title: "Strategy & concept",
-                desc: "Together, we design formats that work — in content, in tech, and for people.",
-                href: "/en/strategy-concept",
-              },
-              {
-                img: "/images/format-1.jpg",
-                alt: "Meeting formats",
-                title: "Meeting formats",
-                desc: "16+ formats for every kind of gathering — brainstorms, strategy days, escape rooms, and more.",
-                href: "/en/meeting-formats",
-              },
-              {
-                img: "/images/planning-3.jpg",
-                alt: "Planning and support",
-                title: "Planning & support",
-                desc: "We help with planning and design, live (tech)support, and guiding real-time interaction.",
-                href: "/en/planning-support",
-              },
-              {
-                img: "/images/planning-1.png",
-                alt: "Meeting Academy",
-                title: "Meeting Academy",
-                desc: "Tools and approaches for running meetings that work — whether online, in person, or hybrid.",
-                href: "/en/contact",
-              },
-            ].map((card) => (
-              <div key={card.title} className="flex flex-col">
-                <div className="relative w-full aspect-[4/3] mb-4 overflow-hidden">
-                  <Image
-                    src={card.img}
-                    alt={card.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="font-bold text-base text-[#333333] mb-2">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-[#666666] leading-relaxed flex-1">
-                  {card.desc}
-                </p>
-                <Link
-                  href={card.href}
-                  className="mt-3 text-sm text-accent hover:text-accent-dark underline underline-offset-2 transition-colors"
-                >
-                  Learn more →
-                </Link>
-              </div>
-            ))}
-          </div>
+      {/* Hero */}
+      <section className="relative bg-primary overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-2.jpg"
+            alt="Online gathering"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
         </div>
-      </section>
-
-      {/* "We are online meeting professionals" */}
-      <section className="bg-white py-16">
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-primary mb-3">
-            We are online meeting professionals
-          </h2>
-          <p className="text-[#666666] text-lg mb-12">
-            We transform your online meetings into meaningful encounters.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-12">
-            {[
-              {
-                title: "Strategy & concept",
-                body: "Together, we design formats that work — in content, in tech, and for people.",
-                href: "/en/strategy-concept",
-              },
-              {
-                title: "Planning & support",
-                body: "We help with planning and design, live (tech)support, and guiding real-time interaction.",
-                href: "/en/planning-support",
-              },
-              {
-                title: "Meeting Academy",
-                body: "Methods and techniques for meetings that work: online, offline, and hybrid.",
-                href: "/en/contact",
-              },
-            ].map((col) => (
-              <div key={col.title}>
-                <h3 className="font-bold text-[#333333] text-base mb-2">
-                  {col.title}
-                </h3>
-                <p className="text-sm text-[#666666] leading-relaxed mb-3">
-                  {col.body}
-                </p>
-                <Link
-                  href={col.href}
-                  className="text-sm text-accent hover:text-accent-dark transition-colors"
-                >
-                  Read more →
-                </Link>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/en/contact"
-              className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors"
-            >
-              Plan a free consultation
-            </Link>
-            <Link
-              href="/en/contact"
-              className="border border-accent text-accent px-6 py-3 text-sm font-semibold rounded hover:bg-accent hover:text-white transition-colors"
-            >
-              Book a demo in our virtual office
-            </Link>
-            <a
-              href="tel:+31202390313"
-              className="text-accent px-6 py-3 text-sm font-semibold hover:text-accent-dark transition-colors"
-            >
-              Call or email us
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Platform badges */}
-      <section className="bg-gray-100 py-12">
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-xl font-bold text-primary mb-8">
-            We are certified specialists in:
-          </h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {badges.map((badge) => (
-              <div
-                key={badge}
-                className="bg-white border border-gray-200 rounded-lg px-6 py-4 text-sm font-semibold text-primary shadow-sm hover:border-accent hover:text-accent transition-colors"
+        <div className="relative max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36">
+          <div className="max-w-2xl">
+            <p className="text-accent text-sm font-semibold mb-4 tracking-widest uppercase">
+              Online events &bull; Remote office &bull; Games &amp; Tools
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+              How we meet matters.
+              <br />
+              Even online.
+            </h1>
+            <p className="text-lg text-white/80 leading-relaxed mb-10 max-w-xl">
+              We design online gatherings that people actually remember. For
+              organisations that care about what happens when their people come
+              together — on screen.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/en/contact"
+                className="bg-accent text-white px-8 py-3.5 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
               >
-                {badge}
+                Plan a demo
+              </Link>
+              <Link
+                href="/en/events"
+                className="border border-white/50 text-white px-8 py-3.5 text-sm font-semibold rounded hover:bg-white/10 transition-colors inline-block"
+              >
+                See what we do
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust bar */}
+      <section className="bg-gray-50 border-b border-gray-200 py-5">
+        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+            <span className="text-xs text-[#999999] uppercase tracking-widest font-medium">
+              Trusted by
+            </span>
+            {clients.map((c) => (
+              <span key={c} className="text-sm text-[#777777] font-medium">
+                {c}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Three pillars */}
+      <section className="bg-white py-20">
+        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-primary mb-4">
+              Three ways we can help
+            </h2>
+            <p className="text-[#666666] text-lg max-w-xl mx-auto">
+              Each with its own logic, its own tools, and its own kind of attention.
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            {pillars.map((pillar, i) => (
+              <div
+                key={pillar.id}
+                className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${
+                  i % 2 === 1 ? "md:[direction:rtl]" : ""
+                }`}
+              >
+                <div className={i % 2 === 1 ? "[direction:ltr]" : ""}>
+                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-md">
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.imageAlt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className={i % 2 === 1 ? "[direction:ltr]" : ""}>
+                  <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">
+                    {pillar.label}
+                  </p>
+                  <h3 className="text-2xl font-bold text-primary mb-4 leading-snug">
+                    {pillar.headline}
+                  </h3>
+                  <p className="text-[#666666] leading-relaxed mb-6">
+                    {pillar.body}
+                  </p>
+                  <Link
+                    href={pillar.cta.href}
+                    className="inline-block bg-primary text-white text-sm font-semibold px-6 py-3 rounded hover:bg-accent transition-colors"
+                  >
+                    {pillar.cta.label}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm text-[#666666]">
-            Facilitator, moderator, host, co-host, online producer — we guide
-            meetings with various technologies.
-          </p>
+        </div>
+      </section>
+
+      {/* What makes it different */}
+      <section className="bg-gray-50 py-20 border-y border-gray-200">
+        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-primary mb-6 leading-snug">
+                Most online meetings are forgotten
+                <br />
+                within the week.
+              </h2>
+              <p className="text-[#666666] leading-relaxed mb-4">
+                Not because online is worse. But because most meetings weren&apos;t
+                designed to be memorable — online or off. We change that.
+              </p>
+              <p className="text-[#666666] leading-relaxed mb-6">
+                We work with SpatialChat as our primary platform: a virtual space where
+                people actually move around, bump into each other, and have side
+                conversations. Closer to a physical venue than a video call.
+              </p>
+              <Link
+                href="/en/remote-office"
+                className="text-accent text-sm font-medium hover:text-accent-dark transition-colors"
+              >
+                See how the platform works →
+              </Link>
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md">
+              <Image
+                src="/images/planning-4.jpg"
+                alt="SpatialChat virtual office"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-20">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-primary text-center mb-10">
-            What our clients say
+          <h2 className="text-2xl font-bold text-primary text-center mb-12">
+            What clients say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t) => (
               <div
                 key={t.company}
-                className="bg-gray-50 rounded-lg p-6 border border-gray-200"
+                className="bg-gray-50 rounded-xl p-7 border border-gray-200 flex flex-col"
               >
-                <p className="italic text-[#666666] text-sm leading-relaxed mb-4">
+                <p className="italic text-[#666666] text-sm leading-relaxed flex-1 mb-5">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <p className="font-bold text-[#333333] text-sm">{t.company}</p>
@@ -229,107 +242,39 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-8">
             <Link
-              href="/en/testimonials"
+              href="/en/cases"
               className="text-accent hover:text-accent-dark text-sm font-medium transition-colors"
             >
-              See all testimonials →
+              See all cases and testimonials →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Dark challenge section */}
-      <section className="bg-[#2D2D2D] py-16">
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 max-w-3xl mx-auto leading-snug">
-            The real challenge in online meetings isn&apos;t the tech or the
-            logistics — it&apos;s the people.
+      {/* CTA block */}
+      <section className="bg-primary py-20">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl font-bold text-white mb-5">
+            Curious what this looks like for your organisation?
           </h2>
-          <p className="text-[#CCCCCC] text-base leading-relaxed max-w-2xl mx-auto mb-6">
-            We help organisations turn meetings into more. We build the
-            conditions for people-first collaboration — powered by tech, driven
-            by real connection, learning, and growth.
-          </p>
-          <Link
-            href="/en/quality"
-            className="text-white underline underline-offset-4 hover:text-accent transition-colors text-sm"
-          >
-            Meetings are made by people. Read our commitment →
-          </Link>
-        </div>
-      </section>
-
-      {/* Manifest CTA */}
-      <section className="bg-white py-16">
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-primary mb-4">
-            Meetings are made by people.
-          </h2>
-          <p className="text-[#666666] mb-8 max-w-xl mx-auto">
-            Download our manifest and read our commitment to the human factor in
-            every meeting.
-          </p>
-          <a
-            href="/MM-Manifest-UK.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
-          >
-            ↓ Download MeetingMasters Manifest
-          </a>
-        </div>
-      </section>
-
-      {/* Meeting formats grid */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-primary text-center mb-3">
-            No single meeting is the same
-          </h2>
-          <p className="text-[#666666] text-center mb-10 max-w-xl mx-auto">
-            What connects them: all of our meetings are about contact and
-            connection.
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            {formats.map((f) => (
-              <div
-                key={f}
-                className="bg-white border border-gray-200 rounded-lg p-3 text-center text-xs font-medium text-primary hover:border-accent hover:text-accent transition-colors cursor-pointer"
-              >
-                {f}
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/en/meeting-formats"
-              className="text-accent hover:text-accent-dark text-sm font-medium transition-colors"
-            >
-              View all meeting formats →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="bg-white py-12">
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-[#666666] mb-6">
-            Keen to know what we can mean for your event?
+          <p className="text-white/70 text-lg mb-10">
+            A demo takes 30 minutes. We walk through our platform, ask about your
+            situation, and you leave with a clear picture.
           </p>
           <Link
             href="/en/contact"
-            className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
+            className="bg-accent text-white px-10 py-4 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
           >
-            Contact us
+            Plan a demo
           </Link>
-          <p className="mt-4 text-xs text-[#888888]">
-            <Link
-              href="/en/testimonials"
-              className="hover:text-accent transition-colors"
+          <p className="mt-5 text-white/50 text-sm">
+            Or email us at{" "}
+            <a
+              href="mailto:contact@meetingmasters.online"
+              className="underline hover:text-white transition-colors"
             >
-              Check out our testimonials to see what clients say →
-            </Link>
+              contact@meetingmasters.online
+            </a>
           </p>
         </div>
       </section>
