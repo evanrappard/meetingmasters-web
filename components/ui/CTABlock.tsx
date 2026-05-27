@@ -61,7 +61,7 @@ export default function CTABlock() {
             <CTACard
               level="Interesse"
               title="Plan een rondleiding"
-              desc="Wij laten u zien hoe het platform werkt in een korte live rondleiding van 30 minuten."
+              desc="20 minuten om te zien hoe het platform werkt, en te ervaren hoe online ook kan zijn."
               ctaLabel="Plan een rondleiding →"
               href="/nl/contact"
               variant="mid"

@@ -200,7 +200,7 @@ export default async function HomePage() {
             {[
               { href: "/nl/events", label: "Events", title: "Bijzondere online bijeenkomsten", desc: "Als de standaard niet volstaat: van strategiedagen tot all-hands en community events." },
               { href: "/nl/remote-office", label: "Remote Office", title: "Een virtual office dat werkt", desc: "De plek voor uw team om samen te komen — ook als niemand in vergadering zit." },
-              { href: "/nl/games-tools", label: "Games & Tools", title: "Interactieve formats", desc: "Betrokkenheid vraagt aandacht. Wij ontwerpen escape rooms, onboarding games en slimme tools voor meer participatie." },
+              { href: "/nl/games-tools", label: "Games & Tools", title: "Interactieve formats", desc: "Online escape rooms, onboarding games en slimme tools voor meer betrokkenheid." },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -282,7 +282,7 @@ export default async function HomePage() {
 
       {/* ── LOGO CARROUSEL ───────────────────────────────────────────── */}
       <section className="bg-[#F9F9F8] pt-14 pb-10 border-t border-[#EBEBEB] overflow-hidden">
-        <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase text-center mb-6">Klanten</p>
+        <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-6 max-w-content mx-auto px-6 lg:px-10">Klanten</p>
         <div
           className="overflow-hidden"
           style={{ maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)" }}
@@ -329,9 +329,6 @@ export default async function HomePage() {
                   </li>
                 ))}
               </ul>
-              <p className="text-sm text-[#545454] mb-4">
-                20 minuten om te zien hoe het platform werkt, en te ervaren hoe online ook kan zijn.
-              </p>
               <Link
                 href="/nl/contact"
                 className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
