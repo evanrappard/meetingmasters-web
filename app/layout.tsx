@@ -1,30 +1,27 @@
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { Rajdhani } from "next/font/google";
 import "./globals.css";
 
-const openSans = Open_Sans({
+const rajdhani = Rajdhani({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-open-sans",
+  variable: "--font-rajdhani",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000"
-  ),
-  title: "MeetingMasters | Experts in Online Meetings & Events",
+  metadataBase: new URL("https://www.meetingmasters.online"),
+  title: "MeetingMasters | Online events & remote work specialisten",
   description:
-    "MeetingMasters designs and facilitates interactive online meetings and events. From strategy to execution — we ensure engagement and results.",
+    "MeetingMasters ontwerpt online bijeenkomsten voor 50 tot 500 mensen — events, virtual offices en interactieve formats. 250+ events begeleid, 94% tevredenheid.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${openSans.variable} font-sans antialiased`}>
+    <html lang="nl">
+      <body className={`${rajdhani.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

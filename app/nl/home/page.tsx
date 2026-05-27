@@ -3,7 +3,92 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { getHomepageContent, getLogos, getHomepageCases } from "@/sanity/queries";
+
+const SCHEMA_ORGANIZATION = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MeetingMasters",
+  "alternateName": "MeetingMasters Online",
+  "url": "https://www.meetingmasters.online",
+  "logo": { "@type": "ImageObject", "url": "https://www.meetingmasters.online/images/logo.webp" },
+  "description": "MeetingMasters ontwerpt en begeleidt online bijeenkomsten voor 50 tot 500 mensen — events, virtual offices en interactieve formats. Gevestigd in Amsterdam, actief sinds 2020.",
+  "foundingDate": "2020",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Schellingwouderdijk 157",
+    "postalCode": "1023NC",
+    "addressLocality": "Amsterdam",
+    "addressCountry": "NL",
+  },
+  "contactPoint": [
+    { "@type": "ContactPoint", "telephone": "+31-20-239-03-13", "contactType": "customer service", "availableLanguage": ["Dutch", "English"] },
+    { "@type": "ContactPoint", "email": "contact@meetingmasters.online", "contactType": "customer service" },
+  ],
+  "sameAs": ["https://www.linkedin.com/company/meetingmasters-online"],
+  "areaServed": { "@type": "Country", "name": "Netherlands" },
+};
+
+const SCHEMA_SERVICES = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Spatial Events",
+    "provider": { "@type": "Organization", "name": "MeetingMasters", "url": "https://www.meetingmasters.online" },
+    "description": "Online strategiedagen, all-hands meetings, kick-offs en community events voor 50 tot 500 deelnemers. Concept, facilitatie en live productie.",
+    "serviceType": "Online Event Organisation",
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "url": "https://www.meetingmasters.online/nl/events",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Virtual Office",
+    "provider": { "@type": "Organization", "name": "MeetingMasters", "url": "https://www.meetingmasters.online" },
+    "description": "Virtueel kantoor voor hybride en internationale teams. De digitale thuisbasis voor uw organisatie — voor vergaderingen én de informele momenten daartussen.",
+    "serviceType": "Virtual Office Service",
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "url": "https://www.meetingmasters.online/nl/remote-office",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Games & Tools",
+    "provider": { "@type": "Organization", "name": "MeetingMasters", "url": "https://www.meetingmasters.online" },
+    "description": "Online escape rooms, onboarding games en interactieve tools voor meer betrokkenheid. Inclusief EscapeMasters en RavenHack cybersecurity escape room.",
+    "serviceType": "Interactive Online Experience",
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "url": "https://www.meetingmasters.online/nl/games-tools",
+  },
+];
+
+const SCHEMA_FAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wat doet MeetingMasters precies?",
+      "acceptedAnswer": { "@type": "Answer", "text": "MeetingMasters ontwerpt en begeleidt online bijeenkomsten — van strategiedagen en all-hands tot virtual offices en escape rooms. Wij verzorgen concept, facilitatie en live productie." },
+    },
+    {
+      "@type": "Question",
+      "name": "Voor welke organisaties werkt MeetingMasters?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Wij werken voor organisaties die online bijeenkomsten organiseren voor 50 tot 500 mensen — profit, non-profit, overheid en internationaal." },
+    },
+    {
+      "@type": "Question",
+      "name": "Wat is SpatialChat en waarom gebruiken jullie dat?",
+      "acceptedAnswer": { "@type": "Answer", "text": "SpatialChat is een virtueel platform waarbij deelnemers vrij door de ruimte bewegen en spontaan gesprekken aangaan. Wij gebruiken het omdat het gedrag mogelijk maakt dat in andere tools niet vanzelf ontstaat." },
+    },
+    {
+      "@type": "Question",
+      "name": "Wat kost een online event met MeetingMasters?",
+      "acceptedAnswer": { "@type": "Answer", "text": "De kosten hangen af van type event, aantal deelnemers en gewenste ondersteuning. Neem contact op voor een eerste inschatting via contact@meetingmasters.online of +31 20 239 03 13." },
+    },
+  ],
+};
 
 export const metadata: Metadata = {
   title: "MeetingMasters | Online events & remote work specialisten",
@@ -146,6 +231,10 @@ export default async function HomePage() {
 
   return (
     <>
+      <JsonLd data={SCHEMA_ORGANIZATION} />
+      {SCHEMA_SERVICES.map((s) => <JsonLd key={s.name} data={s} />)}
+      <JsonLd data={SCHEMA_FAQ} />
+
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section>
         <h1 className="sr-only">MeetingMasters — online events en virtual office specialist op SpatialChat</h1>
