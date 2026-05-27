@@ -53,23 +53,23 @@ export default function CTABlock() {
             <CTACard
               level="Oriëntatie"
               title="Bekijk de inspiratie"
-              desc="Praktijkvoorbeelden van events, virtual offices en games — voor wie eerst wil rondkijken."
+              desc="Voorbeelden van bijeenkomsten, formats en opzetten — om van te leren en inspiratie op te doen voor uw eigen event."
               ctaLabel="Bekijk voorbeelden →"
               href="/nl/inspiratie"
               variant="low"
             />
             <CTACard
               level="Interesse"
-              title="Plan een rondleiding"
-              desc="20 minuten om te zien hoe het platform werkt, en te ervaren hoe online ook kan zijn."
+              title="Ervaar het verschil"
+              desc="20 minuten om te zien hoe een platform als SpatialChat iets anders doet dan Zoom of Teams."
               ctaLabel="Plan een rondleiding →"
               href="/nl/contact"
               variant="mid"
             />
             <CTACard
               level="Concreet traject"
-              title="Plan een gesprek"
-              desc="Wij denken direct mee over uw situatie, uw groep en wat er nodig is."
+              title="Plan een gesprek — wij denken mee"
+              desc="Vrijblijvend. Wij denken direct mee over uw situatie, uw groep en wat er nodig is."
               ctaLabel="Plan een gesprek →"
               href="/nl/contact"
               variant="high"
