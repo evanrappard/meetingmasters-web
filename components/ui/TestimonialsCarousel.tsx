@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const SLIDES = [
   {
@@ -54,50 +53,44 @@ export default function TestimonialsCarousel() {
   const s = SLIDES[active];
 
   return (
-    <div className="relative">
-      <div className={`transition-opacity duration-200 ${fading ? "opacity-0" : "opacity-100"}`}>
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-[#EEBE3D] text-5xl font-serif leading-none mb-5 select-none">"</p>
+    <div className="flex items-center gap-4 sm:gap-8">
+
+      <button
+        onClick={prev}
+        className="flex-shrink-0 text-[#CCCCCC] hover:text-[#2D2D2D] transition-colors text-2xl leading-none select-none"
+        aria-label="Vorige"
+      >
+        {"<"}
+      </button>
+
+      <div className={`flex-1 transition-opacity duration-200 ${fading ? "opacity-0" : "opacity-100"}`}>
+        <div className="text-center">
           <p className="text-[#2D2D2D] text-lg sm:text-xl leading-relaxed mb-8">
+            <span className="text-[#EEBE3D] font-serif text-3xl leading-none align-top">"</span>
             {s.quote}
+            <span className="text-[#EEBE3D] font-serif text-3xl leading-none align-bottom">"</span>
           </p>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <div className="relative h-8 w-28 flex-shrink-0">
+          <div className="flex items-center justify-center gap-5 flex-wrap">
+            <div className="relative h-12 w-40 flex-shrink-0">
               <Image src={s.logo} alt={s.company} fill className="object-contain" />
             </div>
-            <div className="w-px h-5 bg-[#DCDCDC] flex-shrink-0 hidden sm:block" />
+            <div className="w-px h-7 bg-[#DCDCDC] flex-shrink-0 hidden sm:block" />
             <div className="text-left sm:text-left text-center">
-              <p className="font-bold text-[#2D2D2D] text-sm leading-tight">{s.company}</p>
-              <p className="text-xs text-[#898989] mt-0.5">{s.context}</p>
+              <p className="font-bold text-[#2D2D2D] text-base leading-tight">{s.company}</p>
+              <p className="text-sm text-[#898989] mt-1">{s.context}</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-3 mt-10">
-        <button
-          onClick={prev}
-          className="w-8 h-8 rounded-full border border-[#E0E0E0] flex items-center justify-center text-[#898989] hover:border-[#2D2D2D] hover:text-[#2D2D2D] transition-colors"
-          aria-label="Vorige"
-        >
-          <ChevronLeft className="w-4 h-4" />
-        </button>
-        {SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goto(i)}
-            className={`w-2 h-2 rounded-full transition-colors ${i === active ? "bg-[#EEBE3D]" : "bg-[#DCDCDC]"}`}
-            aria-label={`Testimonial ${i + 1}`}
-          />
-        ))}
-        <button
-          onClick={next}
-          className="w-8 h-8 rounded-full border border-[#E0E0E0] flex items-center justify-center text-[#898989] hover:border-[#2D2D2D] hover:text-[#2D2D2D] transition-colors"
-          aria-label="Volgende"
-        >
-          <ChevronRight className="w-4 h-4" />
-        </button>
-      </div>
+      <button
+        onClick={next}
+        className="flex-shrink-0 text-[#CCCCCC] hover:text-[#2D2D2D] transition-colors text-2xl leading-none select-none"
+        aria-label="Volgende"
+      >
+        {">"}
+      </button>
+
     </div>
   );
 }
