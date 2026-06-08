@@ -265,21 +265,22 @@ export default function EventsPage() {
       <section>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
           <Image
-            src="/images/events-bijeenkomst.webp"
-            alt="Online bijeenkomst voor grote groepen — MeetingMasters Events"
+            src="/images/events-hero.webp"
+            alt="Deelnemer kijkt naar een online event in een sfeervolle virtuele tuinomgeving met video-deelnemers — MeetingMasters Events op SpatialChat"
             fill priority
             className="object-cover object-center"
-            style={{ filter: "contrast(1.05) saturate(1.1) brightness(0.85)" }}
+            style={{ filter: "saturate(0.92) brightness(1.03) contrast(0.99)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1E1E1E]/90 via-[#2D2D2D]/60 to-transparent" />
+          {/* Lichte gradient links→rechts — egaal contrast achter de tekstkolom, scherm rechts blijft helder */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 flex items-end">
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
-              <div className="max-w-[600px]">
-                <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">Event Formats</p>
-                <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5">
+              <div className="max-w-[500px]">
+                <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}>Virtuele Events</p>
+                <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
                   Online bijeenkomsten waar mensen echt aanwezig zijn.
                 </h1>
-                <p className="text-white/80 text-lg leading-relaxed mb-8">
+                <p className="text-white text-lg leading-relaxed mb-8" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
                   Een belangrijke bijeenkomst voor 5, 50 of 500 mensen:<br />
                   als het erop aankomt, voldoet de standaard niet.
                 </p>
@@ -292,7 +293,7 @@ export default function EventsPage() {
                   </Link>
                   <a
                     href="#formats"
-                    className="text-white/70 text-sm font-semibold px-5 py-3 border border-white/25 rounded hover:border-white/55 transition-colors"
+                    className="text-white/80 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors"
                   >
                     Bekijk event formats
                   </a>
