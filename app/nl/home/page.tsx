@@ -153,9 +153,9 @@ const solutions = [
     id: "events",
     num: "01",
     label: "Events",
-    headline: "Bijzondere bijeenkomsten voor grote groepen.",
+    headline: "Meer betrokken, ook in grote groepen",
     bullets: ["Strategiedag", "All-hands & kick-off", "Leiderschapsdag", "Community event"],
-    cta: "Meer over Events",
+    cta: "Verrassende interactieve bijeenkomsten",
     href: "/nl/events",
     img: "/images/events-bijeenkomst.webp",
     imgAlt: "Sfeervolle online bijeenkomst in een virtuele rooftopomgeving — deelnemers verbonden via MeetingMasters",
@@ -166,9 +166,9 @@ const solutions = [
     id: "remote-office",
     num: "02",
     label: "Remote Office",
-    headline: "Een virtueel kantoor dat afstanden overbrugt.",
+    headline: "Beter samenwerken, ook op afstand",
     bullets: ["Internationale organisaties", "Hybride teams", "Projectgroepen", "Samenwerkingsverbanden"],
-    cta: "Meer over Remote Office",
+    cta: "Verbonden via een virtueel kantoor",
     href: "/nl/remote-office",
     img: "/images/remote-office-virtual.webp",
     imgAlt: "Virtueel kantoor in SpatialChat voor hybride teams — meerdere ruimtes, live samenwerking en informeel contact",
@@ -179,9 +179,9 @@ const solutions = [
     id: "games-tools",
     num: "03",
     label: "Games & Tools",
-    headline: "Verrassende formats voor meer betrokkenheid.",
-    bullets: ["Interactie tools", "Online escape rooms", "Onboarding games", "Maatwerk gamification"],
-    cta: "Meer over Games & Tools",
+    headline: "Actiever samen ontdekken en leren",
+    bullets: ["Online escape rooms", "Onboarding games", "Spellen en quizzen", "Maatwerk gamification"],
+    cta: "Meer interactie en spel",
     href: "/nl/games-tools",
     img: "/images/format-escape.webp",
     imgAlt: "Deelnemers spelen een online escape room als interactieve teambuilding activiteit — MeetingMasters Games & Tools",
@@ -258,7 +258,7 @@ export default async function HomePage() {
                     <span key={i}>{line}{i < heroHeadline.split("\n").length - 1 && <br />}</span>
                   ))}
                 </h1>
-                <p className="text-white text-lg leading-relaxed mb-8" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}>
+                <p className="text-white text-lg font-medium leading-relaxed mb-8" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}>
                   {heroSubline.split("\n").map((line, i) => (
                     <span key={i}>{line}{i < heroSubline.split("\n").length - 1 && <br />}</span>
                   ))}

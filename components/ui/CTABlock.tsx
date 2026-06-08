@@ -12,7 +12,7 @@ interface CTACardProps {
 }
 
 function CTACard({ level, title, desc, ctaLabel, href, variant }: CTACardProps) {
-  const cardStyle = `bg-white rounded p-6 flex flex-col shadow-sm`;
+  const cardStyle = `bg-white rounded p-6 flex flex-col shadow-md`;
 
   const levelColor =
     variant === "high" ? "text-[#B8962A]" :
@@ -40,7 +40,7 @@ function CTACard({ level, title, desc, ctaLabel, href, variant }: CTACardProps) 
 export default function CTABlock() {
   return (
     <>
-      <section className="bg-[#C4CBBD] py-14 px-6 lg:px-10 border-t border-[#B5BDB0]">
+      <section className="bg-[#E3ECEC] py-14 px-6 lg:px-10 border-t border-[#D2DEDE]">
         <div className="max-w-content mx-auto">
           <div className="mb-8">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Volgende stap</p>
