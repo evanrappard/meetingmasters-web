@@ -529,7 +529,7 @@ const EVENT_DATA: Record<string, EventData> = {
       { title: "Een community die groeit", body: "Structuur en ritme zorgen dat de community zichzelf versterkt en nieuwe leden aantrekt." },
     ],
     forWho: "Ledenorganisaties, alumni, professionele netwerken, platforms",
-    range: "50–2000 deelnemers",
+    range: "50–500 deelnemers",
     steps: [
       { title: "Intake", body: "Wie zijn uw leden, wat bindt ze en wat wilt u opbouwen?" },
       { title: "Ontwerp", body: "Bijeenkomsten, interactiestructuren en community-ritme." },

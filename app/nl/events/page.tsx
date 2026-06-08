@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import TestimonialsCarousel from "@/components/ui/TestimonialsCarousel";
+import { JsonLd } from "@/components/ui/JsonLd";
 import {
   Target, Mic2, Megaphone, Vote,
   UsersRound, GraduationCap, Lightbulb, DoorOpen,
@@ -257,9 +258,43 @@ export const eventCategories: EventCategory[] = [
 
 export const eventFormats: EventFormat[] = eventCategories.flatMap((c) => c.formats);
 
+const eventFaq = [
+  { q: "Wat is een online event?", a: "Een online event is een bijeenkomst die volledig digitaal plaatsvindt. Dat kan een webinar zijn, maar ook een conferentie, townhall, netwerkevent, training of strategiedag. Het belangrijkste verschil met een gewone online vergadering is dat een online event bewust wordt ontworpen rondom interactie, betrokkenheid en beleving." },
+  { q: "Hoe organiseer je een succesvol online event?", a: "Een succesvol online event begint bij een helder doel. Daarna volgen keuzes over doelgroep, programma, werkvormen, techniek en begeleiding. Juist die combinatie bepaalt of deelnemers actief betrokken blijven of na twintig minuten afhaken." },
+  { q: "Welke software gebruiken jullie voor online events?", a: "We hebben ervaring met Zoom, Zoom Events, Teams, SpatialChat en verschillende aanvullende tools voor interactie en samenwerking. Welke omgeving het beste past, hangt af van het doel van het evenement en de gewenste ervaring voor deelnemers." },
+  { q: "Hoe houd je deelnemers betrokken tijdens een online event?", a: "Door deelnemers niet alleen te laten kijken, maar actief te laten meedoen. Denk aan gesprekken, polls, breakouts, gezamenlijke opdrachten, netwerkmomenten en interactieve werkvormen. Mensen onthouden vooral waar ze zelf onderdeel van zijn geweest." },
+  { q: "Hoeveel deelnemers kunnen deelnemen aan een online event?", a: "Dat varieert van tien deelnemers tot enkele duizenden. De techniek is zelden de beperkende factor. Het ontwerp van het programma bepaalt uiteindelijk wat goed werkt." },
+  { q: "Wat kost een online event?", a: "De investering hangt af van het type evenement, de groepsgrootte, de techniek en de gewenste begeleiding. Daarom maken wij altijd een voorstel op maat." },
+];
+
+const eventFaqMore = [
+  { q: "Wat is het verschil tussen een online event en een webinar?", a: "Een webinar draait meestal om kennisoverdracht rondom één onderwerp en is erg zendergericht. Een online event is vaak breder opgezet en bevat bijvoorbeeld meerdere sessies, netwerkmogelijkheden of interactieve onderdelen. Kennis wordt niet alleen door de spreker gedeeld. De inzichten worden ook gedeeld door deelnemers onderling." },
+  { q: "Is een online event net zo effectief als een fysieke bijeenkomst?", a: "Dat hangt af van het doel. Voor kennisdeling, samenwerking en internationale bijeenkomsten biedt online vaak zelfs voordelen. Voor sommige vormen van relatieopbouw of informele ontmoeting blijft fysiek waardevol. Daarom kijken wij altijd eerst naar het doel en daarna pas naar de vorm." },
+  { q: "Kan een online event hybride plaatsvinden?", a: "Ja. Daarbij zijn een deel van de deelnemers online aanwezig en een deel op locatie. Dat vraagt wel om een andere aanpak dan een volledig online of volledig fysiek evenement. Wij ontwerpen hybride bijeenkomsten zo dat iedereen gelijkwaardig kan deelnemen." },
+  { q: "Kunnen jullie de volledige organisatie verzorgen?", a: "Ja. We ondersteunen organisaties bij ontwerp, programmaontwikkeling, technische productie, deelnemerscommunicatie, sprekersbegeleiding en live ondersteuning." },
+  { q: "Hoe lang duurt een online event?", a: "Dat varieert van een compacte sessie van één uur tot een meerdaagse conferentie. De ideale lengte hangt af van het doel en de doelgroep." },
+  { q: "Kunnen deelnemers netwerken tijdens een online event?", a: "Ja. Juist online zijn er verrassend veel mogelijkheden voor ontmoeting. Denk aan speeddates, thematafels, koffiekamers, breakoutgesprekken of vrije netwerkruimtes." },
+  { q: "Kunnen jullie helpen met interactie en werkvormen?", a: "Ja. Dat is zelfs een belangrijk deel van ons werk. Technologie maakt een online event mogelijk, maar de werkvorm bepaalt of mensen daadwerkelijk betrokken raken." },
+  { q: "Wat levert een online event op?", a: "Een goed online event brengt mensen samen rond een gezamenlijk doel. Dat kan kennisdeling zijn, besluitvorming, ontmoeting, betrokkenheid of het ontwikkelen van nieuwe ideeën. Het succes zit niet in het aantal deelnemers, maar in wat mensen meenemen na afloop." },
+  { q: "Is een online event geschikt voor internationale deelnemers?", a: "Ja. Online events maken het eenvoudig om deelnemers uit verschillende landen en tijdzones samen te brengen. Daardoor zijn ze vaak efficiënter en toegankelijker dan fysieke alternatieven." },
+  { q: "Waarom kiezen organisaties voor MeetingMasters?", a: "Omdat wij niet beginnen bij de techniek, maar bij de bijeenkomst en de deelnemers aan die bijeenkomst. Wij ontwerpen online events vanuit de vraag wat mensen moeten ervaren, leren, bespreken of besluiten. Daarna kiezen we pas de juiste werkvormen en technologie." },
+];
+
+const eventFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [...eventFaq, ...eventFaqMore].map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function EventsPage() {
   return (
     <div className="bg-white">
+
+      <JsonLd data={eventFaqSchema} />
 
       {/* ── HERO ── */}
       <section>
@@ -459,6 +494,41 @@ export default function EventsPage() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="bg-[#F5F5F5] py-12 border-t border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-8 text-center">
+            Veelgestelde vragen over online events
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {eventFaq.map((item) => (
+              <div key={item.q}>
+                <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
+                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <details className="group max-w-4xl mx-auto mt-10">
+            <summary className="flex items-center justify-center gap-2 cursor-pointer list-none text-[#28A8AA] text-sm font-bold hover:text-[#1E8E90] transition-colors">
+              <span className="group-open:hidden">Meer vragen?</span>
+              <span className="hidden group-open:inline">Minder vragen</span>
+              <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 pt-8 border-t border-[#E0E0E0]">
+              {eventFaqMore.map((item) => (
+                <div key={item.q}>
+                  <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
+                  <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </details>
         </div>
       </section>
 
