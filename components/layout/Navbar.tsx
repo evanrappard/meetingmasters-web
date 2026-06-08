@@ -5,41 +5,68 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-const navItems = [
+type NavChild = { label: string; href: string; separator?: false } | { separator: true };
+
+const navItems: {
+  label: string;
+  href: string;
+  children?: NavChild[];
+}[] = [
   {
     label: "Events",
-    href: "/en/events",
+    href: "/events",
     children: [
-      { label: "Strategy Day", href: "/en/events/strategy-day" },
-      { label: "Virtual Christmas Party", href: "/en/events/christmas-party" },
-      { label: "Kick-off", href: "/en/events/kick-off" },
-      { label: "Community Event", href: "/en/events/community-event" },
-      { label: "All-hands Meeting", href: "/en/events/all-hands" },
-      { label: "All event formats →", href: "/en/events" },
+      { label: "Strategiedag", href: "/events" },
+      { label: "Virtuele kerstborrel", href: "/events" },
+      { label: "Kick-off", href: "/events" },
+      { label: "Community-event", href: "/events" },
+      { label: "All-hands", href: "/events" },
+      { label: "Alle eventformats →", href: "/events" },
     ],
   },
-  { label: "Remote Office", href: "/en/remote-office" },
   {
-    label: "Games & Tools",
-    href: "/en/games-tools",
+    label: "Virtual Office",
+    href: "/virtual-office",
     children: [
-      { label: "EscapeMasters", href: "/en/games-tools/escape-masters" },
-      { label: "R@venHack: Cyber Security", href: "/en/games-tools/ravenhack" },
-      { label: "Onboarding Game", href: "/en/games-tools/onboarding" },
+      { label: "Huur een kantoor", href: "/virtual-office/huur" },
+      { label: "Bouw je eigen kantoor", href: "/virtual-office/bouw" },
+      { label: "Kantoor als cultuurmoment", href: "/virtual-office/cultuur" },
     ],
   },
-  { label: "Cases", href: "/en/cases" },
   {
-    label: "About",
-    href: "/en/about",
+    label: "Games",
+    href: "/games",
     children: [
-      { label: "Our Team", href: "/en/about/team" },
-      { label: "Quality & Confidentiality", href: "/en/about/quality" },
-      { label: "Partners", href: "/en/about/partners" },
-      { label: "CSR", href: "/en/about/csr" },
+      { label: "R@venHack: Cybersecurity", href: "/games/ravenhack" },
+      { label: "Maatwerkgames", href: "/games/maatwerk" },
+      { separator: true },
+      { label: "Wheel of Fortune", href: "/games/tools/wheel-of-fortune" },
+      { label: "Inspiration Cards", href: "/games/tools/inspiration-cards" },
+      { label: "Bingo", href: "/games/tools/bingo" },
+      { label: "Storytelling", href: "/games/tools/storytelling" },
     ],
   },
-  { label: "Blog", href: "/en/blog" },
+  {
+    label: "Technology",
+    href: "/technology",
+    children: [
+      { label: "SpatialChat", href: "/technology/spatialchat" },
+      { label: "Hoe het werkt", href: "/technology/hoe-het-werkt" },
+      { label: "FAQ", href: "/technology/faq" },
+      { label: "Helpdesk", href: "/technology/helpdesk" },
+    ],
+  },
+  { label: "Inspiratie", href: "/nl/inspiratie" },
+  {
+    label: "Over ons",
+    href: "/nl/about",
+    children: [
+      { label: "Ons team", href: "/nl/about/team" },
+      { label: "Kwaliteit & vertrouwelijkheid", href: "/nl/about/quality" },
+      { label: "Partners", href: "/nl/about/partners" },
+    ],
+  },
+  { label: "Blog", href: "/nl/blog" },
 ];
 
 export default function Navbar() {
@@ -47,89 +74,100 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-[70px] flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/en/home" className="flex-shrink-0">
-          <Image
-            src="/images/logo.png"
-            alt="MeetingMasters Online"
-            width={160}
-            height={40}
-            className="h-10 w-auto object-contain"
-            priority
-          />
-        </Link>
+    <header className="sticky top-0 z-50">
+      {/* MM Yellow top stripe */}
+      <div className="h-1 bg-[#EEBE3D] w-full" />
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-5">
-          {navItems.map((item) =>
-            item.children ? (
-              <div
-                key={item.label}
-                className="relative group"
-                onMouseEnter={() => setOpenDropdown(item.label)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
+      <div className="bg-white border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10 h-[84px] flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="/images/logo.webp"
+              alt="MeetingMasters Online — specialist in online bijeenkomsten voor groepen van 50 tot 500 mensen"
+              width={148}
+              height={38}
+              className="h-9 w-auto object-contain"
+              priority
+            />
+          </Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-7">
+            {navItems.map((item) =>
+              item.children ? (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenDropdown(item.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-1 text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors py-2"
+                  >
+                    {item.label}
+                    <ChevronDown size={13} className="opacity-50" />
+                  </Link>
+                  {openDropdown === item.label && (
+                    <div className="absolute top-full left-0 mt-0 bg-white border border-[#EBEBEB] rounded shadow-lg min-w-[220px] py-1 z-50">
+                      {item.children.map((child, idx) =>
+                        child.separator ? (
+                          <div key={`sep-${idx}`} className="mx-5 my-1 border-t border-[#F0F0F0]">
+                            <span className="block text-[9px] font-bold tracking-[0.2em] uppercase text-[#CCCCCC] pt-2 pb-0.5">Tools</span>
+                          </div>
+                        ) : (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-5 py-2.5 text-sm text-[#545454] hover:text-[#2D2D2D] hover:bg-[#FAFAFA] transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        )
+                      )}
+                    </div>
+                  )}
+                </div>
+              ) : (
                 <Link
+                  key={item.label}
                   href={item.href}
-                  className="flex items-center gap-1 text-sm font-medium text-[#333333] hover:text-accent transition-colors py-2"
+                  className="text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors"
                 >
                   {item.label}
-                  <ChevronDown size={13} className="opacity-60" />
                 </Link>
-                {openDropdown === item.label && (
-                  <div className="absolute top-full left-0 mt-0 bg-white border border-gray-200 rounded shadow-lg min-w-[220px] py-1 z-50">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-2.5 text-sm text-[#333333] hover:text-accent hover:bg-gray-50 transition-colors"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-[#333333] hover:text-accent transition-colors"
-              >
-                {item.label}
-              </Link>
-            )
-          )}
-        </nav>
+              )
+            )}
+          </nav>
 
-        {/* Right side */}
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center gap-1 text-xs text-[#666666]">
-            <Link href="/nl/home" className="hover:text-accent transition-colors">NL</Link>
-            <span>|</span>
-            <Link href="/en/home" className="font-semibold text-accent">EN</Link>
+          {/* Right side */}
+          <div className="flex items-center gap-5">
+            <div className="hidden lg:flex items-center gap-1.5 text-xs text-[#898989]">
+              <Link href="/nl/home" className="font-bold text-[#2D2D2D]">NL</Link>
+              <span>|</span>
+              <Link href="/nl/home" className="hover:text-[#545454] transition-colors">EN</Link>
+            </div>
+            <Link
+              href="/contact"
+              className="hidden lg:inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-6 py-2 rounded hover:bg-[#D4A835] transition-colors"
+            >
+              Plan een gesprek
+            </Link>
+            <button
+              className="lg:hidden text-[#545454]"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-          <Link
-            href="/en/contact"
-            className="hidden lg:inline-block bg-accent text-white text-sm font-semibold px-5 py-2 rounded hover:bg-accent-dark transition-colors"
-          >
-            Plan a demo
-          </Link>
-          <button
-            className="lg:hidden text-[#333333]"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 px-4 py-4 space-y-1">
+        <div className="lg:hidden bg-white border-t border-[#EBEBEB] px-6 py-4 space-y-1">
           {navItems.map((item) =>
             item.children ? (
               <div key={item.label}>
@@ -137,7 +175,7 @@ export default function Navbar() {
                   onClick={() =>
                     setOpenDropdown(openDropdown === item.label ? null : item.label)
                   }
-                  className="w-full flex justify-between items-center py-3 text-sm font-medium text-[#333333]"
+                  className="w-full flex justify-between items-center py-3 text-sm font-medium text-[#545454]"
                 >
                   {item.label}
                   <ChevronDown
@@ -147,16 +185,22 @@ export default function Navbar() {
                 </button>
                 {openDropdown === item.label && (
                   <div className="pl-4 space-y-1 pb-2">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-2 text-sm text-[#666666] hover:text-accent"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    {item.children.map((child, idx) =>
+                      child.separator ? (
+                        <div key={`msep-${idx}`} className="pt-2 pb-1">
+                          <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#CCCCCC]">Tools</span>
+                        </div>
+                      ) : (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-2 text-sm text-[#898989] hover:text-[#2D2D2D]"
+                        >
+                          {child.label}
+                        </Link>
+                      )
+                    )}
                   </div>
                 )}
               </div>
@@ -165,7 +209,7 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-3 text-sm font-medium text-[#333333] hover:text-accent border-b border-gray-100"
+                className="block py-3 text-sm font-medium text-[#545454] hover:text-[#2D2D2D] border-b border-[#F5F5F5]"
               >
                 {item.label}
               </Link>
@@ -173,16 +217,16 @@ export default function Navbar() {
           )}
           <div className="pt-4 flex flex-col gap-3">
             <Link
-              href="/en/contact"
+              href="/nl/contact"
               onClick={() => setMobileOpen(false)}
-              className="bg-accent text-white text-sm font-semibold px-5 py-3 rounded text-center hover:bg-accent-dark transition-colors"
+              className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-3 rounded text-center hover:bg-[#D4A835] transition-colors"
             >
-              Plan a demo
+              Plan een gesprek
             </Link>
-            <div className="flex gap-3 text-sm text-[#666666]">
-              <Link href="/nl/home">NL</Link>
+            <div className="flex gap-3 text-sm text-[#898989]">
+              <Link href="/nl/home" className="font-bold text-[#2D2D2D]">NL</Link>
               <span>|</span>
-              <Link href="/en/home" className="font-semibold text-accent">EN</Link>
+              <Link href="/nl/home">EN</Link>
             </div>
           </div>
         </div>

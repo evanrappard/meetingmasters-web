@@ -10,25 +10,25 @@ const slides = [
     img: "/images/hero-1.jpg",
     headline: "Refreshing online meeting concepts. Better results.",
     sub: "How we meet matters. Our surprising virtual meeting formats increase energy and involvement.",
-    cta: { text: "This is how we work", href: "/en/strategy-concept" },
+    cta: { text: "This is how we work", href: "/nl/strategy-concept" },
   },
   {
     img: "/images/hero-2.jpg",
     headline: "A good meeting demands much more than technology and logistics.",
     sub: "Successful online events are primarily a human challenge. We develop virtual gatherings geared at maximizing involvement.",
-    cta: { text: "Find your type of meeting", href: "/en/meeting-formats" },
+    cta: { text: "Find your type of meeting", href: "/nl/meeting-formats" },
   },
   {
     img: "/images/hero-3.jpg",
     headline: "Seamless and worry-free online meetings?",
     sub: "We assist from ideation through realization and offer personal in-meeting support.",
-    cta: { text: "How we create effortless experiences", href: "/en/planning-support" },
+    cta: { text: "How we create effortless experiences", href: "/nl/planning-support" },
   },
   {
     img: "/images/hero-4.jpg",
     headline: "We are online meeting specialists.",
     sub: "We make virtual meetings more interesting, more participative, and more effective.",
-    cta: { text: "Request a free quote", href: "/en/contact" },
+    cta: { text: "Request a free quote", href: "/nl/contact" },
   },
 ];
 

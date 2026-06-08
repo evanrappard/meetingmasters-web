@@ -13,8 +13,15 @@ values
   ('It was awesome!');
 `.trim();
 
-const rls = `alter table notes enable row level security;
-create policy "Allow public read access" on notes
+const rls = `-- Grant Data API access to the table
+grant select on public.notes to anon;
+grant select on public.notes to authenticated;
+
+-- Enable Row Level Security
+alter table public.notes enable row level security;
+
+-- Add access policy
+create policy "Allow public read access" on public.notes
 for select
 using (true);`.trim();
 

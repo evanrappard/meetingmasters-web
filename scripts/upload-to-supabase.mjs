@@ -2,14 +2,22 @@ import { createClient } from '@supabase/supabase-js'
 import { readFileSync, readdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { config } from 'dotenv'
+
+config({ path: new URL('../.env.local', import.meta.url).pathname })
 
 const __dir = dirname(fileURLToPath(import.meta.url))
 const IMAGES_DIR = join(__dir, '../public/images')
 
-const supabase = createClient(
-  'https://mgkzogvgqpfvsynrfera.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1na3pvZ3ZncXBmdnN5bnJmZXJhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODI0MTY5NSwiZXhwIjoyMDkzODE3Njk1fQ.bT1IqTy3aE4q-8_BxtjejlSijGt-B2fEstgYcf6A9y8'
-)
+const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+if (!url || !key) {
+  console.error('Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in .env.local')
+  process.exit(1)
+}
+
+const supabase = createClient(url, key)
 
 const BUCKET = 'assets'
 

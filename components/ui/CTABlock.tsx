@@ -53,7 +53,7 @@ export default function CTABlock() {
             <CTACard
               level="Oriëntatie"
               title="Bekijk de inspiratie"
-              desc="Voorbeelden van bijeenkomsten, formats en opzetten — om van te leren en inspiratie op te doen voor uw eigen event."
+              desc="Voorbeelden van bijeenkomsten, event formats en opzetten — om van te leren en inspiratie op te doen voor uw eigen event."
               ctaLabel="Bekijk voorbeelden →"
               href="/nl/inspiratie"
               variant="low"

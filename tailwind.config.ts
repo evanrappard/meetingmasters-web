@@ -32,14 +32,31 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        // MeetingMasters brand tokens
-        primary: "#1B2A4A",
-        accent: "#2B7A9E",
-        "accent-dark": "#1F5E7A",
-        "bg-dark": "#2D2D2D",
+
+        // MeetingMasters brand palette
+        primary:      "#2D2D2D",   // Charcoal — headings & dark backgrounds (no blue)
+        "mm-yellow":  "#EEBE3D",   // MM Geel — primary brand marker
+        banana:       "#FFEEC1",   // Banana — warm section background
+        aqua:         "#28A8AA",   // Aqua — secondary accent, labels
+        "aqua-dark":  "#1F8688",   // Aqua dark — hover
+        ice:          "#C3DED6",   // Ice — cool section tint
+        rose:         "#C64A60",   // Rose — CTAs, signals (primary interactive)
+        "rose-dark":  "#A33850",   // Rose dark — hover
+        mint:         "#F9FFED",   // Mint — cool section background
+        pistachio:    "#D7DDD0",   // Pistachio
+        seaweed:      "#696758",   // Seaweed
+        "dark-grey":  "#545454",   // MM Dark Grey — primary text
+        "mid-grey":   "#898989",   // Mid grey
+        "light-grey": "#C8C8C8",   // Light grey
+        "white-grey": "#EBEBEB",   // White grey — borders
+
+        // Semantic aliases (used throughout existing pages)
+        accent:       "#C64A60",   // → rose
+        "accent-dark":"#A33850",   // → rose-dark
+        "bg-dark":    "#545454",   // → dark-grey
       },
       fontFamily: {
-        sans: ['"Open Sans"', '"Helvetica Neue"', "Arial", "sans-serif"],
+        sans: ["var(--font-rajdhani)", '"Helvetica Neue"', "Arial", "sans-serif"],
       },
       maxWidth: {
         content: "1200px",

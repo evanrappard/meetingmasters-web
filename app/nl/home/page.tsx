@@ -240,17 +240,16 @@ export default async function HomePage() {
         <h1 className="sr-only">MeetingMasters — online events en virtual office specialist op SpatialChat</h1>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
           <Image
-            src="/images/hero-2.webp"
-            alt="Professioneel begeleide online bijeenkomst voor grote groepen — MeetingMasters Online"
+            src="/images/hero-lobby.webp"
+            alt="Lichte, ruime ontvangsthal met uitzicht op de skyline — uw bijeenkomst begint hier, MeetingMasters Online"
             fill
             priority
             className="object-cover object-center"
             style={{
-              transform: "scaleX(-1)",
-              filter: "contrast(1.08) saturate(1.12) brightness(0.97)",
+              filter: "contrast(1.04) saturate(1.06)",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1E1E1E]/90 via-[#2D2D2D]/55 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#1E1E1E]/75 via-[#2D2D2D]/30 to-transparent" />
           <div className="absolute inset-0 flex items-end">
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
               <div className="max-w-[600px]">

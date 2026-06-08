@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Online Events & Meeting Formats | MeetingMasters",
+  title: "Online Event Formats | MeetingMasters",
   description:
-    "20 online meeting formats voor elke bijeenkomst — van strategiedagen en webinars tot escape rooms, participatietrajecten en community events. Ontworpen, begeleid en geproduceerd door MeetingMasters.",
+    "20 online event formats voor elke bijeenkomst — van strategiedagen en webinars tot escape rooms, participatietrajecten en community events. Ontworpen, begeleid en geproduceerd door MeetingMasters.",
 };
 
 const results = [
@@ -275,7 +275,7 @@ export default function EventsPage() {
           <div className="absolute inset-0 flex items-end">
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
               <div className="max-w-[600px]">
-                <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">Events & Formats</p>
+                <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">Event Formats</p>
                 <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5">
                   Online bijeenkomsten waar mensen echt aanwezig zijn.
                 </h1>
@@ -294,7 +294,7 @@ export default function EventsPage() {
                     href="#formats"
                     className="text-white/70 text-sm font-semibold px-5 py-3 border border-white/25 rounded hover:border-white/55 transition-colors"
                   >
-                    Bekijk formats
+                    Bekijk event formats
                   </a>
                 </div>
               </div>
