@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
+import HeroVideo from "@/components/ui/HeroVideo";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { getHomepageContent, getLogos, getHomepageCases } from "@/sanity/queries";
 
@@ -238,14 +239,17 @@ export default async function HomePage() {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section>
         <h1 className="sr-only">MeetingMasters — online events en virtual office specialist op SpatialChat</h1>
-        <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
-          <Image
-            src="/images/hero-lobby.webp"
-            alt="Lichte, ruime ontvangsthal met uitzicht op de skyline — uw bijeenkomst begint hier, MeetingMasters Online"
-            fill
-            priority
-            className="object-cover object-center"
-            style={{
+        <div className="relative w-full aspect-video min-h-[360px] max-h-[90vh]">
+          <HeroVideo
+            src="/videos/hero.mp4"
+            startImage="/images/hero-start.png"
+            alt="MeetingMasters — online events en virtual office op SpatialChat"
+            holdMs={3000}
+            fadeMs={2200}
+            playbackRate={0.28}
+            objectPosition="center"
+            className="absolute inset-0"
+            layerStyle={{
               filter: "contrast(1.04) saturate(1.06)",
             }}
           />
@@ -288,7 +292,7 @@ export default async function HomePage() {
             {[
               { href: "/nl/events", label: "Events", title: "Bijzondere online bijeenkomsten", desc: "Als de standaard niet volstaat: van strategiedagen tot all-hands en community events." },
               { href: "/nl/remote-office", label: "Remote Office", title: "Een virtual office dat werkt", desc: "De plek voor uw team om samen te komen — ook als niemand in vergadering zit." },
-              { href: "/nl/games-tools", label: "Games & Tools", title: "Interactieve formats", desc: "Online escape rooms, onboarding games en slimme tools voor meer betrokkenheid." },
+              { href: "/nl/games-tools", label: "Games & Tools", title: "Tools voor actievere deelname", desc: "Online escape rooms, onboarding games en slimme apps voor meer betrokkenheid." },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -330,7 +334,7 @@ export default async function HomePage() {
               Onze oplossingen
             </p>
             <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
-              Wij zijn ontwerpers van bijzondere online momenten.
+              Wij zijn online meeting professionals. Ontwerpers van bijzondere momenten.
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -407,7 +411,7 @@ export default async function HomePage() {
                 {[
                   { kop: "Mensen bewegen zelf.", desc: "Deelnemers navigeren en kiezen met wie ze in gesprek gaan." },
                   { kop: "Nabijheid bepaalt interactie.", desc: "Gesprekken ontstaan spontaan — zoals in het echte leven." },
-                  { kop: "Van intiem overleg tot een grote all-hands.", desc: "Designs die passen bij de context van het samenzijn." },
+                  { kop: "Van intiem overleg tot een grote all-hands.", desc: "Designs die passen bij de context." },
                 ].map((p) => (
                   <li key={p.kop} className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#EEBE3D] mt-2 flex-shrink-0" />

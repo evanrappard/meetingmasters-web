@@ -14,14 +14,14 @@ const navItems: {
 }[] = [
   {
     label: "Events",
-    href: "/events",
+    href: "/nl/events",
     children: [
-      { label: "Strategiedag", href: "/events" },
-      { label: "Virtuele kerstborrel", href: "/events" },
-      { label: "Kick-off", href: "/events" },
-      { label: "Community-event", href: "/events" },
-      { label: "All-hands", href: "/events" },
-      { label: "Alle eventformats →", href: "/events" },
+      { label: "Strategiedag", href: "/nl/events/strategiedagen" },
+      { label: "Virtuele kerstborrel", href: "/nl/events/kerstfeest" },
+      { label: "All-hands", href: "/nl/events/all-hands" },
+      { label: "Community-event", href: "/nl/events/community-building" },
+      { label: "Online teambuilding", href: "/nl/events/team-ontwikkeling" },
+      { label: "Alle eventformats →", href: "/nl/events#formats" },
     ],
   },
   {
@@ -149,7 +149,7 @@ export default function Navbar() {
               <Link href="/nl/home" className="hover:text-[#545454] transition-colors">EN</Link>
             </div>
             <Link
-              href="/contact"
+              href="/nl/contact"
               className="hidden lg:inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-6 py-2 rounded hover:bg-[#D4A835] transition-colors"
             >
               Plan een gesprek

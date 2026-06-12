@@ -77,7 +77,7 @@ export default function TestimonialsCarousel() {
             <div className="w-px h-7 bg-[#DCDCDC] flex-shrink-0 hidden sm:block" />
             <div className="text-left sm:text-left text-center">
               <p className="font-bold text-[#2D2D2D] text-base leading-tight">{s.company}</p>
-              <p className="text-sm text-[#898989] mt-1">{s.context}</p>
+              <p className="text-sm text-[#898989] leading-tight">{s.context}</p>
             </div>
           </div>
         </div>

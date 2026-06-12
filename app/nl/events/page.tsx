@@ -22,18 +22,18 @@ export const metadata: Metadata = {
 const results = [
   {
     num: "01",
-    title: "Meer impact",
-    body: "Strategiedagen, webinars en events die echt iets opleveren. Meer draagvlak, scherpere keuzes en betere opvolging.",
+    title: "Meer expertise",
+    body: "Meedenken vanuit ervaring, ontzorgen vanuit gastvrijheid: alles loopt strak, rustig en verzorgd.",
   },
   {
     num: "02",
-    title: "Meer support",
-    body: "Alles loopt strak, rustig en verzorgd. Minder druk op teams en interne organisatie.",
+    title: "Meer betrokkenheid",
+    body: "Relevante interactie versterkt vertrouwen, verbinding en reputatie.",
   },
   {
     num: "03",
-    title: "Meer betrokkenheid",
-    body: "Mensen voelen zich betrokken en serieus genomen. Dat versterkt vertrouwen, verbinding en reputatie.",
+    title: "Meer impact",
+    body: "Strategiedagen, webinars en events die echt iets opleveren. Meer draagvlak, scherpere keuzes en betere opvolging.",
   },
 ];
 
@@ -321,7 +321,7 @@ export default function EventsPage() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
-                    href="/nl/contact"
+                    href="/nl/expert-advies"
                     className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
                   >
                     Expert advies →
@@ -340,19 +340,21 @@ export default function EventsPage() {
       </section>
 
       {/* ── RESULTAATGEBIEDEN ── */}
-      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+      <section className="bg-white py-12 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="mb-10">
+          <div className="mb-8">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Maatwerk op basis van ruime ervaring</p>
             <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
               Bijzondere events verdienen bijzondere aandacht.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
             {results.map((r) => (
               <div key={r.num}>
-                <p className="text-[#EEBE3D] text-4xl font-bold leading-none mb-5">{r.num}</p>
-                <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug">{r.title}</h3>
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="text-[#EEBE3D] text-2xl font-bold leading-none flex-shrink-0">{r.num}</span>
+                  <h3 className="font-bold text-[#2D2D2D] text-lg leading-snug">{r.title}</h3>
+                </div>
                 <p className="text-sm text-[#545454] leading-relaxed">{r.body}</p>
               </div>
             ))}
@@ -361,7 +363,7 @@ export default function EventsPage() {
       </section>
 
       {/* ── FORMATS: CATEGORIEËN ── */}
-      <section id="formats" className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
+      <section id="formats" className="scroll-mt-28 bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
 
           {/* Intro + categorie-ankers */}
@@ -388,7 +390,7 @@ export default function EventsPage() {
             <div
               key={cat.id}
               id={cat.id}
-              className={idx > 0 ? "mt-10" : ""}
+              className={`scroll-mt-[40vh] ${idx > 0 ? "mt-10" : ""}`}
             >
               <p className="text-[#28A8AA] text-[11px] font-bold tracking-widest uppercase mb-5">{cat.label}</p>
 
@@ -454,21 +456,21 @@ export default function EventsPage() {
                 Bijeenkomsten waar echt iets gebeurt.
               </h2>
               <p className="text-sm text-[#545454] leading-relaxed mb-8">
-                Een event staat nooit op zichzelf. Wij zorgen ervoor dat ontmoetingen maximaal benut worden, met:
+                Wij zorgen ervoor dat ontmoetingen maximaal benut worden, met:
               </p>
               <ul className="space-y-5 mb-8">
                 {[
                   {
-                    kop: "Event strategie.",
-                    desc: "Welk format past bij uw doel, uw groep en uw moment? Wij denken mee vóórdat u begint met plannen — zodat de keuzes die u maakt op een stevige basis staan.",
+                    kop: "Eventstrategie.",
+                    desc: "Welk format past bij uw doel, uw groep en uw moment? Onze specialisten denken mee en helpen u net die stap verder.",
                   },
                   {
                     kop: "Planning & ontwerp.",
-                    desc: "Van intake tot technische doorloop: wij begeleiden het hele traject. U hoeft niet zelf te puzzelen — wij zorgen dat alles klopt op de dag zelf.",
+                    desc: "Een heldere planning, persoonlijke begeleiding en een gedetailleerd draaiboek: wij begeleiden het hele traject van intake tot evaluatie.",
                   },
                   {
                     kop: "In-meeting support.",
-                    desc: "Wij zijn aanwezig als facilitator, producent en technisch aanspreekpunt. Zodat ú zich volledig kunt richten op de mensen en de inhoud.",
+                    desc: "Wij zijn live aanwezig bij uw meeting. Als facilitator, producent en technisch aanspreekpunt. Zodat u zich kunt richten op de mensen en de inhoud.",
                   },
                 ].map((p) => (
                   <li key={p.kop} className="flex items-start gap-3">
@@ -480,7 +482,7 @@ export default function EventsPage() {
                 ))}
               </ul>
               <Link
-                href="/nl/contact"
+                href="/nl/expert-advies"
                 className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
               >
                 Vrijblijvend advies →

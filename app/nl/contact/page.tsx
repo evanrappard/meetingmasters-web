@@ -5,7 +5,7 @@ import { Mail, Phone, Smartphone, MapPin } from "lucide-react";
 export const metadata: Metadata = {
   title: "Contact | MeetingMasters",
   description:
-    "Get in touch with MeetingMasters. Plan a free consultation or book a demo in our virtual office.",
+    "Neem contact op met MeetingMasters. Plan een vrijblijvend gesprek of boek een demo in ons virtuele kantoor.",
 };
 
 export default function ContactPage() {
@@ -14,28 +14,28 @@ export default function ContactPage() {
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
         <h1 className="text-4xl font-bold text-primary mb-4">Contact</h1>
         <p className="text-accent text-xl italic font-medium max-w-xl mx-auto">
-          &ldquo;Connection is the starting point of all development.&rdquo;
+          &ldquo;Verbinding is het vertrekpunt van elke ontwikkeling.&rdquo;
         </p>
         <p className="text-[#888888] text-sm mt-2 italic">
-          &ldquo;Discovery is the starting point of curiosity.&rdquo;
+          &ldquo;Ontdekken begint bij nieuwsgierigheid.&rdquo;
         </p>
       </div>
 
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
         <h2 className="text-2xl font-bold text-primary mb-4">
-          It all starts with contact.
+          Het begint allemaal met contact.
         </h2>
         <p className="text-[#666666] leading-relaxed mb-4">
-          Understanding a meeting&apos;s purpose enables us to brainstorm, bring
-          in our expertise, guide people, and make difficult things easy. We are
-          looking forward to hearing from you.
+          Als we het doel van een bijeenkomst begrijpen, kunnen we meedenken,
+          onze expertise inbrengen, mensen begeleiden en ingewikkelde dingen
+          makkelijk maken. We horen graag van u.
         </p>
         <p className="text-[#666666] leading-relaxed mb-10">
-          If your request doesn&apos;t quite align with what we offer? We&apos;re
-          happy to redirect you.
+          Past uw vraag niet helemaal bij wat wij doen? Dan verwijzen we u graag
+          verder.
         </p>
 
-        {/* Contact card */}
+        {/* Contactkaart */}
         <div className="bg-gray-50 rounded-xl p-8 shadow-sm border border-gray-200 max-w-lg">
           <ul className="space-y-4">
             <li className="flex items-center gap-3 text-[#555555]">
@@ -51,14 +51,14 @@ export default function ContactPage() {
               <Phone size={18} className="text-accent flex-shrink-0" />
               <a href="tel:+31202390313" className="hover:text-accent transition-colors">
                 +31 20 239 03 13{" "}
-                <span className="text-[#888888] text-xs">(office)</span>
+                <span className="text-[#888888] text-xs">(kantoor)</span>
               </a>
             </li>
             <li className="flex items-center gap-3 text-[#555555]">
               <Smartphone size={18} className="text-accent flex-shrink-0" />
               <a href="tel:+31645752819" className="hover:text-accent transition-colors">
                 +31 6 4575 2819{" "}
-                <span className="text-[#888888] text-xs">(app / WhatsApp)</span>
+                <span className="text-[#888888] text-xs">(mobiel / WhatsApp)</span>
               </a>
             </li>
             <li className="flex items-start gap-3 text-[#555555]">
@@ -66,9 +66,9 @@ export default function ContactPage() {
               <address className="not-italic text-sm leading-relaxed">
                 Schellingwouderdijk 157
                 <br />
-                1023NC Amsterdam
+                1023 NC Amsterdam
                 <br />
-                the Netherlands
+                Nederland
               </address>
             </li>
           </ul>
@@ -79,13 +79,13 @@ export default function ContactPage() {
             href="mailto:contact@meetingmasters.online"
             className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
           >
-            Plan a free consultation
+            Plan een vrijblijvend gesprek
           </a>
           <Link
-            href="/nl/contact"
+            href="/nl/expert-advies"
             className="border border-accent text-accent px-8 py-3 text-sm font-semibold rounded hover:bg-accent hover:text-white transition-colors inline-block"
           >
-            Book a demo in our virtual office
+            Boek een demo in ons virtuele kantoor
           </Link>
         </div>
       </section>
