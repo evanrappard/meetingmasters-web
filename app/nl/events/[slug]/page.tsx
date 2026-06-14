@@ -18,6 +18,8 @@ import {
 interface EventData {
   title: string;
   bg: string;
+  /** Eigen hero-afbeelding voor dit format (anders de generieke events-hero). */
+  heroSrc?: string;
   iconSrc?: string;
   Icon: LucideIcon;
   ic: string;
@@ -46,11 +48,12 @@ const EVENT_DATA: Record<string, EventData> = {
   strategiedagen: {
     title: "Online strategiedag",
     bg: "radial-gradient(circle at 38% 38%, #6CCECE, #38BCBC)",
+    heroSrc: "/images/events-strategiedag-hero.webp",
     iconSrc: "/images/icons/strategiedagen.png",
     Icon: Target, ic: "text-white",
     tagline: "Een dag die leidt tot besluiten en richting — niet alleen tot presentaties.",
     intro:
-      "Wij ontwerpen online strategiedagen waarbij deelnemers niet passief naar presentaties kijken, maar actief bijdragen aan de uitkomst. Van vraagstelling tot draagvlak — wij begeleiden het hele traject, technisch én inhoudelijk.",
+      "Laat deelnemers niet passief naar presentaties kijken, maar actief bijdragen aan de uitkomst. Van vraagstelling tot programma-opzet en interactie-ontwerp: met een achtergrond als strategie-consultants kunnen we helpen bij inhoud, vorm en techniek.",
     outcomes: [
       { title: "Heldere richting", body: "Aan het einde van de dag weet iedereen wat er besloten is en waarom." },
       { title: "Breed draagvlak", body: "De koers wordt gedragen — niet alleen door de top, maar door het hele team." },
@@ -66,7 +69,7 @@ const EVENT_DATA: Record<string, EventData> = {
     ],
     related: ["townhall", "all-hands", "brainstormen", "conferentie"],
     validation: {
-      headline: "Een online strategiedag werkt — als het goed is opgezet.",
+      headline: "Online strategiesessies werken — mits ze goed zijn opgezet.",
       items: [
         {
           title: "Duurzaam en bereikbaar",
@@ -74,11 +77,11 @@ const EVENT_DATA: Record<string, EventData> = {
         },
         {
           title: "Participatief en betrokken",
-          body: "Tools als Mentimeter en Wooclap maken anoniem stemmen en prioriteren laagdrempeliger dan in een zaal. Meer stemmen, eerlijkere input, betere besluiten.",
+          body: "Samen in gesprek over doelen, bestaande plannen en nieuwe richtingen. Met goede vragen, slimme formats en tools als Miro.",
         },
         {
           title: "Inspirerend en doelgericht",
-          body: "Met de juiste meeting design ontstaan scherpe, gefocuste sessies zonder uitloop. Online werkt — mits doordacht opgezet, en dat is precies ons vak.",
+          body: "Met de juiste opzet ontstaan scherpe, gefocuste sessies met sterke output. Online kan juist goed werken, mits het goed is opgezet. Dat is ons vak.",
         },
       ],
     },
@@ -933,13 +936,13 @@ export default async function EventTypePage(
       <section>
         <div className="relative w-full h-[44vw] min-h-[300px] max-h-[520px]">
           <Image
-            src="/images/events-bijeenkomst.webp"
+            src={event.heroSrc ?? "/images/events-bijeenkomst.webp"}
             alt={`${title} — MeetingMasters Online Events`}
             fill priority
             className="object-cover object-center"
-            style={{ filter: "contrast(1.05) saturate(1.1) brightness(0.78)" }}
+            style={{ filter: "contrast(1.03) saturate(1.06)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1E1E1E]/90 via-[#2D2D2D]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 flex items-end">
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-12 sm:pb-16">
               <div className="max-w-[600px]">
@@ -949,11 +952,11 @@ export default async function EventTypePage(
                 >
                   ← Event Formats
                 </Link>
-                <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-3">
+                <h1 className="text-5xl sm:text-6xl lg:text-[3.7rem] font-bold text-white leading-[1.05] mb-4" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
                   {title}
                 </h1>
                 {event.outcomeSummary && (
-                  <p className="text-[#EEBE3D] text-sm font-semibold tracking-wide mb-7">
+                  <p className="text-white text-lg sm:text-xl font-medium tracking-wide mb-7" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
                     {event.outcomeSummary}
                   </p>
                 )}
@@ -980,7 +983,7 @@ export default async function EventTypePage(
           <div className="max-w-content mx-auto px-6 lg:px-10">
             <div className="mb-10">
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Een actieve format</p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4 max-w-[680px]">
+              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {event.validation.headline}
               </h2>
               <p className="text-[#545454] leading-relaxed">{intro}</p>
@@ -988,13 +991,15 @@ export default async function EventTypePage(
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {event.validation.items.map((item, i) => (
                 <div key={i}>
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center mb-4"
-                    style={{ background: bg, boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}
-                  >
-                    <Check className="w-5 h-5" style={{ color: iconColor }} strokeWidth={2.5} />
+                  <div className="flex items-center gap-3 mb-2">
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: bg, boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}
+                    >
+                      <Check className="w-4 h-4" style={{ color: iconColor }} strokeWidth={2.5} />
+                    </div>
+                    <h3 className="font-bold text-[#2D2D2D] text-base leading-snug">{item.title}</h3>
                   </div>
-                  <h3 className="font-bold text-[#2D2D2D] text-base mb-2">{item.title}</h3>
                   <p className="text-sm text-[#545454] leading-relaxed">{item.body}</p>
                 </div>
               ))}
@@ -1058,53 +1063,14 @@ export default async function EventTypePage(
         </section>
       )}
 
-      {/* ── VOORBEREIDING IS ALLES ── */}
-      {event.conditions && (
-        <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
-          <div className="max-w-content mx-auto px-6 lg:px-10">
-            <div className="mb-10">
-              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Voorbereiding is alles</p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-6">
-                Randvoorwaarden voor een geslaagde online {shortTitle.toLowerCase()}.
-              </h2>
-              <div className="flex flex-col sm:flex-row gap-5">
-                {forWho && (
-                  <div className="border-l-2 border-[#EEBE3D] pl-4">
-                    <p className="text-xs font-bold text-[#2D2D2D] uppercase tracking-widest mb-1">Voor wie</p>
-                    <p className="text-sm text-[#545454] leading-snug">{forWho}</p>
-                  </div>
-                )}
-                {range && (
-                  <div className="border-l-2 border-[#EEBE3D] pl-4">
-                    <p className="text-xs font-bold text-[#2D2D2D] uppercase tracking-widest mb-1">Groepsgrootte</p>
-                    <p className="text-sm text-[#545454]">{range}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {event.conditions.map((c, i) => (
-                <div key={i} className="bg-white rounded p-6 shadow-sm">
-                  <p className="text-[#EEBE3D] text-3xl font-bold leading-none mb-4">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="font-bold text-[#2D2D2D] text-base mb-2">{c.title}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{c.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── IN DE PRAKTIJK ── */}
       {event.cases && (
-        <section className="bg-white py-16 border-b border-[#EBEBEB]">
+        <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
           <div className="max-w-content mx-auto px-6 lg:px-10">
             <div className="mb-10">
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">In de praktijk</p>
               <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
-                Drie voorbeelden. Veel ervaring.
+                Drie voorbeelden. Jarenlange ervaring.
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1132,14 +1098,44 @@ export default async function EventTypePage(
                 </div>
               ))}
             </div>
-            <div className="mt-10 pt-8 border-t border-[#EBEBEB] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <p className="text-[#545454] text-base">Wilt u weten of dit event format bij uw situatie past?</p>
-              <Link
-                href="/nl/contact"
-                className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors flex-shrink-0"
-              >
-                Meer weten →
-              </Link>
+          </div>
+        </section>
+      )}
+
+      {/* ── VOORBEREIDING IS ALLES ── */}
+      {event.conditions && (
+        <section className="bg-white py-16 border-b border-[#EBEBEB]">
+          <div className="max-w-content mx-auto px-6 lg:px-10">
+            <div className="mb-10">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Voorbereiding is alles</p>
+              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-6">
+                Randvoorwaarden voor een geslaagde online {shortTitle.toLowerCase()}.
+              </h2>
+              <div className="flex flex-col sm:flex-row gap-5">
+                {forWho && (
+                  <div className="border-l-2 border-[#EEBE3D] pl-4">
+                    <p className="text-xs font-bold text-[#2D2D2D] uppercase tracking-widest mb-1">Voor wie</p>
+                    <p className="text-sm text-[#545454] leading-snug">{forWho}</p>
+                  </div>
+                )}
+                {range && (
+                  <div className="border-l-2 border-[#EEBE3D] pl-4">
+                    <p className="text-xs font-bold text-[#2D2D2D] uppercase tracking-widest mb-1">Groepsgrootte</p>
+                    <p className="text-sm text-[#545454]">{range}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {event.conditions.map((c, i) => (
+                <div key={i} className="bg-white rounded p-6 shadow-sm border border-[#EBEBEB]">
+                  <p className="text-[#EEBE3D] text-3xl font-bold leading-none mb-4">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="font-bold text-[#2D2D2D] text-base mb-2">{c.title}</h3>
+                  <p className="text-sm text-[#545454] leading-relaxed">{c.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
