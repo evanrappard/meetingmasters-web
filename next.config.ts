@@ -9,7 +9,23 @@ const enPaths = [
   "team", "testimonials",
 ];
 
+const securityHeaders = [
+  // Forceer HTTPS (Vercel serveert alles al via TLS)
+  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  // Anti-clickjacking — eigen pagina's mogen alleen in een same-origin frame (bv. Sanity-preview)
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  // Browser mag content-types niet "raden"
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  // Lek geen volledige referrer naar externe sites
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  // Schakel ongebruikte browser-API's uit
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
+];
+
 const nextConfig: NextConfig = {
+  async headers() {
+    return [{ source: "/:path*", headers: securityHeaders }];
+  },
   async redirects() {
     return [
       // Redirect /en root
