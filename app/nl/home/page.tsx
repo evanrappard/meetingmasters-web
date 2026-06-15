@@ -245,6 +245,7 @@ export default async function HomePage() {
             startImage="/images/hero-start.png"
             alt="MeetingMasters — online events en virtual office op SpatialChat"
             holdMs={3000}
+            startHoldMs={1000}
             fadeMs={2200}
             playbackRate={0.28}
             objectPosition="center"

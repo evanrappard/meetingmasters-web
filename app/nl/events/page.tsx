@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import {
   Target, Mic2, Megaphone, Vote,
   UsersRound, GraduationCap, Lightbulb, DoorOpen,
-  Sparkles, Snowflake, Lock, Handshake,
+  Sparkles, Snowflake, Handshake,
   MapPin, MessageCircle, ScanSearch, Coffee,
   Radio, MonitorPlay, Pin, Network,
   type LucideIcon,
@@ -155,12 +155,12 @@ export const eventCategories: EventCategory[] = [
         Icon: Snowflake,
       },
       {
-        slug: "escaperoom",
-        title: "Online escape room",
-        desc: "Teambuilding met hoge betrokkenheid — spannend, laagdrempelig en online.",
+        slug: "teamuitje",
+        title: "Online teamuitje",
+        desc: "Een teamuitje dat verbindt — ontspannen samen, ook op afstand.",
         bg: "radial-gradient(circle at 38% 38%, #7AAFC8, #4A85A8)",
         ic: "text-white",
-        Icon: Lock,
+        Icon: Sparkles,
       },
       {
         slug: "community-building",

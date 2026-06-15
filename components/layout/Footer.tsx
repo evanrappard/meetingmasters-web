@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin } from "lucide-react";
+import LastUpdated from "@/components/ui/LastUpdated";
 
 export default function Footer() {
   return (
@@ -115,6 +116,7 @@ export default function Footer() {
 
       <div className="border-t border-[#3D3D3D] px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p className="text-xs text-[#555555]">© 2026 MeetingMasters Online</p>
+        <LastUpdated date="juni 2026" />
         <p className="text-xs text-[#555555]">Amsterdam, Nederland</p>
       </div>
     </footer>

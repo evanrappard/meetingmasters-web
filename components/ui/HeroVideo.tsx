@@ -9,6 +9,8 @@ type HeroVideoProps = {
   alt?: string;
   /** Hoe lang (ms) stil blijven op begin- en eindbeeld. */
   holdMs?: number;
+  /** Aparte duur (ms) van de begin-hold vóór de video inzet (default = holdMs). */
+  startHoldMs?: number;
   /** Duur (ms) van de cross-fades. */
   fadeMs?: number;
   /** Afspeelsnelheid (1 = normaal). */
@@ -33,6 +35,7 @@ export default function HeroVideo({
   startImage,
   alt,
   holdMs = 3000,
+  startHoldMs = holdMs,
   fadeMs = 1800,
   playbackRate = 0.35,
   objectPosition = "center top",
@@ -107,7 +110,7 @@ export default function HeroVideo({
       captureFirstFrame(); // scherp beginbeeld uit de 4K
       setCover(1); // beginbeeld zichtbaar
       while (!cancelled) {
-        await wait(holdMs); // 1. beginbeeld 3s stil
+        await wait(startHoldMs); // 1. beginbeeld stil (vóór de video inzet)
         if (cancelled) break;
         setCover(0); // 2. fade beginbeeld → vertrekbeeld (video frame 0)
         await wait(fadeMs);
@@ -134,7 +137,7 @@ export default function HeroVideo({
       timers.forEach(clearTimeout);
       v.removeEventListener("loadeddata", start);
     };
-  }, [holdMs, fadeMs, playbackRate]);
+  }, [holdMs, startHoldMs, fadeMs, playbackRate]);
 
   return (
     <div className={className}>
