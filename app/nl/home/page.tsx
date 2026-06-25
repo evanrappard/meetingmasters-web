@@ -50,7 +50,7 @@ const SCHEMA_SERVICES = [
     "description": "Virtueel kantoor voor hybride en internationale teams. De digitale thuisbasis voor uw organisatie — voor vergaderingen én de informele momenten daartussen.",
     "serviceType": "Virtual Office Service",
     "areaServed": { "@type": "Country", "name": "Netherlands" },
-    "url": "https://www.meetingmasters.online/nl/remote-office",
+    "url": "https://www.meetingmasters.online/nl/virtual-office",
   },
   {
     "@context": "https://schema.org",
@@ -166,11 +166,11 @@ const solutions = [
   {
     id: "remote-office",
     num: "02",
-    label: "Remote Office",
+    label: "Virtueel Kantoor",
     headline: "Beter samenwerken, ook op afstand",
     bullets: ["Internationale organisaties", "Hybride teams", "Projectgroepen", "Samenwerkingsverbanden"],
     cta: "Verbonden via een virtueel kantoor",
-    href: "/nl/remote-office",
+    href: "/nl/virtual-office",
     img: "/images/remote-office-virtual.webp",
     imgAlt: "Virtueel kantoor in SpatialChat voor hybride teams — meerdere ruimtes, live samenwerking en informeel contact",
     bg: "bg-[#E8EDE4]",
@@ -292,7 +292,7 @@ export default async function HomePage() {
           <div className="md:-mt-12 bg-white shadow-lg rounded grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#EBEBEB]">
             {[
               { href: "/nl/events", label: "Events", title: "Bijzondere online bijeenkomsten", desc: "Als de standaard niet volstaat: van strategiedagen tot all-hands en community events." },
-              { href: "/nl/remote-office", label: "Remote Office", title: "Een virtual office dat werkt", desc: "De plek voor uw team om samen te komen — ook als niemand in vergadering zit." },
+              { href: "/nl/virtual-office", label: "Virtueel Kantoor", title: "Een virtual office dat werkt", desc: "De plek voor uw team om samen te komen — ook als niemand in vergadering zit." },
               { href: "/nl/games-tools", label: "Games & Tools", title: "Tools voor actievere deelname", desc: "Online escape rooms, onboarding games en slimme apps voor meer betrokkenheid." },
             ].map((item) => (
               <Link

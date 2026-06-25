@@ -25,12 +25,12 @@ const navItems: {
     ],
   },
   {
-    label: "Virtual Office",
-    href: "/virtual-office",
+    label: "Virtueel Kantoor",
+    href: "/nl/virtual-office",
     children: [
-      { label: "Huur een kantoor", href: "/virtual-office/huur" },
-      { label: "Bouw je eigen kantoor", href: "/virtual-office/bouw" },
-      { label: "Kantoor als cultuurmoment", href: "/virtual-office/cultuur" },
+      { label: "Boek een zaaltje", href: "/nl/virtual-office/zaaltje" },
+      { label: "Huur een instapklaar kantoor", href: "/nl/virtual-office/huren" },
+      { label: "Bouw vanuit het fundament", href: "/nl/virtual-office/fundament" },
     ],
   },
   {

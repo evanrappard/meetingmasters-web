@@ -516,8 +516,8 @@ export default function EventsPage() {
 
           <details className="group max-w-4xl mx-auto mt-10">
             <summary className="flex items-center justify-center gap-2 cursor-pointer list-none text-[#28A8AA] text-sm font-bold hover:text-[#1E8E90] transition-colors">
-              <span className="group-open:hidden">Meer vragen?</span>
-              <span className="hidden group-open:inline">Minder vragen</span>
+              <span className="group-open:hidden">Meer antwoorden?</span>
+              <span className="hidden group-open:inline">Minder antwoorden</span>
               <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>

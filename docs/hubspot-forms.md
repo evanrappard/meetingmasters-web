@@ -24,6 +24,10 @@ daarna bouwen we ze in via het herbruikbare component
 3. Status hierboven bijwerken naar ✅ live + portalId/formId invullen.
 
 ## Aandachtspunten
+- **Spam / captcha (per formulier aanzetten in HubSpot):** zet bij elk formulier
+  de ingebouwde **spam-bescherming** + **onzichtbare reCAPTCHA** aan
+  (formulierinstellingen in HubSpot). Onzichtbaar = geen puzzels/frictie voor
+  bezoekers. Hierdoor is er **geen losse captcha op de site** nodig.
 - **Plaatsing nog te bepalen** voor *Demo / rondleiding* (#3) en
   *Krijg een kostenindicatie* (#5) — samen vastleggen.
 - Het huidige `components/ui/AdviesForm.tsx` (mailto) is tijdelijk en wordt

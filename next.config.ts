@@ -36,6 +36,16 @@ const nextConfig: NextConfig = {
         destination: `/nl/${p}`,
         permanent: true,
       })),
+      // Virtueel Kantoor verplaatst naar /nl/virtual-office
+      { source: "/virtual-office", destination: "/nl/virtual-office", permanent: true },
+      { source: "/virtual-office/:path*", destination: "/nl/virtual-office/:path*", permanent: true },
+      // Escape Room is vervangen door Online Teamuitje
+      { source: "/nl/events/escaperoom", destination: "/nl/events/teamuitje", permanent: true },
+      // Virtueel Kantoor herstructurering: remote-office → virtual-office; subpagina's samengevoegd/hernoemd
+      { source: "/nl/remote-office", destination: "/nl/virtual-office", permanent: true },
+      { source: "/nl/virtual-office/huur", destination: "/nl/virtual-office/huren", permanent: true },
+      { source: "/nl/virtual-office/bouw", destination: "/nl/virtual-office/fundament", permanent: true },
+      { source: "/nl/virtual-office/cultuur", destination: "/nl/virtual-office/fundament", permanent: true },
     ];
   },
   images: {
