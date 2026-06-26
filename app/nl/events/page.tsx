@@ -377,7 +377,7 @@ export default function EventsPage() {
                 <a
                   key={cat.id}
                   href={`#${cat.id}`}
-                  className="text-[11px] font-bold tracking-widest uppercase px-4 py-2 rounded-full border border-[#D4D4CC] text-[#696758] hover:border-[#28A8AA] hover:text-[#28A8AA] transition-colors"
+                  className="text-[11px] font-bold tracking-widest uppercase px-4 py-2 rounded-full border border-[#D4D4CC] text-[#696758] hover:border-[#EEBE3D] hover:text-[#EEBE3D] transition-colors"
                 >
                   {cat.label}
                 </a>
@@ -427,7 +427,7 @@ export default function EventsPage() {
                         </div>
                       )}
                     </div>
-                    <p className="font-bold text-[#2D2D2D] text-sm leading-snug group-hover:text-[#28A8AA] transition-colors px-1 max-w-[160px]">
+                    <p className="font-bold text-[#2D2D2D] text-sm leading-snug group-hover:text-[#EEBE3D] transition-colors px-1 max-w-[160px]">
                       {title}
                     </p>
                   </Link>

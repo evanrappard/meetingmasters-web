@@ -216,7 +216,7 @@ export default function VirtualOfficePage() {
             </h2>
             <p className="text-[#545454] leading-relaxed">
               Van een zaaltje dat je gewoon even boekt tot een kantoor dat je vanuit je fundament
-              opbouwt. Je kiest je eigen ingang.
+              opbouwt. <span className="whitespace-nowrap">Je kiest je eigen ingang.</span>
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
