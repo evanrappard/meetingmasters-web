@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const benefits = [
   { kpi: "Minder verloop", body: "Mensen die zich gezien en verbonden voelen, blijven langer. Een virtueel kantoor brengt het informele contact en het gevoel van erbij horen terug — juist voor wie veel thuiswerkt." },
   { kpi: "Minder m² kantoor", body: "Met een online thuisbasis hoef je geen fysiek kantoor op volle sterkte aan te houden. Bespaar op vierkante meters en reistijd, en groei flexibel mee." },
-  { kpi: "Betere samenhang & effectiviteit", body: "Kortere lijnen, sneller schakelen en alle mensen, kennis en informatie op één plek. Minder afstemmingsverlies, meer gedaan." },
+  { kpi: "Meer samenhang & effectiviteit", body: "Kortere lijnen, sneller schakelen en alle mensen, kennis en informatie op één plek. Minder afstemmingsverlies, meer gedaan." },
 ];
 
 // Beelden zijn voorlopig placeholders — worden vervangen door eigen visuals.
@@ -102,7 +102,9 @@ export default function VirtualOfficePage() {
               <div className="max-w-[600px]">
                 <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}>Virtual Office</p>
                 <h2 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
-                  Een plek waar je elkaar weer tegenkomt.
+                  Een plek waar je elkaar
+                  <br />
+                  weer tegenkomt.
                 </h2>
                 <p className="text-white text-lg leading-relaxed mb-8" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
                   Je hebt tools genoeg. Wat je mist is een plek om gewoon samen te zijn.
@@ -121,58 +123,47 @@ export default function VirtualOfficePage() {
         </div>
       </section>
 
-      {/* ── WAT IS HET ── */}
+      {/* ── WAT HET IS + VOOR WIE ── */}
       <section className="bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="max-w-[760px]">
-            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Wat het is</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
-              Wat is een virtueel kantoor?
-            </h2>
-            <p className="text-[#545454] leading-relaxed mb-4">
-              Sinds we hybride en remote werken, is het wij-gevoel gaan slijten. Je kunt vergaderen
-              en chatten, maar de toevallige ontmoeting valt weg en contact wordt transactioneel.
-              Niemand organiseert het alternatief.
-            </p>
-            <p className="text-[#545454] leading-relaxed">
-              Een virtueel kantoor is dat alternatief: een vaste online plek waar je team elkaar
-              tegenkomt, samenwerkt en samen is — ook als er geen agenda is. Geen tool erbij, maar
-              een omgeving. Wij richten die plek in en houden hem levend.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── VOOR WIE ── */}
-      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
-        <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="max-w-[760px]">
-            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Voor wie</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
-              Voor teams die elkaar zelden allemaal zien.
-            </h2>
-            <p className="text-[#545454] leading-relaxed">
-              Je team zit verspreid: deels thuis, deels op kantoor, soms over landen en tijdzones.
-              Hybride en internationale teams, remote-first organisaties, communities en
-              samenwerkingsverbanden, project- en programmagroepen die een gezamenlijke basis
-              zoeken. Voor iedereen die het wij-gevoel terug wil zonder iedereen elke dag op
-              dezelfde plek te krijgen.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <div className="group">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Wat het is</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Een verbindende samenwerkplek.
+              </h2>
+              <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
+              <p className="text-[#545454] leading-relaxed">
+                Je kunt vergaderen en chatten, maar zonder ontmoetingen tussendoor wordt contact
+                transactioneel. Het virtuele kantoor is een vaste online plek waar je team elkaar
+                tegenkomt, samenwerkt en samen is — ook als er geen agenda is. Geen tool erbij, maar
+                een omgeving.
+              </p>
+            </div>
+            <div className="group lg:border-l lg:border-[#EBEBEB] lg:pl-16">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Voor wie</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Voor groepen die zelden samen zitten.
+              </h2>
+              <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
+              <p className="text-[#545454] leading-relaxed">
+                Je team zit verspreid: deels thuis, deels op kantoor, soms over landen en tijdzones.
+                Hybride of remote-first, communities en samenwerkingsverbanden: samenhang heeft soms
+                een zetje nodig. Een gezamenlijke basis helpt.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── WAT HET OPLEVERT (KPI) ── */}
-      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Wat het oplevert</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
-              Een virtueel kantoor levert meetbaar wat op.
+            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
+              Een virtueel kantoor maakt meetbaar verschil.
             </h2>
-            <p className="text-[#545454] leading-relaxed">
-              Niet alleen een fijner gevoel — ook resultaat dat je terugziet in de cijfers.
-            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {benefits.map((b) => (
@@ -187,7 +178,7 @@ export default function VirtualOfficePage() {
       </section>
 
       {/* ── HOE ZIET HET ERUIT (TOEPASSINGEN) ── */}
-      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
+      <section className="bg-[#F0F0EB] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Hoe ziet het eruit</p>
@@ -253,20 +244,19 @@ export default function VirtualOfficePage() {
                 Het Online Clubhuis voor Olympiërs wereldwijd.
               </h2>
               <p className="text-[#545454] leading-relaxed mb-4">
+                MeetingMasters werkt zelf al jaren vanuit een eigen virtueel kantoor, en helpt
+                organisaties ruim vijf jaar met online samenwerken in SpatialChat.
+              </p>
+              <p className="text-[#545454] leading-relaxed">
                 Voor de World Olympians Association bouwden we een online clubhuis: 24/7 open, een
                 echte plek waar leden uit de hele wereld binnenlopen wanneer ze willen — ook tussen
                 de Spelen door.
               </p>
-              <p className="text-[#545454] leading-relaxed">
-                MeetingMasters werkt zelf al jaren vanuit een eigen virtueel kantoor, en helpt
-                organisaties ruim vijf jaar met online samenwerken in SpatialChat. De omgeving
-                voldoet daarbij aan enterprise-grade beveiligings- en privacystandaarden.
-              </p>
             </div>
-            <div className="relative aspect-[4/3] rounded overflow-hidden shadow-md">
+            <div className="relative aspect-video rounded overflow-hidden shadow-md">
               <Image
-                src="/images/inspiratie-olyhouse.webp"
-                alt="Online clubhuis voor de World Olympians Association in SpatialChat"
+                src="/images/oly-clubhouse.webp"
+                alt="Online clubhuis voor de World Olympians Association in SpatialChat — leden ontmoeten elkaar op een virtueel bergterras"
                 fill className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
