@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
-import HeroVideo from "@/components/ui/HeroVideo";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
@@ -85,17 +84,17 @@ export default function VirtualOfficePage() {
       <section>
         <h1 className="sr-only">Virtueel kantoor (Virtual Office) voor hybride en internationale teams</h1>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
-          <HeroVideo
-            src="/videos/vo-hero.mp4"
-            startImage="/images/remote-office-virtual.webp"
-            alt="Virtueel kantoor in SpatialChat — een online thuisbasis met meerdere ruimtes voor hybride teams"
-            startHoldMs={1000}
-            holdMs={1000}
-            fadeMs={1200}
-            playbackRate={1}
-            objectPosition="center 78%"
-            className="absolute inset-0"
-            layerStyle={{ filter: "contrast(1.03) saturate(1.06)" }}
+          <video
+            src="/videos/vo-hero-4k.mp4"
+            poster="/images/vo-hero-start.jpg"
+            aria-label="Virtueel kantoor in SpatialChat — een online thuisbasis met meerdere ruimtes voor hybride teams"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center center" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 flex items-end">
