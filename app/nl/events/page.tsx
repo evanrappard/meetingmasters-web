@@ -488,10 +488,10 @@ export default function EventsPage() {
                 Vrijblijvend advies →
               </Link>
             </div>
-            <div className="relative aspect-[4/3] rounded overflow-hidden shadow-md">
+            <div className="relative aspect-video rounded overflow-hidden shadow-md">
               <Image
-                src="/images/inspiratie-olyhouse.webp"
-                alt="Online strategiedag begeleid door MeetingMasters"
+                src="/images/events-spatial.webp"
+                alt="Interactief online event in SpatialChat — deelnemers verspreid over een verhaallijn met meerdere niveaus"
                 fill className="object-cover"
               />
             </div>

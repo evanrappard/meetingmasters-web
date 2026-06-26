@@ -126,15 +126,15 @@ export default function ZaaltjePage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <Link href="/nl/virtual-office/huren" className="bg-white rounded p-7 shadow-sm border border-[#EBEBEB] hover:border-[#28A8AA] transition-colors">
-              <h3 className="font-bold text-[#2D2D2D] text-lg mb-2">Huur een instapklaar kantoor</h3>
+            <Link href="/nl/virtual-office/huren" className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#2D2D2D] text-lg mb-2 group-hover:text-[#EEBE3D] transition-colors">Huur een instapklaar kantoor</h3>
               <p className="text-sm text-[#545454] leading-relaxed mb-4">Een vaste, levende plek waar je elkaar zomaar tegenkomt — per maand of jaar.</p>
-              <span className="text-[#28A8AA] text-sm font-bold">Meer over huren →</span>
+              <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">Meer over huren →</span>
             </Link>
-            <Link href="/nl/virtual-office/fundament" className="bg-white rounded p-7 shadow-sm border border-[#EBEBEB] hover:border-[#28A8AA] transition-colors">
-              <h3 className="font-bold text-[#2D2D2D] text-lg mb-2">Bouw vanuit het fundament</h3>
+            <Link href="/nl/virtual-office/fundament" className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#2D2D2D] text-lg mb-2 group-hover:text-[#EEBE3D] transition-colors">Bouw vanuit het fundament</h3>
               <p className="text-sm text-[#545454] leading-relaxed mb-4">Als het echt om de samenwerking gaat: bouw een kantoor vanuit je waarden.</p>
-              <span className="text-[#28A8AA] text-sm font-bold">Meer over het fundament →</span>
+              <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">Meer over het fundament →</span>
             </Link>
           </div>
         </div>

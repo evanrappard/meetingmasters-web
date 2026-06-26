@@ -18,12 +18,12 @@ const benefits = [
 
 // Beelden zijn voorlopig placeholders — worden vervangen door eigen visuals.
 const scenarios = [
-  { title: "Online clubhuis", body: "Een informele thuisbasis waar collega's elkaar tegenkomen — de digitale variant van de koffiehoek.", img: "/images/inspiratie-olyhouse.webp" },
-  { title: "Online museum", body: "Kennis, projecten of je organisatieverhaal centraal en overzichtelijk, om doorheen te lopen.", img: "/images/spatial-entree.webp" },
-  { title: "Thuisbasis hybride team", body: "Voor teams die deels thuis, deels op kantoor werken en elkaar zelden allemaal zien.", img: "/images/remote-office-virtual.webp" },
-  { title: "Internationale hub", body: "Eén plek voor mensen in verschillende landen en tijdzones, zonder reizen.", img: "/images/hero-lobby.webp" },
-  { title: "Community-ruimte", body: "Een vaste ontmoetingsplek voor leden, een netwerk of een samenwerkingsverband.", img: "/images/hero-1.webp" },
-  { title: "Project- of programmaruimte", body: "Een gezamenlijke basis waar een project- of programmagroep samenkomt en alles bij elkaar staat.", img: "/images/events-bijeenkomst.webp" },
+  { title: "Online clubhuis", body: "Een informele thuisbasis waar collega's elkaar tegenkomen — de digitale variant van de koffiehoek.", img: "/images/vo-clubhuis.webp" },
+  { title: "Online museum", body: "Kennis, projecten of je organisatieverhaal centraal en overzichtelijk, om doorheen te lopen.", img: "/images/vo-museum.webp" },
+  { title: "Thuisbasis hybride team", body: "Voor teams die deels thuis, deels op kantoor werken en elkaar zelden allemaal zien.", img: "/images/vo-thuisbasis.webp" },
+  { title: "Internationale hub", body: "Eén plek voor mensen in verschillende landen en tijdzones, zonder reizen.", img: "/images/vo-hub.webp" },
+  { title: "Community-ruimte", body: "Een vaste ontmoetingsplek voor leden, een netwerk of een samenwerkingsverband.", img: "/images/vo-community.webp" },
+  { title: "Project- of programmaruimte", body: "Een gezamenlijke basis waar een project- of programmagroep samenkomt en alles bij elkaar staat.", img: "/images/vo-project.webp" },
 ];
 
 const ingangen = [
@@ -85,7 +85,7 @@ export default function VirtualOfficePage() {
         <h1 className="sr-only">Virtueel kantoor (Virtual Office) voor hybride en internationale teams</h1>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
           <video
-            src="/videos/vo-hero-4k.mp4"
+            src="/videos/vo-hero-v3.mp4"
             poster="/images/vo-hero-start.jpg"
             aria-label="Virtueel kantoor in SpatialChat — een online thuisbasis met meerdere ruimtes voor hybride teams"
             autoPlay
@@ -147,7 +147,7 @@ export default function VirtualOfficePage() {
               </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
               <p className="text-[#545454] leading-relaxed">
-                Je team zit verspreid: deels thuis, deels op kantoor, soms over landen en tijdzones.
+                Je team zit deels thuis, deels op kantoor, soms verspreid over landen en tijdzones.
                 Hybride of remote-first, communities en samenwerkingsverbanden: samenhang heeft soms
                 een zetje nodig. Een gezamenlijke basis helpt.
               </p>
@@ -183,7 +183,7 @@ export default function VirtualOfficePage() {
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Hoe ziet het eruit</p>
             <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
-              Hoe ziet een virtueel kantoor eruit?
+              Een virtual office kan veel vormen hebben. Wat past bij jullie?
             </h2>
             <p className="text-[#545454] leading-relaxed">
               Geen twee kantoren zijn hetzelfde. Wat het wordt, hangt af van wat je team nodig
@@ -221,14 +221,18 @@ export default function VirtualOfficePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {ingangen.map((p) => (
-              <div key={p.title} className="bg-white rounded p-7 shadow-sm border border-[#EBEBEB] flex flex-col">
+              <Link
+                key={p.title}
+                href={p.href}
+                className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] flex flex-col hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
+              >
                 <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">{p.tag}</span>
-                <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug">{p.title}</h3>
+                <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug group-hover:text-[#EEBE3D] transition-colors">{p.title}</h3>
                 <p className="text-sm text-[#545454] leading-relaxed flex-1 mb-6">{p.desc}</p>
-                <Link href={p.href} className="text-[#28A8AA] text-sm font-bold hover:underline self-start">
+                <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
                   {p.title} →
-                </Link>
-              </div>
+                </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -248,9 +252,9 @@ export default function VirtualOfficePage() {
                 organisaties ruim vijf jaar met online samenwerken in SpatialChat.
               </p>
               <p className="text-[#545454] leading-relaxed">
-                Voor de World Olympians Association bouwden we een online clubhuis: 24/7 open, een
-                echte plek waar leden uit de hele wereld binnenlopen wanneer ze willen — ook tussen
-                de Spelen door.
+                Voor de World Olympians Association bouwden we een online clubhuis, zowel voor Parijs
+                2024 als voor Milano Cortina 2026. 24/7 open, een echte plek waar leden uit de hele
+                wereld binnen konden lopen om herinneringen op te halen en verder te praten.
               </p>
             </div>
             <div className="relative aspect-video rounded overflow-hidden shadow-md">
