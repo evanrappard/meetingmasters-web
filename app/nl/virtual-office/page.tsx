@@ -85,9 +85,8 @@ export default function VirtualOfficePage() {
         <h1 className="sr-only">Virtueel kantoor (Virtual Office) voor hybride en internationale teams</h1>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
           <video
-            src="/videos/vo-hero-v3.mp4"
-            poster="/images/vo-hero-start.jpg"
-            aria-label="Virtueel kantoor in SpatialChat — een online thuisbasis met meerdere ruimtes voor hybride teams"
+            poster="/images/vo-hero-office.jpg"
+            aria-label="Virtueel kantoor in SpatialChat — een lichte, open kantooromgeving met teamleden die via videocirkels aanwezig zijn"
             autoPlay
             muted
             loop
@@ -95,18 +94,27 @@ export default function VirtualOfficePage() {
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center center" }}
+          >
+            <source src="/videos/vo-hero-office-v4.webm" type="video/webm" />
+            <source src="/videos/vo-hero-office-v4.mp4" type="video/mp4" />
+          </video>
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(135% 115% at 0% 100%, rgba(0,0,0,0.62), rgba(0,0,0,0.22) 40%, transparent 66%), linear-gradient(to top, rgba(0,0,0,0.5), transparent 46%)",
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 flex items-end">
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
               <div className="max-w-[600px]">
-                <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}>Virtual Office</p>
+                <p className="inline-block bg-black/35 rounded px-2.5 py-1 text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">Virtual Office</p>
                 <h2 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
                   Een plek waar je elkaar
                   <br />
                   weer tegenkomt.
                 </h2>
-                <p className="text-white text-lg leading-relaxed mb-8" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
+                <p className="text-white text-lg font-medium leading-relaxed mb-8" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.6)" }}>
                   Je hebt tools genoeg. Wat je mist is een plek om gewoon samen te zijn.
                 </p>
                 <div className="flex flex-wrap gap-3">
