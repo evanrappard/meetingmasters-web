@@ -137,7 +137,7 @@ const DEFAULT_INSPIRATIE = [
     label: "Virtual Office",
     title: "Virtueel clubhuis voor Olympiërs wereldwijd.",
     body: "World Olympians Association — actief tijdens de Spelen van Parijs en Milaan.",
-    img: "/images/inspiratie-olyhouse.webp",
+    img: "/images/inspiratie-olyhouse-2026.webp",
     imgAlt: "e-OLYHouse 2026 in SpatialChat — een virtueel clubhuis voor de World Olympians Association op een alpine locatie",
   },
   {
