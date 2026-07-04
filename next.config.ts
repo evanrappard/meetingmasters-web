@@ -46,6 +46,15 @@ const nextConfig: NextConfig = {
       { source: "/nl/virtual-office/huur", destination: "/nl/virtual-office/huren", permanent: true },
       { source: "/nl/virtual-office/bouw", destination: "/nl/virtual-office/fundament", permanent: true },
       { source: "/nl/virtual-office/cultuur", destination: "/nl/virtual-office/fundament", permanent: true },
+      // Oude losse (Engelse) structuur geconsolideerd onder /nl
+      { source: "/technology", destination: "/nl/technologie", permanent: true },
+      { source: "/technology/:path*", destination: "/nl/technologie/:path*", permanent: true },
+      { source: "/games", destination: "/nl/games-tools", permanent: true },
+      { source: "/games/escape-masters", destination: "/nl/games-tools/escape-masters", permanent: true },
+      { source: "/games/ravenhack", destination: "/nl/games-tools/ravenhack", permanent: true },
+      { source: "/games/:path*", destination: "/nl/games-tools", permanent: true },
+      { source: "/events", destination: "/nl/events", permanent: true },
+      { source: "/events/:path*", destination: "/nl/events/:path*", permanent: true },
     ];
   },
   images: {
