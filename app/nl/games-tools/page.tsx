@@ -95,7 +95,7 @@ export default function GamesToolsPage() {
       <section>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px] overflow-hidden">
           <video
-            poster="/images/games-hero-v2.jpg"
+            poster="/images/games-hero-v3.jpg"
             aria-label="Games &amp; Tools van MeetingMasters — een interactief online spel met deelnemers in beeld"
             autoPlay
             muted
@@ -105,8 +105,8 @@ export default function GamesToolsPage() {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center center" }}
           >
-            <source src="/videos/games-hero-v2.webm" type="video/webm" />
-            <source src="/videos/games-hero-v2.mp4" type="video/mp4" />
+            <source src="/videos/games-hero-v3.webm" type="video/webm" />
+            <source src="/videos/games-hero-v3.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 flex items-end">
@@ -124,7 +124,7 @@ export default function GamesToolsPage() {
                   <Link href="/nl/contact" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
                     Check beschikbaarheid →
                   </Link>
-                  <Link href="#speelklaar" className="text-white/85 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors">
+                  <Link href="#games" className="text-white/85 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors">
                     Meer weten
                   </Link>
                 </div>
