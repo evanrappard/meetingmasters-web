@@ -54,18 +54,38 @@ export default function GamesToolsPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <p className="text-accent text-sm font-semibold mb-3 tracking-widest uppercase">
-          Games &amp; Tools
-        </p>
-        <h1 className="text-4xl font-bold text-primary mb-5">
-          Play together. Learn something.
-        </h1>
-        <p className="text-[#666666] text-lg max-w-2xl mx-auto leading-relaxed">
-          Ready-to-play online formats and custom-built interactive experiences.
-          From escape rooms to onboarding games — made for groups, designed for
-          engagement.
-        </p>
+      <section>
+        <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
+          <video
+            poster="/images/games-hero.jpg"
+            aria-label="Games &amp; Tools van MeetingMasters — een interactief online spel met deelnemers in beeld"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center center" }}
+          >
+            <source src="/videos/games-hero.webm" type="video/webm" />
+            <source src="/videos/games-hero.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
+              <div className="max-w-[600px]">
+                <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}>Games &amp; Tools</p>
+                <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
+                  Play together. Learn something.
+                </h1>
+                <p className="text-white text-lg font-medium leading-relaxed" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.6)" }}>
+                  Ready-to-play online formats and custom-built interactive experiences. From escape
+                  rooms to onboarding games — made for groups, designed for engagement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Ready-to-play formats */}

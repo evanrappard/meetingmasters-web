@@ -35,15 +35,11 @@ const navItems: {
   },
   {
     label: "Games",
-    href: "/games",
+    href: "/nl/games-tools",
     children: [
-      { label: "R@venHack: Cybersecurity", href: "/games/ravenhack" },
-      { label: "Maatwerkgames", href: "/games/maatwerk" },
-      { separator: true },
-      { label: "Wheel of Fortune", href: "/games/tools/wheel-of-fortune" },
-      { label: "Inspiration Cards", href: "/games/tools/inspiration-cards" },
-      { label: "Bingo", href: "/games/tools/bingo" },
-      { label: "Storytelling", href: "/games/tools/storytelling" },
+      { label: "EscapeMasters", href: "/nl/games-tools/escape-masters" },
+      { label: "R@venHack: Cybersecurity", href: "/nl/games-tools/ravenhack" },
+      { label: "Alle games & tools →", href: "/nl/games-tools" },
     ],
   },
   {
