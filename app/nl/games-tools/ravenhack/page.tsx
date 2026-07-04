@@ -1,87 +1,303 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import CTABlock from "@/components/ui/CTABlock";
+import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
-  title: "R@venHack: Cybersecurity | MeetingMasters",
+  title: "R@venHack — cybersecurity escape game voor teams | MeetingMasters",
   description:
-    "Een escape game rond cybersecurity die leert én spanning geeft. Teams stoppen samen een cyberaanval terwijl ze op de meest boeiende manier leren over digitale veiligheid.",
+    "R@venHack is een cybersecurity escape game waarin uw team samen een digitale aanval stopt. Leer al doende over phishing, datalekken en veilig digitaal gedrag — teambuilding én startpunt voor kennisoverdracht. Draait via SpatialChat.",
+};
+
+const leerpunten = [
+  {
+    title: "Phishing herkennen",
+    body: "Uw team leert verdachte berichten, valse links en misleiding herkennen — niet uit een handleiding, maar doordat het er middenin zit.",
+  },
+  {
+    title: "Datalekken indammen",
+    body: "Wat doet u als gevoelige gegevens op straat dreigen te komen? Samen ontdekt u hoe snel handelen en overleg het verschil maken.",
+  },
+  {
+    title: "Veilig digitaal gedrag",
+    body: "Van wachtwoorden tot het delen van informatie: het spel maakt zichtbaar welke gewoontes veilig zijn en welke een risico vormen.",
+  },
+];
+
+const stappen = [
+  {
+    tag: "De crisis",
+    title: "Uw team belandt midden in een aanval",
+    body: "Datalekken, phishing en verborgen aanwijzingen: er is iets goed mis en de klok tikt. Samen moet u de digitale crisis ontrafelen.",
+  },
+  {
+    tag: "Het onderzoek",
+    title: "Samen zoekt u naar de sleutels",
+    body: "In een reeks puzzels en aanwijzingen ontdekt u hoe de aanval in elkaar zit. Overleggen, combineren en doorpakken — als team.",
+  },
+  {
+    tag: "De doorbraak",
+    title: "U stopt de aanval",
+    body: "Op het juiste moment valt alles op zijn plek en keert u de aanval. En ondertussen heeft u geleerd hoe u dit in het echt voorkomt.",
+  },
+];
+
+const faq = [
+  {
+    q: "Wat is R@venHack precies?",
+    a: "R@venHack is een cybersecurity escape game. Uw team belandt in een digitale crisis vol datalekken, phishing en verborgen aanwijzingen en moet samen de aanval stoppen. Het is een bewustwordingservaring: u leert over veilig digitaal gedrag door het te dóen, in plaats van een e-learning te doorlopen.",
+  },
+  {
+    q: "Hoe lang duurt R@venHack?",
+    a: "Een sessie duurt doorgaans 60 tot 90 minuten, inclusief een korte introductie en een nabespreking waarin we de belangrijkste lessen samen doorlopen.",
+  },
+  {
+    q: "Voor welke groepsgrootte is het geschikt?",
+    a: "R@venHack is bedoeld voor teams en grotere groepen. Deelnemers werken in kleinere teams samen, zodat iedereen actief meedoet. Voor het aantal deelnemers dat bij uw groep past, kijken we graag even mee.",
+  },
+  {
+    q: "Wat leert mijn team ervan?",
+    a: "Deelnemers leren phishing en misleiding herkennen, hoe ze een datalek indammen en wat veilig digitaal gedrag in de praktijk betekent. Omdat ze het samen en onder lichte druk ontdekken, beklijven de lessen beter dan bij een verplichte training. Het is tegelijk teambuilding én een natuurlijk startpunt voor bredere kennisoverdracht over cybersecurity.",
+  },
+  {
+    q: "Op welk platform draait R@venHack?",
+    a: "R@venHack draait via SpatialChat en wordt begeleid door de Meeting Masters. Deelnemers openen een link in de browser en lopen zo binnen — zonder installatie. De begeleiding zorgt dat het spel soepel verloopt en dat iedereen erbij betrokken blijft.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
 };
 
 export default function RavenHackPage() {
   return (
     <div className="bg-white">
-      <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <p className="text-accent text-sm font-semibold mb-3 tracking-widest uppercase">
-          Games &amp; Tools
-        </p>
-        <h1 className="text-4xl font-bold text-primary mb-4">
-          R@venHack: Cybersecurity
-        </h1>
-        <p className="text-[#666666] text-lg max-w-xl mx-auto">
-          Een bewustwordingservaring rond cybersecurity in escaperoom-vorm.
-          Teams werken samen om een cyberaanval te stoppen — en begrijpen
-          werkelijk waarom het ertoe doet.
-        </p>
-      </div>
+      <JsonLd data={faqSchema} />
 
-      <section className="py-20">
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md">
-              <Image
-                src="/images/format-2.png"
-                alt="R@venHack cybersecurity game"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-primary mb-5">
-                Verder dan de phishingtest.
-              </h2>
-              <p className="text-[#666666] leading-relaxed mb-4">
-                R@venHack is een online teamgame waarin deelnemers een fictieve
-                cyberaanval moeten stoppen. De klok tikt door. De aanwijzingen
-                zijn echt. En de lessen beklijven — omdat ze onder druk en
-                samen ontdekt zijn.
-              </p>
-              <p className="text-[#666666] leading-relaxed mb-4">
-                Ontworpen voor organisaties die het bewustzijn rond digitale
-                veiligheid verder willen brengen dan een verplichte e-learning.
-                R@venHack maakt het abstracte concreet, het saaie boeiend en de
-                individuele les een gedeelde teamervaring.
-              </p>
-              <p className="text-[#666666] leading-relaxed mb-6">
-                Duur: 60–90 minuten. Geschikt voor 10 tot 150 deelnemers.
-                Scenario's op maat op aanvraag beschikbaar.
-              </p>
-              <Link
-                href="/nl/contact"
-                className="bg-accent text-white px-8 py-3.5 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
-              >
-                Boek R@venHack
-              </Link>
+      {/* ── HERO ── */}
+      <section>
+        <h1 className="sr-only">
+          R@venHack — cybersecurity escape game voor teams
+        </h1>
+        <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
+          <Image
+            src="/images/format-2.png"
+            alt="R@venHack cybersecurity escape game — een team stopt samen een digitale aanval"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
+              <div className="max-w-[600px]">
+                <p className="inline-block bg-black/35 rounded px-2.5 py-1 text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
+                  R@venHack · Cybersecurity
+                </p>
+                <h2
+                  className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5"
+                  style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}
+                >
+                  Stop samen
+                  <br />
+                  de cyberaanval.
+                </h2>
+                <p
+                  className="text-white text-lg font-medium leading-relaxed mb-8"
+                  style={{
+                    textShadow:
+                      "0 1px 2px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.6)",
+                  }}
+                >
+                  Een cybersecurity escape game waarin uw team al spelend leert
+                  over veilig digitaal gedrag.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    href="/nl/contact"
+                    className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
+                  >
+                    Check beschikbaarheid →
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-14 text-center border-y border-gray-200">
-        <h2 className="text-xl font-bold text-primary mb-4">
-          Een demo aanvragen?
-        </h2>
-        <p className="text-[#666666] mb-6 max-w-md mx-auto">
-          We nemen u graag mee door R@venHack en bespreken of een scenario op
-          maat beter bij uw organisatie past.
-        </p>
-        <Link
-          href="/nl/contact"
-          className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
-        >
-          Vraag een demo aan
-        </Link>
+      {/* ── WAT HET IS + VOOR WIE ── */}
+      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <div className="group">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+                Wat het is
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Een cybersecurity escape game.
+              </h2>
+              <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
+              <p className="text-[#545454] leading-relaxed">
+                In R@venHack belandt uw team midden in een digitale crisis vol
+                datalekken, phishing en verborgen aanwijzingen. Samen ontrafelt
+                u de aanwijzingen en stopt u de aanval. Het is geen les die u
+                ondergaat, maar een ervaring die u doorleeft — en juist daardoor
+                blijft hangen wat veilig digitaal gedrag betekent.
+              </p>
+            </div>
+            <div className="group lg:border-l lg:border-[#EBEBEB] lg:pl-16">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+                Voor wie
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Teambuilding met een leerdoel.
+              </h2>
+              <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
+              <p className="text-[#545454] leading-relaxed">
+                Voor organisaties die het bewustzijn rond digitale veiligheid
+                verder willen brengen dan een verplichte e-learning. R@venHack
+                werkt als teambuilding én als natuurlijk startpunt voor bredere
+                kennisoverdracht over cybersecurity — u leert samen, en het
+                gesprek erna gaat vanzelf verder.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
+
+      {/* ── WAT U LEERT ── */}
+      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="mb-10 max-w-[760px]">
+            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+              Wat u leert
+            </p>
+            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
+              Leren over veilig digitaal gedrag door het te dóen.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {leerpunten.map((b) => (
+              <div
+                key={b.title}
+                className="bg-white rounded p-7 shadow-sm border border-[#EBEBEB]"
+              >
+                <div className="w-8 h-1 bg-[#EEBE3D] rounded mb-4" />
+                <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug">
+                  {b.title}
+                </h3>
+                <p className="text-sm text-[#545454] leading-relaxed">
+                  {b.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOE HET WERKT ── */}
+      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="mb-10 max-w-[760px]">
+            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+              Hoe het werkt
+            </p>
+            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+              Van crisis naar doorbraak, samen als team.
+            </h2>
+            <p className="text-[#545454] leading-relaxed">
+              R@venHack draait via SpatialChat en wordt begeleid door de Meeting
+              Masters. U opent een link, loopt binnen en de crisis begint.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {stappen.map((s) => (
+              <div
+                key={s.title}
+                className="bg-white rounded p-7 shadow-sm border border-[#EBEBEB] flex flex-col"
+              >
+                <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">
+                  {s.tag}
+                </span>
+                <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug">
+                  {s.title}
+                </h3>
+                <p className="text-sm text-[#545454] leading-relaxed">
+                  {s.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── BEELD + PRAKTIJK ── */}
+      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+                In de praktijk
+              </p>
+              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Verder dan de phishingtest.
+              </h2>
+              <p className="text-[#545454] leading-relaxed mb-4">
+                Een e-learning wordt aangevinkt en vergeten. R@venHack blijft
+                hangen, omdat uw team de lessen onder lichte druk en samen
+                ontdekt. De aanwijzingen zijn echt, de klok tikt door en de
+                inzichten zijn van uzelf.
+              </p>
+              <p className="text-[#545454] leading-relaxed">
+                Zo maakt R@venHack het abstracte concreet en het saaie boeiend —
+                en verandert een individuele plicht in een gedeelde
+                teamervaring die het gesprek over veiligheid op gang brengt.
+              </p>
+            </div>
+            <div className="relative aspect-video rounded overflow-hidden shadow-md">
+              <Image
+                src="/images/format-2.png"
+                alt="Team speelt R@venHack, een cybersecurity escape game in SpatialChat, en stopt samen een digitale aanval"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="bg-[#F5F5F5] py-12 border-t border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-8 text-center">
+            Veelgestelde vragen over R@venHack
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {faq.map((item) => (
+              <div key={item.q}>
+                <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">
+                  {item.q}
+                </h3>
+                <p className="text-sm text-[#545454] leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <CTABlock />
     </div>
   );
 }
