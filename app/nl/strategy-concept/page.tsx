@@ -3,29 +3,29 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Strategy & Concept | MeetingMasters",
+  title: "Strategie & Concept | MeetingMasters",
   description:
-    "We design online meeting strategies and formats that work — in content, technology, and for people.",
+    "Wij ontwerpen strategieën en formats voor online meetings die werken — inhoudelijk, technologisch en voor de mensen.",
 };
 
 const cards = [
   {
     img: "/images/strategy-1.png",
-    alt: "Goal and direction",
-    title: "Goal & direction",
-    body: "We formulate meeting strategies that stimulate involvement and contribute to reaching your goals. What is the context of your meetings? What is the envisioned result, both in terms of content and relationships?",
+    alt: "Doel en richting",
+    title: "Doel & richting",
+    body: "Wij formuleren meetingstrategieën die betrokkenheid stimuleren en bijdragen aan het bereiken van uw doelen. Wat is de context van uw meetings? Wat is het beoogde resultaat, zowel inhoudelijk als relationeel?",
   },
   {
     img: "/images/format-1.jpg",
-    alt: "Formats and technology",
-    title: "Formats & technology",
-    body: "What fits the objectives? How surprising can the online setting be? We advise on platform, formats, and concepts that stimulate interaction and give ideas space and direction.",
+    alt: "Formats en technologie",
+    title: "Formats & technologie",
+    body: "Wat past bij de doelstellingen? Hoe verrassend mag de online setting zijn? Wij adviseren over platform, formats en concepten die interactie stimuleren en ideeën ruimte en richting geven.",
   },
   {
     img: "/images/planning-1.png",
-    alt: "Structure and design",
-    title: "Structure & design",
-    body: "We translate plans into detailed playbooks: a guideline for organizers, speakers, and facilitators — and an important anchor for supporting Masters.",
+    alt: "Structuur en ontwerp",
+    title: "Structuur & ontwerp",
+    body: "Wij vertalen plannen naar gedetailleerde playbooks: een leidraad voor organisatoren, sprekers en facilitators — en een belangrijk houvast voor de ondersteunende Masters.",
   },
 ];
 
@@ -36,7 +36,7 @@ export default function StrategyConceptPage() {
       <div className="relative w-full h-[50vh] overflow-hidden">
         <Image
           src="/images/strategy-banner.jpg"
-          alt="Strategy and concept"
+          alt="Strategie en concept"
           fill
           className="object-cover"
           priority
@@ -45,14 +45,14 @@ export default function StrategyConceptPage() {
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="text-white max-w-3xl">
             <p className="text-sm font-medium tracking-widest uppercase mb-3 text-white/70">
-              ► From strategy to online meeting concept
+              ► Van strategie naar online meetingconcept
             </p>
             <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
-              Strategy & Concept
+              Strategie & Concept
             </h1>
             <p className="text-base md:text-lg text-white/85">
-              We aim for an efficient approach to online interaction, with
-              maximum engagement for real results.
+              Wij streven naar een efficiënte aanpak van online interactie, met
+              maximale betrokkenheid voor echte resultaten.
             </p>
           </div>
         </div>
@@ -62,10 +62,10 @@ export default function StrategyConceptPage() {
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-[#666666] text-lg leading-relaxed">
-            Whether you&apos;re hosting a small, intense online meeting or a
-            large multi-day online summit — gatherings rarely exist in isolation.
-            We design formats that genuinely work: for your content, your
-            relationships, and your goals.
+            Of u nu een kleine, intense online meeting organiseert of een grote,
+            meerdaagse online summit — bijeenkomsten staan zelden op zichzelf.
+            Wij ontwerpen formats die echt werken: voor uw inhoud, uw relaties en
+            uw doelen.
           </p>
         </div>
       </section>
@@ -90,13 +90,13 @@ export default function StrategyConceptPage() {
       {/* CTA */}
       <section className="bg-gray-50 py-14 text-center">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Ready to design your next meeting?
+          Klaar om uw volgende meeting te ontwerpen?
         </h2>
         <Link
           href="/nl/contact"
           className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
         >
-          Get in touch
+          Neem contact op
         </Link>
       </section>
     </>

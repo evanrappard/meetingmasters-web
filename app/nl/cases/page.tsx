@@ -4,36 +4,36 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Cases | MeetingMasters",
   description:
-    "Real examples of online events, virtual offices, and interactive formats — and what clients say about working with MeetingMasters.",
+    "Echte voorbeelden van online events, virtuele kantoren en interactieve formats — en wat klanten zeggen over de samenwerking met MeetingMasters.",
 };
 
 const cases = [
   {
     client: "World Olympians Association",
-    category: "Remote Office",
-    title: "e-OLY House: A virtual home for former Olympians worldwide",
+    category: "Virtueel kantoor",
+    title: "e-OLY House: een virtueel thuis voor oud-Olympiërs wereldwijd",
     summary:
-      "The World Olympians Association needed a digital gathering space for members across every timezone — not a call platform, but a virtual home. We built e-OLY House in SpatialChat: always-on, with social spaces, event rooms, and the feel of a real venue.",
+      "De World Olympians Association had behoefte aan een digitale ontmoetingsplek voor leden in elke tijdzone — geen belplatform, maar een virtueel thuis. Wij bouwden e-OLY House in SpatialChat: altijd open, met sociale ruimtes, eventzalen en de sfeer van een echte locatie.",
     quote:
-      "Our Olympians always expect excellence, and with Meeting Masters that's simply the standard. The key might lay in the fact that it's just such a joy to work with them.",
+      "Onze Olympiërs verwachten altijd topkwaliteit, en met Meeting Masters is dat gewoon de standaard. Misschien zit het hem er wel in dat het simpelweg zo'n plezier is om met ze samen te werken.",
   },
   {
     client: "Bergman Clinics",
     category: "Event",
-    title: "Annual meeting redesigned for online",
+    title: "Jaarvergadering opnieuw ontworpen voor online",
     summary:
-      "Bergman Clinics needed to bring together their full organisation online — not for a passive broadcast, but for genuine dialogue. We designed the format, facilitated the interaction, and handled full live production.",
+      "Bergman Clinics wilde de hele organisatie online samenbrengen — niet voor een passieve uitzending, maar voor een echt gesprek. Wij ontwierpen het format, begeleidden de interactie en verzorgden de volledige live productie.",
     quote:
-      "MeetingMasters also think along with you on how to get the best out of an online meeting or event. A valuable contribution to connection in this time.",
+      "MeetingMasters denkt ook met je mee over hoe je het beste uit een online meeting of event haalt. Een waardevolle bijdrage aan verbinding in deze tijd.",
   },
   {
     client: "Red Cross Netherlands",
     category: "Event",
-    title: "Digital yet very natural",
+    title: "Digitaal en toch heel natuurlijk",
     summary:
-      "A complex event with multiple stakeholder groups — each needing to feel heard and connected. We designed the interaction logic, trained the hosts, and ran live production throughout the day.",
+      "Een complex event met meerdere stakeholdergroepen — die zich elk gehoord en verbonden moesten voelen. Wij ontwierpen de interactielogica, trainden de hosts en verzorgden de live productie gedurende de hele dag.",
     quote:
-      "An event where people could truly listen to each other and learn from one another. A new experience in the events world. Digital yet very natural.",
+      "Een event waar mensen echt naar elkaar konden luisteren en van elkaar konden leren. Een nieuwe ervaring in de eventwereld. Digitaal en toch heel natuurlijk.",
   },
 ];
 
@@ -41,22 +41,22 @@ const testimonials = [
   {
     company: "Municipality of Amsterdam",
     quote:
-      "We asked MeetingMasters to design and run our online citizen participation event. The quality of the interaction surprised everyone involved.",
+      "We vroegen MeetingMasters om ons online burgerparticipatie-event te ontwerpen en te begeleiden. De kwaliteit van de interactie verraste iedereen die erbij betrokken was.",
   },
   {
     company: "ABN AMRO",
     quote:
-      "Professional, responsive, and they really understood what we needed. The event exceeded expectations.",
+      "Professioneel, betrokken en ze begrepen echt wat we nodig hadden. Het event overtrof de verwachtingen.",
   },
   {
     company: "Erasmus University",
     quote:
-      "MeetingMasters brought structure and energy to a complex event with a large audience. We'll work with them again.",
+      "MeetingMasters bracht structuur en energie in een complex event met een groot publiek. We werken zeker weer met ze samen.",
   },
   {
     company: "Randstad",
     quote:
-      "The team handled everything — design, tech, and facilitation. We could focus entirely on our content.",
+      "Het team regelde alles — ontwerp, techniek en begeleiding. Wij konden ons volledig richten op onze inhoud.",
   },
 ];
 
@@ -66,14 +66,14 @@ export default function CasesPage() {
       {/* Header */}
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
         <p className="text-accent text-sm font-semibold mb-3 tracking-widest uppercase">
-          Cases &amp; Testimonials
+          Cases &amp; Ervaringen
         </p>
         <h1 className="text-4xl font-bold text-primary mb-4">
-          What happens when it works.
+          Wat er gebeurt als het werkt.
         </h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">
-          Real organisations, real events, and what they say about working with
-          us.
+          Echte organisaties, echte events, en wat zij zeggen over de
+          samenwerking met ons.
         </p>
       </div>
 
@@ -113,7 +113,7 @@ export default function CasesPage() {
       <section className="bg-gray-50 py-20 border-y border-gray-200">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-primary text-center mb-12">
-            More testimonials
+            Meer ervaringen
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {testimonials.map((t) => (
@@ -136,13 +136,13 @@ export default function CasesPage() {
       {/* CTA */}
       <section className="bg-white py-14 text-center">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Want to know what this could look like for you?
+          Wilt u weten hoe dit er voor u uit kan zien?
         </h2>
         <Link
           href="/nl/contact"
           className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
         >
-          Plan a demo
+          Plan een demo
         </Link>
       </section>
     </div>

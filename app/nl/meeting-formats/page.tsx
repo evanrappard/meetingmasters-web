@@ -3,52 +3,52 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Meeting Formats | MeetingMasters",
+  title: "Vergaderformats | MeetingMasters",
   description:
-    "16+ online meeting formats for every kind of gathering — brainstorms, strategy days, escape rooms, webinars, and more.",
+    "16+ online vergaderformats voor elke soort bijeenkomst — brainstorms, strategiedagen, escape rooms, webinars en meer.",
 };
 
 const featured = [
   {
     img: "/images/format-party.png",
-    alt: "Online company party",
-    title: "Fantastic parties",
-    desc: "Easy or custom-made — online parties that connect and celebrate. From a virtual borrel to a full Christmas experience.",
-    cta: "Get in touch",
+    alt: "Online bedrijfsfeest",
+    title: "Fantastische feesten",
+    desc: "Eenvoudig of op maat — online feesten die verbinden en vieren. Van een virtuele borrel tot een compleet kerstevenement.",
+    cta: "Neem contact op",
   },
   {
     img: "/images/format-escape.png",
     alt: "Online escape room",
-    title: "Exciting Escape Rooms",
-    desc: "Engaging, team-building escape experiences. Online. Our EscapeMasters and R@venHack formats guarantee energy and interaction.",
-    cta: "Learn more",
+    title: "Spannende Escape Rooms",
+    desc: "Meeslepende, teambuildende escape-ervaringen. Online. Onze EscapeMasters- en R@venHack-formats garanderen energie en interactie.",
+    cta: "Meer weten",
   },
   {
     img: "/images/strategy-banner.jpg",
-    alt: "Online strategy days",
-    title: "Thoughtful strategy days",
-    desc: "Well-designed online strategy sessions that drive alignment and action. We design the format, you focus on the content.",
-    cta: "Get in touch",
+    alt: "Online strategiedagen",
+    title: "Doordachte strategiedagen",
+    desc: "Goed ontworpen online strategiesessies die zorgen voor afstemming en actie. Wij ontwerpen het format, u richt zich op de inhoud.",
+    cta: "Neem contact op",
   },
 ];
 
 const allFormats = [
-  "Online brainstorm sessions",
-  "Online company party",
+  "Online brainstormsessies",
+  "Online bedrijfsfeest",
   "Online Escape Room",
-  "Personal development online",
-  "Online strategy sessions",
-  "Interactive webinars",
-  "Online team development",
-  "Remote office",
-  "Online citizen councils",
+  "Persoonlijke ontwikkeling online",
+  "Online strategiesessies",
+  "Interactieve webinars",
+  "Online teamontwikkeling",
+  "Virtueel kantoor",
+  "Online burgerberaden",
   "Online townhall / all-hands",
   "Online World Café",
-  "Annual meeting online",
+  "Jaarvergadering online",
   "Online Open Space",
-  "Online conferences",
+  "Online congressen",
   "Online Community Building",
-  "Online sounding board",
+  "Online klankbordgroep",
 ];
 
 export default function MeetingFormatsPage() {
@@ -58,7 +58,7 @@ export default function MeetingFormatsPage() {
       <div className="relative w-full h-[45vh] overflow-hidden">
         <Image
           src="/images/format-1.jpg"
-          alt="Meeting formats"
+          alt="Vergaderformats"
           fill
           className="object-cover"
           priority
@@ -67,11 +67,11 @@ export default function MeetingFormatsPage() {
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="text-white max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
-              The perfect format for your online gathering
+              Het perfecte format voor uw online bijeenkomst
             </h1>
             <p className="text-base text-white/85">
-              No single meeting is the same. What connects them all: genuine
-              contact and connection.
+              Geen enkele bijeenkomst is hetzelfde. Wat ze allemaal verbindt:
+              echt contact en verbinding.
             </p>
           </div>
         </div>
@@ -106,10 +106,10 @@ export default function MeetingFormatsPage() {
       <section className="bg-gray-50 py-16">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-primary text-center mb-3">
-            All meeting formats
+            Alle vergaderformats
           </h2>
           <p className="text-[#666666] text-center mb-10">
-            Personal support does not have to be expensive.
+            Persoonlijke begeleiding hoeft niet duur te zijn.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {allFormats.map((f) => (
@@ -127,16 +127,16 @@ export default function MeetingFormatsPage() {
       {/* CTA */}
       <section className="bg-white py-14 text-center">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Not sure which format fits?
+          Weet u niet welk format past?
         </h2>
         <p className="text-[#666666] mb-6">
-          We&apos;re happy to advise — no strings attached.
+          Wij adviseren u graag — geheel vrijblijvend.
         </p>
         <Link
           href="/nl/contact"
           className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
         >
-          Get in touch
+          Neem contact op
         </Link>
       </section>
     </>

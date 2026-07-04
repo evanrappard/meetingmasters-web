@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Our Team | MeetingMasters",
+  title: "Ons team | MeetingMasters",
   description:
-    "Meet Emilie van Rappard and the MeetingMasters team — experienced online meeting professionals.",
+    "Maak kennis met Emilie van Rappard en het team van MeetingMasters — ervaren professionals in online vergaderingen.",
 };
 
 export default function TeamPage() {
@@ -12,9 +12,9 @@ export default function TeamPage() {
     <div className="bg-white">
       {/* Header */}
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <h1 className="text-4xl font-bold text-primary mb-3">Our Team</h1>
+        <h1 className="text-4xl font-bold text-primary mb-3">Ons team</h1>
         <p className="text-[#666666] text-lg">
-          A clear vision and many years of solid experience.
+          Een heldere visie en jarenlange gedegen ervaring.
         </p>
       </div>
 
@@ -33,19 +33,20 @@ export default function TeamPage() {
             <h2 className="text-2xl font-bold text-primary mb-1">
               Emilie van Rappard
             </h2>
-            <p className="italic text-[#666666] text-base mb-6">Founder</p>
+            <p className="italic text-[#666666] text-base mb-6">Oprichter</p>
             <p className="text-[#555555] leading-relaxed mb-4">
-              As a brand and participative strategy consultant, Emilie has been
-              guiding national and international groups to explore new directions
-              and drive change. Based on the principles of Genuine Contact and
-              Liberating Structures, she is in search of what connects people and
-              organizations — onsite and online.
+              Als adviseur op het gebied van merk- en participatieve strategie
+              begeleidt Emilie nationale en internationale groepen bij het
+              verkennen van nieuwe richtingen en het in gang zetten van
+              verandering. Vanuit de principes van Genuine Contact en Liberating
+              Structures is zij op zoek naar wat mensen en organisaties verbindt —
+              zowel op locatie als online.
             </p>
             <p className="text-[#555555] leading-relaxed">
-              Emilie is the founder of MeetingMasters Online. With a passion for
-              genuine human connection and a deep understanding of digital
-              environments, she has built a team and a methodology that
-              consistently delivers meaningful online gatherings.
+              Emilie is de oprichter van MeetingMasters Online. Met een passie
+              voor oprechte menselijke verbinding en een diepgaand begrip van
+              digitale omgevingen heeft zij een team en een werkwijze opgebouwd
+              die keer op keer waardevolle online bijeenkomsten opleveren.
             </p>
           </div>
         </div>
@@ -55,28 +56,28 @@ export default function TeamPage() {
       <section className="bg-gray-50 py-16">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-primary mb-2">
-            About our Meeting Masters
+            Over onze Meeting Masters
           </h2>
           <p className="text-[#666666] mb-8">
-            With a small back office, an extensive partner network, and a solid
-            team of highly educated Meeting Masters, we work every day to make
-            your meetings, summits, and events better.
+            Met een compacte backoffice, een uitgebreid partnernetwerk en een
+            sterk team van hoogopgeleide Meeting Masters werken we elke dag aan
+            het beter maken van uw vergaderingen, summits en events.
           </p>
           <div className="relative w-full aspect-[16/7] overflow-hidden rounded-lg mb-8">
             <Image
               src="/images/team-group.jpg"
-              alt="MeetingMasters team"
+              alt="Het team van MeetingMasters"
               fill
               className="object-cover"
             />
           </div>
           <p className="text-[#555555] leading-relaxed max-w-3xl">
-            Our Masters are students, recruited for their initiative, customer
-            focus, and digital interest. They are problem solvers and communicate
-            well, in different languages. Every Meeting Master has been trained at
-            the MeetingMasters Academy. To keep knowledge and skills up to date,
-            we have regular refresher meetings and tech tests. Together they
-            facilitate genuine contact.
+            Onze Masters zijn studenten, geselecteerd op hun initiatief,
+            klantgerichtheid en digitale interesse. Het zijn probleemoplossers
+            die goed communiceren, in verschillende talen. Elke Meeting Master is
+            opgeleid bij de MeetingMasters Academy. Om kennis en vaardigheden
+            actueel te houden, organiseren we regelmatig opfrisbijeenkomsten en
+            techtesten. Samen faciliteren zij oprecht contact.
           </p>
         </div>
       </section>

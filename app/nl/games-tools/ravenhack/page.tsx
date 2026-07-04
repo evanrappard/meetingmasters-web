@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "R@venHack: Cyber Security | MeetingMasters",
+  title: "R@venHack: Cybersecurity | MeetingMasters",
   description:
-    "A cybersecurity-themed escape game that educates and thrills. Teams stop a cyberattack while learning about digital security in the most engaging way possible.",
+    "Een escape game rond cybersecurity die leert én spanning geeft. Teams stoppen samen een cyberaanval terwijl ze op de meest boeiende manier leren over digitale veiligheid.",
 };
 
 export default function RavenHackPage() {
@@ -16,12 +16,12 @@ export default function RavenHackPage() {
           Games &amp; Tools
         </p>
         <h1 className="text-4xl font-bold text-primary mb-4">
-          R@venHack: Cyber Security
+          R@venHack: Cybersecurity
         </h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">
-          A cybersecurity awareness experience in escape room format. Teams work
-          together to stop a cyberattack — and actually understand why it
-          matters.
+          Een bewustwordingservaring rond cybersecurity in escaperoom-vorm.
+          Teams werken samen om een cyberaanval te stoppen — en begrijpen
+          werkelijk waarom het ertoe doet.
         </p>
       </div>
 
@@ -31,36 +31,36 @@ export default function RavenHackPage() {
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md">
               <Image
                 src="/images/format-2.png"
-                alt="R@venHack cyber security game"
+                alt="R@venHack cybersecurity game"
                 fill
                 className="object-cover"
               />
             </div>
             <div>
               <h2 className="text-2xl font-bold text-primary mb-5">
-                Beyond the phishing test.
+                Verder dan de phishingtest.
               </h2>
               <p className="text-[#666666] leading-relaxed mb-4">
-                R@venHack is a team-based online game in which participants have
-                to stop a fictional cyberattack. The clock is ticking. The
-                clues are real. And the lessons stick — because they were
-                discovered under pressure, together.
+                R@venHack is een online teamgame waarin deelnemers een fictieve
+                cyberaanval moeten stoppen. De klok tikt door. De aanwijzingen
+                zijn echt. En de lessen beklijven — omdat ze onder druk en
+                samen ontdekt zijn.
               </p>
               <p className="text-[#666666] leading-relaxed mb-4">
-                Designed for organisations that want to raise digital security
-                awareness beyond a mandatory e-learning. R@venHack makes the
-                abstract concrete, the boring engaging, and the individual
-                lesson a shared team experience.
+                Ontworpen voor organisaties die het bewustzijn rond digitale
+                veiligheid verder willen brengen dan een verplichte e-learning.
+                R@venHack maakt het abstracte concreet, het saaie boeiend en de
+                individuele les een gedeelde teamervaring.
               </p>
               <p className="text-[#666666] leading-relaxed mb-6">
-                Duration: 60–90 minutes. Works for 10 to 150 participants.
-                Custom scenarios available on request.
+                Duur: 60–90 minuten. Geschikt voor 10 tot 150 deelnemers.
+                Scenario's op maat op aanvraag beschikbaar.
               </p>
               <Link
                 href="/nl/contact"
                 className="bg-accent text-white px-8 py-3.5 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
               >
-                Book R@venHack
+                Boek R@venHack
               </Link>
             </div>
           </div>
@@ -69,17 +69,17 @@ export default function RavenHackPage() {
 
       <section className="bg-gray-50 py-14 text-center border-y border-gray-200">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Want to run a demo?
+          Een demo aanvragen?
         </h2>
         <p className="text-[#666666] mb-6 max-w-md mx-auto">
-          We can walk you through R@venHack and discuss whether a custom
-          scenario would fit your organisation better.
+          We nemen u graag mee door R@venHack en bespreken of een scenario op
+          maat beter bij uw organisatie past.
         </p>
         <Link
           href="/nl/contact"
           className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
         >
-          Request a demo
+          Vraag een demo aan
         </Link>
       </section>
     </div>

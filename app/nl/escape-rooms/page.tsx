@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Online Escape Rooms | MeetingMasters",
+  title: "Online escape rooms | MeetingMasters",
   description:
-    "Exciting, team-building online escape room experiences — EscapeMasters and R@venHack Cyber Security.",
+    "Spannende, teambuildende online escape room-ervaringen — EscapeMasters en R@venHack Cyber Security.",
 };
 
 export default function EscapeRoomsPage() {
@@ -13,14 +13,14 @@ export default function EscapeRoomsPage() {
     <div className="bg-white">
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
         <p className="text-accent text-sm font-semibold mb-2 tracking-widest uppercase">
-          🆕 New
+          🆕 Nieuw
         </p>
         <h1 className="text-4xl font-bold text-primary mb-4">
-          Online Escape Rooms
+          Online escape rooms
         </h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">
-          Exciting, team-building escape experiences. Online. Perfect for team
-          events, onboarding, and conferences.
+          Spannende, teambuildende escape-ervaringen. Online. Ideaal voor
+          teamevents, onboarding en congressen.
         </p>
       </div>
 
@@ -40,16 +40,16 @@ export default function EscapeRoomsPage() {
               EscapeMasters
             </h2>
             <p className="text-[#666666] leading-relaxed mb-6">
-              Our signature online escape room experience — engaging, fun, and
-              genuinely team-building. Participants collaborate to solve puzzles,
-              decode clues, and escape together. Designed to spark energy, laughter,
-              and connection in your team.
+              Onze kenmerkende online escape room-ervaring — meeslepend, leuk en
+              echt teambuildend. Deelnemers werken samen om puzzels op te lossen,
+              aanwijzingen te ontcijferen en samen te ontsnappen. Ontworpen om
+              energie, plezier en verbinding in uw team te brengen.
             </p>
             <Link
               href="/nl/contact"
               className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
             >
-              Book EscapeMasters
+              Boek EscapeMasters
             </Link>
           </div>
 
@@ -67,16 +67,16 @@ export default function EscapeRoomsPage() {
               R@venHack: Cyber Security
             </h2>
             <p className="text-[#666666] leading-relaxed mb-6">
-              A cybersecurity-themed escape game that educates and thrills. Teams
-              work together to stop a cyberattack, learning about digital security
-              in the most engaging way possible. Ideal for organizations that want
-              to raise security awareness while having fun.
+              Een escape game met cybersecurity-thema die leert én spanning geeft.
+              Teams werken samen om een cyberaanval te stoppen en leren op de meest
+              boeiende manier over digitale veiligheid. Ideaal voor organisaties die
+              op een leuke manier het securitybewustzijn willen vergroten.
             </p>
             <Link
               href="/nl/contact"
               className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
             >
-              Book R@venHack
+              Boek R@venHack
             </Link>
           </div>
         </div>
@@ -84,13 +84,13 @@ export default function EscapeRoomsPage() {
 
       <section className="bg-gray-50 py-14 text-center">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Want to know more or get a quote?
+          Meer weten of een offerte aanvragen?
         </h2>
         <Link
           href="/nl/contact"
           className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
         >
-          Get in touch
+          Neem contact op
         </Link>
       </section>
     </div>

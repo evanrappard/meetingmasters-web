@@ -5,48 +5,48 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Games & Tools | MeetingMasters",
   description:
-    "EscapeMasters, R@venHack, and custom-built interactive formats. Online escape rooms, onboarding games, and security awareness experiences — ready-to-play or made to measure.",
+    "EscapeMasters, R@venHack en interactieve formats op maat. Online escape rooms, onboardinggames en security awareness-ervaringen — speelklaar of volledig op maat gemaakt.",
 };
 
 const readyToPlay = [
   {
     id: "escape-masters",
     title: "EscapeMasters",
-    subtitle: "The signature online escape room",
-    desc: "Teams collaborate to solve puzzles, decode clues, and escape together. Genuinely team-building — designed to spark energy, laughter, and connection. Works for 10 to 200 participants.",
+    subtitle: "De kenmerkende online escape room",
+    desc: "Teams werken samen om puzzels op te lossen, aanwijzingen te ontcijferen en samen te ontsnappen. Echt teambuilding — ontworpen om energie, plezier en verbinding aan te wakkeren. Geschikt voor 10 tot 200 deelnemers.",
     href: "/nl/games-tools/escape-masters",
     image: "/images/format-escape.png",
     imageAlt: "EscapeMasters escape room",
-    tag: "Ready to play",
+    tag: "Speelklaar",
   },
   {
     id: "ravenhack",
     title: "R@venHack: Cyber Security",
-    subtitle: "A cybersecurity awareness experience",
-    desc: "Teams race to stop a cyberattack. Participants learn about digital security in the most engaging way possible — by doing. Ideal for organisations that want to raise security awareness without a boring training.",
+    subtitle: "Een cybersecurity awareness-ervaring",
+    desc: "Teams gaan de race aan om een cyberaanval te stoppen. Deelnemers leren op de meest boeiende manier over digitale veiligheid — door het zelf te doen. Ideaal voor organisaties die security awareness willen vergroten zonder een saaie training.",
     href: "/nl/games-tools/ravenhack",
     image: "/images/format-2.png",
     imageAlt: "R@venHack cyber security game",
-    tag: "Ready to play",
+    tag: "Speelklaar",
   },
 ];
 
 const customOptions = [
   {
-    title: "Custom escape room",
-    desc: "Your content, your brand, your story — in an escape room format. We build it from scratch: puzzles, narrative, platform, and live facilitation.",
+    title: "Escape room op maat",
+    desc: "Uw content, uw merk, uw verhaal — in een escape room-format. We bouwen het vanaf nul: puzzels, verhaallijn, platform en live begeleiding.",
   },
   {
-    title: "Onboarding game",
-    desc: "An interactive introduction to your organisation, culture, and colleagues — designed as a game. New hires explore, discover, and connect from day one.",
+    title: "Onboardinggame",
+    desc: "Een interactieve kennismaking met uw organisatie, cultuur en collega's — vormgegeven als een game. Nieuwe medewerkers ontdekken, verkennen en verbinden vanaf dag één.",
   },
   {
-    title: "Security awareness game",
-    desc: "Beyond a phishing test. A playful, team-based experience that builds real understanding of digital risks — and makes it stick.",
+    title: "Security awareness-game",
+    desc: "Meer dan een phishingtest. Een speelse teamervaring die echt inzicht geeft in digitale risico's — en die blijft hangen.",
   },
   {
-    title: "Something specific",
-    desc: "Have an idea that doesn't fit the above? Tell us. We've built interactive formats for onboarding, compliance, change management, and more.",
+    title: "Iets specifieks",
+    desc: "Heeft u een idee dat niet in het bovenstaande past? Laat het ons weten. We hebben interactieve formats gebouwd voor onboarding, compliance, verandermanagement en meer.",
   },
 ];
 
@@ -76,11 +76,11 @@ export default function GamesToolsPage() {
               <div className="max-w-[600px]">
                 <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}>Games &amp; Tools</p>
                 <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
-                  Play together. Learn something.
+                  Samen spelen. Iets leren.
                 </h1>
                 <p className="text-white text-lg font-medium leading-relaxed" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.6)" }}>
-                  Ready-to-play online formats and custom-built interactive experiences. From escape
-                  rooms to onboarding games — made for groups, designed for engagement.
+                  Speelklare online formats en interactieve ervaringen op maat. Van escape
+                  rooms tot onboardinggames — gemaakt voor groepen, ontworpen voor betrokkenheid.
                 </p>
               </div>
             </div>
@@ -92,10 +92,10 @@ export default function GamesToolsPage() {
       <section className="py-20">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-primary mb-3 text-center">
-            Ready to play
+            Speelklaar
           </h2>
           <p className="text-[#666666] text-center mb-12 max-w-xl mx-auto">
-            Two formats that are ready to run — just add your team.
+            Twee formats die direct te spelen zijn — voeg alleen uw team toe.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -131,7 +131,7 @@ export default function GamesToolsPage() {
                     href={item.href}
                     className="bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded hover:bg-accent transition-colors inline-block"
                   >
-                    Learn more
+                    Meer
                   </Link>
                 </div>
               </div>
@@ -145,11 +145,11 @@ export default function GamesToolsPage() {
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-2xl font-bold text-primary mb-4">
-              Made to measure
+              Op maat gemaakt
             </h2>
             <p className="text-[#666666] max-w-xl mx-auto">
-              When an off-the-shelf format isn&apos;t quite right, we build
-              something specific. Custom content, your branding, your goals.
+              Als een kant-en-klaar format niet helemaal past, bouwen we iets
+              specifieks. Content op maat, uw branding, uw doelen.
             </p>
           </div>
 
@@ -174,7 +174,7 @@ export default function GamesToolsPage() {
               href="/nl/contact"
               className="bg-accent text-white px-8 py-3.5 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
             >
-              Talk to us about your idea
+              Vertel ons over uw idee
             </Link>
           </div>
         </div>
@@ -184,9 +184,10 @@ export default function GamesToolsPage() {
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <blockquote className="text-xl italic text-[#555555] leading-relaxed mb-6">
-            &ldquo;Our Olympians always expect excellence, and with Meeting
-            Masters that&apos;s simply the standard. The key might lay in the
-            fact that it&apos;s just such a joy to work with them.&rdquo;
+            &ldquo;Onze Olympiërs verwachten altijd topkwaliteit, en met Meeting
+            Masters is dat simpelweg de standaard. Misschien zit de sleutel wel
+            in het feit dat het gewoon zo'n plezier is om met hen samen te
+            werken.&rdquo;
           </blockquote>
           <p className="font-bold text-[#333333] text-sm">
             World Olympians Association
@@ -198,17 +199,17 @@ export default function GamesToolsPage() {
       <section className="bg-primary py-16">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
-            Want to see a format in action?
+            Wilt u een format in actie zien?
           </h2>
           <p className="text-white/70 mb-8">
-            We can demo EscapeMasters or R@venHack live. Or walk through a
-            custom concept for your organisation.
+            We kunnen EscapeMasters of R@venHack live demonstreren. Of we nemen
+            een concept op maat voor uw organisatie met u door.
           </p>
           <Link
             href="/nl/contact"
             className="bg-accent text-white px-8 py-3.5 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
           >
-            Plan a demo
+            Plan een demo
           </Link>
         </div>
       </section>

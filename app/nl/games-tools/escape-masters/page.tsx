@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "EscapeMasters | Online Escape Room | MeetingMasters",
   description:
-    "EscapeMasters is our signature online escape room — designed for teams of 10 to 200 people. Genuinely team-building, actually fun.",
+    "EscapeMasters is onze kenmerkende online escape room — ontworpen voor teams van 10 tot 200 personen. Echt teambuilding, en echt leuk.",
 };
 
 export default function EscapeMastersPage() {
@@ -17,9 +17,9 @@ export default function EscapeMastersPage() {
         </p>
         <h1 className="text-4xl font-bold text-primary mb-4">EscapeMasters</h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">
-          Our signature online escape room. Teams collaborate to solve puzzles,
-          decode clues, and escape together. Designed to spark energy, laughter,
-          and real connection.
+          Onze kenmerkende online escape room. Teams werken samen om puzzels op
+          te lossen, aanwijzingen te ontcijferen en samen te ontsnappen.
+          Ontworpen om energie, gelach en echte verbinding op te wekken.
         </p>
       </div>
 
@@ -28,28 +28,29 @@ export default function EscapeMastersPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl font-bold text-primary mb-5">
-                What it is
+                Wat het is
               </h2>
               <p className="text-[#666666] leading-relaxed mb-4">
-                EscapeMasters is a fully online escape room experience — no
-                physical room required. Participants work together in small
-                teams, solving a series of puzzles within a time limit. A
-                Meeting Master hosts and facilitates the entire session live.
+                EscapeMasters is een volledig online escape room-ervaring — geen
+                fysieke ruimte nodig. Deelnemers werken samen in kleine teams en
+                lossen binnen een tijdslimiet een reeks puzzels op. Een Meeting
+                Master presenteert en begeleidt de hele sessie live.
               </p>
               <p className="text-[#666666] leading-relaxed mb-4">
-                Works for 10 to 200 participants. We split large groups into
-                competing teams and run a shared leaderboard. The right size of
-                adrenaline for a kick-off, a company party, or a team day.
+                Geschikt voor 10 tot 200 deelnemers. We verdelen grote groepen
+                in teams die het tegen elkaar opnemen en houden een gezamenlijk
+                scorebord bij. Precies de juiste dosis adrenaline voor een
+                kick-off, een bedrijfsfeest of een teamdag.
               </p>
               <p className="text-[#666666] leading-relaxed mb-6">
-                Duration: 60–90 minutes. Platform: browser-based, no downloads
-                required.
+                Duur: 60–90 minuten. Platform: browsergebaseerd, geen downloads
+                nodig.
               </p>
               <Link
                 href="/nl/contact"
                 className="bg-accent text-white px-8 py-3.5 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
               >
-                Book EscapeMasters
+                Boek EscapeMasters
               </Link>
             </div>
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md">
@@ -66,17 +67,17 @@ export default function EscapeMastersPage() {
 
       <section className="bg-gray-50 py-14 text-center border-y border-gray-200">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Want to see it in action?
+          Wilt u het in actie zien?
         </h2>
         <p className="text-[#666666] mb-6 max-w-md mx-auto">
-          We can run a short demo version of EscapeMasters — so you can
-          experience it before you book.
+          We kunnen een korte demoversie van EscapeMasters draaien — zodat u het
+          kunt ervaren voordat u boekt.
         </p>
         <Link
           href="/nl/contact"
           className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
         >
-          Request a demo
+          Vraag een demo aan
         </Link>
       </section>
     </div>

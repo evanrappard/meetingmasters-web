@@ -1,71 +1,71 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Testimonials | MeetingMasters",
+  title: "Ervaringen | MeetingMasters",
   description:
-    "What our clients say about working with MeetingMasters Online.",
+    "Wat onze klanten zeggen over de samenwerking met MeetingMasters Online.",
 };
 
 const testimonials = [
   {
     company: "ROC TOP",
     quote:
-      "The flexibility and creative qualities of the MeetingMasters were of great value both before and during the event. A valuable contribution to connection in this time.",
+      "De flexibiliteit en creatieve kwaliteiten van de MeetingMasters waren zowel voor als tijdens het evenement van grote waarde. Een waardevolle bijdrage aan verbinding in deze tijd.",
   },
   {
     company: "Bergman Clinics",
     quote:
-      "MeetingMasters not only ensure that you are technically supported. They also think along with you on how to get the best out of an online meeting or event. A valuable contribution to connection in this time.",
+      "MeetingMasters zorgen er niet alleen voor dat u technisch ondersteund wordt. Ze denken ook met u mee over hoe u het beste uit een online meeting of evenement haalt. Een waardevolle bijdrage aan verbinding in deze tijd.",
   },
   {
     company: "ZonMW",
     quote:
-      "MeetingMasters provided us with the online facilitation of a meeting of an innovative learning network 'Make Room for Health'. A professional and warm approach that made participants feel genuinely at ease.",
+      "MeetingMasters verzorgde voor ons de online facilitatie van een bijeenkomst van een innovatief lerend netwerk 'Maak Ruimte voor Gezondheid'. Een professionele en warme aanpak waardoor deelnemers zich echt op hun gemak voelden.",
   },
   {
     company: "Gemeente Roosendaal",
     quote:
-      "MeetingMasters guided us worry-free through the entire process: from defining goals and sharpening the content of the meeting to the live execution.",
+      "MeetingMasters begeleidde ons zorgeloos door het hele proces: van het bepalen van de doelen en het aanscherpen van de inhoud van de bijeenkomst tot de live uitvoering.",
   },
   {
     company: "PharmAccess",
     quote:
-      "Bringing together employees from 5 offices to strategize online for two weeks requires key facilitation skills. MeetingMasters got us there.",
+      "Medewerkers uit 5 kantoren twee weken lang online samenbrengen om te strategiseren vraagt om essentiële facilitatievaardigheden. MeetingMasters bracht ons daar.",
   },
   {
     company: "Oranje Fonds",
     quote:
-      "Emilie and her team are professional and skilled and prepare all meetings down to the second with great commitment. Highly recommended.",
+      "Emilie en haar team zijn professioneel en vakkundig en bereiden alle bijeenkomsten met grote betrokkenheid tot op de seconde voor. Een echte aanrader.",
   },
   {
     company: "World Olympians Association",
     quote:
-      "Our Olympians always expect excellence, and with Meeting Masters that's simply the standard. I don't know how they do their magic, but the key might lay in the fact that it's just such a joy to work with them.",
+      "Onze Olympiërs verwachten altijd het allerbeste, en met Meeting Masters is dat gewoon de standaard. Ik weet niet hoe ze hun magie doen, maar de sleutel ligt misschien in het feit dat het simpelweg zo'n plezier is om met hen samen te werken.",
   },
   {
     company: "Bouw & Infra",
     quote:
-      "Emilie and colleagues help us every time with proper preparation and they think carefully about what is needed before, during and after the meetings. They give tips and tricks and help where needed.",
+      "Emilie en collega's helpen ons elke keer met een gedegen voorbereiding en denken zorgvuldig na over wat er nodig is voor, tijdens en na de bijeenkomsten. Ze geven tips en tricks en helpen waar nodig.",
   },
   {
     company: "Omron",
     quote:
-      "Emilie and her team are constantly spot-on, attentive to all the details, and adapting the session to the needs. They delivered a highly interactive session on 'Effective Meetings', emphasizing all the important aspects that bring meetings to the next level.",
+      "Emilie en haar team zitten er voortdurend bovenop, letten op alle details en passen de sessie aan op de behoeften. Ze verzorgden een zeer interactieve sessie over 'Effectief Vergaderen', waarin alle belangrijke aspecten aan bod kwamen die vergaderingen naar een hoger niveau tillen.",
   },
   {
     company: "Red Cross Netherlands",
     quote:
-      "MeetingMasters organized Diversity Day for the Red Cross Netherlands, aiming to create more awareness around inclusion/exclusion. An event where people could truly listen to each other and learn from one another. Digital yet very natural.",
+      "MeetingMasters organiseerde Diversity Day voor het Nederlandse Rode Kruis, met als doel meer bewustwording te creëren rond inclusie/exclusie. Een evenement waar mensen echt naar elkaar konden luisteren en van elkaar konden leren. Digitaal en toch heel natuurlijk.",
   },
   {
     company: "Het Cultuurfonds",
     quote:
-      "With a clear vision, a fresh creative perspective, and very pleasant service, MeetingMasters truly excel in bringing people together online.",
+      "Met een heldere visie, een frisse creatieve blik en zeer prettige service excelleren MeetingMasters echt in het online samenbrengen van mensen.",
   },
   {
     company: "Digital Fitness",
     quote:
-      "MeetingMasters takes care of all the technical and facilitation aspects, so that as a trainer you can focus fully on the content. Whoever wants to make an online session a resounding success would do very well to talk to MeetingMasters.",
+      "MeetingMasters neemt alle technische en facilitaire aspecten uit handen, zodat u zich als trainer volledig op de inhoud kunt richten. Wie van een online sessie een klinkend succes wil maken, doet er goed aan om met MeetingMasters in gesprek te gaan.",
   },
 ];
 
@@ -74,9 +74,9 @@ export default function TestimonialsPage() {
     <div className="bg-white">
       {/* Header */}
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <h1 className="text-4xl font-bold text-primary mb-3">Testimonials</h1>
+        <h1 className="text-4xl font-bold text-primary mb-3">Ervaringen</h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">
-          What our clients say about working with MeetingMasters.
+          Wat onze klanten zeggen over de samenwerking met MeetingMasters.
         </p>
       </div>
 
