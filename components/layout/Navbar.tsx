@@ -37,10 +37,9 @@ const navItems: {
     label: "Games",
     href: "/nl/games-tools",
     children: [
-      { label: "Online escape room", href: "/nl/games-tools/escape-masters" },
       { label: "R@venHack: Cybersecurity", href: "/nl/games-tools/ravenhack" },
-      { label: "Korte games", href: "/nl/games-tools/korte-games" },
-      { label: "Maatwerk game", href: "/nl/games-tools/maatwerk" },
+      { label: "Games", href: "/nl/games-tools#games" },
+      { label: "Tools", href: "/nl/games-tools#tools" },
       { separator: true },
       { label: "Alle games & tools →", href: "/nl/games-tools" },
     ],

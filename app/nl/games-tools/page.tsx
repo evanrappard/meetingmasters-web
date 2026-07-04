@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -11,47 +12,56 @@ export const metadata: Metadata = {
 
 const games = [
   {
-    title: "Online Escape Room",
-    desc: "Samen puzzels oplossen onder tijdsdruk. In twee varianten: 60 minuten of de XL-versie.",
-    href: "/nl/games-tools/escape-masters",
-  },
-  {
-    title: "R@venHack: Cybersecurity",
-    desc: "Een digitale crisis vol datalekken en phishing — leren over veilig gedrag terwijl u samen de aanval stopt.",
-    href: "/nl/games-tools/ravenhack",
+    title: "Online escape room",
+    desc: "Samen puzzels oplossen onder tijdsdruk in SpatialChat. Ontdek hoe uw team samenwerkt en leer elkaar beter kennen.",
+    detail: "± 60 min · kleine tot grote groepen",
+    img: "/images/format-escape.webp",
+    alt: "Deelnemers lossen samen puzzels op in een online escape room in SpatialChat",
   },
   {
     title: "Korte games",
-    desc: "Compacte spellen van 20–30 minuten, als onderdeel van een meeting of feestje.",
-    href: "/nl/games-tools/korte-games",
+    desc: "Compacte spellen van 20–30 minuten: pubquiz, energizers, raadspellen. Perfect in een meeting, kick-off of borrel.",
+    detail: "20–30 min · elk groepsformaat",
+    img: "/images/format-party.webp",
+    alt: "Een groep speelt een korte online game tijdens een meeting",
   },
   {
     title: "Maatwerk game",
-    desc: "Eigen puzzels, verhaal en visuals, afgestemd op uw thema en groep.",
-    href: "/nl/games-tools/maatwerk",
+    desc: "Een spel volledig op maat: eigen puzzels, verhaal en visuals, afgestemd op uw thema en groep.",
+    detail: "op maat · onboarding, awareness, teambuilding",
+    img: "/images/format-1.webp",
+    alt: "Een online game op maat met eigen puzzels, verhaal en visuals",
   },
 ];
 
 const tools = [
   {
     title: "Wheel of Fortune",
-    desc: "Een draaiend rad dat willekeurig een naam, vraag of opdracht kiest — ideaal om deelnemers aan het woord te laten.",
+    desc: "Een draaiend rad dat willekeurig een naam, vraag of opdracht kiest.",
     href: "/nl/games-tools/tools/wheel-of-fortune",
+    img: "/images/spatial-entree.webp",
+    alt: "Wheel of Fortune — een draaiend rad om willekeurig een naam of vraag te kiezen",
   },
   {
     title: "Bingo",
     desc: "Een speelse bingokaart die uw meeting of kick-off in een spel verandert.",
     href: "/nl/games-tools/tools/bingo",
+    img: "/images/events-spatial.webp",
+    alt: "Bingo — een speelse bingokaart voor tijdens uw meeting of kick-off",
   },
   {
     title: "Inspiration Cards",
     desc: "Kaarten met prikkelende vragen en stellingen om het gesprek op gang te brengen.",
     href: "/nl/games-tools/tools/inspiration-cards",
+    img: "/images/inspiratie-escape.webp",
+    alt: "Inspiration Cards — kaarten met prikkelende vragen en stellingen",
   },
   {
     title: "Storytelling",
-    desc: "Een tool om samen een verhaal op te bouwen — verrassend, verbindend en zo verteld.",
+    desc: "Een tool om samen een verhaal op te bouwen — verrassend en verbindend.",
     href: "/nl/games-tools/tools/storytelling",
+    img: "/images/format-1.webp",
+    alt: "Storytelling — een tool om samen een verhaal op te bouwen",
   },
 ];
 
@@ -132,28 +142,46 @@ export default function GamesToolsPage() {
         </div>
       </section>
 
-      {/* Hero-subs onder de visual */}
-      <section className="bg-white border-b border-[#EBEBEB]">
+      {/* ── GAMES + TOOLS (sub-sectie onder de hero) ── */}
+      <section className="bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="group p-8 lg:p-10 md:border-r border-[#EBEBEB] hover:bg-[#FFFBEE] transition-colors">
-              <span className="block h-1 w-10 bg-[#EEBE3D] rounded-full mb-4 transition-all duration-300 ease-out group-hover:w-16" />
-              <p className="text-xl lg:text-2xl font-bold text-[#2D2D2D] leading-snug">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <div className="group">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Games</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 Gamification als inzet voor meer verrassing en leuker leren.
+              </h2>
+              <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
+              <p className="text-[#545454] leading-relaxed mb-5">
+                Samen spelen brengt groepen dichter bij elkaar en laat de stof beter beklijven.
+                Van een spannende escape room tot een game volledig op maat — speelklaar of
+                helemaal afgestemd op uw thema.
               </p>
+              <Link href="#games" className="text-[#28A8AA] text-sm font-bold hover:underline">
+                Bekijk de games →
+              </Link>
             </div>
-            <div className="group p-8 lg:p-10 hover:bg-[#FFFBEE] transition-colors">
-              <span className="block h-1 w-10 bg-[#EEBE3D] rounded-full mb-4 transition-all duration-300 ease-out group-hover:w-16" />
-              <p className="text-xl lg:text-2xl font-bold text-[#2D2D2D] leading-snug">
-                Slimme tools die betrokkenheid en participatie verhogen binnen meetings.
+            <div className="group lg:border-l lg:border-[#EBEBEB] lg:pl-16">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Tools</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Slimme tools die betrokkenheid en participatie verhogen.
+              </h2>
+              <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
+              <p className="text-[#545454] leading-relaxed mb-5">
+                Kleine hulpmiddelen die uw meeting levendiger maken en iedereen aan het woord
+                laten. Gratis en direct te gebruiken: openen in de browser en uw scherm delen —
+                verder niets nodig.
               </p>
+              <Link href="#tools" className="text-[#28A8AA] text-sm font-bold hover:underline">
+                Bekijk de tools →
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── GAMES ── */}
-      <section id="speelklaar" className="bg-white py-16 border-b border-[#EBEBEB]">
+      <section id="games" className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Games</p>
@@ -161,31 +189,67 @@ export default function GamesToolsPage() {
               Spellen die groepen samenbrengen.
             </h2>
             <p className="text-[#545454] leading-relaxed">
-              Online games waarin uw team samenwerkt, overlegt en samen iets voor elkaar krijgt.
-              Van een spannende escape room tot een game op maat — speelklaar of helemaal
-              afgestemd op uw thema.
+              Online games waarin uw team samenwerkt, overlegt en samen iets voor elkaar krijgt —
+              speelklaar of helemaal afgestemd op uw thema.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {games.map((g) => (
-              <Link
-                key={g.title}
-                href={g.href}
-                className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] flex flex-col hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug group-hover:text-[#EEBE3D] transition-colors">{g.title}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed flex-1 mb-6">{g.desc}</p>
-                <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
-                  {g.title} →
-                </span>
-              </Link>
+              <div key={g.title} className="bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col">
+                <div className="relative h-44">
+                  <Image src={g.img} alt={g.alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-bold text-[#2D2D2D] text-base mb-1.5 leading-snug">{g.title}</h3>
+                  <p className="text-sm text-[#545454] leading-relaxed mb-3">{g.desc}</p>
+                  <p className="text-xs font-semibold text-[#2D2D2D] mb-5">{g.detail}</p>
+                  <Link href="/nl/contact" className="mt-auto text-[#28A8AA] text-sm font-bold hover:underline self-start">
+                    Check beschikbaarheid →
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ── R@VENHACK UITGELICHT ── */}
+      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative aspect-[4/3] rounded overflow-hidden shadow-md">
+              <Image
+                src="/images/format-2.webp"
+                alt="R@venHack — teams stoppen samen een cyberaanval met datalekken en phishing in een online cybersecuritygame"
+                fill className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">R@venHack · Cybersecurity</p>
+              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Stop samen de cyberaanval.
+              </h2>
+              <p className="text-[#545454] leading-relaxed mb-4">
+                Een digitale crisis breekt uit: datalekken, phishing en systemen die om beurten
+                uitvallen. Uw team moet samen het hoofd koel houden en de aanval een halt
+                toeroepen. Awareness ontstaat niet door erover te horen, maar door het te dóen.
+              </p>
+              <p className="text-[#545454] leading-relaxed mb-4">
+                Zo combineert R@venHack teambuilding met echte kennisoverdracht over veilig
+                digitaal gedrag. Er is een gewone versie en een uitgebreidere XL-versie, zodat het
+                past bij uw groep en de tijd die u heeft.
+              </p>
+              <Link href="/nl/games-tools/ravenhack" className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
+                Bekijk R@venHack →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── TOOLS ── */}
-      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
+      <section id="tools" className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Tools</p>
@@ -198,18 +262,23 @@ export default function GamesToolsPage() {
               hoeft u niets te installeren.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {tools.map((t) => (
               <Link
                 key={t.title}
                 href={t.href}
-                className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] flex flex-col hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
+                className="group bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
               >
-                <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug group-hover:text-[#EEBE3D] transition-colors">{t.title}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed flex-1 mb-6">{t.desc}</p>
-                <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
-                  Open {t.title} →
-                </span>
+                <div className="relative h-44">
+                  <Image src={t.img} alt={t.alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-bold text-[#2D2D2D] text-base mb-1.5 leading-snug group-hover:text-[#EEBE3D] transition-colors">{t.title}</h3>
+                  <p className="text-sm text-[#545454] leading-relaxed mb-5">{t.desc}</p>
+                  <span className="mt-auto text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
+                    Open tool →
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

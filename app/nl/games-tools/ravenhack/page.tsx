@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = {
   title: "R@venHack — cybersecurity escape game voor teams | MeetingMasters",
   description:
-    "R@venHack is een cybersecurity escape game waarin uw team samen een digitale aanval stopt. Leer al doende over phishing, datalekken en veilig digitaal gedrag — teambuilding én startpunt voor kennisoverdracht. Draait via SpatialChat.",
+    "R@venHack is een cybersecurity escape game waarin uw team samen een digitale aanval stopt. Beschikbaar als gewone versie (± 60 min) en als uitgebreide XL-versie. Leer al doende over phishing, datalekken en veilig digitaal gedrag — teambuilding én startpunt voor kennisoverdracht. Draait via SpatialChat.",
 };
 
 const leerpunten = [
@@ -22,6 +22,34 @@ const leerpunten = [
   {
     title: "Veilig digitaal gedrag",
     body: "Van wachtwoorden tot het delen van informatie: het spel maakt zichtbaar welke gewoontes veilig zijn en welke een risico vormen.",
+  },
+];
+
+const versies = [
+  {
+    tag: "De klassieker",
+    title: "R@venHack — gewone versie",
+    lead: "De standaard R@venHack: compact, energiek en meteen raak.",
+    body: "In ongeveer 60 minuten belandt uw team midden in een cyberaanval en werkt het onder tijdsdruk samen om de aanval te stoppen. De focus ligt op de belangrijkste awareness-lessen — phishing herkennen, een datalek indammen en veilig digitaal gedrag — verpakt in een strakke, meeslepende escape. Ideaal als energieke teambuilding of als pakkende opening van een teamdag of securityweek.",
+    kenmerken: [
+      "± 60 minuten, strak en energiek",
+      "Focus op de kern-awarenesslessen",
+      "Perfect voor één team of een compacte groep",
+      "Sterke opener voor een teamdag of securityweek",
+    ],
+  },
+  {
+    tag: "Meer diepgang",
+    title: "R@venHack XL — uitgebreide versie",
+    lead: "Langer, rijker en met ruimte voor grotere groepen.",
+    body: "De XL-versie neemt meer tijd en gaat een stap verder. Naast de kern komen er extra scenario's en securitythema's bij, met meer puzzels, meer plotwendingen en een uitgebreidere nabespreking. Doordat het spel in meerdere teams tegelijk gespeeld kan worden, is deze variant uitstekend geschikt voor grotere groepen en voor organisaties die cybersecurity-awareness echt willen laten landen én de onderlinge samenwerking op de proef willen stellen.",
+    kenmerken: [
+      "Langere, verdiepende sessie",
+      "Extra scenario's en securitythema's",
+      "Geschikt voor grotere groepen, meerdere teams tegelijk",
+      "Uitgebreidere nabespreking en kennisoverdracht",
+    ],
+    highlight: true,
   },
 ];
 
@@ -49,20 +77,24 @@ const faq = [
     a: "R@venHack is een cybersecurity escape game. Uw team belandt in een digitale crisis vol datalekken, phishing en verborgen aanwijzingen en moet samen de aanval stoppen. Het is een bewustwordingservaring: u leert over veilig digitaal gedrag door het te dóen, in plaats van een e-learning te doorlopen.",
   },
   {
+    q: "Wat is het verschil tussen de gewone versie en de XL-versie?",
+    a: "De gewone versie is de compacte, energieke R@venHack van ongeveer 60 minuten, met de focus op samen de aanval stoppen en de belangrijkste awareness-lessen. De XL-versie duurt langer en gaat dieper: met extra scenario's, meer securitythema's en een uitgebreidere nabespreking. De XL-versie is ook geschikt voor grotere groepen die in meerdere teams tegelijk spelen en die de onderlinge samenwerking verder op de proef willen stellen.",
+  },
+  {
     q: "Hoe lang duurt R@venHack?",
-    a: "Een sessie duurt doorgaans 60 tot 90 minuten, inclusief een korte introductie en een nabespreking waarin we de belangrijkste lessen samen doorlopen.",
+    a: "De gewone versie duurt ongeveer 60 minuten, inclusief een korte introductie en nabespreking. De XL-versie neemt meer tijd — reken op een langere sessie met extra verdieping en een uitgebreidere nabespreking. Samen kijken we welke variant en welke tijdsduur het beste bij uw team en uw doel passen.",
   },
   {
     q: "Voor welke groepsgrootte is het geschikt?",
-    a: "R@venHack is bedoeld voor teams en grotere groepen. Deelnemers werken in kleinere teams samen, zodat iedereen actief meedoet. Voor het aantal deelnemers dat bij uw groep past, kijken we graag even mee.",
+    a: "De gewone versie is ideaal voor één team of een compacte groep. De XL-versie is juist geschikt voor grotere groepen, doordat er in meerdere teams tegelijk gespeeld wordt en iedereen actief meedoet. Voor het aantal deelnemers dat bij uw groep past, kijken we graag even mee.",
   },
   {
     q: "Wat leert mijn team ervan?",
-    a: "Deelnemers leren phishing en misleiding herkennen, hoe ze een datalek indammen en wat veilig digitaal gedrag in de praktijk betekent. Omdat ze het samen en onder lichte druk ontdekken, beklijven de lessen beter dan bij een verplichte training. Het is tegelijk teambuilding én een natuurlijk startpunt voor bredere kennisoverdracht over cybersecurity.",
+    a: "Deelnemers leren phishing en misleiding herkennen, hoe ze een datalek indammen en wat veilig digitaal gedrag in de praktijk betekent. Omdat ze het samen en onder lichte druk ontdekken, beklijven de lessen beter dan bij een verplichte training. Het is tegelijk teambuilding én een natuurlijk startpunt voor bredere kennisoverdracht over cybersecurity. In de XL-versie is er extra ruimte voor verdieping op securitythema's.",
   },
   {
     q: "Op welk platform draait R@venHack?",
-    a: "R@venHack draait via SpatialChat en wordt begeleid door de Meeting Masters. Deelnemers openen een link in de browser en lopen zo binnen — zonder installatie. De begeleiding zorgt dat het spel soepel verloopt en dat iedereen erbij betrokken blijft.",
+    a: "Beide versies draaien via SpatialChat en worden begeleid door de Meeting Masters. Deelnemers openen een link in de browser en lopen zo binnen — zonder installatie. De begeleiding zorgt dat het spel soepel verloopt en dat iedereen erbij betrokken blijft.",
   },
 ];
 
@@ -84,7 +116,7 @@ export default function RavenHackPage() {
       {/* ── HERO ── */}
       <section>
         <h1 className="sr-only">
-          R@venHack — cybersecurity escape game voor teams
+          R@venHack — cybersecurity escape game voor teams, in een gewone en een XL-versie
         </h1>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
           <Image
@@ -117,7 +149,7 @@ export default function RavenHackPage() {
                   }}
                 >
                   Een cybersecurity escape game waarin uw team al spelend leert
-                  over veilig digitaal gedrag.
+                  over veilig digitaal gedrag — in een gewone en een XL-versie.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
@@ -203,8 +235,63 @@ export default function RavenHackPage() {
         </div>
       </section>
 
-      {/* ── HOE HET WERKT ── */}
+      {/* ── TWEE VERSIES ── */}
       <section className="bg-white py-16 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="mb-10 max-w-[760px]">
+            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+              Twee versies
+            </p>
+            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+              Kies de R@venHack die bij uw team past.
+            </h2>
+            <p className="text-[#545454] leading-relaxed">
+              R@venHack is er in twee smaken: een compacte, energieke gewone
+              versie en een uitgebreidere XL-versie met meer diepgang. Beide
+              stoppen samen de aanval — het verschil zit in de tijd, de omvang
+              en hoe ver u de securitythema's uitdiept.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {versies.map((v) => (
+              <div
+                key={v.title}
+                className={`bg-white rounded p-7 shadow-sm border ${
+                  v.highlight ? "border-[#EEBE3D]/60" : "border-[#EBEBEB]"
+                } flex flex-col`}
+              >
+                <div className="w-8 h-1 bg-[#EEBE3D] rounded mb-4" />
+                <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-3">
+                  {v.tag}
+                </span>
+                <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug">
+                  {v.title}
+                </h3>
+                <p className="text-[#2D2D2D] font-semibold text-sm mb-3">
+                  {v.lead}
+                </p>
+                <p className="text-sm text-[#545454] leading-relaxed mb-5">
+                  {v.body}
+                </p>
+                <ul className="space-y-2 mt-auto">
+                  {v.kenmerken.map((k) => (
+                    <li
+                      key={k}
+                      className="flex items-start gap-2 text-sm text-[#545454] leading-relaxed"
+                    >
+                      <span className="mt-1.5 block h-1.5 w-1.5 flex-none rounded-full bg-[#EEBE3D]" />
+                      <span>{k}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOE HET WERKT ── */}
+      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
@@ -215,7 +302,8 @@ export default function RavenHackPage() {
             </h2>
             <p className="text-[#545454] leading-relaxed">
               R@venHack draait via SpatialChat en wordt begeleid door de Meeting
-              Masters. U opent een link, loopt binnen en de crisis begint.
+              Masters. U opent een link, loopt binnen en de crisis begint —
+              zowel in de gewone als in de XL-versie.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -240,7 +328,7 @@ export default function RavenHackPage() {
       </section>
 
       {/* ── BEELD + PRAKTIJK ── */}
-      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
+      <section className="bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
