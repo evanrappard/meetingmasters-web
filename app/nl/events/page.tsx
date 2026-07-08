@@ -299,11 +299,15 @@ export default function EventsPage() {
       {/* ── HERO ── */}
       <section>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
-          <Image
-            src="/images/events-hero.webp"
-            alt="Deelnemer kijkt naar een online event in een sfeervolle virtuele tuinomgeving met video-deelnemers — MeetingMasters Events op SpatialChat"
-            fill priority
-            className="object-cover object-center"
+          <video
+            src="/videos/events-hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="Deelnemers bij een online event in een sfeervolle virtuele tuinomgeving met video-deelnemers — MeetingMasters Events op SpatialChat"
+            className="absolute inset-0 w-full h-full object-cover object-center"
             style={{ filter: "saturate(0.92) brightness(1.03) contrast(0.99)" }}
           />
           {/* Lichte gradient links→rechts — egaal contrast achter de tekstkolom, scherm rechts blijft helder */}

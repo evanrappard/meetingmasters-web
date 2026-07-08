@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
-import HeroVideo from "@/components/ui/HeroVideo";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { getHomepageContent, getLogos, getHomepageCases } from "@/sanity/queries";
 
@@ -130,15 +129,15 @@ const DEFAULT_INSPIRATIE = [
     label: "Event",
     title: "Online strategiedag voor 200 medewerkers.",
     body: "Plenaire sessies, breakouts en napraten achteraf. Deelnemers gaven een 8,4.",
-    img: "/images/hero-1.webp",
-    imgAlt: "Online strategiedag voor 200 medewerkers — plenaire sessies en breakouts begeleid door MeetingMasters",
+    img: "/images/home-inspiratie-strategiedag.webp",
+    imgAlt: "Online strategiedag in een sfeervolle virtuele buitenomgeving met lichtjes — deelnemers verdeeld over groepen, begeleid door MeetingMasters",
   },
   {
     label: "Virtual Office",
     title: "Virtueel clubhuis voor Olympiërs wereldwijd.",
     body: "World Olympians Association — actief tijdens de Spelen van Parijs en Milaan.",
-    img: "/images/inspiratie-olyhouse-2026.webp",
-    imgAlt: "e-OLYHouse 2026 in SpatialChat — een virtueel clubhuis voor de World Olympians Association op een alpine locatie",
+    img: "/images/home-inspiratie-virtualoffice.webp",
+    imgAlt: "Virtueel clubhuis van de World Olympians Association in SpatialChat — een besneeuwd bergterras met OLY-tafels en deelnemers wereldwijd",
   },
   {
     label: "Games & Tools",
@@ -149,6 +148,13 @@ const DEFAULT_INSPIRATIE = [
   },
 ];
 
+// Elk voorbeeld linkt naar zijn eigen categoriepagina (Inspiratie-pagina is vervallen)
+const CATEGORY_HREF: Record<string, string> = {
+  Event: "/nl/events",
+  "Virtual Office": "/nl/virtual-office",
+  "Games & Tools": "/nl/games-tools",
+};
+
 const solutions = [
   {
     id: "events",
@@ -158,10 +164,10 @@ const solutions = [
     bullets: ["Strategiedag", "All-hands & kick-off", "Leiderschapsdag", "Community event"],
     cta: "Verrassende interactieve bijeenkomsten",
     href: "/nl/events",
-    img: "/images/events-bijeenkomst.webp",
-    imgAlt: "Sfeervolle online bijeenkomst in een virtuele rooftopomgeving — deelnemers verbonden via MeetingMasters",
+    img: "/images/home-oplossing-events.webp",
+    imgAlt: "Online strategiedag: deelnemer werkt in een Miro-workshopboard en een SpatialChat-sessie met collega's — begeleid door MeetingMasters",
     bg: "bg-[#E8EDE4]",
-    imgStyle: { transform: "scale(1.3) translateY(4%)", transformOrigin: "center center" } as React.CSSProperties,
+    imgStyle: { transform: "scale(2.2)", transformOrigin: "54% 52%" } as React.CSSProperties,
   },
   {
     id: "remote-office",
@@ -171,10 +177,10 @@ const solutions = [
     bullets: ["Internationale organisaties", "Hybride teams", "Projectgroepen", "Samenwerkingsverbanden"],
     cta: "Verbonden via een virtueel kantoor",
     href: "/nl/virtual-office",
-    img: "/images/remote-office-virtual.webp",
-    imgAlt: "Virtueel kantoor in SpatialChat voor hybride teams — meerdere ruimtes, live samenwerking en informeel contact",
+    img: "/images/home-oplossing-virtueelkantoor.webp",
+    imgAlt: "Medewerker in een virtueel kantoor in SpatialChat — een open kantoorruimte met collega's die live samenwerken en contact maken",
     bg: "bg-[#E8EDE4]",
-    imgStyle: { objectPosition: "left center", transform: "scale(1.6)", transformOrigin: "left center" } as React.CSSProperties,
+    imgStyle: { objectPosition: "center" } as React.CSSProperties,
   },
   {
     id: "games-tools",
@@ -187,7 +193,7 @@ const solutions = [
     img: "/images/format-escape.webp",
     imgAlt: "Deelnemers spelen een online escape room als interactieve teambuilding activiteit — MeetingMasters Games & Tools",
     bg: "bg-[#E8EDE4]",
-    imgStyle: {} as React.CSSProperties,
+    imgStyle: { transform: "scale(1.2)", transformOrigin: "30% center" } as React.CSSProperties,
   },
 ];
 
@@ -211,13 +217,21 @@ export default async function HomePage() {
   const INSPIRATIE_ORDER = ["Event", "Virtual Office", "Games & Tools"];
   const normalizeLabel = (l: string) => l === "Remote Office" ? "Virtual Office" : l;
 
+  // Beelden worden voorlopig lokaal beheerd (zie docs/website-visuals.md).
+  // Deze override plaatst lokale beelden vóór de CMS-afbeelding; de teksten
+  // blijven uit de CMS komen. Bij een latere migratie naar CMS vervalt dit.
+  const LOCAL_INSPIRATIE_IMG: Record<string, string> = {
+    "Event": "/images/home-inspiratie-strategiedag.webp",
+    "Virtual Office": "/images/home-inspiratie-virtualoffice.webp",
+  };
+
   const inspiratie = cmsCases?.length
     ? cmsCases
         .map((c) => ({
           label: normalizeLabel(c.label),
           title: c.title,
           body: c.summary ?? "",
-          img: c.image?.asset?.url ?? "/images/hero-1.webp",
+          img: LOCAL_INSPIRATIE_IMG[normalizeLabel(c.label)] ?? c.image?.asset?.url ?? "/images/hero-1.webp",
           imgAlt: c.title,
         }))
         .sort((a, b) => {
@@ -240,19 +254,16 @@ export default async function HomePage() {
       <section>
         <h1 className="sr-only">MeetingMasters — online events en virtual office specialist op SpatialChat</h1>
         <div className="relative w-full aspect-video min-h-[360px] max-h-[90vh]">
-          <HeroVideo
-            src="/videos/hero.mp4"
-            startImage="/images/hero-start.png"
-            alt="MeetingMasters — online events en virtual office op SpatialChat"
-            holdMs={3000}
-            startHoldMs={1000}
-            fadeMs={2200}
-            playbackRate={0.28}
-            objectPosition="center"
-            className="absolute inset-0"
-            layerStyle={{
-              filter: "contrast(1.04) saturate(1.06)",
-            }}
+          <video
+            src="/videos/hero-boomerang.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="MeetingMasters — online events en virtual office op SpatialChat"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center", filter: "contrast(1.04) saturate(1.06)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-[#1E1E1E]/75 via-[#2D2D2D]/30 to-transparent" />
           <div className="absolute inset-0 flex items-end">
@@ -457,7 +468,7 @@ export default async function HomePage() {
             {inspiratie.map((item) => (
               <Link
                 key={item.label}
-                href="/nl/inspiratie"
+                href={CATEGORY_HREF[item.label] ?? "/nl/events"}
                 className="group rounded shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow"
               >
                 <div className="relative h-52 flex-shrink-0">
@@ -478,14 +489,6 @@ export default async function HomePage() {
                 </div>
               </Link>
             ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/nl/inspiratie"
-              className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-8 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
-            >
-              Meer voorbeelden bekijken →
-            </Link>
           </div>
         </div>
       </section>
