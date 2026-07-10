@@ -142,8 +142,15 @@ Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepag
 | Header | `/images/planning-2.jpg` | LOKAAL |
 | Kaarten | `/images/planning-3.jpg`, `planning-4.jpg`, `planning-1.png` | LOKAAL |
 
+## NL Blog — `app/nl/blog/page.tsx` + `app/nl/blog/[slug]/page.tsx`
+| Hero (overzicht) | `/images/blog/blog-hero.webp` | LOKAAL |
+| Overzichtskaarten (10) | `/images/blog/{heen-en-weer,online-beheersen,wat-gamers-weten,rondjes-versus-vierkantjes,systeemwoede,ai-paradox,niet-hetzelfde-wel-goed,acht-grens,stok-om-mee-te-slaan,olympiers}.webp` | LOKAAL |
+| Detailpagina | herhaalt de kaart-visual als 16:9 hero (zelfde bestand per slug) | LOKAAL |
+
+Data-bron: `app/nl/blog/posts.ts` (gedeeld door overzicht + detail).
+
 ## NL pagina's zónder beeld (tekst/UI-only)
-`cases`, `inspiratie`, `blog`, `partners`, `quality`, `csr`, `contact`,
+`cases`, `inspiratie`, `partners`, `quality`, `csr`, `contact`,
 `expert-advies`, `about/{csr,team,partners,quality}`, `testimonials`.
 
 ---
