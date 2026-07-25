@@ -100,5 +100,39 @@ CTA-LINK: <route, optioneel>
 
 Meerdere blokken? Herhaal het blok. Twijfel je over een route of sectie? Zet er
 "?? bouwer checken" bij in plaats van te gokken.
+
+## 8. Voorbeeld van een goede oplevering
+
+Opdracht: "Nieuwe hero voor de Virtueel Kantoor-pagina, doelgroep HR/directie."
+
+Zo levert het Project het aan:
+
 ```
+PAGINA: /nl/virtual-office
+SECTIE: hero (kop + subkop + CTA bovenaan)
+VERVANGT: "Meer samenhang & effectiviteit"
+---
+KOP: Eén thuisbasis voor uw hele team
+SUBKOP: Kortere lijnen, sneller schakelen en alle mensen, kennis en informatie op
+één plek — ook als niemand op kantoor zit.
+BODY: Een verbindende, informele plek waar collega's elkaar tegenkomen. Minder
+afstemmingsverlies, meer gedaan.
+CTA-LABEL: Plan een rondleiding →
+CTA-LINK: /nl/expert-advies
 ```
+
+Kortere variant (voor een strakkere hero):
+
+```
+PAGINA: /nl/virtual-office
+SECTIE: hero
+VERVANGT: "Meer samenhang & effectiviteit"
+---
+KOP: Uw team, één digitale thuisbasis
+SUBKOP: Mensen, kennis en informatie op één plek. Kortere lijnen, meer gedaan.
+CTA-LABEL: Plan een rondleiding →
+CTA-LINK: /nl/expert-advies
+```
+
+Let op in dit voorbeeld: u-vorm consistent, kop kort, subkop = de belofte, één
+duidelijke CTA, en het VERVANGT-citaat zodat de bouwer de plek meteen vindt.
