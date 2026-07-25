@@ -3,30 +3,44 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 
-type NavChild = { label: string; href: string; separator?: false } | { separator: true };
+type NavChild = { label: string; href: string };
 
-const navItems: {
+type NavItem = {
   label: string;
   href: string;
+  feature?: { title: string; desc: string };
   children?: NavChild[];
-}[] = [
+  moreLabel?: string;
+  moreHref?: string;
+};
+
+const navItems: NavItem[] = [
   {
     label: "Events",
     href: "/nl/events",
+    feature: {
+      title: "Bijeenkomsten die écht iets opleveren",
+      desc: "Beter contact, meer draagvlak, concrete besluiten – ook in grote groepen.",
+    },
     children: [
       { label: "Strategiedag", href: "/nl/events/strategiedagen" },
       { label: "Virtuele kerstborrel", href: "/nl/events/kerstfeest" },
       { label: "All-hands", href: "/nl/events/all-hands" },
       { label: "Community-event", href: "/nl/events/community-building" },
       { label: "Online teambuilding", href: "/nl/events/team-ontwikkeling" },
-      { label: "Alle eventformats →", href: "/nl/events#formats" },
     ],
+    moreLabel: "Alle eventformats",
+    moreHref: "/nl/events#formats",
   },
   {
     label: "Virtueel Kantoor",
     href: "/nl/virtual-office",
+    feature: {
+      title: "Samen werken als startpunt",
+      desc: "Een verbindende plek voor wie niet allemaal op 1 locatie zit.",
+    },
     children: [
       { label: "Boek een zaaltje", href: "/nl/virtual-office/zaaltje" },
       { label: "Huur een instapklaar kantoor", href: "/nl/virtual-office/huren" },
@@ -36,33 +50,38 @@ const navItems: {
   {
     label: "Games",
     href: "/nl/games-tools",
+    feature: {
+      title: "Tools voor meer betrokkenheid",
+      desc: "Interactieve formats voor verrassende ervaring en meer verbinding.",
+    },
     children: [
-      { label: "R@venHack: Cybersecurity", href: "/nl/games-tools/ravenhack" },
       { label: "Games", href: "/nl/games-tools#games" },
+      { label: "Escape Room R@venHack", href: "/nl/games-tools/ravenhack" },
       { label: "Tools", href: "/nl/games-tools#tools" },
-      { separator: true },
-      { label: "Alle games & tools →", href: "/nl/games-tools" },
     ],
   },
   {
     label: "Technologie",
     href: "/nl/technologie",
+    feature: {
+      title: "Platform plus support",
+      desc: "Online meetings en events met menselijke maat.",
+    },
     children: [
+      { label: "Volledige ontzorging", href: "/nl/technologie/support" },
       { label: "SpatialChat", href: "/nl/technologie/spatialchat" },
-      { label: "Hoe het werkt", href: "/nl/technologie/hoe-het-werkt" },
-      { label: "FAQ", href: "/nl/technologie/faq" },
-      { label: "Helpdesk", href: "/nl/technologie/helpdesk" },
+      { label: "Teams", href: "/nl/technologie/teams" },
+      { label: "Zoom", href: "/nl/technologie/zoom" },
+      { label: "Zoom Events", href: "/nl/technologie/zoom-events" },
     ],
   },
-  { label: "Inspiratie", href: "/nl/inspiratie" },
   {
     label: "Over ons",
     href: "/nl/about",
-    children: [
-      { label: "Ons team", href: "/nl/about/team" },
-      { label: "Kwaliteit & vertrouwelijkheid", href: "/nl/about/quality" },
-      { label: "Partners", href: "/nl/about/partners" },
-    ],
+    feature: {
+      title: "Online Meeting Professionals",
+      desc: "",
+    },
   },
   { label: "Blog", href: "/nl/blog" },
 ];
@@ -70,6 +89,11 @@ const navItems: {
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setOpenDropdown(null);
+  };
 
   return (
     <header className="sticky top-0 z-50">
@@ -92,42 +116,99 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-7">
-            {navItems.map((item) =>
-              item.children ? (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <Link
-                    href={item.href}
-                    className="flex items-center gap-1 text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors py-2"
+            {navItems.map((item) => {
+              // Menu met subpagina's: geel kopje + witte lijst eronder
+              if (item.children && item.feature) {
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
-                    {item.label}
-                    <ChevronDown size={13} className="opacity-50" />
-                  </Link>
-                  {openDropdown === item.label && (
-                    <div className="absolute top-full left-0 mt-0 bg-white border border-[#EBEBEB] rounded shadow-lg min-w-[220px] py-1 z-50">
-                      {item.children.map((child, idx) =>
-                        child.separator ? (
-                          <div key={`sep-${idx}`} className="mx-5 my-1 border-t border-[#F0F0F0]">
-                            <span className="block text-[9px] font-bold tracking-[0.2em] uppercase text-[#CCCCCC] pt-2 pb-0.5">Tools</span>
-                          </div>
-                        ) : (
+                    <Link
+                      href={item.href}
+                      className="flex items-center gap-1 text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors py-2"
+                    >
+                      {item.label}
+                      <ChevronDown size={13} className="opacity-50" />
+                    </Link>
+
+                    {openDropdown === item.label && (
+                      <div className="absolute top-full left-0 pt-0 z-50">
+                        <div className="w-[300px] bg-white border border-[#EBEBEB] rounded-lg shadow-lg overflow-hidden">
+                          {/* Geel kopje = moederpagina */}
                           <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block px-5 py-2.5 text-sm text-[#545454] hover:text-[#2D2D2D] hover:bg-[#FAFAFA] transition-colors"
+                            href={item.href}
+                            className="block bg-[#FFFBEE] px-5 py-4 border-b border-[#F0E9CE] hover:bg-[#FCF3D6] transition-colors"
                           >
-                            {child.label}
+                            <span className="text-[15px] font-semibold leading-snug text-[#2D2D2D]">
+                              {item.feature.title}
+                            </span>
                           </Link>
-                        )
-                      )}
-                    </div>
-                  )}
-                </div>
-              ) : (
+
+                          {/* Subpagina's in wit */}
+                          <div className="p-2">
+                            {item.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className="block px-4 py-2.5 text-sm text-[#545454] rounded hover:text-[#2D2D2D] hover:bg-[#FAFAFA] transition-colors"
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                            {item.moreHref && (
+                              <Link
+                                href={item.moreHref}
+                                className="flex items-center gap-1.5 mt-1 px-4 py-2.5 text-sm font-semibold text-[#D4A835] rounded border-t border-[#F3F3F3] hover:text-[#2D2D2D] hover:bg-[#FAFAFA] transition-colors"
+                              >
+                                {item.moreLabel}
+                                <ArrowRight size={14} />
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              // Item met alleen een kopje (Over ons): geel kopje, geen lijst
+              if (item.feature) {
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <Link
+                      href={item.href}
+                      className="text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+
+                    {openDropdown === item.label && (
+                      <div className="absolute top-full left-0 pt-0 z-50">
+                        <Link
+                          href={item.href}
+                          className="block w-[240px] bg-[#FFFBEE] border border-[#EBEBEB] rounded-lg shadow-lg px-5 py-4 hover:bg-[#FCF3D6] transition-colors"
+                        >
+                          <span className="text-[15px] font-semibold leading-snug text-[#2D2D2D]">
+                            {item.feature.title}
+                          </span>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              // Gewone link (Blog)
+              return (
                 <Link
                   key={item.label}
                   href={item.href}
@@ -135,8 +216,8 @@ export default function Navbar() {
                 >
                   {item.label}
                 </Link>
-              )
-            )}
+              );
+            })}
           </nav>
 
           {/* Right side */}
@@ -167,7 +248,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-[#EBEBEB] px-6 py-4 space-y-1">
           {navItems.map((item) =>
-            item.children ? (
+            item.children && item.feature ? (
               <div key={item.label}>
                 <button
                   onClick={() =>
@@ -182,23 +263,41 @@ export default function Navbar() {
                   />
                 </button>
                 {openDropdown === item.label && (
-                  <div className="pl-4 space-y-1 pb-2">
-                    {item.children.map((child, idx) =>
-                      child.separator ? (
-                        <div key={`msep-${idx}`} className="pt-2 pb-1">
-                          <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#CCCCCC]">Tools</span>
-                        </div>
-                      ) : (
+                  <div className="pb-3">
+                    {/* Geel kopje = moederpagina */}
+                    <Link
+                      href={item.href}
+                      onClick={closeMobile}
+                      className="block rounded-lg bg-[#FFFBEE] border border-[#F1E4BA] px-4 py-3 mb-1"
+                    >
+                      <span className="block text-[15px] font-semibold leading-snug text-[#2D2D2D]">
+                        {item.feature.title}
+                      </span>
+                    </Link>
+
+                    {/* Subpagina's */}
+                    <div className="pl-1 space-y-0.5">
+                      {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          onClick={() => setMobileOpen(false)}
+                          onClick={closeMobile}
                           className="block py-2 text-sm text-[#898989] hover:text-[#2D2D2D]"
                         >
                           {child.label}
                         </Link>
-                      )
-                    )}
+                      ))}
+                      {item.moreHref && (
+                        <Link
+                          href={item.moreHref}
+                          onClick={closeMobile}
+                          className="flex items-center gap-1.5 py-2 text-sm font-semibold text-[#D4A835] hover:text-[#2D2D2D]"
+                        >
+                          {item.moreLabel}
+                          <ArrowRight size={13} />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
@@ -206,7 +305,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobile}
                 className="block py-3 text-sm font-medium text-[#545454] hover:text-[#2D2D2D] border-b border-[#F5F5F5]"
               >
                 {item.label}
@@ -216,7 +315,7 @@ export default function Navbar() {
           <div className="pt-4 flex flex-col gap-3">
             <Link
               href="/nl/contact"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobile}
               className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-3 rounded text-center hover:bg-[#D4A835] transition-colors"
             >
               Plan een gesprek
