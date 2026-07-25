@@ -52,7 +52,7 @@ beeld lokaal willen, gebruiken we een expliciete override in de code (zie NL Hom
 | Inspiratie 2 — Virtueel Clubhuis | `/images/home-inspiratie-virtualoffice.webp` (override `LOCAL_INSPIRATIE_IMG`) | CMS-tekst + LOKAAL beeld | `home-inspiratie-virtualoffice.png` |
 | Inspiratie 3 — Escape/Games | `cmsCases[].image.asset.url` (fallback `/images/inspiratie-escape.webp`) | CMS (fallback lokaal) | nog te vervangen door lokaal? |
 | Essentie-sectie ("Waar wij voor staan", beeld links, witte bg, CTA's manifest-download + Contact) | `/images/home-essentie.webp` | LOKAAL | `Vrouw achter laptop spatial MM.png` (Downloads) — SpatialChat-blok gespiegeld. Manifest-PDF: `public/downloads/meetingmasters-manifest.pdf` |
-| Spatial-sectie | `/images/spatial-entree.webp` | LOKAAL | — |
+| Spatial-sectie | YouTube-facade (video-ID `kBHFSnQDhX4`), poster `/images/spatialchat-video-poster.jpg` — **tijdelijk** i.p.v. carrousel; verving `spatial-entree.webp` | LOKAAL + YouTube |
 
 Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepageContent`). Enige importeur is deze pagina. `homepageContent` (heroHeadline/subline/stats) is CMS maar zonder beeld.
 
@@ -109,12 +109,13 @@ Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepag
 ## NL Virtueel kantoor — `app/nl/virtual-office/page.tsx`
 | Hero (video) | `/videos/vo-hero-office-v4.webm` + `.mp4`, poster `/images/vo-hero-office.jpg` | LOKAAL |
 | Toepassingen-cards (6×) | `/images/vo-clubhuis.webp`, `vo-museum.webp`, `vo-thuisbasis.webp`, `vo-hub.webp`, `vo-community.webp`, `vo-project.webp` | LOKAAL |
+| Ingangen-cards (3×, "Drie manieren om binnen te komen", beeld boven tekst) | `/images/vo-zaaltje.webp` (`Kantoorruimte.png`), `vo-huren.webp` (`Kantoorruimte (1).png`), `vo-fundament-v2.webp` (`MM Website afbeeldingen (20).png`) — zelfde beelden als subpagina-hero's | LOKAAL |
 | Clubhouse-sectie | `/images/oly-clubhouse.webp` | LOKAAL |
 
 ### NL Virtueel kantoor — subpagina's
-| `/nl/virtual-office/zaaltje` | `/images/spatial-entree.webp` | LOKAAL |
-| `/nl/virtual-office/fundament` | `/images/hero-lobby.webp` | LOKAAL |
-| `/nl/virtual-office/huren` | `/images/remote-office-virtual.webp`, `/images/inspiratie-olyhouse.webp` | LOKAAL |
+| `/nl/virtual-office/zaaltje` | hero `/images/vo-zaaltje.webp` (`Kantoorruimte.png`) | LOKAAL |
+| `/nl/virtual-office/fundament` | hero `/images/vo-fundament-v2.webp` (`MM Website afbeeldingen (20).png`; oude lege plattegrond `vo-fundament.webp` niet meer gebruikt) | LOKAAL |
+| `/nl/virtual-office/huren` | hero `/images/vo-huren.webp` (`Kantoorruimte (1).png`), `/images/inspiratie-olyhouse.webp` | LOKAAL |
 
 ## NL Technologie — `app/nl/technologie/page.tsx`  🚧 (andere Claude werkt hieraan)
 | Tool-types (3×) | `/images/events-bijeenkomst.webp`, `events-spatial.webp`, `spatial-entree.webp` | LOKAAL |
@@ -123,12 +124,12 @@ Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepag
 
 ## NL Games & Tools — `app/nl/games-tools/page.tsx`
 | Hero (video) | `/videos/games-hero-v5.webm` + `.mp4`, poster `/images/games-hero-v5.jpg` | LOKAAL |
-| Format-cards | `/images/format-escape.webp`, `format-party.webp`, `format-1.webp`, `spatial-entree.webp`, `events-spatial.webp`, `inspiratie-escape.webp` | LOKAAL |
+| Games-cards | Online escape room `/images/format-escape.webp`, Korte games `format-party.webp`, Maatwerk `/images/game-maatwerk.webp` (`Close up laptop scherm.png`) | LOKAAL |
 | R@venHack-blok | YouTube-facade (video-ID `5g3Vv51_hR0`), poster `/images/ravenhack-video-poster.jpg` — verving `format-2.webp` | LOKAAL + YouTube |
 | Tool-cards (4×, volgorde Inspiration→Bingo→Storytelling→Wheel) | `/images/tool-inspiration-cards-v2.webp`, `tool-bingo-v2.webp`, `tool-storytelling-v2.webp`, `tool-wheel-of-fortune-v2.webp` — uniform 400×480, per beeld eigen achtergrondkleur bijgebakken (contain + trim). Oude `tool-*.webp` (zonder `-v2`) niet meer gebruikt. | LOKAAL |
 
 ### NL Games/Escape — subpagina's
-| `/nl/games-tools/ravenhack` | `/images/format-2.png` | LOKAAL |
+| `/nl/games-tools/ravenhack` | hero `/images/ravenhack-hero.webp` (`Scherm…2025-10-08 om 21.21.45.png`, OneDrive escape-marketing); Hoe-het-werkt stappen `ravenhack-crisis.webp` / `ravenhack-onderzoek.webp` (`UK Designs Escape (1)`) / `ravenhack-doorbraak.webp` (`UK Designs Escape (2)`); In-de-praktijk = YouTube-facade `5g3Vv51_hR0` + poster `ravenhack-video-poster.jpg` | LOKAAL + YouTube |
 | `/nl/escape-rooms` | `/images/format-escape.png`, `/images/format-2.png` | LOKAAL |
 | `/nl/games-tools/tools/*` | geen beeld (interactieve tools) | n.v.t. |
 
