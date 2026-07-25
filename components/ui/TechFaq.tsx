@@ -72,7 +72,7 @@ export default function TechFaq({
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Zoek uw vraag… (bijv. 'ik hoor niets' of 'link')"
+            placeholder="Zoek je vraag… (bijv. 'ik hoor niets' of 'link')"
             aria-label="Zoek in de veelgestelde vragen"
             className="w-full rounded-lg border border-[#DADADA] bg-white pl-11 pr-4 py-3.5 text-base text-[#2D2D2D] placeholder:text-[#AAAAAA] focus:outline-none focus:border-[#EEBE3D] focus:ring-2 focus:ring-[#EEBE3D]/25"
           />
@@ -152,7 +152,7 @@ export default function TechFaq({
           <div className="rounded-lg border border-[#E8E8E8] bg-[#F9F9F7] p-8 text-center">
             <p className="text-[#2D2D2D] font-bold mb-2">Niets gevonden voor “{query}”.</p>
             <p className="text-sm text-[#777777] mb-4">
-              Geen zorgen — bij een begeleide bijeenkomst van MeetingMasters helpen we u direct.
+              Geen zorgen — bij een begeleide bijeenkomst van MeetingMasters helpen we je direct.
             </p>
             <a href={`tel:${supportPhone.replace(/\s/g, "")}`} className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-6 py-3 rounded hover:bg-[#D4A835] transition-colors">
               Bel support: {supportPhone}

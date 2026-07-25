@@ -53,7 +53,7 @@ export default function CTABlock() {
             <CTACard
               level="Oriëntatie"
               title="Ontdek onze events"
-              desc="Van strategiedag tot online teambuilding — bekijk welke eventformats bij uw doel passen."
+              desc="Van strategiedag tot online teambuilding — bekijk welke eventformats bij je doel passen."
               ctaLabel="Bekijk alle events →"
               href="/nl/events"
               variant="low"
@@ -69,7 +69,7 @@ export default function CTABlock() {
             <CTACard
               level="Concreet traject"
               title="Plan een gesprek — wij denken mee"
-              desc="Vrijblijvend. Wij denken direct mee over uw situatie, uw groep en wat er nodig is."
+              desc="Vrijblijvend. Wij denken direct mee over je situatie, je groep en wat er nodig is."
               ctaLabel="Plan een gesprek →"
               href="/nl/contact"
               variant="high"

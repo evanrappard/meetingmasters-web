@@ -49,7 +49,7 @@ export default function AdviesForm() {
             required
             value={naam}
             onChange={(e) => setNaam(e.target.value)}
-            placeholder="Uw naam"
+            placeholder="Je naam"
             className={fieldClass}
           />
         </div>
@@ -83,7 +83,7 @@ export default function AdviesForm() {
       </div>
       <div>
         <label htmlFor="bericht" className="block text-xs font-bold text-[#545454] mb-1.5">
-          Uw vraag of idee
+          Je vraag of idee
         </label>
         <textarea
           id="bericht"
@@ -91,7 +91,7 @@ export default function AdviesForm() {
           rows={5}
           value={bericht}
           onChange={(e) => setBericht(e.target.value)}
-          placeholder="Vertel kort waar u over wilt sparren — een idee, een bestaand ontwerp of een opzet die u voor ogen heeft."
+          placeholder="Vertel kort waar je over wilt sparren — een idee, een bestaand ontwerp of een opzet die je voor ogen hebt."
           className={fieldClass}
         />
       </div>
@@ -102,7 +102,7 @@ export default function AdviesForm() {
         Verstuur aanvraag →
       </button>
       <p className="text-xs text-[#898989] leading-relaxed">
-        Na versturen opent uw eigen mailprogramma met de ingevulde gegevens. Liever
+        Na versturen opent je eigen mailprogramma met de ingevulde gegevens. Liever
         direct mailen of bellen? Gebruik de opties hiernaast.
       </p>
     </form>
