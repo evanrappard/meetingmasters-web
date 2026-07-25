@@ -407,6 +407,54 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ── ESSENTIE ─────────────────────────────────────────────────── */}
+      <section className="bg-white py-14 border-t border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="relative aspect-[4/3] rounded overflow-hidden">
+              <Image
+                src="/images/home-essentie.webp"
+                alt="Vrouw achter een laptop in een MeetingMasters SpatialChat-sessie — collega's als kring rond 'Making more of Meetings'"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
+                Essentie
+              </p>
+              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Waar wij voor staan
+              </h2>
+              <p className="text-[#545454] leading-relaxed mb-4">
+                Als mensen samenkomen ontstaat iets moois. We leren van elkaar.
+                We versterken elkaar. Maar dat gaat niet vanzelf.
+              </p>
+              <p className="text-[#545454] leading-relaxed mb-4">
+                Een goede bijeenkomst is meer dan techniek en logistiek. Het is
+                vooral een menselijke uitdaging. Hoe we elkaar tegenkomen maakt
+                het verschil.
+              </p>
+              <p className="text-[#2D2D2D] font-bold leading-relaxed mb-8">
+                Wij ontwerpen ontmoetingen met ruimte voor oprecht contact.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                <a
+                  href="/downloads/meetingmasters-manifest.pdf"
+                  download
+                  className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
+                >
+                  Download het MeetingMasters Manifest
+                </a>
+                <Link href="/nl/contact" className="text-[#28A8AA] text-sm font-bold hover:underline">
+                  Contact →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── SPATIALCHAT ──────────────────────────────────────────────── */}
       <section className="bg-[#F0F0EA] py-14 border-t border-[#E5E5DF]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
