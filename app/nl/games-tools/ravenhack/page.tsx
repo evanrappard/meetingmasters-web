@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
+import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
@@ -9,21 +10,6 @@ export const metadata: Metadata = {
   description:
     "R@venHack is een cybersecurity escape game waarin je team samen een digitale aanval stopt. Beschikbaar als gewone versie (± 60 min) en als uitgebreide XL-versie. Leer al doende over phishing, datalekken en veilig digitaal gedrag — teambuilding én startpunt voor kennisoverdracht. Draait via SpatialChat.",
 };
-
-const leerpunten = [
-  {
-    title: "Phishing herkennen",
-    body: "Je team leert verdachte berichten, valse links en misleiding herkennen — niet uit een handleiding, maar doordat het er middenin zit.",
-  },
-  {
-    title: "Datalekken indammen",
-    body: "Wat doe je als gevoelige gegevens op straat dreigen te komen? Samen ontdek je hoe snel handelen en overleg het verschil maken.",
-  },
-  {
-    title: "Veilig digitaal gedrag",
-    body: "Van wachtwoorden tot het delen van informatie: het spel maakt zichtbaar welke gewoontes veilig zijn en welke een risico vormen.",
-  },
-];
 
 const versies = [
   {
@@ -120,16 +106,16 @@ export default function RavenHackPage() {
         </h1>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
           <Image
-            src="/images/format-2.png"
+            src="/images/format-escape.webp"
             alt="R@venHack cybersecurity escape game — een team stopt samen een digitale aanval"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-l from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 flex items-end">
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
-              <div className="max-w-[600px]">
+              <div className="max-w-[600px] ml-auto">
                 <p className="inline-block bg-black/35 rounded px-2.5 py-1 text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
                   R@venHack · Cybersecurity
                 </p>
@@ -205,38 +191,8 @@ export default function RavenHackPage() {
         </div>
       </section>
 
-      {/* ── WAT U LEERT ── */}
-      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
-        <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="mb-10 max-w-[760px]">
-            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
-              Wat je leert
-            </p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
-              Leren over veilig digitaal gedrag door het te dóen.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {leerpunten.map((b) => (
-              <div
-                key={b.title}
-                className="bg-white rounded p-7 shadow-sm border border-[#EBEBEB]"
-              >
-                <div className="w-8 h-1 bg-[#EEBE3D] rounded mb-4" />
-                <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug">
-                  {b.title}
-                </h3>
-                <p className="text-sm text-[#545454] leading-relaxed">
-                  {b.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── TWEE VERSIES ── */}
-      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
@@ -338,27 +294,24 @@ export default function RavenHackPage() {
               <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 Verder dan de phishingtest.
               </h2>
+              <p className="text-[#2D2D2D] font-semibold text-lg leading-relaxed mb-4">
+                Een datalek. Een verdachte mail. En steeds weer dezelfde naam: R@ven.
+              </p>
               <p className="text-[#545454] leading-relaxed mb-4">
-                Een e-learning wordt aangevinkt en vergeten. R@venHack blijft
-                hangen, omdat je team de lessen onder lichte druk en samen
-                ontdekt. De aanwijzingen zijn echt, de klok tikt door en de
-                inzichten zijn van jezelf.
+                Teams volgen het spoor van een hacker door een virtueel kantoor:
+                wachtwoorden kraken, aanwijzingen ontcijferen, knopen doorhakken
+                terwijl de klok tikt. Cybersecurity blijft zo niet bij erover horen.
               </p>
               <p className="text-[#545454] leading-relaxed">
-                Zo maakt R@venHack het abstracte concreet en het saaie boeiend —
-                en verandert een individuele plicht in een gedeelde
-                teamervaring die het gesprek over veiligheid op gang brengt.
+                R@venHack duurt 60 minuten, of in de XL-versie 90 minuten, met meer
+                ruimte voor teambuilding en leren.
               </p>
             </div>
-            <div className="relative aspect-video rounded overflow-hidden shadow-md">
-              <Image
-                src="/images/format-2.png"
-                alt="Team speelt R@venHack, een cybersecurity escape game in SpatialChat, en stopt samen een digitale aanval"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+            <YouTubeFacade
+              videoId="5g3Vv51_hR0"
+              poster="/images/ravenhack-video-poster.jpg"
+              title="R@venHack"
+            />
           </div>
         </div>
       </section>
