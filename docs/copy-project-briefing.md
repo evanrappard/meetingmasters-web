@@ -40,13 +40,13 @@ Voorbeeldzinnen (huidige site — kopieer dit ritme):
 - "Een informele thuisbasis waar collega's elkaar tegenkomen — de digitale
   variant van de koffiehoek."
 
-## 3. Aanspreekvorm — KIES ÉÉN
+## 3. Aanspreekvorm
 
-**Standaard: u-vorm** ("u", "uw organisatie"). Consistent aanhouden.
-> Wil je juist de je-vorm ("je", "jouw team")? Vervang dan in de projectinstructies
-> "u-vorm" door "je-vorm" — verder niets.
+**Nederlands: je-vorm** ("je", "jouw team", "jullie organisatie"). Warm en direct.
+Consistent aanhouden, nooit mengen binnen één tekst.
 
-Nooit mengen binnen één tekst.
+**Duits (mocht dat ooit spelen): Sie-vorm** (formeel). Nederlands blijft dus je,
+een Duitse variant wordt Sie.
 
 ## 4. Schrijfregels (do / don't)
 
@@ -112,7 +112,7 @@ PAGINA: /nl/virtual-office
 SECTIE: hero (kop + subkop + CTA bovenaan)
 VERVANGT: "Meer samenhang & effectiviteit"
 ---
-KOP: Eén thuisbasis voor uw hele team
+KOP: Eén thuisbasis voor je hele team
 SUBKOP: Kortere lijnen, sneller schakelen en alle mensen, kennis en informatie op
 één plek — ook als niemand op kantoor zit.
 BODY: Een verbindende, informele plek waar collega's elkaar tegenkomen. Minder
@@ -128,11 +128,11 @@ PAGINA: /nl/virtual-office
 SECTIE: hero
 VERVANGT: "Meer samenhang & effectiviteit"
 ---
-KOP: Uw team, één digitale thuisbasis
+KOP: Je team, één digitale thuisbasis
 SUBKOP: Mensen, kennis en informatie op één plek. Kortere lijnen, meer gedaan.
 CTA-LABEL: Plan een rondleiding →
 CTA-LINK: /nl/expert-advies
 ```
 
-Let op in dit voorbeeld: u-vorm consistent, kop kort, subkop = de belofte, één
+Let op in dit voorbeeld: je-vorm consistent, kop kort, subkop = de belofte, één
 duidelijke CTA, en het VERVANGT-citaat zodat de bouwer de plek meteen vindt.
