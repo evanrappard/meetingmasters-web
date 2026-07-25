@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
+import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { getHomepageContent, getLogos, getHomepageCases } from "@/sanity/queries";
 
@@ -489,14 +490,11 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="relative aspect-[4/3] rounded overflow-hidden">
-              <Image
-                src="/images/spatial-entree.webp"
-                alt="Inlogscherm van een op maat gemaakt SpatialChat-omgeving met MeetingMasters-branding voor een grote organisatie"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <YouTubeFacade
+              videoId="kBHFSnQDhX4"
+              poster="/images/spatialchat-video-poster.jpg"
+              title="SpatialChat bij MeetingMasters"
+            />
           </div>
         </div>
       </section>
