@@ -44,16 +44,22 @@ const stappen = [
     tag: "De crisis",
     title: "Je team belandt midden in een aanval",
     body: "Datalekken, phishing en verborgen aanwijzingen: er is iets goed mis en de klok tikt. Samen moet je de digitale crisis ontrafelen.",
+    img: "/images/ravenhack-crisis.webp",
+    alt: "Digitale ruis en glitch op het scherm — het begin van de cyberaanval in R@venHack",
   },
   {
     tag: "Het onderzoek",
     title: "Samen zoek je naar de sleutels",
     body: "In een reeks puzzels en aanwijzingen ontdek je hoe de aanval in elkaar zit. Overleggen, combineren en doorpakken — als team.",
+    img: "/images/ravenhack-onderzoek.webp",
+    alt: "Silhouet tegen een muur vol datastromen — het team onderzoekt de aanval",
   },
   {
     tag: "De doorbraak",
     title: "Je stopt de aanval",
     body: "Op het juiste moment valt alles op zijn plek en keer je de aanval. En ondertussen heb je geleerd hoe je dit in het echt voorkomt.",
+    img: "/images/ravenhack-doorbraak.webp",
+    alt: "De codes gekraakt, de hack gestopt — de doorbraak in R@venHack",
   },
 ];
 
@@ -106,16 +112,16 @@ export default function RavenHackPage() {
         </h1>
         <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
           <Image
-            src="/images/format-escape.webp"
-            alt="R@venHack cybersecurity escape game — een team stopt samen een digitale aanval"
+            src="/images/ravenhack-hero.webp"
+            alt="R@venHack in SpatialChat — een team in de High Security Zone kraakt samen de codes"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/55 via-black/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 flex items-end">
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
-              <div className="max-w-[600px] ml-auto">
+              <div className="max-w-[600px]">
                 <p className="inline-block bg-black/35 rounded px-2.5 py-1 text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
                   R@venHack · Cybersecurity
                 </p>
@@ -191,6 +197,48 @@ export default function RavenHackPage() {
         </div>
       </section>
 
+      {/* ── HOE HET WERKT ── */}
+      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="mb-10 max-w-[760px]">
+            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+              Hoe het werkt
+            </p>
+            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+              Van crisis naar doorbraak, samen als team.
+            </h2>
+            <p className="text-[#545454] leading-relaxed">
+              R@venHack draait via SpatialChat en wordt begeleid door de Meeting
+              Masters. Je opent een link, loopt binnen en de crisis begint —
+              zowel in de gewone als in de XL-versie.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {stappen.map((s) => (
+              <div
+                key={s.title}
+                className="bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col"
+              >
+                <div className="relative h-40">
+                  <Image src={s.img} alt={s.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                </div>
+                <div className="p-7 flex flex-col flex-1">
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">
+                    {s.tag}
+                  </span>
+                  <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug">
+                    {s.title}
+                  </h3>
+                  <p className="text-sm text-[#545454] leading-relaxed">
+                    {s.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── TWEE VERSIES ── */}
       <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
@@ -229,7 +277,7 @@ export default function RavenHackPage() {
                 <p className="text-sm text-[#545454] leading-relaxed mb-5">
                   {v.body}
                 </p>
-                <ul className="space-y-2 mt-auto">
+                <ul className="space-y-2 mb-6">
                   {v.kenmerken.map((k) => (
                     <li
                       key={k}
@@ -240,43 +288,20 @@ export default function RavenHackPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOE HET WERKT ── */}
-      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
-        <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="mb-10 max-w-[760px]">
-            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
-              Hoe het werkt
-            </p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
-              Van crisis naar doorbraak, samen als team.
-            </h2>
-            <p className="text-[#545454] leading-relaxed">
-              R@venHack draait via SpatialChat en wordt begeleid door de Meeting
-              Masters. Je opent een link, loopt binnen en de crisis begint —
-              zowel in de gewone als in de XL-versie.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {stappen.map((s) => (
-              <div
-                key={s.title}
-                className="bg-white rounded p-7 shadow-sm border border-[#EBEBEB] flex flex-col"
-              >
-                <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">
-                  {s.tag}
-                </span>
-                <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug">
-                  {s.title}
-                </h3>
-                <p className="text-sm text-[#545454] leading-relaxed">
-                  {s.body}
-                </p>
+                <div className="mt-auto flex flex-wrap gap-3">
+                  <Link
+                    href="/nl/contact"
+                    className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:bg-[#D4A835] transition-colors"
+                  >
+                    Check beschikbaarheid
+                  </Link>
+                  <Link
+                    href="/nl/contact"
+                    className="border border-[#D4D4D4] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:border-[#2D2D2D] transition-colors"
+                  >
+                    Kosten
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

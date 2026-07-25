@@ -34,7 +34,7 @@ const games = [
     title: "Maatwerk game",
     desc: "We ontwerpen ook games op maat. Eigen thema, eigen verhaal. Geweldig voor onboardingtrajecten of bij belangrijke momenten.",
     detail: "op maat · onboarding, awareness, teambuilding",
-    img: "/images/format-1.webp",
+    img: "/images/game-maatwerk.webp",
     alt: "Een online game op maat met eigen puzzels, verhaal en visuals",
     cta: "Check wat kan",
     href: "/nl/contact",
