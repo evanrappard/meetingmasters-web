@@ -134,12 +134,12 @@ export default function HomePage() {
                   >
                     Plan een gesprek →
                   </Link>
-                  <Link
-                    href="/en/inspiratie"
+                  <a
+                    href="#inspiratie"
                     className="text-white text-sm font-semibold px-4 py-3 border border-white/30 rounded hover:border-white/70 transition-colors"
                   >
                     Bekijk voorbeelden
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -311,7 +311,7 @@ export default function HomePage() {
       </section>
 
       {/* ── INSPIRATIE ───────────────────────────────────────────────── */}
-      <section className="bg-white py-14">
+      <section id="inspiratie" className="bg-white py-14">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
@@ -345,14 +345,6 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/en/inspiratie"
-              className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-8 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
-            >
-              Alle voorbeelden bekijken →
-            </Link>
           </div>
         </div>
       </section>

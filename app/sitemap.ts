@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/nl/games-tools`,                 changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/nl/games-tools/escape-masters`,  changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/nl/games-tools/ravenhack`,       changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/nl/inspiratie`,                  changeFrequency: "weekly",  priority: 0.8 },
     { url: `${BASE}/nl/cases`,                       changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/nl/blog`,                        changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/nl/contact`,                     changeFrequency: "monthly", priority: 0.7 },

@@ -52,10 +52,10 @@ export default function CTABlock() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <CTACard
               level="Oriëntatie"
-              title="Bekijk de inspiratie"
-              desc="Voorbeelden van bijeenkomsten, event formats en opzetten — om van te leren en inspiratie op te doen voor uw eigen event."
-              ctaLabel="Bekijk voorbeelden →"
-              href="/nl/inspiratie"
+              title="Ontdek onze events"
+              desc="Van strategiedag tot online teambuilding — bekijk welke eventformats bij uw doel passen."
+              ctaLabel="Bekijk alle events →"
+              href="/nl/events"
               variant="low"
             />
             <CTACard

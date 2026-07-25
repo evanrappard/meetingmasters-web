@@ -121,9 +121,6 @@ export default function VirtualOfficePage() {
                   <Link href="/nl/expert-advies" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
                     Plan een rondleiding →
                   </Link>
-                  <Link href="/nl/inspiratie" className="text-white/80 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors">
-                    Bekijk voorbeelden
-                  </Link>
                 </div>
               </div>
             </div>
