@@ -51,6 +51,7 @@ beeld lokaal willen, gebruiken we een expliciete override in de code (zie NL Hom
 | Inspiratie 1 — Online Strategiedag | `/images/home-inspiratie-strategiedag.webp` (override `LOCAL_INSPIRATIE_IMG`) | CMS-tekst + LOKAAL beeld | `MM Website afbeeldingen (26).png` |
 | Inspiratie 2 — Virtueel Clubhuis | `/images/home-inspiratie-virtualoffice.webp` (override `LOCAL_INSPIRATIE_IMG`) | CMS-tekst + LOKAAL beeld | `home-inspiratie-virtualoffice.png` |
 | Inspiratie 3 — Escape/Games | `cmsCases[].image.asset.url` (fallback `/images/inspiratie-escape.webp`) | CMS (fallback lokaal) | nog te vervangen door lokaal? |
+| Essentie-sectie ("Waar wij voor staan", beeld links, witte bg, CTA's manifest-download + Contact) | `/images/home-essentie.webp` | LOKAAL | `Vrouw achter laptop spatial MM.png` (Downloads) — SpatialChat-blok gespiegeld. Manifest-PDF: `public/downloads/meetingmasters-manifest.pdf` |
 | Spatial-sectie | `/images/spatial-entree.webp` | LOKAAL | — |
 
 Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepageContent`). Enige importeur is deze pagina. `homepageContent` (heroHeadline/subline/stats) is CMS maar zonder beeld.
@@ -123,7 +124,8 @@ Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepag
 ## NL Games & Tools — `app/nl/games-tools/page.tsx`
 | Hero (video) | `/videos/games-hero-v5.webm` + `.mp4`, poster `/images/games-hero-v5.jpg` | LOKAAL |
 | Format-cards | `/images/format-escape.webp`, `format-party.webp`, `format-1.webp`, `spatial-entree.webp`, `events-spatial.webp`, `inspiratie-escape.webp` | LOKAAL |
-| Extra sectie | `/images/format-2.webp` | LOKAAL |
+| R@venHack-blok | YouTube-facade (video-ID `5g3Vv51_hR0`), poster `/images/ravenhack-video-poster.jpg` — verving `format-2.webp` | LOKAAL + YouTube |
+| Tool-cards (4×, volgorde Inspiration→Bingo→Storytelling→Wheel) | `/images/tool-inspiration-cards-v2.webp`, `tool-bingo-v2.webp`, `tool-storytelling-v2.webp`, `tool-wheel-of-fortune-v2.webp` — uniform 400×480, per beeld eigen achtergrondkleur bijgebakken (contain + trim). Oude `tool-*.webp` (zonder `-v2`) niet meer gebruikt. | LOKAAL |
 
 ### NL Games/Escape — subpagina's
 | `/nl/games-tools/ravenhack` | `/images/format-2.png` | LOKAAL |
