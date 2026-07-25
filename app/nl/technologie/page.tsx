@@ -5,7 +5,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Technologie | MeetingMasters",
   description:
-    "De tool volgt het doel. Wij ondersteunen uw online bijeenkomst op het platform dat past — van Teams en Zoom tot Zoom Events en SpatialChat. Techniek is er om connectie te ondersteunen.",
+    "De tool volgt het doel. Wij ondersteunen je online bijeenkomst op het platform dat past — van Teams en Zoom tot Zoom Events en SpatialChat. Techniek is er om connectie te ondersteunen.",
 };
 
 // ── Subheroes: van alledaags naar bijzonder ────────────────────────────
@@ -13,7 +13,7 @@ const PLATFORMS = [
   {
     label: "Teams",
     tag: "Intern · office-tool",
-    why: "De vertrouwde tool voor dagelijks intern overleg — al aanwezig in uw Microsoft-omgeving.",
+    why: "De vertrouwde tool voor dagelijks intern overleg — al aanwezig in je Microsoft-omgeving.",
     href: "/nl/technologie/teams",
     accent: false,
   },
@@ -34,7 +34,7 @@ const PLATFORMS = [
   {
     label: "SpatialChat",
     tag: "Proximity-platform",
-    why: "Van levensecht persoonlijk contact tot webinars — u beweegt vrij en loopt spontaan bij elkaar aan.",
+    why: "Van levensecht persoonlijk contact tot webinars — je beweegt vrij en loopt spontaan bij elkaar aan.",
     href: "/nl/technologie/spatialchat",
     accent: true,
   },
@@ -71,7 +71,7 @@ const TOOL_TYPES = [
     num: "03",
     label: "Proximity-platforms",
     headline: "Immersief, lifelike, vrij bewegen",
-    body: "Van levensecht persoonlijk contact tot webinars. U beweegt zelf door de ruimte en loopt spontaan bij elkaar aan.",
+    body: "Van levensecht persoonlijk contact tot webinars. Je beweegt zelf door de ruimte en loopt spontaan bij elkaar aan.",
     meta: "SpatialChat — tot 600 deelnemers",
     img: "/images/spatial-entree.webp",
     imgAlt: "Proximity-platform met vrij bewegende deelnemers",
@@ -92,11 +92,11 @@ export default function TechnologiePage() {
               className="font-bold text-white leading-[1.05] text-balance mb-6"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
             >
-              De tool volgt het doel. Kies een platform dat bij u past.
+              De tool volgt het doel. Kies een platform dat bij je past.
             </h1>
             <p className="text-white/70 text-base leading-relaxed max-w-[560px] mb-8">
-              Uw dagelijkse tool is zelden het antwoord voor een niet-alledaagse bijeenkomst. Wij
-              kiezen bewust het platform dat past bij wat u wilt bereiken — en zorgen dat de techniek
+              Je dagelijkse tool is zelden het antwoord voor een niet-alledaagse bijeenkomst. Wij
+              kiezen bewust het platform dat past bij wat je wilt bereiken — en zorgen dat de techniek
               op de achtergrond blijft.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -216,7 +216,7 @@ export default function TechnologiePage() {
             <div className="p-8 md:p-10 flex flex-col justify-center">
               <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-4">Rondjes in plaats van vierkantjes</p>
               <h3 className="font-bold text-[#2D2D2D] text-xl md:text-2xl leading-snug mb-4">
-                De vorm van uw ruimte bepaalt hoe mensen zich gedragen.
+                De vorm van je ruimte bepaalt hoe mensen zich gedragen.
               </h3>
               <p className="text-[#545454] leading-relaxed mb-6">
                 Vakjes zetten iedereen op zenden-en-wachten: één spreekt, de rest kijkt toe. Rondjes
@@ -375,18 +375,18 @@ export default function TechnologiePage() {
                 className="font-bold text-[#2D2D2D] text-balance mb-5"
                 style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)" }}
               >
-                U staat er nooit alleen voor.
+                Je staat er nooit alleen voor.
               </h2>
               <p className="text-[#545454] leading-relaxed mb-8 max-w-[560px]">
-                De beste techniek is de techniek die u niet merkt. Daarom regelen wij support van
+                De beste techniek is de techniek die je niet merkt. Daarom regelen wij support van
                 begin tot eind: we bereiden voor, we staan klaar aan de telefoon en we zijn live
-                aanwezig in uw bijeenkomst.
+                aanwezig in je bijeenkomst.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 {[
                   { icon: "📋", title: "Voorbereiding", body: "Duidelijke handleidingen, een technische doorloop en een testmoment vooraf." },
                   { icon: "📞", title: "Telefonische support", body: "Een half uur voor aanvang en tijdens de bijeenkomst direct bereikbaar." },
-                  { icon: "🎧", title: "Live in de meeting", body: "Een host of producer is er live bij, zodat u zich op de inhoud richt." },
+                  { icon: "🎧", title: "Live in de meeting", body: "Een host of producer is er live bij, zodat je je op de inhoud richt." },
                 ].map((s) => (
                   <div key={s.title} className="rounded-lg border border-[#EBEBEB] bg-white p-5">
                     <span className="text-2xl mb-3 block">{s.icon}</span>
@@ -403,7 +403,7 @@ export default function TechnologiePage() {
               </Link>
             </div>
             <div className="bg-[#2D2D2D] rounded-lg p-7">
-              <p className="text-white/50 text-xs font-bold uppercase tracking-wide mb-3">Support tijdens uw bijeenkomst</p>
+              <p className="text-white/50 text-xs font-bold uppercase tracking-wide mb-3">Support tijdens je bijeenkomst</p>
               <a href="tel:+31633034707" className="text-white text-2xl font-bold hover:underline">+31 6 33 03 47 07</a>
               <p className="text-white/60 text-sm leading-relaxed mt-3">
                 Een begeleide bijeenkomst van MeetingMasters? Loopt er iets vast, bel dan direct — of

@@ -189,7 +189,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="max-w-[560px]">
               <h2 className="font-bold text-white text-2xl leading-snug mb-2">Zelf een bijeenkomst die blijft hangen?</h2>
               <p className="text-white/60 text-base leading-relaxed">
-                Wij ontwerpen en begeleiden online events die er écht toe doen. Vertel ons wat u
+                Wij ontwerpen en begeleiden online events die er écht toe doen. Vertel ons wat je
                 wilt bereiken.
               </p>
             </div>

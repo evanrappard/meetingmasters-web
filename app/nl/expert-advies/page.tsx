@@ -6,7 +6,7 @@ import CTABlock from "@/components/ui/CTABlock";
 export const metadata: Metadata = {
   title: "Vrijblijvend advies | MeetingMasters",
   description:
-    "Specialisten in online meetings. Houd vrijblijvend een idee, een bestaand ontwerp of een opzet tegen ons aan — u krijgt altijd ons eerlijke advies, desgewenst in een vrijblijvende offerte.",
+    "Specialisten in online meetings. Houd vrijblijvend een idee, een bestaand ontwerp of een opzet tegen ons aan — je krijgt altijd ons eerlijke advies, desgewenst in een vrijblijvende offerte.",
 };
 
 export default function ExpertAdviesPage() {
@@ -20,7 +20,7 @@ export default function ExpertAdviesPage() {
               Expert advies
             </p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
-              Houd uw idee vrijblijvend tegen ons aan.
+              Houd je idee vrijblijvend tegen ons aan.
             </h1>
             <p className="text-[#545454] text-lg leading-relaxed mb-4">
               Wij zijn specialisten op het gebied van online meetings. Voel je
@@ -30,7 +30,7 @@ export default function ExpertAdviesPage() {
             </p>
             <p className="text-[#545454] text-base leading-relaxed">
               Of het nu gaat om vrijblijvend advies, input op een bestaand ontwerp
-              of een opzet die u voor ogen heeft — onze bijdrage ligt altijd in het
+              of een opzet die je voor ogen hebt — onze bijdrage ligt altijd in het
               toevoegen van maximaal persoonlijk contact en maximale interactie en
               betrokkenheid.
             </p>
@@ -48,7 +48,7 @@ export default function ExpertAdviesPage() {
                 Vul het formulier in
               </h2>
               <p className="text-sm text-[#545454] leading-relaxed mb-8">
-                Laat uw vraag of idee achter, dan denken we met u mee. U zit
+                Laat je vraag of idee achter, dan denken we met je mee. Je zit
                 nergens aan vast.
               </p>
               <AdviesForm />

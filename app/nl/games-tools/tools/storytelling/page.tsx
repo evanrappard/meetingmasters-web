@@ -18,7 +18,7 @@ const useCases = [
   { icon: "🌱", title: "Teamontwikkeling", desc: "Teams die beter willen samenwerken, beginnen met elkaar begrijpen. Storytelling versnelt dat proces." },
   { icon: "🔄", title: "Cultuurverandering", desc: "Abstracte waarden worden concreet als mensen verhalen delen over wanneer die waarden echt speelden." },
   { icon: "🤝", title: "Vertrouwen opbouwen", desc: "Verhalen creëren verbinding. Na een storytelling-ronde zijn deelnemers meer aanwezig — voor zichzelf en voor elkaar." },
-  { icon: "🎓", title: "Leerevenementen", desc: "Sluit een training af met storytelling: wat heeft u geleerd? Wanneer heeft u dit al eens meegemaakt? Kennis die landt." },
+  { icon: "🎓", title: "Leerevenementen", desc: "Sluit een training af met storytelling: wat heb je geleerd? Wanneer heb je dit al eens meegemaakt? Kennis die landt." },
 ];
 
 export default function StorytellingPage() {
@@ -95,9 +95,9 @@ export default function StorytellingPage() {
               <p className="text-[#AAAAAA] text-xs font-bold tracking-widest uppercase mb-5">Voorbeeldvragen</p>
               <div className="space-y-4">
                 {[
-                  "Vertel over een moment waarop u het gevoel had dat uw werk er écht toe deed.",
-                  "Wat heeft u geleerd van iemand met wie u het moeilijk had?",
-                  "Wanneer heeft samenwerken u verrast?",
+                  "Vertel over een moment waarop je het gevoel had dat je werk er écht toe deed.",
+                  "Wat heb je geleerd van iemand met wie je het moeilijk had?",
+                  "Wanneer heeft samenwerken je verrast?",
                 ].map((q, i) => (
                   <div key={i} className="flex gap-3 items-start">
                     <span className="text-[#EEBE3D] font-bold shrink-0 mt-0.5">→</span>
@@ -145,7 +145,7 @@ export default function StorytellingPage() {
               className="font-bold text-[#2D2D2D] text-balance"
               style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
             >
-              Wanneer zet u storytelling in?
+              Wanneer zet je storytelling in?
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -185,7 +185,7 @@ export default function StorytellingPage() {
 
       <section className="bg-[#EEBE3D] py-14">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <p className="font-bold text-[#2D2D2D] text-lg">Storytelling inzetten bij uw event?</p>
+          <p className="font-bold text-[#2D2D2D] text-lg">Storytelling inzetten bij je event?</p>
           <Link
             href="/nl/contact"
             className="shrink-0 bg-[#2D2D2D] text-white text-sm font-bold px-8 py-3.5 rounded hover:bg-[#1A1A1A] transition-colors"

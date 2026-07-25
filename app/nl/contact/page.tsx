@@ -28,10 +28,10 @@ export default function ContactPage() {
         <p className="text-[#666666] leading-relaxed mb-4">
           Als we het doel van een bijeenkomst begrijpen, kunnen we meedenken,
           onze expertise inbrengen, mensen begeleiden en ingewikkelde dingen
-          makkelijk maken. We horen graag van u.
+          makkelijk maken. We horen graag van je.
         </p>
         <p className="text-[#666666] leading-relaxed mb-10">
-          Past uw vraag niet helemaal bij wat wij doen? Dan verwijzen we u graag
+          Past je vraag niet helemaal bij wat wij doen? Dan verwijzen we je graag
           verder.
         </p>
 

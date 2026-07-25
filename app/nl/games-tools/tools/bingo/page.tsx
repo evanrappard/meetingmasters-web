@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Bingo | MeetingMasters Tools",
   description:
-    "Interactieve bingo voor in uw online meeting of event. Deelnemers vullen hun kaart in terwijl de meeting vordert. Van passief kijken naar actief meedoen.",
+    "Interactieve bingo voor in je online meeting of event. Deelnemers vullen hun kaart in terwijl de meeting vordert. Van passief kijken naar actief meedoen.",
 };
 
 const useCases = [
   { icon: "🎓", title: "Trainingen", desc: "Deelnemers moeten letten op begrippen, voorbeelden of gedrag. Bingo maakt passief luisteren actief." },
   { icon: "📣", title: "All-hands meetings", desc: "Bij lange plenaire sessies houdt bingo de aandacht scherp. Iedereen blijft erbij." },
   { icon: "🎤", title: "Congressen", desc: "Een congresdag met bingo geeft bezoekers een rode draad door alle sessies heen." },
-  { icon: "🤝", title: "Onboarding", desc: "Nieuwe medewerkers zoeken termen, namen en situaties in hun eerste weken. Zo verbindt u onboarding met beleving." },
+  { icon: "🤝", title: "Onboarding", desc: "Nieuwe medewerkers zoeken termen, namen en situaties in hun eerste weken. Zo verbind je onboarding met beleving." },
 ];
 
 export default function BingoPage() {
@@ -35,7 +35,7 @@ export default function BingoPage() {
           </h1>
           <p className="text-white/65 text-base leading-relaxed max-w-[500px] mb-8">
             Een interactieve bingokaart die deelnemers invullen terwijl de meeting vordert. Eigen vakjes
-            met begrippen, gedragingen of momenten die u verwacht. Van passief kijken naar actief meedoen.
+            met begrippen, gedragingen of momenten die je verwacht. Van passief kijken naar actief meedoen.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -64,10 +64,10 @@ export default function BingoPage() {
                 className="font-bold text-[#2D2D2D] text-balance mb-6"
                 style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
               >
-                Luisteren omdat u iets wilt vinden.
+                Luisteren omdat je iets wilt vinden.
               </h2>
               <p className="text-[#545454] leading-relaxed mb-5">
-                U bepaalt de inhoud van de bingokaart: begrippen uit een training, namen van
+                Je bepaalt de inhoud van de bingokaart: begrippen uit een training, namen van
                 collega's, typische uitspraken of gedragingen. Elke deelnemer krijgt een kaart
                 en vult die in zodra een vakje voorbijkomt.
               </p>
@@ -162,7 +162,7 @@ export default function BingoPage() {
 
       <section className="bg-[#EEBE3D] py-14">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <p className="font-bold text-[#2D2D2D] text-lg">Bingo inzetten bij uw event?</p>
+          <p className="font-bold text-[#2D2D2D] text-lg">Bingo inzetten bij je event?</p>
           <Link
             href="/nl/contact"
             className="shrink-0 bg-[#2D2D2D] text-white text-sm font-bold px-8 py-3.5 rounded hover:bg-[#1A1A1A] transition-colors"

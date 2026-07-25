@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const games = [
   {
     title: "Online escape room",
-    desc: "Samen puzzels oplossen onder tijdsdruk in SpatialChat. Ontdek hoe uw team samenwerkt en leer elkaar beter kennen.",
+    desc: "Samen puzzels oplossen onder tijdsdruk in SpatialChat. Ontdek hoe je team samenwerkt en leer elkaar beter kennen.",
     detail: "± 60 min · kleine tot grote groepen",
     img: "/images/format-escape.webp",
     alt: "Deelnemers lossen samen puzzels op in een online escape room in SpatialChat",
@@ -27,7 +27,7 @@ const games = [
   },
   {
     title: "Maatwerk game",
-    desc: "Een spel volledig op maat: eigen puzzels, verhaal en visuals, afgestemd op uw thema en groep.",
+    desc: "Een spel volledig op maat: eigen puzzels, verhaal en visuals, afgestemd op je thema en groep.",
     detail: "op maat · onboarding, awareness, teambuilding",
     img: "/images/format-1.webp",
     alt: "Een online game op maat met eigen puzzels, verhaal en visuals",
@@ -44,10 +44,10 @@ const tools = [
   },
   {
     title: "Bingo",
-    desc: "Een speelse bingokaart die uw meeting of kick-off in een spel verandert.",
+    desc: "Een speelse bingokaart die je meeting of kick-off in een spel verandert.",
     href: "/nl/games-tools/tools/bingo",
     img: "/images/events-spatial.webp",
-    alt: "Bingo — een speelse bingokaart voor tijdens uw meeting of kick-off",
+    alt: "Bingo — een speelse bingokaart voor tijdens je meeting of kick-off",
   },
   {
     title: "Inspiration Cards",
@@ -66,13 +66,13 @@ const tools = [
 ];
 
 const faq = [
-  { q: "Wat is het verschil tussen de games en de tools?", a: "De games zijn complete ervaringen die wij begeleiden: een escape room, een cybersecuritygame of maatwerk, met een verhaallijn en een duidelijk begin en einde. De tools zijn kleine hulpmiddelen die u zelf gratis inzet tijdens een meeting — een rad, een bingokaart of een set inspiratiekaarten — om de betrokkenheid te verhogen." },
-  { q: "Zijn de tools gratis te gebruiken?", a: "Ja. Alle tools op deze pagina zijn gratis en direct te gebruiken. U opent de tool in uw browser en deelt uw scherm tijdens de meeting — verder is er niets nodig." },
-  { q: "Hoe lang duren de games?", a: "Dat verschilt per game. De korte games duren 20 tot 30 minuten en passen binnen een meeting of feestje. De Online Escape Room duurt ongeveer 60 minuten, met daarnaast een uitgebreidere XL-versie. Bij een maatwerk game bepaalt u samen met ons de duur." },
-  { q: "Voor welke groepsgrootte zijn de games geschikt?", a: "De games werken voor kleine teams tot grote groepen; deelnemers spelen meestal in subgroepjes die parallel aan de slag gaan. Vertelt u ons uw groepsgrootte, dan adviseren wij de best passende opzet." },
-  { q: "Op welk platform draaien de games?", a: "De games draaien online in de browser en zijn te combineren met de videotool die u al gebruikt, zoals Zoom, Teams of SpatialChat. Deelnemers hoeven niets te installeren en openen simpelweg een link." },
-  { q: "Kunnen we een game op maat laten maken?", a: "Ja. Met de maatwerk game bouwen we eigen puzzels, een eigen verhaallijn en eigen visuals, helemaal afgestemd op uw thema, uw merk en uw groep — bijvoorbeeld voor onboarding, een jubileum of een awarenesscampagne." },
-  { q: "Hebben deelnemers speciale software nodig?", a: "Nee. Zowel de games als de tools draaien in de browser. Voor de tools deelt u uw scherm; voor de games ontvangen deelnemers een link. Geen installatie, geen accounts, geen gedoe." },
+  { q: "Wat is het verschil tussen de games en de tools?", a: "De games zijn complete ervaringen die wij begeleiden: een escape room, een cybersecuritygame of maatwerk, met een verhaallijn en een duidelijk begin en einde. De tools zijn kleine hulpmiddelen die je zelf gratis inzet tijdens een meeting — een rad, een bingokaart of een set inspiratiekaarten — om de betrokkenheid te verhogen." },
+  { q: "Zijn de tools gratis te gebruiken?", a: "Ja. Alle tools op deze pagina zijn gratis en direct te gebruiken. Je opent de tool in je browser en deelt je scherm tijdens de meeting — verder is er niets nodig." },
+  { q: "Hoe lang duren de games?", a: "Dat verschilt per game. De korte games duren 20 tot 30 minuten en passen binnen een meeting of feestje. De Online Escape Room duurt ongeveer 60 minuten, met daarnaast een uitgebreidere XL-versie. Bij een maatwerk game bepaal je samen met ons de duur." },
+  { q: "Voor welke groepsgrootte zijn de games geschikt?", a: "De games werken voor kleine teams tot grote groepen; deelnemers spelen meestal in subgroepjes die parallel aan de slag gaan. Vertel je ons je groepsgrootte, dan adviseren wij de best passende opzet." },
+  { q: "Op welk platform draaien de games?", a: "De games draaien online in de browser en zijn te combineren met de videotool die je al gebruikt, zoals Zoom, Teams of SpatialChat. Deelnemers hoeven niets te installeren en openen simpelweg een link." },
+  { q: "Kunnen we een game op maat laten maken?", a: "Ja. Met de maatwerk game bouwen we eigen puzzels, een eigen verhaallijn en eigen visuals, helemaal afgestemd op je thema, je merk en je groep — bijvoorbeeld voor onboarding, een jubileum of een awarenesscampagne." },
+  { q: "Hebben deelnemers speciale software nodig?", a: "Nee. Zowel de games als de tools draaien in de browser. Voor de tools deel je je scherm; voor de games ontvangen deelnemers een link. Geen installatie, geen accounts, geen gedoe." },
   { q: "Zijn de games ook geschikt voor teambuilding op afstand?", a: "Zeker. De games zijn ontworpen om mensen te laten samenwerken, overleggen en samen iets te bereiken — juist waardevol voor hybride en volledig remote teams die elkaar weinig zien." },
 ];
 
@@ -147,7 +147,7 @@ export default function GamesToolsPage() {
               <p className="text-[#545454] leading-relaxed mb-5">
                 Samen spelen brengt groepen dichter bij elkaar en laat de stof beter beklijven.
                 Van een spannende escape room tot een game volledig op maat — speelklaar of
-                helemaal afgestemd op uw thema.
+                helemaal afgestemd op je thema.
               </p>
               <Link href="#games" className="text-[#28A8AA] text-sm font-bold hover:underline">
                 Bekijk de games →
@@ -160,8 +160,8 @@ export default function GamesToolsPage() {
               </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
               <p className="text-[#545454] leading-relaxed mb-5">
-                Kleine hulpmiddelen die uw meeting levendiger maken en iedereen aan het woord
-                laten. Gratis en direct te gebruiken: openen in de browser en uw scherm delen —
+                Kleine hulpmiddelen die je meeting levendiger maken en iedereen aan het woord
+                laten. Gratis en direct te gebruiken: openen in de browser en je scherm delen —
                 verder niets nodig.
               </p>
               <Link href="#tools" className="text-[#28A8AA] text-sm font-bold hover:underline">
@@ -181,8 +181,8 @@ export default function GamesToolsPage() {
               Spellen die groepen samenbrengen.
             </h2>
             <p className="text-[#545454] leading-relaxed">
-              Online games waarin uw team samenwerkt, overlegt en samen iets voor elkaar krijgt —
-              speelklaar of helemaal afgestemd op uw thema.
+              Online games waarin je team samenwerkt, overlegt en samen iets voor elkaar krijgt —
+              speelklaar of helemaal afgestemd op je thema.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -224,13 +224,13 @@ export default function GamesToolsPage() {
               </h2>
               <p className="text-[#545454] leading-relaxed mb-4">
                 Een digitale crisis breekt uit: datalekken, phishing en systemen die om beurten
-                uitvallen. Uw team moet samen het hoofd koel houden en de aanval een halt
+                uitvallen. Je team moet samen het hoofd koel houden en de aanval een halt
                 toeroepen. Awareness ontstaat niet door erover te horen, maar door het te dóen.
               </p>
               <p className="text-[#545454] leading-relaxed mb-4">
                 Zo combineert R@venHack teambuilding met echte kennisoverdracht over veilig
                 digitaal gedrag. Er is een gewone versie en een uitgebreidere XL-versie, zodat het
-                past bij uw groep en de tijd die u heeft.
+                past bij je groep en de tijd die je hebt.
               </p>
               <Link href="/nl/games-tools/ravenhack" className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
                 Bekijk R@venHack →
@@ -249,9 +249,9 @@ export default function GamesToolsPage() {
               Gratis tools voor levendige meetings.
             </h2>
             <p className="text-[#545454] leading-relaxed">
-              Kleine hulpmiddelen die uw meeting een stuk levendiger maken. Ze zijn gratis en
-              direct te gebruiken: u opent de tool in uw browser en deelt uw scherm — verder
-              hoeft u niets te installeren.
+              Kleine hulpmiddelen die je meeting een stuk levendiger maken. Ze zijn gratis en
+              direct te gebruiken: je opent de tool in je browser en deelt je scherm — verder
+              hoef je niets te installeren.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

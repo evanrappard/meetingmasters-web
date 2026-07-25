@@ -4,15 +4,15 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Hoe het werkt | MeetingMasters Techniek",
   description:
-    "Stap-voor-stap instructies voor deelnemers en organisatoren in SpatialChat. Hoe kom je binnen, wat heeft u nodig en hoe werkt de omgeving?",
+    "Stap-voor-stap instructies voor deelnemers en organisatoren in SpatialChat. Hoe kom je binnen, wat heb je nodig en hoe werkt de omgeving?",
 };
 
 const deelnemerSteps = [
-  { n: "01", title: "Klik op de link", body: "U ontvangt een persoonlijke link via e-mail of chat. Klik erop — er wordt niets gedownload. SpatialChat werkt volledig in de browser." },
-  { n: "02", title: "Kies uw browser", body: "Gebruik bij voorkeur Google Chrome of Microsoft Edge. Firefox werkt ook. Safari heeft beperkingen — liever vermijden." },
-  { n: "03", title: "Voer uw naam in", body: "Bij binnenkomst vraagt SpatialChat om uw naam en eventueel een korte omschrijving. Dit zien de andere deelnemers." },
-  { n: "04", title: "Geef toegang tot camera en microfoon", body: "De browser vraagt toestemming. Klik op 'Toestaan'. Zonder deze stap kunt u niet deelnemen." },
-  { n: "05", title: "Beweeg door de ruimte", body: "Gebruik uw muis of de pijltjestoetsen om te bewegen. Hoe dichter u bij iemand bent, hoe meer u elkaar hoort en ziet." },
+  { n: "01", title: "Klik op de link", body: "Je ontvangt een persoonlijke link via e-mail of chat. Klik erop — er wordt niets gedownload. SpatialChat werkt volledig in de browser." },
+  { n: "02", title: "Kies je browser", body: "Gebruik bij voorkeur Google Chrome of Microsoft Edge. Firefox werkt ook. Safari heeft beperkingen — liever vermijden." },
+  { n: "03", title: "Voer je naam in", body: "Bij binnenkomst vraagt SpatialChat om je naam en eventueel een korte omschrijving. Dit zien de andere deelnemers." },
+  { n: "04", title: "Geef toegang tot camera en microfoon", body: "De browser vraagt toestemming. Klik op 'Toestaan'. Zonder deze stap kun je niet deelnemen." },
+  { n: "05", title: "Beweeg door de ruimte", body: "Gebruik je muis of de pijltjestoetsen om te bewegen. Hoe dichter je bij iemand bent, hoe meer je elkaar hoort en ziet." },
   { n: "06", title: "Praten doe je door te bewegen", body: "Loop naar iemand toe en het gesprek begint vanzelf. Loop weg en het contact vervaagt. Net als in het echte leven." },
 ];
 
@@ -22,7 +22,7 @@ const requirements = [
   { icon: "📷", title: "Camera & microfoon", body: "Ingebouwd of extern — beide werken. Controleer vooraf of de browser toegang heeft." },
   { icon: "🌍", title: "Internetverbinding", body: "Minimaal 5 Mbps upload en download. Een stabiele bedrade verbinding werkt beter dan WiFi." },
   { icon: "🎧", title: "Hoofdtelefoon (aanbevolen)", body: "Headset of oortjes voorkomen echo. Bij meerdere mensen in dezelfde ruimte: altijd headset gebruiken." },
-  { icon: "🔒", title: "Bedrijfsfirewall", body: "Werkt u vanuit een kantoornetwerk? IT kan poorten moeten openzetten. Stuur uw IT-afdeling onze technische specificaties." },
+  { icon: "🔒", title: "Bedrijfsfirewall", body: "Werk je vanuit een kantoornetwerk? IT kan poorten moeten openzetten. Stuur je IT-afdeling onze technische specificaties." },
 ];
 
 const roomTypes = [
@@ -50,7 +50,7 @@ export default function HoeHetWerktPage() {
           </h1>
           <p className="text-white/65 text-base leading-relaxed max-w-[500px]">
             Geen download, geen ingewikkelde setup. Dit zijn de stappen voor deelnemers — en
-            wat u technisch nodig heeft voor een soepele ervaring.
+            wat je technisch nodig hebt voor een soepele ervaring.
           </p>
         </div>
       </section>
@@ -86,14 +86,14 @@ export default function HoeHetWerktPage() {
             <div className="bg-white border border-[#E8E8E8] rounded p-5 text-sm text-[#545454] leading-relaxed font-mono">
               <p>Welkom bij onze bijeenkomst in SpatialChat!</p>
               <br />
-              <p>Klik op de link hieronder om deel te nemen. U hoeft niets te downloaden — de omgeving opent direct in uw browser.</p>
+              <p>Klik op de link hieronder om deel te nemen. Je hoeft niets te downloaden — de omgeving opent direct in je browser.</p>
               <br />
               <p>✓ Gebruik bij voorkeur Chrome of Edge (niet Safari)</p>
               <p>✓ Open de link op een laptop of computer (geen telefoon)</p>
-              <p>✓ Zorg dat uw camera en microfoon werken en toegankelijk zijn</p>
-              <p>✓ Gebruik een headset of oortjes als u in een kantoor zit</p>
+              <p>✓ Zorg dat je camera en microfoon werken en toegankelijk zijn</p>
+              <p>✓ Gebruik een headset of oortjes als je in een kantoor zit</p>
               <br />
-              <p>Bij binnenkomst vraagt de tool om uw naam — voer die in en u bent er.</p>
+              <p>Bij binnenkomst vraagt de tool om je naam — voer die in en je bent er.</p>
               <br />
               <p>Vragen? Bel of mail ons gerust.</p>
             </div>
@@ -110,7 +110,7 @@ export default function HoeHetWerktPage() {
               className="font-bold text-[#2D2D2D] text-balance"
               style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
             >
-              Wat u nodig heeft.
+              Wat je nodig hebt.
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -138,7 +138,7 @@ export default function HoeHetWerktPage() {
             </h2>
             <p className="text-[#777777] text-sm mt-3 max-w-[460px]">
               SpatialChat heeft verschillende ruimtetypen voor verschillende doelen. MeetingMasters
-              bepaalt welk type wanneer past — u als deelnemer beweegt er gewoon doorheen.
+              bepaalt welk type wanneer past — je als deelnemer beweegt er gewoon doorheen.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

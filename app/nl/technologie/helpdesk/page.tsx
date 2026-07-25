@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Helpdesk | MeetingMasters Techniek",
   description:
-    "Technisch probleem tijdens uw meeting? Hier vindt u directe oplossingen voor de meest voorkomende problemen in SpatialChat.",
+    "Technisch probleem tijdens je meeting? Hier vind je directe oplossingen voor de meest voorkomende problemen in SpatialChat.",
 };
 
 const problems = [
@@ -15,9 +15,9 @@ const problems = [
       {
         problem: "Ik hoor niemand",
         steps: [
-          "Controleer of uw computer niet gedempt is (volumeknop of systeemgeluid).",
+          "Controleer of je computer niet gedempt is (volumeknop of systeemgeluid).",
           "Klik in SpatialChat rechtsonder op het geluidsicoontje — staat het op mute?",
-          "Controleer of u dicht genoeg bij andere deelnemers staat. Geluid werkt op basis van nabijheid.",
+          "Controleer of je dicht genoeg bij andere deelnemers staat. Geluid werkt op basis van nabijheid.",
           "Ververs de pagina (F5 of Cmd+R) en kom opnieuw binnen via dezelfde link.",
           "Probeer een andere browser (Chrome of Edge bij voorkeur).",
         ],
@@ -25,10 +25,10 @@ const problems = [
       {
         problem: "Anderen horen mij niet",
         steps: [
-          "Staat uw microfoon op mute? Klik op het microfoonicoon in SpatialChat (linksonder).",
-          "Controleer of de browser toegang heeft tot uw microfoon: adresbalk → slotje → Microfoon → Toestaan.",
-          "Heeft u een externe microfoon of headset? Controleer of die geselecteerd is in de SpatialChat-instellingen (tandwiel rechtsboven).",
-          "Sluit andere apps die uw microfoon kunnen bezetten (Zoom, Teams, FaceTime).",
+          "Staat je microfoon op mute? Klik op het microfoonicoon in SpatialChat (linksonder).",
+          "Controleer of de browser toegang heeft tot je microfoon: adresbalk → slotje → Microfoon → Toestaan.",
+          "Heb je een externe microfoon of headset? Controleer of die geselecteerd is in de SpatialChat-instellingen (tandwiel rechtsboven).",
+          "Sluit andere apps die je microfoon kunnen bezetten (Zoom, Teams, FaceTime).",
           "Ververs de pagina en probeer opnieuw.",
         ],
       },
@@ -36,8 +36,8 @@ const problems = [
         problem: "Ik hoor mijzelf terug (echo)",
         steps: [
           "Gebruik een headset of oortjes in plaats van de ingebouwde luidsprekers.",
-          "Dempt u uw microfoon als u niet spreekt.",
-          "Zit u in dezelfde fysieke ruimte als iemand anders? Dan kan echo ontstaan door twee open microfoons.",
+          "Demp je microfoon als je niet spreekt.",
+          "Zit je in dezelfde fysieke ruimte als iemand anders? Dan kan echo ontstaan door twee open microfoons.",
         ],
       },
     ],
@@ -49,9 +49,9 @@ const problems = [
       {
         problem: "Mijn camera doet het niet",
         steps: [
-          "Controleer of de browser toegang heeft tot uw camera: adresbalk → slotje → Camera → Toestaan.",
+          "Controleer of de browser toegang heeft tot je camera: adresbalk → slotje → Camera → Toestaan.",
           "Staat er een extern cameradeksel over de lens? Verwijder dat.",
-          "Sluit andere apps die uw camera gebruiken (Teams, Zoom, FaceTime).",
+          "Sluit andere apps die je camera gebruiken (Teams, Zoom, FaceTime).",
           "Controleer in de SpatialChat-instellingen (tandwiel rechtsboven) welke camera geselecteerd is.",
           "Start de browser opnieuw op.",
         ],
@@ -59,10 +59,10 @@ const problems = [
       {
         problem: "Mijn beeld is wazig of schokkerig",
         steps: [
-          "Controleer uw internetverbinding. Een bedrade verbinding werkt stabieler dan WiFi.",
+          "Controleer je internetverbinding. Een bedrade verbinding werkt stabieler dan WiFi.",
           "Sluit andere tabbladen en zware programma's (videostreaming, grote downloads).",
           "In de SpatialChat-instellingen: verlaag de videokwaliteit naar 'Medium' of 'Low'.",
-          "Zorg voor voldoende belichting — een donkere ruimte maakt uw camera harder werken.",
+          "Zorg voor voldoende belichting — een donkere ruimte maakt je camera harder werken.",
         ],
       },
     ],
@@ -74,9 +74,9 @@ const problems = [
       {
         problem: "Ik kan SpatialChat niet openen",
         steps: [
-          "Controleer uw internetverbinding — open een andere website ter test.",
+          "Controleer je internetverbinding — open een andere website ter test.",
           "Gebruik Chrome of Edge, niet Safari.",
-          "Werkt u vanuit een bedrijfsnetwerk? Uw IT-afdeling kan SpatialChat geblokkeerd hebben. Probeer via uw mobiele hotspot.",
+          "Werk je vanuit een bedrijfsnetwerk? Je IT-afdeling kan SpatialChat geblokkeerd hebben. Probeer via je mobiele hotspot.",
           "Wis de browsercache: Ctrl+Shift+Delete (Windows) of Cmd+Shift+Delete (Mac) → Cache wissen.",
           "Probeer de incognito-modus (Ctrl+Shift+N / Cmd+Shift+N).",
         ],
@@ -84,8 +84,8 @@ const problems = [
       {
         problem: "Ik val steeds uit de verbinding",
         steps: [
-          "Schakel over op een bedrade ethernet-verbinding als u nu op WiFi zit.",
-          "Ga dichter bij uw router zitten.",
+          "Schakel over op een bedrade ethernet-verbinding als je nu op WiFi zit.",
+          "Ga dichter bij je router zitten.",
           "Sluit onnodige tabbladen, video-apps en zware software.",
           "Vraag anderen in huis om zware downloads of streams even te pauzeren.",
           "Ververs de pagina (F5) en kom opnieuw de ruimte in.",
@@ -94,9 +94,9 @@ const problems = [
       {
         problem: "Ik zie de foutmelding 'This browser doesn't support…'",
         steps: [
-          "U gebruikt waarschijnlijk Safari of een verouderde browser.",
+          "Je gebruikt waarschijnlijk Safari of een verouderde browser.",
           "Download Google Chrome via google.com/chrome en open de link daarin.",
-          "Zorg dat uw browser up-to-date is.",
+          "Zorg dat je browser up-to-date is.",
         ],
       },
     ],
@@ -108,9 +108,9 @@ const problems = [
       {
         problem: "Ik weet niet hoe ik moet bewegen",
         steps: [
-          "Klik ergens op het scherm om daarheen te bewegen — uw avatar volgt uw muis.",
-          "Of gebruik de pijltjestoetsen op uw toetsenbord.",
-          "Hoe dichter u bij iemand staat, hoe meer u elkaar ziet en hoort.",
+          "Klik ergens op het scherm om daarheen te bewegen — je avatar volgt je muis.",
+          "Of gebruik de pijltjestoetsen op je toetsenbord.",
+          "Hoe dichter je bij iemand staat, hoe meer je elkaar ziet en hoort.",
           "Beweeg weg van iemand om het gesprek af te ronden.",
         ],
       },
@@ -119,7 +119,7 @@ const problems = [
         steps: [
           "Scroll uit op het scherm — deelnemers kunnen ver weg zijn in de ruimte.",
           "Gebruik de mini-map (rechtsonder) om te zien waar iedereen is.",
-          "Vraag de organisator of er meerdere kamers zijn en in welke u moet zijn.",
+          "Vraag de organisator of er meerdere kamers zijn en in welke je moet zijn.",
         ],
       },
     ],
@@ -143,8 +143,8 @@ export default function HelpdeskPage() {
             Iets werkt niet?
           </h1>
           <p className="text-white/65 text-base leading-relaxed max-w-[500px] mb-8">
-            Hier vindt u stap-voor-stap oplossingen voor de meest voorkomende technische problemen
-            tijdens een meeting in SpatialChat. Zoek uw probleem op en volg de stappen.
+            Hier vind je stap-voor-stap oplossingen voor de meest voorkomende technische problemen
+            tijdens een meeting in SpatialChat. Zoek je probleem op en volg de stappen.
           </p>
           <div className="flex flex-wrap gap-3 text-sm">
             {["Geluid", "Beeld", "Verbinding", "Navigatie"].map((cat) => (
@@ -165,7 +165,7 @@ export default function HelpdeskPage() {
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 py-8">
           <p className="text-[#2D2D2D] font-bold text-sm mb-3">Doe eerst deze drie checks:</p>
           <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-[#2D2D2D]/70">
-            <span>✓ Gebruikt u Chrome of Edge (niet Safari)?</span>
+            <span>✓ Gebruik je Chrome of Edge (niet Safari)?</span>
             <span>✓ Heeft de browser toegang tot camera én microfoon?</span>
             <span>✓ Zijn andere video-apps gesloten (Zoom, Teams, FaceTime)?</span>
           </div>
@@ -221,8 +221,8 @@ export default function HelpdeskPage() {
               Live hulp via onze digitale assistent.
             </h2>
             <p className="text-[#777777] text-sm leading-relaxed mb-6">
-              Binnenkort staat hier een assistent die u direct kan helpen bij technische vragen —
-              ook midden in een meeting. Stelt u uw vraag en krijgt u een directe, persoonlijke
+              Binnenkort staat hier een assistent die je direct kan helpen bij technische vragen —
+              ook midden in een meeting. Stel je vraag en krijg je een directe, persoonlijke
               oplossing.
             </p>
             <div className="border-2 border-dashed border-[#DDDDDD] rounded-lg p-8 text-center">
@@ -238,7 +238,7 @@ export default function HelpdeskPage() {
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <p className="font-bold text-[#2D2D2D] text-lg mb-1">Probleem nog niet opgelost?</p>
-            <p className="text-[#2D2D2D]/65 text-sm">Neem direct contact op — bij een lopend event bellen wij u meteen terug.</p>
+            <p className="text-[#2D2D2D]/65 text-sm">Neem direct contact op — bij een lopend event bellen wij je meteen terug.</p>
           </div>
           <Link
             href="/nl/contact"

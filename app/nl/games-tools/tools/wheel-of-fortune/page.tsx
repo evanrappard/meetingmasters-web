@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Wheel of Fortune | MeetingMasters Tools",
   description:
-    "Een digitaal geluksrad voor in uw online meeting. Voer namen, onderwerpen of vragen in en laat het rad willekeurig kiezen. Spanning en verrassing in elke sessie.",
+    "Een digitaal geluksrad voor in je online meeting. Voer namen, onderwerpen of vragen in en laat het rad willekeurig kiezen. Spanning en verrassing in elke sessie.",
 };
 
 const useCases = [
@@ -67,11 +67,11 @@ export default function WheelOfFortunePage() {
                 Eén klik. Één winnaar. Iedereen kijkt mee.
               </h2>
               <p className="text-[#545454] leading-relaxed mb-5">
-                De Wheel of Fortune is een tool die u inzet op het moment dat u een willekeurige
+                De Wheel of Fortune is een tool die je inzet op het moment dat je een willekeurige
                 keuze wil maken — en die keuze zichtbaar en eerlijk wil laten zijn.
               </p>
               <p className="text-[#545454] leading-relaxed mb-8">
-                U vult de namen, onderwerpen of opties in. Het rad draait — zichtbaar voor alle
+                Je vult de namen, onderwerpen of opties in. Het rad draait — zichtbaar voor alle
                 deelnemers op hun scherm. Het moment zelf creëert spanning, aandacht en plezier.
                 Zelfs in de meest zakelijke sessie.
               </p>
@@ -88,7 +88,7 @@ export default function WheelOfFortunePage() {
             <div className="bg-[#FFFDF5] border border-[#EEE8D0] rounded-lg flex items-center justify-center" style={{ minHeight: 280 }}>
               <div className="text-center">
                 <span className="text-8xl block mb-4">🎡</span>
-                <p className="text-[#AAAAAA] text-sm">Live demonstratie tijdens uw event</p>
+                <p className="text-[#AAAAAA] text-sm">Live demonstratie tijdens je event</p>
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function WheelOfFortunePage() {
               className="font-bold text-[#2D2D2D] text-balance"
               style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
             >
-              Wanneer zet u het rad in?
+              Wanneer zet je het rad in?
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -146,7 +146,7 @@ export default function WheelOfFortunePage() {
       {/* ── CTA ──────────────────────────────────────────────────────── */}
       <section className="bg-[#EEBE3D] py-14">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <p className="font-bold text-[#2D2D2D] text-lg">Wheel of Fortune inzetten bij uw event?</p>
+          <p className="font-bold text-[#2D2D2D] text-lg">Wheel of Fortune inzetten bij je event?</p>
           <Link
             href="/nl/contact"
             className="shrink-0 bg-[#2D2D2D] text-white text-sm font-bold px-8 py-3.5 rounded hover:bg-[#1A1A1A] transition-colors"

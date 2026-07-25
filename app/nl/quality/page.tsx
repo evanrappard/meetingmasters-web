@@ -14,7 +14,7 @@ export default function QualityPage() {
           Kwaliteit &amp; Vertrouwelijkheid
         </h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">
-          Uw vertrouwen in ons staat voorop, en wij streven ernaar om uw
+          Je vertrouwen in ons staat voorop, en wij streven ernaar om je
           verwachtingen bij elke gelegenheid te overtreffen.
         </p>
       </div>
@@ -38,7 +38,7 @@ export default function QualityPage() {
             Kwaliteit is een mentaliteit die ons werk stuurt
           </h2>
           <p className="text-[#666666] leading-relaxed mb-4">
-            Met MeetingMasters kunt u erop vertrouwen dat elk aspect van uw
+            Met MeetingMasters kun je erop vertrouwen dat elk aspect van je
             vergaderingen met de grootste zorg en professionaliteit wordt
             behandeld. Hoewel wij graag gebruikmaken van technologie, is ons vak
             in de eerste plaats mensenwerk en is online gastvrijheid onze
@@ -49,7 +49,7 @@ export default function QualityPage() {
             vergaderprotocollen, online etiquette, toegankelijke ondersteuning en
             noodprocedures — met op maat gemaakte briefings en proefsessies voor
             elke vergadering. Wanneer zich onverwachte uitdagingen voordoen, is
-            het goed om te weten dat u ervaren professionals aan uw zijde heeft.
+            het goed om te weten dat je ervaren professionals aan je zijde hebt.
           </p>
         </div>
 

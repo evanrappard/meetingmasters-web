@@ -61,7 +61,7 @@ export default function TeamPage() {
           <p className="text-[#666666] mb-8">
             Met een compacte backoffice, een uitgebreid partnernetwerk en een
             sterk team van hoogopgeleide Meeting Masters werken we elke dag aan
-            het beter maken van uw vergaderingen, summits en events.
+            het beter maken van je vergaderingen, summits en events.
           </p>
           <div className="relative w-full aspect-[16/7] overflow-hidden rounded-lg mb-8">
             <Image

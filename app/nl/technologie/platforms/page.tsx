@@ -23,7 +23,7 @@ const platforms = [
     best: "Webinars & grote plenaire sessies",
     strengths: ["Stabiel en breed bekend", "Sterk voor grote webinars (tot duizenden deelnemers)", "Goede break-outfunctionaliteit"],
     limits: ["Break-outs zijn willekeurig en geforceerd", "Netwerken voelt kunstmatig", "Geen ruimtelijkheid of bewegingsvrijheid", "Na afloop: scherm dicht, verbinding weg"],
-    verdict: "Solide keuze voor webinars. Minder sterk als u échte interactie en verbinding wilt.",
+    verdict: "Solide keuze voor webinars. Minder sterk als je échte interactie en verbinding wilt.",
     color: "border-[#E8E8E8]",
   },
   {
@@ -40,7 +40,7 @@ const platforms = [
     icon: "🟡",
     best: "Bijzondere events, virtual offices & echte verbinding",
     strengths: [
-      "Proximity-based video: u hoort en ziet wie naast u staat",
+      "Proximity-based video: je hoort en ziet wie naast je staat",
       "Vrije beweging door aanpasbare ruimtes",
       "Van formeel naar informeel in één stap",
       "Geen download — werkt in de browser",
@@ -184,7 +184,7 @@ export default function PlatformsPage() {
                 deed wat wij willen: echte ruimtelijkheid creëren in een online omgeving.
               </p>
               <p className="text-[#545454] leading-relaxed mb-5">
-                In SpatialChat beweegt u als avatar door een gedeelde ruimte. U ziet wie er is,
+                In SpatialChat beweeg je als avatar door een gedeelde ruimte. Je ziet wie er is,
                 loopt naar iemand toe en het gesprek begint vanzelf. Geen link versturen, geen
                 break-out toewijzen, geen scherm afsluiten als het klaar is. Het voelt zoals
                 aanwezig zijn voelt.
@@ -198,10 +198,10 @@ export default function PlatformsPage() {
 
             <div className="space-y-4">
               {[
-                { title: "Proximity-based video", body: "U hoort en ziet mensen naarmate u dichter bij ze staat. Precies zoals in het echte leven. Dit verandert fundamenteel hoe deelnemers zich gedragen in een online ruimte." },
+                { title: "Proximity-based video", body: "Je hoort en ziet mensen naarmate je dichter bij ze staat. Precies zoals in het echte leven. Dit verandert fundamenteel hoe deelnemers zich gedragen in een online ruimte." },
                 { title: "Geen download vereist", body: "SpatialChat werkt volledig in de browser — Chrome, Edge of Firefox. Deelnemers klikken op een link en zijn er. Geen IT-installatie, geen versieconflicten." },
-                { title: "Volledig aanpasbaar", body: "Achtergronden, kamers, sfeer en indeling zijn volledig op maat te maken. Uw kantoor, uw event, uw identiteit." },
-                { title: "Enterprise-grade beveiliging", body: "SOC 2 Type II-gecertificeerd. End-to-end-encryptie. Dagelijkse security scans. Uw data blijft van u." },
+                { title: "Volledig aanpasbaar", body: "Achtergronden, kamers, sfeer en indeling zijn volledig op maat te maken. Je kantoor, je event, je identiteit." },
+                { title: "Enterprise-grade beveiliging", body: "SOC 2 Type II-gecertificeerd. End-to-end-encryptie. Dagelijkse security scans. Je data blijft van jou." },
               ].map((item) => (
                 <div key={item.title} className="border border-[#E8E8E8] rounded-lg p-6 hover:border-[#EEBE3D] transition-colors">
                   <h3 className="font-bold text-[#2D2D2D] text-sm mb-2">{item.title}</h3>
@@ -218,7 +218,7 @@ export default function PlatformsPage() {
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <p className="font-bold text-[#2D2D2D] text-lg mb-1">Ervaar zelf het verschil.</p>
-            <p className="text-[#2D2D2D]/65 text-sm">Plan een demo in ons eigen virtual office — u ervaart het platform in tien minuten.</p>
+            <p className="text-[#2D2D2D]/65 text-sm">Plan een demo in ons eigen virtual office — je ervaart het platform in tien minuten.</p>
           </div>
           <Link
             href="/nl/contact"

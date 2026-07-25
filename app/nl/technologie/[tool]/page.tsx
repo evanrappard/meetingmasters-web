@@ -25,10 +25,10 @@ const TOOL_DATA: Record<string, Tool> = {
     intro:
       "Zoom is de tool die vrijwel iedereen kent. Betrouwbaar, laagdrempelig en prima voor overleg en samenwerking tot zo'n 300 deelnemers.",
     bestFor: "Overleg, trainingen en samenwerking tot ~300 deelnemers.",
-    howitworks: "U ontvangt vooraf een e-mail met een uitnodigingslink. Klik erop; Zoom opent vanzelf of u kiest 'Deelnemen vanuit uw browser'. Vul uw naam in, klik op 'Deelnemen met computeraudio' en u zit in de bijeenkomst. Log gerust 10 minuten van tevoren in.",
+    howitworks: "Je ontvangt vooraf een e-mail met een uitnodigingslink. Klik erop; Zoom opent vanzelf of je kiest 'Deelnemen vanuit je browser'. Vul je naam in, klik op 'Deelnemen met computeraudio' en je zit in de bijeenkomst. Log gerust 10 minuten van tevoren in.",
     reasons: [
-      { title: "Iedereen kan meedoen", body: "Deelnemers hoeven geen account te maken. Eén klik op de link en u bent binnen — op laptop, tablet of telefoon." },
-      { title: "Werkt ook zonder installatie", body: "Geen zin om iets te downloaden? U kunt rechtstreeks vanuit uw browser deelnemen via 'Join from your browser'." },
+      { title: "Iedereen kan meedoen", body: "Deelnemers hoeven geen account te maken. Eén klik op de link en je bent binnen — op laptop, tablet of telefoon." },
+      { title: "Werkt ook zonder installatie", body: "Geen zin om iets te downloaden? Je kunt rechtstreeks vanuit je browser deelnemen via 'Join from your browser'." },
       { title: "Alles voor een goede bijeenkomst", body: "Beeld en geluid voor iedereen tegelijk, scherm delen, chat en breakout rooms voor gesprekken in kleine groepjes." },
     ],
   },
@@ -36,15 +36,15 @@ const TOOL_DATA: Record<string, Tool> = {
     name: "Microsoft Teams",
     kind: "Intern · vertrouwd",
     bg: "radial-gradient(circle at 30% 20%, #ECEAFB 0%, #F5F5F2 60%)",
-    tagline: "Al aanwezig in uw organisatie",
+    tagline: "Al aanwezig in je organisatie",
     intro:
       "Teams zit al in de Microsoft-omgeving van veel organisaties. Handig voor intern overleg binnen vaste teams, zonder losse software.",
     bestFor: "Intern overleg in vaste teams tot ~300 deelnemers.",
-    howitworks: "Deelnemers klikken op de meetinglink uit de e-mail of agenda-uitnodiging. U kiest de Teams-app of gewoon 'Doorgaan in deze browser' (Edge of Chrome, zonder installatie). Wie geen account heeft, doet als gast mee met alleen een naam; soms wacht u nog even in de lobby.",
+    howitworks: "Deelnemers klikken op de meetinglink uit de e-mail of agenda-uitnodiging. Je kiest de Teams-app of gewoon 'Doorgaan in deze browser' (Edge of Chrome, zonder installatie). Wie geen account heeft, doet als gast mee met alleen een naam; soms wacht je nog even in de lobby.",
     reasons: [
-      { title: "Al aanwezig in uw Microsoft 365", body: "De meeste organisaties werken al met Microsoft 365. Teams zit daar gewoon bij, dus u hoeft niets extra's aan te schaffen of te installeren." },
+      { title: "Al aanwezig in je Microsoft 365", body: "De meeste organisaties werken al met Microsoft 365. Teams zit daar gewoon bij, dus je hoeft niets extra's aan te schaffen of te installeren." },
       { title: "Veilig en zakelijk betrouwbaar", body: "Deelnemers komen via een beveiligde link binnen en niet-geverifieerde gasten belanden eerst in de lobby, waar de organisator ze bewust toelaat." },
-      { title: "Naadloze integratie met Office", body: "Werkt direct samen met Outlook, Word en PowerPoint. Plannen, bestanden delen en samen presenteren gaat moeiteloos in een omgeving die u al kent." },
+      { title: "Naadloze integratie met Office", body: "Werkt direct samen met Outlook, Word en PowerPoint. Plannen, bestanden delen en samen presenteren gaat moeiteloos in een omgeving die je al kent." },
     ],
   },
   "zoom-events": {
@@ -55,10 +55,10 @@ const TOOL_DATA: Record<string, Tool> = {
     intro:
       "Zoom Events is gemaakt voor grote events vanaf zo'n 300 deelnemers, met registratie, meerdere sessies en een professionele broadcast-look.",
     bestFor: "Webinars, conferenties en uitzendingen vanaf ~300 deelnemers.",
-    howitworks: "Na registratie ontvangt u een bevestigingsmail met uw persoonlijke ticket en join-link. Klik op die link, meld u aan, en u komt in de lobby (de centrale hub). Vanuit de lobby of de tab 'Sessions' klikt u op 'Join' bij een sessie; via 'Itinerary' vindt u uw eigen agenda terug.",
+    howitworks: "Na registratie ontvang je een bevestigingsmail met je persoonlijke ticket en join-link. Klik op die link, meld je aan, en je komt in de lobby (de centrale hub). Vanuit de lobby of de tab 'Sessions' klik je op 'Join' bij een sessie; via 'Itinerary' vind je je eigen agenda terug.",
     reasons: [
       { title: "Gemaakt voor grote aantallen", body: "Dé keuze voor events vanaf ~300 deelnemers; schaalt moeiteloos naar duizenden. Techniek en beeldkwaliteit blijven stabiel, ook bij pieken." },
-      { title: "Registratie en tickets ingebouwd", body: "Deelnemers registreren vooraf en krijgen een persoonlijk ticket met join-link. Zo weet u precies wie er komt en houdt u ongewenste gasten buiten." },
+      { title: "Registratie en tickets ingebouwd", body: "Deelnemers registreren vooraf en krijgen een persoonlijk ticket met join-link. Zo weet je precies wie er komt en houd je ongewenste gasten buiten." },
       { title: "Meerdere sessies onder één dak", body: "Parallelle sessies, sprekers en pauzeruimtes (Expo) in één omgeving. Deelnemers stellen via de agenda hun eigen programma samen." },
     ],
   },
@@ -107,7 +107,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
                 href="/nl/contact"
                 className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
               >
-                Is dit de juiste tool voor u? →
+                Is dit de juiste tool voor jou? →
               </Link>
               <Link
                 href="/nl/technologie/faq"
@@ -144,7 +144,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
 
           {/* Zo neemt u deel */}
           <div className="mt-10 rounded-lg bg-[#F5F5F2] border border-[#E8E8E4] p-7 max-w-[760px]">
-            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">Zo neemt u deel</p>
+            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">Zo neem je deel</p>
             <p className="text-[#545454] leading-relaxed">{data.howitworks}</p>
           </div>
         </div>
@@ -182,8 +182,8 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
               <p className="text-[#545454] leading-relaxed mb-5">
                 Elk platform kan haperen: iemand vindt de link niet, de microfoon doet het niet, het
                 beeld blijft zwart. Juist op dat moment maakt live begeleiding het verschil tussen een
-                soepele bijeenkomst en een stroeve. Wij zitten er tijdens uw meeting bij — als host,
-                producer of tech-support — zodat u zich op de inhoud kunt richten.
+                soepele bijeenkomst en een stroeve. Wij zitten er tijdens je meeting bij — als host,
+                producer of tech-support — zodat je je op de inhoud kunt richten.
               </p>
               <Link
                 href="/nl/technologie/faq"
@@ -193,7 +193,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
               </Link>
             </div>
             <div className="bg-[#2D2D2D] rounded-lg p-7">
-              <p className="text-white/50 text-xs font-bold uppercase tracking-wide mb-3">Support tijdens uw meeting</p>
+              <p className="text-white/50 text-xs font-bold uppercase tracking-wide mb-3">Support tijdens je meeting</p>
               <p className="text-white text-lg font-bold mb-2">+31 6 33 03 47 07</p>
               <p className="text-white/60 text-sm leading-relaxed">
                 Een bijeenkomst met begeleiding van MeetingMasters? Loopt er iets vast, bel dan direct

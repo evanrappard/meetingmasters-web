@@ -54,7 +54,7 @@ export default function CSRPage() {
 
         <div className="bg-gray-50 rounded-lg p-8 text-center">
           <h3 className="text-xl font-bold text-primary mb-4">
-            Werkt u met ngo&apos;s of hulporganisaties?
+            Werk je met ngo&apos;s of hulporganisaties?
           </h3>
           <p className="text-[#666666] mb-6">
             We bieden gereduceerde tarieven voor non-profitorganisaties. Neem

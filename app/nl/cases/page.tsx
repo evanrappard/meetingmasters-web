@@ -136,7 +136,7 @@ export default function CasesPage() {
       {/* CTA */}
       <section className="bg-white py-14 text-center">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Wilt u weten hoe dit er voor u uit kan zien?
+          Wil je weten hoe dit er voor jou uit kan zien?
         </h2>
         <Link
           href="/nl/contact"

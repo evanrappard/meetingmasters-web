@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Inspiration Cards | MeetingMasters Tools",
   description:
-    "Digitale kaarten met vragen, stellingen of provocaties voor in uw online meeting. Als icebreaker, reflectiemoment of gespreksstart — direct inzetbaar.",
+    "Digitale kaarten met vragen, stellingen of provocaties voor in je online meeting. Als icebreaker, reflectiemoment of gespreksstart — direct inzetbaar.",
 };
 
 const useCases = [
-  { icon: "🌅", title: "Icebreaker", desc: "Open uw sessie met een onverwachte vraag. Mensen komen uit hun schil voordat de vergadering begint." },
+  { icon: "🌅", title: "Icebreaker", desc: "Open je sessie met een onverwachte vraag. Mensen komen uit hun schil voordat de vergadering begint." },
   { icon: "🪞", title: "Reflectiemoment", desc: "Pauzeer halverwege en laat deelnemers nadenken over wat ze zojuist leerden of ervoeren." },
   { icon: "💡", title: "Gespreksstart", desc: "Een stelling of prikkelende vraag als startpunt voor een groepsgesprek. Geen voorbereiding nodig." },
   { icon: "🎯", title: "Strategiesessie", desc: "Gebruik provocerende kaarten om aannames te doorbreken en anders te kijken naar een vraagstuk." },
@@ -68,8 +68,8 @@ export default function InspirationCardsPage() {
               </h2>
               <p className="text-[#545454] leading-relaxed mb-5">
                 Inspiration Cards zijn digitale kaarten met een vraag, stelling of provocatie.
-                U kiest een set die past bij uw thema — wij leveren de kaarten in de omgeving
-                van uw meeting.
+                Je kiest een set die past bij je thema — wij leveren de kaarten in de omgeving
+                van je meeting.
               </p>
               <p className="text-[#545454] leading-relaxed mb-8">
                 Elke deelnemer trekt een kaart, of de facilitator kiest er één voor de groep.
@@ -90,8 +90,8 @@ export default function InspirationCardsPage() {
               <p className="text-[#AAAAAA] text-xs font-bold tracking-widest uppercase mb-6">Voorbeeldkaarten</p>
               <div className="space-y-3">
                 {[
-                  "Wat zou u anders doen als u geen fouten kon maken?",
-                  "Waar bent u het meest trots op van dit jaar?",
+                  "Wat zou je anders doen als je geen fouten kon maken?",
+                  "Waar ben je het meest trots op van dit jaar?",
                   "Welke aanname houdt ons het meest tegen?",
                 ].map((q, i) => (
                   <div
@@ -156,7 +156,7 @@ export default function InspirationCardsPage() {
 
       <section className="bg-[#EEBE3D] py-14">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <p className="font-bold text-[#2D2D2D] text-lg">Inspiration Cards inzetten bij uw event?</p>
+          <p className="font-bold text-[#2D2D2D] text-lg">Inspiration Cards inzetten bij je event?</p>
           <Link
             href="/nl/contact"
             className="shrink-0 bg-[#2D2D2D] text-white text-sm font-bold px-8 py-3.5 rounded hover:bg-[#1A1A1A] transition-colors"

@@ -466,7 +466,7 @@ export default function EventsPage() {
                 {[
                   {
                     kop: "Eventstrategie.",
-                    desc: "Welk format past bij uw doel, uw groep en uw moment? Onze specialisten denken mee en helpen u net die stap verder.",
+                    desc: "Welk format past bij jouw doel, je groep en je moment? Onze specialisten denken mee en helpen je net die stap verder.",
                   },
                   {
                     kop: "Planning & ontwerp.",
@@ -474,7 +474,7 @@ export default function EventsPage() {
                   },
                   {
                     kop: "In-meeting support.",
-                    desc: "Wij zijn live aanwezig bij uw meeting. Als facilitator, producent en technisch aanspreekpunt. Zodat u zich kunt richten op de mensen en de inhoud.",
+                    desc: "Wij zijn live aanwezig bij jouw meeting. Als facilitator, producent en technisch aanspreekpunt. Zodat je je kunt richten op de mensen en de inhoud.",
                   },
                 ].map((p) => (
                   <li key={p.kop} className="flex items-start gap-3">

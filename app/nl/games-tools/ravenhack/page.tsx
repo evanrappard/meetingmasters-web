@@ -7,17 +7,17 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = {
   title: "R@venHack — cybersecurity escape game voor teams | MeetingMasters",
   description:
-    "R@venHack is een cybersecurity escape game waarin uw team samen een digitale aanval stopt. Beschikbaar als gewone versie (± 60 min) en als uitgebreide XL-versie. Leer al doende over phishing, datalekken en veilig digitaal gedrag — teambuilding én startpunt voor kennisoverdracht. Draait via SpatialChat.",
+    "R@venHack is een cybersecurity escape game waarin je team samen een digitale aanval stopt. Beschikbaar als gewone versie (± 60 min) en als uitgebreide XL-versie. Leer al doende over phishing, datalekken en veilig digitaal gedrag — teambuilding én startpunt voor kennisoverdracht. Draait via SpatialChat.",
 };
 
 const leerpunten = [
   {
     title: "Phishing herkennen",
-    body: "Uw team leert verdachte berichten, valse links en misleiding herkennen — niet uit een handleiding, maar doordat het er middenin zit.",
+    body: "Je team leert verdachte berichten, valse links en misleiding herkennen — niet uit een handleiding, maar doordat het er middenin zit.",
   },
   {
     title: "Datalekken indammen",
-    body: "Wat doet u als gevoelige gegevens op straat dreigen te komen? Samen ontdekt u hoe snel handelen en overleg het verschil maken.",
+    body: "Wat doe je als gevoelige gegevens op straat dreigen te komen? Samen ontdek je hoe snel handelen en overleg het verschil maken.",
   },
   {
     title: "Veilig digitaal gedrag",
@@ -30,7 +30,7 @@ const versies = [
     tag: "De klassieker",
     title: "R@venHack — gewone versie",
     lead: "De standaard R@venHack: compact, energiek en meteen raak.",
-    body: "In ongeveer 60 minuten belandt uw team midden in een cyberaanval en werkt het onder tijdsdruk samen om de aanval te stoppen. De focus ligt op de belangrijkste awareness-lessen — phishing herkennen, een datalek indammen en veilig digitaal gedrag — verpakt in een strakke, meeslepende escape. Ideaal als energieke teambuilding of als pakkende opening van een teamdag of securityweek.",
+    body: "In ongeveer 60 minuten belandt je team midden in een cyberaanval en werkt het onder tijdsdruk samen om de aanval te stoppen. De focus ligt op de belangrijkste awareness-lessen — phishing herkennen, een datalek indammen en veilig digitaal gedrag — verpakt in een strakke, meeslepende escape. Ideaal als energieke teambuilding of als pakkende opening van een teamdag of securityweek.",
     kenmerken: [
       "± 60 minuten, strak en energiek",
       "Focus op de kern-awarenesslessen",
@@ -56,25 +56,25 @@ const versies = [
 const stappen = [
   {
     tag: "De crisis",
-    title: "Uw team belandt midden in een aanval",
-    body: "Datalekken, phishing en verborgen aanwijzingen: er is iets goed mis en de klok tikt. Samen moet u de digitale crisis ontrafelen.",
+    title: "Je team belandt midden in een aanval",
+    body: "Datalekken, phishing en verborgen aanwijzingen: er is iets goed mis en de klok tikt. Samen moet je de digitale crisis ontrafelen.",
   },
   {
     tag: "Het onderzoek",
-    title: "Samen zoekt u naar de sleutels",
-    body: "In een reeks puzzels en aanwijzingen ontdekt u hoe de aanval in elkaar zit. Overleggen, combineren en doorpakken — als team.",
+    title: "Samen zoek je naar de sleutels",
+    body: "In een reeks puzzels en aanwijzingen ontdek je hoe de aanval in elkaar zit. Overleggen, combineren en doorpakken — als team.",
   },
   {
     tag: "De doorbraak",
-    title: "U stopt de aanval",
-    body: "Op het juiste moment valt alles op zijn plek en keert u de aanval. En ondertussen heeft u geleerd hoe u dit in het echt voorkomt.",
+    title: "Je stopt de aanval",
+    body: "Op het juiste moment valt alles op zijn plek en keer je de aanval. En ondertussen heb je geleerd hoe je dit in het echt voorkomt.",
   },
 ];
 
 const faq = [
   {
     q: "Wat is R@venHack precies?",
-    a: "R@venHack is een cybersecurity escape game. Uw team belandt in een digitale crisis vol datalekken, phishing en verborgen aanwijzingen en moet samen de aanval stoppen. Het is een bewustwordingservaring: u leert over veilig digitaal gedrag door het te dóen, in plaats van een e-learning te doorlopen.",
+    a: "R@venHack is een cybersecurity escape game. Je team belandt in een digitale crisis vol datalekken, phishing en verborgen aanwijzingen en moet samen de aanval stoppen. Het is een bewustwordingservaring: je leert over veilig digitaal gedrag door het te dóen, in plaats van een e-learning te doorlopen.",
   },
   {
     q: "Wat is het verschil tussen de gewone versie en de XL-versie?",
@@ -82,11 +82,11 @@ const faq = [
   },
   {
     q: "Hoe lang duurt R@venHack?",
-    a: "De gewone versie duurt ongeveer 60 minuten, inclusief een korte introductie en nabespreking. De XL-versie neemt meer tijd — reken op een langere sessie met extra verdieping en een uitgebreidere nabespreking. Samen kijken we welke variant en welke tijdsduur het beste bij uw team en uw doel passen.",
+    a: "De gewone versie duurt ongeveer 60 minuten, inclusief een korte introductie en nabespreking. De XL-versie neemt meer tijd — reken op een langere sessie met extra verdieping en een uitgebreidere nabespreking. Samen kijken we welke variant en welke tijdsduur het beste bij je team en je doel passen.",
   },
   {
     q: "Voor welke groepsgrootte is het geschikt?",
-    a: "De gewone versie is ideaal voor één team of een compacte groep. De XL-versie is juist geschikt voor grotere groepen, doordat er in meerdere teams tegelijk gespeeld wordt en iedereen actief meedoet. Voor het aantal deelnemers dat bij uw groep past, kijken we graag even mee.",
+    a: "De gewone versie is ideaal voor één team of een compacte groep. De XL-versie is juist geschikt voor grotere groepen, doordat er in meerdere teams tegelijk gespeeld wordt en iedereen actief meedoet. Voor het aantal deelnemers dat bij je groep past, kijken we graag even mee.",
   },
   {
     q: "Wat leert mijn team ervan?",
@@ -148,7 +148,7 @@ export default function RavenHackPage() {
                       "0 1px 2px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.6)",
                   }}
                 >
-                  Een cybersecurity escape game waarin uw team al spelend leert
+                  Een cybersecurity escape game waarin je team al spelend leert
                   over veilig digitaal gedrag — in een gewone en een XL-versie.
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -178,10 +178,10 @@ export default function RavenHackPage() {
               </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
               <p className="text-[#545454] leading-relaxed">
-                In R@venHack belandt uw team midden in een digitale crisis vol
-                datalekken, phishing en verborgen aanwijzingen. Samen ontrafelt
-                u de aanwijzingen en stopt u de aanval. Het is geen les die u
-                ondergaat, maar een ervaring die u doorleeft — en juist daardoor
+                In R@venHack belandt je team midden in een digitale crisis vol
+                datalekken, phishing en verborgen aanwijzingen. Samen ontrafel
+                je de aanwijzingen en stop je de aanval. Het is geen les die je
+                ondergaat, maar een ervaring die je doorleeft — en juist daardoor
                 blijft hangen wat veilig digitaal gedrag betekent.
               </p>
             </div>
@@ -197,7 +197,7 @@ export default function RavenHackPage() {
                 Voor organisaties die het bewustzijn rond digitale veiligheid
                 verder willen brengen dan een verplichte e-learning. R@venHack
                 werkt als teambuilding én als natuurlijk startpunt voor bredere
-                kennisoverdracht over cybersecurity — u leert samen, en het
+                kennisoverdracht over cybersecurity — je leert samen, en het
                 gesprek erna gaat vanzelf verder.
               </p>
             </div>
@@ -210,7 +210,7 @@ export default function RavenHackPage() {
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
-              Wat u leert
+              Wat je leert
             </p>
             <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
               Leren over veilig digitaal gedrag door het te dóen.
@@ -243,13 +243,13 @@ export default function RavenHackPage() {
               Twee versies
             </p>
             <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
-              Kies de R@venHack die bij uw team past.
+              Kies de R@venHack die bij je team past.
             </h2>
             <p className="text-[#545454] leading-relaxed">
               R@venHack is er in twee smaken: een compacte, energieke gewone
               versie en een uitgebreidere XL-versie met meer diepgang. Beide
               stoppen samen de aanval — het verschil zit in de tijd, de omvang
-              en hoe ver u de securitythema's uitdiept.
+              en hoe ver je de securitythema's uitdiept.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
@@ -302,7 +302,7 @@ export default function RavenHackPage() {
             </h2>
             <p className="text-[#545454] leading-relaxed">
               R@venHack draait via SpatialChat en wordt begeleid door de Meeting
-              Masters. U opent een link, loopt binnen en de crisis begint —
+              Masters. Je opent een link, loopt binnen en de crisis begint —
               zowel in de gewone als in de XL-versie.
             </p>
           </div>
@@ -340,9 +340,9 @@ export default function RavenHackPage() {
               </h2>
               <p className="text-[#545454] leading-relaxed mb-4">
                 Een e-learning wordt aangevinkt en vergeten. R@venHack blijft
-                hangen, omdat uw team de lessen onder lichte druk en samen
+                hangen, omdat je team de lessen onder lichte druk en samen
                 ontdekt. De aanwijzingen zijn echt, de klok tikt door en de
-                inzichten zijn van uzelf.
+                inzichten zijn van jezelf.
               </p>
               <p className="text-[#545454] leading-relaxed">
                 Zo maakt R@venHack het abstracte concreet en het saaie boeiend —

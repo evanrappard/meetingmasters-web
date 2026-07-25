@@ -43,7 +43,7 @@ export default function EscapeRoomsPage() {
               Onze kenmerkende online escape room-ervaring — meeslepend, leuk en
               echt teambuildend. Deelnemers werken samen om puzzels op te lossen,
               aanwijzingen te ontcijferen en samen te ontsnappen. Ontworpen om
-              energie, plezier en verbinding in uw team te brengen.
+              energie, plezier en verbinding in je team te brengen.
             </p>
             <Link
               href="/nl/contact"

@@ -13,7 +13,7 @@ const cards = [
     img: "/images/strategy-1.png",
     alt: "Doel en richting",
     title: "Doel & richting",
-    body: "Wij formuleren meetingstrategieën die betrokkenheid stimuleren en bijdragen aan het bereiken van uw doelen. Wat is de context van uw meetings? Wat is het beoogde resultaat, zowel inhoudelijk als relationeel?",
+    body: "Wij formuleren meetingstrategieën die betrokkenheid stimuleren en bijdragen aan het bereiken van je doelen. Wat is de context van je meetings? Wat is het beoogde resultaat, zowel inhoudelijk als relationeel?",
   },
   {
     img: "/images/format-1.jpg",
@@ -62,10 +62,10 @@ export default function StrategyConceptPage() {
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-[#666666] text-lg leading-relaxed">
-            Of u nu een kleine, intense online meeting organiseert of een grote,
+            Of je nu een kleine, intense online meeting organiseert of een grote,
             meerdaagse online summit — bijeenkomsten staan zelden op zichzelf.
-            Wij ontwerpen formats die echt werken: voor uw inhoud, uw relaties en
-            uw doelen.
+            Wij ontwerpen formats die echt werken: voor je inhoud, je relaties en
+            je doelen.
           </p>
         </div>
       </section>
@@ -90,7 +90,7 @@ export default function StrategyConceptPage() {
       {/* CTA */}
       <section className="bg-gray-50 py-14 text-center">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Klaar om uw volgende meeting te ontwerpen?
+          Klaar om je volgende meeting te ontwerpen?
         </h2>
         <Link
           href="/nl/contact"

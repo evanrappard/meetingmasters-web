@@ -27,7 +27,7 @@ const featured = [
     img: "/images/strategy-banner.jpg",
     alt: "Online strategiedagen",
     title: "Doordachte strategiedagen",
-    desc: "Goed ontworpen online strategiesessies die zorgen voor afstemming en actie. Wij ontwerpen het format, u richt zich op de inhoud.",
+    desc: "Goed ontworpen online strategiesessies die zorgen voor afstemming en actie. Wij ontwerpen het format, jij richt je op de inhoud.",
     cta: "Neem contact op",
   },
 ];
@@ -67,7 +67,7 @@ export default function MeetingFormatsPage() {
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="text-white max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
-              Het perfecte format voor uw online bijeenkomst
+              Het perfecte format voor je online bijeenkomst
             </h1>
             <p className="text-base text-white/85">
               Geen enkele bijeenkomst is hetzelfde. Wat ze allemaal verbindt:
@@ -127,10 +127,10 @@ export default function MeetingFormatsPage() {
       {/* CTA */}
       <section className="bg-white py-14 text-center">
         <h2 className="text-xl font-bold text-primary mb-4">
-          Weet u niet welk format past?
+          Weet je niet welk format past?
         </h2>
         <p className="text-[#666666] mb-6">
-          Wij adviseren u graag — geheel vrijblijvend.
+          Wij adviseren je graag — geheel vrijblijvend.
         </p>
         <Link
           href="/nl/contact"

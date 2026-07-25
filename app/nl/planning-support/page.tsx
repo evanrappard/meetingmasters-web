@@ -5,14 +5,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Planning & Support | MeetingMasters",
   description:
-    "Deskundige planning, design en live ondersteuning voor uw online meetings — voor, tijdens en na afloop.",
+    "Deskundige planning, design en live ondersteuning voor je online meetings — voor, tijdens en na afloop.",
 };
 
 const phases = [
   {
     img: "/images/planning-3.jpg",
-    title: "Voor uw meeting",
-    body: "Een heldere intentie en een sterk plan maken meetings interessanter en effectiever. Wij zijn specialisten in het ontwerpen van inspirerende meetingdesigns en vertalen uw wensen naar een briefing met duidelijke rollen en taken.",
+    title: "Voor je meeting",
+    body: "Een heldere intentie en een sterk plan maken meetings interessanter en effectiever. Wij zijn specialisten in het ontwerpen van inspirerende meetingdesigns en vertalen je wensen naar een briefing met duidelijke rollen en taken.",
     services: [
       "Meetingdesign",
       "Platformdesign",
@@ -27,7 +27,7 @@ const phases = [
   },
   {
     img: "/images/planning-4.jpg",
-    title: "Tijdens uw meeting",
+    title: "Tijdens je meeting",
     body: "Meeting Masters ondersteunen de voorzitter en zorgen ervoor dat deelnemers zich geholpen voelen — van gastenontvangst en technische assistentie tot co-facilitatie, interactiebewaking en begeleiding van break-outs.",
     services: [
       "Onboarding van deelnemers",
@@ -44,7 +44,7 @@ const phases = [
   },
   {
     img: "/images/planning-1.png",
-    title: "Na uw meeting",
+    title: "Na je meeting",
     body: "De afsluitende sessie is het einde van de meeting — vaak is het pas het begin van meer contact in de toekomst. MeetingMasters ondersteunt met gestructureerd advies, rapportages en deelnemersevaluaties.",
     services: [
       "Deelnemersevaluatie",
@@ -74,7 +74,7 @@ export default function PlanningSupportPage() {
               Planning & support: de essentie van online meetings
             </h1>
             <p className="text-base md:text-lg text-white/85">
-              Wilt u dat grote, complexe of zeer interactieve meetings soepel
+              Wil je dat grote, complexe of zeer interactieve meetings soepel
               verlopen? Vertrouw op onze kennis, professionele begeleiding en
               technische ondersteuning.
             </p>
@@ -136,7 +136,7 @@ export default function PlanningSupportPage() {
       {/* CTA */}
       <section className="bg-gray-50 py-14 text-center">
         <p className="text-[#666666] mb-2">
-          Nieuwsgierig? Meer informatie nodig? Wilt u een indruk van de kosten?
+          Nieuwsgierig? Meer informatie nodig? Wil je een indruk van de kosten?
         </p>
         <div className="mt-6">
           <Link
