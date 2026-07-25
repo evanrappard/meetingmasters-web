@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
+import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
@@ -13,55 +14,61 @@ export const metadata: Metadata = {
 const games = [
   {
     title: "Online escape room",
-    desc: "Samen puzzels oplossen onder tijdsdruk in SpatialChat. Ontdek hoe je team samenwerkt en leer elkaar beter kennen.",
-    detail: "± 60 min · kleine tot grote groepen",
+    desc: "Een hacker, een virtueel kantoor en beperkte tijd. Samen puzzels kraken en onderweg ontdekken of goede intenties en samenwerking ook wat opleveren.",
+    detail: "60 – 90 min · kleine tot grote groepen",
     img: "/images/format-escape.webp",
     alt: "Deelnemers lossen samen puzzels op in een online escape room in SpatialChat",
+    cta: "Check beschikbaarheid",
+    href: "/nl/games-tools/ravenhack",
   },
   {
     title: "Korte games",
-    desc: "Compacte spellen van 20–30 minuten: pubquiz, energizers, raadspellen. Perfect in een meeting, kick-off of borrel.",
+    desc: "Intermezzo's die energie geven: van pubquiz tot brainstorm, meditatie- of inspiratiemoment. Verschillende formats, kort en activerend.",
     detail: "20–30 min · elk groepsformaat",
     img: "/images/format-party.webp",
     alt: "Een groep speelt een korte online game tijdens een meeting",
+    cta: "Check je format",
+    href: "/nl/contact",
   },
   {
     title: "Maatwerk game",
-    desc: "Een spel volledig op maat: eigen puzzels, verhaal en visuals, afgestemd op je thema en groep.",
+    desc: "We ontwerpen ook games op maat. Eigen thema, eigen verhaal. Geweldig voor onboardingtrajecten of bij belangrijke momenten.",
     detail: "op maat · onboarding, awareness, teambuilding",
     img: "/images/format-1.webp",
     alt: "Een online game op maat met eigen puzzels, verhaal en visuals",
+    cta: "Check wat kan",
+    href: "/nl/contact",
   },
 ];
 
 const tools = [
   {
-    title: "Wheel of Fortune",
-    desc: "Een draaiend rad dat willekeurig een naam, vraag of opdracht kiest.",
-    href: "/nl/games-tools/tools/wheel-of-fortune",
-    img: "/images/spatial-entree.webp",
-    alt: "Wheel of Fortune — een draaiend rad om willekeurig een naam of vraag te kiezen",
+    title: "Inspiration Cards",
+    desc: "Kaarten met prikkelende vragen en stellingen om het gesprek op gang te brengen.",
+    href: "/nl/games-tools/tools/inspiration-cards",
+    img: "/images/tool-inspiration-cards-v2.webp",
+    alt: "Inspiration Cards — kaarten met prikkelende vragen en stellingen",
   },
   {
     title: "Bingo",
     desc: "Een speelse bingokaart die je meeting of kick-off in een spel verandert.",
     href: "/nl/games-tools/tools/bingo",
-    img: "/images/events-spatial.webp",
+    img: "/images/tool-bingo-v2.webp",
     alt: "Bingo — een speelse bingokaart voor tijdens je meeting of kick-off",
-  },
-  {
-    title: "Inspiration Cards",
-    desc: "Kaarten met prikkelende vragen en stellingen om het gesprek op gang te brengen.",
-    href: "/nl/games-tools/tools/inspiration-cards",
-    img: "/images/inspiratie-escape.webp",
-    alt: "Inspiration Cards — kaarten met prikkelende vragen en stellingen",
   },
   {
     title: "Storytelling",
     desc: "Een tool om samen een verhaal op te bouwen — verrassend en verbindend.",
     href: "/nl/games-tools/tools/storytelling",
-    img: "/images/format-1.webp",
+    img: "/images/tool-storytelling-v2.webp",
     alt: "Storytelling — een tool om samen een verhaal op te bouwen",
+  },
+  {
+    title: "Wheel of Fortune",
+    desc: "Een draaiend rad dat willekeurig een naam, vraag of opdracht kiest.",
+    href: "/nl/games-tools/tools/wheel-of-fortune",
+    img: "/images/tool-wheel-of-fortune-v2.webp",
+    alt: "Wheel of Fortune — een draaiend rad om willekeurig een naam of vraag te kiezen",
   },
 ];
 
@@ -194,10 +201,12 @@ export default function GamesToolsPage() {
                 <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-bold text-[#2D2D2D] text-base mb-1.5 leading-snug">{g.title}</h3>
                   <p className="text-sm text-[#545454] leading-relaxed mb-3">{g.desc}</p>
-                  <p className="text-xs font-semibold text-[#2D2D2D] mb-5">{g.detail}</p>
-                  <Link href="/nl/contact" className="mt-auto text-[#28A8AA] text-sm font-bold hover:underline self-start">
-                    Check beschikbaarheid →
-                  </Link>
+                  <div className="mt-auto">
+                    <p className="text-xs font-semibold text-[#2D2D2D] mb-2">{g.detail}</p>
+                    <Link href={g.href} className="text-[#28A8AA] text-sm font-bold hover:underline self-start">
+                      {g.cta} →
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -209,14 +218,11 @@ export default function GamesToolsPage() {
       <section className="bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="relative aspect-[4/3] rounded overflow-hidden shadow-md">
-              <Image
-                src="/images/format-2.webp"
-                alt="R@venHack — teams stoppen samen een cyberaanval met datalekken en phishing in een online cybersecuritygame"
-                fill className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+            <YouTubeFacade
+              videoId="5g3Vv51_hR0"
+              poster="/images/ravenhack-video-poster.jpg"
+              title="R@venHack"
+            />
             <div>
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">R@venHack · Cybersecurity</p>
               <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
@@ -259,9 +265,9 @@ export default function GamesToolsPage() {
               <Link
                 key={t.title}
                 href={t.href}
-                className="group bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
+                className="group bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
               >
-                <div className="relative h-44">
+                <div className="relative w-full overflow-hidden aspect-[5/6]">
                   <Image src={t.img} alt={t.alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
@@ -280,9 +286,12 @@ export default function GamesToolsPage() {
       {/* ── FAQ ── */}
       <section className="bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
-          <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-8 text-center">
-            Veelgestelde vragen over de games &amp; tools
-          </p>
+          <div className="text-center mb-10">
+            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">FAQ</p>
+            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
+              Veelgestelde vragen over de games &amp; tools
+            </h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {faq.slice(0, 4).map((item) => (
               <div key={item.q}>
