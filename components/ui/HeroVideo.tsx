@@ -11,6 +11,8 @@ type HeroVideoProps = {
   holdMs?: number;
   /** Aparte duur (ms) van de begin-hold vóór de video inzet (default = holdMs). */
   startHoldMs?: number;
+  /** Meteen afspelen zonder begin-still/fade (alleen de eerste keer). */
+  startImmediately?: boolean;
   /** Duur (ms) van de cross-fades. */
   fadeMs?: number;
   /** Afspeelsnelheid (1 = normaal). */
@@ -36,6 +38,7 @@ export default function HeroVideo({
   alt,
   holdMs = 3000,
   startHoldMs = holdMs,
+  startImmediately = false,
   fadeMs = 1800,
   playbackRate = 0.35,
   objectPosition = "center top",
@@ -108,13 +111,18 @@ export default function HeroVideo({
     const loop = async () => {
       await seekToStart();
       captureFirstFrame(); // scherp beginbeeld uit de 4K
-      setCover(1); // beginbeeld zichtbaar
+      // Bij startImmediately: eerste ronde meteen afspelen, zonder begin-still.
+      setCover(startImmediately ? 0 : 1);
+      let firstRun = true;
       while (!cancelled) {
-        await wait(startHoldMs); // 1. beginbeeld stil (vóór de video inzet)
-        if (cancelled) break;
-        setCover(0); // 2. fade beginbeeld → vertrekbeeld (video frame 0)
-        await wait(fadeMs);
-        if (cancelled) break;
+        if (!(firstRun && startImmediately)) {
+          await wait(startHoldMs); // 1. beginbeeld stil (vóór de video inzet)
+          if (cancelled) break;
+          setCover(0); // 2. fade beginbeeld → vertrekbeeld (video frame 0)
+          await wait(fadeMs);
+          if (cancelled) break;
+        }
+        firstRun = false;
         await playToEnd(); // 3. video afspelen (vertraagd)
         if (cancelled) break;
         await wait(holdMs); // 4. eindbeeld 3s stil (scherp 4K-frame)
@@ -137,7 +145,7 @@ export default function HeroVideo({
       timers.forEach(clearTimeout);
       v.removeEventListener("loadeddata", start);
     };
-  }, [holdMs, startHoldMs, fadeMs, playbackRate]);
+  }, [holdMs, startHoldMs, startImmediately, fadeMs, playbackRate]);
 
   return (
     <div className={className}>
@@ -160,7 +168,7 @@ export default function HeroVideo({
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{
           objectPosition,
-          opacity: 1,
+          opacity: startImmediately ? 0 : 1,
           transition: `opacity ${fadeMs}ms ease-in-out`,
           ...layerStyle,
         }}
