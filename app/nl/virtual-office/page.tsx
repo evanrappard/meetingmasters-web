@@ -32,18 +32,24 @@ const ingangen = [
     title: "Boek een zaaltje",
     desc: "Een leuke, andersoortige meeting met een kleine groep — zonder heel kantoor of project. Laagdrempelig, niet duur, wel verrassend.",
     href: "/nl/virtual-office/zaaltje",
+    img: "/images/vo-zaaltje.webp",
+    alt: "Een virtueel zaaltje in SpatialChat — een groene, industriële kantoorruimte waar een kleine groep samenkomt",
   },
   {
     tag: "Instapklaar",
     title: "Huur een kantoor",
     desc: "Je mist de plek waar je elkaar zomaar tegenkomt. Huur een ingericht, levend kantoor en trek er meteen in.",
     href: "/nl/virtual-office/huren",
+    img: "/images/vo-huren.webp",
+    alt: "Een licht, instapklaar virtueel kantoor in SpatialChat met werkplekken en uitzicht over de stad",
   },
   {
     tag: "Als het ertoe doet",
     title: "Bouw vanuit het fundament",
     desc: "Soms gaat het niet om het kantoor, maar om hoe je wilt samenwerken. Je bouwt vanuit je waarden — het kantoor is de uitkomst.",
     href: "/nl/virtual-office/fundament",
+    img: "/images/vo-fundament-v2.webp",
+    alt: "Plattegrond van een virtueel kantoor op maat, gevuld met een team dat er samenwerkt — vergaderruimte, werkplekken, lounge en een 'on today'-bord",
   },
 ];
 
@@ -229,14 +235,19 @@ export default function VirtualOfficePage() {
               <Link
                 key={p.title}
                 href={p.href}
-                className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] flex flex-col hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
+                className="group bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
               >
-                <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">{p.tag}</span>
-                <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug group-hover:text-[#EEBE3D] transition-colors">{p.title}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed flex-1 mb-6">{p.desc}</p>
-                <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
-                  {p.title} →
-                </span>
+                <div className="relative h-44">
+                  <Image src={p.img} alt={p.alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                </div>
+                <div className="p-7 flex flex-col flex-1">
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">{p.tag}</span>
+                  <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug group-hover:text-[#EEBE3D] transition-colors">{p.title}</h3>
+                  <p className="text-sm text-[#545454] leading-relaxed flex-1 mb-6">{p.desc}</p>
+                  <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
+                    {p.title} →
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

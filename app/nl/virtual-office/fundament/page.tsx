@@ -45,8 +45,8 @@ export default function FundamentPage() {
       <section>
         <div className="relative w-full h-[42vw] min-h-[300px] max-h-[520px]">
           <Image
-            src="/images/hero-lobby.webp"
-            alt="Een virtueel kantoor op maat, gebouwd vanuit het fundament van de organisatie"
+            src="/images/vo-fundament-v2.webp"
+            alt="Plattegrond van een virtueel kantoor op maat, gevuld met een team dat er samenwerkt — vergaderruimte, werkplekken, lounge en een 'on today'-bord"
             fill priority
             className="object-cover object-center"
             style={{ filter: "contrast(1.03) saturate(1.06)" }}

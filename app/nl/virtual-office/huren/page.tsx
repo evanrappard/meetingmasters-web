@@ -47,8 +47,8 @@ export default function HurenPage() {
       <section>
         <div className="relative w-full h-[42vw] min-h-[300px] max-h-[520px]">
           <Image
-            src="/images/remote-office-virtual.webp"
-            alt="Een ingericht, levend virtueel kantoor om te huren in SpatialChat"
+            src="/images/vo-huren.webp"
+            alt="Een licht, instapklaar virtueel kantoor in SpatialChat met werkplekken en uitzicht over de stad"
             fill priority
             className="object-cover object-center"
             style={{ filter: "contrast(1.03) saturate(1.06)" }}

@@ -44,8 +44,8 @@ export default function ZaaltjePage() {
       <section>
         <div className="relative w-full h-[42vw] min-h-[300px] max-h-[520px]">
           <Image
-            src="/images/spatial-entree.webp"
-            alt="Een ingericht online zaaltje in SpatialChat voor een kleine groep"
+            src="/images/vo-zaaltje.webp"
+            alt="Een virtueel zaaltje in SpatialChat — een groene, industriële kantoorruimte waar een kleine groep samenkomt"
             fill priority
             className="object-cover object-center"
             style={{ filter: "contrast(1.03) saturate(1.06)" }}
