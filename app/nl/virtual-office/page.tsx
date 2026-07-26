@@ -32,7 +32,7 @@ const ingangen = [
     title: "Boek een zaaltje",
     desc: "Een leuke, andersoortige meeting met een kleine groep — zonder heel kantoor of project. Laagdrempelig, niet duur, wel verrassend.",
     href: "/nl/virtual-office/zaaltje",
-    img: "/images/vo-zaaltje.webp",
+    img: "/images/vo-zaaltje-v2.webp",
     alt: "Een virtueel zaaltje in SpatialChat — een groene, industriële kantoorruimte waar een kleine groep samenkomt",
   },
   {
@@ -40,7 +40,7 @@ const ingangen = [
     title: "Huur een kantoor",
     desc: "Je mist de plek waar je elkaar zomaar tegenkomt. Huur een ingericht, levend kantoor en trek er meteen in.",
     href: "/nl/virtual-office/huren",
-    img: "/images/vo-huren.webp",
+    img: "/images/vo-huren-v2.webp",
     alt: "Een licht, instapklaar virtueel kantoor in SpatialChat met werkplekken en uitzicht over de stad",
   },
   {
