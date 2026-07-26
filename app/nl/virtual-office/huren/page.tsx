@@ -47,7 +47,7 @@ export default function HurenPage() {
       <section>
         <div className="relative w-full h-[42vw] min-h-[300px] max-h-[520px]">
           <Image
-            src="/images/vo-huren.webp"
+            src="/images/vo-huren-v2.webp"
             alt="Een licht, instapklaar virtueel kantoor in SpatialChat met werkplekken en uitzicht over de stad"
             fill priority
             className="object-cover object-center"
@@ -89,14 +89,15 @@ export default function HurenPage() {
               Trek meteen in. Wij regelen de rest.
             </h2>
             <p className="text-[#545454] leading-relaxed mb-4">
-              Je team werkt verspreid en je mist de plek waar je elkaar zomaar tegenkomt, even
-              binnenloopt, samen koffie drinkt. Je wilt dat terug — maar niet wachten op een lang
-              traject of zelf gaan bouwen.
+              Iedereen werkt verspreid. Daarmee verdwijnt de plek waar collega's elkaar zomaar
+              tegenkomen, even binnenlopen, samen koffie drinken. Dat kan terug — zonder lang
+              traject en zonder zelf te bouwen.
             </p>
             <p className="text-[#545454] leading-relaxed">
               Huur een ingericht, levend online kantoor en trek er meteen in. Per maand of per jaar,
-              inclusief technische ondersteuning en een onboarding zodat je team het ook echt
-              gebruikt. Een instapklaar kantoor — als het ertoe doet, doe je dit niet zelf.
+              met technische ondersteuning en een onboarding zodat het ook echt gebruikt wordt.
+              Instapklaar, maar niet af: de ruimtes, de kleuren, de hoek waar iedereen blijft hangen
+              — dat verbouwt zich gaandeweg. Net als in het echt, alleen sneller.
             </p>
           </div>
         </div>
@@ -153,8 +154,8 @@ export default function HurenPage() {
             </div>
             <div className="relative aspect-[4/3] rounded overflow-hidden shadow-md">
               <Image
-                src="/images/inspiratie-olyhouse.webp"
-                alt="Online clubhuis voor de World Olympians Association — een levend virtueel kantoor"
+                src="/images/oly-bar-milano.webp"
+                alt="Het Online Clubhuis 'OLY Bar Milano' van de World Olympians Association — een levende virtuele lounge met leden uit de hele wereld"
                 fill className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
