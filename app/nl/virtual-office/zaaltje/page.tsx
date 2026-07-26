@@ -10,11 +10,13 @@ export const metadata: Metadata = {
     "Boek een ingericht online zaaltje voor maximaal 12 personen — klaar voor gebruik. Voor een leuke, andersoortige meeting met een kleine groep. Laagdrempelig, niet duur, wel verrassend.",
 };
 
-const waarvoor = [
-  "Een teamretro of evaluatie die wél energie geeft",
-  "Een kennismaking of onboarding van een kleine groep",
-  "Een creatieve sessie of brainstorm",
-  "Gewoon een keer wat anders dan een raster van vierkantjes",
+const locaties = [
+  { title: "Strandhuis", img: "/images/zaaltje-strandhuis.webp", alt: "Virtueel strandhuis met open haard en uitzicht op zee" },
+  { title: "Bosdag", img: "/images/zaaltje-bosdag.webp", alt: "Virtuele boskring met boomstronken in het groen" },
+  { title: "Heisessie", img: "/images/zaaltje-heisessie.webp", alt: "Bankjes in een bloeiend heideveld onder een blauwe lucht" },
+  { title: "Creatieve ruimte", img: "/images/zaaltje-creatief.webp", alt: "Virtuele galerie met kleurrijke kunst en een whiteboard" },
+  { title: "Bezinning", img: "/images/zaaltje-bezinning.webp", alt: "Rustige ruimte met veel groen — een plek voor bezinning" },
+  { title: "Werksessie", img: "/images/zaaltje-werksessie.webp", alt: "Virtuele vergaderruimte met MeetingMasters-scherm" },
 ];
 
 const faq = [
@@ -44,7 +46,7 @@ export default function ZaaltjePage() {
       <section>
         <div className="relative w-full h-[42vw] min-h-[300px] max-h-[520px]">
           <Image
-            src="/images/vo-zaaltje.webp"
+            src="/images/vo-zaaltje-v2.webp"
             alt="Een virtueel zaaltje in SpatialChat — een groene, industriële kantoorruimte waar een kleine groep samenkomt"
             fill priority
             className="object-cover object-center"
@@ -96,23 +98,38 @@ export default function ZaaltjePage() {
         </div>
       </section>
 
-      {/* ── WAARVOOR ── */}
+      {/* ── KIES JE LOCATIE ── */}
       <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="mb-8 max-w-[760px]">
-            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Voor wie</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
-              Voor kleine teams die het gewoon eens willen proberen.
+          <div className="mb-10 max-w-[760px]">
+            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Kies je locatie</p>
+            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+              Kies je locatie. Kies je tijd. Boek meteen.
             </h2>
+            <p className="text-[#545454] leading-relaxed">
+              Van een strandhuis tot een creatieve ruimte — kies de plek die bij je bijeenkomst past.
+            </p>
           </div>
-          <ul className="space-y-3 max-w-[640px]">
-            {waarvoor.map((w) => (
-              <li key={w} className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#EEBE3D] mt-2 flex-shrink-0" />
-                <p className="text-sm text-[#545454] leading-relaxed">{w}</p>
-              </li>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {locaties.map((l) => (
+              <div key={l.title} className="bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB]">
+                <div className="relative h-40">
+                  <Image src={l.img} alt={l.alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-[#2D2D2D] text-base leading-snug">{l.title}</h3>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+            <Link href="/nl/contact" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors self-start">
+              Boek je zaaltje →
+            </Link>
+            <p className="text-sm text-[#545454]">
+              <span className="font-bold text-[#2D2D2D]">Vanaf € 135</span>, inclusief korte onboarding-sessie.
+            </p>
+          </div>
         </div>
       </section>
 
