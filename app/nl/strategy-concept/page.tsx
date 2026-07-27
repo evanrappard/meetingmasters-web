@@ -11,19 +11,19 @@ export const metadata: Metadata = {
 const cards = [
   {
     img: "/images/strategy-1.png",
-    alt: "Doel en richting",
+    alt: "Doel en richting bepalen voor een online strategiedag — MeetingMasters denkt mee over de opzet",
     title: "Doel & richting",
     body: "Wij formuleren meetingstrategieën die betrokkenheid stimuleren en bijdragen aan het bereiken van je doelen. Wat is de context van je meetings? Wat is het beoogde resultaat, zowel inhoudelijk als relationeel?",
   },
   {
     img: "/images/format-1.jpg",
-    alt: "Formats en technologie",
+    alt: "Het juiste format en de juiste technologie kiezen voor een online bijeenkomst",
     title: "Formats & technologie",
     body: "Wat past bij de doelstellingen? Hoe verrassend mag de online setting zijn? Wij adviseren over platform, formats en concepten die interactie stimuleren en ideeën ruimte en richting geven.",
   },
   {
     img: "/images/planning-1.png",
-    alt: "Structuur en ontwerp",
+    alt: "Structuur en ontwerp van een online meeting — een doordachte opzet die werkt",
     title: "Structuur & ontwerp",
     body: "Wij vertalen plannen naar gedetailleerde playbooks: een leidraad voor organisatoren, sprekers en facilitators — en een belangrijk houvast voor de ondersteunende Masters.",
   },

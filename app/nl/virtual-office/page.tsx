@@ -18,12 +18,12 @@ const benefits = [
 
 // Beelden zijn voorlopig placeholders — worden vervangen door eigen visuals.
 const scenarios = [
-  { title: "Online clubhuis", body: "Een informele thuisbasis waar collega's elkaar tegenkomen — de digitale variant van de koffiehoek.", img: "/images/vo-clubhuis.webp" },
-  { title: "Online museum", body: "Kennis, projecten of je organisatieverhaal centraal en overzichtelijk, om doorheen te lopen.", img: "/images/vo-museum.webp" },
-  { title: "Thuisbasis hybride team", body: "Voor teams die deels thuis, deels op kantoor werken en elkaar zelden allemaal zien.", img: "/images/vo-thuisbasis.webp" },
-  { title: "Internationale hub", body: "Eén plek voor mensen in verschillende landen en tijdzones, zonder reizen.", img: "/images/vo-hub.webp" },
-  { title: "Community-ruimte", body: "Een vaste ontmoetingsplek voor leden, een netwerk of een samenwerkingsverband.", img: "/images/vo-community.webp" },
-  { title: "Project- of programmaruimte", body: "Een gezamenlijke basis waar een project- of programmagroep samenkomt en alles bij elkaar staat.", img: "/images/vo-project.webp" },
+  { title: "Online clubhuis", body: "Een informele thuisbasis waar collega's elkaar tegenkomen — de digitale variant van de koffiehoek.", img: "/images/vo-clubhuis.webp", alt: "Virtueel online clubhuis — een informele digitale ontmoetingsplek waar collega's elkaar tegenkomen" },
+  { title: "Online museum", body: "Kennis, projecten of je organisatieverhaal centraal en overzichtelijk, om doorheen te lopen.", img: "/images/vo-museum.webp", alt: "Virtueel online museum — kennis, projecten en het organisatieverhaal om doorheen te lopen" },
+  { title: "Thuisbasis hybride team", body: "Voor teams die deels thuis, deels op kantoor werken en elkaar zelden allemaal zien.", img: "/images/vo-thuisbasis.webp", alt: "Virtuele thuisbasis voor een hybride team dat deels thuis en deels op kantoor werkt" },
+  { title: "Internationale hub", body: "Eén plek voor mensen in verschillende landen en tijdzones, zonder reizen.", img: "/images/vo-hub.webp", alt: "Virtuele internationale hub — één online plek voor mensen in verschillende landen en tijdzones" },
+  { title: "Community-ruimte", body: "Een vaste ontmoetingsplek voor leden, een netwerk of een samenwerkingsverband.", img: "/images/vo-community.webp", alt: "Virtuele community-ruimte — een vaste online ontmoetingsplek voor leden of een netwerk" },
+  { title: "Project- of programmaruimte", body: "Een gezamenlijke basis waar een project- of programmagroep samenkomt en alles bij elkaar staat.", img: "/images/vo-project.webp", alt: "Virtuele project- of programmaruimte waar een groep samenkomt en alles bij elkaar staat" },
 ];
 
 const ingangen = [
@@ -205,7 +205,7 @@ export default function VirtualOfficePage() {
             {scenarios.map((s) => (
               <div key={s.title} className="bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col">
                 <div className="relative h-44">
-                  <Image src={s.img} alt={s.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                  <Image src={s.img} alt={s.alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-bold text-[#2D2D2D] text-base mb-1.5 leading-snug">{s.title}</h3>

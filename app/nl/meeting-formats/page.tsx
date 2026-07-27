@@ -58,7 +58,7 @@ export default function MeetingFormatsPage() {
       <div className="relative w-full h-[45vh] overflow-hidden">
         <Image
           src="/images/format-1.jpg"
-          alt="Vergaderformats"
+          alt="Online bijeenkomst van MeetingMasters — verschillende vergaderformats voor groepen van 50 tot 500 mensen"
           fill
           className="object-cover"
           priority
