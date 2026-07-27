@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 const locaties = [
   { title: "Strandhuis", img: "/images/zaaltje-strandhuis.webp", alt: "Virtueel strandhuis met open haard en uitzicht op zee" },
   { title: "Bosdag", img: "/images/zaaltje-bosdag.webp", alt: "Virtuele boskring met boomstronken in het groen" },
-  { title: "Heisessie", img: "/images/zaaltje-heisessie.webp", alt: "Bankjes in een bloeiend heideveld onder een blauwe lucht" },
+  { title: "Heisessie", img: "/images/zaaltje-bezinning.webp", alt: "Rustige ruimte met veel groen — een plek voor bezinning" },
   { title: "Creatieve ruimte", img: "/images/zaaltje-creatief.webp", alt: "Virtuele galerie met kleurrijke kunst en een whiteboard" },
-  { title: "Bezinning", img: "/images/zaaltje-bezinning.webp", alt: "Rustige ruimte met veel groen — een plek voor bezinning" },
+  { title: "Bezinning", img: "/images/zaaltje-heisessie.webp", alt: "Bankjes in een bloeiend heideveld onder een blauwe lucht" },
   { title: "Werksessie", img: "/images/zaaltje-werksessie.webp", alt: "Virtuele vergaderruimte met MeetingMasters-scherm" },
 ];
 
@@ -122,12 +122,13 @@ export default function ZaaltjePage() {
               </div>
             ))}
           </div>
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-6">
             <Link href="/nl/contact" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors self-start">
               Boek je zaaltje →
             </Link>
-            <p className="text-sm text-[#545454]">
-              <span className="font-bold text-[#2D2D2D]">Vanaf € 135</span>, inclusief korte onboarding-sessie.
+            <p className="leading-tight">
+              <span className="text-3xl font-bold text-[#2D2D2D]">Vanaf € 189</span>
+              <span className="block text-sm text-[#545454] mt-1">inclusief korte onboarding-sessie</span>
             </p>
           </div>
         </div>
