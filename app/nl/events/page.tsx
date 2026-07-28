@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Online Event Formats | MeetingMasters",
   description:
-    "20 online event formats voor elke bijeenkomst — van strategiedagen en webinars tot escape rooms, participatietrajecten en community events. Ontworpen, begeleid en geproduceerd door MeetingMasters.",
+    "20 online event formats voor elke bijeenkomst — van strategiedagen en webinars tot Escape Room R@venHack, participatietrajecten en community events. Ontworpen, begeleid en geproduceerd door MeetingMasters.",
 };
 
 const results = [
@@ -99,7 +99,7 @@ export const eventCategories: EventCategory[] = [
     label: "Leren & Ontwikkelen",
     formats: [
       {
-        slug: "team-ontwikkeling",
+        slug: "teambuilding",
         title: "Online teambuilding",
         desc: "Teams die beter samenwerken — ook als ze ver van elkaar werken.",
         bg: "radial-gradient(circle at 38% 38%, #F5BEC8, #EFA1AF)",
@@ -107,7 +107,7 @@ export const eventCategories: EventCategory[] = [
         Icon: UsersRound,
       },
       {
-        slug: "ontwikkeltraject",
+        slug: "training-workshop",
         title: "Online training & workshop",
         desc: "Leren en groeien in een online setting die écht werkt.",
         iconSrc: "/images/icons/trainingen-en-workshops.png",
@@ -164,7 +164,7 @@ export const eventCategories: EventCategory[] = [
       },
       {
         slug: "community-building",
-        title: "Online Community Building",
+        title: "Online community building",
         desc: "Een community bouwen die mensen écht verbindt.",
         iconSrc: "/images/icons/communitybuilding.png",
         bg: "radial-gradient(circle at 38% 38%, #FFF8E0, #FFEEC1)",
@@ -190,7 +190,6 @@ export const eventCategories: EventCategory[] = [
         slug: "klankbordgroep",
         title: "Online klankbordgroep",
         desc: "Luisteren naar de mensen die er het meest toe doen.",
-        iconSrc: "/images/icons/netwerkbijeenkomst.png",
         bg: "radial-gradient(circle at 38% 38%, #B0B8A8, #989F8F)",
         ic: "text-white",
         Icon: MessageCircle,
@@ -270,7 +269,7 @@ const eventFaq = [
 const eventFaqMore = [
   { q: "Wat is het verschil tussen een online event en een webinar?", a: "Een webinar draait meestal om kennisoverdracht rondom één onderwerp en is erg zendergericht. Een online event is vaak breder opgezet en bevat bijvoorbeeld meerdere sessies, netwerkmogelijkheden of interactieve onderdelen. Kennis wordt niet alleen door de spreker gedeeld. De inzichten worden ook gedeeld door deelnemers onderling." },
   { q: "Is een online event net zo effectief als een fysieke bijeenkomst?", a: "Dat hangt af van het doel. Voor kennisdeling, samenwerking en internationale bijeenkomsten biedt online vaak zelfs voordelen. Voor sommige vormen van relatieopbouw of informele ontmoeting blijft fysiek waardevol. Daarom kijken wij altijd eerst naar het doel en daarna pas naar de vorm." },
-  { q: "Kan een online event hybride plaatsvinden?", a: "Ja. Daarbij zijn een deel van de deelnemers online aanwezig en een deel op locatie. Dat vraagt wel om een andere aanpak dan een volledig online of volledig fysiek evenement. Wij ontwerpen hybride bijeenkomsten zo dat iedereen gelijkwaardig kan deelnemen." },
+  { q: "Kan een online event hybride plaatsvinden?", a: "Ja. Daarbij is een deel van de deelnemers online aanwezig en een deel op locatie. Dat vraagt wel om een andere aanpak dan een volledig online of volledig fysiek evenement. Wij ontwerpen hybride bijeenkomsten zo dat iedereen gelijkwaardig kan deelnemen." },
   { q: "Kunnen jullie de volledige organisatie verzorgen?", a: "Ja. We ondersteunen organisaties bij ontwerp, programmaontwikkeling, technische productie, deelnemerscommunicatie, sprekersbegeleiding en live ondersteuning." },
   { q: "Hoe lang duurt een online event?", a: "Dat varieert van een compacte sessie van één uur tot een meerdaagse conferentie. De ideale lengte hangt af van het doel en de doelgroep." },
   { q: "Kunnen deelnemers netwerken tijdens een online event?", a: "Ja. Juist online zijn er verrassend veel mogelijkheden voor ontmoeting. Denk aan speeddates, thematafels, koffiekamers, breakoutgesprekken of vrije netwerkruimtes." },
