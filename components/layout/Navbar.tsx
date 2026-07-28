@@ -29,7 +29,7 @@ const navItems: NavItem[] = [
       { label: "Virtuele kerstborrel", href: "/nl/events/kerstfeest" },
       { label: "All-hands", href: "/nl/events/all-hands" },
       { label: "Community-event", href: "/nl/events/community-building" },
-      { label: "Online teambuilding", href: "/nl/events/team-ontwikkeling" },
+      { label: "Online teambuilding", href: "/nl/events/teambuilding" },
     ],
     moreLabel: "Alle eventformats",
     moreHref: "/nl/events#formats",
