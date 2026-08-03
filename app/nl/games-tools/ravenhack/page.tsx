@@ -158,7 +158,7 @@ export default function RavenHackPage() {
       </section>
 
       {/* ── WAT HET IS + VOOR WIE ── */}
-      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+      <section className="bg-white pt-16 pb-10 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             <div className="group">
@@ -198,7 +198,7 @@ export default function RavenHackPage() {
       </section>
 
       {/* ── HOE HET WERKT ── */}
-      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+      <section className="bg-[#F4F7F9] pt-10 pb-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
@@ -240,7 +240,7 @@ export default function RavenHackPage() {
       </section>
 
       {/* ── TWEE VERSIES ── */}
-      <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
+      <section className="bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
@@ -309,7 +309,7 @@ export default function RavenHackPage() {
       </section>
 
       {/* ── BEELD + PRAKTIJK ── */}
-      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+      <section className="bg-[#FAFAFA] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
