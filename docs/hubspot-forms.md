@@ -1,36 +1,75 @@
 # HubSpot-formulieren — overzicht
 
-Levend overzicht van de formulieren die in de HubSpot-omgeving aangemaakt moeten
-worden en op de site geëmbed worden. Emilie maakt de formulieren aan in HubSpot
-en levert per formulier de embed-gegevens aan (portalId + formId + region);
-daarna bouwen we ze in via het herbruikbare component
+Levend overzicht van de formulieren die in HubSpot aangemaakt moeten worden en op
+de site geëmbed worden. Emilie maakt het formulier aan in HubSpot en levert de
+`formId` aan; daarna bouwen we het in via het herbruikbare component
 [`components/ui/HubSpotForm.tsx`](../components/ui/HubSpotForm.tsx).
 
-**Status-legenda:** 🔲 te maken in HubSpot · 🟡 embed-code ontvangen, in te bouwen · ✅ live op de site
+**Portal ID: `147433380`** · **Region: `eu1`** — beide bekend en bevestigd
+(account draait op `app-eu1.hubspot.com`). Per formulier hoeft dus alleen de
+`formId` aangeleverd te worden. `eu1` is al de standaardwaarde in
+`HubSpotForm.tsx`, dus die hoeft niet per embed meegegeven te worden.
 
-| # | Formulier | Doel | Embed-locatie | Voorgestelde velden | Status | portalId / formId |
-|---|-----------|------|---------------|---------------------|--------|-------------------|
-| 1 | **Vrijblijvend advies** | Idee of vraag vrijblijvend voorleggen | `/nl/expert-advies` — vervangt het huidige `AdviesForm` (mailto) | naam, e-mail, telefoon (optioneel), bericht | 🔲 | — |
-| 2 | **Algemeen contact** | Algemene contactvraag | `/nl/contact` (+ `/en/contact`) | naam, e-mail, telefoon (optioneel), bericht | 🔲 | — |
-| 3 | **Demo / rondleiding** | Demo of rondleiding aanvragen | nog te bepalen (eigen pagina `/nl/demo` of via de "Plan een rondleiding/demo"-CTA's) | naam, e-mail, organisatie, gewenste datum, bericht | 🔲 | — |
-| 4 | **Nieuwsbrief** | Inschrijven op de nieuwsbrief | footer (`components/layout/Footer.tsx`) | e-mail | 🔲 | — |
-| 5 | **Krijg een kostenindicatie** | Vrijblijvende prijsindicatie aanvragen | nog te bepalen (event-format-detailpagina's i.p.v. de statische "Vrijblijvende offerte", en/of `/nl/expert-advies`) | naam, e-mail, type event, groepsgrootte, bericht | 🔲 | — |
+**Status-legenda:** 🔲 te maken in HubSpot · 🟡 formId ontvangen, in te bouwen · ✅ live op de site
 
-## Werkwijze per formulier
-1. Emilie maakt het formulier aan in HubSpot en stuurt de embed-gegevens
-   (portalId, formId, region — bv. `eu1` of `na1`).
-2. Wij plaatsen `<HubSpotForm portalId="…" formId="…" region="…" />` op de
-   afgesproken locatie.
-3. Status hierboven bijwerken naar ✅ live + portalId/formId invullen.
+## De formulieren
+
+| # | Naam in HubSpot | Doel | Embed-locatie | Velden | Status | formId |
+|---|-----------------|------|---------------|--------|--------|--------|
+| 1 | **MM Website — Vrijblijvend advies** | Idee of vraag vrijblijvend voorleggen | `/nl/expert-advies` — vervangt het huidige `AdviesForm` (mailto) | naam, e-mail, telefoon (optioneel), bericht | 🟡 | `02bdc77f-14e3-4826-9d48-96449c8ca062` |
+| 2 | **MM Website — Algemeen contact** | Algemene contactvraag | `/nl/contact` — die pagina heeft nu alleen mailto/tel, geen formulier | naam, e-mail, telefoon (optioneel), bericht | 🟡 | `c747d7cd-4850-44f4-965f-a87120e55d38` |
+| 3 | **MM Website — Demo of rondleiding** | De "20 minuten ervaren"-CTA | CTA-blok onderaan elke pagina (`components/ui/CTABlock.tsx`) + technologie-pagina's | naam, e-mail, organisatie, voorkeursmoment, bericht | 🟡 | `a052e71e-9ed7-4c11-adc9-36d8e8b26ea8` |
+| 4 | **MM Website — Boeking & beschikbaarheid** | Zaaltje, R@venHack of EscapeMasters boeken | `/nl/virtual-office/zaaltje`, `/nl/games-tools/ravenhack`, games-overzicht | naam, e-mail, organisatie, dropdown "wat wil je boeken", datum, aantal deelnemers | 🟡 | `ddf3e496-b036-4720-b7b1-44eed87f7506` |
+| 5 | **MM Website — Kostenindicatie** | Vrijblijvende offerte | 20 event-detailpagina's ("Vrijblijvende offerte"), `/nl/virtual-office/huren`, `/nl/escape-rooms` | naam, e-mail, organisatie, type event, groepsgrootte, bericht | 🟡 | `8fb6d169-df70-45f0-bb36-671df8ad0f58` |
+| 6 | **MM Website — Nieuwsbrief** | Inschrijving nieuwsbrief | footer (`components/layout/Footer.tsx`) | e-mail | 🟡 | `0992ca5c-97ed-4940-a45d-55357d69f57a` |
+| — | *(bestaat al)* | Berekening toesturen | vergaderkosten-calculator (los HTML-bestand) | e-mail, `berekening_samenvatting` | ✅ | `229f1966-fafc-4929-bfae-173a27b5edee` |
+
+### Waarom zes en niet meer
+
+Er staan 43 losse CTA's naar `/nl/contact` met acht verschillende teksten
+("Boek je zaaltje", "Check beschikbaarheid", "Vraag tooladvies", "Plan een
+gesprek", …). Die vangen we af met één boekingsformulier met een dropdown, in
+plaats van vijf bijna-identieke formulieren die allemaal apart onderhouden
+moeten worden.
+
+## Hoe ze zijn aangemaakt
+
+Alle zes zijn op 3 aug 2026 via de HubSpot Forms API aangemaakt met
+[`scripts/create-hubspot-forms.mjs`](../scripts/create-hubspot-forms.mjs). Dat
+script maakt eerst de benodigde contacteigenschappen aan
+(`mm_boeking_type`, `mm_gewenste_datum`, `mm_aantal_deelnemers`,
+`mm_type_event`, `mm_voorkeursmoment`) en daarna de formulieren zelf, inclusief
+Nederlandse labels, knopteksten, bedanktekst, e-mailmelding en **onzichtbare
+reCAPTCHA**. Het is idempotent: bestaande eigenschappen en formulieren worden
+overgeslagen, niet overschreven.
+
+Draaien vereist `HUBSPOT_PRIVATE_APP_TOKEN` in `.env.local` (legacy/private app
+met scopes `forms`, `crm.schemas.contacts.read`, `crm.schemas.contacts.write`).
+Proefdraaien kan met `--dry-run`.
+
+De formId's staan in [`lib/hubspot-forms.ts`](../lib/hubspot-forms.ts); pagina's
+verwijzen daarnaar in plaats van de ID's los te herhalen.
+
+### Valkuilen in de Forms API (voor als er ooit een formulier bij komt)
+
+- `createdAt`, `updatedAt` en `archived` moeten mee in het POST-verzoek, ook al
+  bepaalt de server de echte waarden.
+- `legalConsentOptions: { type: "none" }` bestaat niet; gebruik
+  `implicit_consent_to_process` met de bijbehorende teksten.
+- Het meerregelige veld heet `multi_line_text`, een datumveld `datepicker`.
+- Alleen het e-mailveld heeft een verplicht `validation`-blok.
+- Dropdown-opties hebben elk een `displayOrder` nodig.
 
 ## Aandachtspunten
-- **Spam / captcha (per formulier aanzetten in HubSpot):** zet bij elk formulier
-  de ingebouwde **spam-bescherming** + **onzichtbare reCAPTCHA** aan
-  (formulierinstellingen in HubSpot). Onzichtbaar = geen puzzels/frictie voor
-  bezoekers. Hierdoor is er **geen losse captcha op de site** nodig.
-- **Plaatsing nog te bepalen** voor *Demo / rondleiding* (#3) en
-  *Krijg een kostenindicatie* (#5) — samen vastleggen.
-- Het huidige `components/ui/AdviesForm.tsx` (mailto) is tijdelijk en wordt
-  verwijderd zodra formulier #1 via HubSpot live staat.
-- De contactpagina's gebruiken nu alleen `mailto:`/`tel:`; die blijven naast het
-  HubSpot-contactformulier staan als directe opties.
+
+- **Spam / captcha:** staat bij alle zes al aan (`recaptchaEnabled`), gezet via
+  het script. Onzichtbaar, dus geen puzzels of frictie voor bezoekers. Hierdoor
+  is er **geen losse captcha op de site** nodig.
+- **Melding bij inzending** gaat naar Emilie (HubSpot-gebruiker `27615657`).
+- `components/ui/AdviesForm.tsx` (mailto) is tijdelijk en wordt **verwijderd**
+  zodra formulier #1 via HubSpot live staat op `/nl/expert-advies`.
+- De contactpagina's houden hun `mailto:`/`tel:`-opties naast het
+  HubSpot-contactformulier staan als directe route.
+- Wil je op losse velden kunnen segmenteren of rapporteren (bijvoorbeeld
+  groepsgrootte of type event), maak die dan als contacteigenschap aan vóórdat
+  je het formulier bouwt.
