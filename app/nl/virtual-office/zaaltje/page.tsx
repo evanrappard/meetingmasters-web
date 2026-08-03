@@ -24,7 +24,7 @@ const faq = [
   { q: "Voor hoeveel mensen is een zaaltje?", a: "Een zaaltje is bedoeld voor kleine groepen tot ongeveer 12 personen. Heb je een grotere groep of wil je een vaste, doorlopende plek? Dan past een instapklaar kantoor beter." },
   { q: "Moeten we iets installeren of voorbereiden?", a: "Nee. Je krijgt een link, klikt erop en loopt binnen — in de browser, zonder installatie. De ruimte staat klaar; jij hoeft niets in te richten." },
   { q: "Wat kost een zaaltje?", a: "Laagdrempelig. Je betaalt voor het ingerichte-en-klaar én de ondersteuning op de achtergrond, niet voor de tool. Vraag gerust naar de mogelijkheden." },
-  { q: "Wat als het smaakt naar meer?", a: "Dan kun je doorgroeien naar een instapklaar kantoor dat je per maand of jaar huurt, of een kantoor dat we samen vanuit je fundament opbouwen. Het zaaltje is de makkelijkste manier om te ervaren hoe online samenkomen ook kan voelen." },
+  { q: "Wat als het smaakt naar meer?", a: "Dan kun je doorgroeien naar een instapklaar kantoor dat je per maand of jaar huurt, of naar Kantoor + Cultuur, waarin we eerst het gesprek over samenwerken voeren en daarna het kantoor bouwen dat daarbij past. Het zaaltje is de makkelijkste manier om te ervaren hoe online samenkomen ook kan voelen." },
 ];
 
 const faqSchema = {
@@ -149,10 +149,10 @@ export default function ZaaltjePage() {
               <p className="text-sm text-[#545454] leading-relaxed mb-4">Een vaste, levende plek waar je elkaar zomaar tegenkomt — per maand of jaar.</p>
               <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">Meer over huren →</span>
             </Link>
-            <Link href="/nl/virtual-office/fundament" className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all">
-              <h3 className="font-bold text-[#2D2D2D] text-lg mb-2 group-hover:text-[#EEBE3D] transition-colors">Bouw vanuit het fundament</h3>
-              <p className="text-sm text-[#545454] leading-relaxed mb-4">Als het echt om de samenwerking gaat: bouw een kantoor vanuit je waarden.</p>
-              <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">Meer over het fundament →</span>
+            <Link href="/nl/virtual-office/kantoor-cultuur" className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#2D2D2D] text-lg mb-2 group-hover:text-[#EEBE3D] transition-colors">Kantoor + Cultuur</h3>
+              <p className="text-sm text-[#545454] leading-relaxed mb-4">Als het echt om de samenwerking gaat: eerst het gesprek over cultuur, dan het kantoor.</p>
+              <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">Meer over Kantoor + Cultuur →</span>
             </Link>
           </div>
         </div>

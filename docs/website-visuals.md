@@ -114,7 +114,7 @@ Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepag
 
 ### NL Virtueel kantoor — subpagina's
 | `/nl/virtual-office/zaaltje` | hero `/images/vo-zaaltje-v2.webp` (`Kantoorruimte (3).png`); "Kies je locatie" 6× `zaaltje-strandhuis.webp` / `zaaltje-bosdag.webp` (`Natuur bos.png`) / `zaaltje-heisessie.webp` (`Werkplek.png`, heideveld) / `zaaltje-creatief.webp` (`Service to OLY 2- OLY Gallery.png`) / `zaaltje-bezinning.webp` (`ChatGPT Image …12_58_22.png`) / `zaaltje-werksessie.webp` (`Spatial meeting achtergrond … Digibord MM.png`) | LOKAAL |
-| `/nl/virtual-office/fundament` | hero `/images/vo-fundament-v2.webp` (`MM Website afbeeldingen (20).png`; oude lege plattegrond `vo-fundament.webp` niet meer gebruikt) | LOKAAL |
+| `/nl/virtual-office/kantoor-cultuur` (voorheen `/fundament`) | hero `/images/vo-fundament-v2.webp` (`MM Website afbeeldingen (20).png`; oude lege plattegrond `vo-fundament.webp` niet meer gebruikt) | LOKAAL |
 | `/nl/virtual-office/huren` | hero `/images/vo-huren-v2.webp` (`Kantoorruimte (2).png`); In de praktijk `/images/oly-bar-milano.webp` (`Spatial bar.png`) | LOKAAL |
 
 ## NL Technologie — `app/nl/technologie/page.tsx`  🚧 (andere Claude werkt hieraan)

@@ -68,7 +68,7 @@ Gebruik deze routes in het aanlever-format (sectie 7).
 
 - `/nl/home` — homepage
 - `/nl/events` — overzicht eventformats (+ detailpagina's per format)
-- `/nl/virtual-office` — Virtueel Kantoor (+ `/huren`, `/zaaltje`, `/fundament`)
+- `/nl/virtual-office` — Virtueel Kantoor (+ `/huren`, `/zaaltje`, `/kantoor-cultuur`)
 - `/nl/technologie` — platform + support (+ `/zoom`, `/teams`, `/zoom-events`,
   `/spatialchat`, `/support`, `/faq`)
 - `/nl/games-tools` — games & tools (+ `/ravenhack`)

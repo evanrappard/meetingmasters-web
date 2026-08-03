@@ -44,7 +44,7 @@ const navItems: NavItem[] = [
     children: [
       { label: "Boek een zaaltje", href: "/nl/virtual-office/zaaltje" },
       { label: "Huur een instapklaar kantoor", href: "/nl/virtual-office/huren" },
-      { label: "Bouw vanuit het fundament", href: "/nl/virtual-office/fundament" },
+      { label: "Kantoor + Cultuur", href: "/nl/virtual-office/kantoor-cultuur" },
     ],
   },
   {

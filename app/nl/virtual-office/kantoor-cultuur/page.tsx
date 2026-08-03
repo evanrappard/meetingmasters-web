@@ -5,9 +5,9 @@ import CTABlock from "@/components/ui/CTABlock";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Virtueel kantoor op maat — vanuit het fundament | MeetingMasters",
+  title: "Kantoor + Cultuur — virtueel kantoor op maat | MeetingMasters",
   description:
-    "Bouw je virtuele kantoor vanuit het fundament: begin bij waar je voor staat, welke waarden verbinden en hoe je wilt samenwerken. Samen met cultuur- en samenwerkingsspecialisten. Het kantoor is de uitkomst.",
+    "Kantoor + Cultuur: eerst het gesprek over waar je voor staat, welke waarden verbinden en hoe je wilt samenwerken. Daarna bouwen we samen het online kantoor waarin die cultuur tot leven komt.",
 };
 
 const stappen = [
@@ -23,7 +23,7 @@ const faq = [
   { q: "Waarom een kant-en-klaar kantoor hier niet volstaat?", a: "Omdat de vraag dieper zit. Een instapklaar kantoor geeft je meteen een plek; een fundament-traject geeft je eerst helderheid over hoe je wilt samenwerken — en dán de plek die daarbij past. Als het ertoe doet, volstaat de standaard niet." },
   { q: "Maken jullie samenwerking ook weer bespreekbaar?", a: "Ja. Het overstapmoment naar een virtueel kantoor is hét moment om afspraken opnieuw te bespreken: hoe werken we samen, wat is online onduidelijk geworden, mag de camera aan of uit? Niet betuttelend, maar om de samenwerking beter te maken." },
   { q: "Wie begeleiden dit?", a: "Cultuur-, merk- en samenwerkingsspecialisten, met twintig jaar ervaring in strategie en participatie. Geen consultancy-traject van bovenaf, maar een begeleid gesprek dat richting geeft — met het kantoor als concrete uitkomst." },
-  { q: "Kunnen jullie het kantoor daarna ook levend houden?", a: "Optioneel, ja. Met Facility Services brengen we energie en beweging in de omgeving: verrassende interacties en op feestdagen iets extra's. De intensiteit bepaal je zelf." },
+  { q: "Kunnen jullie het kantoor daarna ook levend houden?", a: "Optioneel, ja. Met Community Services brengen we energie en beweging in de omgeving: verrassende interacties en op feestdagen iets extra's. De intensiteit bepaal je zelf." },
 ];
 
 const faqSchema = {
@@ -59,10 +59,10 @@ export default function FundamentPage() {
                   ← Virtueel kantoor
                 </Link>
                 <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
-                  Bouw je kantoor vanuit het fundament.
+                  Kantoor + Cultuur: waar je werkt en hoe.
                 </h1>
                 <p className="text-white text-lg leading-relaxed mb-8" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
-                  Het gaat niet om het kantoor. Het gaat om hoe je wilt samenwerken.
+                  Een nieuwe omgeving. Een nieuwe impuls.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/nl/expert-advies" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
@@ -84,15 +84,13 @@ export default function FundamentPage() {
               Het kantoor is de aanleiding, niet het doel.
             </h2>
             <p className="text-[#545454] leading-relaxed mb-4">
-              Over de tijd is onduidelijk geworden hoe je eigenlijk wilt samenwerken nu je niet meer
-              op dezelfde plek zit. Of er is een fusie geweest, of een groter programma, waarin je
-              opnieuw moet benoemen hoe je wilt werken. Waar sta je voor, welke waarden verbinden,
-              hoe blijf je met elkaar in gesprek?
+              Een fusie, een reorganisatie, of gewoon een team dat nooit meer op dezelfde plek zit.
+              De manier waarop wordt samengewerkt verandert en niemand kan meer precies benoemen hoe
+              we de dingen altijd doen, of waarom.
             </p>
             <p className="text-[#545454] leading-relaxed">
-              Een kant-en-klaar kantoor lost dat niet op, want de vraag zit dieper. Het kantoor is
-              soms gewoon de aanleiding om een gesprek te voeren dat je lang hebt uitgesteld — zoals
-              een verhuizing soms de reden is dat je eindelijk je zolder eens opruimt.
+              Met een achtergrond in strategie en communicatie voeren we dat gesprek eerst. Daarna
+              bouwen we samen het online kantoor waarin de cultuur tot leven komt, elke dag opnieuw.
             </p>
           </div>
         </div>
@@ -129,11 +127,12 @@ export default function FundamentPage() {
             <div>
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Voor wie</p>
               <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
-                Voor wie het ertoe laat doen.
+                Een directievraag. Geen inrichtingsklus.
               </h2>
               <p className="text-[#545454] leading-relaxed">
                 Directie, strategen en inhoudelijk verantwoordelijken die niet alleen een plek
-                willen, maar helderheid over hoe ze samenwerken — en een omgeving die dat draagt.
+                willen, maar helderheid over hoe ze samenwerken en een omgeving die dat draagt. Op
+                het niveau van de medewerker, het team en de organisatie als geheel.
               </p>
             </div>
             <div>

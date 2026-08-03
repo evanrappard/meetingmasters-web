@@ -47,8 +47,9 @@ const nextConfig: NextConfig = {
       // Virtueel Kantoor herstructurering: remote-office → virtual-office; subpagina's samengevoegd/hernoemd
       { source: "/nl/remote-office", destination: "/nl/virtual-office", permanent: true },
       { source: "/nl/virtual-office/huur", destination: "/nl/virtual-office/huren", permanent: true },
-      { source: "/nl/virtual-office/bouw", destination: "/nl/virtual-office/fundament", permanent: true },
-      { source: "/nl/virtual-office/cultuur", destination: "/nl/virtual-office/fundament", permanent: true },
+      { source: "/nl/virtual-office/bouw", destination: "/nl/virtual-office/kantoor-cultuur", permanent: true },
+      { source: "/nl/virtual-office/cultuur", destination: "/nl/virtual-office/kantoor-cultuur", permanent: true },
+      { source: "/nl/virtual-office/fundament", destination: "/nl/virtual-office/kantoor-cultuur", permanent: true },
       // Oude losse (Engelse) structuur geconsolideerd onder /nl
       { source: "/technology", destination: "/nl/technologie", permanent: true },
       { source: "/technology/:path*", destination: "/nl/technologie/:path*", permanent: true },

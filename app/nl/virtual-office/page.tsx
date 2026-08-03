@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = {
   title: "Virtueel kantoor voor teams (Virtual Office) | MeetingMasters",
   description:
-    "Een virtueel kantoor is de online plek waar je team elkaar weer tegenkomt — ook buiten meetings. Drie manieren om binnen te komen: boek een zaaltje, huur een instapklaar kantoor of bouw er een vanuit je fundament.",
+    "Een virtueel kantoor is de online plek waar je team elkaar weer tegenkomt, ook buiten meetings. Drie manieren om binnen te komen: boek een zaaltje, huur een instapklaar kantoor of kies Kantoor + Cultuur.",
 };
 
 const benefits = [
@@ -45,9 +45,9 @@ const ingangen = [
   },
   {
     tag: "Als het ertoe doet",
-    title: "Bouw vanuit het fundament",
-    desc: "Soms gaat het niet om het kantoor, maar om hoe je wilt samenwerken. Je bouwt vanuit je waarden — het kantoor is de uitkomst.",
-    href: "/nl/virtual-office/fundament",
+    title: "Kantoor + Cultuurprogramma",
+    desc: "De manier van werken is veranderd, de cultuur is niet meegegroeid. Een nieuw kantoor is aanleiding om samenwerking bespreekbaar te maken.",
+    href: "/nl/virtual-office/kantoor-cultuur",
     img: "/images/vo-fundament-v2.webp",
     alt: "Plattegrond van een virtueel kantoor op maat, gevuld met een team dat er samenwerkt — vergaderruimte, werkplekken, lounge en een 'on today'-bord",
   },
@@ -57,7 +57,7 @@ const faq = [
   { q: "Wat is een virtueel kantoor?", a: "Een virtueel kantoor is een vaste online plek waar je team aanwezig is — ook als er geen vergadering gepland staat. Je loopt binnen, ziet wie er is en stapt op iemand af; vanzelf start er een gesprek. Geen agenda, geen link. Het is niet zomaar een plek, maar een manier om elkaar weer tegen te komen." },
   { q: "Voor wie is een virtueel kantoor geschikt?", a: "Voor organisaties en groepen die deels thuis en deels op kantoor werken en elkaar daardoor zelden allemaal zien: hybride teams, internationale teams, remote-first bedrijven, communities, lokale samenwerkingsverbanden en project- of programmagroepen die een gezamenlijke basis zoeken." },
   { q: "Op welk platform bouwen jullie een virtueel kantoor?", a: "Wij bouwen virtuele kantoren in SpatialChat. Er zijn meer mogelijkheden, maar wij kiezen voor SpatialChat omdat het laagdrempelig is en maximaal persoonlijk te maken en te houden — het benadert de echte interacties van een fysiek kantoor het dichtst." },
-  { q: "Hoe kom ik binnen — wat zijn de mogelijkheden?", a: "Er zijn drie manieren. Boek een zaaltje voor een eenmalige bijeenkomst met een kleine groep. Huur een instapklaar kantoor en trek er meteen in. Of bouw je kantoor vanuit het fundament, samen met onze specialisten, als het echt om de samenwerking gaat." },
+  { q: "Hoe kom ik binnen — wat zijn de mogelijkheden?", a: "Er zijn drie manieren. Boek een zaaltje voor een eenmalige bijeenkomst met een kleine groep. Huur een instapklaar kantoor en trek er meteen in. Of kies Kantoor + Cultuur: samen met onze specialisten voer je eerst het gesprek over samenwerken, daarna bouwen we het kantoor waarin dat tot leven komt." },
   { q: "Wat kost een virtueel kantoor?", a: "Dat hangt af van de manier waarop je binnenkomt, de grootte en de inrichting. Daarom werken we met een voorstel op maat. In een rondleiding kijken we samen wat past." },
   { q: "Wat is het verschil met Zoom of Teams?", a: "Zoom en Teams zijn gemaakt voor geplande vergaderingen. Een virtueel kantoor is een doorlopende plek waar je gewoon aanwezig bent, elkaar spontaan tegenkomt en informeel contact hebt — zonder dat iemand een link hoeft te sturen." },
 ];
@@ -67,7 +67,7 @@ const faqMore = [
   { q: "Werkt het voor internationale teams en verschillende tijdzones?", a: "Ja. Juist voor internationale en verspreide teams is een virtueel kantoor waardevol: iedereen heeft dezelfde thuisbasis, ongeacht land of tijdzone, en kan binnenlopen wanneer het uitkomt." },
   { q: "Kunnen we onze eigen huisstijl gebruiken?", a: "Ja. We stemmen de inrichting, achtergronden, kleuren en sfeer af op je organisatie. Het wordt jouw kantoor, met jouw identiteit." },
   { q: "Hoe zit het met privacy en veiligheid?", a: "De omgeving is afgeschermd: alleen mensen met toegang komen binnen, en SpatialChat voldoet aan enterprise-grade beveiligings- en privacystandaarden. We denken mee over de toegang en rechten die bij jouw organisatie passen." },
-  { q: "Hoe snel staat een virtueel kantoor live?", a: "Een zaaltje of instapklaar kantoor kan snel. Een traject vanuit het fundament vraagt meer voorbereiding. In een rondleiding schetsen we een realistische planning." },
+  { q: "Hoe snel staat een virtueel kantoor live?", a: "Een zaaltje of instapklaar kantoor kan snel. Een Kantoor + Cultuur-traject vraagt meer voorbereiding. In een rondleiding schetsen we een realistische planning." },
   { q: "Vervangt een virtueel kantoor ons fysieke kantoor?", a: "Dat hoeft niet. Voor veel organisaties is het een aanvulling die het toevallige contact terugbrengt; voor andere maakt het een fysiek kantoor op volle sterkte overbodig. Beide kan — we kijken naar wat bij jullie past." },
 ];
 
@@ -226,8 +226,8 @@ export default function VirtualOfficePage() {
               Hoe ver wil je gaan?
             </h2>
             <p className="text-[#545454] leading-relaxed">
-              Van een zaaltje dat je gewoon even boekt tot een kantoor dat je vanuit je fundament
-              opbouwt. <span className="whitespace-nowrap">Je kiest je eigen ingang.</span>
+              Van een zaaltje dat je gewoon even boekt tot een kantoor dat je samen met een
+              cultuurprogramma opbouwt. <span className="whitespace-nowrap">Je kiest je eigen ingang.</span>
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

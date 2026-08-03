@@ -24,7 +24,7 @@ const faq = [
   { q: "Voor wie is huren bedoeld?", a: "Voor een team of groep changemakers dat snel een vaste online plek wil, zonder te wachten op een lang traject of zelf te gaan bouwen." },
   { q: "Per maand of per jaar?", a: "Allebei kan. Huren is een doorlopende dienst; je kiest de termijn die past. In een rondleiding bespreken we de mogelijkheden en maken we een voorstel op maat." },
   { q: "Wat kost het om een virtueel kantoor te huren?", a: "Dat hangt af van de grootte, de inrichting en de gewenste ondersteuning. Daarom werken we met een voorstel op maat. Vraag gerust een offerte aan." },
-  { q: "Houden jullie het kantoor ook levend?", a: "Optioneel, ja. Geen enkele community floreert vanzelf. Met Facility Services brengen we energie en beweging: verrassende interacties en op feestdagen iets extra's. De intensiteit bepaal je zelf." },
+  { q: "Houden jullie het kantoor ook levend?", a: "Optioneel, ja. Geen enkele community floreert vanzelf. Met Community Services brengen we energie en beweging: verrassende interacties en op feestdagen iets extra's. De intensiteit bepaal je zelf." },
   { q: "Is een gehuurd kantoor veilig?", a: "De omgeving is afgeschermd en SpatialChat voldoet aan enterprise-grade beveiligings- en privacystandaarden. We richten toegang en rechten in zoals dat bij jouw organisatie past." },
 ];
 
@@ -61,10 +61,10 @@ export default function HurenPage() {
                   ← Virtueel kantoor
                 </Link>
                 <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
-                  Huur een instapklaar kantoor.
+                  Huur een online kantoor, instapklaar.
                 </h1>
                 <p className="text-white text-lg leading-relaxed mb-8" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
-                  De plek waar je elkaar zomaar weer tegenkomt — meteen klaar voor gebruik.
+                  De plek waar je elkaar weer tegenkomt – klaar voor gebruik.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/nl/expert-advies" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
@@ -89,15 +89,15 @@ export default function HurenPage() {
               Trek meteen in. Wij regelen de rest.
             </h2>
             <p className="text-[#545454] leading-relaxed mb-4">
-              Iedereen werkt verspreid. Daarmee verdwijnt de plek waar collega's elkaar zomaar
-              tegenkomen, even binnenlopen, samen koffie drinken. Dat kan terug — zonder lang
-              traject en zonder zelf te bouwen.
+              Je team zit verspreid. De verbindende kracht, een plek waar je elkaar zomaar
+              tegenkomt, even binnenloopt, samen koffiedrinkt, die mist. Breng die online terug en
+              breng mensen weer bij elkaar. Huur een ingericht kantoor, per maand of per jaar.
             </p>
             <p className="text-[#545454] leading-relaxed">
-              Huur een ingericht, levend online kantoor en trek er meteen in. Per maand of per jaar,
-              met technische ondersteuning en een onboarding zodat het ook echt gebruikt wordt.
-              Instapklaar, maar niet af: de ruimtes, de kleuren, de hoek waar iedereen blijft hangen
-              — dat verbouwt zich gaandeweg. Net als in het echt, alleen sneller.
+              Binnen een week kun je intrekken. De ruimtes staan er, wij openen de online werkplek
+              samen met je team en dragen dan de sleutels over. Instapklaar, je kunt meteen aan het
+              werk, maar het is nog niet af. Een goede plek beweegt mee met je organisatie. Pas de
+              kleuren aan, voeg een ruimte toe of hang slingers op als iemand jarig is. Wij helpen.
             </p>
           </div>
         </div>
@@ -121,13 +121,15 @@ export default function HurenPage() {
             ))}
           </div>
 
-          {/* Facility Services — bijkoop */}
+          {/* Community Services — bijkoop */}
           <div className="mt-6 bg-white rounded p-6 shadow-sm border border-[#EBEBEB] border-l-4 border-l-[#EEBE3D]">
-            <p className="text-[#28A8AA] text-[11px] font-bold tracking-widest uppercase mb-2">Optioneel — Facility Services</p>
+            <p className="text-[#28A8AA] text-[11px] font-bold tracking-widest uppercase mb-2">Optioneel — Community Services</p>
             <p className="text-sm text-[#545454] leading-relaxed">
-              Geen enkele community floreert vanzelf. Daarom houden we het kantoor desgewenst
-              levend: verrassende interacties, energie en bewegelijkheid, en op feestdagen iets
-              extra's. De intensiteit bepaal je zelf.
+              HR, Interne Communicatie of Community Management weten: sturing en aandacht maken
+              organisaties en communities hechter. En dat geldt al helemaal online. Daarom
+              ondersteunen wij desgewenst met Community Services: een mix van onderhoud en
+              verrassende acties die energie geven en interactie bevorderen. Zo gaan mensen met een
+              glimlach naar kantoor, ook als dat vanuit hun eigen huis is.
             </p>
           </div>
         </div>
