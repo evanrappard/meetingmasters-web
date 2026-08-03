@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lokale Claude Code-tooling (geen sitecode)
+/.agents/
+/skills-lock.json
