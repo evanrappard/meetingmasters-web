@@ -18,11 +18,11 @@ const stappen = [
 ];
 
 const faq = [
-  { q: "Wat betekent 'vanuit het fundament bouwen'?", a: "Je begint niet bij de inrichting van de ruimte, maar bij de vraag waar je voor staat, welke waarden verbinden en hoe je wilt samenwerken nu je niet meer op dezelfde plek zit. Samen met cultuur- en samenwerkingsspecialisten vertaal je dat naar je manier van werken. Het kantoor is de uitkomst." },
+  { q: "Wat houdt Kantoor + Cultuur in?", a: "Je begint niet bij de inrichting van de ruimte, maar bij de vraag waar je voor staat, welke waarden verbinden en hoe je wilt samenwerken nu je niet meer op dezelfde plek zit. Samen met cultuur- en samenwerkingsspecialisten vertaal je dat naar je manier van werken. Daarna bouwen we het kantoor waarin die cultuur tot leven komt." },
   { q: "Voor wie is dit traject bedoeld?", a: "Voor directie, strategen en inhoudelijk verantwoordelijken — bijvoorbeeld als de samenwerking op afstand stroef loopt, of na een fusie of binnen een groter programma waar opnieuw benoemd moet worden hoe je wilt werken." },
-  { q: "Waarom een kant-en-klaar kantoor hier niet volstaat?", a: "Omdat de vraag dieper zit. Een instapklaar kantoor geeft je meteen een plek; een fundament-traject geeft je eerst helderheid over hoe je wilt samenwerken — en dán de plek die daarbij past. Als het ertoe doet, volstaat de standaard niet." },
+  { q: "Waarom een kant-en-klaar kantoor hier niet volstaat?", a: "Omdat de vraag dieper zit. Een instapklaar kantoor geeft je meteen een plek; Kantoor + Cultuur geeft je eerst helderheid over hoe je wilt samenwerken en dán de plek die daarbij past. Als het ertoe doet, volstaat de standaard niet." },
   { q: "Maken jullie samenwerking ook weer bespreekbaar?", a: "Ja. Het overstapmoment naar een virtueel kantoor is hét moment om afspraken opnieuw te bespreken: hoe werken we samen, wat is online onduidelijk geworden, mag de camera aan of uit? Niet betuttelend, maar om de samenwerking beter te maken." },
-  { q: "Wie begeleiden dit?", a: "Cultuur-, merk- en samenwerkingsspecialisten, met twintig jaar ervaring in strategie en participatie. Geen consultancy-traject van bovenaf, maar een begeleid gesprek dat richting geeft — met het kantoor als concrete uitkomst." },
+  { q: "Wie begeleiden dit?", a: "Cultuur-, merk- en samenwerkingsspecialisten. Dat is niet alleen ingehuurde kennis, het is onze eigen basis: oprichter Emilie van Rappard begeleidt al meer dan 20 jaar organisaties met strategische stakeholder-, merk- en cultuurvraagstukken. Geen consultancy-traject van bovenaf, maar een begeleid gesprek dat richting geeft, met het kantoor als concrete uitkomst." },
   { q: "Kunnen jullie het kantoor daarna ook levend houden?", a: "Optioneel, ja. Met Community Services brengen we energie en beweging in de omgeving: verrassende interacties en op feestdagen iets extra's. De intensiteit bepaal je zelf." },
 ];
 
@@ -102,7 +102,7 @@ export default function FundamentPage() {
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Het traject</p>
             <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
-              Van fundament naar kantoor.
+              Van cultuur naar kantoor.
             </h2>
             <p className="text-[#545454] leading-relaxed">
               Samen met cultuur-, merk- en samenwerkingsspecialisten bouw je van binnen naar buiten.
@@ -138,12 +138,13 @@ export default function FundamentPage() {
             <div>
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Waarom met ons</p>
               <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
-                Ervaring en rust, geen consultancy-toneel.
+                Wij komen uit de strategie.
               </h2>
               <p className="text-[#545454] leading-relaxed">
-                Twintig jaar ervaring in strategie en participatie, ingebracht door cultuur- en
-                samenwerkingsspecialisten. We voeren het gesprek dat richting geeft — en leveren een
-                kantoor dat die richting zichtbaar maakt.
+                We werken met cultuur-, merk- en samenwerkingsspecialisten. Dat is niet alleen
+                ingehuurde kennis, het is onze eigen basis. Oprichter Emilie van Rappard begeleidt
+                al meer dan 20 jaar organisaties met strategische stakeholder-, merk- en
+                cultuurvraagstukken.
               </p>
             </div>
           </div>
@@ -154,7 +155,7 @@ export default function FundamentPage() {
       <section className="bg-[#F5F5F5] py-12 border-t border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-8 text-center">
-            Veelgestelde vragen over bouwen vanuit het fundament
+            Veelgestelde vragen over Kantoor + Cultuur
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {faq.map((item) => (
