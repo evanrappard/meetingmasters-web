@@ -1,0 +1,17 @@
+{
+  "title": "Teamreflectie",
+  "description": "Voorbeeld van een maatwerk vragenset voor een specifieke klant",
+  "defaultTime": 3,
+  "questions": [
+    "Wat was het hoogtepunt van dit kwartaal?",
+    "Welk moment gaf je energie deze week?",
+    "Wanneer voelde je je het meest verbonden met het team?",
+    "Wat zou je willen dat we vaker doen?",
+    "Welk obstakel heb je overwonnen?",
+    "Wat heb je geleerd van een collega?",
+    "Welk project maakte je trots?",
+    "Wat mis je van hoe we vroeger werkten?",
+    "Wat zou je willen veranderen aan onze manier van samenwerken?",
+    "Welk klein gebaar van een collega waardeerde je?"
+  ]
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo - MeetingMasters Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Start scherm -->
+    <div id="start-screen">
+        <div class="header">
+            <h1>BINGO!</h1>
+        </div>
+
+        <div class="instructions">
+            <h2>Zo speel je mee:</h2>
+            <ul>
+                <li>Kruis de woorden of plaatjes af die genoemd worden door de host</li>
+                <li>Heb je een rijtje (horizontaal, verticaal of diagonaal)? Schrijf <span class="highlight">RIJTJE!</span> in de chat</li>
+                <li>Heb je twee rijtjes? Schrijf <span class="highlight">TWEE RIJTJES!</span> in de chat</li>
+                <li>Bij 3 rijtjes, schrijf <span class="highlight">BINGO!</span> in de chat - en steek je hand op!</li>
+            </ul>
+        </div>
+
+        <button class="start-btn" onclick="startGame()">START BINGO</button>
+
+        <!-- Host: los in beeld, niet als klein hoekje -->
+        <div class="host-start">
+            <p>Zelf een bingo organiseren?</p>
+            <a href="host.html" class="host-start-btn">Start een nieuwe bingo als host →</a>
+        </div>
+    </div>
+
+    <!-- Bingo kaart -->
+    <div id="bingo-container" class="bingo-container">
+        <div class="card-number">Kaart #<span id="card-number-display">---</span></div>
+
+        <div class="bingo-grid" id="bingo-grid">
+            <!-- Cellen worden via JavaScript gegenereerd -->
+        </div>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-dot" id="status-1"></span>
+                <span>1 rijtje</span>
+            </div>
+            <div class="status-item">
+                <span class="status-dot" id="status-2"></span>
+                <span>2 rijtjes</span>
+            </div>
+            <div class="status-item">
+                <span class="status-dot" id="status-3"></span>
+                <span>BINGO!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Win notificatie -->
+    <div class="win-notification" id="win-notification">
+        <div id="win-text">RIJTJE!</div>
+        <div class="instruction" id="win-instruction">Schrijf "RIJTJE!" in de chat</div>
+    </div>
+
+    <script src="js/sessie.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/bingo.js"></script>
+    <script id="preset-loader"></script>
+    <script>
+        let game;
+        let usedCardNumbers = new Set();
+        let lastNotifiedCount = 0; // Houdt bij welk niveau al gemeld is
+
+        // Laad gebruikte kaartnummers uit sessionStorage (voor deze browser tab)
+        function loadUsedCards() {
+            const stored = sessionStorage.getItem('bingoUsedCards');
+            if (stored) {
+                usedCardNumbers = new Set(JSON.parse(stored));
+            }
+        }
+
+        // Sla gebruikt kaartnummer op
+        function saveUsedCard(num) {
+            usedCardNumbers.add(num);
+            sessionStorage.setItem('bingoUsedCards', JSON.stringify([...usedCardNumbers]));
+        }
+
+        // Pas kleuren aan vanuit config
+        function applyColors() {
+            const root = document.documentElement;
+            const colors = BingoConfig.colors;
+
+            root.style.setProperty('--color-primary', colors.primary);
+            root.style.setProperty('--color-primary-light', colors.primaryLight);
+            root.style.setProperty('--color-secondary', colors.secondary);
+            root.style.setProperty('--color-secondary-light', colors.secondaryLight);
+            root.style.setProperty('--color-text', colors.text);
+            root.style.setProperty('--color-text-light', colors.textLight);
+            root.style.setProperty('--color-background', colors.background);
+            root.style.setProperty('--color-card-bg', colors.cardBackground);
+            root.style.setProperty('--color-crossed', colors.crossed);
+            root.style.setProperty('--color-crossed-light', colors.crossedLight);
+            root.style.setProperty('--color-accent', colors.accent);
+            root.style.setProperty('--color-border', colors.border);
+        }
+
+        // Start het spel
+        function startGame() {
+            loadUsedCards();
+
+            // Krijg uniek kaartnummer
+            let cardNumber;
+            try {
+                cardNumber = BingoGame.getRandomCardNumber(usedCardNumbers, BingoConfig.totalCards);
+            } catch (e) {
+                alert("Alle kaarten zijn al uitgegeven! Neem contact op met de host.");
+                return;
+            }
+
+            saveUsedCard(cardNumber);
+
+            // Initialiseer game
+            game = new BingoGame(BingoConfig);
+            game.generateCard(cardNumber);
+
+            // Toon kaartnummer
+            document.getElementById('card-number-display').textContent = cardNumber;
+
+            // Render de kaart
+            renderCard();
+
+            // Verberg start scherm, toon kaart
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('bingo-container').style.display = 'flex';
+        }
+
+        // Render de bingokaart
+        function renderCard() {
+            const grid = document.getElementById('bingo-grid');
+            grid.innerHTML = '';
+
+            const fullData = game.getFullCardData();
+
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'bingo-cell';
+                cell.dataset.index = i;
+
+                if (i === 12) {
+                    // Logo cel (midden)
+                    cell.classList.add('logo-cell', 'crossed');
+                    const img = document.createElement('img');
+                    img.src = BingoConfig.logo.url;
+                    img.alt = BingoConfig.logo.alt;
+                    img.onerror = function() {
+                        this.parentElement.innerHTML = '<span style="font-size:0.7rem;color:#888;">LOGO</span>';
+                    };
+                    cell.appendChild(img);
+                } else {
+                    // Normale cel
+                    const item = fullData[i];
+
+                    if (BingoConfig.contentType === 'images') {
+                        const img = document.createElement('img');
+                        img.src = item;
+                        img.className = 'cell-image';
+                        img.alt = 'Bingo item';
+                        cell.appendChild(img);
+                    } else {
+                        cell.textContent = item;
+                    }
+
+                    cell.addEventListener('click', () => toggleCell(i));
+                }
+
+                grid.appendChild(cell);
+            }
+        }
+
+        // Toggle cel status
+        function toggleCell(index) {
+            if (index === 12) return; // Logo kan niet getoggled worden
+
+            const cell = document.querySelector(`[data-index="${index}"]`);
+            const isCrossed = game.toggleCell(index);
+
+            if (isCrossed) {
+                cell.classList.add('crossed');
+            } else {
+                cell.classList.remove('crossed');
+                cell.classList.remove('win-line');
+            }
+
+            checkWinStatus();
+        }
+
+        // Check win status en toon notificatie
+        function checkWinStatus() {
+            const result = game.checkWin();
+
+            // Update status dots
+            document.getElementById('status-1').classList.toggle('active', result.count >= 1);
+            document.getElementById('status-2').classList.toggle('active', result.count >= 2);
+            document.getElementById('status-3').classList.toggle('active', result.count >= 3);
+
+            // Verwijder win-line class van alle cellen
+            document.querySelectorAll('.win-line').forEach(cell => {
+                cell.classList.remove('win-line');
+            });
+
+            // Voeg win-line class toe aan winnende cellen
+            result.lines.forEach(line => {
+                line.forEach(index => {
+                    const cell = document.querySelector(`[data-index="${index}"]`);
+                    if (cell) cell.classList.add('win-line');
+                });
+            });
+
+            // Toon notificatie alleen bij NIEUW niveau (niet herhaald)
+            if (result.count > lastNotifiedCount) {
+                lastNotifiedCount = result.count;
+                showWinNotification(result.status, result.count);
+            }
+            // Reset als count lager wordt (speler haalt kruisje weg)
+            if (result.count < lastNotifiedCount) {
+                lastNotifiedCount = result.count;
+            }
+        }
+
+        // Toon win notificatie
+        function showWinNotification(status, count) {
+            const notification = document.getElementById('win-notification');
+            const text = document.getElementById('win-text');
+            const instruction = document.getElementById('win-instruction');
+
+            text.textContent = status + '!';
+
+            if (count >= 3) {
+                instruction.textContent = 'Schrijf "BINGO!" in de chat en steek je hand op!';
+            } else if (count === 2) {
+                instruction.textContent = 'Schrijf "TWEE RIJTJES!" in de chat';
+            } else {
+                instruction.textContent = 'Schrijf "RIJTJE!" in de chat';
+            }
+
+            notification.style.display = 'block';
+
+            // Verberg na 4 seconden
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 4000);
+        }
+
+        // Laad config uit localStorage (gedeeld met host panel op zelfde domein)
+        function loadConfigFromStorage() {
+            const stored = localStorage.getItem('bingoConfig');
+            if (stored) {
+                try {
+                    const savedConfig = JSON.parse(stored);
+                    if (savedConfig.words && savedConfig.words.length >= 24) BingoConfig.words = savedConfig.words;
+                    if (savedConfig.images && savedConfig.images.length >= 24) BingoConfig.images = savedConfig.images;
+                    if (savedConfig.colors) Object.assign(BingoConfig.colors, savedConfig.colors);
+                    if (savedConfig.logo) BingoConfig.logo = savedConfig.logo;
+                    if (savedConfig.eventName) BingoConfig.eventName = savedConfig.eventName;
+                    if (savedConfig.contentType) BingoConfig.contentType = savedConfig.contentType;
+                    if (savedConfig.totalCards) BingoConfig.totalCards = savedConfig.totalCards;
+                    console.log('Config geladen uit localStorage');
+                    return true;
+                } catch (e) {
+                    console.log('Fout bij laden localStorage config:', e);
+                }
+            }
+            return false;
+        }
+
+        // Laad preset configuratie (via preset bestand)
+        function loadPreset(presetNumber) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `js/preset${presetNumber}.js`;
+                script.onload = () => {
+                    if (typeof PresetConfig !== 'undefined') {
+                        // Overschrijf BingoConfig met preset
+                        if (PresetConfig.words && PresetConfig.words.length > 0) BingoConfig.words = PresetConfig.words;
+                        if (PresetConfig.images && PresetConfig.images.length > 0) BingoConfig.images = PresetConfig.images;
+                        if (PresetConfig.colors) Object.assign(BingoConfig.colors, PresetConfig.colors);
+                        if (PresetConfig.logo) BingoConfig.logo = PresetConfig.logo;
+                        if (PresetConfig.eventName) BingoConfig.eventName = PresetConfig.eventName;
+                        if (PresetConfig.contentType) BingoConfig.contentType = PresetConfig.contentType;
+                        if (PresetConfig.totalCards) BingoConfig.totalCards = PresetConfig.totalCards;
+                        console.log('Preset ' + presetNumber + ' geladen');
+                    }
+                    resolve();
+                };
+                script.onerror = () => {
+                    console.log('Preset ' + presetNumber + ' niet gevonden, gebruik standaard config');
+                    resolve();
+                };
+                document.head.appendChild(script);
+            });
+        }
+
+        // Initialiseer bij laden
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const preset = params.get('p') || params.get('preset');
+
+            // Een sessie in de link wint van alles: die hoort bij deze bijeenkomst.
+            const uitLink = await BingoSessie.pasSessieToe(BingoConfig);
+
+            if (preset) {
+                // Laad preset als basis (voor productie/Netlify)
+                await loadPreset(preset);
+            }
+
+            // Zonder sessie in de link val je terug op wat de host op dit apparaat instelde.
+            if (!uitLink) loadConfigFromStorage();
+
+            applyColors();
+        });
+    </script>
+</body>
+</html>

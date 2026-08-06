@@ -1,199 +1,82 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import ToolKader from "@/components/tools/ToolKader";
+import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
+import { tool } from "@/lib/tools";
 
 export const metadata: Metadata = {
-  title: "Storytelling Tool | MeetingMasters",
+  title: "Storytelling — gratis online tool voor teams | MeetingMasters",
   description:
-    "Een laagdrempelige tool die teams helpt verhalen te delen en elkaar écht te leren kennen. Begeleide storytelling voor online meetings en live bijeenkomsten.",
+    "Trek om de beurt een kaart met een vraag en vertel je verhaal binnen de tijd. Gratis online tool voor teams die elkaar echt willen leren kennen, in Zoom, Teams of SpatialChat.",
 };
 
-const steps = [
-  { n: "01", title: "Eén vraag", body: "Een deelnemer klikt op de link en ontvangt één vraag als vertrekpunt voor een persoonlijk verhaal." },
-  { n: "02", title: "Vertel — zonder onderbreking", body: "De spreker deelt zijn of haar verhaal. De anderen luisteren. Niet reageren, niet onderbreken — alleen luisteren." },
-  { n: "03", title: "Afronding", body: "De spreker sluit af: 'Dit was mijn verhaal.' Dat ritueel markeert het einde en geeft ruimte aan de anderen." },
-  { n: "04", title: "Resonantie", body: "Andere deelnemers zeggen kort wat het verhaal bij hen oproept — niet hun eigen verhaal, niet een mening. Wat raakte?" },
-];
-
-const useCases = [
-  { icon: "🌱", title: "Teamontwikkeling", desc: "Teams die beter willen samenwerken, beginnen met elkaar begrijpen. Storytelling versnelt dat proces." },
-  { icon: "🔄", title: "Cultuurverandering", desc: "Abstracte waarden worden concreet als mensen verhalen delen over wanneer die waarden echt speelden." },
-  { icon: "🤝", title: "Vertrouwen opbouwen", desc: "Verhalen creëren verbinding. Na een storytelling-ronde zijn deelnemers meer aanwezig — voor zichzelf en voor elkaar." },
-  { icon: "🎓", title: "Leerevenementen", desc: "Sluit een training af met storytelling: wat heb je geleerd? Wanneer heb je dit al eens meegemaakt? Kennis die landt." },
+const faq: FaqItem[] = [
+  {
+    q: "Hoe werkt de storytelling-tool?",
+    a: "Deelnemers trekken om de beurt een kaart met een vraag en vertellen hun verhaal binnen een tijd die je zelf instelt. De anderen luisteren, zonder te onderbreken. Daarna is de volgende aan de beurt.",
+  },
+  {
+    q: "Wat zijn de spelregels?",
+    a: "Trek een kaart en laat de vraag even op je inwerken. Start de tijd of vraag een nieuwe kaart. Vertel zolang de tijd loopt en sluit af met 'Dit was mijn verhaal'. De anderen reageren kort, zonder er een eigen verhaal van te maken. Dan volgt de volgende persoon.",
+  },
+  {
+    q: "Waarom die afsluitende zin?",
+    a: "Omdat het een duidelijk einde markeert. Zonder dat ritueel weet een groep niet wanneer luisteren overgaat in reageren, en praat iemand er al doorheen voordat het verhaal af is.",
+  },
+  {
+    q: "Hoe lang duurt een ronde?",
+    a: "Dat bepaal je zelf met de tijdinstelling. In de praktijk werkt kort beter dan lang: een paar minuten per persoon dwingt tot de kern en houdt de aandacht van de groep vast.",
+  },
+  {
+    q: "Kan ik eigen vragen gebruiken?",
+    a: "Ja. Naast de standaardsets kun je een eigen vragenset laten maken die past bij het thema van je bijeenkomst, bijvoorbeeld rond samenwerking, verandering of een jubileum.",
+  },
+  {
+    q: "Waar kan ik de tool gebruiken?",
+    a: "In elke omgeving waarin je je scherm kunt delen: Zoom, Teams, SpatialChat of gewoon in een zaal met een beamer. Deelnemers hoeven zelf niets te openen.",
+  },
+  {
+    q: "Is de tool gratis?",
+    a: "Ja. De storytelling-tool is gratis te gebruiken, zonder account en zonder installatie.",
+  },
+  {
+    q: "Kan ik de tool in mijn eigen meetingomgeving gebruiken?",
+    a: 'Ja. Onder de tool staat een knop \'Insluitcode\' waarmee je de code kopieert die je op een scherm in SpatialChat of op je eigen pagina plakt. Het kenmerk allow="fullscreen" zit al in die code.',
+  },
 ];
 
 export default function StorytellingPage() {
   return (
-    <>
-      {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#2D2D2D] py-20 md:py-24">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <Link href="/nl/games-tools" className="text-white/40 text-xs hover:text-white/70 transition-colors mb-8 inline-block">
-            ← Games & Tools
-          </Link>
-          <div className="flex items-center gap-5 mb-6">
-            <span className="text-5xl">📖</span>
-            <p className="text-[#EEBE3D] text-[10px] font-bold tracking-[0.2em] uppercase">Tool</p>
-          </div>
-          <h1
-            className="font-bold text-white leading-[1.05] text-balance mb-5"
-            style={{ fontSize: "clamp(2rem, 4.5vw, 3.25rem)", maxWidth: "18ch" }}
-          >
-            Storytelling Tool
-          </h1>
-          <p className="text-white/65 text-base leading-relaxed max-w-[520px] mb-8">
-            Een laagdrempelige tool die teams helpt verhalen te delen en elkaar écht te begrijpen.
-            Begeleide storytelling — online via screenshare of fysiek via mobiel. Geen voorbereiding,
-            geen grote stap. Gewoon één vraag en de ruimte om te antwoorden.
+    <ToolPagina
+      huidig="storytelling"
+      titel="Storytelling"
+      oneliner="Trek een kaart, vertel je verhaal, de rest luistert. Gratis, zonder account."
+      tool={<ToolKader bron={tool("storytelling").embedUrl} naam="Storytelling" />}
+      over={
+        <>
+          <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+            Over de verhalen
           </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/nl/contact"
-              className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-8 py-3.5 rounded hover:bg-[#F5C93D] transition-colors"
-            >
-              Gebruik deze tool
-            </Link>
-            <Link
-              href="/nl/contact"
-              className="inline-block text-white text-sm font-semibold px-6 py-3.5 border border-white/25 rounded hover:border-white/60 transition-colors"
-            >
-              Vraag meer informatie
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHAT IT IS ───────────────────────────────────────────────── */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <div>
-              <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-6">Wat het is</p>
-              <h2
-                className="font-bold text-[#2D2D2D] text-balance mb-6"
-                style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
-              >
-                Luisteren zonder te onderbreken. Verbinding als resultaat.
-              </h2>
-              <p className="text-[#545454] leading-relaxed mb-5">
-                Storytelling helpt teams ervaringen te delen, betekenis te geven en elkaar beter te
-                begrijpen. Niet als therapie, niet als teambuilding-cliché — maar als een eenvoudig
-                ritueel dat bijna altijd meer doet dan verwacht.
-              </p>
-              <p className="text-[#545454] leading-relaxed mb-5">
-                De tool begeleidt deelnemers stap voor stap door het proces. Wie aan de beurt is,
-                klikt op de link en krijgt één vraag. De rest luistert — niet om te reageren, maar
-                om te ontvangen. Dat onderscheid verandert de dynamiek in een groep.
-              </p>
-              <p className="text-[#545454] leading-relaxed">
-                Geschikt voor online meetings via screenshare en voor fysieke bijeenkomsten via
-                mobiele apparaten.
-              </p>
-            </div>
-
-            {/* Prompt-voorbeeld */}
-            <div className="bg-[#FFFDF5] border border-[#EEE8D0] rounded-lg p-8 mt-4 lg:mt-12">
-              <p className="text-[#AAAAAA] text-xs font-bold tracking-widest uppercase mb-5">Voorbeeldvragen</p>
-              <div className="space-y-4">
-                {[
-                  "Vertel over een moment waarop je het gevoel had dat je werk er écht toe deed.",
-                  "Wat heb je geleerd van iemand met wie je het moeilijk had?",
-                  "Wanneer heeft samenwerken je verrast?",
-                ].map((q, i) => (
-                  <div key={i} className="flex gap-3 items-start">
-                    <span className="text-[#EEBE3D] font-bold shrink-0 mt-0.5">→</span>
-                    <p className="text-sm text-[#2D2D2D] leading-snug italic">{q}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ─────────────────────────────────────────────── */}
-      <section className="bg-[#F5F5F2] border-y border-[#E8E8E4] py-16 md:py-20">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="mb-12">
-            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-4">Hoe het werkt</p>
-            <h2
-              className="font-bold text-[#2D2D2D] text-balance"
-              style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
-            >
-              Vier stappen. Eén ritueel.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-            {steps.map((s) => (
-              <div key={s.n}>
-                <p className="text-[#EEBE3D] font-bold tabular-nums mb-4" style={{ fontSize: "2.5rem", lineHeight: 1 }}>
-                  {s.n}
-                </p>
-                <h3 className="font-bold text-[#2D2D2D] text-base mb-2">{s.title}</h3>
-                <p className="text-sm text-[#777777] leading-relaxed">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── USE CASES ────────────────────────────────────────────────── */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="mb-10">
-            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-4">Toepassingen</p>
-            <h2
-              className="font-bold text-[#2D2D2D] text-balance"
-              style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
-            >
-              Wanneer zet je storytelling in?
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {useCases.map((u) => (
-              <div key={u.title} className="border border-[#E8E8E8] rounded-lg p-6 flex gap-4 hover:border-[#EEBE3D] transition-colors">
-                <span className="text-2xl shrink-0">{u.icon}</span>
-                <div>
-                  <h3 className="font-bold text-[#2D2D2D] text-sm mb-1">{u.title}</h3>
-                  <p className="text-xs text-[#777777] leading-relaxed">{u.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-12 border-b border-[#EBEBEB]">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <p className="text-[#BBBBBB] text-[10px] font-bold tracking-[0.2em] uppercase mb-6">Andere tools</p>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { label: "🎡 Wheel of Fortune", href: "/nl/games-tools/tools/wheel-of-fortune" },
-              { label: "🃏 Inspiration Cards", href: "/nl/games-tools/tools/inspiration-cards" },
-              { label: "🎰 Bingo", href: "/nl/games-tools/tools/bingo" },
-            ].map((t) => (
-              <Link
-                key={t.label}
-                href={t.href}
-                className="text-sm font-medium text-[#545454] border border-[#E8E8E8] rounded px-4 py-2 hover:border-[#28A8AA] hover:text-[#28A8AA] transition-colors"
-              >
-                {t.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#EEBE3D] py-14">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <p className="font-bold text-[#2D2D2D] text-lg">Storytelling inzetten bij je event?</p>
-          <Link
-            href="/nl/contact"
-            className="shrink-0 bg-[#2D2D2D] text-white text-sm font-bold px-8 py-3.5 rounded hover:bg-[#1A1A1A] transition-colors"
-          >
-            Neem contact op →
-          </Link>
-        </div>
-      </section>
-    </>
+          <p className="text-[#545454] leading-relaxed mb-6">
+            Teams die jaren samenwerken weten vaak verrassend weinig van elkaar. Eén vraag en wat
+            stilte doen daar meer aan dan een teamdag:
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
+            Wie vertelt het eerste verhaal?
+          </h2>
+          <p className="text-[#545454] text-lg leading-[1.9]">
+            Trek een kaart en lees de vraag.
+            <br />
+            Vertel zolang de tijd loopt.
+            <br />
+            De anderen luisteren, meer niet.
+          </p>
+        </>
+      }
+      faq={faq}
+      faqOnderwerp="storytelling"
+      ctaTekst="Verhalen maken een team hechter dan welke presentatie ook. Wij maken meer van meetings, met tools, technieken en met jarenlange ervaring."
+      appNaam="MeetingMasters Storytelling"
+      appOmschrijving="Gratis online storytelling-tool waarmee deelnemers om de beurt een vraag trekken en hun verhaal vertellen binnen een instelbare tijd."
+    />
   );
 }

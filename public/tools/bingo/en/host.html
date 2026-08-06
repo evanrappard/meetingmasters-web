@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Host Panel - MeetingMasters Online</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .save-indicator {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            margin-left: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .save-indicator.show {
+            opacity: 1;
+        }
+        .called-count {
+            font-size: 1.2rem;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+        .reset-btn {
+            background: var(--color-crossed);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .verify-card-preview {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            gap: 5px;
+            margin-top: 15px;
+        }
+        .verify-card-preview .cell {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-primary-light);
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            font-size: 0.65rem;
+            text-align: center;
+            padding: 3px;
+            word-break: break-word;
+        }
+        .verify-card-preview .cell.should-cross {
+            background: var(--color-secondary);
+            color: white;
+        }
+        .verify-card-preview .cell.wrong {
+            background: var(--color-crossed);
+            color: white;
+        }
+        .verify-card-preview .cell.logo {
+            background: white;
+            font-weight: bold;
+        }
+        .export-btn {
+            background: var(--color-text);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login overlay -->
+    <div class="login-overlay" id="login-overlay" style="display: none;">
+        <div class="login-box">
+            <h2>Host Login</h2>
+            <input type="password" id="password-input" placeholder="Password" onkeypress="if(event.key==='Enter')login()">
+            <button onclick="login()">Log in</button>
+            <p id="login-error" style="color: var(--color-crossed); margin-top: 10px; display: none;">Incorrect password</p>
+        </div>
+    </div>
+
+    <!-- Host Panel -->
+    <div class="host-panel" id="host-panel">
+        <!-- Language switch -->
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px; gap: 5px;">
+            <a href="../host.html" style="background: var(--color-card-bg); color: var(--color-text); padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border: 2px solid var(--color-border);">NL</a>
+            <span style="background: var(--color-secondary); color: white; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">EN</span>
+        </div>
+
+        <div class="header">
+            <h1>Bingo Host Panel</h1>
+        </div>
+
+        <!-- Activate: from settings to two working links -->
+        <div class="share-link-box" style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: 12px; padding: 20px 22px; margin-bottom: 22px;">
+            <div id="activeer-uitleg">
+                <p style="margin-bottom: 12px; color: var(--color-text);">
+                    Set up your bingo below: the words or images, the colours and the logo. Then click <strong>Activate</strong>. You get two links that belong to this bingo. Save them in your calendar invite and everything is ready.
+                </p>
+                <button onclick="activeerSessie()" style="background: var(--color-primary); color: white; border: none; padding: 12px 28px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 1.05rem;">Activate this bingo</button>
+            </div>
+
+            <div id="activeer-resultaat" style="display: none;">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                    <div style="flex: 1; min-width: 220px;">
+                        <strong style="color: var(--color-text);">Link for participants</strong><br>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">Share it in the chat or put it on a screen.</span>
+                        <code id="share-link" style="display: block; margin-top: 6px; background: #F7F7F5; padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; word-break: break-all; max-height: 70px; overflow: auto;"></code>
+                    </div>
+                    <button onclick="copyShareLink()" style="background: var(--color-secondary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">Copy</button>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                    <div style="flex: 1; min-width: 220px;">
+                        <strong style="color: var(--color-text);">Link for yourself as host</strong><br>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">Use this to reopen this panel later with these settings.</span>
+                        <code id="host-link" style="display: block; margin-top: 6px; background: #F7F7F5; padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; word-break: break-all; max-height: 70px; overflow: auto;"></code>
+                    </div>
+                    <button onclick="copyHostLink()" style="background: var(--color-secondary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">Copy</button>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                    <div style="flex: 1; min-width: 220px;">
+                        <strong style="color: var(--color-text);">Embed code</strong><br>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">For a screen in SpatialChat or on your own page.</span>
+                        <code id="iframe-code" style="display: block; margin-top: 6px; background: #F7F7F5; padding: 8px 12px; border-radius: 6px; font-size: 0.75rem; word-break: break-all; max-height: 70px; overflow: auto;"></code>
+                    </div>
+                    <button onclick="copyIframeCode()" style="background: var(--color-secondary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">Copy</button>
+                </div>
+
+                <p style="margin-top: 14px; font-size: 0.85rem; color: var(--color-text-light);">
+                    Changed something afterwards? Click
+                    <button onclick="activeerSessie()" style="background: none; border: none; padding: 0; color: var(--color-secondary); font-weight: 700; cursor: pointer; font-size: 0.85rem; text-decoration: underline;">Activate</button>,
+                    again for updated links. Links you already shared keep working with the old settings.
+                </p>
+            </div>
+        </div>
+
+        <div class="host-header">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('callcard')" title="This is the full list of words in this bingo. Click a word once you have called it out, so you can see at a glance what has already come up.">Call Card</button>
+                <button class="tab-btn" onclick="showTab('verify')" title="Someone shouting bingo? Enter the card number shown on their card. You will see exactly which words belong on that card and whether it checks out.">Verification</button>
+                <button class="tab-btn" onclick="showTab('content')" title="The words the cards are built from, plus the logo in the centre square.">Content</button>
+                <button class="tab-btn" onclick="showTab('colors')" title="The colours of the bingo card and the buttons, so the game matches your client's house style.">Colours</button>
+                <button class="tab-btn" onclick="showTab('settings')" title="The name of the event and how many different cards the tool generates.">Settings</button>
+            </div>
+        </div>
+
+        <!-- TAB: Call Card -->
+        <div class="tab-content active" id="tab-callcard">
+            <h2>Call Card</h2>
+            <p style="margin: -6px 0 18px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">This is the full list of words in this bingo. Click a word once you have called it out, so you can see at a glance what has already come up. Participants do not see this screen; it is just for you.</p>
+            <p style="margin-bottom: 15px; color: var(--color-text-light);">Click an item to mark it as "called"</p>
+
+            <div class="called-count">
+                Called: <span id="called-count">0</span> / <span id="total-items">0</span>
+                <button class="reset-btn" onclick="resetCalled()">Reset</button>
+            </div>
+
+            <div class="call-card-grid" id="call-card-grid">
+                <!-- Items are generated via JavaScript -->
+            </div>
+        </div>
+
+        <!-- TAB: Verification -->
+        <div class="tab-content" id="tab-verify">
+            <h2>Verification</h2>
+            <p style="margin: -6px 0 18px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">Someone shouting bingo? Enter the card number shown at the top of their card. You will see exactly which words belong on that card, and whether the claimed line checks out.</p>
+            <p style="margin-bottom: 20px; color: var(--color-text-light);">Check whether a player has actually won</p>
+
+            <div class="verify-section">
+                <input type="number" class="verify-input" id="verify-card-number" placeholder="Card number" min="1" max="250">
+                <button class="verify-btn" onclick="verifyCard()">Verify Card</button>
+            </div>
+
+            <div class="verify-result" id="verify-result">
+                <h3 id="verify-title"></h3>
+                <p id="verify-message"></p>
+                <div class="verify-card-preview" id="verify-preview"></div>
+            </div>
+        </div>
+
+        <!-- TAB: Content -->
+        <div class="tab-content" id="tab-content">
+            <h2>Content</h2>
+            <p style="margin: -6px 0 16px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">The words the cards are built from, plus the logo that goes in the centre square.</p>
+
+            <ul style="margin: 0 0 22px 18px; padding: 0; color: var(--color-text-light); max-width: 70ch; line-height: 1.7;">
+                <li>Type your words in the text box below, one per line or separated by commas.</li>
+                <li>At least 24 words: a card has 24 squares plus the logo in the middle.</li>
+                <li>More is always allowed, and better. Every card takes its own random 24 from your list, so the longer the list, the more the cards differ.</li>
+                <li>Making changes? Click <strong>"Activate this bingo"</strong> at the top again afterwards. Links you already shared keep using the old words.</li>
+            </ul>
+            <div class="upload-section">
+                <h3>Content Type</h3>
+                <select id="content-type-select" onchange="updateContentType()" style="padding: 10px; border-radius: 8px; border: 2px solid var(--color-border); margin-bottom: 20px;">
+                    <option value="words">Words</option>
+                    <option value="images">Images</option>
+                </select>
+            </div>
+
+            <!-- Words upload -->
+            <div class="upload-section" id="words-upload">
+                <h3>Words (at least 24, one per line or comma-separated)</h3>
+                <textarea class="upload-textarea" id="words-textarea" placeholder="Teamwork&#10;Innovation&#10;Collaboration&#10;..."></textarea>
+                <button class="upload-btn" onclick="saveWords()">Save Words</button>
+                <span class="save-indicator" id="words-save-indicator">Saved!</span>
+            </div>
+
+            <!-- Images upload -->
+            <div class="upload-section" id="images-upload" style="display: none;">
+                <h3>Images (max 1MB per file, at least 24)</h3>
+                <div class="file-upload-area" onclick="document.getElementById('image-input').click()">
+                    <input type="file" id="image-input" multiple accept="image/*" onchange="handleImageUpload(event)">
+                    <p>Click to upload images<br><small>or drag them here</small></p>
+                </div>
+                <div class="preview-grid" id="image-preview"></div>
+                <button class="upload-btn" onclick="saveImages()" style="margin-top: 15px;">Save Images</button>
+            </div>
+
+            <!-- Logo upload -->
+            <div class="upload-section">
+                <h3>Client Logo (appears in the centre of the card)</h3>
+                <div class="file-upload-area" onclick="document.getElementById('logo-input').click()" style="max-width: 300px;">
+                    <input type="file" id="logo-input" accept="image/*" onchange="handleLogoUpload(event)">
+                    <p>Click to upload logo</p>
+                </div>
+                <div id="logo-preview" style="margin-top: 15px;"></div>
+            </div>
+
+            <hr style="margin: 26px 0; border: none; border-top: 1px solid var(--color-border);">
+
+            <button class="reset-btn" onclick="resetToDefaults()">Back to default settings</button>
+        </div>
+
+        <!-- TAB: Colours -->
+        <div class="tab-content" id="tab-colors">
+            <h2>Colours</h2>
+            <p style="margin: -6px 0 18px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">The colours of the bingo card and the buttons. Useful when you want the game to match your client&#39;s house style.</p>
+            <p style="margin-bottom: 20px; color: var(--color-text-light);">Adjust the colours for this event</p>
+
+            <div class="color-config">
+                <div class="color-item">
+                    <label>Primary colour</label>
+                    <input type="color" id="color-primary" value="#EEBE3D" onchange="updateColor('primary', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Primary light</label>
+                    <input type="color" id="color-primary-light" value="#FFEEC1" onchange="updateColor('primaryLight', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Secondary colour</label>
+                    <input type="color" id="color-secondary" value="#2BA8AA" onchange="updateColor('secondary', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Secondary light</label>
+                    <input type="color" id="color-secondary-light" value="#C3DED6" onchange="updateColor('secondaryLight', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Text colour</label>
+                    <input type="color" id="color-text" value="#545454" onchange="updateColor('text', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Background</label>
+                    <input type="color" id="color-background" value="#F9FFED" onchange="updateColor('background', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Crossed</label>
+                    <input type="color" id="color-crossed" value="#C64A60" onchange="updateColor('crossed', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Border colour</label>
+                    <input type="color" id="color-border" value="#C8C8C8" onchange="updateColor('border', this.value)">
+                </div>
+            </div>
+
+            <button class="upload-btn" onclick="saveColors()" style="margin-top: 20px;">Save Colours</button>
+            <button class="reset-btn" onclick="resetColors()">Reset to defaults</button>
+            <span class="save-indicator" id="colors-save-indicator">Saved!</span>
+        </div>
+
+        <!-- TAB: Settings -->
+        <div class="tab-content" id="tab-settings">
+            <h2>Settings</h2>
+            <p style="margin: -6px 0 18px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">The name of the event and how many different cards the tool generates. More cards means less chance that two participants get the same one.</p>
+
+            <div class="upload-section">
+                <h3>Event Name</h3>
+                <input type="text" id="event-name" value="MeetingMasters Bingo" style="padding: 12px; width: 100%; max-width: 400px; border: 2px solid var(--color-border); border-radius: 8px;">
+            </div>
+
+            <div class="upload-section">
+                <h3>Number of Unique Cards</h3>
+                <input type="number" id="total-cards" value="250" min="10" max="500" style="padding: 12px; width: 150px; border: 2px solid var(--color-border); border-radius: 8px;">
+            </div>
+
+            <button class="upload-btn" onclick="saveSettings()">Save Settings</button>
+            <span class="save-indicator" id="settings-save-indicator">Saved!</span>
+
+            <hr style="margin: 30px 0; border: none; border-top: 2px solid var(--color-border);">
+
+            <h3>Player Link</h3>
+            <p style="margin-bottom: 10px;">Share this link with participants (or embed as iframe):</p>
+            <code id="player-link" style="display: block; padding: 15px; background: var(--color-background); border-radius: 8px; word-break: break-all;"></code>
+        </div>
+    </div>
+
+    <script src="js/sessie.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/bingo.js"></script>
+    <script>
+        let calledItems = new Set();
+        let uploadedImages = [];
+        let currentLogo = null;
+
+        // Login
+        function login() {
+            const password = document.getElementById('password-input').value;
+            if (password === BingoConfig.hostPassword) {
+                document.getElementById('login-overlay').style.display = 'none';
+                document.getElementById('host-panel').style.display = 'block';
+                initHostPanel();
+            } else {
+                document.getElementById('login-error').style.display = 'block';
+            }
+        }
+
+        // Initialise host panel
+        async function initHostPanel() {
+            // Came here via your own host link? Then those settings are in the link.
+            const uitLink = await BingoSessie.pasSessieToe(BingoConfig);
+            if (!uitLink) loadSavedConfig();
+            applyColors();
+            renderCallCard();
+        }
+
+        // Apply colours
+        function applyColors() {
+            const root = document.documentElement;
+            const colors = BingoConfig.colors;
+
+            root.style.setProperty('--color-primary', colors.primary);
+            root.style.setProperty('--color-primary-light', colors.primaryLight);
+            root.style.setProperty('--color-secondary', colors.secondary);
+            root.style.setProperty('--color-secondary-light', colors.secondaryLight);
+            root.style.setProperty('--color-text', colors.text);
+            root.style.setProperty('--color-text-light', colors.textLight);
+            root.style.setProperty('--color-background', colors.background);
+            root.style.setProperty('--color-card-bg', colors.cardBackground);
+            root.style.setProperty('--color-crossed', colors.crossed);
+            root.style.setProperty('--color-crossed-light', colors.crossedLight);
+            root.style.setProperty('--color-accent', colors.accent);
+            root.style.setProperty('--color-border', colors.border);
+
+            // Update colour inputs
+            document.getElementById('color-primary').value = colors.primary;
+            document.getElementById('color-primary-light').value = colors.primaryLight;
+            document.getElementById('color-secondary').value = colors.secondary;
+            document.getElementById('color-secondary-light').value = colors.secondaryLight;
+            document.getElementById('color-text').value = colors.text;
+            document.getElementById('color-background').value = colors.background;
+            document.getElementById('color-crossed').value = colors.crossed;
+            document.getElementById('color-border').value = colors.border;
+        }
+
+        // Tab navigation
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        // Render call card
+        function renderCallCard() {
+            const grid = document.getElementById('call-card-grid');
+            const items = BingoGame.getAllItems(BingoConfig);
+
+            grid.innerHTML = '';
+            document.getElementById('total-items').textContent = items.length;
+
+            items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'call-item';
+                if (calledItems.has(index)) {
+                    div.classList.add('called');
+                }
+
+                if (BingoConfig.contentType === 'images') {
+                    const img = document.createElement('img');
+                    img.src = item;
+                    img.alt = `Item ${index + 1}`;
+                    div.appendChild(img);
+                } else {
+                    div.textContent = item;
+                }
+
+                div.addEventListener('click', () => toggleCalled(index, div));
+                grid.appendChild(div);
+            });
+
+            updateCalledCount();
+        }
+
+        // Toggle item as called
+        function toggleCalled(index, element) {
+            if (calledItems.has(index)) {
+                calledItems.delete(index);
+                element.classList.remove('called');
+            } else {
+                calledItems.add(index);
+                element.classList.add('called');
+            }
+            updateCalledCount();
+            saveCalledItems();
+        }
+
+        // Update called count
+        function updateCalledCount() {
+            document.getElementById('called-count').textContent = calledItems.size;
+        }
+
+        // Reset called items
+        function resetCalled() {
+            if (confirm('Are you sure you want to reset all called items?')) {
+                calledItems = new Set();
+                renderCallCard();
+                localStorage.removeItem('bingoCalledItemsEN');
+            }
+        }
+
+        // Save/load called items
+        function saveCalledItems() {
+            localStorage.setItem('bingoCalledItemsEN', JSON.stringify([...calledItems]));
+        }
+
+        function loadCalledItems() {
+            const stored = localStorage.getItem('bingoCalledItemsEN');
+            if (stored) {
+                calledItems = new Set(JSON.parse(stored));
+            }
+        }
+
+        // Card verification
+        function verifyCard() {
+            const cardNumber = parseInt(document.getElementById('verify-card-number').value);
+
+            if (!cardNumber || cardNumber < 1 || cardNumber > BingoConfig.totalCards) {
+                alert(`Please enter a valid card number (1-${BingoConfig.totalCards})`);
+                return;
+            }
+
+            const game = new BingoGame(BingoConfig);
+            game.generateCard(cardNumber);
+            const fullData = game.getFullCardData();
+
+            const items = BingoGame.getAllItems(BingoConfig);
+            const shouldBeCrossed = new Set([12]);
+
+            fullData.forEach((item, index) => {
+                if (index === 12) return;
+                const itemIndex = items.indexOf(item);
+                if (calledItems.has(itemIndex)) {
+                    shouldBeCrossed.add(index);
+                }
+            });
+
+            game.crossedCells = shouldBeCrossed;
+            const winResult = game.checkWin();
+
+            const resultDiv = document.getElementById('verify-result');
+            const titleEl = document.getElementById('verify-title');
+            const messageEl = document.getElementById('verify-message');
+            const previewEl = document.getElementById('verify-preview');
+
+            resultDiv.classList.add('show');
+
+            if (winResult.count >= 3) {
+                resultDiv.classList.remove('invalid');
+                resultDiv.classList.add('valid');
+                titleEl.textContent = `BINGO VALID! (${winResult.count} lines)`;
+                titleEl.style.color = '#4CAF50';
+            } else if (winResult.count > 0) {
+                resultDiv.classList.remove('invalid');
+                resultDiv.classList.add('valid');
+                titleEl.textContent = `${winResult.count} line(s) found`;
+                titleEl.style.color = 'var(--color-secondary)';
+            } else {
+                resultDiv.classList.remove('valid');
+                resultDiv.classList.add('invalid');
+                titleEl.textContent = 'No lines found';
+                titleEl.style.color = 'var(--color-crossed)';
+            }
+
+            messageEl.textContent = `Card #${cardNumber} - Below you can see which cells should have been crossed (green) based on the called items.`;
+
+            previewEl.innerHTML = '';
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+
+                if (i === 12) {
+                    cell.classList.add('logo');
+                    cell.textContent = 'LOGO';
+                } else {
+                    const item = fullData[i];
+                    if (BingoConfig.contentType === 'images') {
+                        cell.innerHTML = `<img src="${item}" style="max-width:50px;max-height:50px;">`;
+                    } else {
+                        cell.textContent = item;
+                    }
+
+                    if (shouldBeCrossed.has(i)) {
+                        cell.classList.add('should-cross');
+                    }
+                }
+
+                const isInWinLine = winResult.lines.some(line => line.includes(i));
+                if (isInWinLine) {
+                    cell.style.border = '2px solid #4CAF50';
+                }
+
+                previewEl.appendChild(cell);
+            }
+        }
+
+        // Content type change
+        function updateContentType() {
+            const type = document.getElementById('content-type-select').value;
+            BingoConfig.contentType = type;
+            saveConfigToStorage();
+
+            document.getElementById('words-upload').style.display = type === 'words' ? 'block' : 'none';
+            document.getElementById('images-upload').style.display = type === 'images' ? 'block' : 'none';
+        }
+
+        // Save words
+        function saveWords() {
+            const textarea = document.getElementById('words-textarea');
+            let words = textarea.value
+                .split(/[,\n]/)
+                .map(w => w.trim())
+                .filter(w => w.length > 0);
+
+            if (words.length < 24) {
+                alert(`You have entered ${words.length} words. At least 24 are required.`);
+                return;
+            }
+
+            BingoConfig.words = words;
+            saveConfigToStorage();
+            renderCallCard();
+            showSaveIndicator('words-save-indicator');
+        }
+
+        // Image upload
+        function handleImageUpload(event) {
+            const files = event.target.files;
+            const previewGrid = document.getElementById('image-preview');
+
+            for (const file of files) {
+                if (file.size > 1024 * 1024) {
+                    alert(`${file.name} is larger than 1MB and will be skipped.`);
+                    continue;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImages.push(e.target.result);
+                    renderImagePreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Render image preview
+        function renderImagePreview() {
+            const previewGrid = document.getElementById('image-preview');
+            previewGrid.innerHTML = '';
+
+            uploadedImages.forEach((img, index) => {
+                const div = document.createElement('div');
+                div.className = 'preview-item';
+                div.innerHTML = `
+                    <img src="${img}" alt="Image ${index + 1}">
+                    <button class="remove-btn" onclick="removeImage(${index})">×</button>
+                `;
+                previewGrid.appendChild(div);
+            });
+        }
+
+        // Remove image
+        function removeImage(index) {
+            uploadedImages.splice(index, 1);
+            renderImagePreview();
+        }
+
+        // Save images
+        function saveImages() {
+            if (uploadedImages.length < 24) {
+                alert(`You have uploaded ${uploadedImages.length} images. At least 24 are required.`);
+                return;
+            }
+
+            BingoConfig.images = uploadedImages;
+            saveConfigToStorage();
+            renderCallCard();
+            showSaveIndicator('words-save-indicator');
+        }
+
+        // Logo upload
+        /**
+         * Logo verkleinen vóór opslag. Het logo reist mee in de link, dus een
+         * bestand van een halve megabyte zou die link onbruikbaar lang maken.
+         * 160 pixels is ruim genoeg voor het middenvakje van de bingokaart.
+         */
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const max = 160;
+                    const schaal = Math.min(1, max / Math.max(img.width, img.height));
+                    const canvas = document.createElement('canvas');
+                    canvas.width = Math.round(img.width * schaal);
+                    canvas.height = Math.round(img.height * schaal);
+                    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    currentLogo = canvas.toDataURL('image/webp', 0.85);
+                    // Geen WebP in deze browser? Dan valt toDataURL terug op PNG.
+                    BingoConfig.logo.url = currentLogo;
+                    document.getElementById('logo-preview').innerHTML = '<img src="' + currentLogo + '" style="max-width: 150px; max-height: 150px;">';
+                    saveConfigToStorage();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Colour change (auto-save to localStorage)
+        function updateColor(colorName, value) {
+            BingoConfig.colors[colorName] = value;
+            applyColors();
+            saveConfigToStorage();
+        }
+
+        // Save colours
+        function saveColors() {
+            saveConfigToStorage();
+            showSaveIndicator('colors-save-indicator');
+        }
+
+        // Reset colours to defaults
+        function resetColors() {
+            BingoConfig.colors = getDefaultColors();
+            applyColors();
+            saveConfigToStorage();
+        }
+
+        // Default MeetingMasters colours
+        function getDefaultColors() {
+            return {
+                primary: "#EEBE3D",
+                primaryLight: "#FFEEC1",
+                secondary: "#2BA8AA",
+                secondaryLight: "#C3DED6",
+                text: "#545454",
+                textLight: "#898989",
+                background: "#FFFFFF",
+                cardBackground: "#FFFFFF",
+                crossed: "#2BA8AA",
+                crossedLight: "#C3DED6",
+                accent: "#C64A60",
+                border: "#C8C8C8"
+            };
+        }
+
+        // Default words
+        function getDefaultWords() {
+            return [
+                "Teamwork", "Innovation", "Collaboration", "Creativity",
+                "Communication", "Feedback", "Goals", "Strategy",
+                "Culture", "Trust", "Growth", "Leadership",
+                "Motivation", "Results", "Quality", "Flexibility",
+                "Respect", "Energy", "Focus", "Balance",
+                "Connection", "Inspiration", "Development", "Success",
+                "Passion", "Ambition", "Vision", "Mission",
+                "Values", "Purpose", "Impact", "Sustainability"
+            ];
+        }
+
+        // Reset everything to defaults
+        function resetToDefaults() {
+            if (confirm('Are you sure you want to reset everything to the default settings?')) {
+                BingoConfig.colors = getDefaultColors();
+                BingoConfig.words = getDefaultWords();
+                BingoConfig.contentType = "words";
+                BingoConfig.eventName = "MeetingMasters Bingo";
+                BingoConfig.totalCards = 250;
+                BingoConfig.logo = { url: "../assets/logo.png", alt: "Client Logo" };
+
+                localStorage.removeItem('bingoConfigEN');
+                localStorage.removeItem('bingoCalledItemsEN');
+
+                location.reload();
+            }
+        }
+
+        // Save settings
+        function saveSettings() {
+            BingoConfig.eventName = document.getElementById('event-name').value;
+            BingoConfig.totalCards = parseInt(document.getElementById('total-cards').value);
+            saveConfigToStorage();
+            showSaveIndicator('settings-save-indicator');
+        }
+
+        // Save config to localStorage
+        function saveConfigToStorage() {
+            const configToSave = {
+                eventName: BingoConfig.eventName,
+                colors: BingoConfig.colors,
+                contentType: BingoConfig.contentType,
+                words: BingoConfig.words,
+                images: BingoConfig.images,
+                logo: BingoConfig.logo,
+                totalCards: BingoConfig.totalCards,
+                hostPassword: BingoConfig.hostPassword
+            };
+            localStorage.setItem('bingoConfigEN', JSON.stringify(configToSave));
+        }
+
+        // Load config from localStorage
+        function loadSavedConfig() {
+            const stored = localStorage.getItem('bingoConfigEN');
+            if (stored) {
+                const savedConfig = JSON.parse(stored);
+                Object.assign(BingoConfig, savedConfig);
+            }
+
+            // Update UI
+            document.getElementById('event-name').value = BingoConfig.eventName;
+            document.getElementById('total-cards').value = BingoConfig.totalCards;
+            document.getElementById('content-type-select').value = BingoConfig.contentType;
+            document.getElementById('words-textarea').value = BingoConfig.words.join('\n');
+
+            updateContentType();
+
+            if (BingoConfig.images && BingoConfig.images.length > 0) {
+                uploadedImages = BingoConfig.images;
+                renderImagePreview();
+            }
+
+            if (BingoConfig.logo && BingoConfig.logo.url && !BingoConfig.logo.url.includes('assets/')) {
+                document.getElementById('logo-preview').innerHTML = `<img src="${BingoConfig.logo.url}" style="max-width: 150px; max-height: 150px;">`;
+            }
+
+            loadCalledItems();
+        }
+
+
+        // Update player link
+
+        // Update share links based on preset number
+        /**
+         * Activate: pack the current settings into the link and show the links.
+         * No file to upload and no database; whoever has the link has this bingo.
+         * Two clients can therefore play at the same time, each with their own link.
+         */
+        async function activeerSessie() {
+            const links = await BingoSessie.maakLinks(BingoConfig);
+            const iframeCode = '<iframe src="' + links.speler + '" allow="fullscreen" style="border:0;width:100%;height:100%"></iframe>';
+
+            const zet = (id, waarde) => {
+                const el = document.getElementById(id);
+                el.textContent = waarde;
+                el.dataset.full = waarde;
+            };
+            zet('share-link', links.speler);
+            zet('host-link', links.host);
+            zet('iframe-code', iframeCode);
+
+            document.getElementById('activeer-uitleg').style.display = 'none';
+            document.getElementById('activeer-resultaat').style.display = 'block';
+
+            // Update this panel's address so a refresh costs nothing.
+            history.replaceState(null, '', links.host);
+        }
+
+        function copyHostLink() {
+            kopieer(document.getElementById('host-link').dataset.full);
+        }
+
+        function kopieer(tekst) {
+            navigator.clipboard.writeText(tekst).then(() => {
+                const btn = event.target;
+                const origineel = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#4CAF50';
+                setTimeout(() => {
+                    btn.textContent = origineel;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // Copy player link to clipboard
+        function copyShareLink() {
+            const linkEl = document.getElementById('share-link');
+            const link = linkEl.dataset.full || linkEl.textContent;
+
+            navigator.clipboard.writeText(link).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#4CAF50';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'var(--color-secondary)';
+                }, 2000);
+            });
+        }
+
+        // Copy iframe code to clipboard
+        function copyIframeCode() {
+            const iframeCode = document.getElementById('iframe-code').dataset.full;
+            navigator.clipboard.writeText(iframeCode).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#4CAF50';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'var(--color-secondary)';
+                }, 2000);
+            });
+        }
+
+        // Show save indicator
+        function showSaveIndicator(id) {
+            const indicator = document.getElementById(id);
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+
+        // Focus password input on load
+        document.addEventListener('DOMContentLoaded', () => {
+            initHostPanel();
+        });
+    </script>
+</body>
+</html>

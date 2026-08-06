@@ -1,0 +1,666 @@
+/* Bingo Styling - MeetingMasters Online */
+/* Kleuren worden overschreven door config via CSS variables */
+
+:root {
+    --color-primary: #EEBE3D;
+    --color-primary-light: #FFEEC1;
+    --color-secondary: #2BA8AA;
+    --color-secondary-light: #C3DED6;
+    --color-text: #545454;
+    --color-text-light: #898989;
+    --color-background: #FFFFFF;
+    --color-card-bg: #FFFFFF;
+    --color-crossed: #2BA8AA;
+    --color-crossed-light: #C3DED6;
+    --color-accent: #C64A60;
+    --color-border: #C8C8C8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Host link - subtiel knopje */
+.host-link {
+    position: fixed;
+    top: clamp(5px, 1.5vmin, 10px);
+    right: clamp(5px, 1.5vmin, 10px);
+    padding: clamp(4px, 1vmin, 6px) clamp(8px, 2vmin, 12px);
+    background: white;
+    border: 1px solid #C8C8C8;
+    border-radius: 4px;
+    color: #898989;
+    text-decoration: none;
+    font-size: clamp(0.6rem, 2vmin, 0.75rem);
+    font-weight: 500;
+    z-index: 100;
+    transition: all 0.2s ease;
+}
+
+.host-link:hover {
+    border-color: #898989;
+    color: #545454;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(10px, 3vmin, 20px);
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: var(--color-primary);
+    font-size: clamp(1.5rem, 8vmin, 2.5rem);
+    font-weight: 700;
+    text-shadow: 2px 2px 0 var(--color-primary-light);
+    margin-bottom: clamp(5px, 2vmin, 10px);
+}
+
+/* Instructies */
+.instructions {
+    background: var(--color-card-bg);
+    border: 2px solid var(--color-secondary);
+    border-radius: clamp(8px, 2vmin, 12px);
+    padding: clamp(12px, 3vmin, 20px) clamp(15px, 4vmin, 30px);
+    max-width: min(600px, 95vw);
+    margin-bottom: clamp(15px, 4vmin, 25px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instructions h2 {
+    color: var(--color-secondary);
+    font-size: clamp(1rem, 3.5vmin, 1.3rem);
+    margin-bottom: clamp(8px, 2vmin, 15px);
+}
+
+.instructions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.instructions li {
+    padding: clamp(4px, 1vmin, 8px) 0;
+    padding-left: clamp(20px, 5vmin, 30px);
+    position: relative;
+    line-height: 1.4;
+    font-size: clamp(0.75rem, 2.5vmin, 1rem);
+}
+
+.instructions li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.instructions .highlight {
+    background: var(--color-primary-light);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Start knop */
+.start-btn {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #d4a832 100%);
+    color: white;
+    border: none;
+    padding: clamp(12px, 3vmin, 18px) clamp(30px, 8vmin, 50px);
+    font-size: clamp(1rem, 4vmin, 1.4rem);
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(238, 190, 61, 0.4);
+    text-transform: uppercase;
+    letter-spacing: clamp(1px, 0.5vmin, 2px);
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(238, 190, 61, 0.5);
+}
+
+.start-btn:active {
+    transform: translateY(0);
+}
+
+/* Bingo Kaart Container */
+.bingo-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-number {
+    background: var(--color-accent);
+    color: white;
+    padding: clamp(5px, 1.5vmin, 8px) clamp(12px, 3vmin, 20px);
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: clamp(8px, 2vmin, 15px);
+    font-size: clamp(0.8rem, 2.5vmin, 1.1rem);
+}
+
+/* Bingo Grid - Responsive */
+.bingo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(3px, 1.5vmin, 8px);
+    background: var(--color-card-bg);
+    padding: clamp(8px, 2vmin, 15px);
+    border-radius: clamp(8px, 2vmin, 15px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--color-primary);
+    width: min(95vw, 95vh, 500px);
+    max-width: 100%;
+}
+
+.bingo-cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--color-primary-light);
+    border: 2px solid var(--color-border);
+    border-radius: clamp(5px, 1.5vmin, 10px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: clamp(0.45rem, 1.8vmin, 0.8rem);
+    font-weight: 500;
+    padding: clamp(2px, 1vmin, 5px);
+    overflow-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    line-height: 1.2;
+    position: relative;
+    overflow: hidden;
+}
+
+.bingo-cell:hover:not(.logo-cell):not(.crossed) {
+    background: var(--color-secondary-light);
+    transform: scale(1.05);
+}
+
+.bingo-cell.crossed {
+    background: var(--color-crossed);
+    color: white;
+    border-color: var(--color-crossed);
+}
+
+.bingo-cell.crossed::after {
+    content: "✗";
+    position: absolute;
+    font-size: clamp(1.5rem, 6vmin, 3rem);
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+/* Logo cel (midden) */
+.bingo-cell.logo-cell {
+    background: white;
+    cursor: default;
+    border-color: var(--color-primary);
+    border-width: 3px;
+}
+
+.bingo-cell.logo-cell img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.bingo-cell.logo-cell.crossed {
+    background: var(--color-crossed);
+}
+
+.bingo-cell.logo-cell.crossed::after {
+    content: "✗";
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Image cellen */
+.bingo-cell img.cell-image {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+/* Win notification */
+.win-notification {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-crossed) 100%);
+    color: white;
+    padding: clamp(15px, 5vmin, 30px) clamp(25px, 10vmin, 60px);
+    border-radius: clamp(10px, 3vmin, 20px);
+    font-size: clamp(1.2rem, 6vmin, 2rem);
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    animation: bounceIn 0.5s ease;
+    max-width: 90vw;
+}
+
+@keyframes bounceIn {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+.win-notification .instruction {
+    font-size: clamp(0.7rem, 2.5vmin, 1rem);
+    margin-top: clamp(8px, 2vmin, 15px);
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Win line highlighting */
+.bingo-cell.win-line {
+    animation: pulse 0.5s ease infinite alternate;
+    box-shadow: 0 0 15px var(--color-crossed);
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* ===================== */
+/* HOST PANEL STYLING    */
+/* ===================== */
+
+.host-panel {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.host-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 25px;
+    /* Heel licht grijs: de knoppen mogen rustig zijn, de inhoud niet. */
+    background: #F4F4F2;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    border-color: var(--color-secondary);
+}
+
+.tab-btn.active {
+    background: var(--color-secondary);
+    color: white;
+    border-color: var(--color-secondary);
+}
+
+.tab-content {
+    display: none;
+    background: #FFFFFF;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Call Card */
+.call-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.call-item {
+    padding: 15px;
+    background: var(--color-primary-light);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.call-item:hover {
+    background: var(--color-secondary-light);
+}
+
+.call-item.called {
+    background: var(--color-secondary);
+    color: white;
+    border-color: var(--color-secondary);
+}
+
+.call-item img {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/* Verificatie sectie */
+.verify-section {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.verify-input {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    width: 150px;
+}
+
+.verify-btn {
+    padding: 12px 25px;
+    background: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.verify-btn:hover {
+    background: #239799;
+}
+
+.verify-result {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--color-background);
+    border-radius: 8px;
+    display: none;
+}
+
+.verify-result.show {
+    display: block;
+}
+
+.verify-result.valid {
+    border: 3px solid #4CAF50;
+}
+
+.verify-result.invalid {
+    border: 3px solid var(--color-crossed);
+}
+
+/* Content upload */
+.upload-section {
+    margin-bottom: 25px;
+}
+
+.upload-section h3 {
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+}
+
+.upload-textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.upload-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Kleuren configuratie */
+.color-config {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.color-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-item label {
+    flex: 1;
+    font-weight: 500;
+}
+
+.color-item input[type="color"] {
+    width: 50px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* File upload */
+.file-upload-area {
+    border: 3px dashed var(--color-border);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.file-upload-area:hover {
+    border-color: var(--color-secondary);
+    background: var(--color-secondary-light);
+}
+
+.file-upload-area input {
+    display: none;
+}
+
+/* Preview grid */
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.preview-item {
+    position: relative;
+    padding: 10px;
+    background: var(--color-primary-light);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.preview-item img {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.preview-item .remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-crossed);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+}
+
+/* Login overlay */
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Status indicator */
+.status-bar {
+    display: flex;
+    gap: clamp(10px, 3vmin, 20px);
+    margin-top: clamp(8px, 2vmin, 15px);
+    padding: clamp(6px, 1.5vmin, 10px) clamp(12px, 3vmin, 20px);
+    background: var(--color-card-bg);
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: clamp(0.65rem, 2vmin, 0.9rem);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 1vmin, 8px);
+}
+
+.status-dot {
+    width: clamp(8px, 2vmin, 12px);
+    height: clamp(8px, 2vmin, 12px);
+    border-radius: 50%;
+    background: var(--color-border);
+}
+
+.status-dot.active {
+    background: var(--color-accent);
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Host starten — bewust los in beeld in plaats van een klein hoekje,
+   zodat duidelijk is dat je hier zelf een bingo kunt opzetten.
+   ────────────────────────────────────────────────────────────────────── */
+.host-start {
+    margin-top: clamp(18px, 4vmin, 32px);
+    padding-top: clamp(14px, 3vmin, 22px);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.host-start p {
+    color: var(--color-text-light);
+    font-size: clamp(0.8rem, 2vmin, 0.95rem);
+    margin-bottom: 8px;
+}
+
+.host-start-btn {
+    display: inline-block;
+    padding: clamp(8px, 1.6vmin, 11px) clamp(16px, 3vmin, 24px);
+    border: 2px solid var(--color-secondary);
+    border-radius: 8px;
+    color: var(--color-secondary);
+    background: transparent;
+    font-weight: 600;
+    font-size: clamp(0.82rem, 1.9vmin, 0.95rem);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.host-start-btn:hover {
+    background: var(--color-secondary);
+    color: #fff;
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Klantnaam",
+  "colors": {
+    "header": "#989F8F",
+    "title": "#EEBE3D",
+    "accent": "#2BA8AA",
+    "button": "#EEBE3D",
+    "buttonText": "#ffffff",
+    "text": "#545454",
+    "textLight": "#898989",
+    "footer": "#EBEBEB",
+    "warning": "#C64A60"
+  },
+  "font": "Rajdhani",
+  "coverText": "Vertel de verhalen",
+  "labels": {
+    "mainTitle": "Storytelling",
+    "rulesTitle": "Spelregels",
+    "tellTitle": "Vertel",
+    "rules": [
+      "Druk op 'Kaart' - laat 'm even op je inwerken",
+      "Druk op Start of vraag nieuwe kaart",
+      "Vertel zolang de tijd loopt",
+      "Sluit af met: \"Dit was mijn verhaal\"",
+      "Korte reacties, geen nieuwe verhalen",
+      "Volgende persoon - volgende kaart"
+    ],
+    "speakingTime": "Spreektijd",
+    "minutes": "min",
+    "drawCard": "Trek een kaart",
+    "start": "Start",
+    "nextCard": "Volgende kaart",
+    "finishedMessage": "Dit was mijn verhaal"
+  }
+}

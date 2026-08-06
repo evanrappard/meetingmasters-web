@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storytelling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link id="font-link" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-header: #989F8F;
+            --color-title: #EEBE3D;
+            --color-accent: #2BA8AA;
+            --color-button: #EEBE3D;
+            --color-button-text: #ffffff;
+            --color-text: #545454;
+            --color-text-light: #898989;
+            --color-footer: #EBEBEB;
+            --color-warning: #C64A60;
+            --font-family: 'Rajdhani', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--color-footer);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 360px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: none;
+        }
+
+        .card.active {
+            display: block;
+        }
+
+        .card-header {
+            background: var(--color-header);
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .card-header h1 {
+            color: var(--color-title);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .accent-line {
+            height: 4px;
+            background: var(--color-accent);
+        }
+
+        .card-content {
+            padding: 30px 25px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-content.rules {
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: auto;
+            min-height: 320px;
+        }
+
+        .card-content ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: var(--color-text);
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .card-content ul li {
+            margin-bottom: 6px;
+        }
+
+        .question-text {
+            font-size: 1.95rem;
+            color: var(--color-text);
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 600;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .card-content.cover {
+            height: auto;
+            padding: 0;
+            justify-content: flex-start;
+        }
+
+        .cover-image-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .cover-image {
+            width: 100%;
+            display: block;
+        }
+
+        .cover-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            padding: 40px 25px 25px;
+        }
+
+        .cover-tagline {
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .cover-buttons {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-footer {
+            background: var(--color-footer);
+            padding: 15px 25px;
+            border-top: 4px solid var(--color-accent);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .btn {
+            background: var(--color-button);
+            color: var(--color-button-text);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-family);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            filter: brightness(0.9);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text-light);
+            box-shadow: none;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: var(--color-text);
+            box-shadow: none;
+            transform: none;
+            text-decoration: underline;
+            filter: none;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 15px;
+            width: 100%;
+        }
+
+        .time-setting {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .time-input {
+            width: 55px;
+            padding: 6px 8px;
+            border: 2px solid #C8C8C8;
+            border-radius: 8px;
+            font-family: var(--font-family);
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            color: var(--color-text);
+        }
+
+        .time-input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .timer-container {
+            position: relative;
+            height: 44px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .start-btn-area {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: opacity 0.2s;
+        }
+
+        .start-btn-area.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .countdown {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .countdown.active {
+            opacity: 1;
+        }
+
+        .countdown-display {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--color-button);
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+            padding: 12px 30px;
+            border: 2px solid var(--color-button);
+            border-radius: 30px;
+        }
+
+        .countdown-display.warning {
+            color: var(--color-warning);
+            border-color: var(--color-warning);
+        }
+
+        .countdown-display.finished {
+            color: var(--color-button);
+            border-color: var(--color-button);
+        }
+
+        .finished-message {
+            color: var(--color-accent);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            position: absolute;
+            top: 50px;
+            white-space: nowrap;
+        }
+
+        .finished-message.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                max-width: 100%;
+                border-radius: 8px;
+            }
+            .card-header {
+                padding: 30px 20px;
+            }
+            .card-header h1 {
+                font-size: 1.9rem;
+            }
+            .question-text {
+                font-size: 1.6rem;
+            }
+            .card-content {
+                padding: 25px 20px;
+                height: 300px;
+            }
+            .card-content.rules {
+                height: auto;
+                min-height: 300px;
+            }
+        }
+
+        /* ──────────────────────────────────────────────────────────────
+           Meeschalen met de hoogte van het kader.
+           De tool draait vaak in een iframe (SpatialChat, een scherm in de
+           website). Is dat kader laag — zeker liggend — dan moet de kaart
+           kleiner worden in plaats van dat je erin gaat scrollen.
+           ────────────────────────────────────────────────────────────── */
+        @media (max-height: 760px) {
+            body { padding: 6px; }
+            .card { max-width: 330px; }
+            .card-header { padding: 20px 22px; }
+            .card-header h1 { font-size: 1.7rem; }
+            .card-content { height: 250px; padding: 20px 22px; }
+            .card-content.rules { min-height: 0; }
+            .card-content ul { font-size: 0.92rem; line-height: 1.5; }
+            .card-content ul li { margin-bottom: 2px; }
+            .question-text { font-size: 1.5rem; }
+            .cover-overlay { padding: 28px 20px 16px; }
+            .cover-tagline { font-size: 1.2rem; }
+            .cover-buttons { padding: 14px 20px; }
+            .card-footer { padding: 10px 20px; }
+            .logo { height: 30px; }
+            .btn { padding: 10px 24px; font-size: 0.95rem; }
+            .time-setting { margin-top: 10px; }
+            .button-group { padding-top: 10px; gap: 6px; }
+        }
+
+        @media (max-height: 600px) {
+            .card { max-width: 300px; }
+            .card-header { padding: 12px 18px; }
+            .card-header h1 { font-size: 1.35rem; }
+            .card-content { height: 195px; padding: 14px 18px; }
+            .card-content ul { font-size: 0.84rem; line-height: 1.4; }
+            .question-text { font-size: 1.2rem; }
+            .cover-tagline { font-size: 1rem; }
+            .cover-overlay { padding: 20px 16px 10px; }
+            .cover-buttons { padding: 10px 16px; }
+            .card-footer { padding: 7px 16px; border-top-width: 3px; }
+            .logo { height: 24px; }
+            .btn { padding: 8px 20px; font-size: 0.88rem; }
+            .btn-secondary { padding: 4px 12px; font-size: 0.8rem; }
+            .time-setting { margin-top: 6px; font-size: 0.85rem; }
+        }
+
+        /* Liggend en laag: daar was de helft van de kaart niet te zien. */
+        @media (max-height: 470px) {
+            .card { max-width: 270px; }
+            .card-header { padding: 8px 14px; }
+            .card-header h1 { font-size: 1.1rem; }
+            .card-content { height: 150px; padding: 10px 14px; }
+            .card-content ul { font-size: 0.75rem; line-height: 1.3; }
+            .question-text { font-size: 1rem; }
+            .cover-tagline { font-size: 0.9rem; }
+            .card-footer { padding: 5px 12px; }
+            .logo { height: 19px; }
+            .btn { padding: 6px 16px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Card 1: Cover -->
+    <div class="card active" id="card-cover">
+        <div class="card-header">
+            <h1>Storytelling</h1>
+        </div>
+        <div class="accent-line"></div>
+        <div class="card-content cover">
+            <div class="cover-image-container">
+                <img src="themes/default/cover.png" alt="Storytelling" class="cover-image" id="cover-image">
+                <div class="cover-overlay">
+                    <p class="cover-tagline" id="cover-tagline">Vertel de verhalen</p>
+                </div>
+            </div>
+            <div class="cover-buttons">
+                <button class="btn" onclick="showCard('rules')">Start</button>
+            </div>
+        </div>
+        <div class="card-footer">
+            <img src="themes/default/logo.png" alt="Logo" class="logo" id="logo-1">
+        </div>
+    </div>
+
+    <!-- Card 2: Rules -->
+    <div class="card" id="card-rules">
+        <div class="card-header">
+            <h1 id="rules-title">Spelregels</h1>
+        </div>
+        <div class="accent-line"></div>
+        <div class="card-content rules">
+            <ul id="rules-list">
+                <li>Druk op 'Kaart' - laat 'm even op je inwerken</li>
+                <li>Druk op Start of vraag nieuwe kaart</li>
+                <li>Vertel zolang de tijd loopt</li>
+                <li>Sluit af met: "Dit was mijn verhaal"</li>
+                <li>Korte reacties, geen nieuwe verhalen</li>
+                <li>Volgende persoon - volgende kaart</li>
+            </ul>
+            <div class="time-setting">
+                <label for="time-input" id="time-label">Spreektijd:</label>
+                <input type="number" id="time-input" class="time-input" value="2.5" min="0.5" max="10" step="0.5">
+                <span id="time-unit">min</span>
+            </div>
+            <div class="button-group">
+                <button class="btn" id="draw-card-btn" onclick="drawCard()">Trek een kaart</button>
+            </div>
+        </div>
+        <div class="card-footer">
+            <img src="themes/default/logo.png" alt="Logo" class="logo" id="logo-2">
+        </div>
+    </div>
+
+    <!-- Card 3: Question -->
+    <div class="card" id="card-question">
+        <div class="card-header">
+            <h1 id="tell-title">Vertel</h1>
+        </div>
+        <div class="accent-line"></div>
+        <div class="card-content">
+            <p class="question-text" id="question-text">Vraag wordt geladen...</p>
+            <div class="button-group">
+                <div class="timer-container">
+                    <div class="start-btn-area" id="start-btn-area">
+                        <button class="btn" id="start-btn" onclick="startTimer()">Start</button>
+                    </div>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-display" id="countdown-display">2:30</div>
+                        <div class="finished-message" id="finished-message">Dit was mijn verhaal</div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="next-card-btn" onclick="drawCard()">Volgende kaart</button>
+            </div>
+        </div>
+        <div class="card-footer">
+            <img src="themes/default/logo.png" alt="Logo" class="logo" id="logo-3">
+        </div>
+    </div>
+
+    <script>
+        // Default questions
+        const defaultQuestions = [
+            "Wanneer waren we als team echt op ons best?",
+            "Welk moment maakte je trots op deze organisatie?",
+            "Wanneer voelde je je echt onderdeel van het team?",
+            "Wanneer werkte onze samenwerking opvallend goed?",
+            "Welk succes voelde groter dan jouw eigen rol?",
+            "Wanneer kregen we samen iets voor elkaar dat lastig leek?",
+            "Waar heb je echt heel hard om gelachen?",
+            "Wat was een moment waarop iedereen meebewoog?",
+            "Wanneer heb je echt op anderen moeten vertrouwen?",
+            "Welk besluit pakte beter uit dan verwacht?",
+            "Wanneer stonden we sterk onder druk?",
+            "Wat was een opzienbarende doorbraak?",
+            "Welk project liet zien wat we kunnen?",
+            "Wat was een klein moment met groot effect?",
+            "Hoe voelt de energie in deze groep?",
+            "Welk moment in het verleden zegt veel over onze cultuur?",
+            "Wat maakt je blij om hier te werken?",
+            "Wanneer voelde je gezamenlijke trots?",
+            "Wat ging onverwacht soepel?",
+            "Hoe merk je het als we elkaar kwijtraken?",
+            "Wat voor soort dingen wordt te weinig uitgesproken?",
+            "Wat ging mis door miscommunicatie?",
+            "Wanneer voelde je afstand binnen het team?",
+            "Welk besluit hadden we anders moeten nemen?",
+            "Wat kost ons meer energie dan nodig?",
+            "Wanneer voelde je twijfel over de koers?",
+            "Wat werd te lang vooruitgeschoven?",
+            "Wanneer botsten belangen binnen de organisatie?",
+            "Wat werd onderschat, met welke gevolgen?",
+            "Wanneer voelde je frustratie over hoe dingen liepen?",
+            "Wat bleef liggen terwijl het aandacht vroeg?",
+            "Wat maakte je kritisch op hoe we werken?",
+            "Wat zouden we recht moeten zetten?",
+            "Wat moeten we beschermen binnen de organisatie?",
+            "Welk voorval typeert de humor in onze organisatie?",
+            "Van welke misser hebben we echt veel geleerd?",
+            "Welke belangrijke ontwikkeling mogen we niet vergeten?",
+            "Wat heeft ons sterker gemaakt dan verwacht?",
+            "Wanneer bleek vertraging waardevol?",
+            "Wat zou je nu anders aanpakken, samen?",
+            "Wat werkte beter dan verwacht?",
+            "Welke fout hebben we het meeste van geleerd?",
+            "Welk moment typeert wie we zijn op ons best?",
+            "Wat typeert ons in lastige tijden?",
+            "Welk verhaal vertelt veel over hoe we samenwerken?",
+            "Wat zouden we vaker moeten herhalen?",
+            "Wat zouden we nou eens moeten afleren?",
+            "Wat mogen we niet vergeten?",
+            "Wat geeft vertrouwen voor de toekomst?",
+            "Wat vraagt om meer lef van ons?",
+            "Wat bracht mensen echt bij elkaar?",
+            "Wanneer ontstond echte betrokkenheid?",
+            "Wat wil je doorgeven aan nieuwe collega's?",
+            "Welk moment zou je opnieuw willen meemaken?",
+            "Wat was een keerpunt, klein of groot?",
+            "Welk verhaal vertel je hier het vaakst?",
+            "Welk verhaal wordt te weinig verteld?",
+            "Wat vraagt om een nieuw begin?",
+            "Wat vraagt om afronding?",
+            "Wat wil je dat we meenemen?",
+            "Wat wil je dat we achterlaten?",
+            "Wat geeft hoop?",
+            "Wat vraagt nu aandacht?",
+            "Wat zegt dit over waar we naartoe willen?"
+        ];
+
+        let questions = [...defaultQuestions];
+        let usedQuestions = [];
+        let timerInterval = null;
+        let timeRemaining = 150;
+        let totalTime = 150;
+        let isRunning = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+
+            // Load theme
+            const themeName = params.get('theme') || 'default';
+            await loadTheme(themeName);
+
+            // Load custom question set
+            const questionSet = params.get('set');
+            if (questionSet) {
+                await loadQuestions(questionSet);
+            }
+
+            // Set custom time from URL
+            const customTime = params.get('time');
+            if (customTime) {
+                document.getElementById('time-input').value = customTime;
+            }
+
+            updateTimeFromInput();
+        });
+
+        async function loadTheme(themeName) {
+            try {
+                const response = await fetch(`themes/${themeName}/config.json`);
+                if (!response.ok) throw new Error('Theme not found');
+
+                const theme = await response.json();
+
+                // Apply colors
+                const root = document.documentElement;
+                root.style.setProperty('--color-header', theme.colors.header);
+                root.style.setProperty('--color-title', theme.colors.title);
+                root.style.setProperty('--color-accent', theme.colors.accent);
+                root.style.setProperty('--color-button', theme.colors.button);
+                root.style.setProperty('--color-button-text', theme.colors.buttonText);
+                root.style.setProperty('--color-text', theme.colors.text);
+                root.style.setProperty('--color-text-light', theme.colors.textLight);
+                root.style.setProperty('--color-footer', theme.colors.footer);
+                root.style.setProperty('--color-warning', theme.colors.warning);
+
+                // Apply font
+                if (theme.font) {
+                    const fontLink = document.getElementById('font-link');
+                    fontLink.href = `https://fonts.googleapis.com/css2?family=${theme.font.replace(' ', '+')}:wght@400;500;600;700&display=swap`;
+                    root.style.setProperty('--font-family', `'${theme.font}', sans-serif`);
+                }
+
+                // Apply images
+                const themePath = `themes/${themeName}`;
+                document.getElementById('cover-image').src = `${themePath}/cover.png`;
+                document.getElementById('logo-1').src = `${themePath}/logo.png`;
+                document.getElementById('logo-2').src = `${themePath}/logo.png`;
+                document.getElementById('logo-3').src = `${themePath}/logo.png`;
+
+                // Apply cover text
+                if (theme.coverText) {
+                    document.getElementById('cover-tagline').textContent = theme.coverText;
+                }
+
+                // Update title
+                if (theme.name) {
+                    document.title = `Storytelling - ${theme.name}`;
+                }
+
+                // Apply labels (translations)
+                if (theme.labels) {
+                    const labels = theme.labels;
+
+                    if (labels.rulesTitle) {
+                        document.getElementById('rules-title').textContent = labels.rulesTitle;
+                    }
+                    if (labels.tellTitle) {
+                        document.getElementById('tell-title').textContent = labels.tellTitle;
+                    }
+                    if (labels.rules && labels.rules.length) {
+                        const rulesList = document.getElementById('rules-list');
+                        rulesList.innerHTML = labels.rules.map(rule => `<li>${rule}</li>`).join('');
+                    }
+                    if (labels.speakingTime) {
+                        document.getElementById('time-label').textContent = labels.speakingTime + ':';
+                    }
+                    if (labels.minutes) {
+                        document.getElementById('time-unit').textContent = labels.minutes;
+                    }
+                    if (labels.drawCard) {
+                        document.getElementById('draw-card-btn').textContent = labels.drawCard;
+                    }
+                    if (labels.start) {
+                        document.getElementById('start-btn').textContent = labels.start;
+                    }
+                    if (labels.nextCard) {
+                        document.getElementById('next-card-btn').textContent = labels.nextCard;
+                    }
+                    if (labels.finishedMessage) {
+                        document.getElementById('finished-message').textContent = labels.finishedMessage;
+                    }
+                }
+
+            } catch (e) {
+                console.log('Using default theme:', e.message);
+            }
+        }
+
+        async function loadQuestions(setName) {
+            try {
+                const response = await fetch(`questions/${setName}.json`);
+                if (!response.ok) throw new Error('Question set not found');
+
+                const data = await response.json();
+                questions = data.questions || data;
+
+                if (data.title) {
+                    document.querySelectorAll('.card-header h1')[0].textContent = data.title;
+                }
+                if (data.defaultTime) {
+                    document.getElementById('time-input').value = data.defaultTime;
+                }
+            } catch (e) {
+                console.log('Using default questions:', e.message);
+            }
+        }
+
+        function showCard(cardId) {
+            document.querySelectorAll('.card').forEach(card => card.classList.remove('active'));
+            document.getElementById(`card-${cardId}`).classList.add('active');
+        }
+
+        function drawCard() {
+            if (isRunning) stopTimer();
+            if (usedQuestions.length >= questions.length) usedQuestions = [];
+
+            const available = questions.filter(q => !usedQuestions.includes(q));
+            const question = available[Math.floor(Math.random() * available.length)];
+            usedQuestions.push(question);
+
+            document.getElementById('question-text').textContent = question;
+            updateTimeFromInput();
+            resetTimerUI();
+            showCard('question');
+        }
+
+        function updateTimeFromInput() {
+            const minutes = parseFloat(document.getElementById('time-input').value) || 2.5;
+            totalTime = Math.round(minutes * 60);
+            timeRemaining = totalTime;
+            updateCountdownDisplay();
+        }
+
+        function updateCountdownDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            const display = document.getElementById('countdown-display');
+            display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            display.classList.remove('warning', 'finished');
+            if (timeRemaining <= 30 && timeRemaining > 0) display.classList.add('warning');
+        }
+
+        function resetTimerUI() {
+            document.getElementById('start-btn-area').classList.remove('hidden');
+            document.getElementById('countdown').classList.remove('active');
+            document.getElementById('countdown-display').classList.remove('warning', 'finished');
+            document.getElementById('finished-message').classList.remove('show');
+            isRunning = false;
+        }
+
+        function startTimer() {
+            if (timeRemaining <= 0) updateTimeFromInput();
+            isRunning = true;
+            document.getElementById('start-btn-area').classList.add('hidden');
+            document.getElementById('countdown').classList.add('active');
+
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateCountdownDisplay();
+                if (timeRemaining <= 0) finishTimer();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+        }
+
+        function finishTimer() {
+            stopTimer();
+            document.getElementById('countdown-display').classList.add('finished');
+            document.getElementById('finished-message').classList.add('show');
+            playSound();
+        }
+
+        function playSound() {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.frequency.setValueAtTime(830, ctx.currentTime);
+            osc.type = 'sine';
+            gain.gain.setValueAtTime(0.4, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1.5);
+            osc.start(ctx.currentTime);
+            osc.stop(ctx.currentTime + 1.5);
+
+            setTimeout(() => {
+                const osc2 = ctx.createOscillator();
+                const gain2 = ctx.createGain();
+                osc2.connect(gain2);
+                gain2.connect(ctx.destination);
+                osc2.frequency.setValueAtTime(622, ctx.currentTime);
+                osc2.type = 'sine';
+                gain2.gain.setValueAtTime(0.25, ctx.currentTime);
+                gain2.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1.2);
+                osc2.start(ctx.currentTime);
+                osc2.stop(ctx.currentTime + 1.2);
+            }, 150);
+        }
+    </script>
+</body>
+</html>

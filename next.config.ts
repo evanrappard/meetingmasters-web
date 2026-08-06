@@ -12,8 +12,9 @@ const enPaths = [
 const securityHeaders = [
   // Forceer HTTPS (Vercel serveert alles al via TLS)
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
-  // Anti-clickjacking — eigen pagina's mogen alleen in een same-origin frame (bv. Sanity-preview)
-  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  // GEEN X-Frame-Options: de site moet in een iframe kunnen draaien, o.a. in
+  // SpatialChat en andere meetingomgevingen. De tools zijn daar zelfs voor
+  // bedoeld. Zet dit dus niet terug op SAMEORIGIN zonder overleg.
   // Browser mag content-types niet "raden"
   { key: "X-Content-Type-Options", value: "nosniff" },
   // Lek geen volledige referrer naar externe sites
@@ -24,7 +25,15 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      {
+        // De kaarten mogen niet los in Google Afbeeldingen belanden; ze horen
+        // alleen binnen de tool. Zie ook app/robots.ts.
+        source: "/images/tools/inspiratiekaarten/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, noimageindex" }],
+      },
+    ];
   },
   async redirects() {
     return [

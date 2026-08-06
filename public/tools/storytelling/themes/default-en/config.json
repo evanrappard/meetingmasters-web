@@ -1,0 +1,35 @@
+{
+  "name": "MeetingMasters",
+  "colors": {
+    "header": "#989F8F",
+    "title": "#EEBE3D",
+    "accent": "#2BA8AA",
+    "button": "#EEBE3D",
+    "buttonText": "#ffffff",
+    "text": "#545454",
+    "textLight": "#898989",
+    "footer": "#EBEBEB",
+    "warning": "#C64A60"
+  },
+  "font": "Rajdhani",
+  "coverText": "Tell us your story",
+  "labels": {
+    "mainTitle": "Storytelling",
+    "rulesTitle": "How to play",
+    "tellTitle": "Tell us your story",
+    "rules": [
+      "Draw a card",
+      "Press Start or draw a new card",
+      "Tell your story while the timer runs",
+      "End with: \"This was my story\"",
+      "Brief reactions, no new stories",
+      "Next person - next card"
+    ],
+    "speakingTime": "Speaking time",
+    "minutes": "min",
+    "drawCard": "Draw a card",
+    "start": "Start",
+    "nextCard": "Next card",
+    "finishedMessage": "This was my story"
+  }
+}

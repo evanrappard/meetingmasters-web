@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Host Panel - MeetingMasters Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Extra host-specifieke styling */
+        .save-indicator {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            margin-left: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .save-indicator.show {
+            opacity: 1;
+        }
+        .called-count {
+            font-size: 1.2rem;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+        .reset-btn {
+            background: var(--color-crossed);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .verify-card-preview {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            gap: 5px;
+            margin-top: 15px;
+        }
+        .verify-card-preview .cell {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-primary-light);
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            font-size: 0.65rem;
+            text-align: center;
+            padding: 3px;
+            word-break: break-word;
+        }
+        .verify-card-preview .cell.should-cross {
+            background: var(--color-secondary);
+            color: white;
+        }
+        .verify-card-preview .cell.wrong {
+            background: var(--color-crossed);
+            color: white;
+        }
+        .verify-card-preview .cell.logo {
+            background: white;
+            font-weight: bold;
+        }
+        .export-btn {
+            background: var(--color-text);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login overlay -->
+    <div class="login-overlay" id="login-overlay" style="display: none;">
+        <div class="login-box">
+            <h2>Host Login</h2>
+            <input type="password" id="password-input" placeholder="Wachtwoord" onkeypress="if(event.key==='Enter')login()">
+            <button onclick="login()">Inloggen</button>
+            <p id="login-error" style="color: var(--color-crossed); margin-top: 10px; display: none;">Onjuist wachtwoord</p>
+        </div>
+    </div>
+
+    <!-- Host Panel -->
+    <div class="host-panel" id="host-panel">
+        <!-- Taalwissel -->
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px; gap: 5px;">
+            <span style="background: var(--color-secondary); color: white; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">NL</span>
+            <a href="en/host.html" style="background: var(--color-card-bg); color: var(--color-text); padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border: 2px solid var(--color-border);">EN</a>
+        </div>
+
+        <div class="header">
+            <h1>Bingo Host Panel</h1>
+        </div>
+
+        <!-- Activeren: van instelling naar twee werkende links -->
+        <div class="share-link-box" style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: 12px; padding: 20px 22px; margin-bottom: 22px;">
+            <div id="activeer-uitleg">
+                <p style="margin-bottom: 12px; color: var(--color-text);">
+                    Stel hieronder je bingo in: de woorden of plaatjes, de kleuren en het logo.
+                    Klik daarna op <strong>Activeer</strong>. Je krijgt twee links die bij déze bingo
+                    horen. Bewaar ze in je agenda-afspraak en alles staat klaar.
+                </p>
+                <button onclick="activeerSessie()" style="background: var(--color-primary); color: white; border: none; padding: 12px 28px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 1.05rem;">Activeer deze bingo</button>
+            </div>
+
+            <div id="activeer-resultaat" style="display: none;">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                    <div style="flex: 1; min-width: 220px;">
+                        <strong style="color: var(--color-text);">Link voor de deelnemers</strong><br>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">Deel deze in de chat of zet 'm op een scherm.</span>
+                        <code id="share-link" style="display: block; margin-top: 6px; background: #F7F7F5; padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; word-break: break-all; max-height: 70px; overflow: auto;"></code>
+                    </div>
+                    <button onclick="copyShareLink()" style="background: var(--color-secondary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">Kopieer</button>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                    <div style="flex: 1; min-width: 220px;">
+                        <strong style="color: var(--color-text);">Link voor jezelf als host</strong><br>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">Hiermee open je dit paneel later opnieuw, met deze instelling.</span>
+                        <code id="host-link" style="display: block; margin-top: 6px; background: #F7F7F5; padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; word-break: break-all; max-height: 70px; overflow: auto;"></code>
+                    </div>
+                    <button onclick="copyHostLink()" style="background: var(--color-secondary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">Kopieer</button>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                    <div style="flex: 1; min-width: 220px;">
+                        <strong style="color: var(--color-text);">Insluitcode</strong><br>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">Voor een scherm in SpatialChat of op een eigen pagina.</span>
+                        <code id="iframe-code" style="display: block; margin-top: 6px; background: #F7F7F5; padding: 8px 12px; border-radius: 6px; font-size: 0.75rem; word-break: break-all; max-height: 70px; overflow: auto;"></code>
+                    </div>
+                    <button onclick="copyIframeCode()" style="background: var(--color-secondary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">Kopieer</button>
+                </div>
+
+                <p style="margin-top: 14px; font-size: 0.85rem; color: var(--color-text-light);">
+                    Verander je hierna nog iets? Klik dan opnieuw op
+                    <button onclick="activeerSessie()" style="background: none; border: none; padding: 0; color: var(--color-secondary); font-weight: 700; cursor: pointer; font-size: 0.85rem; text-decoration: underline;">Activeer</button>,
+                    dan krijg je bijgewerkte links. Eerder gedeelde links blijven werken met de oude instelling.
+                </p>
+            </div>
+        </div>
+
+        <div class="host-header">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('callcard')" title="Hier staat de complete lijst met woorden van deze bingo. Klik een woord aan zodra je het hebt afgeroepen, dan zie je in één oogopslag wat al voorbij is gekomen.">Call Card</button>
+                <button class="tab-btn" onclick="showTab('verify')" title="Roept iemand bingo? Vul hier het kaartnummer in dat op de kaart van de deelnemer staat. Je ziet dan precies welke woorden op die kaart horen en of het klopt.">Verificatie</button>
+                <button class="tab-btn" onclick="showTab('content')" title="De woorden waaruit de kaarten worden opgebouwd, plus het logo in het middelste vakje.">Content</button>
+                <button class="tab-btn" onclick="showTab('colors')" title="De kleuren van de bingokaart en de knoppen, zodat het spel bij de huisstijl van je klant past.">Kleuren</button>
+                <button class="tab-btn" onclick="showTab('settings')" title="De naam van de bijeenkomst en het aantal verschillende kaarten dat de tool maakt.">Instellingen</button>
+            </div>
+        </div>
+
+        <!-- TAB: Call Card -->
+        <div class="tab-content active" id="tab-callcard">
+            <h2>Call Card</h2>
+            <p style="margin: -6px 0 18px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">Hier staat de complete lijst met woorden van deze bingo. Klik een woord aan zodra je het hebt afgeroepen, dan zie je in één oogopslag wat al voorbij is gekomen. Deelnemers zien dit niet; dit scherm is alleen voor jou.</p>
+
+            <div class="called-count">
+                Geroepen: <span id="called-count">0</span> / <span id="total-items">0</span>
+                <button class="reset-btn" onclick="resetCalled()">Reset</button>
+            </div>
+
+            <div class="call-card-grid" id="call-card-grid">
+                <!-- Items worden via JavaScript gegenereerd -->
+            </div>
+        </div>
+
+        <!-- TAB: Verificatie -->
+        <div class="tab-content" id="tab-verify">
+            <h2>Verificatie</h2>
+            <p style="margin: -6px 0 18px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">Roept iemand bingo? Vul hier het kaartnummer in dat bovenaan de kaart van die deelnemer staat. Je ziet dan precies welke woorden op die kaart horen, en of de rij die geclaimd wordt echt klopt.</p>
+            <p style="margin-bottom: 20px; color: var(--color-text-light);">Controleer of een speler echt gewonnen heeft</p>
+
+            <div class="verify-section">
+                <input type="number" class="verify-input" id="verify-card-number" placeholder="Kaartnummer" min="1" max="250">
+                <button class="verify-btn" onclick="verifyCard()">Controleer Kaart</button>
+            </div>
+
+            <div class="verify-result" id="verify-result">
+                <h3 id="verify-title"></h3>
+                <p id="verify-message"></p>
+                <div class="verify-card-preview" id="verify-preview"></div>
+            </div>
+        </div>
+
+        <!-- TAB: Content -->
+        <div class="tab-content" id="tab-content">
+            <h2>Content</h2>
+            <p style="margin: -6px 0 16px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">De woorden waaruit de kaarten worden opgebouwd, plus het logo dat in het middelste vakje komt.</p>
+
+            <ul style="margin: 0 0 22px 18px; padding: 0; color: var(--color-text-light); max-width: 70ch; line-height: 1.7;">
+                <li>Typ je woorden hieronder in het tekstvak, één per regel of gescheiden door komma's.</li>
+                <li>Minimaal 24 woorden: een kaart heeft 24 vakjes plus het logo in het midden.</li>
+                <li>Meer mag altijd, en is beter. Elke kaart pakt een eigen willekeurige 24 uit je lijst, dus hoe langer de lijst, hoe meer de kaarten van elkaar verschillen.</li>
+                <li>Aanpassingen? Klik daarna bovenaan opnieuw op <strong>"Activeer deze bingo"</strong>. Links die je al deelde blijven de oude woorden gebruiken.</li>
+            </ul>
+
+            <div class="upload-section">
+                <h3>Content Type</h3>
+                <select id="content-type-select" onchange="updateContentType()" style="padding: 10px; border-radius: 8px; border: 2px solid var(--color-border); margin-bottom: 20px;">
+                    <option value="words">Woorden</option>
+                    <option value="images">Plaatjes</option>
+                </select>
+            </div>
+
+            <!-- Woorden upload -->
+            <div class="upload-section" id="words-upload">
+                <h3>Woorden (minimaal 24, één per regel of komma-gescheiden)</h3>
+                <textarea class="upload-textarea" id="words-textarea" placeholder="Teamwork&#10;Innovatie&#10;Samenwerking&#10;..."></textarea>
+                <button class="upload-btn" onclick="saveWords()">Woorden Opslaan</button>
+                <span class="save-indicator" id="words-save-indicator">Opgeslagen!</span>
+            </div>
+
+            <!-- Plaatjes upload -->
+            <div class="upload-section" id="images-upload" style="display: none;">
+                <h3>Plaatjes (max 1MB per bestand, minimaal 24 stuks)</h3>
+                <div class="file-upload-area" onclick="document.getElementById('image-input').click()">
+                    <input type="file" id="image-input" multiple accept="image/*" onchange="handleImageUpload(event)">
+                    <p>Klik om plaatjes te uploaden<br><small>of sleep ze hierheen</small></p>
+                </div>
+                <div class="preview-grid" id="image-preview"></div>
+                <button class="upload-btn" onclick="saveImages()" style="margin-top: 15px;">Plaatjes Opslaan</button>
+            </div>
+
+            <!-- Logo upload -->
+            <div class="upload-section">
+                <h3>Klant Logo (verschijnt in het midden van de kaart)</h3>
+                <div class="file-upload-area" onclick="document.getElementById('logo-input').click()" style="max-width: 300px;">
+                    <input type="file" id="logo-input" accept="image/*" onchange="handleLogoUpload(event)">
+                    <p>Klik om logo te uploaden</p>
+                </div>
+                <div id="logo-preview" style="margin-top: 15px;"></div>
+            </div>
+
+            <hr style="margin: 26px 0; border: none; border-top: 1px solid var(--color-border);">
+
+            <button class="reset-btn" onclick="resetToDefaults()">Terug naar basisinstellingen</button>
+        </div>
+
+        <!-- TAB: Kleuren -->
+        <div class="tab-content" id="tab-colors">
+            <h2>Kleuren</h2>
+            <p style="margin: -6px 0 18px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">De kleuren van de bingokaart en de knoppen. Handig als je het spel bij de huisstijl van je klant wilt laten passen.</p>
+            <p style="margin-bottom: 20px; color: var(--color-text-light);">Pas de kleuren aan voor dit event</p>
+
+            <div class="color-config">
+                <div class="color-item">
+                    <label>Primaire kleur</label>
+                    <input type="color" id="color-primary" value="#EEBE3D" onchange="updateColor('primary', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Primair licht</label>
+                    <input type="color" id="color-primary-light" value="#FFEEC1" onchange="updateColor('primaryLight', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Secundaire kleur</label>
+                    <input type="color" id="color-secondary" value="#2BA8AA" onchange="updateColor('secondary', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Secundair licht</label>
+                    <input type="color" id="color-secondary-light" value="#C3DED6" onchange="updateColor('secondaryLight', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Tekst kleur</label>
+                    <input type="color" id="color-text" value="#545454" onchange="updateColor('text', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Achtergrond</label>
+                    <input type="color" id="color-background" value="#F9FFED" onchange="updateColor('background', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Afgestreept</label>
+                    <input type="color" id="color-crossed" value="#C64A60" onchange="updateColor('crossed', this.value)">
+                </div>
+                <div class="color-item">
+                    <label>Rand kleur</label>
+                    <input type="color" id="color-border" value="#C8C8C8" onchange="updateColor('border', this.value)">
+                </div>
+            </div>
+
+            <button class="upload-btn" onclick="saveColors()" style="margin-top: 20px;">Kleuren Opslaan</button>
+            <button class="reset-btn" onclick="resetColors()">Terug naar basisinstellingen</button>
+            <span class="save-indicator" id="colors-save-indicator">Opgeslagen!</span>
+        </div>
+
+        <!-- TAB: Instellingen -->
+        <div class="tab-content" id="tab-settings">
+            <h2>Instellingen</h2>
+            <p style="margin: -6px 0 18px; color: var(--color-text-light); max-width: 70ch; line-height: 1.55;">De naam van de bijeenkomst en het aantal verschillende kaarten dat de tool maakt. Meer kaarten betekent minder kans dat twee deelnemers dezelfde krijgen.</p>
+
+            <div class="upload-section">
+                <h3>Event Naam</h3>
+                <input type="text" id="event-name" value="MeetingMasters Bingo" style="padding: 12px; width: 100%; max-width: 400px; border: 2px solid var(--color-border); border-radius: 8px;">
+            </div>
+
+            <div class="upload-section">
+                <h3>Aantal Unieke Kaarten</h3>
+                <input type="number" id="total-cards" value="250" min="10" max="500" style="padding: 12px; width: 150px; border: 2px solid var(--color-border); border-radius: 8px;">
+            </div>
+
+            <button class="upload-btn" onclick="saveSettings()">Instellingen Opslaan</button>
+            <span class="save-indicator" id="settings-save-indicator">Opgeslagen!</span>
+
+        </div>
+    </div>
+
+    <script src="js/sessie.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/bingo.js"></script>
+    <script>
+        let calledItems = new Set();
+        let uploadedImages = [];
+        let currentLogo = null;
+
+        // Login
+        function login() {
+            const password = document.getElementById('password-input').value;
+            if (password === BingoConfig.hostPassword) {
+                document.getElementById('login-overlay').style.display = 'none';
+                document.getElementById('host-panel').style.display = 'block';
+                initHostPanel();
+            } else {
+                document.getElementById('login-error').style.display = 'block';
+            }
+        }
+
+        // Initialiseer host panel
+        async function initHostPanel() {
+            // Kwam je hier via je eigen hostlink? Dan staat die instelling in de link.
+            const uitLink = await BingoSessie.pasSessieToe(BingoConfig);
+            if (!uitLink) loadSavedConfig();
+            applyColors();
+            renderCallCard();
+        }
+
+        // Pas kleuren toe
+        function applyColors() {
+            const root = document.documentElement;
+            const colors = BingoConfig.colors;
+
+            root.style.setProperty('--color-primary', colors.primary);
+            root.style.setProperty('--color-primary-light', colors.primaryLight);
+            root.style.setProperty('--color-secondary', colors.secondary);
+            root.style.setProperty('--color-secondary-light', colors.secondaryLight);
+            root.style.setProperty('--color-text', colors.text);
+            root.style.setProperty('--color-text-light', colors.textLight);
+            root.style.setProperty('--color-background', colors.background);
+            root.style.setProperty('--color-card-bg', colors.cardBackground);
+            root.style.setProperty('--color-crossed', colors.crossed);
+            root.style.setProperty('--color-crossed-light', colors.crossedLight);
+            root.style.setProperty('--color-accent', colors.accent);
+            root.style.setProperty('--color-border', colors.border);
+
+            // Update color inputs
+            document.getElementById('color-primary').value = colors.primary;
+            document.getElementById('color-primary-light').value = colors.primaryLight;
+            document.getElementById('color-secondary').value = colors.secondary;
+            document.getElementById('color-secondary-light').value = colors.secondaryLight;
+            document.getElementById('color-text').value = colors.text;
+            document.getElementById('color-background').value = colors.background;
+            document.getElementById('color-crossed').value = colors.crossed;
+            document.getElementById('color-border').value = colors.border;
+        }
+
+        // Tab navigatie
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        // Render call card
+        function renderCallCard() {
+            const grid = document.getElementById('call-card-grid');
+            const items = BingoGame.getAllItems(BingoConfig);
+
+            grid.innerHTML = '';
+            document.getElementById('total-items').textContent = items.length;
+
+            items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'call-item';
+                if (calledItems.has(index)) {
+                    div.classList.add('called');
+                }
+
+                if (BingoConfig.contentType === 'images') {
+                    const img = document.createElement('img');
+                    img.src = item;
+                    img.alt = `Item ${index + 1}`;
+                    div.appendChild(img);
+                } else {
+                    div.textContent = item;
+                }
+
+                div.addEventListener('click', () => toggleCalled(index, div));
+                grid.appendChild(div);
+            });
+
+            updateCalledCount();
+        }
+
+        // Toggle item als geroepen
+        function toggleCalled(index, element) {
+            if (calledItems.has(index)) {
+                calledItems.delete(index);
+                element.classList.remove('called');
+            } else {
+                calledItems.add(index);
+                element.classList.add('called');
+            }
+            updateCalledCount();
+            saveCalledItems();
+        }
+
+        // Update geroepen telling
+        function updateCalledCount() {
+            document.getElementById('called-count').textContent = calledItems.size;
+        }
+
+        // Reset geroepen items
+        function resetCalled() {
+            if (confirm('Weet je zeker dat je alle geroepen items wilt resetten?')) {
+                calledItems = new Set();
+                renderCallCard();
+                localStorage.removeItem('bingoCalledItems');
+            }
+        }
+
+        // Opslaan/laden van geroepen items
+        function saveCalledItems() {
+            localStorage.setItem('bingoCalledItems', JSON.stringify([...calledItems]));
+        }
+
+        function loadCalledItems() {
+            const stored = localStorage.getItem('bingoCalledItems');
+            if (stored) {
+                calledItems = new Set(JSON.parse(stored));
+            }
+        }
+
+        // Verificatie van kaart
+        function verifyCard() {
+            const cardNumber = parseInt(document.getElementById('verify-card-number').value);
+
+            if (!cardNumber || cardNumber < 1 || cardNumber > BingoConfig.totalCards) {
+                alert(`Voer een geldig kaartnummer in (1-${BingoConfig.totalCards})`);
+                return;
+            }
+
+            // Genereer de kaart
+            const game = new BingoGame(BingoConfig);
+            game.generateCard(cardNumber);
+            const fullData = game.getFullCardData();
+
+            // Check welke items geroepen zijn
+            const items = BingoGame.getAllItems(BingoConfig);
+            const shouldBeCrossed = new Set([12]); // Logo is altijd gekruist
+
+            fullData.forEach((item, index) => {
+                if (index === 12) return; // Skip logo
+
+                const itemIndex = items.indexOf(item);
+                if (calledItems.has(itemIndex)) {
+                    shouldBeCrossed.add(index);
+                }
+            });
+
+            // Bereken mogelijke rijtjes
+            game.crossedCells = shouldBeCrossed;
+            const winResult = game.checkWin();
+
+            // Toon resultaat
+            const resultDiv = document.getElementById('verify-result');
+            const titleEl = document.getElementById('verify-title');
+            const messageEl = document.getElementById('verify-message');
+            const previewEl = document.getElementById('verify-preview');
+
+            resultDiv.classList.add('show');
+
+            if (winResult.count >= 3) {
+                resultDiv.classList.remove('invalid');
+                resultDiv.classList.add('valid');
+                titleEl.textContent = `BINGO GELDIG! (${winResult.count} rijtjes)`;
+                titleEl.style.color = '#4CAF50';
+            } else if (winResult.count > 0) {
+                resultDiv.classList.remove('invalid');
+                resultDiv.classList.add('valid');
+                titleEl.textContent = `${winResult.count} rijtje(s) gevonden`;
+                titleEl.style.color = 'var(--color-secondary)';
+            } else {
+                resultDiv.classList.remove('valid');
+                resultDiv.classList.add('invalid');
+                titleEl.textContent = 'Geen rijtjes gevonden';
+                titleEl.style.color = 'var(--color-crossed)';
+            }
+
+            messageEl.textContent = `Kaart #${cardNumber} - Hieronder zie je welke vakjes afgestreept hadden moeten zijn (groen) op basis van de geroepen items.`;
+
+            // Render preview
+            previewEl.innerHTML = '';
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+
+                if (i === 12) {
+                    cell.classList.add('logo');
+                    cell.textContent = 'LOGO';
+                } else {
+                    const item = fullData[i];
+                    if (BingoConfig.contentType === 'images') {
+                        cell.innerHTML = `<img src="${item}" style="max-width:50px;max-height:50px;">`;
+                    } else {
+                        cell.textContent = item;
+                    }
+
+                    if (shouldBeCrossed.has(i)) {
+                        cell.classList.add('should-cross');
+                    }
+                }
+
+                // Markeer winnende lijnen
+                const isInWinLine = winResult.lines.some(line => line.includes(i));
+                if (isInWinLine) {
+                    cell.style.border = '2px solid #4CAF50';
+                }
+
+                previewEl.appendChild(cell);
+            }
+        }
+
+        // Content type wijzigen
+        function updateContentType() {
+            const type = document.getElementById('content-type-select').value;
+            BingoConfig.contentType = type;
+            saveConfigToStorage();
+
+            document.getElementById('words-upload').style.display = type === 'words' ? 'block' : 'none';
+            document.getElementById('images-upload').style.display = type === 'images' ? 'block' : 'none';
+        }
+
+        // Woorden opslaan
+        function saveWords() {
+            const textarea = document.getElementById('words-textarea');
+            let words = textarea.value
+                .split(/[,\n]/)
+                .map(w => w.trim())
+                .filter(w => w.length > 0);
+
+            if (words.length < 24) {
+                alert(`Je hebt ${words.length} woorden ingevoerd. Minimaal 24 nodig.`);
+                return;
+            }
+
+            BingoConfig.words = words;
+            saveConfigToStorage();
+            renderCallCard();
+            showSaveIndicator('words-save-indicator');
+        }
+
+        // Plaatjes uploaden
+        function handleImageUpload(event) {
+            const files = event.target.files;
+            const previewGrid = document.getElementById('image-preview');
+
+            for (const file of files) {
+                if (file.size > 1024 * 1024) {
+                    alert(`${file.name} is groter dan 1MB en wordt overgeslagen.`);
+                    continue;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImages.push(e.target.result);
+                    renderImagePreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Render image preview
+        function renderImagePreview() {
+            const previewGrid = document.getElementById('image-preview');
+            previewGrid.innerHTML = '';
+
+            uploadedImages.forEach((img, index) => {
+                const div = document.createElement('div');
+                div.className = 'preview-item';
+                div.innerHTML = `
+                    <img src="${img}" alt="Image ${index + 1}">
+                    <button class="remove-btn" onclick="removeImage(${index})">×</button>
+                `;
+                previewGrid.appendChild(div);
+            });
+        }
+
+        // Verwijder image
+        function removeImage(index) {
+            uploadedImages.splice(index, 1);
+            renderImagePreview();
+        }
+
+        // Plaatjes opslaan
+        function saveImages() {
+            if (uploadedImages.length < 24) {
+                alert(`Je hebt ${uploadedImages.length} plaatjes geüpload. Minimaal 24 nodig.`);
+                return;
+            }
+
+            BingoConfig.images = uploadedImages;
+            saveConfigToStorage();
+            renderCallCard();
+            showSaveIndicator('words-save-indicator');
+        }
+
+        // Logo uploaden
+        /**
+         * Logo verkleinen vóór opslag. Het logo reist mee in de link, dus een
+         * bestand van een halve megabyte zou die link onbruikbaar lang maken.
+         * 160 pixels is ruim genoeg voor het middenvakje van de bingokaart.
+         */
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const max = 160;
+                    const schaal = Math.min(1, max / Math.max(img.width, img.height));
+                    const canvas = document.createElement('canvas');
+                    canvas.width = Math.round(img.width * schaal);
+                    canvas.height = Math.round(img.height * schaal);
+                    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    currentLogo = canvas.toDataURL('image/webp', 0.85);
+                    // Geen WebP in deze browser? Dan valt toDataURL terug op PNG.
+                    BingoConfig.logo.url = currentLogo;
+                    document.getElementById('logo-preview').innerHTML = '<img src="' + currentLogo + '" style="max-width: 150px; max-height: 150px;">';
+                    saveConfigToStorage();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Kleur wijzigen (auto-save naar localStorage)
+        function updateColor(colorName, value) {
+            BingoConfig.colors[colorName] = value;
+            applyColors();
+            saveConfigToStorage();
+        }
+
+        // Kleuren opslaan
+        function saveColors() {
+            saveConfigToStorage();
+            showSaveIndicator('colors-save-indicator');
+        }
+
+        // Reset kleuren naar MeetingMasters
+        function resetColors() {
+            BingoConfig.colors = getDefaultColors();
+            applyColors();
+            saveConfigToStorage();
+        }
+
+        // Default MeetingMasters kleuren
+        function getDefaultColors() {
+            return {
+                primary: "#EEBE3D",
+                primaryLight: "#FFEEC1",
+                secondary: "#2BA8AA",
+                secondaryLight: "#C3DED6",
+                text: "#545454",
+                textLight: "#898989",
+                background: "#FFFFFF",
+                cardBackground: "#FFFFFF",
+                crossed: "#2BA8AA",
+                crossedLight: "#C3DED6",
+                accent: "#C64A60",
+                border: "#C8C8C8"
+            };
+        }
+
+        // Default woorden
+        function getDefaultWords() {
+            return [
+                "Teamwork", "Innovatie", "Samenwerking", "Creativiteit",
+                "Communicatie", "Feedback", "Doelen", "Strategie",
+                "Cultuur", "Vertrouwen", "Groei", "Leiderschap",
+                "Motivatie", "Resultaat", "Kwaliteit", "Flexibiliteit",
+                "Respect", "Energie", "Focus", "Balans",
+                "Verbinding", "Inspiratie", "Ontwikkeling", "Succes",
+                "Passie", "Ambitie", "Visie", "Missie",
+                "Waarden", "Purpose", "Impact", "Duurzaam"
+            ];
+        }
+
+        // Reset alles naar MeetingMasters standaard
+        function resetToDefaults() {
+            if (confirm('Weet je zeker dat je alles wilt resetten naar de MeetingMasters standaard instellingen?')) {
+                BingoConfig.colors = getDefaultColors();
+                BingoConfig.words = getDefaultWords();
+                BingoConfig.contentType = "words";
+                BingoConfig.eventName = "MeetingMasters Bingo";
+                BingoConfig.totalCards = 250;
+                BingoConfig.logo = { url: "assets/logo.png", alt: "Klant Logo" };
+
+                // Clear localStorage
+                localStorage.removeItem('bingoConfig');
+                localStorage.removeItem('bingoCalledItems');
+
+                // Refresh de pagina
+                location.reload();
+            }
+        }
+
+        // Instellingen opslaan
+        function saveSettings() {
+            BingoConfig.eventName = document.getElementById('event-name').value;
+            BingoConfig.totalCards = parseInt(document.getElementById('total-cards').value);
+            saveConfigToStorage();
+            showSaveIndicator('settings-save-indicator');
+        }
+
+        // Config opslaan in localStorage
+        function saveConfigToStorage() {
+            const configToSave = {
+                eventName: BingoConfig.eventName,
+                colors: BingoConfig.colors,
+                contentType: BingoConfig.contentType,
+                words: BingoConfig.words,
+                images: BingoConfig.images,
+                logo: BingoConfig.logo,
+                totalCards: BingoConfig.totalCards,
+                hostPassword: BingoConfig.hostPassword
+            };
+            localStorage.setItem('bingoConfig', JSON.stringify(configToSave));
+        }
+
+        // Config laden uit localStorage
+        function loadSavedConfig() {
+            const stored = localStorage.getItem('bingoConfig');
+            if (stored) {
+                const savedConfig = JSON.parse(stored);
+                Object.assign(BingoConfig, savedConfig);
+            }
+
+            // Update UI
+            document.getElementById('event-name').value = BingoConfig.eventName;
+            document.getElementById('total-cards').value = BingoConfig.totalCards;
+            document.getElementById('content-type-select').value = BingoConfig.contentType;
+            document.getElementById('words-textarea').value = BingoConfig.words.join('\n');
+
+            updateContentType();
+
+            if (BingoConfig.images && BingoConfig.images.length > 0) {
+                uploadedImages = BingoConfig.images;
+                renderImagePreview();
+            }
+
+            if (BingoConfig.logo && BingoConfig.logo.url && !BingoConfig.logo.url.includes('assets/')) {
+                document.getElementById('logo-preview').innerHTML = `<img src="${BingoConfig.logo.url}" style="max-width: 150px; max-height: 150px;">`;
+            }
+
+            loadCalledItems();
+        }
+
+        /**
+         * Activeer: pak de huidige instelling in de link en toon de links.
+         * Er is geen bestand om te uploaden en geen database; wie de link
+         * heeft, heeft deze bingo. Twee klanten kunnen dus tegelijk spelen,
+         * elk met een eigen link.
+         */
+        async function activeerSessie() {
+            const links = await BingoSessie.maakLinks(BingoConfig);
+            const iframeCode = '<iframe src="' + links.speler + '" allow="fullscreen" style="border:0;width:100%;height:100%"></iframe>';
+
+            const zet = (id, waarde) => {
+                const el = document.getElementById(id);
+                el.textContent = waarde;
+                el.dataset.full = waarde;
+            };
+            zet('share-link', links.speler);
+            zet('host-link', links.host);
+            zet('iframe-code', iframeCode);
+
+            document.getElementById('activeer-uitleg').style.display = 'none';
+            document.getElementById('activeer-resultaat').style.display = 'block';
+
+            // Het adres van dit paneel meeschrijven, zodat verversen niets kost.
+            history.replaceState(null, '', links.host);
+        }
+
+        function copyHostLink() {
+            kopieer(document.getElementById('host-link').dataset.full);
+        }
+
+        function kopieer(tekst) {
+            navigator.clipboard.writeText(tekst).then(() => {
+                const btn = event.target;
+                const origineel = btn.textContent;
+                btn.textContent = 'Gekopieerd!';
+                btn.style.background = '#4CAF50';
+                setTimeout(() => {
+                    btn.textContent = origineel;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // Kopieer deelnemerslink naar clipboard
+        function copyShareLink() {
+            const linkEl = document.getElementById('share-link');
+            const link = linkEl.dataset.full || linkEl.textContent;
+
+            if (link === 'Klik op "Genereer Deel-Links"') {
+                alert('Klik eerst op "Genereer Deel-Links" om een link te maken.');
+                return;
+            }
+
+            navigator.clipboard.writeText(link).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Gekopieerd!';
+                btn.style.background = '#4CAF50';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'var(--color-secondary)';
+                }, 2000);
+            });
+        }
+
+        // Kopieer iframe code naar clipboard
+        function copyIframeCode() {
+            const iframeCode = document.getElementById('iframe-code').dataset.full;
+            navigator.clipboard.writeText(iframeCode).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Gekopieerd!';
+                btn.style.background = '#4CAF50';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'var(--color-secondary)';
+                }, 2000);
+            });
+        }
+
+        // Toon save indicator
+        function showSaveIndicator(id) {
+            const indicator = document.getElementById(id);
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+
+        // Check for Enter key on login
+        document.addEventListener('DOMContentLoaded', () => {
+            initHostPanel();
+        });
+    </script>
+</body>
+</html>
