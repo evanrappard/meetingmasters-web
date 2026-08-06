@@ -145,7 +145,7 @@ export default function RavenHackPage() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
-                    href="/nl/contact"
+                    href="/nl/boeken"
                     className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
                   >
                     Check beschikbaarheid →
@@ -290,13 +290,13 @@ export default function RavenHackPage() {
                 </ul>
                 <div className="mt-auto flex flex-wrap gap-3">
                   <Link
-                    href="/nl/contact"
+                    href="/nl/boeken"
                     className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:bg-[#D4A835] transition-colors"
                   >
                     Check beschikbaarheid
                   </Link>
                   <Link
-                    href="/nl/contact"
+                    href="/nl/offerte"
                     className="border border-[#D4D4D4] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:border-[#2D2D2D] transition-colors"
                   >
                     Kosten

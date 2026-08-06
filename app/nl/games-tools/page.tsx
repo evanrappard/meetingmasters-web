@@ -128,7 +128,7 @@ export default function GamesToolsPage() {
                   rooms tot onboardinggames — gemaakt voor groepen, ontworpen voor betrokkenheid.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Link href="/nl/contact" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
+                  <Link href="/nl/boeken" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
                     Check beschikbaarheid →
                   </Link>
                   <Link href="#games" className="text-white/85 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors">

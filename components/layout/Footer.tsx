@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Linkedin } from "lucide-react";
 import LastUpdated from "@/components/ui/LastUpdated";
+import HubSpotForm from "@/components/ui/HubSpotForm";
+import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
 
 export default function Footer() {
   return (
@@ -110,6 +112,23 @@ export default function Footer() {
                 Nederland
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* ── Nieuwsbrief ── */}
+        <div className="mt-12 pt-10 border-t border-[#3D3D3D] grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6 lg:gap-12 items-start">
+          <div>
+            <h4 className="text-[#EEBE3D] text-xs font-bold mb-3 uppercase tracking-widest">
+              Nieuwsbrief
+            </h4>
+            <p className="text-sm leading-relaxed max-w-[40ch]">
+              Af en toe iets bruikbaars over online bijeenkomsten. Geen verkooppraat.
+            </p>
+          </div>
+          {/* De donkere footer vraagt om lichte velden; HubSpot levert een lichte
+              standaardstijl, dus het formulier krijgt hier een eigen vlak. */}
+          <div className="bg-white rounded p-5">
+            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.nieuwsbrief} />
           </div>
         </div>
       </div>

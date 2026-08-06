@@ -652,7 +652,7 @@ export default async function EventTypePage(
                   )}
                 </div>
                 <Link
-                  href="/nl/contact"
+                  href="/nl/expert-advies"
                   className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
                 >
                   Vrijblijvend gesprek →

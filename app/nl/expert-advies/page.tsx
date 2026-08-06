@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, Phone, Smartphone } from "lucide-react";
-import AdviesForm from "@/components/ui/AdviesForm";
+import HubSpotForm from "@/components/ui/HubSpotForm";
+import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
 import CTABlock from "@/components/ui/CTABlock";
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export default function ExpertAdviesPage() {
                 Laat je vraag of idee achter, dan denken we met je mee. Je zit
                 nergens aan vast.
               </p>
-              <AdviesForm />
+              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.advies} />
             </div>
 
             {/* Directe opties */}

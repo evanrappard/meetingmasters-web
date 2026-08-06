@@ -104,7 +104,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             <p className="text-[#545454] text-base leading-relaxed max-w-[560px] mb-8">{data.intro}</p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/nl/contact"
+                href="/nl/expert-advies"
                 className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
               >
                 Is dit de juiste tool voor jou? →

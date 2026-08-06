@@ -221,7 +221,7 @@ export default function PlatformsPage() {
             <p className="text-[#2D2D2D]/65 text-sm">Plan een demo in ons eigen virtual office — je ervaart het platform in tien minuten.</p>
           </div>
           <Link
-            href="/nl/contact"
+            href="/nl/demo"
             className="shrink-0 bg-[#2D2D2D] text-white text-sm font-bold px-8 py-3.5 rounded hover:bg-[#1A1A1A] transition-colors"
           >
             Plan een demo →

@@ -194,7 +194,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </p>
             </div>
             <Link
-              href="/nl/contact"
+              href="/nl/expert-advies"
               className="justify-self-start bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
             >
               Plan een gesprek →

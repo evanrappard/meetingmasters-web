@@ -16,12 +16,12 @@ de site geëmbed worden. Emilie maakt het formulier aan in HubSpot en levert de
 
 | # | Naam in HubSpot | Doel | Embed-locatie | Velden | Status | formId |
 |---|-----------------|------|---------------|--------|--------|--------|
-| 1 | **MM Website — Vrijblijvend advies** | Idee of vraag vrijblijvend voorleggen | `/nl/expert-advies` — vervangt het huidige `AdviesForm` (mailto) | naam, e-mail, telefoon (optioneel), bericht | 🟡 | `02bdc77f-14e3-4826-9d48-96449c8ca062` |
-| 2 | **MM Website — Algemeen contact** | Algemene contactvraag | `/nl/contact` — die pagina heeft nu alleen mailto/tel, geen formulier | naam, e-mail, telefoon (optioneel), bericht | 🟡 | `c747d7cd-4850-44f4-965f-a87120e55d38` |
-| 3 | **MM Website — Demo of rondleiding** | De "20 minuten ervaren"-CTA | CTA-blok onderaan elke pagina (`components/ui/CTABlock.tsx`) + technologie-pagina's | naam, e-mail, organisatie, voorkeursmoment, bericht | 🟡 | `a052e71e-9ed7-4c11-adc9-36d8e8b26ea8` |
-| 4 | **MM Website — Boeking & beschikbaarheid** | Zaaltje, R@venHack of EscapeMasters boeken | `/nl/virtual-office/zaaltje`, `/nl/games-tools/ravenhack`, games-overzicht | naam, e-mail, organisatie, dropdown "wat wil je boeken", datum, aantal deelnemers | 🟡 | `ddf3e496-b036-4720-b7b1-44eed87f7506` |
-| 5 | **MM Website — Kostenindicatie** | Vrijblijvende offerte | 20 event-detailpagina's ("Vrijblijvende offerte"), `/nl/virtual-office/huren`, `/nl/escape-rooms` | naam, e-mail, organisatie, type event, groepsgrootte, bericht | 🟡 | `8fb6d169-df70-45f0-bb36-671df8ad0f58` |
-| 6 | **MM Website — Nieuwsbrief** | Inschrijving nieuwsbrief | footer (`components/layout/Footer.tsx`) | e-mail | 🟡 | `0992ca5c-97ed-4940-a45d-55357d69f57a` |
+| 1 | **MM Website — Vrijblijvend advies** | Idee of vraag vrijblijvend voorleggen | `/nl/expert-advies` — vervangt het mailto-formulier, dat is verwijderd | naam, e-mail, telefoon (optioneel), bericht | ✅ | `02bdc77f-14e3-4826-9d48-96449c8ca062` |
+| 2 | **MM Website — Algemeen contact** | Algemene contactvraag | `/nl/contact` — onder de contactgegevens | naam, e-mail, telefoon (optioneel), bericht | ✅ | `c747d7cd-4850-44f4-965f-a87120e55d38` |
+| 3 | **MM Website — Demo of rondleiding** | De "20 minuten ervaren"-CTA | `/nl/demo` — CTA's 'Plan een rondleiding', 'Plan een demo' en 'Ervaar het zelf' wijzen hierheen | naam, e-mail, organisatie, voorkeursmoment, bericht | ✅ | `a052e71e-9ed7-4c11-adc9-36d8e8b26ea8` |
+| 4 | **MM Website — Boeking & beschikbaarheid** | Zaaltje, R@venHack of EscapeMasters boeken | `/nl/boeken` — CTA's 'Boek je zaaltje', 'Check beschikbaarheid', 'Boek R@venHack' en 'Boek EscapeMasters' | naam, e-mail, organisatie, dropdown "wat wil je boeken", datum, aantal deelnemers | ✅ | `ddf3e496-b036-4720-b7b1-44eed87f7506` |
+| 5 | **MM Website — Kostenindicatie** | Vrijblijvende offerte | `/nl/offerte` — CTA's rond offerte en kosten | naam, e-mail, organisatie, type event, groepsgrootte, bericht | ✅ | `8fb6d169-df70-45f0-bb36-671df8ad0f58` |
+| 6 | **MM Website — Nieuwsbrief** | Inschrijving nieuwsbrief | Footer, onderaan elke pagina | e-mail | ✅ | `0992ca5c-97ed-4940-a45d-55357d69f57a` |
 | — | *(bestaat al)* | Berekening toesturen | vergaderkosten-calculator (los HTML-bestand) | e-mail, `berekening_samenvatting` | ✅ | `229f1966-fafc-4929-bfae-173a27b5edee` |
 
 ### Waarom zes en niet meer
@@ -66,8 +66,17 @@ verwijzen daarnaar in plaats van de ID's los te herhalen.
   het script. Onzichtbaar, dus geen puzzels of frictie voor bezoekers. Hierdoor
   is er **geen losse captcha op de site** nodig.
 - **Melding bij inzending** gaat naar Emilie (HubSpot-gebruiker `27615657`).
-- `components/ui/AdviesForm.tsx` (mailto) is tijdelijk en wordt **verwijderd**
-  zodra formulier #1 via HubSpot live staat op `/nl/expert-advies`.
+- `components/ui/AdviesForm.tsx` (het tijdelijke mailto-formulier) is
+  **verwijderd** nu formulier #1 live staat.
+- **Drie pagina's zijn nieuw** voor de CTA-formulieren: `/nl/demo`,
+  `/nl/boeken` en `/nl/offerte`. Ze delen één opzet:
+  [`components/ui/FormulierPagina.tsx`](../components/ui/FormulierPagina.tsx).
+  Zo staat er niet op twintig event-pagina's een eigen formulier.
+- CTA's met een duidelijke bedoeling wijzen nu naar die pagina's; generiek
+  "Neem contact op" blijft naar `/nl/contact` gaan.
+- `HubSpotForm.tsx` laadt het **regio-specifieke** embed-script
+  (`js-eu1.hsforms.net` voor dit account). Het algemene adres werkt niet
+  betrouwbaar voor EU-portals.
 - De contactpagina's houden hun `mailto:`/`tel:`-opties naast het
   HubSpot-contactformulier staan als directe route.
 - Wil je op losse velden kunnen segmenteren of rapporteren (bijvoorbeeld

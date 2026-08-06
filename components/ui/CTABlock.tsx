@@ -63,7 +63,7 @@ export default function CTABlock() {
               title="Ervaar het verschil"
               desc="20 minuten om te zien hoe een platform als SpatialChat iets anders doet dan Zoom of Teams."
               ctaLabel="Plan een rondleiding →"
-              href="/nl/contact"
+              href="/nl/demo"
               variant="mid"
             />
             <CTACard
@@ -71,7 +71,7 @@ export default function CTABlock() {
               title="Plan een gesprek — wij denken mee"
               desc="Vrijblijvend. Wij denken direct mee over je situatie, je groep en wat er nodig is."
               ctaLabel="Plan een gesprek →"
-              href="/nl/contact"
+              href="/nl/expert-advies"
               variant="high"
             />
           </div>

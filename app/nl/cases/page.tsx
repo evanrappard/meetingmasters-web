@@ -139,7 +139,7 @@ export default function CasesPage() {
           Wil je weten hoe dit er voor jou uit kan zien?
         </h2>
         <Link
-          href="/nl/contact"
+          href="/nl/demo"
           className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
         >
           Plan een demo

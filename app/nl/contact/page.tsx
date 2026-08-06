@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail, Phone, Smartphone, MapPin } from "lucide-react";
+import HubSpotForm from "@/components/ui/HubSpotForm";
+import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
 
 export const metadata: Metadata = {
   title: "Contact | MeetingMasters",
@@ -75,18 +77,24 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="mailto:contact@meetingmasters.online"
-            className="bg-accent text-white px-8 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
-          >
-            Plan een vrijblijvend gesprek
-          </a>
           <Link
-            href="/nl/expert-advies"
+            href="/nl/demo"
             className="border border-accent text-accent px-8 py-3 text-sm font-semibold rounded hover:bg-accent hover:text-white transition-colors inline-block"
           >
             Boek een demo in ons virtuele kantoor
           </Link>
+        </div>
+
+        {/* Formulier — de directe opties hierboven blijven daarnaast staan. */}
+        <div className="mt-14 pt-12 border-t border-gray-200">
+          <h2 className="text-2xl font-bold text-primary mb-2">Stuur ons een bericht</h2>
+          <p className="text-[#666666] leading-relaxed mb-8 max-w-lg">
+            Liever schrijven dan bellen? Laat je vraag hier achter, dan reageren we zo snel
+            mogelijk.
+          </p>
+          <div className="max-w-lg">
+            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.contact} />
+          </div>
         </div>
       </section>
     </div>

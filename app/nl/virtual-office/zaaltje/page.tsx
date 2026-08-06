@@ -123,7 +123,7 @@ export default function ZaaltjePage() {
             ))}
           </div>
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-6">
-            <Link href="/nl/contact" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors self-start">
+            <Link href="/nl/boeken" className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors self-start">
               Boek je zaaltje →
             </Link>
             <p className="leading-tight">

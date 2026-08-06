@@ -46,7 +46,7 @@ export default function EscapeRoomsPage() {
               energie, plezier en verbinding in je team te brengen.
             </p>
             <Link
-              href="/nl/contact"
+              href="/nl/boeken"
               className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
             >
               Boek EscapeMasters
@@ -73,7 +73,7 @@ export default function EscapeRoomsPage() {
               op een leuke manier het securitybewustzijn willen vergroten.
             </p>
             <Link
-              href="/nl/contact"
+              href="/nl/boeken"
               className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
             >
               Boek R@venHack

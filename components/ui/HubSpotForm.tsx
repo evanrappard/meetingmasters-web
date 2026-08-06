@@ -17,7 +17,15 @@ declare global {
   }
 }
 
-const HS_SCRIPT_SRC = "https://js.hsforms.net/forms/embed/v2.js";
+/**
+ * HubSpot serveert per datacenter een eigen embed-script. Voor een EU-account
+ * (region eu1) is dat js-eu1.hsforms.net; het algemene adres werkt daar niet
+ * altijd betrouwbaar mee.
+ */
+const scriptAdres = (region: string) =>
+  region && region !== "na1"
+    ? `https://js-${region}.hsforms.net/forms/embed/v2.js`
+    : "https://js.hsforms.net/forms/embed/v2.js";
 
 type HubSpotFormProps = {
   portalId: string;
@@ -64,12 +72,11 @@ export default function HubSpotForm({
     }
 
     // Script eenmalig laden; meerdere formulieren delen hetzelfde script.
-    let script = document.querySelector<HTMLScriptElement>(
-      `script[src="${HS_SCRIPT_SRC}"]`
-    );
+    const bron = scriptAdres(region);
+    let script = document.querySelector<HTMLScriptElement>(`script[src="${bron}"]`);
     if (!script) {
       script = document.createElement("script");
-      script.src = HS_SCRIPT_SRC;
+      script.src = bron;
       script.async = true;
       document.body.appendChild(script);
     }

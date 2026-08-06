@@ -282,7 +282,7 @@ export default async function HomePage() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
-                    href="/nl/contact"
+                    href="/nl/demo"
                     className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
                   >
                     Ervaar het zelf →
@@ -483,7 +483,7 @@ export default async function HomePage() {
                 ))}
               </ul>
               <Link
-                href="/nl/contact"
+                href="/nl/demo"
                 className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
               >
                 Plan een demo →

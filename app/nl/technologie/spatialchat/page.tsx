@@ -99,7 +99,7 @@ export default function SpatialChatPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/nl/contact"
+                href="/nl/expert-advies"
                 className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-6 py-3 rounded hover:bg-[#D4A835] transition-colors"
               >
                 Plan een gesprek
@@ -353,7 +353,7 @@ export default function SpatialChatPage() {
             </div>
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
               <Link
-                href="/nl/contact"
+                href="/nl/expert-advies"
                 className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3.5 rounded hover:bg-[#D4A835] transition-colors text-center"
               >
                 Plan een gesprek

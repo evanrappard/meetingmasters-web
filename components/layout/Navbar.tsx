@@ -228,7 +228,7 @@ export default function Navbar() {
               <Link href="/nl/home" className="hover:text-[#545454] transition-colors">EN</Link>
             </div>
             <Link
-              href="/nl/contact"
+              href="/nl/expert-advies"
               className="hidden lg:inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-6 py-2 rounded hover:bg-[#D4A835] transition-colors"
             >
               Plan een gesprek
@@ -314,7 +314,7 @@ export default function Navbar() {
           )}
           <div className="pt-4 flex flex-col gap-3">
             <Link
-              href="/nl/contact"
+              href="/nl/expert-advies"
               onClick={closeMobile}
               className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-3 rounded text-center hover:bg-[#D4A835] transition-colors"
             >
