@@ -211,8 +211,14 @@ export default async function HomePage() {
     ? cmsContent.stats.map((s) => ({ number: s.value, label: s.label }))
     : DEFAULT_STATS;
 
-  const logos = cmsLogos?.length
-    ? cmsLogos.map((l) => ({ src: l.logo.asset.url, alt: `${l.name} — klant van MeetingMasters Online` }))
+  // Een logo-item uit het CMS kan (nog) zonder afbeelding zijn opgeslagen; die
+  // slaan we over in plaats van de hele pagina te laten struikelen.
+  const cmsLogosMetBeeld = (cmsLogos ?? []).filter((l) => l.logo?.asset?.url);
+  const logos = cmsLogosMetBeeld.length
+    ? cmsLogosMetBeeld.map((l) => ({
+        src: l.logo!.asset.url,
+        alt: `${l.name} — klant van MeetingMasters Online`,
+      }))
     : DEFAULT_LOGOS;
 
   const INSPIRATIE_ORDER = ["Event", "Virtual Office", "Games & Tools"];

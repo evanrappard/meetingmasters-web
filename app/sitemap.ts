@@ -20,5 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/nl/escape-rooms`,                changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/nl/meeting-formats`,             changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/nl/testimonials`,                changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/nl/privacy-statement`,           changeFrequency: "yearly",  priority: 0.3 },
+    { url: `${BASE}/nl/cookieverklaring`,            changeFrequency: "yearly",  priority: 0.3 },
   ];
 }

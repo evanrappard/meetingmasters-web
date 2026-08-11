@@ -4,6 +4,7 @@ import { Linkedin } from "lucide-react";
 import LastUpdated from "@/components/ui/LastUpdated";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
+import { BEDRIJF } from "@/lib/bedrijfsgegevens";
 
 export default function Footer() {
   return (
@@ -133,10 +134,32 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[#3D3D3D] px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p className="text-xs text-[#555555]">© 2026 MeetingMasters Online</p>
-        <LastUpdated date="juni 2026" />
-        <p className="text-xs text-[#555555]">Amsterdam, Nederland</p>
+      <div className="border-t border-[#3D3D3D] px-6 lg:px-10 py-5 flex flex-col lg:flex-row items-center justify-between gap-3">
+        <p className="text-xs text-[#555555] text-center lg:text-left">
+          © 2026 {BEDRIJF.naam}
+          {BEDRIJF.kvk && <> · KvK {BEDRIJF.kvk}</>}
+          {BEDRIJF.btw && <> · Btw {BEDRIJF.btw}</>}
+        </p>
+
+        <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs">
+          {[
+            { label: "Privacy Statement", href: "/nl/privacy-statement" },
+            { label: "Cookieverklaring", href: "/nl/cookieverklaring" },
+          ].map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-[#777777] hover:text-white transition-colors"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <LastUpdated date="juni 2026" />
+          <p className="text-xs text-[#555555]">Amsterdam, Nederland</p>
+        </div>
       </div>
     </footer>
   );
