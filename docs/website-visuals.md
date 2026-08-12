@@ -63,7 +63,7 @@ Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepag
 | Hero | `/images/about-hero.webp` | LOKAAL |
 | Klantenlogo's (10×) | `/images/logos/*.webp` | LOKAAL |
 | Manifest-video | YouTube `Cling07_Kas` (YouTubeEmbed) | EXTERN |
-| Oprichter | `/images/emilie-ad.webp` | LOKAAL |
+| Oprichter | `/images/emilie-ad-v2.webp` | LOKAAL | `Downloads/ChatGPT Image 11 aug 2026, 16_12_45.png` — 1262×1246, scherpe versie van dezelfde foto. Verving `emilie-ad.webp` (was 286×284, te zacht); oude bestand verwijderd 12 aug 2026. Kader is `aspect-[4/3]` + `object-cover object-center` → boven/onder valt weg |
 | Team | `/images/team-mm.webp` | LOKAAL |
 
 ## NL Team — `app/nl/team/page.tsx`

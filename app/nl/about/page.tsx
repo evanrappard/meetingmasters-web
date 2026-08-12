@@ -194,7 +194,7 @@ export default function AboutPage() {
             {/* Oprichter */}
             <div>
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-md mb-5">
-                <Image src="/images/emilie-ad.webp" alt="Emilie van Rappard, oprichter van MeetingMasters, tijdens een online sessie" fill className="object-cover object-center" sizes="(max-width: 768px) 100vw, 560px" />
+                <Image src="/images/emilie-ad-v2.webp" alt="Emilie van Rappard, oprichter van MeetingMasters, tijdens een online sessie" fill className="object-cover object-center" sizes="(max-width: 768px) 100vw, 560px" />
               </div>
               <p className="text-[#28A8AA] text-[11px] font-bold tracking-widest uppercase mb-2">Oprichter</p>
               <h3 className="text-xl font-bold text-[#2D2D2D] mb-3">Emilie van Rappard</h3>
