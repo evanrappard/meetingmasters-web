@@ -50,7 +50,7 @@ leeft in de paginacode, niet in een apart bestand).
 |---|---|---|---|---|
 | 1 | Bouwlijst componenten nieuwe website — nog te bepalen | C | Emilie | open |
 | 2 | Engelse vertaling van de NL-pagina's | T | Copy-Claude | **uitgesteld** — pas oppakken als álle Nederlandse tekst final is (besluit 12 aug 2026) |
-| 3 | Home heeft twee `<h1>`'en: een `sr-only` regel én de zichtbare hero-kop. Eén ervan moet weg (SEO) | C | bouwer | open |
+| 3 | Virtueel Kantoor en R@venHack hebben een verborgen `sr-only` H1 boven een zichtbare `<h2>`-hero. Eén H1, maar wel een onzichtbare — nog bepalen of de zichtbare kop de H1 moet worden | C | Emilie | open |
 | 4 | `npx eslint .` loopt ook over `node_modules` (54k meldingen) — eslint-config mist een ignore | C | bouwer | open |
 | 5 | Mobiele weergave gemeten op 320/375/414px: 0 problemen. Nog wel op een écht toestel bekijken | C | Emilie | open — Emilie checkt |
 | 6 | Cases, Partners en Kwaliteit & vertrouwelijkheid terugzetten in `lib/navigatie.ts` zodra de pagina's gevuld zijn | T C | Emilie | geparkeerd — routes bestaan nog, alleen uit menu en footer |
@@ -64,6 +64,16 @@ leeft in de paginacode, niet in een apart bestand).
 ## 5. Log
 
 ### 2026-08-12
+
+- **T C** — **Home: de verborgen tweede H1 verwijderd.** De pagina had er twee:
+  een onzichtbare `sr-only`-regel ("MeetingMasters — online events en virtual
+  office specialist op SpatialChat") én de zichtbare hero-kop. Twee
+  concurrerende hoofdkoppen verdelen het signaal naar Google, en een
+  schermlezer las er twee achter elkaar voor. De onzichtbare is weg; de
+  hero-kop is nu de enige H1. Er verandert niets aan de weergave. De
+  zoekwoorden blijven behouden via de paginatitel, de meta-omschrijving en de
+  drie kaarten onder de hero. Gecontroleerd: één `<h1>` in de uitgeleverde
+  HTML, `tsc --noEmit` en `npm run build` schoon.
 
 - **C** — Dit logboek aangemaakt. Vanaf nu loopt elke tekst-, beeld- en
   componentwijziging hierlangs.

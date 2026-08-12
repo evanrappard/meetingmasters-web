@@ -259,7 +259,6 @@ export default async function HomePage() {
 
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section>
-        <h1 className="sr-only">MeetingMasters — online events en virtual office specialist op SpatialChat</h1>
         {/* Mobiel: geen vaste hoogte — de container groeit mee met de tekst,
             anders loopt de H1 bovenlangs het beeld uit. Vanaf sm het
             oorspronkelijke, vaste beeldformaat. */}
