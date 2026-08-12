@@ -21,7 +21,7 @@ de site geëmbed worden. Emilie maakt het formulier aan in HubSpot en levert de
 | 3 | **MM Website — Demo of rondleiding** | De "20 minuten ervaren"-CTA | `/nl/demo` — CTA's 'Plan een rondleiding', 'Plan een demo' en 'Ervaar het zelf' wijzen hierheen | naam, e-mail, organisatie, voorkeursmoment, bericht | ✅ | `a052e71e-9ed7-4c11-adc9-36d8e8b26ea8` |
 | 4 | **MM Website — Boeking & beschikbaarheid** | Zaaltje, R@venHack of EscapeMasters boeken | `/nl/boeken` — CTA's 'Boek je zaaltje', 'Check beschikbaarheid', 'Boek R@venHack' en 'Boek EscapeMasters' | naam, e-mail, organisatie, dropdown "wat wil je boeken", datum, aantal deelnemers | ✅ | `ddf3e496-b036-4720-b7b1-44eed87f7506` |
 | 5 | **MM Website — Kostenindicatie** | Vrijblijvende offerte | `/nl/offerte` — CTA's rond offerte en kosten | naam, e-mail, organisatie, type event, groepsgrootte, bericht | ✅ | `8fb6d169-df70-45f0-bb36-671df8ad0f58` |
-| 6 | **MM Website — Nieuwsbrief** | Inschrijving nieuwsbrief | Footer, onderaan elke pagina | e-mail | ✅ | `0992ca5c-97ed-4940-a45d-55357d69f57a` |
+| 6 | **MM Website — Nieuwsbrief** | Inschrijving nieuwsbrief | `/nl/nieuwsbrief` — de footer linkt ernaartoe met "Schrijf je in" (het formulier stond eerst in de footer zelf, maar de lichte HubSpot-stijl liet zich in die donkere balk niet temmen) | e-mail | ✅ | `0992ca5c-97ed-4940-a45d-55357d69f57a` |
 | — | *(bestaat al)* | Berekening toesturen | vergaderkosten-calculator (los HTML-bestand) | e-mail, `berekening_samenvatting` | ✅ | `229f1966-fafc-4929-bfae-173a27b5edee` |
 
 ### Waarom zes en niet meer

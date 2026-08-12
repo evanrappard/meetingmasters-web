@@ -12,7 +12,7 @@ export default function TeamPage() {
     <div className="bg-white">
       {/* Header */}
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <h1 className="text-4xl font-bold text-primary mb-3">Ons team</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-3">Ons team</h1>
         <p className="text-[#666666] text-lg">
           Een heldere visie en jarenlange gedegen ervaring.
         </p>
@@ -26,6 +26,8 @@ export default function TeamPage() {
               src="/images/team-emilie.jpg"
               alt="Emilie van Rappard"
               fill
+              priority
+              sizes="(min-width: 768px) 384px, 100vw"
               className="object-cover object-top"
             />
           </div>

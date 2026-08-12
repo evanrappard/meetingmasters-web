@@ -15,7 +15,7 @@ export default function EscapeRoomsPage() {
         <p className="text-accent text-sm font-semibold mb-2 tracking-widest uppercase">
           🆕 Nieuw
         </p>
-        <h1 className="text-4xl font-bold text-primary mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
           Online escape rooms
         </h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">
@@ -33,6 +33,8 @@ export default function EscapeRoomsPage() {
                 src="/images/format-escape.png"
                 alt="EscapeMasters online escape room"
                 fill
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>

@@ -14,7 +14,7 @@ export default function ContactPage() {
   return (
     <div className="bg-white">
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <h1 className="text-4xl font-bold text-primary mb-4">Contact</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">Contact</h1>
         <p className="text-accent text-xl italic font-medium max-w-xl mx-auto">
           &ldquo;Verbinding is het vertrekpunt van elke ontwikkeling.&rdquo;
         </p>
@@ -40,23 +40,25 @@ export default function ContactPage() {
         {/* Contactkaart */}
         <div className="bg-gray-50 rounded-xl p-8 shadow-sm border border-gray-200 max-w-lg">
           <ul className="space-y-4">
-            <li className="flex items-center gap-3 text-[#555555]">
+            <li className="flex items-center gap-3 text-[#555555] min-w-0">
               <Mail size={18} className="text-accent flex-shrink-0" />
+              {/* anywhere i.p.v. break-words: alleen die eerste laat het
+                  adres ook echt afbreken op een smal scherm. */}
               <a
                 href="mailto:contact@meetingmasters.online"
-                className="hover:text-accent transition-colors"
+                className="min-w-0 [overflow-wrap:anywhere] hover:text-accent transition-colors"
               >
                 contact@meetingmasters.online
               </a>
             </li>
-            <li className="flex items-center gap-3 text-[#555555]">
+            <li className="flex items-center gap-3 text-[#555555] min-w-0">
               <Phone size={18} className="text-accent flex-shrink-0" />
               <a href="tel:+31202390313" className="hover:text-accent transition-colors">
                 +31 20 239 03 13{" "}
                 <span className="text-[#888888] text-xs">(kantoor)</span>
               </a>
             </li>
-            <li className="flex items-center gap-3 text-[#555555]">
+            <li className="flex items-center gap-3 text-[#555555] min-w-0">
               <Smartphone size={18} className="text-accent flex-shrink-0" />
               <a href="tel:+31645752819" className="hover:text-accent transition-colors">
                 +31 6 4575 2819{" "}

@@ -1,4 +1,20 @@
 import type { NextConfig } from "next";
+import { networkInterfaces } from "node:os";
+
+/**
+ * Alle IPv4-adressen van deze machine, bijvoorbeeld 192.168.1.44.
+ *
+ * Next 16 weigert in ontwikkelmodus verzoeken naar /_next/* die van een ander
+ * origin komen dan waarop de server denkt te draaien. Bekijk je de site op je
+ * telefoon via het netwerk-IP, dan geeft elk JavaScript-bestand een 403: de
+ * pagina laadt en ziet er goed uit, maar er draait niets. Geen menu, geen
+ * cookiebanner, geen zoekfilters. Door de eigen adressen toe te staan werkt de
+ * site op je telefoon net zo als op localhost. Dit raakt alleen `next dev`.
+ */
+const eigenNetwerkAdressen = Object.values(networkInterfaces())
+  .flat()
+  .filter((net) => net?.family === "IPv4")
+  .map((net) => net!.address);
 
 const enPaths = [
   "home", "about", "about/team", "about/quality", "about/partners", "about/csr",
@@ -24,6 +40,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: eigenNetwerkAdressen,
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

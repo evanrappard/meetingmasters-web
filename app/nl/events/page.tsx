@@ -297,7 +297,7 @@ export default function EventsPage() {
 
       {/* ── HERO ── */}
       <section>
-        <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
+        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <video
             src="/videos/events-hero.mp4"
             autoPlay
@@ -311,14 +311,15 @@ export default function EventsPage() {
           />
           {/* Lichte gradient links→rechts — egaal contrast achter de tekstkolom, scherm rechts blijft helder */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
+          <div className="relative md:absolute md:inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-20">
               <div className="max-w-[500px]">
                 <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}>Virtuele Events</p>
-                <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
+                <h1 className="text-[1.75rem] sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
                   Online bijeenkomsten waar mensen echt aanwezig zijn.
                 </h1>
-                <p className="text-white text-lg leading-relaxed mb-8" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
+                <p className="text-white text-base sm:text-lg leading-relaxed mb-7 sm:mb-8" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
                   Een belangrijke bijeenkomst voor 5, 50 of 500 mensen:<br />
                   als het erop aankomt, voldoet de standaard niet.
                 </p>
@@ -347,7 +348,7 @@ export default function EventsPage() {
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-8">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Maatwerk op basis van ruime ervaring</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
               Bijzondere events verdienen bijzondere aandacht.
             </h2>
           </div>
@@ -372,7 +373,7 @@ export default function EventsPage() {
           {/* Intro + categorie-ankers */}
           <div className="mb-10">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Elk type event heeft zijn eigen opbouw en logica.</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-6">
               De vorm volgt het doel. Wat wil je bereiken?
             </h2>
             <nav className="flex flex-wrap gap-2">
@@ -405,7 +406,7 @@ export default function EventsPage() {
                     className="group flex flex-col items-center text-center rounded-2xl p-2 sm:p-3 hover:bg-[#FFFBEE] transition-colors"
                   >
                     <div
-                      className="relative w-40 h-40 sm:w-44 sm:h-44 rounded-full overflow-hidden flex items-center justify-center mb-3 group-hover:scale-[1.06] transition-transform duration-200"
+                      className="relative w-full aspect-square max-w-[176px] mx-auto rounded-full overflow-hidden flex items-center justify-center mb-3 group-hover:scale-[1.06] transition-transform duration-200"
                       style={{ background: bg, boxShadow: "0 6px 20px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.08)" }}
                     >
                       {iconSrc ? (
@@ -413,6 +414,7 @@ export default function EventsPage() {
                           src={iconSrc}
                           alt={title}
                           fill
+                          sizes="(min-width: 640px) 176px, 45vw"
                           className="object-cover transition-opacity duration-200 group-hover:opacity-0"
                         />
                       ) : (
@@ -455,7 +457,7 @@ export default function EventsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">Een deel van een groter verhaal</p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
                 Bijeenkomsten waar echt iets gebeurt.
               </h2>
               <p className="text-sm text-[#545454] leading-relaxed mb-8">

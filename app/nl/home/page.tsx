@@ -260,7 +260,10 @@ export default async function HomePage() {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section>
         <h1 className="sr-only">MeetingMasters — online events en virtual office specialist op SpatialChat</h1>
-        <div className="relative w-full aspect-video min-h-[360px] max-h-[90vh]">
+        {/* Mobiel: geen vaste hoogte — de container groeit mee met de tekst,
+            anders loopt de H1 bovenlangs het beeld uit. Vanaf sm het
+            oorspronkelijke, vaste beeldformaat. */}
+        <div className="relative w-full md:aspect-video md:min-h-[360px] md:max-h-[90vh]">
           <video
             src="/videos/hero-boomerang.mp4"
             autoPlay
@@ -273,15 +276,16 @@ export default async function HomePage() {
             style={{ objectPosition: "center", filter: "contrast(1.04) saturate(1.06)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-[#1E1E1E]/75 via-[#2D2D2D]/30 to-transparent" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
+          <div className="relative md:absolute md:inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-20">
               <div className="max-w-[600px]">
-                <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.05] mb-5">
+                <h1 className="text-[1.75rem] sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-5">
                   {heroHeadline.split("\n").map((line, i) => (
                     <span key={i}>{line}{i < heroHeadline.split("\n").length - 1 && <br />}</span>
                   ))}
                 </h1>
-                <p className="text-white text-lg font-medium leading-relaxed mb-8" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}>
+                <p className="text-white text-base sm:text-lg font-medium leading-relaxed mb-7 sm:mb-8" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}>
                   {heroSubline.split("\n").map((line, i) => (
                     <span key={i}>{line}{i < heroSubline.split("\n").length - 1 && <br />}</span>
                   ))}
@@ -352,7 +356,7 @@ export default async function HomePage() {
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
               Onze oplossingen
             </p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
               Wij zijn online meeting professionals. Ontwerpers van bijzondere momenten.
             </h2>
           </div>
@@ -430,7 +434,7 @@ export default async function HomePage() {
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
                 Essentie
               </p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 Waar wij voor staan
               </h2>
               <p className="text-[#545454] leading-relaxed mb-4">
@@ -470,7 +474,7 @@ export default async function HomePage() {
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
                 SpatialChat: ons voorkeursplatform
               </p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-2">
                 Waarom wij werken met SpatialChat
               </h2>
               <p className="text-[#545454] mb-6">Een videoplatform. Een ontmoetingsplaats.</p>
@@ -512,7 +516,7 @@ export default async function HomePage() {
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
               Inspiratie
             </p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] mb-3">
               Drie voorbeelden. 1000 idee&#xEB;n.
             </h2>
           </div>

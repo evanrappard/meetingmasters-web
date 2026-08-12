@@ -77,7 +77,7 @@ export default function AboutPage() {
 
       {/* ── HERO ── */}
       <section>
-        <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px] overflow-hidden">
+        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px] overflow-hidden">
           <Image
             src="/images/about-hero.webp"
             alt="Iemand in een online bijeenkomst van MeetingMasters — verbinding maken, waar je ook bent"
@@ -86,11 +86,12 @@ export default function AboutPage() {
             style={{ objectPosition: "62% 58%", transform: "scale(1.16)", transformOrigin: "64% 60%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
+          <div className="relative md:absolute md:inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-20">
               <div className="max-w-[620px]">
                 <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.7)" }}>Over ons</p>
-                <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
+                <h1 className="text-[1.75rem] sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
                   Als mensen samenkomen, ontstaat iets moois.
                 </h1>
                 <p className="text-white text-lg leading-relaxed" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
@@ -180,7 +181,7 @@ export default function AboutPage() {
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-12 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">De mensen</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
               Mensen maken meetings.
             </h2>
             <p className="text-[#545454] text-lg leading-relaxed">

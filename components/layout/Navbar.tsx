@@ -1,90 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
-
-type NavChild = { label: string; href: string };
-
-type NavItem = {
-  label: string;
-  href: string;
-  feature?: { title: string; desc: string };
-  children?: NavChild[];
-  moreLabel?: string;
-  moreHref?: string;
-};
-
-const navItems: NavItem[] = [
-  {
-    label: "Events",
-    href: "/nl/events",
-    feature: {
-      title: "Bijeenkomsten die écht iets opleveren",
-      desc: "Beter contact, meer draagvlak, concrete besluiten – ook in grote groepen.",
-    },
-    children: [
-      { label: "Strategiedag", href: "/nl/events/strategiedagen" },
-      { label: "Virtuele kerstborrel", href: "/nl/events/kerstfeest" },
-      { label: "All-hands", href: "/nl/events/all-hands" },
-      { label: "Community-event", href: "/nl/events/community-building" },
-      { label: "Online teambuilding", href: "/nl/events/teambuilding" },
-    ],
-    moreLabel: "Alle eventformats",
-    moreHref: "/nl/events#formats",
-  },
-  {
-    label: "Virtueel Kantoor",
-    href: "/nl/virtual-office",
-    feature: {
-      title: "Samen werken als startpunt",
-      desc: "Een verbindende plek voor wie niet allemaal op 1 locatie zit.",
-    },
-    children: [
-      { label: "Boek een zaaltje", href: "/nl/virtual-office/zaaltje" },
-      { label: "Huur een instapklaar kantoor", href: "/nl/virtual-office/huren" },
-      { label: "Kantoor + Cultuur", href: "/nl/virtual-office/kantoor-cultuur" },
-    ],
-  },
-  {
-    label: "Games",
-    href: "/nl/games-tools",
-    feature: {
-      title: "Tools voor meer betrokkenheid",
-      desc: "Interactieve formats voor verrassende ervaring en meer verbinding.",
-    },
-    children: [
-      { label: "Games", href: "/nl/games-tools#games" },
-      { label: "Escape Room R@venHack", href: "/nl/games-tools/ravenhack" },
-      { label: "Tools", href: "/nl/games-tools#tools" },
-    ],
-  },
-  {
-    label: "Technologie",
-    href: "/nl/technologie",
-    feature: {
-      title: "Platform plus support",
-      desc: "Online meetings en events met menselijke maat.",
-    },
-    children: [
-      { label: "Volledige ontzorging", href: "/nl/technologie/support" },
-      { label: "SpatialChat", href: "/nl/technologie/spatialchat" },
-      { label: "Teams", href: "/nl/technologie/teams" },
-      { label: "Zoom", href: "/nl/technologie/zoom" },
-      { label: "Zoom Events", href: "/nl/technologie/zoom-events" },
-    ],
-  },
-  {
-    label: "Over ons",
-    href: "/nl/about",
-    feature: {
-      title: "Online Meeting Professionals",
-      desc: "",
-    },
-  },
-  { label: "Blog", href: "/nl/blog" },
-];
+import { NAV_ITEMS } from "@/lib/navigatie";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -95,8 +15,21 @@ export default function Navbar() {
     setOpenDropdown(null);
   };
 
+  // Zet de achtergrond vast zolang het mobiele menu open staat. Zonder dit
+  // scrollt de pagina onder het paneel door en springt het menu op iOS.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const vorige = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = vorige;
+    };
+  }, [mobileOpen]);
+
   return (
-    <header className="sticky top-0 z-50">
+    // z-[60] i.p.v. z-50: de cookiebanner staat ook op z-50 en komt later in de
+    // DOM, waardoor die anders over het geopende mobiele menu heen valt.
+    <header className="sticky top-0 z-[60]">
       {/* MM Yellow top stripe */}
       <div className="h-1 bg-[#EEBE3D] w-full" />
 
@@ -116,7 +49,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-7">
-            {navItems.map((item) => {
+            {NAV_ITEMS.map((item) => {
               // Menu met subpagina's: geel kopje + witte lijst eronder
               if (item.children && item.feature) {
                 return (
@@ -234,9 +167,10 @@ export default function Navbar() {
               Plan een gesprek
             </Link>
             <button
-              className="lg:hidden text-[#545454]"
+              className="lg:hidden -mr-2 p-2 text-[#545454]"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+              aria-label={mobileOpen ? "Menu sluiten" : "Menu openen"}
+              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -244,10 +178,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — vast paneel onder de balk dat zelf scrollt. Niet in de
+          flow van de sticky header laten meegroeien: die pint zich aan de
+          bovenkant vast, waardoor alles onder de schermrand onbereikbaar wordt. */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-[#EBEBEB] px-6 py-4 space-y-1">
-          {navItems.map((item) =>
+        <div className="lg:hidden fixed inset-x-0 top-[88px] bottom-0 overflow-y-auto overscroll-contain bg-white border-t border-[#EBEBEB] px-6 py-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] space-y-1">
+          {NAV_ITEMS.map((item) =>
             item.children && item.feature ? (
               <div key={item.label}>
                 <button

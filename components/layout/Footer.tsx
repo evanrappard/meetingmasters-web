@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin } from "lucide-react";
+import { Linkedin, ArrowRight } from "lucide-react";
 import LastUpdated from "@/components/ui/LastUpdated";
-import HubSpotForm from "@/components/ui/HubSpotForm";
-import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
 import { BEDRIJF } from "@/lib/bedrijfsgegevens";
+import { navPerGroep, FOOTER_EXTRA, FOOTER_JURIDISCH } from "@/lib/navigatie";
 
 export default function Footer() {
   return (
@@ -17,8 +16,8 @@ export default function Footer() {
             <Image
               src="/images/logo-diapositief.webp"
               alt="MeetingMasters Online — specialist in online bijeenkomsten voor groepen van 50 tot 500 mensen"
-              width={140}
-              height={36}
+              width={227}
+              height={83}
               className="h-9 w-auto"
             />
             <p className="text-sm leading-relaxed text-[#898989]">
@@ -44,13 +43,7 @@ export default function Footer() {
               Diensten
             </h4>
             <ul className="space-y-3 text-sm">
-              {[
-                { label: "Events", href: "/nl/events" },
-                { label: "Remote Office", href: "/nl/remote-office" },
-                { label: "Games & Tools", href: "/nl/games-tools" },
-                { label: "Cases", href: "/nl/cases" },
-                { label: "Publicaties", href: "/nl/publicaties" },
-              ].map((l) => (
+              {navPerGroep("diensten").map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="hover:text-white transition-colors">
                     {l.label}
@@ -66,13 +59,8 @@ export default function Footer() {
               Organisatie
             </h4>
             <ul className="space-y-3 text-sm">
-              {[
-                { label: "Over ons", href: "/nl/about" },
-                { label: "Blog", href: "/nl/blog" },
-                { label: "Partners", href: "/nl/about/partners" },
-                { label: "Kwaliteit & vertrouwelijkheid", href: "/nl/about/quality" },
-              ].map((l) => (
-                <li key={l.label}>
+              {[...navPerGroep("organisatie"), ...FOOTER_EXTRA].map((l) => (
+                <li key={l.href}>
                   <Link href={l.href} className="hover:text-white transition-colors">
                     {l.label}
                   </Link>
@@ -117,20 +105,25 @@ export default function Footer() {
         </div>
 
         {/* ── Nieuwsbrief ── */}
-        <div className="mt-12 pt-10 border-t border-[#3D3D3D] grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6 lg:gap-12 items-start">
+        {/* Het formulier zelf staat op /nl/nieuwsbrief. HubSpot levert een lichte
+            standaardstijl die in deze donkere balk niet te temmen is; hier volstaat
+            een uitnodiging. */}
+        <div className="mt-12 pt-10 border-t border-[#3D3D3D] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
           <div>
             <h4 className="text-[#EEBE3D] text-xs font-bold mb-3 uppercase tracking-widest">
               Nieuwsbrief
             </h4>
-            <p className="text-sm leading-relaxed max-w-[40ch]">
+            <p className="text-sm leading-relaxed max-w-[46ch]">
               Af en toe iets bruikbaars over online bijeenkomsten. Geen verkooppraat.
             </p>
           </div>
-          {/* De donkere footer vraagt om lichte velden; HubSpot levert een lichte
-              standaardstijl, dus het formulier krijgt hier een eigen vlak. */}
-          <div className="bg-white rounded p-5">
-            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.nieuwsbrief} />
-          </div>
+          <Link
+            href="/nl/nieuwsbrief"
+            className="inline-flex items-center gap-2 self-start sm:self-auto shrink-0 text-sm font-semibold text-[#EEBE3D] border border-[#5A5A5A] rounded px-5 py-2.5 hover:bg-[#EEBE3D] hover:text-[#2D2D2D] hover:border-[#EEBE3D] transition-colors"
+          >
+            Schrijf je in
+            <ArrowRight size={15} />
+          </Link>
         </div>
       </div>
 
@@ -142,10 +135,7 @@ export default function Footer() {
         </p>
 
         <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs">
-          {[
-            { label: "Privacy Statement", href: "/nl/privacy-statement" },
-            { label: "Cookieverklaring", href: "/nl/cookieverklaring" },
-          ].map((l) => (
+          {FOOTER_JURIDISCH.map((l) => (
             <Link
               key={l.href}
               href={l.href}

@@ -110,7 +110,7 @@ export default function RavenHackPage() {
         <h1 className="sr-only">
           R@venHack — cybersecurity escape game voor teams, in een gewone en een XL-versie
         </h1>
-        <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
+        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <Image
             src="/images/ravenhack-hero.webp"
             alt="R@venHack in SpatialChat — een team in de High Security Zone kraakt samen de codes"
@@ -119,14 +119,15 @@ export default function RavenHackPage() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
+          <div className="relative md:absolute md:inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-20">
               <div className="max-w-[600px]">
                 <p className="inline-block bg-black/35 rounded px-2.5 py-1 text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
                   R@venHack · Cybersecurity
                 </p>
                 <h2
-                  className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5"
+                  className="text-[1.75rem] sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-5"
                   style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}
                 >
                   Stop samen
@@ -204,7 +205,7 @@ export default function RavenHackPage() {
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
               Hoe het werkt
             </p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               Van crisis naar doorbraak, samen als team.
             </h2>
             <p className="text-[#545454] leading-relaxed">
@@ -246,7 +247,7 @@ export default function RavenHackPage() {
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
               Twee versies
             </p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               Kies de R@venHack die bij je team past.
             </h2>
             <p className="text-[#545454] leading-relaxed">
@@ -316,7 +317,7 @@ export default function RavenHackPage() {
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
                 In de praktijk
               </p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 Verder dan de phishingtest.
               </h2>
               <p className="text-[#2D2D2D] font-semibold text-lg leading-relaxed mb-4">

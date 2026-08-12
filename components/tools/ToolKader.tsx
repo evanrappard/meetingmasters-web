@@ -64,7 +64,7 @@ export default function ToolKader({ bron, naam, hoogte = "min(62dvh, 560px)" }: 
           ref={kaderRef}
           className={`w-full bg-white overflow-hidden ${
             vulVenster
-              ? "fixed inset-0 z-50 rounded-none"
+              ? "fixed inset-0 z-[70] rounded-none"
               : "relative rounded-lg shadow-[0_18px_44px_-20px_rgba(0,0,0,0.3)] border border-[#E4E1D8]"
           }`}
           style={{ height: groot ? "100dvh" : hoogte }}

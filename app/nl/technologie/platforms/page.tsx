@@ -120,7 +120,7 @@ export default function PlatformsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {platforms.map((p) => (
               <div key={p.name} className={`rounded-lg border-2 p-7 flex flex-col ${p.color}`}>
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex flex-wrap items-center gap-3 mb-2">
                   <span className="text-2xl">{p.icon}</span>
                   <h3 className="font-bold text-[#2D2D2D] text-lg">{p.name}</h3>
                   {p.highlight && (

@@ -104,7 +104,7 @@ export default function HomePage() {
     <>
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section>
-        <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
+        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <Image
             src="/images/hero-2.webp"
             alt="Professioneel begeleide online bijeenkomst voor grote groepen — MeetingMasters Online"
@@ -117,13 +117,14 @@ export default function HomePage() {
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1E1E1E]/90 via-[#2D2D2D]/55 to-transparent" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
+          <div className="relative md:absolute md:inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-20">
               <div className="max-w-[600px]">
-                <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.05] mb-5">
+                <h1 className="text-[1.75rem] sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-5">
                   Een vergadering heb je.<br />Een ontmoeting maak je.
                 </h1>
-                <p className="text-white text-lg leading-relaxed mb-8" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}>
+                <p className="text-white text-base sm:text-lg leading-relaxed mb-7 sm:mb-8" style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}>
                   Wij ontwerpen online bijeenkomsten die er écht toe doen.<br />
                   Meer betrokkenheid — met 5, 50 of 500 mensen.
                 </p>

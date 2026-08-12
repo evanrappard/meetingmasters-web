@@ -22,7 +22,7 @@ export default function PartnersPage() {
   return (
     <div className="bg-white">
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <h1 className="text-4xl font-bold text-primary mb-3">Partners</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-3">Partners</h1>
         <p className="text-[#666666] text-lg">
           We are surrounded by an extensive network of professional specialists.
         </p>

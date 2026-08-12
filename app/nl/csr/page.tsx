@@ -11,7 +11,7 @@ export default function CSRPage() {
   return (
     <div className="bg-white">
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <h1 className="text-4xl font-bold text-primary mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
           Maatschappelijk verantwoord ondernemen (MVO)
         </h1>
         <p className="text-accent text-xl font-medium max-w-2xl mx-auto">

@@ -232,11 +232,16 @@ export default function TechnologiePage() {
               </Link>
             </div>
             {/* Visuele vergelijking */}
-            <div className="bg-[#FAFAF8] border-t lg:border-t-0 lg:border-l border-[#EEEEEA] p-8 md:p-10 flex items-center justify-around gap-6">
+            {/* Onder 360px is er 206px ruimte voor 236px aan inhoud; daar gaan
+                de twee beelden onder elkaar in plaats van ernaast. */}
+            <div className="bg-[#FAFAF8] border-t lg:border-t-0 lg:border-l border-[#EEEEEA] p-6 sm:p-8 md:p-10 flex max-[359px]:flex-col items-center justify-around gap-4 max-[359px]:gap-3 sm:gap-6">
               <div className="text-center">
-                <div className="grid grid-cols-3 gap-1.5 mb-4">
+                {/* Vaste 92px, net als de rondjes hiernaast. De vakjes zelf
+                    vullen hun kolom: op vaste 28px liepen ze op smalle
+                    schermen over elkaar heen. */}
+                <div className="grid grid-cols-3 gap-1.5 mb-4 w-[92px] mx-auto">
                   {Array(9).fill(null).map((_, i) => (
-                    <div key={i} className="w-7 h-7 bg-[#D8D8D8] rounded-sm" />
+                    <div key={i} className="w-full aspect-square bg-[#D8D8D8] rounded-sm" />
                   ))}
                 </div>
                 <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide">Vakjes</p>

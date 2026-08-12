@@ -144,7 +144,7 @@ export default function InspiratieKaarten({ variant = "pagina" }: Props) {
     <div
       ref={sectieRef}
       className={`flex flex-col items-center bg-[#F4F3EF] ${
-        vulVenster ? "fixed inset-0 z-50" : "relative"
+        vulVenster ? "fixed inset-0 z-[70]" : "relative"
       } ${isEmbed && !groot ? "h-full" : ""}`}
       style={
         groot

@@ -10,7 +10,7 @@ export default function QualityPage() {
   return (
     <div className="bg-white">
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <h1 className="text-4xl font-bold text-primary mb-3">
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-3">
           Kwaliteit &amp; Vertrouwelijkheid
         </h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">

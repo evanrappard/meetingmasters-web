@@ -68,7 +68,7 @@ export default function CasesPage() {
         <p className="text-accent text-sm font-semibold mb-3 tracking-widest uppercase">
           Cases &amp; Ervaringen
         </p>
-        <h1 className="text-4xl font-bold text-primary mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
           Wat er gebeurt als het werkt.
         </h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">

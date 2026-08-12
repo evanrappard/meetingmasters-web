@@ -25,7 +25,7 @@ export const HUBSPOT_FORMS = {
   boeking: "ddf3e496-b036-4720-b7b1-44eed87f7506",
   /** Kostenindicatie — event-detailpagina's, VO huren, escape-rooms */
   kostenindicatie: "8fb6d169-df70-45f0-bb36-671df8ad0f58",
-  /** Nieuwsbrief — footer */
+  /** Nieuwsbrief — /nl/nieuwsbrief (footer linkt ernaartoe) */
   nieuwsbrief: "0992ca5c-97ed-4940-a45d-55357d69f57a",
   /** Vergaderkosten-calculator — los HTML-bestand, niet via HubSpotForm.tsx */
   calculator: "229f1966-fafc-4929-bfae-173a27b5edee",

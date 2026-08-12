@@ -556,7 +556,7 @@ export default async function EventTypePage(
 
       {/* ── HERO ── */}
       <section>
-        <div className="relative w-full h-[44vw] min-h-[300px] max-h-[520px] overflow-hidden">
+        <div className="relative w-full md:h-[44vw] md:min-h-[300px] md:max-h-[520px] overflow-hidden">
           <Image
             src={event.heroSrc ?? "/images/events-bijeenkomst.webp"}
             alt={`${title} — MeetingMasters Online Events`}
@@ -565,8 +565,9 @@ export default async function EventTypePage(
             style={{ filter: "contrast(1.03) saturate(1.06)", ...event.heroImgStyle }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-12 sm:pb-16">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
+          <div className="relative md:absolute md:inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-16">
               <div className="max-w-[600px]">
                 <Link
                   href="/nl/events#formats"
@@ -574,11 +575,11 @@ export default async function EventTypePage(
                 >
                   ← Event Formats
                 </Link>
-                <h1 className="text-5xl sm:text-6xl lg:text-[3.7rem] font-bold text-white leading-[1.05] mb-4" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
+                <h1 className="text-[1.9rem] sm:text-6xl lg:text-[3.7rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-4" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
                   {displayTitle}
                 </h1>
                 {event.outcomeSummary && (
-                  <p className="text-white text-lg sm:text-xl font-medium tracking-wide mb-7" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
+                  <p className="text-white text-base sm:text-xl font-medium tracking-wide mb-6 sm:mb-7" style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}>
                     {event.outcomeSummary.split("\n").map((line, i, arr) => (
                       <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
                     ))}
@@ -607,7 +608,7 @@ export default async function EventTypePage(
           <div className="max-w-content mx-auto px-6 lg:px-10">
             <div className="mb-10">
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Een actief format</p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {event.validation.headline}
               </h2>
               <p className="text-[#545454] leading-relaxed">{intro}</p>
@@ -693,7 +694,7 @@ export default async function EventTypePage(
           <div className="max-w-content mx-auto px-6 lg:px-10">
             <div className="mb-10">
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">In de praktijk</p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
                 Drie voorbeelden. Jarenlange ervaring.
               </h2>
             </div>
@@ -747,7 +748,7 @@ export default async function EventTypePage(
                   </div>
                 )}
               </div>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
                 Randvoorwaarden voor een geslaagde online {shortTitle.toLowerCase()}.
               </h2>
             </div>

@@ -89,7 +89,7 @@ export default function VirtualOfficePage() {
       {/* ── HERO ── */}
       <section>
         <h1 className="sr-only">Virtueel kantoor (Virtual Office) voor hybride en internationale teams</h1>
-        <div className="relative w-full h-[44vw] min-h-[320px] max-h-[560px]">
+        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <video
             poster="/images/vo-hero-office.jpg"
             aria-label="Virtueel kantoor in SpatialChat — een lichte, open kantooromgeving met teamleden die via videocirkels aanwezig zijn"
@@ -111,11 +111,12 @@ export default function VirtualOfficePage() {
                 "radial-gradient(135% 115% at 0% 100%, rgba(0,0,0,0.62), rgba(0,0,0,0.22) 40%, transparent 66%), linear-gradient(to top, rgba(0,0,0,0.5), transparent 46%)",
             }}
           />
-          <div className="absolute inset-0 flex items-end">
-            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
+          <div className="relative md:absolute md:inset-0 flex items-end">
+            <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-20">
               <div className="max-w-[600px]">
                 <p className="inline-block bg-black/35 rounded px-2.5 py-1 text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">Virtual Office</p>
-                <h2 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
+                <h2 className="text-[1.75rem] sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
                   Een plek waar je elkaar
                   <br />
                   weer tegenkomt.
@@ -172,7 +173,7 @@ export default function VirtualOfficePage() {
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Wat het oplevert</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
               Een virtueel kantoor maakt meetbaar verschil.
             </h2>
           </div>
@@ -193,7 +194,7 @@ export default function VirtualOfficePage() {
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Hoe ziet het eruit</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               Een virtual office kan veel vormen hebben. Wat past bij jullie?
             </h2>
             <p className="text-[#545454] leading-relaxed">
@@ -222,7 +223,7 @@ export default function VirtualOfficePage() {
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Drie manieren om binnen te komen</p>
-            <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               Hoe ver wil je gaan?
             </h2>
             <p className="text-[#545454] leading-relaxed">
@@ -260,7 +261,7 @@ export default function VirtualOfficePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">In de praktijk</p>
-              <h2 className="text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 Het Online Clubhuis voor Olympiërs wereldwijd.
               </h2>
               <p className="text-[#545454] leading-relaxed mb-4">

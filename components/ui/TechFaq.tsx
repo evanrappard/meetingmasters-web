@@ -65,7 +65,9 @@ export default function TechFaq({
   return (
     <div>
       {/* Zoekbalk + toolfilter */}
-      <div className="sticky top-0 z-20 bg-white/95 backdrop-blur border-b border-[#EBEBEB] py-4 -mx-8 md:-mx-16 lg:-mx-20 px-8 md:px-16 lg:px-20">
+      {/* top-[88px] = precies onder de navbar (4px streep + 84px balk); op
+          top-0 schoof deze balk erachter en was hij half onzichtbaar. */}
+      <div className="sticky top-[88px] z-20 bg-white/95 backdrop-blur border-b border-[#EBEBEB] py-4 -mx-8 md:-mx-16 lg:-mx-20 px-8 md:px-16 lg:px-20">
         <div className="relative mb-3">
           <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#AAAAAA]" aria-hidden>🔍</span>
           <input
@@ -121,8 +123,10 @@ export default function TechFaq({
         {categories.map((c) => {
           const list = byCategory[c.id] ?? [];
           if (list.length === 0) return null;
+          // scroll-mt houdt zowel de navbar als de sticky zoekbalk vrij; die
+          // balk is op smalle schermen hoger, omdat de filters daar wikkelen.
           return (
-            <section key={c.id} id={c.id} className="scroll-mt-32">
+            <section key={c.id} id={c.id} className="scroll-mt-64 md:scroll-mt-56">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl" aria-hidden>{c.icon}</span>
                 <h2 className="text-xl font-bold text-[#2D2D2D]">{c.label}</h2>

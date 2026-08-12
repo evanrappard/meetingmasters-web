@@ -37,13 +37,17 @@ export default function CookieBanner() {
     setZichtbaar(false);
   };
 
+  // pointer-events-none op de wrapper: op smalle schermen wordt de banner zo
+  // hoog dat zijn (doorzichtige) omhulsel tot achter de navbar reikt en daar
+  // tikken opvangt — het menu leek dan niet te reageren. Alleen de kaart zelf
+  // vangt nog klikken.
   return (
     <div
       role="dialog"
       aria-label="Cookies"
-      className="fixed inset-x-0 bottom-0 z-50 p-4 sm:p-6"
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-50 p-4 sm:p-6"
     >
-      <div className="max-w-content mx-auto bg-white border border-white-grey rounded-xl shadow-lg p-6 sm:p-7 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-8">
+      <div className="pointer-events-auto max-w-content mx-auto max-h-[70vh] overflow-y-auto bg-white border border-white-grey rounded-xl shadow-lg p-5 sm:p-7 flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-5 lg:gap-8">
         <div className="lg:flex-1">
           <h2 className="text-primary font-bold mb-1">
             MeetingMasters maakt gebruik van cookies
