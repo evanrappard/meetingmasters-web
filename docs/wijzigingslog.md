@@ -48,6 +48,7 @@ leeft in de paginacode, niet in een apart bestand).
 
 | # | Wat | Type | Van wie | Status |
 |---|---|---|---|---|
+| 0 | **GitHub en Vercel zijn niet gekoppeld** — pushen start géén deploy. Laatste deploy is 8 mei 2026, met de hand vanaf de commandoregel. Koppelen in Vercel → Project → Settings → Git vóór de livegang | C | Emilie | open — blokkeert livegang |
 | 1 | Bouwlijst componenten nieuwe website — nog te bepalen | C | Emilie | open |
 | 2 | Engelse vertaling van de NL-pagina's | T | Copy-Claude | **uitgesteld** — pas oppakken als álle Nederlandse tekst final is (besluit 12 aug 2026) |
 | 3 | Virtueel Kantoor en R@venHack hebben een verborgen `sr-only` H1 boven een zichtbare `<h2>`-hero. Eén H1, maar wel een onzichtbare — nog bepalen of de zichtbare kop de H1 moet worden | C | Emilie | open |
