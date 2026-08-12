@@ -4,6 +4,13 @@ Dit document is de kennisbasis voor het Claude-project waarin copy wordt gemaakt
 Doel: snel Nederlandse website-copy schrijven die de bouwer (Claude Code in de
 terminal) zonder aanpassing kan inbouwen op meetingmasters.online.
 
+> Zoek je de ambachtslaag, dus hoe een zin wordt gebouwd, welke patronen
+> terugkeren en hoe doel, vorm en SEO elkaar versterken? Lees dan
+> `docs/tekststijlgids.md`. Dit document geeft het wat en het format, die geeft
+> het hoe.
+>
+> Let op: het **gedachtestreepje gebruiken we niet meer**. Zie §6 van de stijlgids.
+
 ---
 
 ## 1. Wie is MeetingMasters
