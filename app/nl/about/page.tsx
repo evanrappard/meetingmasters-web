@@ -23,7 +23,17 @@ const klantLogos = [
   { src: "/images/logos/provincie-utrecht.webp", alt: "Provincie Utrecht" },
 ];
 
-const roles = [
+// Vooraf: een keten die van vraag naar afgebouwde ruimte loopt.
+const rolesVooraf = [
+  { name: "Strategie", desc: "Wat is de context van de bijeenkomst, en wat moet die opleveren — op inhoud én op relatie? Daar denken we vanaf het begin in mee." },
+  { name: "Concept", desc: "Hoe verrassend mag het worden? We adviseren over opzet, formats en platformkeuze, en bedenken concepten die interactie uitlokken en ideeën richting geven." },
+  { name: "Vorm", desc: "De vorm bepaalt de sfeer, en daarmee de interactie. Daarom ontwerpen we ook hoe een bijeenkomst eruitziet — in SpatialChat is dat zelfs doorslaggevend." },
+  { name: "Bouw", desc: "Van wachtkamer tot uitgang bouwen we de hele ruimte, zodat deelnemers vanzelf hun weg door het programma vinden." },
+  { name: "Projectmanagement", desc: "Van intake tot evaluatie. Binnen de tijd, binnen het budget en — net zo belangrijk — binnen de comfortzone van iedereen die meedoet." },
+];
+
+// Op de dag zelf: rollen die naast elkaar staan, per bijeenkomst samengesteld.
+const rolesTijdens = [
   { name: "Facilitator", desc: "Begeleidt het programma en de werkvormen, voor goede interactie en een soepel verloop." },
   { name: "Moderator", desc: "Leidt het gesprek in goede banen, bewaakt de tijd en geeft het woord." },
   { name: "Online host", desc: "Ontvangt en verwelkomt deelnemers en houdt de digitale ruimte gastvrij." },
@@ -230,26 +240,65 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Rollen */}
+          {/* Rollen — vooraf en op de dag zelf */}
           <div className="mt-14 pt-12 border-t border-[#EBEBEB]">
-            <div className="max-w-[760px] mb-8">
+            <div className="max-w-[760px] mb-10">
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Onze rollen</p>
               <h3 className="text-2xl font-bold text-[#2D2D2D] leading-snug mb-3">
-                Welke rollen wij vervullen.
+                Wat wij doen — vooraf en op de dag zelf.
               </h3>
               <p className="text-[#545454] leading-relaxed">
-                Afhankelijk van de bijeenkomst zetten we de juiste rollen in — voor een soepel
-                verloop, echte interactie en deelnemers die zich op hun gemak voelen.
+                Van strategie tot concept. Van online meeting support tot evaluatie en
+                vervolgstappen. Wij zoeken altijd naar maximale betrokkenheid om tot de
+                beste resultaten te komen, en zetten scherp in op optimale inzet van
+                íeders energie, tijd en budget.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
-              {roles.map((r) => (
-                <div key={r.name}>
-                  <span className="block h-[3px] w-8 bg-[#EEBE3D] rounded-full mb-3" />
-                  <h4 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h4>
-                  <p className="text-sm text-[#545454] leading-relaxed">{r.desc}</p>
-                </div>
-              ))}
+
+            {/* Voor de bijeenkomst */}
+            <div className="mb-12">
+              <div className="max-w-[760px] mb-6">
+                <h4 className="text-lg font-bold text-[#2D2D2D] mb-1.5">Voor de bijeenkomst</h4>
+                <p className="text-[#545454] leading-relaxed">
+                  Van de vraag achter de vraag tot een ruimte die klaarstaat.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
+                {rolesVooraf.map((r) => (
+                  <div key={r.name}>
+                    <span className="block h-[3px] w-8 bg-[#EEBE3D] rounded-full mb-3" />
+                    <h5 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h5>
+                    <p className="text-sm text-[#545454] leading-relaxed">{r.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tijdens de bijeenkomst */}
+            <div>
+              <div className="max-w-[760px] mb-6">
+                <h4 className="text-lg font-bold text-[#2D2D2D] mb-1.5">Tijdens de bijeenkomst</h4>
+                <p className="text-[#545454] leading-relaxed">
+                  Afhankelijk van de bijeenkomst zetten we de juiste rollen in — voor een soepel
+                  verloop, echte interactie en deelnemers die zich op hun gemak voelen.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
+                {rolesTijdens.map((r) => (
+                  <div key={r.name}>
+                    <span className="block h-[3px] w-8 bg-[#EEBE3D] rounded-full mb-3" />
+                    <h5 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h5>
+                    <p className="text-sm text-[#545454] leading-relaxed">{r.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Afsluiter: bindt de twee groepen aan elkaar en wijst vooruit. */}
+              <p className="max-w-[760px] mt-10 text-[#545454] leading-relaxed">
+                De kracht van een bijeenkomst zit in het vervolg: vooraf bedacht, tijdens
+                besproken, na afloop opgevolgd — met opnames, verslagen en een gesprek over
+                hoe nu verder.
+              </p>
             </div>
           </div>
         </div>
