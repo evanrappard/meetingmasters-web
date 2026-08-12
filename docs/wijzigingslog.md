@@ -56,7 +56,8 @@ leeft in de paginacode, niet in een apart bestand).
 | 6 | Cases, Partners en Kwaliteit & vertrouwelijkheid terugzetten in `lib/navigatie.ts` zodra de pagina's gevuld zijn | T C | Emilie | geparkeerd — routes bestaan nog, alleen uit menu en footer |
 | 7 | `/nl/remote-office` en `/nl/publicaties` bestonden nooit als NL-route. Nog bepalen of ze er alsnog moeten komen | C | Emilie | open |
 | 8 | Wheel of Fortune geeft een JS-fout (`addEventListener` op null) in de Netlify-app zelf, niet in deze site. Oppakken in die codebase | C | bouwer | open |
-| 9 | Nog te beslissen: hoort `docs/mobiel/` (schermafdrukken) in git of in `.gitignore`? | C | Emilie | open |
+| 9 | Schermafdrukken van de mobiele controle staan in `.gitignore` — werkmateriaal, opnieuw te maken met `npm run mobiel:shots` | C | bouwer | besloten |
+| 10 | De site draait lokaal nu als **productiebouw**. Codewijzigingen komen er pas in na een nieuwe `npm run build`; zeg het als de ontwikkelmodus terug moet | C | bouwer | let op |
 
 ---
 
@@ -94,7 +95,7 @@ leeft in de paginacode, niet in een apart bestand).
   EN home. Alle wijzigingen zitten achter `md:`-breakpoints — vanaf 768px is er
   niets veranderd, de desktopweergave is ongemoeid.
   Gecontroleerd met `tsc --noEmit` (schoon) en alle 12 pagina's opgehaald bij de
-  dev-server (200). *Ingebouwd, nog niet gecommit.*
+  dev-server (200). *Gecommit (`eaa8cd3`).*
 - **C** — **Menu reageerde niet op mobiel: het lag aan de cookiebanner.** De
   banner is `fixed bottom-0` met een *doorzichtige* wrapper eromheen. Op desktop
   is dat één lage balk, maar op een smal scherm stapelt de inhoud en wordt de
@@ -125,7 +126,7 @@ leeft in de paginacode, niet in een apart bestand).
   decoratieve blokjes, footer en carrousels wikkelen netjes, en er staan geen
   lange onbreekbare teksten (e-mail, URL's) in de opmaak.
   Controle over het geheel: `tsc --noEmit` schoon en alle **72** live NL-pagina's
-  opgehaald bij de dev-server — allemaal 200. *Ingebouwd, nog niet gecommit.*
+  opgehaald bij de dev-server — allemaal 200. *Gecommit (`eaa8cd3`).*
 - **C** — **Correctie op het bovenstaande: die 200-statussen bewezen niets.**
   Next geeft in dev een 200 mét foutoverlay, dus een pagina kan "goed" lijken
   terwijl er een runtime-fout staat. Bovendien meet een overflow-check op
@@ -162,7 +163,7 @@ leeft in de paginacode, niet in een apart bestand).
   alle 12 hero's. Bovenin blijft het beeld onaangetast en boven 768px verandert
   er niets.
   Eindstand: `tsc --noEmit` schoon, **72 routes × 3 breedtes = 0 problemen**, en
-  de menutest slaagt op 320/375/390px. *Ingebouwd, nog niet gecommit.*
+  de menutest slaagt op 320/375/390px. *Gecommit (`eaa8cd3`).*
 - **C** — **De échte oorzaak van het niet-werkende menu: `allowedDevOrigins`.**
   Alle bovenstaande reparaties waren op zichzelf terecht, maar ze losten
   Emilies klacht niet op — want de oorzaak lag niet in de opmaak. Next 16
@@ -230,7 +231,7 @@ leeft in de paginacode, niet in een apart bestand).
      Events, Virtueel Kantoor, Games en Technologie (diensten) en Over ons,
      Blog, Contact, Plan een gesprek, Nieuwsbrief (organisatie).
   `tsc --noEmit` schoon, `next build` schoon, `/nl/nieuwsbrief` staat in de
-  routelijst. *Ingebouwd, nog niet gecommit.*
+  routelijst. *Gecommit (`eaa8cd3`).*
 - **T** — Nieuwe copy geschreven voor `/nl/nieuwsbrief` (intro + formulierkop),
   in je-vorm, conform merkstem. Mag door de copy-Claude worden nagelopen.
 
