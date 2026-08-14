@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Online Event Formats | MeetingMasters",
   description:
-    "20 online event formats voor elke bijeenkomst — van strategiedagen en webinars tot Escape Room R@venHack, participatietrajecten en community events. Ontworpen, begeleid en geproduceerd door MeetingMasters.",
+    "20 online event formats voor elke bijeenkomst: van strategiedagen en webinars tot Escape Room R@venHack, participatietrajecten en community events. Ontworpen, begeleid en geproduceerd door MeetingMasters.",
 };
 
 const results = [
@@ -118,7 +118,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "brainstormen",
         title: "Online brainstormen",
-        desc: "Creatieve sessies die écht ideeën opleveren — ook op afstand.",
+        desc: "Creatieve sessies die écht ideeën opleveren, ook op afstand.",
         bg: "radial-gradient(circle at 38% 38%, #FFEEC1, #F5D070)",
         ic: "text-[#696758]",
         Icon: Lightbulb,
@@ -140,7 +140,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "bedrijfsfeest",
         title: "Online bedrijfsfeest",
-        desc: "Een feest dat mensen écht bijblijft — ook online.",
+        desc: "Een feest dat mensen écht bijblijft, ook online.",
         iconSrc: "/images/icons/bedrijfsfeest.png",
         bg: "radial-gradient(circle at 38% 38%, #D85E7A, #C64A60)",
         ic: "text-white",
@@ -157,7 +157,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "teamuitje",
         title: "Online teamuitje",
-        desc: "Een teamuitje dat verbindt — ontspannen samen, ook op afstand.",
+        desc: "Een teamuitje dat verbindt. Ontspannen samen, ook op afstand.",
         bg: "radial-gradient(circle at 38% 38%, #7AAFC8, #4A85A8)",
         ic: "text-white",
         Icon: Sparkles,
@@ -180,7 +180,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "bewonersparticipatie",
         title: "Online bewonersparticipatie",
-        desc: "Inwoners betrekken bij beleid, plannen en beslissingen — online.",
+        desc: "Inwoners online betrekken bij beleid, plannen en beslissingen.",
         iconSrc: "/images/icons/bewonersparticipatie.png",
         bg: "radial-gradient(circle at 38% 38%, #52C4C4, #28A8AA)",
         ic: "text-white",
@@ -197,7 +197,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "focusgroep",
         title: "Online focusgroep",
-        desc: "Diepgaand onderzoek naar wat mensen écht denken — goed gefaciliteerd.",
+        desc: "Diepgaand onderzoek naar wat mensen écht denken, goed gefaciliteerd.",
         bg: "radial-gradient(circle at 38% 38%, #D4DDD0, #B8C4B0)",
         ic: "text-[#545454]",
         Icon: ScanSearch,
@@ -220,7 +220,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "webinar",
         title: "Webinar",
-        desc: "Webinars die mensen boeien — niet alleen zenden, maar verbinden.",
+        desc: "Webinars die mensen boeien. Niet alleen zenden, maar verbinden.",
         bg: "radial-gradient(circle at 38% 38%, #C64A60, #A83852)",
         ic: "text-white",
         Icon: Radio,
@@ -228,7 +228,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "conferentie",
         title: "Online conferentie",
-        desc: "Professionele conferenties voor grote groepen — interactief en goed geproduceerd.",
+        desc: "Professionele conferenties voor grote groepen: interactief en goed geproduceerd.",
         iconSrc: "/images/icons/onlineconferenties.png",
         bg: "radial-gradient(circle at 38% 38%, #555C50, #404840)",
         ic: "text-white",
@@ -237,7 +237,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "open-space",
         title: "Online Open Space",
-        desc: "De agenda bepalen met de groep zelf — open, energiek en productief.",
+        desc: "De agenda bepalen met de groep zelf: open, energiek en productief.",
         iconSrc: "/images/icons/openspace.png",
         bg: "radial-gradient(circle at 38% 38%, #F5BEC8, #EFA1AF)",
         ic: "text-[#696758]",
@@ -246,7 +246,7 @@ export const eventCategories: EventCategory[] = [
       {
         slug: "netwerkevent",
         title: "Online netwerkevent",
-        desc: "Mensen verbinden die elkaar nog niet kennen — online en laagdrempelig.",
+        desc: "Mensen verbinden die elkaar nog niet kennen, online en laagdrempelig.",
         bg: "radial-gradient(circle at 38% 38%, #4ABABA, #28A0A0)",
         ic: "text-white",
         Icon: Network,
@@ -263,7 +263,7 @@ const eventFaq = [
   { q: "Welke software gebruiken jullie voor online events?", a: "We hebben ervaring met Zoom, Zoom Events, Teams, SpatialChat en verschillende aanvullende tools voor interactie en samenwerking. Welke omgeving het beste past, hangt af van het doel van het evenement en de gewenste ervaring voor deelnemers." },
   { q: "Hoe houd je deelnemers betrokken tijdens een online event?", a: "Door deelnemers niet alleen te laten kijken, maar actief te laten meedoen. Denk aan gesprekken, polls, breakouts, gezamenlijke opdrachten, netwerkmomenten en interactieve werkvormen. Mensen onthouden vooral waar ze zelf onderdeel van zijn geweest." },
   { q: "Hoeveel deelnemers kunnen deelnemen aan een online event?", a: "Dat varieert van tien deelnemers tot enkele duizenden. De techniek is zelden de beperkende factor. Het ontwerp van het programma bepaalt uiteindelijk wat goed werkt." },
-  { q: "Wat kost een online event?", a: "De investering hangt af van het type evenement, de groepsgrootte, de techniek en de gewenste begeleiding. Daarom maken wij altijd een voorstel op maat." },
+  { q: "Wat kost een online event?", a: "De investering hangt af van het type evenement, de groepsgrootte, de techniek en de gewenste begeleiding. Daarom maken wij voor elke aanvraag een eigen voorstel." },
 ];
 
 const eventFaqMore = [
@@ -305,7 +305,7 @@ export default function EventsPage() {
             loop
             playsInline
             preload="auto"
-            aria-label="Deelnemers bij een online event in een sfeervolle virtuele tuinomgeving met video-deelnemers — MeetingMasters Events op SpatialChat"
+            aria-label="Deelnemers bij een online event in een sfeervolle virtuele tuinomgeving met video-deelnemers, MeetingMasters Events op SpatialChat"
             className="absolute inset-0 w-full h-full object-cover object-center"
             style={{ filter: "saturate(0.92) brightness(1.03) contrast(0.99)" }}
           />
@@ -496,7 +496,7 @@ export default function EventsPage() {
             <div className="relative aspect-video rounded overflow-hidden shadow-md">
               <Image
                 src="/images/events-spatial.webp"
-                alt="Interactief online event in SpatialChat — deelnemers verspreid over een verhaallijn met meerdere niveaus"
+                alt="Interactief online event in SpatialChat, met deelnemers verspreid over een verhaallijn met meerdere niveaus"
                 fill className="object-cover"
               />
             </div>

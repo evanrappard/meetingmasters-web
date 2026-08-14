@@ -394,19 +394,26 @@ wanneer iets gebeurt, en de afsluiter maakt van twee lijstjes één verhaal.
 ## 12. Gepland sitebreed onderhoud
 
 Twee acties die op de hele site moeten gebeuren, vastgelegd zodat ze in één keer
-en consequent kunnen worden uitgevoerd. **Status: nog niet uitgevoerd.**
+en consequent kunnen worden uitgevoerd.
+
+**Status: de events-pagina's zijn gedaan (13 augustus 2026), de rest nog niet.**
 
 ### A. Gedachtestreepjes eruit
 
-Volgens de regel in §6. Omvang op het moment van schrijven (12 augustus 2026):
+Volgens de regel in §6. Omvang bij het opstellen (12 augustus 2026) en nu:
 
-| Waar | Aantal |
-|---|---|
-| `app/nl` totaal | 336 |
-| `components` totaal | 27 |
+| Waar | Bij aanvang | Nu |
+|---|---|---|
+| `app/nl` totaal | 336 | 281 |
+| `components` totaal | 27 | 27 |
 
-De zwaarste pagina's: `events/[slug]` (57), `home` (42), `virtual-office` (20),
-`games-tools/ravenhack` (19), `about` (19), `games-tools` (18), `events` (15).
+Al gedaan: `events/[slug]` (van 57 naar 15) en `events` (van 15 naar 3). Wat
+daar nog staat, hoort bij de vijf uitgezonderde formats, plus één gedeelde
+alt-tekst en één code-commentaar.
+
+Nog te doen, zwaarste eerst: `home` (42), `virtual-office` (20),
+`games-tools/ravenhack` (19), `about` (19), `games-tools` (18), `technologie`
+en de rest.
 
 Aandachtspunten bij het uitvoeren:
 - Ook in `title`, `description`, alt-teksten en JSON-LD kijken, niet alleen in
@@ -415,6 +422,10 @@ Aandachtspunten bij het uitvoeren:
   levert slepende zinnen op.
 - Koppeltekens in samenstellingen niet aanraken.
 - Na afloop controleren met een telling, en de gedeelde componenten apart nalopen.
+- **Draai daarna de dubbel-scan opnieuw.** Bij de events-ronde bleek dat een zin
+  splitsen met een punt twee keer een nieuwe dubbeling opleverde: de eerste helft
+  werd precies de tegeltekst op de overzichtspagina. Streepjes weghalen kan dus
+  dubbelingen máken.
 
 ### B. Dubbele zinnen herschrijven
 
@@ -438,18 +449,24 @@ vuistregel uit §7.
 
 ### Pagina's die bij deze twee acties NIET worden aangeraakt
 
-Deze worden apart opgepakt zodra de bouw klaar is:
+Deze worden apart opgepakt zodra de bouw klaar is. Het zijn de vijf formats die in
+het menu staan (`lib/navigatie.ts`), bevestigd op 12 augustus 2026:
 
-- `events/strategiedagen`
-- `events/all-hands`
-- `events/kerstfeest`
-- `events/community-building`
-- `events/teambuilding`
+| In het menu | Route |
+|---|---|
+| Strategiedag | `events/strategiedagen` |
+| Virtuele kerstborrel | `events/kerstfeest` |
+| All-hands | `events/all-hands` |
+| Community-event | `events/community-building` |
+| Online teambuilding | `events/teambuilding` |
 
-Twee daarvan zijn een interpretatie van de opdracht en moeten nog bevestigd worden:
-"strategieborrel" is gelezen als **strategiedagen**, "kerstborrel" als
-**kerstfeest**. Blijkt "kerstborrel" het **bedrijfsfeest** te zijn, dan hoort die
-ook op deze lijst. Bij twijfel: overslaan.
+`events/bedrijfsfeest` hoort er dus **niet** bij en mag wel worden aangepakt.
+
+**Let op bij het uitvoeren.** Deze vijf zijn geen losse bestanden: alle twintig
+formats staan samen in `EVENT_DATA` in `app/nl/events/[slug]/page.tsx`, precies het
+bestand met de meeste streepjes (57). Overslaan betekent hier dus per sleutel
+werken binnen één bestand, niet per bestand. Ook de tegels en beschrijvingen van
+deze vijf op de overzichtspagina `app/nl/events/page.tsx` blijven staan.
 
 ---
 
