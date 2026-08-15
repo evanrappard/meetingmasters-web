@@ -48,3 +48,6 @@ next-env.d.ts
 # Schermafdrukken van de mobiele controle: werkmateriaal, geen broncode
 # (opnieuw te maken met npm run mobiel:shots)
 docs/mobiel/
+
+# Werkmateriaal: schermafdrukken van de hero- en mobiele controle
+schermafdrukken/

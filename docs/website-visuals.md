@@ -4,7 +4,7 @@ Eén overzicht van álle beelden en video's op de site: waar ze staan, waar ze
 vandaan komen en (waar bekend) welk bronbestand ze zijn. Dit is de plek om te
 kijken vóór je een visual wijzigt.
 
-> Laatst bijgewerkt: 2026-07-06
+> Laatst bijgewerkt: 2026-08-15
 
 ## Hoe het werkt (belangrijk)
 
@@ -77,34 +77,98 @@ Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepag
 | Testimonials | `<TestimonialsCarousel />` → 4 lokale logo's | LOKAAL |
 
 ## NL Event-detail — `app/nl/events/[slug]/page.tsx` (template, `EVENT_DATA`)
-| Hero per event | `event.heroSrc` (o.a. `/images/events-strategiedag-hero.webp`), fallback `/images/events-bijeenkomst.webp` | LOKAAL |
-| Event-iconen | `/images/icons/*.png` | LOKAAL |
-| "In de praktijk"-kaarten (`cases[].img`) | meestal nog `/images/events-bijeenkomst.webp` (placeholder), per event te vervangen | LOKAAL |
 
-### "In de praktijk" — reeds vervangen per event
-| Event (slug) | Voorbeeld | Bestand | Bronbestand |
+**Stand 15 augustus 2026: alle 20 events hebben een eigen hero; van de 60
+praktijk-kaarten staat er nog 1 op de placeholder.** Daarvoor waren dat
+4 hero's en 12 kaarten.
+
+| Veld | Waar |
+|---|---|
+| Hero | `event.heroSrc`, fallback `/images/events-bijeenkomst.webp` |
+| Hero-uitsnede | `event.heroImgStyle` (optioneel) |
+| Donkerlaag hero | `event.heroOverlay` (optioneel, zie hieronder) |
+| Alt-tekst hero | `event.heroAlt` — per event geschreven, beschrijft het beeld |
+| Praktijk-kaarten | `cases[].img` + `cases[].imgAlt` + `cases[].imgStyle` |
+| Event-iconen | `/images/icons/*.png` — decoratief (`alt=""`), Next levert ze als WebP uit |
+
+### Overzicht per event
+
+Praktijk-kaarten staan in de volgorde waarin ze op de pagina verschijnen.
+
+| Event | Hero | Donkerlaag | Praktijk-kaarten |
 |---|---|---|---|
-| `strategiedagen` | 1 Branchevereniging | `/images/events-praktijk-branchevereniging.webp` | `MM Website afbeeldingen (5).png` (Downloads) |
-| `strategiedagen` | 2 Multinational | `/images/events-praktijk-whiteboard.webp` | `MM Website afbeeldingen (6).png` (Downloads) |
-| `strategiedagen` | 3 Non-profit | `/images/events-praktijk-forum.webp` | `Forum branchevereniging - 80 leden bepalen samen de koers.png` (Downloads) |
-| `kerstfeest` | 1 Teamfeest (Kerstquiz) | `/images/events-kerst-kerstquiz.webp` | `Teamfeest — Kerstquiz en informele tafels.png` (Downloads) |
-| `kerstfeest` | 2 Grote organisatie (Leveranciers) | `/images/events-kerst-leveranciers.webp` | `Snowman kerst.png` (Downloads) |
-| `kerstfeest` | 3 Coöperatie (Stemmige kerstviering) | `/images/events-kerst-stemmig.webp` | `MM Website afbeeldingen (7).png` (Downloads) |
-| `all-hands` | 1 Internationaal MKB (Nieuwe koers) — label gewijzigd van "Internationale NGO" | `/images/events-allhands-koers.webp` | `Over de lijn (1).png` (Downloads) |
-| `all-hands` | 2 HR en communicatie (Diversity Day) | `/images/events-allhands-diversity.webp` | `HR en communicatie — Diversity Day.png` (Downloads) |
-| `all-hands` | 3 Middelgroot NL bedrijf (Maandelijkse/terugkerend) | `/images/events-allhands-terugkerend.webp` | `MM Website afbeeldingen (4).png` (Downloads) |
-| `community-building` | 1 Internationaal netwerk (Clubhuis Olympiërs) | `/images/events-community-olympiers.webp` | `Scherm­afbeelding 2026-04-14 om 21.17.06.png` (OneDrive website visuals) |
-| `community-building` | 2 Alumninetwerk (Terugkerende ontmoetingen) | `/images/events-community-terugkerend.webp` | `MM Website afbeeldingen (12).png` (Downloads) |
-| `community-building` | 3 Professionele community (Kennis delen) | `/images/events-community-professioneel-v2.webp` · **crop** `scale(1.35)`, origin `0% 45%` (murmuration vult hoogte, deelnemers links zichtbaar, rechter-sidebar afgesneden) | `MM Website afbeeldingen (9).png` (Downloads) — SpatialChat "Foster a culture of togetherness"; vervangt eerdere Titanic-inbox |
+| `strategiedagen` | `events-strategiedag-hero.webp` | licht | Branchevereniging: `events-praktijk-branchevereniging.webp`<br>Multinational: `events-praktijk-whiteboard.webp`<br>Non-profit: `events-praktijk-forum.webp` |
+| `townhall` | `events-townhall-hero.webp` | medium | Grote organisatie: `events-townhall-praktijk-directie.webp`<br>Verandertraject: `events-townhall-praktijk-verandertraject.webp`<br>Internationaal team: `events-townhall-praktijk-internationaal.webp` |
+| `all-hands` | `events-allhands-hero.webp` | licht | Internationaal MKB: `events-allhands-koers.webp`<br>HR en communicatie: `events-allhands-diversity.webp`<br>Middelgroot Nederlands bedrijf: `events-allhands-terugkerend.webp` |
+| `alv` | `events-alv-hero.webp` · eigen crop | sterk | Europese branchevereniging: `events-alv-praktijk-branchevereniging.webp`<br>Investeringsmaatschappij: `events-alv-praktijk-gewogen-stemmen.webp`<br>Stichting: `events-alv-praktijk-jaarstukken.webp` |
+| `teambuilding` | `events-teambuilding-hero-v2.webp` | licht | Nieuw projectteam: `events-teambuilding-praktijk-kennismaken.webp`<br>Hybride afdeling: `events-teambuilding-praktijk-hybride.webp`<br>Internationaal team: `events-teambuilding-praktijk-internationaal.webp` |
+| `training-workshop` | `events-training-workshop-hero.webp` | medium | L&D-team: `events-training-praktijk-bekendheid.webp`<br>Opleidingsinstituut: `events-training-praktijk-cohorten.webp`<br>Interne experts: `events-training-praktijk-trainers.webp` |
+| `brainstormen` | `events-brainstormen-hero.webp` | medium | Marketingteam: `events-brainstormen-praktijk-campagne.webp`<br>Innovatieteam: `events-brainstormen-praktijk-concepten.webp`<br>Strategieteam: `events-brainstormen-praktijk-kansen.webp` |
+| `onboardingdag` | `events-onboardingdag-hero.webp` | medium | Groeiende organisatie: `events-onboarding-praktijk-maandelijks.webp`<br>Internationale groep: `events-onboarding-praktijk-internationaal.webp`<br>HR en L&D: `events-onboarding-praktijk-ervaring.webp` |
+| `bedrijfsfeest` | `events-bedrijfsfeest-hero.webp` | licht | Internationaal team: `events-bijeenkomst.webp`<br>Afdelingsevent: `events-bedrijfsfeest-praktijk-quiz.webp`<br>MKB: `events-bedrijfsfeest-praktijk-activiteiten.webp` |
+| `kerstfeest` | `events-kerst-hero.webp` | licht | Teamfeest: `events-kerst-kerstquiz.webp`<br>Grote organisatie: `events-kerst-leveranciers.webp`<br>Coöperatie: `events-kerst-stemmig.webp` |
+| `teamuitje` | `events-teamuitje-hero.webp` | licht | Internationaal team: `events-teamuitje-praktijk-terras.webp`<br>Projectteam: `events-teamuitje-praktijk-energie.webp`<br>Afdeling: `events-teamuitje-praktijk-escape.webp` |
+| `community-building` | `events-community-hero-v2.webp` | licht | Internationaal netwerk: `events-community-olympiers.webp`<br>Alumninetwerk: `events-community-terugkerend.webp`<br>Professionele community: `events-community-professioneel-v2.webp` |
+| `bewonersparticipatie` | `events-bewonersparticipatie-hero-v3.webp` | licht | Gemeente: `events-bewoners-praktijk-buurtgesprek.webp`<br>Woningcorporatie: `events-bewoners-praktijk-huurders.webp`<br>Stadsbrede consultatie: `events-bewoners-praktijk-consultatie.webp` |
+| `klankbordgroep` | `events-klankbordgroep-hero.webp` | medium | Beleidsprogramma: `events-klankbord-praktijk-stakeholders.webp`<br>Ledenorganisatie: `events-klankbord-praktijk-heartbeat.webp`<br>Projectteam: `events-teambuilding-praktijk-internationaal.webp` |
+| `focusgroep` | `events-focusgroep-hero.webp` | licht | Marktonderzoek: `events-focusgroep-praktijk-concept.webp`<br>Beleidsonderzoek: `events-bedrijfsfeest-praktijk-activiteiten.webp`<br>Productontwikkeling: `events-open-space-hero.webp` |
+| `world-cafe` | `events-world-cafe-hero.webp` | medium | Kennisnetwerk: `events-worldcafe-praktijk-ervaringen.webp`<br>Interne organisatie: `events-worldcafe-praktijk-leren.webp`<br>Samenwerkingsverband: `events-worldcafe-praktijk-inzicht.webp` |
+| `webinar` | `events-webinar-hero.webp` | licht | Kennisorganisatie: `events-webinar-praktijk-gesprek.webp`<br>Marketingteam: `events-webinar-praktijk-leads.webp`<br>L&D-team: `events-webinar-praktijk-leren.webp` |
+| `conferentie` | `events-conferentie-hero.webp` | sterk | Internationale conferentie: `events-conferentie-praktijk-hybride.webp`<br>Kennisinstelling: `events-conferentie-praktijk-meerdaags.webp`<br>Brancheorganisatie: `events-conferentie-praktijk-brancheorganisatie.webp` |
+| `open-space` | `events-open-space-hero.webp` | licht | Innovatietraject: `events-openspace-praktijk-innovatie.webp`<br>Community of Practice: `events-openspace-praktijk-community.webp`<br>Strategische verkenning: `events-openspace-praktijk-verkenning.webp` |
+| `netwerkevent` | `events-netwerkevent-hero-v2.webp` | licht | Internationaal netwerk: `events-netwerk-praktijk-clubhuis.webp`<br>Alumni: `events-netwerk-praktijk-alumni.webp`<br>Conferentie: `events-netwerk-praktijk-conferentie.webp` |
 
-### Event-hero's — reeds vervangen/toegevoegd
-| Event (slug) | Bestand | Bronbestand |
+**Formaten.** Alle inhoudelijke beelden zijn WebP, kwaliteit 82. Hero's 1600×900,
+praktijk-kaarten 1200×592 (de kaart is ongeveer 2:1). Bronnen kleiner dan 1200px
+worden **niet** opgeblazen maar op ware grootte gesneden — opblazen maakt een
+beeld zachter, niet scherper.
+
+**Alt-teksten.** Elk beeld heeft een eigen beschrijving in de context van het
+event; de iconen zijn decoratief en hebben bewust `alt=""`, omdat de titel er als
+tekst naast staat en een dubbele voorlezing niets toevoegt.
+
+### Hergebruikte beelden (bewust)
+
+| Bestand | Staat op |
+|---|---|
+| `events-teambuilding-praktijk-internationaal.webp` | teambuilding + klankbordgroep |
+| `events-bedrijfsfeest-praktijk-activiteiten.webp` | bedrijfsfeest + focusgroep |
+| `events-open-space-hero.webp` | hero van open-space + kaart bij focusgroep |
+
+### Randen wegsnijden — let op bij nieuw beeld
+
+Vijf aangeleverde beelden hadden balken die als strook in het kader terugkwamen:
+teambuilding (wit, 248px links én rechts), netwerkevent (wit, 15px rechts),
+bewonersparticipatie (wit, 44px onder), world-café/inzicht (geel, 126px boven en
+onder) en conferentie/branche (zwart, 297px links). Wegsnijden gebeurt op het
+**origineel**, daarna pas schalen.
+
+Eén beeld is opgelicht: de CoP24-regiekamer (`events-conferentie-praktijk-hybride`),
++22% helderheid en gamma 1,15, omdat de details anders wegvielen in het donker.
+
+### Donkerlaag over event-hero's (`heroOverlay`)
+
+De witte kop staat linksonder in de hero. Waar het beeld daar te licht is, valt de
+tekst weg. Drie standen, gedefinieerd bovenin `app/nl/events/[slug]/page.tsx`:
+
+| Stand | Klasse | Wanneer |
 |---|---|---|
-| `kerstfeest` | `/images/events-kerst-hero.webp` (**horizontaal gespiegeld** via ffmpeg `hflip`) | `Kerst & magical moments.png` (OneDrive → Commercie/Kerst en Merch partnerships) |
-| `all-hands` | `/images/events-allhands-hero.webp` | `MM Website afbeeldingen (11).png` (Downloads) — vervangt eerdere `(9).png` (te herkenbare personen) |
-| `community-building` | `/images/events-community-hero-v2.webp` · volledig beeld, geen crop (bewust: tekst vóór het laptopscherm) | `Manifest in Laptop (2).png` (OneDrive website visuals) — gecorrigeerde tekst "What Games did you participate in?" |
+| `HERO_DIM_LICHT` (standaard) | `from-black/55 via-black/15 to-transparent` | beeld links al rustig/donker |
+| `HERO_DIM_MEDIUM` | `from-black/70 via-black/30 to-transparent` | licht of druk achter de kop |
+| `HERO_DIM_STERK` | `from-black/80 via-black/45 to-black/10` | wit vlak pal achter de kop |
 
-> Overige events gebruiken nog de placeholder `events-bijeenkomst.webp` voor hun 3 praktijk-kaarten — kandidaat om per event te vervangen. `kerstfeest` had eerder géén eigen hero; nu toegevoegd (`heroSrc`).
+Gemeten op de tekstzone van de desktop-uitsnede (beeld 1600×900 → zichtbaar
+1440×520, tekst op x 176–848 / y 335–667). Vuistregel: méér dan ~6% van die zone
+lichter dan 0,62 luminantie → een stand omhoog. Ter ijking: de goedgekeurde
+`events-kerst-hero` zit op 5,4%.
+
+> ⚠️ Twee hero's van vóór deze ronde vallen buiten die norm en staan nog op licht:
+> `events-allhands-hero` (53,7% te licht) en `events-community-hero-v2` (16,9%).
+> Kandidaat om ook op medium/sterk te zetten.
+
+**Nakijken.** `node scripts/hero-shots.mjs <slug>...` of `--alle` maakt opnames van
+de hero-band op 1440px in `schermafdrukken/hero/`. Met `--sectie "<tekst>"` legt
+hij een sectie verderop de pagina vast. Draait tegen het netwerk-IP.
 
 ## NL Virtueel kantoor — `app/nl/virtual-office/page.tsx`
 | Hero (video) | `/videos/vo-hero-office-v4.webm` + `.mp4`, poster `/images/vo-hero-office.jpg` | LOKAAL |

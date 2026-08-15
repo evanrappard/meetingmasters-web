@@ -58,14 +58,103 @@ leeft in de paginacode, niet in een apart bestand).
 | 7 | `/nl/remote-office` en `/nl/publicaties` bestonden nooit als NL-route. Nog bepalen of ze er alsnog moeten komen | C | Emilie | open |
 | 8 | Wheel of Fortune geeft een JS-fout (`addEventListener` op null) in de Netlify-app zelf, niet in deze site. Oppakken in die codebase | C | bouwer | open |
 | 9 | Schermafdrukken van de mobiele controle staan in `.gitignore` — werkmateriaal, opnieuw te maken met `npm run mobiel:shots` | C | bouwer | besloten |
-| 10 | De site draait lokaal nu als **productiebouw**. Codewijzigingen komen er pas in na een nieuwe `npm run build`; zeg het als de ontwikkelmodus terug moet | C | bouwer | let op |
+| 10 | De site draait lokaal in **ontwikkelmodus** (`next dev -H 0.0.0.0`), bereikbaar op het netwerk-IP. Wijzigingen zijn meteen zichtbaar, zonder bouwen of herstarten (gewijzigd 15 aug 2026) | C | bouwer | let op |
 | 11 | **Aanleverroute nog niet afgesproken:** hoe komen copy en visuals bij de bouwer binnen — geplakt in het gesprek of als bestand in `docs/`? Zolang dat niet vastligt, kan werk blijven liggen | T B | Emilie | open |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
+| 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
+| 15 | Twee **bestaande** hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7% te licht) en `events-community-hero-v2` (16,9%). Zelfde `heroOverlay`-oplossing toepasbaar | B | visuals | open — wacht op akkoord |
+| 16 | Nog **1** praktijk-kaart op de placeholder: bedrijfsfeest → "Internationaal team". Bewust zo gelaten. Was 48 | B | Emilie | vrijwel af |
+| 17 | De turkooizen hero-kicker ("← Event Formats") heeft op lichte beelden te weinig contrast (open-space 1,2:1, onboardingdag 1,5:1). Een donkerlaag lost dit **niet** op: turkoois zit qua helderheid in het midden. Echte oplossing is een lichtere kleur of een klein donker vlakje eronder — ontwerpkeuze | C B | Emilie | open — schaduw is nu een pleister |
+| 18 | Ongebruikte eerdere versies opruimen na akkoord: `events-teambuilding-hero.webp`, `events-netwerkevent-hero.webp`, `events-bewonersparticipatie-hero.webp` (zonder `-v2`) en `events-bewonersparticipatie-hero-v2.webp` (vervangen door `-v3`) | B | — | open — wacht op akkoord |
+| 19 | Het beeldscherm in de conferentie-hero staat in spiegelbeeld (de dashboardtekst leest achterstevoren). Techniek om alléén het scherm binnen zijn perspectief te spiegelen is uitgewerkt en werkt; de onderrand moest nog worden bijgesteld. Nog niet ingebouwd | B | visuals | open |
+| 20 | Praktijk-kaart 2 bij `teamuitje` noemt een escape room in de tekst, terwijl het escape-beeld op kaart 3 staat. Beeld wisselen of tekst aanpassen | T B | Emilie | open |
+| 21 | Tekst bij `bedrijfsfeest` kaart 3 begint met "Voor een grote groep", terwijl het label nu MKB is | T | Copy-Claude | open |
 | 13 | De Engelse pagina's gebruiken de **Nederlandse** navigatie: `app/en/layout.tsx` laadt dezelfde Navbar en Footer, en die lezen `NAV_ITEMS` uit `lib/navigatie.ts` (allemaal `/nl/`-links). Bij de Engelse ronde hier een EN-variant naast zetten. Ook de NL/EN-schakelaar in de balk wijst nu twee keer naar `/nl/home` | C | bouwer | open — hoort bij punt 2 |
 
 ---
 
 ## 5. Log
+
+### 2026-08-15 — Event-beelden: de hele reeks rond
+
+Vandaag zijn alle twintig event-pagina's beeld voor beeld nagelopen. De stand
+vooraf: 4 events met een eigen hero, 12 van de 60 praktijk-kaarten gevuld. Nu:
+**20 hero's en 59 kaarten**. De ene overgebleven kaart (bedrijfsfeest →
+"Internationaal team") staat bewust nog op de placeholder.
+
+- **B** — **Alle ontbrekende hero's en praktijk-kaarten ingebouwd.** Bronnen uit
+  `Downloads/`, `Desktop/` en OneDrive → WebP kwaliteit 82; hero's 1600×900,
+  kaarten 1200×592. Bronnen kleiner dan 1200px zijn op ware grootte gesneden in
+  plaats van opgeblazen.
+- **B** — **Nieuwe hero voor `bewonersparticipatie`** (`-v3`, luchtfoto van de
+  wijk op het iMac-scherm). Dat beeld is achter de kop veel rustiger dan het
+  vorige — 1,7% tegen 8,5% te licht — dus de zwaardere donkerlaag kon eraf.
+  De oude hero is hergebruikt als hero voor `klankbordgroep`, opnieuw uit het
+  origineel gesneden onder een eigen naam.
+- **B** — **`alv`-hero omlaag** (`objectPosition: center 8%`) zodat de "Vote
+  now"-knop in beeld blijft.
+- **B** — **Randen weggesneden bij vijf beelden** (wit, geel en zwart; tot 297px)
+  en de CoP24-regiekamer opgelicht (+22%, gamma 1,15).
+- **C B** — **Alt-teksten voor elk beeld.** Nieuwe velden `heroAlt` en
+  `cases[].imgAlt`: 20 hero-beschrijvingen en 60 kaartbeschrijvingen, elk in de
+  context van het event. De event-iconen zijn decoratief en kregen bewust
+  `alt=""` — hun titel staat er als tekst naast, en dubbel voorlezen helpt
+  niemand.
+- **C** — **Donkerlaag over de hero instelbaar** via `heroOverlay`, drie standen.
+  Negen hero's staan hoger dan standaard omdat de witte kop er anders overheen
+  liep; de rest blijft op de lichtste stand.
+- **C** — **Tekstschaduw op de hero-kicker** ("← Event Formats"), het enige
+  hero-element dat er geen had.
+- **C** — **`scripts/hero-shots.mjs`** toegevoegd: opnames van de hero-band op
+  1440px, met `--alle` en `--sectie "<tekst>"`.
+- **C** — De lokale site draait weer in **ontwikkelmodus**, zodat wijzigingen
+  meteen zichtbaar zijn zonder bouwen en herstarten.
+
+Volledig overzicht per event — welk beeld waar staat, met welke donkerlaag en
+uitsnede — in `docs/website-visuals.md`.
+
+### 2026-08-15 — Online ALV (pagina voor pagina)
+
+- **B** — **Hero omlaag geschoven** (`objectPosition: center 8%`), zodat de
+  "Vote now"-knop bovenin het laptopscherm in beeld blijft; die viel er eerst
+  helemaal boven af. De tekstzone werd er ook rustiger van: van 0,35 naar 0,29
+  gemiddelde helderheid, 0% te licht.
+- **B** — **Twee praktijk-kaarten gevuld.** Europese branchevereniging →
+  `events-alv-praktijk-branchevereniging.webp` (`2.png`, zwarte balk van 297px
+  links weggesneden). Investeringsmaatschappij →
+  `events-alv-praktijk-gewogen-stemmen.webp` (`votecompany screen.jpg`).
+  Stichting → `events-alv-praktijk-jaarstukken.webp`
+  (`Laptop in spatial chat meeting.png`). **Alle drie de ALV-kaarten hebben nu
+  eigen beeld**; deze pagina staat niet meer op placeholders.
+- **C** — `scripts/hero-shots.mjs` kreeg `--sectie "<tekst>"`, om ook een
+  sectie verderop de pagina vast te leggen.
+
+### 2026-08-15
+
+- **B C** — **Dertien event-hero's ingebouwd.** `townhall`, `alv`,
+  `teambuilding`, `training-workshop`, `brainstormen`, `onboardingdag`,
+  `bedrijfsfeest`, `teamuitje`, `bewonersparticipatie`, `world-cafe`,
+  `webinar`, `open-space` en `netwerkevent` hadden geen eigen hero en vielen
+  terug op de placeholder `events-bijeenkomst.webp`. Bronnen uit `Downloads/`
+  (3200×1800, webinar 1672×941) → WebP 1600×900, kwaliteit 82, 53–146 kB.
+  Nu heeft 17 van de 20 events een eigen hero.
+- **C** — **Donkerlaag over de hero instelbaar gemaakt.** Nieuw veld
+  `heroOverlay` op `EventData`, met drie standen (`HERO_DIM_LICHT` /
+  `MEDIUM` / `STERK`) bovenin `app/nl/events/[slug]/page.tsx`. Standaard blijft
+  licht; zeven hero's staan hoger omdat de witte kop daar anders wegviel.
+  `alv` op sterk (wit rapport pal achter de kop), zes op medium. Onderbouwing en
+  meetmethode staan in het visuals-register.
+- **B** — **Witranden weggesneden bij drie aangeleverde beelden**: `teambuilding`
+  (248px links én rechts), `netwerkevent` (15px rechts),
+  `bewonersparticipatie` (44px onder). Die kwamen als grijze balken in de hero.
+  Opnieuw uit het origineel gesneden en als `-v2` opgeslagen; de eerste versies
+  zijn ongebruikt en mogen weg.
+- **C** — **Tekstschaduw op de hero-kicker** ("← Event Formats"). Dat was het
+  enige hero-element zónder schaduw, terwijl de kop en de subkop die wel hebben.
+  Op lichte beelden viel het turkoois helemaal weg. Raakt alle 20 event-pagina's.
+- **C** — `scripts/hero-shots.mjs` toegevoegd: maakt opnames van de hero-band op
+  1440px in `schermafdrukken/hero/`, tegen het netwerk-IP.
+  Gecontroleerd: `tsc --noEmit` en `npm run build` schoon, alle 20 hero's bekeken.
 
 ### 2026-08-12
 
