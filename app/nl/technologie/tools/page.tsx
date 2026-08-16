@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Waar wij mee werken — SpatialChat, Zoom, Teams, Miro | MeetingMasters",
@@ -27,6 +28,8 @@ type Platform = {
   vlak: string;
   /** Optioneel schermbeeld boven de kaart. Nog aan te leveren. */
   beeld?: string;
+  /** Klein label rechtsboven op de kaart, met een link erachter. */
+  badge?: { label: string; href: string };
   link?: { label: string; href: string };
 };
 
@@ -35,19 +38,19 @@ const PLATFORMS: Platform[] = [
     naam: "Microsoft Teams",
     bestand: "teams",
     sterk: "Intern dagelijks overleg",
-    groep: "tot ~300",
+    groep: "0 – 49",
     wanneer: "Als je organisatie erop draait",
     body:
-      "Zit al in je Microsoft-omgeving en aan je agenda vast, dus voor intern overleg scheelt het een extra link en een extra account. Je documenten zijn bij de hand en chat en vergadering lopen door elkaar heen. Voor deelnemers van buiten je organisatie is het minder soepel.",
+      "Zit al in je Microsoft-omgeving en aan je agenda vast, dus voor intern overleg scheelt het een extra link en een extra account. Je documenten zijn bij de hand en chat en vergadering lopen door elkaar heen. Voor deelnemers van buiten je organisatie is het minder soepel. Dit is een werkplatform, geen events platform.",
     accent: "border-t-[#5B5AA6]",
     vlak: "bg-white",
   },
   {
     naam: "Zoom",
     bestand: "zoom",
-    sterk: "Overleg en grote plenaire sessies",
+    sterk: "Overleg en events in grotere groepen",
     groep: "tot ~300",
-    wanneer: "Bij strak, inhoudelijk overleg",
+    wanneer: "Zakelijk overleg met strakke regie",
     body:
       "Stabiel, breed bekend en door vrijwel iedereen zonder uitleg te gebruiken. Breakout rooms werken betrouwbaar en opnemen is eenvoudig. Wij zetten de instellingen vooraf goed — wachtkamer, rechten, opnames — zodat je daar tijdens de bijeenkomst niet aan hoeft te denken.",
     accent: "border-t-[#2C6FA6]",
@@ -56,25 +59,25 @@ const PLATFORMS: Platform[] = [
   {
     naam: "Zoom Events",
     bestand: "zoom-events",
-    sterk: "Congressen met registratie",
+    sterk: "Grote events en congressen",
     groep: "vanaf ~300",
     wanneer: "Bij meerdaagse of parallelle programma's",
     body:
-      "Registratie vooraf, meerdere sessies naast elkaar, een lobby en een programma waar deelnemers zelf doorheen lopen. Je weet vooraf wie er komt en achteraf wie waar is geweest. Gebouwd voor schaal, dus voor een kleine sessie is het meer dan nodig.",
+      "Registratie vooraf, meerdere sessies naast elkaar, een lobby en een programma waar deelnemers zelf doorheen lopen. Je weet vooraf wie er komt en achteraf wie waar is geweest. Heldere layouts en mooi design met gepersonaliseerde agenda's. Gebouwd voor schaal, dus voor een kleine sessie is het meer dan nodig.",
     accent: "border-t-[#2C6FA6]",
     vlak: "bg-white",
   },
   {
     naam: "SpatialChat",
     bestand: "spatialchat",
-    sterk: "Ontmoeting, events en virtual offices",
+    sterk: "Events met persoonlijke interactie",
     groep: "tot ~600",
     wanneer: "Als contact het doel is",
     body:
       "Je hoort en ziet mensen naarmate je dichterbij komt, dus je kunt echt naar iemand toe lopen. Daardoor ontstaan gesprekken die in een grid niet ontstaan: aanschuiven bij een tafel, iemand even apart nemen, napraten na afloop. Draait in de browser zonder installatie, en achtergronden, kamers en indeling maken we op maat.",
     accent: "border-t-[#EEBE3D]",
     vlak: "bg-[#FFFDF5]",
-    link: { label: "Lees meer over SpatialChat", href: "/nl/technologie/spatialchat" },
+    badge: { label: "Nieuw", href: "/nl/technologie/spatialchat" },
   },
 ];
 
@@ -135,22 +138,30 @@ export default function ToolsPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#2D2D2D] py-14 md:py-20">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <Link href="/nl/technologie/hulp" className="text-white/40 text-xs font-semibold hover:text-white transition-colors">
-            ← Tech hulp
-          </Link>
-          <div className="max-w-[680px] mt-6">
-            <p className="text-[#EEBE3D] text-[10px] font-bold tracking-[0.2em] uppercase mb-5">Waar wij mee werken</p>
+      <section className="relative bg-[#2D2D2D] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/platforms-hero-v2.webp"
+            alt="Deelnemer in een online bijeenkomst met de deelnemers en de cijfers naast elkaar op het scherm"
+            fill priority
+            className="object-cover object-right"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D] via-[#2D2D2D]/75 lg:via-[#2D2D2D]/45 to-transparent" />
+        </div>
+
+        <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-16 md:py-24 lg:py-28">
+          <div className="max-w-[620px]">
+            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-5">Technologie</p>
             <h1
               className="font-bold text-white leading-[1.05] text-balance mb-5"
               style={{ fontSize: "clamp(1.9rem, 4.6vw, 3.1rem)" }}
             >
               Elk platform heeft zijn plek.
             </h1>
-            <p className="text-white/70 text-base leading-relaxed">
-              Wij kiezen bewust welk instrument wanneer past — bij je doel, je groep en wat je
-              deelnemers gewend zijn.
+            <p className="text-white/80 text-base leading-relaxed">
+              Wij kiezen bewust welk instrument wanneer past:
+              <br />
+              bij je doel, je groep en wat je deelnemers gewend zijn.
             </p>
           </div>
         </div>
@@ -172,8 +183,16 @@ export default function ToolsPage() {
             {PLATFORMS.map((p) => (
               <article
                 key={p.bestand}
-                className={`rounded-lg border border-[#EBEBEB] border-t-4 ${p.accent} ${p.vlak} p-6 flex flex-col`}
+                className={`relative rounded-lg border border-[#EBEBEB] border-t-4 ${p.accent} ${p.vlak} p-6 flex flex-col`}
               >
+                {p.badge && (
+                  <Link
+                    href={p.badge.href}
+                    className="absolute top-4 right-4 bg-[#EEBE3D] text-[#2D2D2D] text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded hover:bg-[#D4A835] transition-colors"
+                  >
+                    {p.badge.label}
+                  </Link>
+                )}
                 {p.beeld && (
                   <div className="-mx-6 -mt-6 mb-5 aspect-[16/10] overflow-hidden rounded-t">
                     <img src={p.beeld} alt="" className="w-full h-full object-cover" loading="lazy" />
@@ -212,17 +231,13 @@ export default function ToolsPage() {
       <section className="bg-[#F7F7F5] border-t border-[#EBEBEB] py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="max-w-[720px] mb-9">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">De tools</h2>
-            <p className="text-[#545454] leading-relaxed mb-3">
+            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-4">Tools</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+              Meer samenwerking en interactie
+            </h2>
+            <p className="text-[#545454] leading-relaxed">
               Om binnen bijeenkomsten de interactie en samenwerking te verhogen zetten we soms externe
               tools in. Deze combineren we met het platform; je kiest ze niet zelf.
-            </p>
-            <p className="text-[#545454] leading-relaxed">
-              Voor meer speelse interactie hebben we ook een{" "}
-              <Link href="/nl/games-tools#tools" className="text-[#28A8AA] font-semibold hover:underline">
-                set eigen tools
-              </Link>{" "}
-              ontworpen. Die kunnen we ook op maat maken voor jouw bijeenkomst.
             </p>
           </div>
 
@@ -250,6 +265,14 @@ export default function ToolsPage() {
               </div>
             </article>
           </div>
+
+          <p className="text-[#545454] leading-relaxed mt-8 max-w-[720px]">
+            Voor meer speelse interactie hebben we ook een{" "}
+            <Link href="/nl/games-tools#tools" className="text-[#28A8AA] font-semibold hover:underline">
+              set eigen tools
+            </Link>{" "}
+            ontworpen. Die kunnen we ook op maat maken voor jouw bijeenkomst.
+          </p>
         </div>
       </section>
 
@@ -260,7 +283,7 @@ export default function ToolsPage() {
             <div className="max-w-[620px]">
               <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-4">Wat kies jij?</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
-                Wij beginnen niet bij de tool, maar bij je doel
+                Het start met het doel
               </h2>
               <p className="text-[#545454] leading-relaxed mb-4">
                 Wat moet er aan het einde van je bijeenkomst zijn gebeurd? Moet er iets besloten worden,
@@ -268,14 +291,10 @@ export default function ToolsPage() {
                 wat zijn je deelnemers gewend — zitten ze de hele dag al in vergaderingen, of is online
                 voor hen juist ongemakkelijk?
               </p>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#545454] leading-relaxed">
                 Uit die antwoorden volgt de vorm, en pas daarna het platform. Soms is dat de tool die je
                 al hebt, en is de winst vooral te halen in hoe je de bijeenkomst opbouwt. Soms is er iets
                 anders nodig, omdat wat je wilt bereiken in een grid simpelweg niet ontstaat.
-              </p>
-              <p className="text-[#545454] leading-relaxed">
-                Dat gesprek voeren we graag, ook als je nog niet weet wat je zoekt. We denken mee vanuit
-                wat het moet opleveren — niet vanuit wat wij toevallig in huis hebben.
               </p>
             </div>
 

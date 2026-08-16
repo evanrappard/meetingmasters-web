@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Categorie, Vraag } from "@/app/nl/technologie/hulp/vragen";
 
 /**
@@ -16,12 +16,12 @@ import type { Categorie, Vraag } from "@/app/nl/technologie/hulp/vragen";
  * link, én laat je gewoon doorgaan met de algemene antwoorden.
  */
 
-const TOOL_AAN_URL: { tool: string; adres: string }[] = [
-  { tool: "SpatialChat", adres: "spatial.chat" },
-  { tool: "Zoom", adres: "zoom.us" },
-  { tool: "Zoom Events", adres: "events.zoom.us" },
-  { tool: "Microsoft Teams", adres: "teams.microsoft.com" },
-];
+const TOOL_INFO: Record<string, { logo: string; adres: string }> = {
+  SpatialChat: { logo: "spatialchat", adres: "spatial.chat" },
+  Zoom: { logo: "zoom", adres: "zoom.us" },
+  "Zoom Events": { logo: "zoom-events", adres: "events.zoom.us" },
+  "Microsoft Teams": { logo: "teams", adres: "teams.microsoft.com" },
+};
 
 function normaliseer(s: string) {
   return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -44,6 +44,18 @@ export default function TechHulp({
   const [tool, setTool] = useState<string | null>(null);
   const [weetNiet, setWeetNiet] = useState(false);
   const [zoek, setZoek] = useState("");
+
+  // De blokken in de hero linken naar #hulp-audio en dergelijke. Zonder dit
+  // scrolde je wel, maar moest je het probleem hieronder nóg een keer kiezen.
+  useEffect(() => {
+    const uitHash = () => {
+      const h = window.location.hash.replace("#hulp-", "");
+      if (h && categorieen.some((c) => c.id === h)) setSymptoom(h);
+    };
+    uitHash();
+    window.addEventListener("hashchange", uitHash);
+    return () => window.removeEventListener("hashchange", uitHash);
+  }, [categorieen]);
 
   const zoekend = zoek.trim().length > 1;
 
@@ -75,7 +87,7 @@ export default function TechHulp({
       <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-1">Wat is je probleem?</h2>
       <p className="text-[#777777] text-sm mb-5">Kies wat het dichtst in de buurt komt.</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-3">
         {categorieen.map((c) => {
           const actief = symptoom === c.id;
           const k = kleuren[c.id];
@@ -126,31 +138,41 @@ export default function TechHulp({
             <p className="text-[13px] text-[#7A8483]">Dan maken we het antwoord meteen specifiek. Weet je het niet? Ook prima.</p>
           </div>
 
-          <div className="flex flex-wrap gap-2 px-5 py-4">
+          <div className="flex flex-wrap items-stretch gap-2 px-5 py-4">
             {tools
               .filter((t) => t !== "Algemeen")
               .map((t) => {
                 const actief = tool === t;
+                const info = TOOL_INFO[t];
                 return (
                   <button
                     key={t}
                     onClick={() => { setTool(actief ? null : t); setWeetNiet(false); }}
                     aria-pressed={actief}
-                    className={`text-sm font-semibold px-4 py-2 rounded-lg border-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 ${
-                      actief
-                        ? "border-[#28A8AA] bg-[#F3FBFB] text-[#2D2D2D]"
-                        : "border-[#DEDEDC] bg-white text-[#2D2D2D] hover:border-[#28A8AA]/60"
+                    aria-label={t}
+                    className={`px-4 py-3 rounded-lg border-2 bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
+                      actief ? "border-[#EEBE3D] bg-[#FFFBEE]" : "border-[#E2E2DE] hover:bg-[#FFFBEE]"
                     }`}
                   >
-                    {t}
+                    {info ? (
+                      <img
+                        src={`/images/logos/tools/${info.logo}.webp`}
+                        alt={t}
+                        width={440}
+                        height={176}
+                        className="h-6 w-auto max-w-[124px] object-contain"
+                      />
+                    ) : (
+                      <span className="text-sm font-semibold text-[#2D2D2D]">{t}</span>
+                    )}
                   </button>
                 );
               })}
             <button
               onClick={() => { setWeetNiet((w) => !w); setTool(null); }}
               aria-expanded={weetNiet}
-              className={`text-sm font-semibold px-4 py-2 rounded-lg border-2 border-dashed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 ${
-                weetNiet ? "border-[#28A8AA] bg-[#F3FBFB] text-[#2D2D2D]" : "border-[#B9C2C1] bg-white text-[#6E7877] hover:border-[#28A8AA]/60"
+              className={`text-sm font-semibold px-4 py-3 rounded-lg border-2 border-dashed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
+                weetNiet ? "border-[#EEBE3D] bg-[#FFFBEE] text-[#2D2D2D]" : "border-[#C4CBCA] bg-white text-[#6E7877] hover:bg-[#FFFBEE]"
               }`}
             >
               Dat weet ik niet
@@ -158,27 +180,21 @@ export default function TechHulp({
           </div>
 
           {weetNiet && (
-            <div className="border-t border-[#EBEBEB] bg-[#FCFCFB] px-5 py-4">
-              <p className="font-bold text-[#2D2D2D] text-[15px] mb-1.5">Pak je uitnodiging erbij</p>
-              <p className="text-sm text-[#545454] mb-3">Kijk naar het begin van de link. Daaraan zie je waar je bijeenkomst plaatsvindt:</p>
-              <ul className="grid gap-1.5 text-sm text-[#545454]">
-                {TOOL_AAN_URL.map((r) => (
-                  <li key={r.adres} className="flex items-center gap-2">
-                    <code className="bg-[#F0F3F3] text-[#2D2D2D] px-2 py-0.5 rounded text-[13px]">{r.adres}</code>
-                    <span aria-hidden>→</span>
-                    <button
-                      onClick={() => { setTool(r.tool); setWeetNiet(false); }}
-                      className="font-semibold text-[#28A8AA] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 rounded"
-                    >
-                      {r.tool}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm text-[#6E7877] italic mt-3">
-                Liever niet zoeken? Sla dit gerust over — de stappen hieronder werken in bijna elke tool.
-              </p>
-            </div>
+            <p className="border-t border-[#EBEBEB] bg-[#FCFCFB] px-5 py-3.5 text-sm text-[#545454] leading-relaxed">
+              Kijk naar het begin van de link in je uitnodiging:{" "}
+              {Object.entries(TOOL_INFO).map(([naam, i], n, r) => (
+                <span key={naam}>
+                  <button
+                    onClick={() => { setTool(naam); setWeetNiet(false); }}
+                    className="text-[#28A8AA] font-semibold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 rounded"
+                  >
+                    {i.adres}
+                  </button>
+                  {n < r.length - 1 ? ", " : ". "}
+                </span>
+              ))}
+              Kun je het niet vinden? Sla dit gerust over.
+            </p>
           )}
         </div>
       )}
@@ -227,9 +243,6 @@ export default function TechHulp({
                     <p className="text-sm text-[#555555] leading-relaxed mt-3 whitespace-pre-line">{v.antwoord}</p>
                   )}
 
-                  <p className="mt-3 text-[13px] text-[#5E6C6A] bg-[#F5F8F8] border border-[#E2EAEA] rounded-lg px-3.5 py-2.5">
-                    Werkt het nog niet? Is het een begeleide bijeenkomst? Dan staat je contactpersoon klaar — kijk in je uitnodiging.
-                  </p>
                 </details>
               ))}
             </div>

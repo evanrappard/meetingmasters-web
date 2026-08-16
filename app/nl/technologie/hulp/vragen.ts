@@ -30,43 +30,177 @@ export const CATEGORIEEN: Categorie[] = [
 export const TOOLS = ["Algemeen", "SpatialChat", "Zoom Events", "Zoom", "Microsoft Teams"];
 
 // ── Inhoud per tool en categorie ───────────────────────────────────────
-type QA = { q: string; a: string };
+type QA = { q: string; a?: string; stappen?: string[] };
 type ToolBlock = { link: QA[]; audio: QA[]; video: QA[]; overig: QA[] };
 
 const DATA: Record<string, ToolBlock> = {
   Algemeen: {
+    // Volgorde bouwt op: eerst binnenkomen, dan pas wat er binnen misgaat.
     link: [
-      { q: "Ik kan de link naar de bijeenkomst niet vinden. Waar begin ik?", a: "Geen paniek. Zoek je uitnodigingsmail op: daarin staat de link waarmee je binnenkomt. Zoek in je mailbox op de naam van de organisatie of op 'uitnodiging'. Kijk ook even in je map ongewenste e-mail of spam — daar belandt zo'n mail soms." },
-      { q: "Ik heb de link, maar ik kom de bijeenkomst niet in. Wat nu?", a: "Rustig aan, dit is meestal zo opgelost. Klik nog een keer op de link uit de mail. Werkt dat niet? Kopieer de link en plak hem in een andere browser (Google Chrome werkt vaak het beste). Herstart eventueel je computer of de meeting en probeer opnieuw." },
-      { q: "Ik krijg een melding of foutmelding als ik wil binnenkomen.", a: "Lees rustig wat er staat en volg de knop die wordt aangeboden (bijvoorbeeld 'toestaan' of 'openen'). Helpt dat niet? Sluit het venster, klik opnieuw op de link uit de mail, of probeer een andere browser. Kom je er niet uit? Bij een begeleide bijeenkomst staat je contactpersoon voor je klaar — je vindt hem in je uitnodiging." },
-      { q: "Het lukt echt niet en het is een begeleide MeetingMasters-bijeenkomst.", a: "Dan helpen we je persoonlijk. Je contactpersoon staat in je uitnodiging; samen is het zo opgelost. Je bent niet de enige die dit overkomt — we zijn het gewend." },
+      {
+        q: "Waar vind ik de link naar de bijeenkomst?",
+        stappen: [
+"Zoek in je mailbox op de naam van de organisator of op “uitnodiging”.",
+"Kijk in je agenda: bij een agenda-uitnodiging staat de link in de afspraak zelf.",
+"Kijk in je map ongewenste e-mail of spam; verplaats de mail naar je inbox en klik daarna pas op de link.",
+        ],
+      },
+      {
+        q: "Ik klik op de link en er gebeurt niets.",
+        stappen: [
+"Kopieer de hele link en plak hem in de adresbalk van je browser.",
+"Gebruik Google Chrome. Edge en Firefox werken meestal ook; Safari geeft de meeste problemen.",
+"Sluit een eerder geopend venster van dezelfde meeting; twee vensters tegelijk werkt niet.",
+        ],
+      },
+      {
+        q: "Ik krijg een foutmelding als ik wil binnenkomen.",
+        stappen: [
+"Lees welke knop de melding aanbiedt — meestal “toestaan” of “openen” — en klik die aan.",
+"Sluit het venster en klik opnieuw op de link uit de mail.",
+"Werkt het nog niet: open de link in een privé- of incognitovenster, dan tellen oude cookies niet mee.",
+        ],
+      },
+      {
+        q: "Ik moet inloggen of een account aanmaken.",
+        stappen: [
+"Kijk of er een knop “deelnemen als gast” of “join in browser” staat; vaak hoef je niets aan te maken.",
+"Vraagt het platform wel om een account, gebruik dan het e-mailadres waarop je de uitnodiging kreeg.",
+"Bij SpatialChat hoef je nooit in te loggen: je vult alleen je naam in.",
+        ],
+      },
+      {
+        q: "Ik sta in een wachtkamer en er gebeurt niets.",
+        stappen: [
+"Blijf staan: de organisator moet je binnenlaten en ziet je in de lijst staan.",
+"Controleer of je naam herkenbaar is; staat er “iPhone van…”, pas hem dan aan.",
+"Duurt het lang, ververs de pagina dan één keer — je komt automatisch weer in de rij.",
+        ],
+      },
     ],
     audio: [
-      { q: "Ik hoor de anderen niet.", a: "Controleer eerst of het geluid van je computer aanstaat en hard genoeg is. Kijk daarna in de instellingen van de meeting of het juiste luidsprekerkanaal is gekozen (bijvoorbeeld je koptelefoon in plaats van de laptopspeaker). Draag je oortjes? Haal ze er even uit en stop ze opnieuw in." },
-      { q: "De anderen horen mij niet.", a: "Kijk of je microfoon niet uitstaat: klik op het microfoon-icoon zodat er geen streepje doorheen staat. Controleer in de instellingen of de juiste microfoon is geselecteerd. In een browser vraagt de meeting soms toestemming voor je microfoon — geef die toestemming even." },
-      { q: "Mijn microfoon of speaker staat op het verkeerde apparaat.", a: "Ga naar de audio-instellingen in de meeting en kies bewust het juiste apparaat, zowel voor de microfoon als voor het geluid. Stel dit ook goed in bij de geluidsinstellingen van je computer zelf. Test je microfoon: bij het praten zie je vaak een balkje bewegen." },
-      { q: "De browser vraagt of laat mijn microfoon niet toe.", a: "Klik in je browser op het slotje links in de adresbalk (of op de drie puntjes en dan 'instellingen'). Zet daar de toestemming voor de microfoon aan. Vernieuw daarna de pagina. Zo weet de meeting dat hij je microfoon mag gebruiken." },
-      { q: "Er is een vervelende echo.", a: "Een echo ontstaat meestal als meerdere mensen in dezelfde ruimte tegelijk meedoen. Zorg dan dat maar één apparaat het geluid aan heeft. Een headset of oortjes gebruiken helpt ook goed tegen echo." },
+      {
+        q: "Ik hoor niemand.",
+        stappen: [
+"Zet het geluid van je computer aan en hard genoeg — controleer ook of het niet gedempt staat.",
+"Kies in de instellingen van de meeting bewust de juiste speaker (bijvoorbeeld je koptelefoon in plaats van de laptopspeaker).",
+"Draag je oortjes of een headset? Haal ze eruit en stop ze opnieuw in, zodat het apparaat opnieuw wordt herkend.",
+"Test het geluid met de testknop van de meeting, als die er is.",
+        ],
+      },
+      {
+        q: "Niemand hoort mij.",
+        stappen: [
+"Kijk of je microfoon niet uitstaat: er mag geen streepje door het microfoon-icoon staan.",
+"Kies in de meeting de juiste microfoon; praat en kijk of het balkje beweegt.",
+"Geef je browser toestemming: klik op het slotje links in de adresbalk, zet microfoon op “toestaan” en ververs de pagina.",
+"Blijft het stil, dan blokkeert je besturingssysteem het. Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon, en vink je browser aan. Windows: Instellingen → Privacy en beveiliging → Microfoon.",
+        ],
+      },
+      {
+        q: "Mijn geluid komt uit het verkeerde apparaat.",
+        stappen: [
+"Kies het juiste apparaat in de meeting, apart voor de microfoon en apart voor de speaker.",
+"Stel het daarna ook in bij de geluidsinstellingen van je computer zelf.",
+"Sluit je een headset aan tijdens de meeting? Kies hem daarna alsnog handmatig; dat gaat niet altijd vanzelf.",
+        ],
+      },
+      {
+        q: "Er is een echo of een piep.",
+        stappen: [
+"Zit je met meerdere mensen in dezelfde ruimte, laat dan maar één apparaat het geluid aan hebben.",
+"Gebruik een headset of oortjes; dat lost een echo bijna altijd op.",
+"Zet je microfoon uit als je niet praat.",
+        ],
+      },
+      {
+        q: "Mijn geluid hapert of klinkt blikkerig.",
+        stappen: [
+"Zet je camera uit; beeld kost veruit de meeste bandbreedte, geluid blijft dan meestal goed.",
+"Sluit programma's die op de achtergrond synchroniseren of downloaden.",
+"Ga dichter bij je wifi-punt zitten, of sluit een netwerkkabel aan.",
+        ],
+      },
     ],
     video: [
-      { q: "Ik zie mezelf niet, mijn camera doet het niet.", a: "Rustig, meestal is dit klein. Controleer of je camera aanstaat (klik op het camera-icoon zodat er geen streepje doorheen staat). Kijk in de instellingen of de juiste camera is gekozen. Zit er misschien nog een schuifje of plakkertje voor je camera? Haal dat weg." },
-      { q: "Mijn camera lijkt bezet of wordt door iets anders gebruikt.", a: "Je camera kan maar op één plek tegelijk actief zijn. Sluit andere programma's en tabbladen die de camera gebruiken (denk aan een andere video-app of een tweede meeting). Herstart daarna eventueel de meeting." },
-      { q: "De browser laat mijn camera niet toe.", a: "Klik op het slotje links in de adresbalk (of op de drie puntjes en dan 'instellingen') en zet de toestemming voor de camera aan. Vernieuw daarna de pagina — dan verschijnt je beeld meestal alsnog." },
-      { q: "Mijn beeld blijft hangen of bevriest.", a: "Dit ligt meestal aan de internetverbinding. Zet je beeld eventueel even uit en weer aan, of ververs de pagina. Vaak loopt het beeld daarna weer soepel." },
+      {
+        q: "Mijn camera doet het niet.",
+        stappen: [
+"Kijk of je camera niet uitstaat: er mag geen streepje door het camera-icoon staan.",
+"Kies in de meeting de juiste camera; laptops hebben er soms meer dan één.",
+"Geef je browser toestemming: klik op het slotje links in de adresbalk, zet camera op “toestaan” en ververs de pagina.",
+"Helpt dat niet, dan blokkeert je besturingssysteem het. Mac: Systeeminstellingen → Privacy en beveiliging → Camera, en vink je browser aan. Windows: Instellingen → Privacy en beveiliging → Camera.",
+"Gebruikt een ander programma je camera al? Sluit dat volledig af — ook als het alleen nog op de achtergrond draait — en ververs de pagina.",
+"Controleer tot slot of er geen schuifje of dopje voor je cameralens zit.",
+        ],
+      },
+      {
+        q: "Ik zie de anderen niet.",
+        stappen: [
+"Controleer of de anderen hun camera aan hebben; vaak ligt het niet aan jou.",
+"Ververs de pagina; beelden komen daarna opnieuw binnen.",
+"Zet je eigen camera even uit en weer aan, dan wordt de videoverbinding opnieuw opgebouwd.",
+        ],
+      },
+      {
+        q: "Mijn beeld is bevroren of blokkerig.",
+        stappen: [
+"Zet je camera uit en na een paar seconden weer aan.",
+"Sluit andere programma's; video kost veel van je processor.",
+"Blijft het haperen, laat je camera dan uit — het gesprek loopt op geluid gewoon door.",
+        ],
+      },
     ],
     overig: [
-      { q: "Mijn internetverbinding is slecht.", a: "Geen zorgen, dit is vaak snel beter. Ga dichter bij je router zitten, of stap over op een ander wifi-netwerk. Werkt het thuis niet goed? Maak een hotspot met je telefoon (via 4G/5G) en verbind je computer daarmee." },
-      { q: "Alles voelt traag. Hoe krijg ik meer snelheid?", a: "Sluit andere tabbladen en programma's die je niet nodig hebt, zeker als daar video of downloads in draaien. Dat geeft de meeting meer ruimte, waardoor beeld en geluid weer soepel worden." },
-      { q: "Werkt mijn browser wel goed?", a: "Gebruik bij voorkeur Google Chrome — dat werkt voor deze meetings vaak het beste. Controleer of je browser de laatste update heeft. Sluit de browser daarna helemaal af en open hem opnieuw." },
-      { q: "Er hapert van alles. Wat is de simpelste oplossing?", a: "Verlaat de meeting en kom opnieuw binnen via de link uit je uitnodigingsmail. Opnieuw joinen lost verrassend veel op. Helpt dat niet, herstart dan je internet of je computer en probeer nog een keer." },
-      { q: "Niets werkt en ik raak in paniek.", a: "Adem even rustig, we lossen dit samen op. Bij een begeleide MeetingMasters-bijeenkomst staat je contactpersoon klaar — kijk even in je uitnodiging. Je hoeft dit niet alleen op te lossen." },
+      {
+        q: "Ik kan mijn scherm niet delen.",
+        stappen: [
+"Klik op “scherm delen” en kies wat je wilt tonen: je hele scherm, één venster of één tabblad.",
+"Op een Mac moet je je browser eerst toestemming geven: Systeeminstellingen → Privacy en beveiliging → Schermopname. Daarna moet je de browser afsluiten en opnieuw openen.",
+"Deel je een video met geluid, vink dan “geluid delen” aan.",
+        ],
+      },
+      {
+        q: "Ik word in een breakout room gezet. Wat moet ik doen?",
+        stappen: [
+"Dat is een apart kamertje voor een gesprek in kleine kring; klik op “deelnemen” als dat gevraagd wordt.",
+"Je beeld en geluid gaan gewoon mee; je hoeft niets opnieuw in te stellen.",
+"Kom je er niet uit, klik dan op “vraag om hulp”. De begeleider komt dan naar je toe.",
+        ],
+      },
+      {
+        q: "Mijn verbinding hapert.",
+        stappen: [
+"Zet je camera uit.",
+"Sluit programma's die je niet nodig hebt.",
+"Ga dichter bij je wifi-punt zitten of gebruik een kabel.",
+"Helpt niets: verlaat de meeting en kom opnieuw binnen via de link.",
+        ],
+      },
+      {
+        q: "Ik werk op een computer van mijn organisatie en er wordt van alles geblokkeerd.",
+        stappen: [
+"Probeer eerst een andere browser; soms is er maar één toegestaan.",
+"Lukt het niet, dan zit er een blokkade op het netwerk of op je beheerdersrechten.",
+"Stuur je IT-afdeling de instellingen onderaan deze pagina; daar staat per platform wat zij nodig hebben.",
+"Kan het snel? Doe mee via je telefoon of een privélaptop.",
+        ],
+      },
+      {
+        q: "Niets werkt.",
+        stappen: [
+"Sluit de meeting helemaal af en klik opnieuw op de link uit je uitnodiging.",
+"Open de link in Google Chrome.",
+"Herstart je computer — vaak sneller dan blijven proberen.",
+"Doe mee via je telefoon; dat werkt vrijwel altijd, ook als je laptop dwarsligt.",
+        ],
+      },
     ],
   },
-
   SpatialChat: {
     link: [
-      { q: "Ik kan mijn uitnodigingslink niet vinden. Wat nu?", a: "Geen paniek. Kijk in de mail of agenda-uitnodiging van de organisator, ook in je spam- of ongewenste-mailmap. Vind je hem echt niet? Neem contact op met je begeleider — die staat in je uitnodiging — dan krijg je de link opnieuw." },
-      { q: "Ik heb de link, maar er gebeurt niets als ik erop klik.", a: "Kopieer de hele link en plak hem handmatig in de adresbalk van je browser (bij voorkeur Chrome, Firefox of Edge) en druk op Enter. SpatialChat opent dan vanzelf — downloaden hoeft niet. Lukt het nog niet? Kijk in je uitnodiging wie je contactpersoon is." },
+      { q: "Ik kan mijn uitnodigingslink niet vinden. Wat nu?", a: "Kijk in de mail of agenda-uitnodiging van de organisator, ook in je spam- of ongewenste-mailmap. Vind je hem echt niet? " },
+      { q: "Ik heb de link, maar er gebeurt niets als ik erop klik.", a: "Kopieer de hele link en plak hem handmatig in de adresbalk van je browser (bij voorkeur Chrome, Firefox of Edge) en druk op Enter. SpatialChat opent dan vanzelf — downloaden hoeft niet. Lukt het nog niet? " },
       { q: "Moet ik een account aanmaken of iets installeren?", a: "Nee. Je hoeft niets te installeren en geen account aan te maken. Na het klikken vul je alleen even je naam en organisatie in als 'visitekaartje' en klik je op Continue. Klaar." },
       { q: "Ik ben de SpatialChat-pagina/het tabblad kwijt.", a: "Zoek in je browser het tabblad met een rood stipje erop. Dat is de pagina waar je microfoon en beeld actief zijn, dus daar staat je event nog gewoon open." },
       { q: "Ik kom een kamer niet in.", a: "Waarschijnlijk zit die kamer vol. Achter de kamernaam zie je het aantal deelnemers (bijvoorbeeld 50/50). Probeer een andere kamer of wacht even en probeer het zo opnieuw." },
@@ -91,11 +225,11 @@ const DATA: Record<string, ToolBlock> = {
     ],
   },
 
-  "Zoom Events": {
+"Zoom Events": {
     link: [
-      { q: "Ik heb geen registratie- of join-mail ontvangen. Wat nu?", a: "Geen paniek. Kijk eerst even in je spam- of ongewenste-mailmap; de mail zit daar vaak. Verplaats hem naar je inbox en de link werkt gewoon. Vind je niets? Vraag je begeleider uit de uitnodiging om hulp; je krijgt dan meteen een persoonlijke join-link." },
-      { q: "Ik heb wel geregistreerd maar krijg geen enkele Zoom-mail.", a: "Dat lossen we snel op. Maak een gratis Zoom-account aan met hetzelfde e-mailadres waarmee je je hebt aangemeld, of vraag je begeleider uit de uitnodiging om hulp. Je krijgt dan direct je persoonlijke join-link toe zodat je alsnog binnenkomt." },
-      { q: "Mijn join-link werkt niet of ik kom er niet mee in.", a: "Controleer of je bent aangemeld met hetzelfde e-mailadres als bij registratie; daar wordt je toegang aan gekoppeld. Lukt het nog niet? Vraag je begeleider uit de uitnodiging om hulp. We kunnen je dan handmatig op de lijst zetten of een verse link geven." },
+      { q: "Ik heb geen registratie- of join-mail ontvangen. Wat nu?", a: "Kijk eerst even in je spam- of ongewenste-mailmap; de mail zit daar vaak. Verplaats hem naar je inbox en de link werkt gewoon. Vind je niets? Vraag je begeleider uit de uitnodiging om hulp; je krijgt dan meteen een persoonlijke join-link." },
+      { q: "Ik heb wel geregistreerd maar krijg geen enkele Zoom-mail.", a: "Maak een gratis Zoom-account aan met hetzelfde e-mailadres waarmee je je hebt aangemeld,  Je krijgt dan direct je persoonlijke join-link toe zodat je alsnog binnenkomt." },
+      { q: "Mijn join-link werkt niet of ik kom er niet mee in.", a: "Controleer of je bent aangemeld met hetzelfde e-mailadres als bij registratie; daar wordt je toegang aan gekoppeld. Lukt het nog niet?  We kunnen je dan handmatig op de lijst zetten of een verse link geven." },
     ],
     audio: [
       { q: "Ik hoor niets, wat kan ik doen?", a: "Klik op het pijltje naast het microfoon-icoon onderin en controleer of het juiste luidsprekerapparaat is gekozen (bijv. je koptelefoon in plaats van de laptopspeaker). Zet het volume open en probeer eventueel de pagina te verversen." },
@@ -111,14 +245,14 @@ const DATA: Record<string, ToolBlock> = {
       { q: "Ik zie de join-knop niet bij een sessie.", a: "Dan is de sessie nog niet gestart. Wacht rustig even tot de spreker de sessie opent; zodra dat gebeurt verschijnt vanzelf de blauwe 'Join'-knop en kun je erin. Sessies die live zijn herken je aan het rode 'Now'." },
       { q: "Hoe wissel ik tussen sessies of vind ik het volledige programma?", a: "Klik bovenin op de tab 'Sessions' voor het overzicht van alle sessies. Achter elke sessie zit een 'Join'-knop. Via het bladwijzer-icoon voeg je sessies toe aan je eigen agenda onder 'Itinerary', zodat je makkelijk kunt overstappen." },
       { q: "Waar vind ik de koffie- of lunchpauze?", a: "De pauze- en netwerkruimtes vind je onder de tab 'Expo'. Klik daar op 'Enter booth' bij een ruimte die 'in progress' is (rood aangegeven) en klik op 'Join'. Zo loop je even binnen voor een informeel moment." },
-      { q: "Ik kom helemaal niet in het event of de meeting.", a: "Vrijwel elke browser werkt; op een Chromebook kun je het beste de Zoom-webapp gebruiken. Ben je spreker? Doe dan mee via de Zoom-app. Kom je er niet uit? Vraag je begeleider uit de uitnodiging om hulp." },
+      { q: "Ik kom helemaal niet in het event of de meeting.", a: "Vrijwel elke browser werkt; op een Chromebook kun je het beste de Zoom-webapp gebruiken. Ben je spreker? Doe dan mee via de Zoom-app. Kom je er niet uit? " },
     ],
   },
 
   Zoom: {
     link: [
-      { q: "Ik kan de link niet vinden.", a: "Zoek in je e-mail op 'Zoom' of 'uitnodiging' en check ook je spam- of ongewenste map. In de mail staat een blauwe link of een adres dat begint met zoom.us; klik daarop. Lukt het niet? Vraag je begeleider uit de uitnodiging om de link opnieuw." },
-      { q: "Er wordt om een wachtwoord of code gevraagd.", a: "Geen paniek: die 'passcode' staat gewoon onderaan dezelfde uitnodigingsmail. Kopieer of typ hem over. Kom je er niet uit? Bij een begeleide bijeenkomst staat je contactpersoon voor je klaar — je vindt hem in je uitnodiging." },
+      { q: "Ik kan de link niet vinden.", a: "Zoek in je e-mail op 'Zoom' of 'uitnodiging' en check ook je spam- of ongewenste map. In de mail staat een blauwe link of een adres dat begint met zoom.us; klik daarop. Lukt het niet? " },
+      { q: "Er wordt om een wachtwoord of code gevraagd.", a: "Geen paniek: die 'passcode' staat gewoon onderaan dezelfde uitnodigingsmail. Kopieer of typ hem over. " },
       { q: "Ik moet Zoom downloaden maar dat lukt niet.", a: "Het hoeft niet per se. Klik in het scherm dat verschijnt op 'Annuleren' en kies onderaan de pagina 'Join from your browser' (deelnemen vanuit je browser). Vul je naam in en je bent binnen, zonder iets te installeren." },
       { q: "Ik zie 'De host laat u zo binnen' / een wachtkamer.", a: "Dat klopt en is normaal. Je staat in de digitale wachtkamer en wordt binnen een minuutje toegelaten. Blijf gewoon even in dit scherm en sluit het niet af." },
     ],
@@ -140,11 +274,11 @@ const DATA: Record<string, ToolBlock> = {
     ],
   },
 
-  "Microsoft Teams": {
+"Microsoft Teams": {
     link: [
-      { q: "Ik kan de link naar de meeting niet vinden. Wat nu?", a: "Rustig blijven. Kijk eerst in de e-mailuitnodiging en in je agenda-afspraak: de knop 'Deelnemen aan de vergadering' of de link staat daarin. Zoek eventueel op 'Teams' in je mailbox. Kom je er niet uit? Vraag je begeleider uit de uitnodiging om de link." },
+      { q: "Ik kan de link naar de meeting niet vinden. Wat nu?", a: "Rustig blijven. Kijk eerst in de e-mailuitnodiging en in je agenda-afspraak: de knop 'Deelnemen aan de vergadering' of de link staat daarin. Zoek eventueel op 'Teams' in je mailbox. Kom je er niet uit? " },
       { q: "Ik heb op de link geklikt maar er gebeurt niets / hij vraagt om de app.", a: "Geen zorgen, je hoeft niets te installeren. Kies in het scherm voor 'Doorgaan in deze browser' in plaats van de app. Werkt de link nog steeds niet, kopieer hem dan en plak hem in Microsoft Edge of Google Chrome." },
-      { q: "Ik moet inloggen of een code invullen, maar dat lukt niet.", a: "Afhankelijk van de instellingen vraagt Teams soms om in te loggen of om een eenmalige code die naar je e-mail wordt gestuurd. Vul die code in en je bent binnen. Lukt het niet? Vul dan gewoon je naam in als gast, of vraag je begeleider uit de uitnodiging om hulp." },
+      { q: "Ik moet inloggen of een code invullen, maar dat lukt niet.", a: "Afhankelijk van de instellingen vraagt Teams soms om in te loggen of om een eenmalige code die naar je e-mail wordt gestuurd. Vul die code in en je bent binnen. Lukt het niet? Vul dan gewoon je naam in als gast, " },
     ],
     audio: [
       { q: "Ik hoor de anderen niet.", a: "Loop deze stappen af: 1) staat het geluid van je computer aan en hard genoeg? 2) Klik in de meeting op de drie puntjes ('...') en dan op 'Apparaatinstellingen', en controleer of de juiste luidspreker is geselecteerd. Helpt dat niet, probeer dan een koptelefoon of oortjes." },
@@ -175,7 +309,8 @@ export const VRAGEN: Vraag[] = TOOLS.flatMap((tool) =>
       categorie: cat,
       tool,
       vraag: qa.q,
-      antwoord: qa.a,
+      antwoord: qa.a ?? "",
+      stappen: qa.stappen,
     }))
   )
 );
