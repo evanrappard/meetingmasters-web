@@ -23,13 +23,35 @@ const TOOL_LOGOS = [
   { naam: "Vote Company", bestand: "votecompany" },
 ];
 
-// Elke categorie een eigen kleur, zodat de knoppen herkenbaar zijn en de
-// pagina niet grijs wordt. De volgorde loopt gelijk met CATEGORIEEN.
-const KLEUREN: Record<string, { vlak: string; rand: string; stip: string; hover: string }> = {
-  link: { vlak: "bg-[#FFF8E6]", rand: "border-[#EEBE3D]", stip: "bg-[#EEBE3D]", hover: "hover:bg-[#FFFBEE]" },
-  audio: { vlak: "bg-[#F0FAFA]", rand: "border-[#28A8AA]", stip: "bg-[#28A8AA]", hover: "hover:bg-[#F5FCFC]" },
-  video: { vlak: "bg-[#F2F5EC]", rand: "border-[#8FAF6E]", stip: "bg-[#8FAF6E]", hover: "hover:bg-[#F7F9F3]" },
-  overig: { vlak: "bg-[#FBF2F0]", rand: "border-[#D08A78]", stip: "bg-[#D08A78]", hover: "hover:bg-[#FDF7F6]" },
+/**
+ * Kleuren komen uit het palet dat de events-pagina's al gebruiken: dezelfde
+ * radiale gradiënten die daar achter de event-iconen staan. Zo hoort de
+ * hulppagina bij de site in plaats van bij zichzelf.
+ *
+ * `beeld` is optioneel. Staat er een bestand, dan vult dat de cirkel; anders
+ * staat het icoon op de gradiënt, precies zoals bij de event-formats.
+ */
+const KLEUREN: Record<string, { bol: string; rand: string; vlak: string; beeld?: string }> = {
+  link: {
+    bol: "radial-gradient(circle at 38% 38%, #FFEEC1, #F5D070)",
+    rand: "border-[#EEBE3D]",
+    vlak: "bg-[#FFFDF5]",
+  },
+  audio: {
+    bol: "radial-gradient(circle at 38% 38%, #6CCECE, #38BCBC)",
+    rand: "border-[#28A8AA]",
+    vlak: "bg-[#F5FCFC]",
+  },
+  video: {
+    bol: "radial-gradient(circle at 38% 38%, #C0D8D0, #A0C8C0)",
+    rand: "border-[#A0C8C0]",
+    vlak: "bg-[#F7FBF9]",
+  },
+  overig: {
+    bol: "radial-gradient(circle at 38% 38%, #F5BEC8, #EFA1AF)",
+    rand: "border-[#EFA1AF]",
+    vlak: "bg-[#FDF7F8]",
+  },
 };
 
 const faqSchema = {
@@ -95,11 +117,17 @@ export default function HulpPage() {
                 <a
                   key={c.id}
                   href={`#hulp`}
-                  className="group flex items-center gap-3 rounded-lg border border-white/15 bg-white/[0.06] px-4 py-2.5 hover:bg-white/15 hover:border-white/40 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EEBE3D]"
+                  className="group flex items-center gap-3 rounded-lg border border-white/15 bg-white/[0.06] px-4 py-2.5 hover:bg-white/15 hover:border-white/40 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                 >
-                  <span className={`w-2 h-2 rounded-full ${KLEUREN[c.id]?.stip ?? "bg-white/50"}`} aria-hidden />
+                  <span
+                    className="w-7 h-7 rounded-full grid place-items-center text-[13px] shrink-0"
+                    style={{ background: KLEUREN[c.id]?.bol }}
+                    aria-hidden
+                  >
+                    {c.icoon}
+                  </span>
                   <span className="text-white text-[15px] font-semibold leading-tight">{c.label}</span>
-                  <span className="ml-auto text-white/35 group-hover:text-[#EEBE3D] transition-colors" aria-hidden>→</span>
+                  <span className="ml-auto text-white/35 group-hover:text-white transition-colors" aria-hidden>→</span>
                 </a>
               ))}
             </div>

@@ -27,7 +27,7 @@ function normaliseer(s: string) {
   return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
-type Kleur = { vlak: string; rand: string; stip: string; hover: string };
+type Kleur = { bol: string; rand: string; vlak: string; beeld?: string };
 
 export default function TechHulp({
   categorieen,
@@ -84,19 +84,33 @@ export default function TechHulp({
               key={c.id}
               onClick={() => kiesSymptoom(c.id)}
               aria-pressed={actief}
-              className={`relative overflow-hidden text-left rounded-xl border-2 px-5 py-4 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EEBE3D] ${
+              className={`group text-left rounded-xl border-2 p-5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 ${
                 actief
-                  ? `${k?.rand ?? "border-[#28A8AA]"} ${k?.vlak ?? "bg-[#F3FBFB]"}`
-                  : `border-[#E7E7E3] bg-white ${k?.hover ?? "hover:bg-[#F7F7F5]"}`
+                  ? `${k?.rand ?? "border-[#28A8AA]"} ${k?.vlak ?? "bg-[#F5FCFC]"}`
+                  : "border-[#E7E7E3] bg-white hover:border-[#C9CFCE]"
               }`}
             >
-              {/* Kleurstreep links: geeft elke categorie een eigen gezicht. */}
-              <span className={`absolute left-0 top-0 bottom-0 w-1.5 ${k?.stip ?? "bg-[#28A8AA]"}`} aria-hidden />
-              <span className="block text-2xl mb-1.5 pl-1" aria-hidden>{c.icoon}</span>
-              <span className="block font-bold text-[#2D2D2D] text-base leading-snug pl-1">{c.label}</span>
-              {c.intro && (
-                <span className="block text-[13px] text-[#7A8483] leading-snug mt-1 pl-1">{c.intro}</span>
-              )}
+              <span className="flex items-center gap-4">
+                {/* Gradiëntcirkel, net als bij de event-formats. Staat er een
+                    beeld, dan vult dat de cirkel. */}
+                <span
+                  className="w-16 h-16 rounded-full grid place-items-center shrink-0 overflow-hidden shadow-[0_4px_14px_rgba(0,0,0,0.10)]"
+                  style={{ background: k?.bol ?? "radial-gradient(circle at 38% 38%, #6CCECE, #38BCBC)" }}
+                  aria-hidden
+                >
+                  {k?.beeld ? (
+                    <img src={k.beeld} alt="" className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-2xl">{c.icoon}</span>
+                  )}
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-bold text-[#2D2D2D] text-base leading-snug">{c.label}</span>
+                  {c.intro && (
+                    <span className="block text-[13px] text-[#7A8483] leading-snug mt-1">{c.intro}</span>
+                  )}
+                </span>
+              </span>
             </button>
           );
         })}
@@ -111,7 +125,7 @@ export default function TechHulp({
           onChange={(e) => setZoek(e.target.value)}
           placeholder="Of typ wat er gebeurt — bijvoorbeeld “ik hoor niets”"
           aria-label="Zoek in de hulpvragen"
-          className="w-full rounded-lg border border-[#DADADA] bg-white pl-11 pr-4 py-3.5 text-base text-[#2D2D2D] placeholder:text-[#AAAAAA] focus:outline-none focus:border-[#EEBE3D] focus:ring-2 focus:ring-[#EEBE3D]/25"
+          className="w-full rounded-lg border border-[#DADADA] bg-white pl-11 pr-4 py-3.5 text-base text-[#2D2D2D] placeholder:text-[#AAAAAA] focus:outline-none focus:border-[#28A8AA] focus:ring-2 focus:ring-[#28A8AA]/25"
         />
       </div>
 
@@ -133,7 +147,7 @@ export default function TechHulp({
                     key={t}
                     onClick={() => { setTool(actief ? null : t); setWeetNiet(false); }}
                     aria-pressed={actief}
-                    className={`text-sm font-semibold px-4 py-2 rounded-lg border-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EEBE3D] ${
+                    className={`text-sm font-semibold px-4 py-2 rounded-lg border-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 ${
                       actief
                         ? "border-[#28A8AA] bg-[#F3FBFB] text-[#2D2D2D]"
                         : "border-[#DEDEDC] bg-white text-[#2D2D2D] hover:border-[#28A8AA]/60"
@@ -146,7 +160,7 @@ export default function TechHulp({
             <button
               onClick={() => { setWeetNiet((w) => !w); setTool(null); }}
               aria-expanded={weetNiet}
-              className={`text-sm font-semibold px-4 py-2 rounded-lg border-2 border-dashed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EEBE3D] ${
+              className={`text-sm font-semibold px-4 py-2 rounded-lg border-2 border-dashed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 ${
                 weetNiet ? "border-[#28A8AA] bg-[#F3FBFB] text-[#2D2D2D]" : "border-[#B9C2C1] bg-white text-[#6E7877] hover:border-[#28A8AA]/60"
               }`}
             >
@@ -165,7 +179,7 @@ export default function TechHulp({
                     <span aria-hidden>→</span>
                     <button
                       onClick={() => { setTool(r.tool); setWeetNiet(false); }}
-                      className="font-semibold text-[#28A8AA] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EEBE3D] rounded"
+                      className="font-semibold text-[#28A8AA] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 rounded"
                     >
                       {r.tool}
                     </button>
@@ -208,7 +222,7 @@ export default function TechHulp({
                 <details key={v.id} className="group border-b border-[#F0F0F0] py-4" open={i === 0 && !zoekend}>
                   <summary className="flex justify-between items-start gap-4 list-none cursor-pointer">
                     <span className="font-semibold text-[#2D2D2D] text-[15px] leading-snug">{v.vraag}</span>
-                    <span className="text-[#EEBE3D] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden>+</span>
+                    <span className="text-[#28A8AA] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden>+</span>
                   </summary>
 
                   {v.stappen ? (
@@ -224,7 +238,7 @@ export default function TechHulp({
                     <p className="text-sm text-[#555555] leading-relaxed mt-3 whitespace-pre-line">{v.antwoord}</p>
                   )}
 
-                  <p className="mt-3 text-[13px] text-[#6B5A28] bg-[#FFF9E8] border border-[#F0E4BE] rounded-lg px-3.5 py-2.5">
+                  <p className="mt-3 text-[13px] text-[#5E6C6A] bg-[#F5F8F8] border border-[#E2EAEA] rounded-lg px-3.5 py-2.5">
                     Werkt het nog niet? Is het een begeleide bijeenkomst? Dan staat je contactpersoon klaar — kijk in je uitnodiging.
                   </p>
                 </details>

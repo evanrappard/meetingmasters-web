@@ -74,7 +74,13 @@ const nextConfig: NextConfig = {
       { source: "/nl/technologie/helpdesk", destination: "/nl/technologie/hulp", permanent: true },
       { source: "/nl/technologie/platforms", destination: "/nl/technologie/tools", permanent: true },
       { source: "/nl/technologie/hoe-het-werkt", destination: "/nl/technologie/spatialchat", permanent: true },
-      { source: "/nl/technologie/support", destination: "/nl/technologie", permanent: true },
+      { source: "/nl/technologie/support", destination: "/nl/technologie/tools", permanent: true },
+      // De losse platformpagina's en de oude hub zijn opgegaan in het
+      // overzicht op /tools. SpatialChat houdt wel een eigen pagina.
+      { source: "/nl/technologie", destination: "/nl/technologie/tools", permanent: true },
+      { source: "/nl/technologie/zoom", destination: "/nl/technologie/tools", permanent: true },
+      { source: "/nl/technologie/teams", destination: "/nl/technologie/tools", permanent: true },
+      { source: "/nl/technologie/zoom-events", destination: "/nl/technologie/tools", permanent: true },
       // Escape Room is vervangen door Online Teamuitje
       { source: "/nl/events/escaperoom", destination: "/nl/events/teamuitje", permanent: true },
       // Event-slugs gelijkgetrokken met de titels

@@ -373,7 +373,7 @@ export default function SpatialChatPage() {
       <div className="bg-white border-t border-[#EBEBEB] py-4">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <Link
-            href="/nl/technologie"
+            href="/nl/technologie/tools"
             className="text-[13px] text-[#898989] hover:text-[#545454] transition-colors"
           >
             ← Terug naar Technologie

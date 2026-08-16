@@ -25,6 +25,8 @@ type Platform = {
   body: string;
   accent: string;
   vlak: string;
+  /** Optioneel schermbeeld boven de kaart. Nog aan te leveren. */
+  beeld?: string;
   link?: { label: string; href: string };
 };
 
@@ -39,7 +41,6 @@ const PLATFORMS: Platform[] = [
       "Zit al in je Microsoft-omgeving en aan je agenda vast, dus voor intern overleg scheelt het een extra link en een extra account. Je documenten zijn bij de hand en chat en vergadering lopen door elkaar heen. Voor deelnemers van buiten je organisatie is het minder soepel.",
     accent: "border-t-[#5B5AA6]",
     vlak: "bg-white",
-    link: { label: "Meer over Teams", href: "/nl/technologie/teams" },
   },
   {
     naam: "Zoom",
@@ -51,7 +52,6 @@ const PLATFORMS: Platform[] = [
       "Stabiel, breed bekend en door vrijwel iedereen zonder uitleg te gebruiken. Breakout rooms werken betrouwbaar en opnemen is eenvoudig. Wij zetten de instellingen vooraf goed — wachtkamer, rechten, opnames — zodat je daar tijdens de bijeenkomst niet aan hoeft te denken.",
     accent: "border-t-[#2C6FA6]",
     vlak: "bg-white",
-    link: { label: "Meer over Zoom", href: "/nl/technologie/zoom" },
   },
   {
     naam: "Zoom Events",
@@ -63,7 +63,6 @@ const PLATFORMS: Platform[] = [
       "Registratie vooraf, meerdere sessies naast elkaar, een lobby en een programma waar deelnemers zelf doorheen lopen. Je weet vooraf wie er komt en achteraf wie waar is geweest. Gebouwd voor schaal, dus voor een kleine sessie is het meer dan nodig.",
     accent: "border-t-[#2C6FA6]",
     vlak: "bg-white",
-    link: { label: "Meer over Zoom Events", href: "/nl/technologie/zoom-events" },
   },
   {
     naam: "SpatialChat",
@@ -79,7 +78,9 @@ const PLATFORMS: Platform[] = [
   },
 ];
 
-const TOOLS = [
+type Tool = { naam: string; bestand: string; sterk: string; body: string; beeld?: string };
+
+const TOOLS: Tool[] = [
   {
     naam: "Miro",
     bestand: "miro",
@@ -173,6 +174,11 @@ export default function ToolsPage() {
                 key={p.bestand}
                 className={`rounded-lg border border-[#EBEBEB] border-t-4 ${p.accent} ${p.vlak} p-6 flex flex-col`}
               >
+                {p.beeld && (
+                  <div className="-mx-6 -mt-6 mb-5 aspect-[16/10] overflow-hidden rounded-t">
+                    <img src={p.beeld} alt="" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                )}
                 <Logo bestand={p.bestand} naam={p.naam} groot />
 
                 <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mt-5 mb-1">Sterk in</p>
@@ -222,7 +228,12 @@ export default function ToolsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {TOOLS.map((t) => (
-              <article key={t.bestand} className="rounded-lg border border-[#EBEBEB] bg-white p-6">
+              <article key={t.bestand} className="rounded-lg border border-[#EBEBEB] bg-white p-6 overflow-hidden">
+                {t.beeld && (
+                  <div className="-mx-6 -mt-6 mb-5 aspect-[16/10] overflow-hidden">
+                    <img src={t.beeld} alt="" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                )}
                 <Logo bestand={t.bestand} naam={t.naam} />
                 <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mt-5 mb-1">Sterk in</p>
                 <p className="font-bold text-[#2D2D2D] leading-snug mb-3">{t.sterk}</p>
