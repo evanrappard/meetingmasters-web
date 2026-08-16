@@ -67,11 +67,13 @@ export default function TechHulp({
       );
     }
     if (!symptoom) return [];
-    return vragen.filter((v) => {
-      if (v.categorie !== symptoom) return false;
-      if (!tool) return v.tool === "Algemeen";
-      return v.tool === tool || v.tool === "Algemeen";
-    });
+    const inCategorie = vragen.filter((v) => v.categorie === symptoom);
+    if (!tool) return inCategorie.filter((v) => v.tool === "Algemeen");
+    // Heeft de gekozen tool eigen antwoorden, dan zijn die het meest precies.
+    // De algemene set zegt vaak hetzelfde in andere woorden; die twee naast
+    // elkaar tonen dwingt de bezoeker om zelf te ontdubbelen.
+    const perTool = inCategorie.filter((v) => v.tool === tool);
+    return perTool.length > 0 ? perTool : inCategorie.filter((v) => v.tool === "Algemeen");
   }, [vragen, zoek, zoekend, symptoom, tool]);
 
   const huidigeCategorie = categorieen.find((c) => c.id === symptoom);
@@ -84,8 +86,9 @@ export default function TechHulp({
   return (
     <div>
       {/* ── Stap 1: wat gaat er mis? ───────────────────────────────── */}
+      <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">Support voor meetings</p>
       <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-1">Wat is je probleem?</h2>
-      <p className="text-[#777777] text-sm mb-5">Kies wat het dichtst in de buurt komt.</p>
+      <p className="text-[#777777] text-sm mb-5">De meeste dingen zijn in drie stappen opgelost.</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-3">
         {categorieen.map((c) => {
@@ -251,11 +254,6 @@ export default function TechHulp({
       )}
 
       {/* ── Rustpunt voor wie nog niets koos ─────────────────────────── */}
-      {!symptoom && !zoekend && (
-        <p className="mt-6 text-sm text-[#7A8483]">
-          De meeste dingen zijn in drie stappen opgelost. Kies hierboven wat er misgaat, dan zoeken we het samen uit.
-        </p>
-      )}
     </div>
   );
 }

@@ -104,27 +104,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Nieuwsbrief ── */}
-        {/* Het formulier zelf staat op /nl/nieuwsbrief. HubSpot levert een lichte
-            standaardstijl die in deze donkere balk niet te temmen is; hier volstaat
-            een uitnodiging. */}
-        <div className="mt-12 pt-10 border-t border-[#3D3D3D] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-          <div>
-            <h4 className="text-[#EEBE3D] text-xs font-bold mb-3 uppercase tracking-widest">
-              Nieuwsbrief
-            </h4>
-            <p className="text-sm leading-relaxed max-w-[46ch]">
-              Af en toe iets bruikbaars over online bijeenkomsten. Geen verkooppraat.
-            </p>
-          </div>
-          <Link
-            href="/nl/nieuwsbrief"
-            className="inline-flex items-center gap-2 self-start sm:self-auto shrink-0 text-sm font-semibold text-[#EEBE3D] border border-[#5A5A5A] rounded px-5 py-2.5 hover:bg-[#EEBE3D] hover:text-[#2D2D2D] hover:border-[#EEBE3D] transition-colors"
-          >
-            Schrijf je in
-            <ArrowRight size={15} />
-          </Link>
-        </div>
       </div>
 
       <div className="border-t border-[#3D3D3D] px-6 lg:px-10 py-5 flex flex-col lg:flex-row items-center justify-between gap-3">

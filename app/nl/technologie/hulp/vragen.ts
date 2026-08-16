@@ -24,7 +24,7 @@ export const CATEGORIEEN: Categorie[] = [
   { id: "link", label: "Ik kom er niet in", icoon: "🔑", intro: "Link kwijt, of hij doet niets als je erop klikt." },
   { id: "audio", label: "Mijn audio werkt niet", icoon: "🔊", intro: "Ik hoor niemand, of niemand hoort mij." },
   { id: "video", label: "Mijn video doet het niet", icoon: "📷", intro: "Camera zwart of bevroren, of je ziet de anderen niet." },
-  { id: "overig", label: "Er gaat iets anders mis", icoon: "🛟", intro: "Haperingen, schermdelen, breakout rooms — of niets lijkt te werken." },
+  { id: "overig", label: "Er gaat iets anders mis", icoon: "🛟", intro: "Haperingen, schermdelen, breakout rooms of anders." },
 ];
 
 export const TOOLS = ["Algemeen", "SpatialChat", "Zoom Events", "Zoom", "Microsoft Teams"];

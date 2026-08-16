@@ -109,7 +109,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const FOOTER_EXTRA: NavChild[] = [
   { label: "Contact", href: "/nl/contact" },
   { label: "Plan een gesprek", href: "/nl/expert-advies" },
-  { label: "Nieuwsbrief", href: "/nl/nieuwsbrief" },
+  { label: "Nieuwsbrief (aanmelden)", href: "/nl/nieuwsbrief" },
 ];
 
 export const FOOTER_JURIDISCH: NavChild[] = [

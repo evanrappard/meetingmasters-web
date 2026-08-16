@@ -211,7 +211,8 @@ export default function HulpPage() {
         {/* Achtergrondvideo: geluidloos, herhaalt zichzelf, start meteen.
             playsInline houdt hem op iOS in de pagina in plaats van fullscreen. */}
         <video
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 80%" }}
           autoPlay
           muted
           loop
@@ -227,6 +228,7 @@ export default function HulpPage() {
 
         <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-20 md:py-28 lg:py-32 min-h-[430px] md:min-h-[520px] flex items-center">
           <div className="max-w-[620px]">
+            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-5">Helpdesk</p>
             <h1
               className="font-bold text-white leading-[1.05] text-balance mb-5"
               style={{ fontSize: "clamp(1.9rem, 4.2vw, 2.9rem)" }}
@@ -327,7 +329,7 @@ export default function HulpPage() {
       {/* ── INSTELLINGEN, VOOR ORGANISATIES ──────────────────────────── */}
       <section className="bg-[#E8EDE4] py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="max-w-[720px] mb-9">
+          <div className="max-w-[980px] mb-9">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
               Instellingen voor organisaties
             </h2>
