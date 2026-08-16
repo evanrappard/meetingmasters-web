@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import TechHulp from "@/components/ui/TechHulp";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { CATEGORIEEN, TOOLS, VRAGEN } from "./vragen";
@@ -22,7 +23,15 @@ const TOOL_LOGOS = [
   { naam: "Vote Company", bestand: "votecompany" },
 ];
 
-// Alleen de vragen die als los antwoord bruikbaar zijn, gaan mee naar Google.
+// Elke categorie een eigen kleur, zodat de knoppen herkenbaar zijn en de
+// pagina niet grijs wordt. De volgorde loopt gelijk met CATEGORIEEN.
+const KLEUREN: Record<string, { vlak: string; rand: string; stip: string; hover: string }> = {
+  link: { vlak: "bg-[#FFF8E6]", rand: "border-[#EEBE3D]", stip: "bg-[#EEBE3D]", hover: "hover:bg-[#FFFBEE]" },
+  audio: { vlak: "bg-[#F0FAFA]", rand: "border-[#28A8AA]", stip: "bg-[#28A8AA]", hover: "hover:bg-[#F5FCFC]" },
+  video: { vlak: "bg-[#F2F5EC]", rand: "border-[#8FAF6E]", stip: "bg-[#8FAF6E]", hover: "hover:bg-[#F7F9F3]" },
+  overig: { vlak: "bg-[#FBF2F0]", rand: "border-[#D08A78]", stip: "bg-[#D08A78]", hover: "hover:bg-[#FDF7F6]" },
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -38,20 +47,35 @@ export default function HulpPage() {
     <>
       <JsonLd data={faqSchema} />
 
-      {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#2D2D2D] py-14 md:py-20">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="max-w-[680px]">
-            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-5">Tech hulp</p>
+      {/* ── HERO ──────────────────────────────────────────────────────
+          Op groot scherm staan de vier vragen ín het laptopscherm van de
+          foto. Het beeld is 2000×1125; het zwarte vlak zit op ongeveer
+          47%–92% breed en 12%–64% hoog. Daaronder valt de overlay weg en
+          nemen de kaarten in de sectie hieronder het over. */}
+      <section className="relative bg-[#2D2D2D] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/tech-hulp-hero.webp"
+            alt="Deelnemer achter een laptop tijdens een online bijeenkomst"
+            fill priority
+            className="object-cover object-right"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D] via-[#2D2D2D]/80 lg:via-[#2D2D2D]/55 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/80 to-transparent lg:hidden" />
+        </div>
+
+        <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-14 md:py-20 lg:py-0 lg:aspect-[16/9] lg:max-h-[620px] lg:flex lg:items-center">
+          <div className="max-w-[520px] lg:max-w-[440px]">
+            <p className="text-[#EEBE3D] text-[10px] font-bold tracking-[0.2em] uppercase mb-5">Tech hulp</p>
             <h1
               className="font-bold text-white leading-[1.05] text-balance mb-5"
-              style={{ fontSize: "clamp(1.9rem, 4.6vw, 3.1rem)" }}
+              style={{ fontSize: "clamp(1.9rem, 4.4vw, 3rem)" }}
             >
               Directe hulp bij online meetings
             </h1>
-            <p className="text-white/70 text-base leading-relaxed mb-7">
-              Kies hieronder wat er misgaat, dan sta je er zo weer in. De meeste dingen zijn in drie
-              stappen opgelost — en je bent echt niet de enige die dit overkomt.
+            <p className="text-white/75 text-base leading-relaxed mb-7">
+              Kies wat er misgaat, dan sta je er zo weer in. De meeste dingen zijn in drie stappen
+              opgelost — en je bent echt niet de enige die dit overkomt.
             </p>
             <Link
               href="/nl/technologie/tools"
@@ -60,29 +84,34 @@ export default function HulpPage() {
               Meer weten per tool →
             </Link>
           </div>
-        </div>
-      </section>
 
-      {/* ── HULP ─────────────────────────────────────────────────────── */}
-      <section className="bg-white py-12 md:py-16">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="max-w-[820px]">
-            <TechHulp categorieen={CATEGORIEEN} tools={TOOLS} vragen={VRAGEN} />
+          {/* De vier vragen, in het zwarte scherm van de laptop. */}
+          <div className="hidden lg:block absolute left-[48%] top-[15%] w-[42%] h-[46%]">
+            <div className="h-full flex flex-col justify-center gap-2.5 pr-[3%]">
+              <p className="text-white/45 text-[10px] font-bold tracking-[0.18em] uppercase mb-1">
+                Wat lukt er niet?
+              </p>
+              {CATEGORIEEN.map((c) => (
+                <a
+                  key={c.id}
+                  href={`#hulp`}
+                  className="group flex items-center gap-3 rounded-lg border border-white/15 bg-white/[0.06] px-4 py-2.5 hover:bg-white/15 hover:border-white/40 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EEBE3D]"
+                >
+                  <span className={`w-2 h-2 rounded-full ${KLEUREN[c.id]?.stip ?? "bg-white/50"}`} aria-hidden />
+                  <span className="text-white text-[15px] font-semibold leading-tight">{c.label}</span>
+                  <span className="ml-auto text-white/35 group-hover:text-[#EEBE3D] transition-colors" aria-hidden>→</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── DISCLAIMER ───────────────────────────────────────────────── */}
-      <section className="bg-white pb-12 md:pb-16">
+      {/* ── HULP ─────────────────────────────────────────────────────── */}
+      <section id="hulp" className="bg-white py-12 md:py-16 scroll-mt-24">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="max-w-[820px] border-l-[3px] border-[#C9CFCE] bg-[#FAFAF9] rounded-r-lg px-6 py-5">
-            <h2 className="font-bold text-[#2D2D2D] text-base mb-2">Even eerlijk over deze pagina</h2>
-            <p className="text-sm text-[#6E7877] leading-relaxed">
-              Alles hierboven is opgeschreven op basis van wat wij in de praktijk tegenkomen — honderden
-              bijeenkomsten, en steeds dezelfde vragen. Werkt jouw tool net even anders? Dat kan: de makers
-              passen hun software regelmatig aan, en hun eigen helppagina&apos;s zijn altijd het meest
-              actueel. Kom je er hier niet uit, kijk daar dan ook even.
-            </p>
+          <div className="max-w-[860px]">
+            <TechHulp categorieen={CATEGORIEEN} tools={TOOLS} vragen={VRAGEN} kleuren={KLEUREN} />
           </div>
         </div>
       </section>
@@ -93,11 +122,11 @@ export default function HulpPage() {
           <div className="max-w-[720px] mb-8">
             <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">Meer weten per tool</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
-              Waar wij mee werken, en waar het ophoudt
+              Waar wij mee werken
             </h2>
             <p className="text-[#545454] leading-relaxed">
               Vier platforms waarin een bijeenkomst plaatsvindt, en de tools die we daarmee combineren.
-              Per stuk wat het goed doet — en waar het niet voor bedoeld is.
+              Per stuk waar het sterk in is en wanneer we het inzetten.
             </p>
           </div>
 
@@ -108,7 +137,6 @@ export default function HulpPage() {
             <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-5 items-center">
               {TOOL_LOGOS.map((t) => (
                 <li key={t.bestand}>
-                  {/* Vaste hoogte, contain: de logo's zijn al op elkaar afgestemd. */}
                   <img
                     src={`/images/logos/tools/${t.bestand}.webp`}
                     alt={t.naam}
@@ -124,6 +152,17 @@ export default function HulpPage() {
               Bekijk alle tools →
             </span>
           </Link>
+
+          {/* ── Kleine disclaimer ─────────────────────────────────────── */}
+          <div className="mt-10 max-w-[760px] text-[13px] leading-relaxed text-[#8A9493] border-t border-[#E4E4E0] pt-5">
+            <p>
+              Dit zijn onze eigen inzichten, opgedaan in de praktijk. Of iets werkt, hangt daarnaast af
+              van je apparaat en van de instellingen binnen je organisatie — dat kunnen wij niet
+              overzien, en niet alles kunnen wij dus oplossen. Vragen over een platform zelf beantwoordt
+              de leverancier het best; ligt het aan je telefoon, laptop of computer, dan helpt je eigen
+              IT-servicedesk je verder.
+            </p>
+          </div>
         </div>
       </section>
     </>

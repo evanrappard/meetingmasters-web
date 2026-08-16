@@ -27,14 +27,18 @@ function normaliseer(s: string) {
   return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
+type Kleur = { vlak: string; rand: string; stip: string; hover: string };
+
 export default function TechHulp({
   categorieen,
   tools,
   vragen,
+  kleuren = {},
 }: {
   categorieen: Categorie[];
   tools: string[];
   vragen: Vraag[];
+  kleuren?: Record<string, Kleur>;
 }) {
   const [symptoom, setSymptoom] = useState<string | null>(null);
   const [tool, setTool] = useState<string | null>(null);
@@ -74,21 +78,24 @@ export default function TechHulp({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {categorieen.map((c) => {
           const actief = symptoom === c.id;
+          const k = kleuren[c.id];
           return (
             <button
               key={c.id}
               onClick={() => kiesSymptoom(c.id)}
               aria-pressed={actief}
-              className={`text-left rounded-xl border-2 px-5 py-4 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EEBE3D] ${
+              className={`relative overflow-hidden text-left rounded-xl border-2 px-5 py-4 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EEBE3D] ${
                 actief
-                  ? "border-[#28A8AA] bg-[#F3FBFB]"
-                  : "border-[#E4E9E9] bg-white hover:border-[#28A8AA]/60"
+                  ? `${k?.rand ?? "border-[#28A8AA]"} ${k?.vlak ?? "bg-[#F3FBFB]"}`
+                  : `border-[#E7E7E3] bg-white ${k?.hover ?? "hover:bg-[#F7F7F5]"}`
               }`}
             >
-              <span className="text-2xl block mb-1.5" aria-hidden>{c.icoon}</span>
-              <span className="block font-bold text-[#2D2D2D] text-base leading-snug">{c.label}</span>
+              {/* Kleurstreep links: geeft elke categorie een eigen gezicht. */}
+              <span className={`absolute left-0 top-0 bottom-0 w-1.5 ${k?.stip ?? "bg-[#28A8AA]"}`} aria-hidden />
+              <span className="block text-2xl mb-1.5 pl-1" aria-hidden>{c.icoon}</span>
+              <span className="block font-bold text-[#2D2D2D] text-base leading-snug pl-1">{c.label}</span>
               {c.intro && (
-                <span className="block text-[13px] text-[#7A8483] leading-snug mt-1 line-clamp-2">{c.intro}</span>
+                <span className="block text-[13px] text-[#7A8483] leading-snug mt-1 pl-1">{c.intro}</span>
               )}
             </button>
           );

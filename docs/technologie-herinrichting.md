@@ -291,6 +291,21 @@ terug. Opruimen kan zodra de nieuwe opzet bevalt.
 krijgen; staat dat er, dan toont de hulppagina genummerde stappen in plaats van een
 alinea. Nog niet ingevuld — dat is het herschrijfwerk uit besluit 3.
 
+## 6b. Bijgesteld na eerste oplevering (16 aug 2026)
+
+De eerste versie leek te veel op de mockup en te weinig op de site. Bijgesteld:
+
+| Wat | Hoe |
+|---|---|
+| **Hero hulppagina** | Foto `tech-hulp-hero.webp` (`Vrouw achter laptop spatial meeting.png`). De vier hulpvragen staan als knoppen **ín het zwarte laptopscherm**, en worden eronder herhaald als kaarten — voor wie ze daar niet zag. Onder `lg` valt de overlay weg; dan doen de kaarten het werk. |
+| **Kleur** | Elke categorie een eigen kleur: link geel, geluid turkoois, beeld groen, overig terracotta. Kleurstreep links op de kaart, stip in de hero. |
+| **Disclaimer** | Van eigen blok met kop naar **kleine grijze regel** onderaan. Inhoud: onze inzichten; veel hangt af van je apparaat en de instellingen in je organisatie; platformvragen naar de leverancier, apparaatvragen naar je eigen IT-servicedesk. |
+| **Platforms** | Terug naar de oude, droge opzet: **vier op een rij**, per stuk "Sterk in", een korte alinea met de voordelen erin verweven, plus Groep en Wanneer. |
+| **"Waar het ophoudt"** | Vervallen — past niet bij hoe we adviseren. |
+| **"Ons voorstel"-label** | Vervallen. SpatialChat krijgt alleen een geel randje; de voorkeur blijkt uit de inhoud en uit de rest van de site. |
+| **De tools** | Nieuwe inleiding: externe tools om interactie en samenwerking te verhogen, plus een verwijzing naar de **eigen tools** (`/nl/games-tools#tools`), die ook op maat gemaakt kunnen worden. |
+| **"Wat kies jij?"** | Nieuwe slotsectie: wij beginnen bij het doel, niet bij de tool. Geen "we komen uit bij SpatialChat en Miro". |
+
 ## 7. Nog te doen
 
 | # | Wat | Wanneer |
