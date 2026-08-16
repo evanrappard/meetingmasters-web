@@ -76,19 +76,20 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
-    label: "Technologie",
-    href: "/nl/technologie",
+    // Landt meteen op de hulppagina: wie hier klikt heeft meestal haast.
+    // Oriënteren kan daarna nog, via de tools- en platformpagina's.
+    label: "Tech hulp",
+    href: "/nl/technologie/hulp",
     groep: "diensten",
     feature: {
-      title: "Platform plus support",
-      desc: "Online meetings en events met menselijke maat.",
+      title: "Vastgelopen? Zo ben je er zo weer in",
+      desc: "Directe hulp bij online meetings, in gewone taal.",
     },
     children: [
-      { label: "Volledige ontzorging", href: "/nl/technologie/support" },
+      { label: "Directe hulp", href: "/nl/technologie/hulp" },
+      { label: "Waar wij mee werken", href: "/nl/technologie/tools" },
       { label: "SpatialChat", href: "/nl/technologie/spatialchat" },
-      { label: "Teams", href: "/nl/technologie/teams" },
-      { label: "Zoom", href: "/nl/technologie/zoom" },
-      { label: "Zoom Events", href: "/nl/technologie/zoom-events" },
+      { label: "Platform kiezen", href: "/nl/technologie" },
     ],
   },
   {

@@ -105,10 +105,10 @@ export default function SpatialChatPage() {
                 Plan een gesprek
               </Link>
               <Link
-                href="/nl/technologie/hoe-het-werkt"
+                href="/nl/technologie/hulp"
                 className="border border-white/20 text-white/70 text-sm font-medium px-6 py-3 rounded hover:border-white/40 hover:text-white transition-colors"
               >
-                Hoe het werkt →
+                Hulp bij SpatialChat →
               </Link>
             </div>
           </div>
@@ -359,10 +359,10 @@ export default function SpatialChatPage() {
                 Plan een gesprek
               </Link>
               <Link
-                href="/nl/technologie/hoe-het-werkt"
+                href="/nl/technologie/hulp"
                 className="border border-[#EBEBEB] text-[#545454] text-sm font-medium px-7 py-3.5 rounded hover:border-[#CCCCCC] transition-colors text-center"
               >
-                Hoe het werkt →
+                Hulp bij SpatialChat →
               </Link>
             </div>
           </div>

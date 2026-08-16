@@ -75,6 +75,44 @@ leeft in de paginacode, niet in een apart bestand).
 
 ## 5. Log
 
+### 2026-08-16 — Technologie-sectie herbouwd
+
+Aanleiding: er landden twee verschillende bezoekers op dezelfde pagina's — iemand
+die rustig een platform kiest, en een deelnemer die twee minuten voor aanvang
+vastloopt. Die tweede kreeg nergens voorrang; de helpdesk had precies één
+inkomende link en stond niet in het menu. Besluiten en archief staan in
+`docs/technologie-herinrichting.md`.
+
+- **C** — **Nieuwe hulppagina** `/nl/technologie/hulp` — "Directe hulp bij online
+  meetings". Werkt in de volgorde waarin iemand in stress denkt: eerst wát er
+  misgaat, dan pas in welke tool. Met een knop "Dat weet ik niet" die uitlegt hoe
+  je de tool aan de link in je uitnodiging herkent, én je gewoon door laat gaan
+  met de algemene antwoorden. Nooit doodlopend.
+- **T** — **Het telefoonnummer is uit alle antwoorden gehaald** (zestien stuks).
+  Telefonische support wordt niet aan elke klant verkocht, dus de antwoorden
+  verwijzen nu naar de contactpersoon uit de uitnodiging.
+- **T** — **Disclaimer op de hulppagina**: opgesteld uit onze praktijk, en kijk
+  voor de nieuwste versie ook bij de toolleverancier zelf.
+- **C B** — **Nieuwe tools-pagina** `/nl/technologie/tools`. Onderscheid tussen de
+  vier **platforms** (ruime beschrijving, inclusief waar ze ophouden) en de vijf
+  **tools** die we ermee combineren (kort). Vooral bedoeld voor vindbaarheid: wie
+  op "Teams" of "Mentimeter" zoekt, kan zo bij MeetingMasters uitkomen.
+- **B** — **Negen tool-logo's** verwerkt naar `public/images/logos/tools/`.
+  Doorzichtige achtergrond via een vulling vanaf de rand, zodat wit *ín* een logo
+  blijft staan (het vinkje van Vote Company, de letters van Zoom Events).
+  Geschaald op inktoppervlak in plaats van op het omhullende kader — anders oogt
+  een compact woordmerk als Zoom veel groter dan een breed logo als streamAlive.
+  Script: `scripts/logo-normaliseren.mjs`.
+- **C** — **Vijf routes opgeheven** via doorverwijzing: `faq` en `helpdesk` → hulp,
+  `platforms` → tools, `hoe-het-werkt` → spatialchat, `support` → de hub. De
+  bestanden staan er nog; doorverwijzingen gaan vóór op de routes, dus er is
+  niets weg en je kunt terug.
+- **C** — **Menu**: "Technologie" heet nu **"Tech hulp"** en landt meteen op de
+  hulppagina. Daaronder: directe hulp, waar wij mee werken, SpatialChat, platform
+  kiezen.
+  Gecontroleerd: `tsc --noEmit` en `npm run build` schoon, alle routes 200 of 308,
+  geen interne links meer naar de opgeheven pagina's.
+
 ### 2026-08-15 — Event-beelden: de hele reeks rond
 
 Vandaag zijn alle twintig event-pagina's beeld voor beeld nagelopen. De stand

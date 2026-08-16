@@ -401,10 +401,10 @@ export default function TechnologiePage() {
                 ))}
               </div>
               <Link
-                href="/nl/technologie/support"
+                href="/nl/technologie/tools"
                 className="inline-flex items-center gap-2 text-sm font-bold text-[#2D2D2D] border-b-2 border-[#EEBE3D] pb-0.5 hover:border-[#2D2D2D] transition-colors"
               >
-                Lees hoe wij ondersteunen — van planning tot uitvoer →
+                Bekijk waar wij mee werken →
               </Link>
             </div>
             <div className="bg-[#2D2D2D] rounded-lg p-7">
@@ -412,7 +412,7 @@ export default function TechnologiePage() {
               <a href="tel:+31633034707" className="text-white text-2xl font-bold hover:underline">+31 6 33 03 47 07</a>
               <p className="text-white/60 text-sm leading-relaxed mt-3">
                 Een begeleide bijeenkomst van MeetingMasters? Loopt er iets vast, bel dan direct — of
-                bekijk de <Link href="/nl/technologie/faq" className="text-[#EEBE3D] font-semibold hover:underline">FAQ techniek</Link>.
+                bekijk de <Link href="/nl/technologie/hulp" className="text-[#EEBE3D] font-semibold hover:underline">hulppagina</Link>.
               </p>
             </div>
           </div>

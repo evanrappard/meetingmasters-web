@@ -65,6 +65,16 @@ const nextConfig: NextConfig = {
       // Virtueel Kantoor verplaatst naar /nl/virtual-office
       { source: "/virtual-office", destination: "/nl/virtual-office", permanent: true },
       { source: "/virtual-office/:path*", destination: "/nl/virtual-office/:path*", permanent: true },
+      // Technologie-sectie herzien (aug 2026): hulp en tools losgetrokken, de
+      // overlappende pagina's opgegaan in hun nieuwe plek. Zie
+      // docs/technologie-herinrichting.md. De oude bestanden staan er nog —
+      // deze doorverwijzingen gaan vóór op de routes, dus ze zijn niet meer
+      // bereikbaar. Pas opruimen als de nieuwe opzet bevalt.
+      { source: "/nl/technologie/faq", destination: "/nl/technologie/hulp", permanent: true },
+      { source: "/nl/technologie/helpdesk", destination: "/nl/technologie/hulp", permanent: true },
+      { source: "/nl/technologie/platforms", destination: "/nl/technologie/tools", permanent: true },
+      { source: "/nl/technologie/hoe-het-werkt", destination: "/nl/technologie/spatialchat", permanent: true },
+      { source: "/nl/technologie/support", destination: "/nl/technologie", permanent: true },
       // Escape Room is vervangen door Online Teamuitje
       { source: "/nl/events/escaperoom", destination: "/nl/events/teamuitje", permanent: true },
       // Event-slugs gelijkgetrokken met de titels

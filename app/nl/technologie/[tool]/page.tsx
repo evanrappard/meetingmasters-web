@@ -110,7 +110,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
                 Is dit de juiste tool voor jou? →
               </Link>
               <Link
-                href="/nl/technologie/faq"
+                href="/nl/technologie/hulp"
                 className="text-[#2D2D2D] text-sm font-semibold px-5 py-3 border border-[#D8D8D8] rounded hover:border-[#2D2D2D] transition-colors"
               >
                 Direct naar de FAQ techniek
@@ -186,7 +186,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
                 producer of tech-support — zodat je je op de inhoud kunt richten.
               </p>
               <Link
-                href="/nl/technologie/faq"
+                href="/nl/technologie/hulp"
                 className="inline-flex items-center gap-2 text-sm font-bold text-[#2D2D2D] border-b-2 border-[#EEBE3D] pb-0.5 hover:border-[#2D2D2D] transition-colors"
               >
                 Bekijk de FAQ techniek & how-to →
@@ -218,7 +218,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             De tool-specifieke Q&amp;A's vullen we aan vanuit de bestaande FAQ's en veelgezochte vragen.
           </p>
           <Link
-            href="/nl/technologie/faq"
+            href="/nl/technologie/hulp"
             className="inline-flex items-center gap-2 text-sm font-bold text-[#2D2D2D] border-b-2 border-[#EEBE3D] pb-0.5 hover:border-[#2D2D2D] transition-colors"
           >
             Naar de volledige FAQ techniek →
