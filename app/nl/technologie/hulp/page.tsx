@@ -212,7 +212,7 @@ export default function HulpPage() {
             playsInline houdt hem op iOS in de pagina in plaats van fullscreen. */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 80%" }}
+          style={{ objectPosition: "center 88%" }}
           autoPlay
           muted
           loop
@@ -236,8 +236,9 @@ export default function HulpPage() {
               Directe support voor je online meeting.
             </h1>
             <p className="text-white/80 text-base leading-relaxed">
-              Technische problemen en je moet een online bijeenkomst in? Hieronder helpen we je stap
-              voor stap verder.
+              Technische problemen en je moet een online bijeenkomst in?
+              <br />
+              Hieronder helpen we je stap voor stap verder.
             </p>
           </div>
         </div>

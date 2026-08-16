@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import PlatformKeuze, { type Platform } from "@/components/ui/PlatformKeuze";
 
 export const metadata: Metadata = {
   title: "Waar wij mee werken — SpatialChat, Zoom, Teams, Miro | MeetingMasters",
@@ -17,22 +18,6 @@ export const metadata: Metadata = {
  * - TOOLS zetten wij ernáást om interactie en samenwerking te verhogen.
  */
 
-type Platform = {
-  naam: string;
-  bestand: string;
-  sterk: string;
-  groep: string;
-  wanneer: string;
-  body: string;
-  accent: string;
-  vlak: string;
-  /** Optioneel schermbeeld boven de kaart. Nog aan te leveren. */
-  beeld?: string;
-  /** Klein label rechtsboven op de kaart, met een link erachter. */
-  badge?: { label: string; href: string };
-  link?: { label: string; href: string };
-};
-
 const PLATFORMS: Platform[] = [
   {
     naam: "Microsoft Teams",
@@ -43,7 +28,6 @@ const PLATFORMS: Platform[] = [
     body:
       "Zit al in je Microsoft-omgeving en aan je agenda vast, dus voor intern overleg scheelt het een extra link en een extra account. Je documenten zijn bij de hand en chat en vergadering lopen door elkaar heen. Voor deelnemers van buiten je organisatie is het minder soepel. Dit is een werkplatform, geen events platform.",
     accent: "border-t-[#5B5AA6]",
-    vlak: "bg-white",
   },
   {
     naam: "Zoom",
@@ -54,7 +38,6 @@ const PLATFORMS: Platform[] = [
     body:
       "Stabiel, breed bekend en door vrijwel iedereen zonder uitleg te gebruiken. Breakout rooms werken betrouwbaar en opnemen is eenvoudig. Wij zetten de instellingen vooraf goed — wachtkamer, rechten, opnames — zodat je daar tijdens de bijeenkomst niet aan hoeft te denken.",
     accent: "border-t-[#2C6FA6]",
-    vlak: "bg-white",
   },
   {
     naam: "Zoom Events",
@@ -65,18 +48,16 @@ const PLATFORMS: Platform[] = [
     body:
       "Registratie vooraf, meerdere sessies naast elkaar, een lobby en een programma waar deelnemers zelf doorheen lopen. Je weet vooraf wie er komt en achteraf wie waar is geweest. Heldere layouts en mooi design met gepersonaliseerde agenda's. Gebouwd voor schaal, dus voor een kleine sessie is het meer dan nodig.",
     accent: "border-t-[#2C6FA6]",
-    vlak: "bg-white",
   },
   {
     naam: "SpatialChat",
     bestand: "spatialchat",
-    sterk: "Events met persoonlijke interactie",
+    sterk: "Webinars en events met persoonlijke interactie",
     groep: "tot ~600",
     wanneer: "Als contact het doel is",
     body:
-      "Je hoort en ziet mensen naarmate je dichterbij komt, dus je kunt echt naar iemand toe lopen. Daardoor ontstaan gesprekken die in een grid niet ontstaan: aanschuiven bij een tafel, iemand even apart nemen, napraten na afloop. Draait in de browser zonder installatie, en achtergronden, kamers en indeling maken we op maat.",
+      "Je hoort en ziet mensen naarmate je dichterbij komt, dus je kunt echt naar iemand toe lopen. Je kunt aanschuiven bij een tafel, iemand even apart nemen, napraten na afloop. Draait in de browser zonder installatie, en achtergronden, kamers en indeling maken we op maat.",
     accent: "border-t-[#EEBE3D]",
-    vlak: "bg-[#FFFDF5]",
     badge: { label: "Nieuw", href: "/nl/technologie/spatialchat" },
   },
 ];
@@ -146,7 +127,7 @@ export default function ToolsPage() {
             fill priority
             className="object-cover object-right"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D] via-[#2D2D2D]/75 lg:via-[#2D2D2D]/45 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D]/90 via-[#2D2D2D]/45 lg:via-[#2D2D2D]/20 to-transparent" />
         </div>
 
         <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-16 md:py-24 lg:py-28">
@@ -179,51 +160,7 @@ export default function ToolsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-            {PLATFORMS.map((p) => (
-              <article
-                key={p.bestand}
-                className={`relative rounded-lg border border-[#EBEBEB] border-t-4 ${p.accent} ${p.vlak} p-6 flex flex-col`}
-              >
-                {p.badge && (
-                  <Link
-                    href={p.badge.href}
-                    className="absolute top-4 right-4 bg-[#EEBE3D] text-[#2D2D2D] text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded hover:bg-[#D4A835] transition-colors"
-                  >
-                    {p.badge.label}
-                  </Link>
-                )}
-                {p.beeld && (
-                  <div className="-mx-6 -mt-6 mb-5 aspect-[16/10] overflow-hidden rounded-t">
-                    <img src={p.beeld} alt="" className="w-full h-full object-cover" loading="lazy" />
-                  </div>
-                )}
-                <Logo bestand={p.bestand} naam={p.naam} groot />
-
-                <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mt-5 mb-1">Sterk in</p>
-                <p className="font-bold text-[#2D2D2D] leading-snug mb-4">{p.sterk}</p>
-
-                <p className="text-[15px] text-[#545454] leading-relaxed flex-1">{p.body}</p>
-
-                <dl className="grid grid-cols-2 gap-3 mt-5 pt-4 border-t border-[#EFEFED] text-[13px]">
-                  <div>
-                    <dt className="text-[#AAAAAA] font-semibold uppercase tracking-wide text-[10px] mb-0.5">Groep</dt>
-                    <dd className="text-[#2D2D2D] font-semibold">{p.groep}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-[#AAAAAA] font-semibold uppercase tracking-wide text-[10px] mb-0.5">Wanneer</dt>
-                    <dd className="text-[#2D2D2D] font-semibold leading-snug">{p.wanneer}</dd>
-                  </div>
-                </dl>
-
-                {p.link && (
-                  <Link href={p.link.href} className="mt-4 text-[#28A8AA] text-sm font-bold hover:underline">
-                    {p.link.label} →
-                  </Link>
-                )}
-              </article>
-            ))}
-          </div>
+          <PlatformKeuze platforms={PLATFORMS} standaard="spatialchat" />
         </div>
       </section>
 
