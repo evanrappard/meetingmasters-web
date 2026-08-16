@@ -86,7 +86,7 @@ export const NAV_ITEMS: NavItem[] = [
       desc: "Directe hulp bij online meetings, in gewone taal.",
     },
     children: [
-      { label: "Waar wij mee werken", href: "/nl/technologie/tools" },
+      { label: "Meeting Platforms", href: "/nl/technologie/tools" },
       { label: "SpatialChat", href: "/nl/technologie/spatialchat" },
     ],
   },

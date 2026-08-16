@@ -22,8 +22,8 @@ export type Categorie = { id: string; label: string; icoon: string; intro?: stri
 
 export const CATEGORIEEN: Categorie[] = [
   { id: "link", label: "Ik kom er niet in", icoon: "🔑", intro: "Link kwijt, of hij doet niets als je erop klikt." },
-  { id: "audio", label: "Ik hoor niemand", icoon: "🔊", intro: "Of ze horen jou niet. Meestal staat het geluid op het verkeerde apparaat." },
-  { id: "video", label: "Mijn beeld doet het niet", icoon: "📷", intro: "Camera zwart, bevroren, of je ziet de anderen niet." },
+  { id: "audio", label: "Mijn audio werkt niet", icoon: "🔊", intro: "Ik hoor niemand, of niemand hoort mij." },
+  { id: "video", label: "Mijn video doet het niet", icoon: "📷", intro: "Camera zwart of bevroren, of je ziet de anderen niet." },
   { id: "overig", label: "Er gaat iets anders mis", icoon: "🛟", intro: "Haperingen, schermdelen, breakout rooms — of niets lijkt te werken." },
 ];
 

@@ -27,7 +27,7 @@ function normaliseer(s: string) {
   return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
-type Kleur = { bol: string; rand: string; vlak: string; beeld?: string };
+type Kleur = { rand: string; vlak: string; randHex: string; vlakHex: string; beeld: string };
 
 export default function TechHulp({
   categorieen,
@@ -72,7 +72,7 @@ export default function TechHulp({
   return (
     <div>
       {/* ── Stap 1: wat gaat er mis? ───────────────────────────────── */}
-      <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-1">Wat lukt er niet?</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-1">Wat is je probleem?</h2>
       <p className="text-[#777777] text-sm mb-5">Kies wat het dichtst in de buurt komt.</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -84,32 +84,21 @@ export default function TechHulp({
               key={c.id}
               onClick={() => kiesSymptoom(c.id)}
               aria-pressed={actief}
-              className={`group text-left rounded-xl border-2 p-5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 ${
-                actief
-                  ? `${k?.rand ?? "border-[#28A8AA]"} ${k?.vlak ?? "bg-[#F5FCFC]"}`
-                  : "border-[#E7E7E3] bg-white hover:border-[#C9CFCE]"
+              className={`group flex items-stretch overflow-hidden text-left rounded-xl border-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
+                actief ? "border-[#EEBE3D] bg-[#FFFBEE]" : "border-[#E7E7E3] bg-white hover:bg-[#FFFBEE]"
               }`}
             >
-              <span className="flex items-center gap-4">
-                {/* Gradiëntcirkel, net als bij de event-formats. Staat er een
-                    beeld, dan vult dat de cirkel. */}
-                <span
-                  className="w-16 h-16 rounded-full grid place-items-center shrink-0 overflow-hidden shadow-[0_4px_14px_rgba(0,0,0,0.10)]"
-                  style={{ background: k?.bol ?? "radial-gradient(circle at 38% 38%, #6CCECE, #38BCBC)" }}
-                  aria-hidden
-                >
-                  {k?.beeld ? (
-                    <img src={k.beeld} alt="" className="w-full h-full object-cover" />
-                  ) : (
-                    <span className="text-2xl">{c.icoon}</span>
-                  )}
-                </span>
-                <span className="min-w-0">
-                  <span className="block font-bold text-[#2D2D2D] text-base leading-snug">{c.label}</span>
-                  {c.intro && (
-                    <span className="block text-[13px] text-[#7A8483] leading-snug mt-1">{c.intro}</span>
-                  )}
-                </span>
+              {/* Eerste kwart is beeld, de rest tekst. */}
+              <span className="w-1/4 shrink-0 self-stretch" style={{ background: k?.vlakHex }}>
+                {k?.beeld && (
+                  <img src={k.beeld} alt="" loading="lazy" className="w-full h-full object-cover" />
+                )}
+              </span>
+              <span className="flex-1 min-w-0 px-5 py-4">
+                <span className="block font-bold text-[#2D2D2D] text-base leading-snug">{c.label}</span>
+                {c.intro && (
+                  <span className="block text-[13px] text-[#7A8483] leading-snug mt-1">{c.intro}</span>
+                )}
               </span>
             </button>
           );
@@ -123,9 +112,9 @@ export default function TechHulp({
           type="search"
           value={zoek}
           onChange={(e) => setZoek(e.target.value)}
-          placeholder="Of typ wat er gebeurt — bijvoorbeeld “ik hoor niets”"
+          placeholder="Of typ hier je probleem, bijvoorbeeld “ik hoor niets”"
           aria-label="Zoek in de hulpvragen"
-          className="w-full rounded-lg border border-[#DADADA] bg-white pl-11 pr-4 py-3.5 text-base text-[#2D2D2D] placeholder:text-[#AAAAAA] focus:outline-none focus:border-[#28A8AA] focus:ring-2 focus:ring-[#28A8AA]/25"
+          className="w-full rounded-lg border border-[#E2E2DE] bg-[#F4F4F1] pl-11 pr-4 py-3.5 text-base text-[#2D2D2D] placeholder:text-[#AAAAAA] focus:outline-none focus:border-[#28A8AA] focus:ring-2 focus:ring-[#28A8AA]/25"
         />
       </div>
 
