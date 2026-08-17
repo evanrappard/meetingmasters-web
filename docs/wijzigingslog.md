@@ -69,11 +69,34 @@ leeft in de paginacode, niet in een apart bestand).
 | 19 | ~~Spiegelbeeld in de conferentie-hero~~ | B | visuals | **afgerond 17 aug 2026** — `-v2` ingebouwd, script bewaard |
 | 20 | Praktijk-kaart 2 bij `teamuitje` noemt een escape room in de tekst, terwijl het escape-beeld op kaart 3 staat. Beeld wisselen of tekst aanpassen | T B | Emilie | open |
 | 21 | Tekst bij `bedrijfsfeest` kaart 3 begint met "Voor een grote groep", terwijl het label nu MKB is | T | Copy-Claude | open |
+| 22 | **Briefing-tool** onder "Voor je begint" — nog te bedenken en te bouwen. Hoort bij de calculator, in hetzelfde blok | C | Emilie | open — nog **niet** zichtbaar op de site |
+| 23 | **Duidelijkere landingsplek voor "Check je format"**, aansluitend op "Voor je begint" | C T | Emilie | open — nog **niet** zichtbaar op de site |
+| 24 | **Tools mogelijk een eigen plek in het menu.** Besluit 17 aug 2026: pas doen zodra er méér tools zijn; nu blijft het onder Games & Tools | C | Emilie | geparkeerd |
+| 25 | **Blogdatum klopt niet:** "Niet hetzelfde. Wel goed." staat live op 13 juli 2026, hier op 31 maart 2026. Daardoor staat hij op de verkeerde plek in de volgorde | T | Emilie | open — welke datum is juist? |
+| 26 | **Eigen visual voor "Terug naar kantoor"** — leent nu het beeld van "Heen en weer" | B | Emilie | open |
+| 27 | **Doorverwijzingen voor oude bloglinks.** Live staat op `/nl/blogs/lange-slug`, hier op `/nl/blog/korte-slug`. Bij livegang breekt elke gedeelde link. Volledige lijst oude URL's nodig | C | bouwer | open — vóór livegang |
 | 13 | De Engelse pagina's gebruiken de **Nederlandse** navigatie: `app/en/layout.tsx` laadt dezelfde Navbar en Footer, en die lezen `NAV_ITEMS` uit `lib/navigatie.ts` (allemaal `/nl/`-links). Bij de Engelse ronde hier een EN-variant naast zetten. Ook de NL/EN-schakelaar in de balk wijst nu twee keer naar `/nl/home` | C | bouwer | open — hoort bij punt 2 |
 
 ---
 
 ## 5. Log
+
+### 2026-08-17 — Blog bijgewerkt en de vergaderkosten-calculator ingebouwd
+
+- **T** — **Nieuwste blogartikel overgenomen** van de live site: "Terug naar
+  kantoor: het antwoord op de verkeerde vraag" (14 augustus). Dat was het enige
+  dat hier nog miste. Beeld is voorlopig geleend van "Heen en weer".
+- **C** — **Vergaderkosten-calculator ingebouwd** op `/nl/meeting-calculator`,
+  het adres waar de canonical in het bestand zelf al naar wees. De tool staat als
+  losse app in `public/tools/vergaderkosten-calculator/` en wordt met `ToolKader`
+  ingesloten, net als bingo en storytelling.
+- **C** — **Nieuw blok "Voor je begint"** op Games & Tools, met de calculator erin.
+  Bewust géén vijfde tegel bij de bestaande tools: die gebruik je tíjdens een
+  bijeenkomst, de calculator ervóór. Ander moment, andere gebruiker. In dat blok
+  komen later de briefing-tool en "Check je format" erbij.
+- **T** — Eigen FAQ op de calculatorpagina, met FAQPage-schema. Eerste vraag die
+  hij wegneemt: nee, dit is geen offerte — het zegt niets over wat wij kosten.
+
 
 ### 2026-08-17 — Conferentie-hero rechtgezet en opgeruimd
 

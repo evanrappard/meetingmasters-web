@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vergaderkosten-calculator: wat kost een bijeenkomst echt? — MeetingMasters</title>
+<meta name="description" content="Reken in een paar stappen uit wat een bijeenkomst echt kost — in tijd (tijdsbeslag), euro's en CO₂ — en zie meteen wat online zou schelen.">
+<link rel="canonical" href="https://www.meetingmasters.online/nl/meeting-calculator">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MeetingMasters">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Wat kost jouw bijeenkomst echt?">
+<meta property="og:description" content="Bereken het tijdsbeslag, de kosten en de CO₂ van je bijeenkomst — en zie wat online scheelt.">
+<meta property="og:url" content="https://www.meetingmasters.online/nl/meeting-calculator">
+<!-- SHARE-AFBEELDING: host een 1200×630 afbeelding en zet de URL hieronder (data-URI's werken niet voor previews) -->
+<meta property="og:image" content="https://www.meetingmasters.online/images/meeting-calculator-share.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wat kost jouw bijeenkomst echt?">
+<meta name="twitter:description" content="Bereken het tijdsbeslag, de kosten en de CO₂ van je bijeenkomst — en zie wat online scheelt.">
+<meta name="twitter:image" content="https://www.meetingmasters.online/images/meeting-calculator-share.png">
+
+<!-- Fonts: Rajdhani (koppen) + Open Sans (body), met systeem-fallbacks -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --mm-yellow:#EEBE3D;
+    --mm-yellow-dark:#d9a728;
+    --dark-grey:#545454;
+    --soft-yellow:#FFF7E0;
+    --rose:#C64A60;
+    --aqua:#28A8AA;
+    --line:#dcdcdc;
+    --radius:12px;
+    --maxw:680px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  body{
+    font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color:var(--dark-grey);
+    background:#f2f2f2;
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:20px 16px 44px; }
+
+  h1,h2,h3{ font-family:"Rajdhani", sans-serif; color:var(--dark-grey); line-height:1.12; font-weight:600; margin:0; }
+
+  /* ---- Logo ---- */
+  .brandbar{ margin-bottom:16px; text-align:center; }
+  .logo{ height:42px; width:auto; display:inline-block; }
+
+  /* ---- Kop ---- */
+  .hero{ text-align:center; margin-bottom:18px; }
+  .hero h1{ font-size:clamp(25px,6.4vw,37px); font-weight:700; }
+  .hero p.lead{ margin:8px auto 0; font-size:14.5px; max-width:50ch; }
+
+  /* ---- Secties ---- */
+  section.card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:14px; margin-top:12px; }
+  section.soft{ background:var(--soft-yellow); border:1px solid #f1e2bc; }
+
+  .sec-head{ font-size:clamp(17px,4vw,20px); font-weight:600; margin-bottom:2px; display:flex; align-items:center; }
+  .step{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:23px;height:23px;border-radius:50%;
+    background:var(--mm-yellow); color:#3f3206;
+    font-family:"Rajdhani",sans-serif; font-weight:700; font-size:13px;
+    margin-right:8px; flex:0 0 auto;
+  }
+  .sec-note{ font-size:12.5px; color:#7a7a7a; margin:0 0 10px 31px; max-width:56ch; }
+
+  /* ---- Form ---- */
+  .field{margin-bottom:10px;}
+  .field:last-child{margin-bottom:0;}
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; }
+  label.lab{ display:block; font-weight:600; font-size:12.5px; margin-bottom:3px; color:var(--dark-grey); }
+  .hint{ font-size:11.5px; color:#8a8a8a; margin-top:2px; }
+
+  input[type="number"], input[type="text"], select{
+    width:100%; font-family:inherit; font-size:14.5px; color:var(--dark-grey);
+    padding:8px 10px; border:1px solid var(--line); border-radius:9px; background:#fff;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  input:focus, select:focus{ outline:none; border-color:var(--mm-yellow); box-shadow:0 0 0 3px rgba(238,190,61,.25); }
+  input:disabled{ background:#f4f4f4; color:#aaa; }
+
+  .inwrap{position:relative;}
+  .inwrap .pre{ position:absolute; left:11px; top:50%; transform:translateY(-50%); color:#9a9a9a; font-size:14.5px; pointer-events:none; }
+  .inwrap.euro input{padding-left:24px;}
+  .inwrap.pct input{padding-right:26px;}
+  .inwrap.pct .post{ position:absolute; right:11px; top:50%; transform:translateY(-50%); color:#9a9a9a; font-size:14.5px; pointer-events:none; }
+
+  /* ---- Uurprijs-blok in stap 1 ---- */
+  .rate-block{ margin-top:12px; background:var(--soft-yellow); border:1px solid #f1e2bc; border-radius:9px; padding:11px 12px; }
+  .rate-block .q{ font-weight:600; font-size:13px; margin-bottom:6px; }
+
+  /* ---- Stuur-mij-blok ---- */
+  .sendrow{ display:flex; gap:8px; flex-wrap:wrap; }
+  .sendrow input{ flex:1 1 200px; }
+  .send-btn{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:15px; background:var(--dark-grey); color:#fff; border:none; border-radius:9px; padding:9px 18px; cursor:pointer; }
+  .send-btn:hover{ background:#3f3f3f; }
+
+  /* ---- Online-checkbox ---- */
+  .onlinebox{ display:flex; align-items:center; gap:9px; font-size:14px; font-weight:600; cursor:pointer;
+    background:#f0fbfb; border:1px solid #bfe6e6; border-radius:9px; padding:9px 11px; }
+  .onlinebox input{ width:18px; height:18px; accent-color:var(--aqua); }
+  .onlinebox .sub{ font-weight:400; font-size:12px; color:#6b6b6b; }
+
+  /* ---- Toggle ---- */
+  .toggle-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .switch{ position:relative; display:inline-block; width:42px; height:24px; flex:0 0 auto; }
+  .switch input{opacity:0;width:0;height:0;}
+  .slider{ position:absolute; inset:0; background:#cfcfcf; border-radius:24px; cursor:pointer; transition:.2s; }
+  .slider:before{ content:""; position:absolute; height:18px; width:18px; left:3px; bottom:3px; background:#fff; border-radius:50%; transition:.2s; }
+  .switch input:checked + .slider{background:var(--mm-yellow);}
+  .switch input:checked + .slider:before{transform:translateX(18px);}
+  .switch input:disabled + .slider{opacity:.4;cursor:not-allowed;}
+
+  .sub-fields{ margin-top:10px; padding-top:10px; border-top:1px dashed var(--line); }
+  .sub-fields[hidden]{display:none;}
+
+  .calcline{ font-size:12.5px; color:#6b6b6b; margin-top:9px; background:#faf6ea; border-radius:8px; padding:7px 10px; }
+  .calcline b{color:var(--dark-grey);}
+
+  /* ---- Reisgroepen ---- */
+  #travelConfig[hidden]{display:none;}
+  .travel-row{ border:1px solid var(--line); border-radius:9px; padding:10px; margin-bottom:8px; background:#fff; }
+  .travel-row .grid{gap:8px;}
+  .travel-row .field{margin-bottom:0;}
+  .row-del{ background:none; border:none; color:var(--rose); font-size:12px; cursor:pointer; padding:6px 0 0; font-family:inherit; }
+  .row-del:hover{text-decoration:underline;}
+  .add-row{
+    background:#fff; border:1px dashed var(--mm-yellow); color:#8a6e1f;
+    font-family:"Rajdhani",sans-serif; font-weight:600; font-size:14px;
+    padding:9px 12px; border-radius:9px; cursor:pointer; width:100%;
+  }
+  .add-row:hover{background:#fffaf0;}
+
+  /* ---- Verblijf 2-koloms ---- */
+  .vb-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px; }
+  .vb-card{ border:1px solid var(--line); border-radius:9px; padding:11px; }
+  @media (max-width:480px){ .vb-grid{grid-template-columns:1fr;} }
+
+  /* ---- Organisatiekosten ---- */
+  .extra-head{ display:flex; gap:10px; font-size:11px; font-weight:600; color:#9a9a9a; text-transform:uppercase; letter-spacing:.3px; padding:0 2px 5px; }
+  .extra-head .sp-name{flex:1;}
+  .extra-head .sp-amt{width:108px;text-align:left;}
+  .extra-row{ border:1px solid var(--line); border-radius:9px; padding:9px 11px; margin-bottom:7px; background:#fff; }
+  .extra-top{ display:flex; align-items:center; gap:10px; }
+  .extra-top input[type="checkbox"]{ width:17px; height:17px; flex:0 0 auto; accent-color:var(--mm-yellow); cursor:pointer; }
+  .extra-top .name{font-weight:600;font-size:13.5px;flex:1;}
+  .extra-top .name input[type="text"]{font-weight:600;font-size:13.5px;}
+  .extra-detail{ margin-top:9px; }
+  .extra-detail[hidden]{display:none;}
+  .modeselect{ max-width:190px; margin-bottom:9px; }
+  .amts{ display:flex; flex-wrap:wrap; gap:10px; }
+  .amts .amtfield{flex:1 1 170px; max-width:280px;}
+  .amts .amtfield label{font-size:11px;color:#8a8a8a;font-weight:600;margin-bottom:2px;display:block;}
+  .inwrap.euro.lazy .pre{ opacity:0; transition:opacity .12s; }
+  .inwrap.euro.lazy input{ padding-left:10px; }
+  .inwrap.euro.lazy:focus-within .pre{ opacity:1; }
+  .inwrap.euro.lazy:focus-within input{ padding-left:24px; }
+
+  /* ---- Denk ook nog even aan ---- */
+  .soft-posts{margin:0 0 6px;padding-left:18px;}
+  .soft-posts li{margin-bottom:5px;font-size:14px;}
+  .frame-note{ font-size:13px; color:#7a7a7a; background:#fff; border-left:3px solid var(--aqua); padding:9px 11px; border-radius:0 8px 8px 0; margin:10px 0 0; }
+
+  .softcalc{ margin-top:14px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:13px; }
+  .softcalc h4{ font-family:"Rajdhani",sans-serif; font-size:16px; font-weight:600; margin:0 0 8px; }
+  .softresult{ margin-top:11px; background:#faf6ea; border-radius:8px; padding:11px 12px; font-size:13.5px; }
+  .softresult .big{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:21px; color:#3f3206; }
+  .softresult .add{ color:#8a6e1f; }
+  .softresult .ln{ margin-top:6px; }
+  .softresult b{ font-family:"Rajdhani",sans-serif; font-weight:700; color:#3f3206; }
+
+  /* ---- Resultaat ---- */
+  .result{ background:var(--mm-yellow); border:none; border-radius:var(--radius); padding:20px 18px; margin-top:18px; cursor:pointer; }
+  .result-toggle{ margin-top:12px; padding-top:10px; border-top:1px solid rgba(63,50,6,.18); font-family:"Rajdhani",sans-serif; font-weight:700; font-size:18px; color:#fff; display:flex; align-items:center; justify-content:space-between; }
+  .result-toggle .chev{ transition:transform .2s; font-size:18px; }
+  .result .reslabel{ font-family:"Rajdhani",sans-serif; font-weight:600; font-size:15px; color:#6b531a; letter-spacing:.3px; }
+  .result .restotal{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:16px; color:#3f3206; margin-top:-2px; }
+  .bignum{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:clamp(42px,12vw,64px); line-height:1; color:#3f3206; margin:2px 0; }
+  .bignum small{font-size:.42em;font-weight:600;}
+  .split{ display:flex; flex-wrap:wrap; gap:8px 24px; margin-top:12px; padding-top:12px; border-top:1px solid rgba(63,50,6,.18); }
+  .split .item .k{ font-size:12px; color:#6b531a; font-weight:600; }
+  .split .item .v{ font-family:"Rajdhani",sans-serif; font-weight:600; font-size:21px; color:#3f3206; }
+  .resmoney{ margin-top:12px; padding-top:12px; border-top:1px solid rgba(63,50,6,.18); }
+  .resmoney[hidden]{display:none;}
+  .resmoney .rm{ display:flex; justify-content:space-between; gap:12px; padding:3px 0; font-size:13.5px; color:#6b531a; }
+  .resmoney .rm .rv{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:18px; color:#3f3206; }
+  .co2line{ margin-top:12px; padding-top:12px; border-top:1px solid rgba(63,50,6,.18); font-size:13px; color:#6b531a; }
+  .co2line b{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:18px; color:#3f3206; }
+  .co2line .co2sub{ color:#6b531a; }
+
+  /* ---- Vergelijking offline / online ---- */
+  .cmp{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .cmp-col{ border:1px solid var(--line); border-radius:10px; padding:12px; background:#fff; }
+  .cmp-online{ background:#f0fbfb; border-color:#bfe6e6; }
+  .cmp-h{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:17px; margin-bottom:8px; color:var(--dark-grey); }
+  .cmp-online .cmp-h{ color:var(--aqua); }
+  .cmp-row{ padding:7px 0; border-bottom:1px dotted #e8e8e8; }
+  .cmp-row:last-child{ border-bottom:none; }
+  .cmp-row .cl{ font-size:11px; color:#8a8a8a; font-weight:600; }
+  .cmp-row .cv{ font-family:"Rajdhani",sans-serif; font-weight:600; font-size:18px; color:var(--dark-grey); }
+  .cmp-row .ce{ font-family:"Open Sans",sans-serif; font-weight:400; font-size:12.5px; color:#8a8a8a; margin-left:5px; }
+  .cmp-online .cmp-row .cv{ color:#1f8688; }
+  .cmp-q{ text-align:center; font-family:"Rajdhani",sans-serif; font-weight:700; font-size:20px; color:var(--dark-grey); margin-top:14px; }
+
+  /* ---- Euro opbouw ---- */
+  .euros{ margin-top:12px; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; }
+  .euros[hidden]{display:none;}
+  .euros h3{font-size:17px;margin-bottom:8px;}
+  .lineitem{ display:flex; justify-content:space-between; gap:12px; padding:5px 0; font-size:14px; border-bottom:1px dotted #e3e3e3; }
+  .lineitem:last-of-type{border-bottom:none;}
+  .lineitem .amt{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .lineitem.total{ margin-top:6px; padding-top:10px; border-top:2px solid var(--dark-grey); border-bottom:none; font-weight:700; font-size:16px; }
+  .lineitem.total .amt{font-family:"Rajdhani",sans-serif;font-size:21px;}
+  .euro-empty{ font-size:13.5px;color:#8a8a8a;font-style:italic; }
+
+  /* ---- Onthul-knop + verschil ---- */
+  .reveal-btn{
+    display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; margin-top:18px; text-align:left;
+    font-family:"Rajdhani",sans-serif; font-weight:700; font-size:18px; letter-spacing:.4px;
+    color:#fff; background:var(--aqua); border:none; border-radius:var(--radius);
+    padding:14px 16px; cursor:pointer; transition:background .15s, transform .05s;
+  }
+  .reveal-btn:hover{background:#1f8688;}
+  .reveal-btn:active{transform:translateY(1px);}
+  .reveal-btn .chev{ transition:transform .2s; font-size:16px; flex:0 0 auto; }
+
+  .diff{ margin-top:14px; border:1px solid #e7c9d0; background:#fff; border-radius:var(--radius); padding:18px; }
+  .diff[hidden]{display:none;}
+  .diff h3{font-size:19px;margin-bottom:5px;}
+  .diff .intro{font-size:14px;color:#7a7a7a;margin:0 0 14px;max-width:52ch;}
+  .diff-nums{ display:flex; flex-wrap:wrap; gap:16px 28px; }
+  .diff-nums .d .k{font-size:12.5px;color:#7a7a7a;font-weight:600;}
+  .diff-nums .d .v{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:clamp(32px,8.5vw,44px); line-height:1; color:var(--rose); }
+  .diff-onlinebox{ margin-top:14px; padding-top:12px; border-top:1px dashed var(--line); font-size:13.5px; color:#666; }
+  .diff-onlinebox .row{display:flex;justify-content:space-between;gap:12px;padding:3px 0;}
+  .diff-onlinebox .row .v{color:var(--aqua);font-weight:600;}
+
+  /* ---- CTA ---- */
+  .cta{ margin-top:20px; background:var(--mm-yellow); border-radius:var(--radius); padding:20px 18px; text-align:left; }
+  .cta .cta-pre{font-size:14.5px;color:#6b531a;margin:0 0 10px;}
+  .cta h3{font-size:21px;color:#3f3206;margin-bottom:7px;}
+  .cta p{margin:0 0 14px;max-width:none;color:#5c4a14;font-size:14.5px;}
+  .cta a.btn{ display:inline-block; font-family:"Rajdhani",sans-serif; font-weight:700; font-size:16px; letter-spacing:.3px; text-decoration:none; background:var(--dark-grey); color:#fff; padding:12px 24px; border-radius:9px; transition:background .15s; }
+  .cta a.btn:hover{background:#3f3f3f;}
+  .cta a.link{ display:inline-block; margin-top:10px; color:#5c4a14; font-size:13px; }
+
+  footer{ margin-top:24px; text-align:center; font-size:12px; color:#8a8a8a; line-height:1.6; }
+  footer .fb{ font-weight:600; color:#6b6b6b; }
+
+  /* ---- Mobiel ---- */
+  @media (max-width:520px){
+    .wrap{ padding:16px 12px 40px; }
+    .logo{ height:36px; }
+    section.card{ padding:13px; }
+    .sec-note{ margin-left:0; }
+    .extra-head{ display:none; }
+    .result{ padding:18px 15px; }
+    .euros, .diff, .cta{ padding:15px; }
+    .amts .amtfield{ flex:1 1 100%; max-width:none; }
+    .modeselect{ max-width:none; }
+  }
+  @media (max-width:360px){
+    .grid{ grid-template-columns:1fr 1fr; }
+    .hero h1{ font-size:24px; }
+  }
+
+  /* ---- Gebrand pdf-kaartje ---- */
+  #printCard{ display:none; }
+  .pc{ max-width:640px; margin:0 auto; padding:26px; color:var(--dark-grey); font-family:"Open Sans",sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .pc-logo{ height:48px; width:auto; }
+  .pc-title{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:30px; color:var(--dark-grey); margin:18px 0 4px; }
+  .pc-sub{ font-size:14px; color:#7a7a7a; margin-bottom:18px; }
+  .pc-big{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:52px; color:#3f3206; background:var(--mm-yellow); border-radius:12px; padding:18px 22px; line-height:1; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .pc-big span{ font-size:20px; font-weight:600; }
+  .pc-split{ display:flex; flex-wrap:wrap; gap:26px; margin:12px 2px 22px; font-size:14px; color:#6b6b6b; }
+  .pc-split b{ font-family:"Rajdhani",sans-serif; color:var(--dark-grey); }
+  .pc-table{ width:100%; border-collapse:collapse; font-size:14px; }
+  .pc-table th{ text-align:left; font-family:"Rajdhani",sans-serif; font-size:14px; color:#7a7a7a; border-bottom:2px solid var(--mm-yellow); padding:6px 8px; }
+  .pc-table td{ padding:9px 8px; border-bottom:1px solid #eee; }
+  .pc-table .cl{ color:#7a7a7a; }
+  .pc-table .coff, .pc-table .con{ font-family:"Rajdhani",sans-serif; font-weight:600; white-space:nowrap; }
+  .pc-table .con{ color:#1f8688; }
+  .pc-q{ font-family:"Rajdhani",sans-serif; font-weight:700; font-size:20px; margin:20px 0 6px; color:var(--dark-grey); }
+  .pc-foot{ font-size:11.5px; color:#9a9a9a; border-top:1px solid #eee; padding-top:12px; margin-top:14px; line-height:1.8; }
+  .pc-foot b{ color:#6b6b6b; }
+
+  @media print{
+    body{ background:#fff !important; }
+    .wrap{ display:none !important; }
+    #printCard{ display:block !important; }
+    @page{ margin:14mm; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== Logo ===== -->
+  <div class="brandbar">
+    <img class="logo" src="data:image/png;base64,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" alt="MeetingMasters">
+  </div>
+
+  <!-- ===== Kop ===== -->
+  <div class="hero">
+    <h1>Wat kost deze bijeenkomst echt?</h1>
+    <p class="lead">Een bijeenkomst kost meer dan 'deelnemers x vergadertijd'. Maak de som eens zelf, en overweeg of online een optie is.</p>
+  </div>
+
+  <!-- ===== 1. Je bijeenkomst ===== -->
+  <section class="card">
+    <h2 class="sec-head"><span class="step">1</span>Wie komen er samen, en hoe lang?</h2>
+    <div class="grid">
+      <div class="field">
+        <label class="lab" for="N">Aantal deelnemers</label>
+        <input type="number" id="N" min="1" step="1" value="8">
+      </div>
+      <div class="field">
+        <label class="lab" for="H">Vergaderuren totaal</label>
+        <input type="number" id="H" min="0" step="0.5" value="4">
+      </div>
+      <div class="field">
+        <label class="lab" for="D">Verspreid over (dagen)</label>
+        <input type="number" id="D" min="1" step="1" value="1">
+      </div>
+    </div>
+
+    <!-- Uurprijs -->
+    <div class="rate-block">
+      <div class="q">Gem. kostprijs p.p. per uur (optioneel)</div>
+      <div class="field" style="max-width:200px;margin:0">
+        <div class="inwrap euro"><span class="pre">€</span><input type="number" id="rate" min="0" step="1" placeholder="bijv. 60"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. Reizen ===== -->
+  <section class="card">
+    <h2 class="sec-head"><span class="step">2</span>Hoe komen mensen naar elkaar toe?</h2>
+    <p class="sec-note">Vul hier reiskosten en reistijd in.<br>Verschillende reisprofielen? Maak dan meerdere groepen aan.</p>
+
+    <label class="onlinebox"><input type="checkbox" id="onlineMeeting"> Deze bijeenkomst is volledig online <span class="sub">— niemand reist</span></label>
+
+    <div id="travelConfig">
+      <div id="travelRows" style="margin-top:10px"></div>
+      <button type="button" class="add-row" id="addTravel">+ Voeg groep met ander reisprofiel toe</button>
+
+      <div class="field" style="max-width:240px;margin-top:12px">
+        <label class="lab" for="parking">Parkeren / lokaal vervoer p.p. (€)</label>
+        <div class="inwrap euro"><span class="pre">€</span><input type="number" id="parking" min="0" step="1" placeholder="0"></div>
+      </div>
+
+      <div class="calcline" id="travelCostInfo"></div>
+    </div>
+  </section>
+
+  <!-- ===== 3. Catering en verblijf ===== -->
+  <section class="card">
+    <h2 class="sec-head"><span class="step">3</span>Eten, drinken en overnachten</h2>
+
+    <!-- Catering overdag -->
+    <div class="field">
+      <div class="toggle-row">
+        <div>
+          <label class="lab" style="margin:0">Catering overdag</label>
+          <div class="hint">koffie, thee, lunch — p.p. per dag</div>
+        </div>
+        <label class="switch"><input type="checkbox" id="cateringOn"><span class="slider"></span></label>
+      </div>
+      <div class="sub-fields" id="cateringFields" hidden>
+        <label class="lab" for="cateringPP">Bedrag p.p. per dag (€)</label>
+        <div class="inwrap euro" style="max-width:180px"><span class="pre">€</span><input type="number" id="cateringPP" min="0" step="1" value="20"></div>
+      </div>
+    </div>
+
+    <!-- Diner + borrel  |  Overnachting -->
+    <div class="vb-grid">
+      <div class="vb-card">
+        <div class="toggle-row">
+          <label class="lab" style="margin:0">Diner + borrel</label>
+          <label class="switch"><input type="checkbox" id="dinerOn"><span class="slider"></span></label>
+        </div>
+        <div class="hint">avondprogramma — p.p. per dag</div>
+        <div class="sub-fields" id="dinerFields" hidden>
+          <label class="lab" for="dinerPP">Bedrag p.p. per dag (€)</label>
+          <div class="inwrap euro"><span class="pre">€</span><input type="number" id="dinerPP" min="0" step="1" value="55"></div>
+        </div>
+      </div>
+
+      <div class="vb-card">
+        <div class="toggle-row">
+          <label class="lab" style="margin:0">Overnachting</label>
+          <label class="switch"><input type="checkbox" id="hotelOn"><span class="slider"></span></label>
+        </div>
+        <div class="sub-fields" id="hotelFields" hidden>
+          <div class="field">
+            <label class="lab" for="hotelPpl">Aantal personen</label>
+            <input type="number" id="hotelPpl" min="0" step="1" value="0">
+          </div>
+          <div class="field">
+            <label class="lab" for="nights">Aantal nachten p.p.</label>
+            <input type="number" id="nights" min="0" step="1" value="0">
+          </div>
+          <div class="field">
+            <label class="lab" for="hotelPN">Per persoon per nacht (€)</label>
+            <div class="inwrap euro"><span class="pre">€</span><input type="number" id="hotelPN" min="0" step="1" value="120"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. Organisatiekosten ===== -->
+  <section class="card">
+    <h2 class="sec-head"><span class="step">4</span>Organisatiekosten</h2>
+    <p class="sec-note">Vink aan wat van toepassing is en vul in wat de kosten zijn. Online uitbesteden? Wij deden vast een voorzet.</p>
+    <div id="extraRows"></div>
+  </section>
+
+  <!-- ===== 5. Denk ook nog even aan ===== -->
+  <section class="card soft">
+    <h2 class="sec-head"><span class="step">5</span>Denk ook nog even aan</h2>
+    <p class="sec-note" style="margin-left:31px">Naast de pure vergadertijd kost overleg nog meer tijd. Die posten verschillen sterk per situatie — hieronder kies je zelf of en hoeveel je ze meeneemt.</p>
+
+    <ul class="soft-posts">
+      <li><strong>Voorbereiding</strong> — in de praktijk 0 tot 50% van de vergadertijd</li>
+      <li><strong>Verwerken en opvolging</strong> — 10 tot 100% van de vergadertijd</li>
+      <li><strong>Hervergaderen</strong> — het risico dat de bijeenkomst niet goed of volledig genoeg was, en alles nog eens dunnetjes wordt overgedaan</li>
+    </ul>
+
+    <div class="softcalc">
+      <div class="toggle-row">
+        <label class="lab" style="margin:0">Wil je ze meenemen?</label>
+        <label class="switch"><input type="checkbox" id="softOn"><span class="slider"></span></label>
+      </div>
+      <div class="sub-fields" id="softFields" hidden>
+        <div class="grid">
+          <div class="field">
+            <label class="lab" for="prepPct">Voorbereiding</label>
+            <div class="inwrap pct"><input type="number" id="prepPct" min="0" step="5" value="25"><span class="post">%</span></div>
+            <div class="hint">van de vergadertijd</div>
+          </div>
+          <div class="field">
+            <label class="lab" for="followPct">Verwerken en opvolging</label>
+            <div class="inwrap pct"><input type="number" id="followPct" min="0" step="5" value="25"><span class="post">%</span></div>
+            <div class="hint">van de vergadertijd</div>
+          </div>
+          <div class="field">
+            <label class="lab" for="redoPct">Hervergaderen</label>
+            <div class="inwrap pct"><input type="number" id="redoPct" min="0" step="5" value="0"><span class="post">%</span></div>
+            <div class="hint">kans × overdoen</div>
+          </div>
+        </div>
+        <div class="softresult">
+          Inclusief deze posten: <span class="big"><span id="fullHours">0</span> uur tijdsbeslag</span> <span class="add" id="softAddNote"></span>
+          <div class="ln" id="fullEuroLine" hidden>Kosten: <b id="fullEuro">€ 0</b> in totaal · <b id="fullPerPp">€ 0</b> per deelnemer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Resultaat (de conclusie) ===== -->
+  <div class="result">
+    <div class="reslabel">Deze bijeenkomst kost grofweg</div>
+    <div class="bignum"><span id="totalHours">0</span> <small>uur</small></div>
+    <div class="restotal">totaal tijdsbeslag</div>
+    <div class="split">
+      <div class="item"><div class="k">Directe vergadertijd</div><div class="v"><span id="meetHours">0</span> u</div></div>
+      <div class="item"><div class="k">Indirecte vergadertijd</div><div class="v"><span id="indirectHours">0</span> u</div></div>
+    </div>
+    <div class="co2line">Geschatte CO&#8322;-uitstoot: <b id="co2Total">0 kg</b> <span class="co2sub">— vervoer, verblijf, eten, apparatuur en locatie</span></div>
+  </div>
+
+  <button class="reveal-btn" id="revealBtn"><span id="revealLabel">Vergelijking offline versus online</span><span class="chev" id="revealChev">&#9662;</span></button>
+
+  <div class="diff" id="diffBlock" hidden>
+    <div class="cmp">
+      <div class="cmp-col cmp-offline">
+        <div class="cmp-h">Offline</div>
+        <div class="cmp-row"><div class="cl">Totaal tijdsbeslag</div><div class="cv"><span id="offHours">0</span> u<span class="ce" id="offHoursEuro"></span></div></div>
+        <div class="cmp-row"><div class="cl">Reis, verblijf &amp; catering</div><div class="cv" id="offTravel">€ 0</div></div>
+        <div class="cmp-row"><div class="cl">Organisatiekosten</div><div class="cv" id="offOrg">€ 0</div></div>
+        <div class="cmp-row"><div class="cl">CO&#8322;-uitstoot</div><div class="cv" id="offCo2">0 kg</div></div>
+      </div>
+      <div class="cmp-col cmp-online">
+        <div class="cmp-h">Online</div>
+        <div class="cmp-row"><div class="cl">Totaal tijdsbeslag</div><div class="cv"><span id="onHours">0</span> u<span class="ce" id="onHoursEuro"></span></div></div>
+        <div class="cmp-row"><div class="cl">Reis, verblijf &amp; catering</div><div class="cv" id="onTravel">€ 0</div></div>
+        <div class="cmp-row"><div class="cl">Organisatiekosten</div><div class="cv" id="onOrg">€ 0</div></div>
+        <div class="cmp-row"><div class="cl">CO&#8322;-uitstoot</div><div class="cv" id="onCo2">0 kg</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Bewaar je berekening ===== -->
+  <section class="card">
+    <h3 class="sec-head" style="font-size:18px">Bewaar je berekening</h3>
+    <p class="sec-note" style="margin-left:0">Download je berekening als een overzichtelijk kaartje (pdf).</p>
+    <div class="sendrow">
+      <input type="email" id="sendEmail" placeholder="jouw@email.nl">
+      <button type="button" id="downloadBtn" class="send-btn">Download als pdf</button>
+    </div>
+    <div class="hint" id="sendMsg" style="margin-top:7px"></div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <div class="cta">
+    <p class="cta-pre">Dit is een zeer grove berekening. Toch geeft het een beeld.</p>
+    <h3>Nieuwsgierig hoe online het meest waardevol is?</h3>
+    <p>Wij maken van online bijeenkomsten bijzondere evenementen.<br>Alles start met goed contact. Gewoon eens praten?</p>
+    <a class="btn" href="mailto:contact@meetingmasters.online">Neem contact op</a>
+    <br>
+    <a class="link" href="https://www.meetingmasters.online" target="_blank" rel="noopener">www.meetingmasters.online</a>
+  </div>
+
+  <footer>
+    <span class="fb">&copy; MeetingMasters Online</span><br>
+    Dit is een indicatie. Neem contact op voor een offerte.
+  </footer>
+
+</div>
+
+<!-- Gebrand "visitekaartje" voor pdf-download/print (alleen zichtbaar bij printen) -->
+<div id="printCard"></div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var KM_RATE = 0.23; // vaste NL onbelaste kilometervergoeding
+  var last = {};      // laatst berekende waarden, voor "stuur mij toe"
+
+  /* ===================================================================
+     HUBSPOT-FORMULIER
+     -------------------------------------------------------------------
+     1. HubSpot > Marketing > Formulieren > maak/open een formulier.
+     2. Voeg minimaal deze velden toe:
+          - email                       (standaard contacteigenschap)
+          - <summaryField hieronder>    (meerregelig tekstveld; de samenvatting)
+     3. Open "Insluiten" / "Share" en kopieer Portal ID en Form GUID hieronder.
+        (Form GUID staat ook in de form-URL en in de embed-code als "formId".)
+     Zolang portalId nog "PORTAL_ID" is, gebruikt de knop automatisch een
+     gewone e-mail (mailto) als terugval, zodat de tool nu al werkt.
+     De Submissions-API werkt vanaf elke domein/iframe; geen API-key nodig.
+     =================================================================== */
+  var HUBSPOT = {
+    portalId: "147433380",
+    formGuid: "229f1966-fafc-4929-bfae-173a27b5edee",
+    summaryField: "berekening_vergaderkosten"
+  };
+  function hubspotReady(){ return HUBSPOT.portalId && HUBSPOT.portalId!=="PORTAL_ID" && HUBSPOT.formGuid && HUBSPOT.formGuid!=="FORM_GUID"; }
+  function getCookie(n){ var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m?m.pop():''; }
+
+  // ---- Reisprofielen (online zit NIET hier; dat is de losse checkbox) ----
+  var TPROFILES = {
+    fiets:     { label:"Lokaal — fiets / te voet",     time:0.5, cost:0 },
+    auto:      { label:"Lokaal — auto",                time:0.5, km:20 },
+    regionaal: { label:"Regionaal — auto / trein",     time:2,   km:120 },
+    vliegtuig: { label:"(Inter)nationaal — vliegtuig", time:6,   cost:250 },
+    custom:    { label:"Aangepast",                    time:0,   cost:0 }
+  };
+  var TORDER = ["fiets","auto","regionaal","vliegtuig","custom"];
+
+  function profileCost(key){
+    var p = TPROFILES[key];
+    if(p.km !== undefined) return Math.round(p.km * KM_RATE * 100)/100;
+    return p.cost;
+  }
+
+  // ---- CO2-indicatie (vaste factoren; bewust een schatting) ----
+  var CO2 = {
+    car_km: 0.17,    // kg CO2 per km, gemiddelde personenauto
+    flight: 300,     // kg CO2 retour p.p., Europese vlucht (indicatie)
+    catering: 2.5,   // kg p.p. per dag (koffie, thee, lunch)
+    diner: 4,        // kg p.p. per dag (diner + borrel)
+    hotel: 15,       // kg per nacht p.p.
+    device: 0.03,    // kg p.p. per vergaderuur — laptop+scherm (~80W) × NL-stroom ~0,34 kg/kWh; telt fysiek én online
+    location: 0.20,  // kg p.p. per vergaderuur EXTRA offline — locatie: licht, geluid/AV, klimaat
+    dataOnline: 0.15 // kg p.p. per vergaderuur EXTRA online — videostreaming met camera + geluid aan (netwerk + datacenter)
+  };
+  function profileCO2(key){
+    var p = TPROFILES[key];
+    if(p.km !== undefined) return p.km * CO2.car_km;  // auto-profielen o.b.v. km
+    if(key === "vliegtuig") return CO2.flight;
+    return 0; // fiets/te voet, aangepast
+  }
+
+  // ---- Organisatiekosten-regels ----
+  var EXTRAS = [
+    { id:"loc",   label:"Locatie — zaalhuur / online space", kind:"amount", example:true },
+    { id:"av",    label:"Extra technische ondersteuning",    kind:"amount", example:true },
+    { id:"mat",   label:"Materialen en middelen",            kind:"amount" },
+    { id:"org",   label:"Organisatie en coördinatie",        kind:"hours",  example:true },
+    { id:"opb",   label:"Opbouw en voorbereiding",           kind:"hours",  example:true },
+    { id:"anders",label:"Anders, namelijk…",                 kind:"amount", custom:true }
+  ];
+
+  // MM-richtprijs "uitbesteden vanaf" voor de ONLINE kosten (N = deelnemers, H = vergaderuren totaal)
+  function onlineExample(id, N, H){
+    if(id==="loc") return 8*N;
+    if(id==="av")  return H*1.25*65;
+    if(id==="org") return (5+(1.5*H))*130;
+    if(id==="opb") return (3+(2*H))*130;
+    return 0;
+  }
+
+  // ---- Formatters ----
+  var nfEuro = new Intl.NumberFormat('nl-NL',{ style:'currency', currency:'EUR', maximumFractionDigits:0 });
+  function euro(v){ return nfEuro.format(Math.round(v||0)); }
+  function num(v){ if(v===null||v===undefined||v==="") return null; var n=parseFloat(String(v).replace(',','.')); return isNaN(n)?null:n; }
+  function fmtHours(h){ return (Math.round(h*10)/10).toLocaleString('nl-NL',{ maximumFractionDigits:1 }); }
+  function fmtCO2(kg){ kg=Math.round(kg||0); return kg>=1000 ? (Math.round(kg/100)/10).toLocaleString('nl-NL',{maximumFractionDigits:1})+" ton" : kg.toLocaleString('nl-NL')+" kg"; }
+  function escapeHtml(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  // ===================== REISGROEPEN =====================
+  function travelOptionsHtml(sel){
+    return TORDER.map(function(k){ return '<option value="'+k+'"'+(k===sel?' selected':'')+'>'+TPROFILES[k].label+'</option>'; }).join('');
+  }
+  function addTravelRow(preset){
+    preset = preset || {};
+    var prof = preset.profile || "auto";
+    var row = document.createElement('div');
+    row.className = 'travel-row';
+    row.innerHTML =
+      '<div class="grid">'+
+        '<div class="field"><label class="lab">Reisprofiel</label><select class="tw-profile">'+travelOptionsHtml(prof)+'</select></div>'+
+        '<div class="field"><label class="lab">Aantal reizigers</label><input class="tw-num" type="number" min="0" step="1" value="'+(preset.num!==undefined?preset.num:8)+'"></div>'+
+        '<div class="field"><label class="lab">Reistijd retour p.p. (u)</label><input class="tw-time" type="number" min="0" step="0.25" value="'+(preset.time!==undefined?preset.time:TPROFILES[prof].time)+'"></div>'+
+        '<div class="field"><label class="lab">Reiskosten p.p. (€)</label><div class="inwrap euro"><span class="pre">€</span><input class="tw-cost" type="number" min="0" step="0.01" value="'+(preset.cost!==undefined?preset.cost:profileCost(prof))+'"></div></div>'+
+      '</div>'+
+      '<button type="button" class="row-del">verwijder reisgroep</button>';
+    $("travelRows").appendChild(row);
+    updateDelButtons();
+  }
+  function updateDelButtons(){
+    var rows = $("travelRows").querySelectorAll('.travel-row');
+    rows.forEach(function(r){ r.querySelector('.row-del').style.display = rows.length>1 ? '' : 'none'; });
+  }
+  $("travelRows").addEventListener('change', function(e){
+    if(e.target.classList.contains('tw-profile')){
+      var row = e.target.closest('.travel-row'); var key = e.target.value;
+      row.querySelector('.tw-time').value = TPROFILES[key].time;
+      row.querySelector('.tw-cost').value = profileCost(key);
+      compute();
+    }
+  });
+  $("travelRows").addEventListener('click', function(e){
+    if(e.target.classList.contains('row-del')){
+      var rows = $("travelRows").querySelectorAll('.travel-row');
+      if(rows.length>1){ e.target.closest('.travel-row').remove(); updateDelButtons(); compute(); }
+    }
+  });
+  $("addTravel").addEventListener('click', function(){ addTravelRow(); compute(); });
+  $("onlineMeeting").addEventListener('change', function(){ $("travelConfig").hidden = this.checked; });
+
+  function travelTotals(){
+    // basiswaarden voor ÉÉN retour-rit; dag-multiplier wordt in compute() toegepast
+    if($("onlineMeeting").checked) return { time:0, cost:0, people:0, co2:0, parkPP:0 };
+    var time=0, cost=0, people=0, co2=0;
+    $("travelRows").querySelectorAll('.travel-row').forEach(function(r){
+      var n=Math.max(0,num(r.querySelector('.tw-num').value)||0);
+      var t=Math.max(0,num(r.querySelector('.tw-time').value)||0);
+      var c=Math.max(0,num(r.querySelector('.tw-cost').value)||0);
+      var key=r.querySelector('.tw-profile').value;
+      time+=n*t; cost+=n*c; people+=n; co2+=n*profileCO2(key);
+    });
+    return { time:time, cost:cost, people:people, co2:co2, parkPP:(num($("parking").value)||0) };
+  }
+
+  // ===================== ORGANISATIEKOSTEN =====================
+  var extraWrap = $("extraRows");
+  function amtField(id,label,lazy){
+    if(lazy){
+      return '<div class="amtfield"><label for="'+id+'">'+label+'</label><div class="inwrap euro lazy"><span class="pre">€</span><input type="number" id="'+id+'" min="0" step="1" placeholder="uitbesteden vanaf"></div></div>';
+    }
+    return '<div class="amtfield"><label for="'+id+'">'+label+'</label><div class="inwrap euro"><span class="pre">€</span><input type="number" id="'+id+'" min="0" step="1" placeholder="0"></div></div>';
+  }
+  EXTRAS.forEach(function(e){
+    var row = document.createElement('div'); row.className='extra-row';
+    var nameHtml = e.custom
+      ? '<span class="name"><input type="text" id="ex_name_'+e.id+'" placeholder="Anders, namelijk…"></span>'
+      : '<span class="name">'+e.label+'</span>';
+    var detail='';
+    if(e.kind==='hours'){
+      detail =
+        '<select class="modeselect" id="ex_mode_'+e.id+'"><option value="amount">Vast bedrag</option><option value="hours">Uren × tarief</option></select>'+
+        '<div id="ex_amtblock_'+e.id+'"><div class="amts">'+amtField("ex_fys_"+e.id,"Fysiek (€)")+amtField("ex_onl_"+e.id,"Online (€)",e.example)+'</div></div>'+
+        '<div id="ex_hrblock_'+e.id+'" hidden><div class="amts">'+
+          '<div class="amtfield"><label>Tarief (€/u)</label><div class="inwrap euro"><span class="pre">€</span><input type="number" id="ex_rate_'+e.id+'" min="0" step="1" placeholder="0"></div></div>'+
+          '<div class="amtfield"><label>Uren fysiek</label><input type="number" id="ex_hf_'+e.id+'" min="0" step="0.5" placeholder="0"></div>'+
+          '<div class="amtfield"><label>Uren online</label><input type="number" id="ex_ho_'+e.id+'" min="0" step="0.5" placeholder="0"></div>'+
+        '</div></div>';
+    } else {
+      detail = '<div class="amts">'+amtField("ex_fys_"+e.id,"Fysiek (€)")+amtField("ex_onl_"+e.id,"Online (€)",e.example)+'</div>';
+    }
+    row.innerHTML = '<div class="extra-top"><input type="checkbox" id="ex_on_'+e.id+'">'+nameHtml+'</div><div class="extra-detail" id="ex_det_'+e.id+'" hidden>'+detail+'</div>';
+    extraWrap.appendChild(row);
+  });
+  EXTRAS.forEach(function(e){
+    if(e.kind!=='hours') return;
+    var sel=$("ex_mode_"+e.id);
+    sel.addEventListener('change', function(){
+      var hrs=sel.value==='hours';
+      $("ex_hrblock_"+e.id).hidden=!hrs; $("ex_amtblock_"+e.id).hidden=hrs; compute();
+    });
+  });
+  function extraAmounts(e, N, H){
+    var fys=0,onl=0;
+    if(e.kind==='hours' && $("ex_mode_"+e.id).value==='hours'){
+      var rate=num($("ex_rate_"+e.id).value)||0;
+      fys=(num($("ex_hf_"+e.id).value)||0)*rate;
+      onl=(num($("ex_ho_"+e.id).value)||0)*rate;
+    } else {
+      fys=num($("ex_fys_"+e.id).value)||0;
+      onl=num($("ex_onl_"+e.id).value)||0;
+    }
+    if(e.example){
+      // richtprijs als placeholder in het online-veld; telt pas mee als men zelf iets invult
+      var pf=$("ex_onl_"+e.id); if(pf) pf.placeholder="uitbesteden vanaf "+euro(onlineExample(e.id,N,H));
+    }
+    return {fys:fys,onl:onl};
+  }
+
+  // ===================== BEREKENING =====================
+  var cateringTouched=false, dinerTouched=false, hotelTouched=false, nightsTouched=false, hotelPplTouched=false;
+
+  function compute(){
+    var N=Math.max(0,num($("N").value)||0);
+    var H=Math.max(0,num($("H").value)||0);
+    var D=Math.max(1,num($("D").value)||1);
+    var T=num($("rate").value);
+    var hasRate=(T!==null);
+    var online=$("onlineMeeting").checked;
+
+    var meetTime=N*H;
+    var tt=travelTotals();
+    // ----- Verblijf (eerst: bepaalt wie overnacht) -----
+    var multiDay=D>1;
+    var hoursPerDay=D>0?H/D:H;
+    var hotelToggle=$("hotelOn");
+    hotelToggle.disabled=online;            // alleen blokkeren bij volledig online
+    if(multiDay && !online && !hotelTouched){ hotelToggle.checked=true; }
+    if(online && hotelToggle.checked){ hotelToggle.checked=false; }
+    $("hotelFields").hidden=!hotelToggle.checked;
+
+    if(!cateringTouched){ $("cateringOn").checked=(!online && (hoursPerDay>=4||multiDay)); }
+    $("cateringFields").hidden=!$("cateringOn").checked;
+    $("dinerFields").hidden=!$("dinerOn").checked;
+
+    if(!nightsTouched){ $("nights").value=Math.max(0,D-1); }
+    if(!hotelPplTouched){ $("hotelPpl").value=tt.people; }
+
+    var catering=$("cateringOn").checked?N*D*(num($("cateringPP").value)||0):0;
+    var diner=$("dinerOn").checked?N*D*(num($("dinerPP").value)||0):0;
+
+    var hotelOn=hotelToggle.checked&&!online;
+    var hPpl=Math.max(0,num($("hotelPpl").value)||0);
+    var nights=Math.max(0,num($("nights").value)||0);
+    var overnachting=hotelOn?hPpl*nights*(num($("hotelPN").value)||0):0;
+
+    // ----- Reizen: dag-multiplier (overnachters reizen 1x, pendelaars D x) -----
+    var totalTravelers=tt.people;
+    var stayOver=hotelOn?Math.min(hPpl,totalTravelers):0;
+    var commuters=Math.max(0,totalTravelers-stayOver);
+    var dayUnits=stayOver + commuters*D;                 // aantal retour-ritten
+    var avgFactor=totalTravelers>0 ? dayUnits/totalTravelers : 0;
+    var travelTime=tt.time*avgFactor;                    // reistijd, × dagen voor pendelaars
+    var parking=tt.parkPP*dayUnits;                      // parkeren p.p. per rit
+    var reiskosten=tt.cost*avgFactor + parking;
+    var co2Transport=tt.co2*avgFactor;
+
+    // ----- Tijd van huis: 12 u per nacht per overnachter -----
+    var tijdVanHuis=nights*12*stayOver;
+
+    var info;
+    if(online){ info="Volledig online — geen reistijd of reiskosten."; }
+    else if(reiskosten>0||travelTime>0){ info="Totale reistijd <b>"+fmtHours(travelTime)+" u</b> · reiskosten <b>"+euro(reiskosten)+"</b>"+(parking>0?" (incl. parkeren "+euro(parking)+")":""); }
+    else { info="Nog geen reistijd of reiskosten ingevuld."; }
+    $("travelCostInfo").innerHTML=info;
+
+    // ----- CO2-indicatie -----
+    var co2Physical = co2Transport
+      + ($("cateringOn").checked ? N*D*CO2.catering : 0)
+      + ($("dinerOn").checked ? N*D*CO2.diner : 0)
+      + (hotelOn ? hPpl*nights*CO2.hotel : 0);
+    // apparatuur/data: per vergaderuur per persoon (meetTime = N×H mensuren vergaderen)
+    var co2OffDigital = meetTime * (CO2.device + CO2.location);      // laptop + locatie (licht/AV/klimaat)
+    var co2OnDigital  = meetTime * (CO2.device + CO2.dataOnline);    // laptop + videostreaming (camera + geluid aan)
+    var co2Off = co2Physical + co2OffDigital;                        // offline-scenario (incl. reis-belasting + locatie)
+    var co2On  = co2OnDigital;                                       // online-scenario
+    var co2Total = co2Physical + (online ? co2OnDigital : co2OffDigital); // huidige opzet
+
+    // ----- Organisatiekosten -----
+    var extraFysiek=0, extraOnline=0;
+    EXTRAS.forEach(function(e){
+      var on=$("ex_on_"+e.id).checked;
+      $("ex_det_"+e.id).hidden=!on;
+      if(!on) return;
+      var a=extraAmounts(e,N,H);
+      extraFysiek+=a.fys; extraOnline+=a.onl;
+    });
+
+    // ----- Zachte posten (stap 5) -----
+    var softOn=$("softOn").checked;
+    $("softFields").hidden=!softOn;
+    var prep=Math.max(0,num($("prepPct").value)||0);
+    var follow=Math.max(0,num($("followPct").value)||0);
+    var redo=Math.max(0,num($("redoPct").value)||0);
+    var softFactor=softOn?(prep+follow+redo)/100:0;
+    var softAddHours=softFactor*meetTime;
+
+    // ----- Tijdsbeslag: direct + indirect -----
+    var indirectHours = travelTime + tijdVanHuis + softAddHours; // reizen + tijd van huis + voorbereiding/opvolging
+    var fullHours = meetTime + indirectHours;
+    var moneyCosts = reiskosten + catering + diner + overnachting + extraFysiek;
+    var totalCost = (hasRate?fullHours*T:0) + moneyCosts;
+
+    $("meetHours").textContent=fmtHours(meetTime);
+    $("indirectHours").textContent=fmtHours(indirectHours);
+    $("totalHours").textContent=fmtHours(fullHours);
+
+    // soft-resultaat (stap 5)
+    $("fullHours").textContent=fmtHours(fullHours);
+    $("softAddNote").textContent = softAddHours>0 ? "(+ "+fmtHours(softAddHours)+" u voor voorbereiding en opvolging)" : "";
+    if(hasRate){
+      $("fullEuroLine").hidden=false;
+      $("fullEuro").textContent=euro(totalCost);
+      $("fullPerPp").textContent=euro(N>0?totalCost/N:0);
+    } else {
+      $("fullEuroLine").hidden=true;
+    }
+
+    // ----- Detail: vergelijking offline / online -----
+    var travelStayFood = reiskosten + catering + diner + overnachting; // geldkosten, géén tijd-kosten
+    var offInzet = fullHours;
+    var onInzet  = meetTime + softAddHours; // online: geen reizen, geen tijd van huis
+    $("offHours").textContent=fmtHours(offInzet);
+    $("onHours").textContent =fmtHours(onInzet);
+    $("offHoursEuro").textContent = hasRate ? " · "+euro(offInzet*T) : "";
+    $("onHoursEuro").textContent  = hasRate ? " · "+euro(onInzet*T)  : "";
+    $("offTravel").textContent = euro(travelStayFood);
+    $("onTravel").textContent  = euro(0);
+    $("offOrg").textContent = euro(extraFysiek);
+    $("onOrg").textContent  = euro(extraOnline);
+    $("offCo2").textContent = fmtCO2(co2Off);
+    $("onCo2").textContent  = fmtCO2(co2On);
+    $("co2Total").textContent = fmtCO2(co2Total);
+
+    last={ N:N,H:H,D:D, online:online, hasRate:hasRate, T:T,
+           meetTime:meetTime, indirectHours:indirectHours, fullHours:fullHours,
+           offInzet:offInzet, onInzet:onInzet,
+           travelStayFood:travelStayFood, extraFysiek:extraFysiek, extraOnline:extraOnline,
+           co2Total:co2Total, co2Off:co2Off, co2On:co2On };
+  }
+  function lineHtml(label,amt){ return '<div class="lineitem"><span>'+escapeHtml(label)+'</span><span class="amt">'+euro(amt)+'</span></div>'; }
+
+  function buildSummary(){
+    var L=last, t=[];
+    t.push("Vergaderkosten-berekening — MeetingMasters");
+    t.push("");
+    t.push("Bijeenkomst: "+L.N+" deelnemers, "+fmtHours(L.H)+" vergaderuren"+(L.D>1?", verspreid over "+L.D+" dagen":"")+(L.online?" (volledig online)":""));
+    t.push("");
+    t.push("Deze bijeenkomst kost grofweg "+fmtHours(L.fullHours)+" uur tijdsbeslag:");
+    t.push("  - directe vergadertijd: "+fmtHours(L.meetTime)+" u");
+    t.push("  - indirecte vergadertijd (reizen, tijd van huis, voorbereiding/opvolging): "+fmtHours(L.indirectHours)+" u");
+    t.push("");
+    t.push("Offline vs online:");
+    t.push("  Totaal tijdsbeslag — offline "+fmtHours(L.offInzet)+" u"+(L.hasRate?" ("+euro(L.offInzet*L.T)+")":"")+" | online "+fmtHours(L.onInzet)+" u"+(L.hasRate?" ("+euro(L.onInzet*L.T)+")":""));
+    t.push("  Reis, verblijf & catering — offline "+euro(L.travelStayFood)+" | online "+euro(0));
+    t.push("  Organisatiekosten — offline "+euro(L.extraFysiek)+" | online "+euro(L.extraOnline));
+    t.push("  CO2 — offline "+fmtCO2(L.co2Off)+" | online "+fmtCO2(L.co2On));
+    t.push("");
+    t.push("Dit is een indicatie. Neem contact op voor een offerte: contact@meetingmasters.online");
+    return t.join("\n");
+  }
+
+  // ---- Events ----
+  document.addEventListener('input', compute);
+  document.addEventListener('change', compute);
+  $("cateringOn").addEventListener('change', function(){ cateringTouched=true; });
+  $("dinerOn").addEventListener('change', function(){ dinerTouched=true; });
+  $("hotelOn").addEventListener('change', function(){ hotelTouched=true; });
+  $("nights").addEventListener('input', function(){ nightsTouched=true; });
+  $("hotelPpl").addEventListener('input', function(){ hotelPplTouched=true; });
+  $("revealBtn").addEventListener('click', function(){
+    var d=$("diffBlock"), opening=d.hidden;
+    d.hidden=!opening;
+    $("revealLabel").textContent = opening ? "Verberg vergelijking" : "Vergelijking offline versus online";
+    $("revealChev").style.transform = opening ? "rotate(180deg)" : "";
+    if(opening) d.scrollIntoView({behavior:"smooth",block:"nearest"});
+  });
+  // ----- Gebrand pdf-kaartje opbouwen -----
+  function cardRow(label, off, on){
+    return '<tr><td class="cl">'+escapeHtml(label)+'</td><td class="coff">'+off+'</td><td class="con">'+on+'</td></tr>';
+  }
+  function buildCardHTML(){
+    var L=last;
+    var logo=(document.querySelector('.logo')||{}).src||"";
+    var inzetOff=fmtHours(L.offInzet)+" u"+(L.hasRate?" · "+euro(L.offInzet*L.T):"");
+    var inzetOn =fmtHours(L.onInzet)+" u"+(L.hasRate?" · "+euro(L.onInzet*L.T):"");
+    return ''+
+      '<div class="pc">'+
+        (logo?'<img class="pc-logo" src="'+logo+'" alt="MeetingMasters">':'')+
+        '<div class="pc-title">Wat kost deze bijeenkomst?</div>'+
+        '<div class="pc-sub">'+L.N+' deelnemers · '+fmtHours(L.H)+' vergaderuren'+(L.D>1?' · '+L.D+' dagen':'')+(L.online?' · volledig online':'')+'</div>'+
+        '<div class="pc-big">'+fmtHours(L.fullHours)+' <span>uur tijdsbeslag</span></div>'+
+        '<div class="pc-split"><span>Directe vergadertijd: <b>'+fmtHours(L.meetTime)+' u</b></span><span>Indirecte vergadertijd: <b>'+fmtHours(L.indirectHours)+' u</b></span></div>'+
+        '<table class="pc-table"><thead><tr><th>Volledige kosten</th><th>Offline</th><th>Online</th></tr></thead><tbody>'+
+          cardRow('Totaal tijdsbeslag', inzetOff, inzetOn)+
+          cardRow('Reis, verblijf & catering', euro(L.travelStayFood), euro(0))+
+          cardRow('Organisatiekosten', euro(L.extraFysiek), euro(L.extraOnline))+
+          cardRow('CO₂-uitstoot', fmtCO2(L.co2Off), fmtCO2(L.co2On))+
+        '</tbody></table>'+
+        '<div class="pc-foot"><b>MeetingMasters</b> &middot; contact@meetingmasters.online &middot; www.meetingmasters.online<br>Dit is een indicatie. Neem contact op voor een offerte.<br>&copy; MeetingMasters Online</div>'+
+      '</div>';
+  }
+
+  $("downloadBtn").addEventListener('click', function(){
+    var msg=$("sendMsg");
+    var email=($("sendEmail").value||"").trim();
+
+    // Optioneel: lead + samenvatting naar HubSpot als er een geldig e-mailadres is
+    if(email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) && hubspotReady()){
+      var payload={ fields:[{name:"email",value:email},{name:HUBSPOT.summaryField,value:buildSummary()}],
+                    context:{ pageUri:location.href, pageName:document.title } };
+      var hutk=getCookie("hubspotutk"); if(hutk) payload.context.hutk=hutk;
+      fetch("https://api.hsforms.com/submissions/v3/integration/submit/"+HUBSPOT.portalId+"/"+HUBSPOT.formGuid,{
+        method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)
+      }).catch(function(){});
+      msg.style.color="#28A8AA"; msg.textContent="Online een optie? We denken graag met je mee.";
+    } else {
+      msg.style.color=""; msg.textContent="Kies in het printvenster ‘Bewaar als pdf’.";
+    }
+
+    // Gebrand kaartje klaarzetten en printdialoog openen (→ Bewaar als pdf)
+    $("printCard").innerHTML = buildCardHTML();
+    window.print();
+  });
+
+  // ---- Init ----
+  addTravelRow({ profile:"auto" });
+  compute();
+})();
+</script>
+
+<!-- Auto-resize wanneer ingesloten in een iframe: post de hoogte naar de host-pagina -->
+<script>
+(function(){
+  function postHeight(){
+    try{ parent.postMessage({ mmCalcHeight: document.documentElement.scrollHeight }, "*"); }catch(e){}
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  document.addEventListener('input', function(){ setTimeout(postHeight, 60); });
+  document.addEventListener('click', function(){ setTimeout(postHeight, 300); });
+})();
+</script>
+</body>
+</html>

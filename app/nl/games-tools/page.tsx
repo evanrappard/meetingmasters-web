@@ -284,6 +284,45 @@ export default function GamesToolsPage() {
         </div>
       </section>
 
+
+      {/* ── VOOR JE BEGINT ──
+          Deze tools gebruik je vóór de bijeenkomst, niet erin. Daarom een eigen
+          blok en niet een vijfde tegel bij de tools hierboven: ander moment,
+          andere gebruiker. */}
+      <section id="voor-je-begint" className="bg-white py-16 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="mb-10 max-w-[760px]">
+            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+              Voor je begint
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+              Eerst de vraag, dan de bijeenkomst.
+            </h2>
+            <p className="text-[#545454] leading-relaxed">
+              De tools hierboven gebruik je tijdens een sessie. Dit is er een voor daarvoor — voor
+              het moment waarop je nog bepaalt of, en hoe, je bij elkaar komt.
+            </p>
+          </div>
+
+          <Link
+            href="/nl/meeting-calculator"
+            className="group block rounded border border-[#EBEBEB] bg-[#F7F7F5] p-7 sm:p-9 hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all max-w-[760px]"
+          >
+            <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">
+              Vergaderkosten-calculator
+            </h3>
+            <p className="text-[#545454] leading-relaxed mb-5">
+              Een uur vergaderen met twintig mensen is geen uur — het is twintig uur, plus reistijd.
+              Reken uit wat een bijeenkomst kost aan tijd, geld en CO₂, en zie wat online zou
+              schelen.
+            </p>
+            <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">
+              Open de calculator →
+            </span>
+          </Link>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
