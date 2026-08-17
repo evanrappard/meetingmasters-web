@@ -89,3 +89,7 @@
 /en/newsletter
 /en/expert-advice
 /en/testimonials
+/en/events/strategy-day
+/en/events/town-hall
+/en/events/all-hands
+/en/events/general-meeting

@@ -18,6 +18,8 @@
  * balk ziet staan en voor de zoekmachine die erop zoekt.
  */
 
+import { VERTAALDE_EVENTS } from "@/app/nl/events/[slug]/tekst-en";
+
 export type Taal = "nl" | "en";
 
 /**
@@ -50,8 +52,18 @@ const PAREN: Array<[nl: string, en: string]> = [
   ["/testimonials", "/testimonials"],
 ];
 
-const NAAR_EN = new Map(PAREN);
-const NAAR_NL = new Map(PAREN.map(([nl, en]) => [en, nl]));
+/**
+ * De eventpagina's komen uit hun eigen vertaalbestand, zodat er maar één plek
+ * is waar staat welke events vertaald zijn. Vertaal je een event, dan hoef je
+ * hier niets aan te passen.
+ */
+const EVENT_PAREN: Array<[string, string]> = VERTAALDE_EVENTS.map(
+  ([nl, en]) => [`/events/${nl}`, `/events/${en}`]
+);
+
+const ALLE_PAREN = [...PAREN, ...EVENT_PAREN];
+const NAAR_EN = new Map(ALLE_PAREN);
+const NAAR_NL = new Map(ALLE_PAREN.map(([nl, en]) => [en, nl]));
 
 /** De taal die bij dit adres hoort. Alles buiten /en is Nederlands. */
 export function taalVanPad(pad: string): Taal {
@@ -89,4 +101,4 @@ export function nederlandsPad(enPad: string): string | undefined {
 }
 
 /** Hoeveel pagina's staan er inmiddels in beide talen? */
-export const VERTAALD_AANTAL = PAREN.length;
+export const VERTAALD_AANTAL = ALLE_PAREN.length;
