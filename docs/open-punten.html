@@ -1,0 +1,316 @@
+<title>Wat er nog open staat — MeetingMasters</title>
+<style>
+  :root {
+    --papier: #FDFCF9;
+    --inkt: #2D2D2D;
+    --grijs: #6E6E68;
+    --lijn: #E4E1D8;
+    --geel: #EEBE3D;
+    --geelvlak: #FFFBEE;
+    --aqua: #28A8AA;
+    --aquavlak: #E4F3F3;
+    --rood: #C74B60;
+    --roodvlak: #FAEBEE;
+    --groen: #5E8C4E;
+    --groenvlak: #EAF1E5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --papier: #1B1B19; --inkt: #EDEAE2; --grijs: #A19E95; --lijn: #35342F;
+      --geelvlak: #2E2716; --aquavlak: #16302F; --roodvlak: #301A1E; --groenvlak: #1E2A19;
+      --groen: #8FB87E; --rood: #E08094;
+    }
+  }
+  :root[data-theme="dark"] {
+    --papier: #1B1B19; --inkt: #EDEAE2; --grijs: #A19E95; --lijn: #35342F;
+    --geelvlak: #2E2716; --aquavlak: #16302F; --roodvlak: #301A1E; --groenvlak: #1E2A19;
+    --groen: #8FB87E; --rood: #E08094;
+  }
+
+  body {
+    background: var(--papier); color: var(--inkt);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6; margin: 0; padding: 0 1.5rem 6rem; font-size: 16px;
+  }
+  .blad { max-width: 58rem; margin: 0 auto; }
+
+  header { padding: 4rem 0 2.5rem; border-bottom: 3px solid var(--geel); }
+  .kop-label {
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--aqua); font-weight: 700; margin: 0 0 0.9rem;
+  }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.9rem); line-height: 1.12; margin: 0 0 1rem; text-wrap: balance; font-weight: 700; }
+  .inleiding { color: var(--grijs); max-width: 44rem; margin: 0; font-size: 1.05rem; }
+
+  h2 {
+    font-size: 1.4rem; margin: 3.5rem 0 1.4rem; font-weight: 700;
+    padding-top: 2rem; border-top: 1px solid var(--lijn);
+  }
+  .duiding { color: var(--grijs); margin: -0.9rem 0 1.6rem; max-width: 44rem; }
+
+  .punt { margin: 0 0 2rem; padding-left: 3.2rem; position: relative; }
+  .punt .nr {
+    position: absolute; left: 0; top: 0.1rem;
+    font-size: 0.75rem; font-weight: 700; font-variant-numeric: tabular-nums;
+    width: 2.2rem; height: 2.2rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--geelvlak); color: #8A6A12; border: 1px solid var(--geel);
+  }
+  .punt.blok .nr { background: var(--roodvlak); color: var(--rood); border-color: var(--rood); }
+  .punt h3 { font-size: 1.05rem; margin: 0 0 0.15rem; font-weight: 700; }
+  .punt .wie {
+    font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grijs); font-weight: 700; margin: 0 0 0.6rem;
+  }
+  .punt p { margin: 0 0 0.5rem; }
+  .punt p:last-child { margin-bottom: 0; }
+  .punt .doen { color: var(--grijs); }
+  .punt .doen strong { color: var(--inkt); }
+
+  .kader {
+    background: var(--geelvlak); border-left: 3px solid var(--geel);
+    padding: 1.2rem 1.4rem; margin: 1.6rem 0; border-radius: 0 4px 4px 0;
+  }
+  .kader p { margin: 0; }
+  .kader p + p { margin-top: 0.7rem; }
+
+  .af {
+    background: var(--groenvlak); border-left: 3px solid var(--groen);
+    padding: 1.4rem 1.6rem; margin: 1.6rem 0; border-radius: 0 4px 4px 0;
+  }
+  .af ul { margin: 0.6rem 0 0; padding-left: 1.1rem; columns: 2; column-gap: 2.5rem; }
+  .af li { margin-bottom: 0.35rem; break-inside: avoid; }
+  @media (max-width: 40rem) { .af ul { columns: 1; } }
+  .af p { margin: 0; font-weight: 600; }
+
+  ol.volgorde { padding-left: 1.3rem; margin: 0; }
+  ol.volgorde li { margin-bottom: 0.8rem; }
+  ol.volgorde strong { display: block; }
+
+  code {
+    font-family: ui-monospace, Menlo, monospace; font-size: 0.85em;
+    background: var(--geelvlak); padding: 0.1em 0.35em; border-radius: 3px;
+  }
+  .cijfers {
+    display: flex; flex-wrap: wrap; gap: 1.4rem 2.5rem;
+    padding: 1.4rem 0; border-bottom: 1px solid var(--lijn); margin-bottom: 0.5rem;
+  }
+  .cijfers div span { display: block; font-size: 1.9rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .cijfers div small { color: var(--grijs); font-size: 0.8rem; }
+</style>
+
+<div class="blad">
+<header>
+  <p class="kop-label">Stand van zaken · 17 augustus 2026</p>
+  <h1>Wat er nog open staat</h1>
+  <p class="inleiding">
+    Van de 24 punten uit de werkbrief zijn er 21 klaar en gecontroleerd op de productiebouw.
+    Wat hieronder staat is wat er nog ligt — plus wat er tijdens het werk aan het licht kwam.
+    Drie punten blokkeren de livegang, de rest niet.
+  </p>
+</header>
+
+<div class="cijfers">
+  <div><span>0</span><small>kapotte links</small></div>
+  <div><span>0</span><small>meldingen codecontrole</small></div>
+  <div><span>0</span><small>mobiele problemen</small></div>
+  <div><span>59</span><small>adressen in de sitemap</small></div>
+  <div><span>116</span><small>pagina's gebouwd</small></div>
+</div>
+
+<h2>Blokkeert de livegang</h2>
+<p class="duiding">Deze drie moeten geregeld zijn vóór je de knop omzet.</p>
+
+<div class="punt blok">
+  <div class="nr">1</div>
+  <h3>GitHub en Vercel zijn nog niet aan elkaar geknoopt</h3>
+  <p class="wie">Jij · een half uur</p>
+  <p>De code staat op GitHub en is bijgewerkt tot vanavond. Maar er is nog geen Vercel-project
+  dat naar die map luistert. Zolang dat er niet is, verandert er niets aan wat mensen zien —
+  wat wij hier doen komt dan nergens terecht.</p>
+  <p class="doen"><strong>Doen:</strong> in Vercel een project aanmaken vanuit
+  <code>evanrappard/meetingmasters-web</code>, en daarna het domein koppelen bij YourHosting.
+  Zet eerst een testadres live en kijk daar rond voordat je het echte domein omzet.</p>
+</div>
+
+<div class="punt blok">
+  <div class="nr">2</div>
+  <h3>Aanmelden staat nog open in Supabase</h3>
+  <p class="wie">Jij · vijf minuten</p>
+  <p>De site gebruikt geen inlogfunctie meer, maar in het Supabase-dashboard kan iedereen
+  zich nog steeds aanmelden. Dat is een deur die openstaat naar een kamer die je niet meer
+  gebruikt.</p>
+  <p class="doen"><strong>Doen:</strong> in Supabase onder Authentication de optie om zelf een
+  account aan te maken uitzetten. Dit staat al een tijdje op je lijst; nu je live gaat is het
+  moment.</p>
+</div>
+
+<div class="punt blok">
+  <div class="nr">3</div>
+  <h3>De cookiebanner en HubSpot bijten elkaar nog steeds</h3>
+  <p class="wie">Jij, met een besluit · een uur</p>
+  <p>Ik heb in de cookieverklaring eerlijk opgeschreven wat er gebeurt: het HubSpot-script
+  laadt zodra je een pagina met een formulier opent, dus vóórdat je op de cookiebanner hebt
+  geklikt. Dat is nu <em>uitgelegd</em>, maar niet <em>opgelost</em>. Formeel mag dat alleen
+  als het script strikt nodig is voor iets wat de bezoeker zelf vraagt — bij een formulier is
+  daar wat voor te zeggen, bij het volgen van bezoekers niet.</p>
+  <p class="doen"><strong>Doen:</strong> kies één van twee. Ofwel je zet het volgen uit in
+  HubSpot en houdt alleen de formulieren over — dan klopt het verhaal. Ofwel je laat het
+  script pas laden ná toestemming, en accepteert dat mensen die weigeren geen formulier
+  zien. Zeg me welke, dan bouw ik het.</p>
+</div>
+
+<h2>Zou ik doen vóór de livegang</h2>
+
+<div class="punt">
+  <div class="nr">4</div>
+  <h3>De Engelse site bestaat nog niet</h3>
+  <p class="wie">Jij levert, ik bouw · loopt</p>
+  <p>De taalschakelaar staat er, alle <code>/en</code>-adressen sturen door naar het
+  Nederlands. Dat werkt, maar het is geen Engelse site.</p>
+  <p class="doen"><strong>Doen:</strong> ik heb het losse overzicht klaar van alles wat níét
+  automatisch mee kan — pdf's, video's, 29 beelden met Nederlandse tekst erin, de 50
+  inspiratiekaarten, de drie tools en de HubSpot-formulieren. Kijk dat door en lever aan wat
+  je al hebt.</p>
+</div>
+
+<div class="punt">
+  <div class="nr">5</div>
+  <h3>De turkooizen kicker op lichte hero's</h3>
+  <p class="wie">Ik · geparkeerd op jouw verzoek</p>
+  <p>Op een paar eventpagina's staat het kleine turkooizen kopje boven de titel op een lichte
+  achtergrond, en dan is het slecht te lezen. Je zei: even laten staan. Dat staat het nog.</p>
+  <p class="doen"><strong>Doen:</strong> zeg het als je het alsnog wilt. Het is een kwestie
+  van een donkerdere tint kiezen op de drie of vier pagina's waar het speelt.</p>
+</div>
+
+<div class="punt">
+  <div class="nr">6</div>
+  <h3>De site is nooit op een productiebouw door jou bekeken</h3>
+  <p class="wie">Jij · een uur</p>
+  <p>Alles wat je tot nu toe zag draaide in ontwikkelmodus. Dat is trager, laadt beelden
+  anders en verbergt fouten die pas live opduiken. Ik heb zelf op de productiebouw gemeten,
+  maar jij hebt er nog niet doorheen geklikt.</p>
+  <p class="doen"><strong>Doen:</strong> als het Vercel-testadres staat, loop dan de tien
+  pagina's langs die je het belangrijkst vindt. Op je telefoon én op je laptop.</p>
+</div>
+
+<h2>Kan ook na de livegang</h2>
+
+<div class="punt">
+  <div class="nr">7</div>
+  <h3>De nieuwsbriefpagina is niet langs de merkstem geweest</h3>
+  <p class="wie">De copy-Claude · klein</p>
+  <p>Die pagina is functioneel opgezet en nooit inhoudelijk herschreven. Hij staat er niet
+  slecht bij, maar hij klinkt niet als de rest.</p>
+  <p class="doen"><strong>Doen:</strong> meenemen in de volgende copyronde.</p>
+</div>
+
+<div class="punt">
+  <div class="nr">8</div>
+  <h3>Negen pagina's staan op onzichtbaar</h3>
+  <p class="wie">Jij besluit · geen haast</p>
+  <p>Cases, MVO, Escape rooms, Meeting formats, Partners, Planning support, Quality, Strategy
+  &amp; concept en Team staan op de site maar niet in de sitemap, en ze zeggen tegen Google:
+  niet opnemen. Ze zijn nog wel bereikbaar via een directe link.</p>
+  <p class="doen"><strong>Doen:</strong> per pagina beslissen: afmaken en zichtbaar maken, of
+  weghalen. Zolang je niets doet gebeurt er niets verkeerds — ze staan alleen stil.</p>
+</div>
+
+<div class="punt">
+  <div class="nr">9</div>
+  <h3>StoryChief en de blog</h3>
+  <p class="wie">Jij · onbekend</p>
+  <p>De elf blogartikelen staan nu vast in de code. Nieuwe artikelen erbij zetten betekent
+  nu: mij vragen. Je had het eerder over StoryChief als plek waar je zelf publiceert.</p>
+  <p class="doen"><strong>Doen:</strong> besluiten of je dat wilt. Zo ja, dan is dat een klus
+  op zich — de blog moet dan zijn artikelen daar gaan ophalen. Niet iets voor vóór de
+  livegang.</p>
+</div>
+
+<div class="punt">
+  <div class="nr">10</div>
+  <h3>Twee tools die nog moeten komen</h3>
+  <p class="wie">Later · zoals afgesproken</p>
+  <p>Onder "Voor je begint" op Games &amp; Tools staat nu alleen de vergaderkosten-calculator.
+  Daar zouden een briefing-tool en een duidelijkere landingsplek voor "Check je format" bij
+  komen.</p>
+  <p class="doen"><strong>Doen:</strong> niets nu. Als er een derde tool bij komt, verdient
+  Tools waarschijnlijk een eigen plek in het menu — dat was je eigen gedachte en ik ben het
+  ermee eens.</p>
+</div>
+
+<h2>Wat er nieuw uit het werk kwam</h2>
+<p class="duiding">Dingen die niet op de oude lijst stonden, maar die ik onderweg tegenkwam.</p>
+
+<div class="punt">
+  <div class="nr">11</div>
+  <h3>De storytelling-tool verliest zijn thema-lettertypes</h3>
+  <p class="wie">Ik meld het, jij besluit</p>
+  <p>Die tool haalde per thema een ander lettertype bij Google op. Dat kon niet blijven — het
+  stuurde het IP-adres van elke bezoeker naar Google. Ik heb die aanroep eruit gehaald.
+  Gevolg: thema's die een eigen lettertype noemden, krijgen nu Rajdhani, het lettertype van
+  de site.</p>
+  <p class="doen"><strong>Doen:</strong> kijk of dat je bevalt. Vind je het jammer, geef me
+  dan de twee of drie lettertypes die je echt wilt houden — die zet ik dan net zo in het
+  bestand als Rajdhani nu.</p>
+</div>
+
+<div class="punt">
+  <div class="nr">12</div>
+  <h3>De "lichtere" keuzekompas-pdf is groter dan het origineel</h3>
+  <p class="wie">Ter info</p>
+  <p>De versie die jij als lichter aanleverde is 482 kB; de versie van 2022 die op OneDrive
+  stond is 358 kB. Lichter slaat dus op de vormgeving, niet op het bestand. Voor de site
+  maakt dat weinig uit, maar het is goed om te weten dat het geen kleiner bestand is.</p>
+  <p class="doen"><strong>Doen:</strong> niets. De nieuwe versie staat op OneDrive naast het
+  origineel, onder de naam <em>Keuzekompas meetingmix - lichte webversie.pdf</em>. Ik heb
+  niets overschreven.</p>
+</div>
+
+<div class="punt">
+  <div class="nr">13</div>
+  <h3>Vijf event-taglines zijn te kort voor een zoekresultaat</h3>
+  <p class="wie">Ik heb het opgelost, maar het kan mooier</p>
+  <p>Bij Teambuilding en Webinar was de zin onder de titel zo kort dat Google er zelf iets bij
+  zou verzinnen. Ik heb voor die twee een aparte, langere tekst gemaakt die alleen in de
+  zoekresultaten verschijnt. De zichtbare tekst op de pagina is niet aangeraakt.</p>
+  <p class="doen"><strong>Doen:</strong> als de copy-Claude toch langs de eventpagina's gaat,
+  laat die twee zinnen dan meelezen. Twee teksten voor hetzelfde is prima, maar één goede is
+  beter.</p>
+</div>
+
+<h2>Volgorde die ik zou aanhouden</h2>
+<ol class="volgorde">
+  <li><strong>Vandaag:</strong> aanmelden dichtzetten in Supabase (punt 2). Vijf minuten, en
+  het is een openstaande deur.</li>
+  <li><strong>Deze week:</strong> Vercel koppelen en een testadres live zetten (punt 1),
+  daarna zelf doorklikken (punt 6).</li>
+  <li><strong>Vóór je het domein omzet:</strong> de knoop doorhakken over HubSpot en de
+  cookiebanner (punt 3). Dit is de enige die een besluit van jou vraagt in plaats van werk.</li>
+  <li><strong>Daarna:</strong> de Engelse productie op gang brengen (punt 4). Begin bij de
+  inspiratiekaarten — 50 stuks, maar met één lijst aan trefwoorden zijn ze in een uur klaar.</li>
+  <li><strong>Als de rust is weergekeerd:</strong> de negen slapende pagina's (punt 8) en de
+  vraag over StoryChief (punt 9).</li>
+</ol>
+
+<h2>Wat er wél staat</h2>
+<div class="af">
+  <p>Gemeten op de productiebouw, niet aangenomen:</p>
+  <ul>
+    <li>63 bereikbare paden, geen enkele 404</li>
+    <li>72 routes op drie schermbreedtes: schoon</li>
+    <li>Elke pagina precies één H1</li>
+    <li>Elke afbeelding een alt-tekst</li>
+    <li>Alle titels onder de 62 tekens</li>
+    <li>Alle omschrijvingen tussen 120 en 160</li>
+    <li>Sitemap op 59 adressen, uit de routes zelf</li>
+    <li>Elke oude bloglink komt goed terecht</li>
+    <li>Geen enkel verzoek meer naar Google Fonts</li>
+    <li>Submenu's staan in de verstuurde HTML</li>
+    <li>Codecontrole: nul meldingen (was 54.000)</li>
+    <li>KvK- en btw-nummer staan erin</li>
+  </ul>
+</div>
+
+</div>

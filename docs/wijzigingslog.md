@@ -551,3 +551,50 @@ geschiedenis: `git log`.
 | `6f0c44f` | VO zaaltje: "Voor wie" → "Kies je locatie" (6 locaties) | T |
 | `b094aad` | VO: hero-beelden zaaltje & huren vernieuwd (-v2) | B |
 | `5dc5cd8` | Home: SpatialChat-sectie tijdelijk YouTube-facade | C B |
+
+## 17 augustus 2026 — werkbrief afgewerkt
+
+Punten uit `docs/go-live-werkbrief.html` waar Emilie akkoord op gaf. Van de 24
+zijn er nu 21 klaar; de drie die overblijven vragen een besluit of een handeling
+van haar. Zie `docs/open-punten.html`.
+
+**Privacy**
+- Lettertypes van de vergaderkosten-calculator (Rajdhani + Open Sans) en de
+  storytelling-tool (Rajdhani) staan nu in het bestand zelf. Geen enkel verzoek
+  naar Google Fonts meer.
+- De storytelling-tool laadde per thema een ander lettertype bij Google. Die
+  aanroep is eruit; thema's vallen terug op Rajdhani. **Gevolg om te melden aan
+  Emilie:** thema's met een eigen lettertype zien er nu anders uit.
+
+**Vindbaarheid**
+- Uitklapmenu's in de Navbar staan altijd in de DOM en worden alleen met CSS
+  verborgen. Ze werden eerder pas bij hover aangemaakt.
+- Titels ingekort tot onder 62 tekens, omschrijvingen tussen 120 en 160.
+  Blogkoppen en event-taglines blijven ongewijzigd: waar ze niet passen is er nu
+  een `metaTitle` (posts.ts) of `metaOmschrijving` (EVENT_DATA).
+- Logo wijst naar `/nl/home` in plaats van `/` met omleiding.
+- Verborgen `sr-only` H1 weg op Virtueel Kantoor en R@venHack; de zichtbare
+  herokop is daar nu de H1.
+- Omschrijving toegevoegd aan bingo en storytelling; storytelling van drie naar
+  één H1 (`.card-header h1` uitgebreid naar `h2` zodat de vormgeving gelijk blijft).
+
+**Inhoud**
+- Online teamuitje: beelden 2 en 3 gewisseld.
+- Donkerlaag medium op de hero's van all-hands en community-building.
+- Datum van de ALV-checklist naar 2024, op Downloads én op de ALV-eventpagina.
+
+**Onderhoud**
+- `eslint.config.mjs`: uitsluitingslijst plus per-bestand uitzondering voor de
+  bewuste `<img>`-gevallen. Van 54.000 meldingen naar 0.
+- `scripts/tekst-in-beeld.swift`: leest tekst uit afbeeldingen met de
+  tekstherkenning van macOS. Gebruikt om de 289 beelden na te lopen op
+  Nederlandse tekst.
+
+**Opgeleverd**
+- `docs/open-punten.html` — wat er nog open staat
+- `docs/engelse-versie-inventaris.html` — wat Emilie moet aanleveren voor Engels
+- Lichte keuzekompas-pdf op OneDrive gezet als *Keuzekompas meetingmix - lichte
+  webversie.pdf*. Het origineel uit 2022 is niet aangeraakt.
+
+**Gecontroleerd op de productiebouw:** 116 pagina's, 63 bereikbare paden zonder
+404, 72 routes × 3 breedtes schoon, sitemap op 59 adressen.
