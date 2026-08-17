@@ -27,7 +27,7 @@ const SCHEMA_ORGANIZATION = {
     { "@type": "ContactPoint", "telephone": "+31-20-239-03-13", "contactType": "customer service", "availableLanguage": ["Dutch", "English"] },
     { "@type": "ContactPoint", "email": "contact@meetingmasters.online", "contactType": "customer service" },
   ],
-  "sameAs": ["https://www.linkedin.com/company/meetingmasters-online"],
+  "sameAs": ["https://www.linkedin.com/company/meetingmastersonline"],
   "areaServed": { "@type": "Country", "name": "Netherlands" },
 };
 

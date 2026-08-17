@@ -27,7 +27,7 @@ export default function Footer() {
               Mensen maken meetings.
             </p>
             <a
-              href="https://www.linkedin.com/company/meetingmasters-online"
+              href="https://www.linkedin.com/company/meetingmastersonline"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
