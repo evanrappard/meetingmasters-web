@@ -20,7 +20,7 @@ Meer is het niet. Menu, footer, sitemap en taalschakelaar volgen `lib/talen.ts`
 vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 — dat is het signaal dat er nog iets ontbreekt.
 
-## Klaar (19 pagina's)
+## Klaar (39 pagina's)
 
 | Nederlands | Engels |
 |---|---|
@@ -33,6 +33,7 @@ vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 | `/nl/nieuwsbrief` | `/en/newsletter` |
 | `/nl/expert-advies` | `/en/expert-advice` |
 | `/nl/testimonials` | `/en/testimonials` |
+| 20 eventpagina's | 20 eventpagina's, eigen Engels adres per stuk |
 
 Ook tweetalig: menu, footer, cookiebanner, het CTA-blok en de gedeelde
 formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
@@ -41,7 +42,6 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 
 | Pagina | Woorden | Opmerking |
 |---|---:|---|
-| `events/[slug]` | 15.450 | 20 eventpagina's uit één databestand. Grootste brok, maar wel het meest systematisch: alles zit in `EVENT_DATA`. |
 | `technologie/hulp/vragen.ts` | 2.520 | 74 vragen met stappen |
 | `events/page` | 1.680 | het eventoverzicht |
 | `home/page` | 1.650 | |
@@ -61,8 +61,14 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 | `cookieverklaring` | 550 | juridisch — laten nakijken |
 | 4 × tools-landingspagina | 1.690 | bingo, storytelling, wheel of fortune, inspiration cards |
 
-**Samen ongeveer 38.000 woorden.** Ter vergelijking: de elf blogartikelen waren
-7.700 en dat was één ronde stevig werk. Dit zijn er dus vier à vijf.
+**Samen ongeveer 23.000 woorden.** Ter vergelijking: de elf blogartikelen waren
+7.700 en de twintig events 13.400. Dit zijn dus nog twee tot drie rondes.
+
+### Hoe een event vertalen werkt
+De teksten staan in losse bestanden; `scripts/_events-en-bouw.mjs` maakt daar
+`app/nl/events/[slug]/tekst-en.ts` van. Menu, sitemap en taalschakelaar volgen
+vanzelf, want `lib/talen.ts` leest de eventparen daaruit. Zelfde patroon is
+bruikbaar voor de 74 techvragen.
 
 ## Aandachtspunten
 
