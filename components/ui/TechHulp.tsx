@@ -24,7 +24,22 @@ const TOOL_INFO: Record<string, { logo: string; adres: string }> = {
 };
 
 function normaliseer(s: string) {
-  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// Woorden die niets onderscheiden. Zonder deze lijst matcht "ik hoor niets"
+// op elke vraag waarin "ik" voorkomt.
+const VULWOORDEN = new Set([
+  "ik", "je", "jij", "mijn", "me", "het", "de", "een", "en", "of", "is", "zijn",
+  "niet", "geen", "wat", "hoe", "waar", "wie", "kan", "kun", "moet", "doe",
+  "doet", "er", "in", "op", "aan", "van", "voor", "met", "te", "bij", "dan",
+  "maar", "als", "dat", "die", "dit", "nu", "wel", "ook", "nog", "worden",
+]);
+
+function woorden(s: string) {
+  return normaliseer(s)
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length > 1 && !VULWOORDEN.has(w));
 }
 
 type Kleur = { rand: string; vlak: string; randHex: string; vlakHex: string; beeld: string };
@@ -62,9 +77,26 @@ export default function TechHulp({
   const resultaten = useMemo(() => {
     if (zoekend) {
       const q = normaliseer(zoek.trim());
-      return vragen.filter(
-        (v) => normaliseer(v.vraag).includes(q) || normaliseer(v.antwoord).includes(q)
-      );
+      const termen = woorden(zoek);
+
+      // Eerst de hele zin proberen; dat is het meest precies. Levert dat niets
+      // op, dan per woord — zodat "ik hoor niets" ook "Ik hoor niemand" vindt.
+      const scoor = (v: Vraag) => {
+        const tekst = normaliseer([v.vraag, v.antwoord, ...(v.stappen ?? [])].join(" "));
+        const titel = normaliseer(v.vraag);
+        if (q.length > 2 && tekst.includes(q)) return 100 + (titel.includes(q) ? 10 : 0);
+        if (termen.length === 0) return 0;
+        const raak = termen.filter((w) => tekst.includes(w));
+        if (raak.length === 0) return 0;
+        return raak.length * 10 + termen.filter((w) => titel.includes(w)).length * 5;
+      };
+
+      return vragen
+        .map((v) => ({ v, score: scoor(v) + (tool && v.tool === tool ? 3 : 0) }))
+        .filter((r) => r.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 12)
+        .map((r) => r.v);
     }
     if (!symptoom) return [];
     const inCategorie = vragen.filter((v) => v.categorie === symptoom);
@@ -229,7 +261,14 @@ export default function TechHulp({
               {resultaten.map((v, i) => (
                 <details key={v.id} className="group border-b border-[#F0F0F0] py-4" open={i === 0 && !zoekend}>
                   <summary className="flex justify-between items-start gap-4 list-none cursor-pointer">
-                    <span className="font-semibold text-[#2D2D2D] text-[15px] leading-snug">{v.vraag}</span>
+                    <span className="font-semibold text-[#2D2D2D] text-[15px] leading-snug">
+                      {zoekend && v.tool !== "Algemeen" && (
+                        <span className="inline-block align-middle mr-2 text-[10px] font-bold uppercase tracking-wide text-[#6E7877] bg-[#F0F3F3] rounded px-2 py-0.5">
+                          {v.tool}
+                        </span>
+                      )}
+                      {v.vraag}
+                    </span>
                     <span className="text-[#28A8AA] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden>+</span>
                   </summary>
 

@@ -692,7 +692,9 @@ export const VRAGEN: Vraag[] = TOOLS.flatMap((tool) =>
       categorie: cat,
       tool,
       vraag: qa.q,
-      antwoord: qa.a ?? "",
+      // Zonder dit is antwoord leeg zodra een vraag stappen heeft, en zoekt
+      // de hulppagina alleen nog in de vraagtitel.
+      antwoord: qa.a ?? (qa.stappen ?? []).join(" "),
       stappen: qa.stappen,
     }))
   )
