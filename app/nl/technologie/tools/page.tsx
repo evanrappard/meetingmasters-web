@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import PlatformKeuze, { type Platform } from "@/components/ui/PlatformKeuze";
+import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
   title: "Waar wij mee werken — SpatialChat, Zoom, Teams, Miro | MeetingMasters",
@@ -102,6 +103,71 @@ const TOOLS: Tool[] = [
   },
 ];
 
+
+/**
+ * Veelgestelde vragen, in dezelfde vorm als op de event-pagina's: zes in
+ * beeld, de rest achter "Meer antwoorden?".
+ *
+ * De onderwerpen zijn gekozen op wat mensen online daadwerkelijk zoeken rond
+ * online vergaderen — het verschil tussen Zoom en Teams, deelnemersaantallen,
+ * webinar versus meeting, installeren en accounts, opnames, en privacy. Waar
+ * aantallen per licentie verschillen, staat dat er ook bij; een hard getal
+ * dat later niet klopt kost meer dan het oplevert.
+ */
+const PLATFORM_FAQ = [
+  {
+    q: "Wat is het verschil tussen Zoom en Microsoft Teams?",
+    a: "Teams is een werkplatform: het zit vast aan je Microsoft 365-omgeving, je agenda en je documenten, en is gemaakt voor intern overleg. Zoom is meer een losse vergaderapplicatie die door vrijwel iedereen zonder uitleg te gebruiken is, ook door mensen buiten je organisatie. Voor een bijeenkomst met externe deelnemers is Zoom daardoor meestal soepeler; voor dagelijks intern werk is Teams praktischer.",
+  },
+  {
+    q: "Hoeveel deelnemers kunnen er meedoen aan een online bijeenkomst?",
+    a: "Dat hangt af van het platform én van de licentie. Bij Zoom en Teams loopt een gewone vergadering doorgaans tot een paar honderd deelnemers; met een uitbreiding of een webinarlicentie gaat dat verder omhoog. In SpatialChat werken wij met groepen tot ongeveer 600. Wij regelen de juiste licentie, dus je hoeft dit zelf niet uit te zoeken.",
+  },
+  {
+    q: "Wat is het verschil tussen een webinar en een online meeting?",
+    a: "In een meeting kan iedereen praten en in beeld komen. In een webinar zenden een paar sprekers uit en kijkt de rest mee; deelnemers stellen vragen via de chat of de Q&A. Een webinar schaalt daardoor veel verder, maar er ontstaat geen gesprek. Wil je allebei, dan combineren we ze: plenair uitzenden en daarna in kleinere ruimtes doorpraten.",
+  },
+  {
+    q: "Moeten deelnemers iets installeren of een account aanmaken?",
+    a: "Bij SpatialChat niet: dat draait volledig in de browser en je vult alleen je naam in. Bij Zoom en Teams kun je meestal ook via de browser meedoen — kies dan “deelnemen in deze browser” — al werkt de app wat prettiger. Voor deelnemers van buiten een organisatie kiezen wij bewust de route zonder installatie.",
+  },
+  {
+    q: "Welk platform past bij een groot online event?",
+    a: "Gaat het om uitzenden naar een groot publiek met registratie vooraf en meerdere sessies naast elkaar, dan is Zoom Events daarvoor gebouwd. Wil je dat mensen elkaar ook echt ontmoeten — aanschuiven, napraten, rondlopen — dan werkt SpatialChat beter. De keuze volgt uit wat er moet gebeuren, niet uit het aantal deelnemers alleen.",
+  },
+  {
+    q: "Kan een online bijeenkomst worden opgenomen?",
+    a: "Ja, op alle platforms waarmee wij werken. De organisator zet dat aan en moet het vooraf melden; deelnemers zien tijdens de opname een melding in beeld. Wij spreken vooraf af wat er opgenomen wordt en wat niet — breakouts en informele ruimtes laten we standaard buiten de opname.",
+  },
+];
+
+const PLATFORM_FAQ_MEER = [
+  {
+    q: "Hoe zit het met privacy en de AVG?",
+    a: "Elk platform publiceert zelf waar data staat, hoe het versleuteld is en welke certificeringen er zijn; wij verwijzen daar rechtstreeks naar, zodat je IT-afdeling het kan controleren. SpatialChat draait bijvoorbeeld op servers in Ierland, met versleuteling onderweg en in opslag, en er is een verwerkersovereenkomst beschikbaar.",
+  },
+  {
+    q: "Wat zijn breakout rooms en wanneer gebruik je ze?",
+    a: "Breakout rooms zijn kleine kamers waarin een deel van de groep apart doorpraat. Ze werken goed zodra een groep te groot wordt om iedereen aan het woord te laten: in een groepje van vier praat vrijwel iedereen mee, in een groep van veertig niemand. Wij ontwerpen vooraf wie waar terechtkomt en wat de opdracht is.",
+  },
+  {
+    q: "Kunnen we meerdere tools tegelijk gebruiken?",
+    a: "Ja, en dat doen we vaak. Het platform is de ruimte; tools als Miro, Mentimeter of Kahoot zetten we erbij voor samenwerken, peilen of energie. Deelnemers merken daar weinig van: ze klikken op één link en wij zorgen dat de rest klaarstaat.",
+  },
+  {
+    q: "Werkt het ook op een telefoon of tablet?",
+    a: "Meedoen kan meestal wel, maar het is zelden prettig: het scherm is klein en niet alle functies werken. Voor een bijeenkomst waarin ook samengewerkt wordt, adviseren we een laptop of computer. Als noodoplossing wanneer je laptop dwarsligt, is de telefoon prima.",
+  },
+  {
+    q: "Wat kost een online meetingplatform?",
+    a: "Voor korte, kleine vergaderingen heeft vrijwel elk platform een gratis variant, meestal met een tijdslimiet. Zodra het om grotere groepen, registratie of een eigen ingerichte ruimte gaat, is er een betaalde licentie nodig. Bij een begeleide bijeenkomst zit de licentie bij ons in het voorstel; je hoeft zelf niets aan te schaffen.",
+  },
+  {
+    q: "Kunnen jullie ook werken met het platform dat wij al hebben?",
+    a: "Ja. Draait je organisatie op Teams of Zoom, dan werken we daar gewoon in mee. Soms is dat het verstandigste: de winst zit dan in hoe de bijeenkomst is opgebouwd, niet in een andere tool. We zeggen het eerlijk als een ander platform wél verschil maakt.",
+  },
+];
+
 function Logo({ bestand, naam, groot = false }: { bestand: string; naam: string; groot?: boolean }) {
   return (
     <img
@@ -115,9 +181,20 @@ function Logo({ bestand, naam, groot = false }: { bestand: string; naam: string;
   );
 }
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [...PLATFORM_FAQ, ...PLATFORM_FAQ_MEER].map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function ToolsPage() {
   return (
     <>
+      <JsonLd data={faqSchema} />
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative bg-[#2D2D2D] overflow-hidden">
         <div className="absolute inset-0">
@@ -210,6 +287,42 @@ export default function ToolsPage() {
             </Link>{" "}
             ontworpen. Die kunnen we ook op maat maken voor jouw bijeenkomst.
           </p>
+        </div>
+      </section>
+
+
+      {/* ── VEELGESTELDE VRAGEN ── */}
+      <section className="bg-[#F5F5F5] py-12 border-t border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-8 text-center">
+            Veelgestelde vragen
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {PLATFORM_FAQ.map((item) => (
+              <div key={item.q}>
+                <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
+                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <details className="group max-w-4xl mx-auto mt-10">
+            <summary className="flex items-center justify-center gap-2 cursor-pointer list-none text-[#28A8AA] text-sm font-bold hover:text-[#1E8E90] transition-colors">
+              <span className="group-open:hidden">Meer antwoorden?</span>
+              <span className="hidden group-open:inline">Minder antwoorden</span>
+              <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 pt-8 border-t border-[#E0E0E0]">
+              {PLATFORM_FAQ_MEER.map((item) => (
+                <div key={item.q}>
+                  <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
+                  <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </details>
         </div>
       </section>
 

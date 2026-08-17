@@ -82,7 +82,7 @@ const DATA: Record<string, ToolBlock> = {
       {
         q: "Ik hoor niemand.",
         stappen: [
-"Zet het geluid van je computer aan en hard genoeg — controleer ook of het niet gedempt staat.",
+"Zet het geluid van je computer aan en hard genoeg — controleer ook of het niet gedempt staat. Bellen of vergaderen via de browser gebruikt hetzelfde geluidsapparaat als de rest van je computer.",
 "Kies in de instellingen van de meeting bewust de juiste speaker (bijvoorbeeld je koptelefoon in plaats van de laptopspeaker).",
 "Draag je oortjes of een headset? Haal ze eruit en stop ze opnieuw in, zodat het apparaat opnieuw wordt herkend.",
 "Test het geluid met de testknop van de meeting, als die er is.",
@@ -118,7 +118,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
 "Zet je camera uit; beeld kost veruit de meeste bandbreedte, geluid blijft dan meestal goed.",
 "Sluit programma's die op de achtergrond synchroniseren of downloaden.",
-"Ga dichter bij je wifi-punt zitten, of sluit een netwerkkabel aan.",
+"Ga dichter bij je wifi-punt zitten, of sluit een netwerkkabel aan. Een traag of haperend internet is veruit de meest voorkomende oorzaak.",
         ],
       },
     ],
@@ -184,6 +184,32 @@ const DATA: Record<string, ToolBlock> = {
 "Lukt het niet, dan zit er een blokkade op het netwerk of op je beheerdersrechten.",
 "Stuur je IT-afdeling de instellingen onderaan deze pagina; daar staat per platform wat zij nodig hebben.",
 "Kan het snel? Doe mee via je telefoon of een privélaptop.",
+        ],
+      },
+      {
+        q: "Wordt de bijeenkomst opgenomen? (opnemen en terugkijken)",
+        stappen: [
+          "De organisator bepaalt dat, en moet het vooraf melden.",
+          "Loopt er een opname, dan zie je dat aan een melding of een rood bolletje in beeld.",
+          "Wil je niet in beeld, zet dan je camera uit; je kunt gewoon blijven meedoen.",
+          "Vraag de organisator of je de opname achteraf kunt terugkijken.",
+        ],
+      },
+      {
+        q: "Hoe steek ik mijn hand op? (hand opsteken)",
+        stappen: [
+          "Zoek in de balk onderin naar het handje, vaak onder Reacties.",
+          "Klik erop; de begeleider ziet dat je iets wilt zeggen.",
+          "Vergeet niet je hand daarna weer te laten zakken — dat gaat niet vanzelf.",
+          "Zit het handje er niet bij, typ je vraag dan in de chat.",
+        ],
+      },
+      {
+        q: "Kan ik ondertiteling aanzetten?",
+        stappen: [
+          "Veel platforms hebben live ondertiteling; kijk in de balk onderin of onder de drie puntjes.",
+          "Staat die er niet, dan heeft de organisator het uitgezet of ondersteunt de licentie het niet.",
+          "Vraag het even; het is meestal met één instelling aan te zetten.",
         ],
       },
       {
@@ -297,7 +323,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Gebruik een laptop of computer; daar werken alle functies.",
           "Kies Chrome, Firefox of Edge. Safari werkt niet altijd goed.",
-          "Op een telefoon of tablet werkt niet alles en is het scherm klein.",
+          "Op een telefoon of tablet — ook een iPad — werkt niet alles en is het scherm klein.",
         ],
       },
       {
@@ -313,14 +339,14 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Klik in de onderbalk op het scherm-icoon, naast de microfoon en de camera.",
           "Kies of je een tabblad, een venster of je hele scherm deelt.",
-          "Deel liever één tabblad of venster; dat is rustiger voor iedereen.",
+          "Deel liever één tabblad of venster; dat is rustiger voor iedereen. Ga je presenteren, zet je presentatie dan vooraf al klaar.",
         ],
       },
       {
         q: "Ik zit op een bedrijfsnetwerk en de verbinding hapert.",
         stappen: [
-          "Sommige zakelijke netwerken blokkeren video- en audioverkeer.",
-          "Probeer een ander netwerk of de hotspot van je telefoon.",
+          "Sommige zakelijke netwerken blokkeren video- en audioverkeer via de firewall, en ook een VPN kan in de weg zitten.",
+          "Zet je VPN even uit, of probeer een ander netwerk of de hotspot van je telefoon.",
           "Blijft het haperen, stuur je IT-afdeling dan de instellingen onderaan deze pagina.",
         ],
       },
@@ -527,7 +553,7 @@ const DATA: Record<string, ToolBlock> = {
     ],
     overig: [
       {
-        q: "Hoe verander ik mijn weergavenaam?",
+        q: "Hoe verander ik mijn weergavenaam? (naam wijzigen)",
         stappen: [
           "Klik onderin op Deelnemers.",
           "Ga met je muis over je eigen naam en klik op More.",
@@ -538,7 +564,7 @@ const DATA: Record<string, ToolBlock> = {
         q: "Hoe deel ik mijn scherm?",
         stappen: [
           "Klik onderin op de groene knop Scherm delen.",
-          "Kies het venster dat je wilt tonen en klik op Delen.",
+          "Kies het venster dat je wilt tonen en klik op Delen. Ga je presenteren, zet je presentatie dan vooraf al klaar.",
           "Op een Mac geef je Zoom eenmalig toestemming via Systeeminstellingen → Privacy en beveiliging → Schermopname.",
           "Lukt het niet, dan heeft de host het delen misschien beperkt; vraag het even.",
         ],
