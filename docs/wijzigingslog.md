@@ -85,6 +85,21 @@ leeft in de paginacode, niet in een apart bestand).
 
 ## 5. Log
 
+### 2026-08-17 — Downloads met voorbladen, en de ALV-checklist bij het event
+
+- **B** — **Voorbladen bij het manifest en de ALV-checklist.** Gemaakt met
+  `qlmanage` (Quick Look, zit op elke Mac) uit de pdf zelf, dus het is echt de
+  eerste pagina. Staand kader: een liggend kader op een A4 sneed de verticale
+  MANIFEST-tekst af.
+- **C** — **Downloadblok in het event-sjabloon.** Optioneel veld `download` op
+  `EventData`; nu gevuld bij `alv`, met de checklist vlak vóór de FAQ. Wie tot
+  daar leest is serieus bezig en heeft meer aan een checklist dan aan nog een
+  alinea. Andere events kunnen hetzelfde krijgen.
+- **T** — Zin onder Vergadermacht vervangen: nu de vraag hoe je de
+  verantwoordelijkheid belegt voor de plek waar strategie en beleid tot leven
+  komen.
+
+
 ### 2026-08-17 — Boekingsagenda, downloads opgeschoond en het Keuzekompas erbij
 
 - **C** — **Boekingsagenda ingebouwd.** Nieuw component `HubSpotAgenda`, met een

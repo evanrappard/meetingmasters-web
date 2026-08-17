@@ -45,6 +45,8 @@ interface EventData {
   faq?: { q: string; a: string }[];
   faqMore?: { q: string; a: string }[];
   outcomeSummary?: string;
+  /** Bijlage die bij dit event hoort, bijvoorbeeld een checklist. */
+  download?: { titel: string; body: string; href: string; beeld: string; meta: string };
 }
 
 /**
@@ -135,6 +137,14 @@ const EVENT_DATA: Record<string, EventData> = {
   "alv": {
     title: "Online ALV organiseren",
     bg: "radial-gradient(circle at 38% 38%, #C0D8D0, #A0C8C0)",
+    download: {
+      titel: "Checklist online ALV",
+      body:
+        "Wat je regelt in de maand ervoor, op de dag zelf en na afloop — van de agenda en het stemmen tot de deelnemerslijst en de opname. Loop hem door met je bestuur.",
+      href: "/downloads/checklist-online-alv.pdf",
+      beeld: "/images/downloads/checklist-alv-voorblad.webp",
+      meta: "Checklist · pdf · 2022",
+    },
     heroSrc: "/images/events-alv-hero.webp",
     heroAlt: "Online ALV met een stemming op het laptopscherm: de knop Vote now naast het jaarverslag en de cijfers op tafel",
     // Beeld omlaag, zodat de "Vote now"-knop bovenin het laptopscherm in beeld blijft.
@@ -823,6 +833,46 @@ export default async function EventTypePage(
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── DOWNLOAD ──
+          Staat vlak vóór de FAQ: wie tot hier leest is serieus bezig en heeft
+          meer aan een checklist dan aan nog een alinea. */}
+      {event.download && (
+        <section className="bg-white py-14 border-b border-[#EBEBEB]">
+          <div className="max-w-content mx-auto px-6 lg:px-10">
+            <a
+              href={event.download.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-7 items-center rounded-lg border border-[#EBEBEB] bg-white p-6 sm:p-7 hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all max-w-[820px]"
+            >
+              <span className="relative block aspect-[3/4] w-full max-w-[200px] overflow-hidden rounded border border-[#EBEBEB] bg-[#EDEDEA]">
+                <Image
+                  src={event.download.beeld}
+                  alt={`Voorblad van de ${event.download.titel}`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="200px"
+                />
+              </span>
+              <span>
+                <span className="block text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mb-2">
+                  {event.download.meta}
+                </span>
+                <span className="block font-bold text-[#2D2D2D] text-xl mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">
+                  {event.download.titel}
+                </span>
+                <span className="block text-[15px] text-[#545454] leading-relaxed mb-4">
+                  {event.download.body}
+                </span>
+                <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">
+                  Download de checklist →
+                </span>
+              </span>
+            </a>
           </div>
         </section>
       )}

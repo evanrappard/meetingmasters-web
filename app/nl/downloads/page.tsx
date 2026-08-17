@@ -31,6 +31,8 @@ type Item = {
    * dat zelf ziet dan dat hij het gaandeweg ontdekt.
    */
   datum: string;
+  /** Voorblad van het document. Gemaakt met Quick Look uit de pdf zelf. */
+  beeld?: string;
   body: string;
   href: string;
   actie: string;
@@ -44,6 +46,7 @@ const PUBLICATIES: Item[] = [
     datum: "2022",
     body:
       "Waar wij voor staan, in het kort. Over waarom hoe we elkaar ontmoeten ertoe doet, en wat er misgaat als een bijeenkomst een agendapunt wordt in plaats van een moment.",
+    beeld: "/images/downloads/manifest-voorblad.webp",
     href: "/downloads/meetingmasters-manifest.pdf",
     actie: "Download het manifest",
   },
@@ -53,6 +56,7 @@ const PUBLICATIES: Item[] = [
     datum: "2022",
     body:
       "Voor een ledenvergadering die online moet kloppen: stemmen, quorum, en een verloop dat formeel standhoudt.",
+    beeld: "/images/downloads/checklist-alv-voorblad.webp",
     href: "/downloads/checklist-online-alv.pdf",
     actie: "Download de checklist",
   },
@@ -82,6 +86,19 @@ const HANDLEIDINGEN: Item[] = [
 function Kaart({ item }: { item: Item }) {
   const inhoud = (
     <>
+      {item.beeld && (
+        // Het voorblad hangt half over de rand: dat leest als een document dat
+        // op tafel ligt, in plaats van als nóg een plaatje in een kader.
+        <span className="block relative aspect-[3/4] -mx-6 -mt-6 mb-5 overflow-hidden bg-[#EDEDEA] border-b border-[#EBEBEB]">
+          <Image
+            src={item.beeld}
+            alt={`Voorblad van ${item.titel}`}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        </span>
+      )}
       <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mb-2">
         {item.soort} · {item.datum}
       </p>
@@ -95,7 +112,7 @@ function Kaart({ item }: { item: Item }) {
     </>
   );
   const stijl =
-    "group flex flex-col rounded border border-[#EBEBEB] bg-white p-6 hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all";
+    "group flex flex-col rounded border border-[#EBEBEB] bg-white p-6 overflow-hidden hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all";
 
   return item.extern ? (
     <a href={item.href} target="_blank" rel="noopener noreferrer" className={stijl}>
@@ -170,8 +187,8 @@ export default function DownloadsPage() {
               </p>
               <p className="text-[#545454] leading-relaxed mb-4">
                 Over hoe bijeenkomsten werkelijk werken: wie er spreekt, wie er zwijgt, en wat dat
-                doet met wat er wordt besloten. Vergaderen is geen neutrale bezigheid — er wordt
-                macht in verdeeld, of je het nu bedoelt of niet.
+                doet met wat er wordt besloten. Als vergaderingen de plaats zijn waar
+                strategie en beleid tot leven komen, hoe beleg je die verantwoordelijkheid?
               </p>
               <p className="text-[#545454] leading-relaxed">
                 Vul je gegevens in en je ontvangt de publicatie meteen.
@@ -262,7 +279,7 @@ export default function DownloadsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[760px]">
             {PUBLICATIES.map((item) => (
               <Kaart key={item.href} item={item} />
             ))}
