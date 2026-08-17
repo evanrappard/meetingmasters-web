@@ -75,14 +75,26 @@ leeft in de paginacode, niet in een apart bestand).
 | 25 | ~~Blogdatum "Niet hetzelfde. Wel goed."~~ | T | Emilie | **afgerond 17 aug 2026** — 13 juli, en het overzicht sorteert nu op datum |
 | 26 | ~~Eigen visual voor "Terug naar kantoor"~~ | B | Emilie | **afgerond 17 aug 2026** |
 | 27 | **Doorverwijzingen voor oude bloglinks.** Live staat op `/nl/blogs/lange-slug`, hier op `/nl/blog/korte-slug`. Bij livegang breekt elke gedeelde link. Volledige lijst oude URL's nodig | C | bouwer | open — vóór livegang |
-| 28 | **Vergadermacht op de downloadspagina.** Loopt via een HubSpot-landingspagina met formulier; de URL daarvan ontbreekt nog. Ook: welke publicaties horen er verder in? | T | Emilie | open — URL nodig |
+| 28 | ~~Vergadermacht op de downloadspagina~~ | T | Emilie | **afgerond 17 aug 2026** — formulier ingesloten. Nog open: welke publicaties horen er verder in? |
 | 29 | **Boekingstool van HubSpot inbouwen.** Advies: primair op de rondleiding/demo, als tweede optie onder het formulier bij "Plan een gesprek", en níét op Contact. Boekingslink nog nodig | C | Emilie | open — link nodig |
-| 30 | **Downloads staat nu ook in de hoofdnavigatie** (groep diensten). Daarmee heeft de balk zeven items. Alternatief: alleen in de footerkolom Diensten laten staan | C | Emilie | te beslissen |
+| 30 | ~~Downloads in de hoofdnavigatie~~ | C | Emilie | **besloten 17 aug 2026** — alleen in de footer, via `alleenFooter` op het menu-item |
 | 13 | De Engelse pagina's gebruiken de **Nederlandse** navigatie: `app/en/layout.tsx` laadt dezelfde Navbar en Footer, en die lezen `NAV_ITEMS` uit `lib/navigatie.ts` (allemaal `/nl/`-links). Bij de Engelse ronde hier een EN-variant naast zetten. Ook de NL/EN-schakelaar in de balk wijst nu twee keer naar `/nl/home` | C | bouwer | open — hoort bij punt 2 |
 
 ---
 
 ## 5. Log
+
+### 2026-08-17 — Downloads afgerond
+
+- **C** — **Downloads staat alleen nog in de footer.** Nieuw veld `alleenFooter`
+  op een menu-item: de pagina hoort erbij, maar hoeft de balk niet langer te
+  maken. Bruikbaar voor volgende pagina's met dezelfde vraag.
+- **C T** — **Vergadermacht op de downloadspagina**, met het HubSpot-formulier
+  ingesloten in plaats van een doorverwijzing naar de landingspagina. Zelfde
+  formulier, zelfde leads, maar in de eigen stijl en zonder sprong naar
+  hs-sites. Het formulier-ID is uit de landingspagina gehaald en staat nu in
+  `lib/hubspot-forms.ts`.
+
 
 ### 2026-08-17 — Blogcorrecties en een downloadspagina
 

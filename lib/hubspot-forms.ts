@@ -27,6 +27,8 @@ export const HUBSPOT_FORMS = {
   kostenindicatie: "8fb6d169-df70-45f0-bb36-671df8ad0f58",
   /** Nieuwsbrief — /nl/nieuwsbrief (footer linkt ernaartoe) */
   nieuwsbrief: "0992ca5c-97ed-4940-a45d-55357d69f57a",
+  /** Vergadermacht — download van de publicatie, /nl/downloads */
+  vergadermacht: "cbf9b66f-20d8-4dae-86d4-f85b1dda4331",
   /** Vergaderkosten-calculator — los HTML-bestand, niet via HubSpotForm.tsx */
   calculator: "229f1966-fafc-4929-bfae-173a27b5edee",
 } as const;

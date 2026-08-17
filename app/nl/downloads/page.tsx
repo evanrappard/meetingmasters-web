@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import HubSpotForm from "@/components/ui/HubSpotForm";
+import { HUBSPOT_PORTAL_ID, HUBSPOT_FORMS } from "@/lib/hubspot-forms";
 
 export const metadata: Metadata = {
   title: "Downloads — publicaties en handleidingen | MeetingMasters",
@@ -107,13 +109,49 @@ export default function DownloadsPage() {
         </div>
       </section>
 
-      {/* ── PUBLICATIES ──────────────────────────────────────────────── */}
+
+      {/* ── VERGADERMACHT ──
+          Het formulier van de HubSpot-landingspagina staat hier ingesloten, in
+          plaats van dat we mensen naar hs-sites sturen. Zelfde formulier en
+          dezelfde leads, maar in de stijl van de site en zonder de sprong naar
+          een ander domein. */}
       <section className="bg-white py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-16 items-start">
+            <div className="max-w-[620px]">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+                Onze publicatie
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Vergadermacht
+              </h2>
+              <p className="text-[#545454] leading-relaxed mb-4">
+                Over hoe bijeenkomsten werkelijk werken: wie er spreekt, wie er zwijgt, en wat dat
+                doet met wat er wordt besloten. Vergaderen is geen neutrale bezigheid — er wordt
+                macht in verdeeld, of je het nu bedoelt of niet.
+              </p>
+              <p className="text-[#545454] leading-relaxed">
+                Vul je gegevens in en je ontvangt de publicatie meteen.
+              </p>
+            </div>
+
+            <div className="w-full rounded-lg border border-[#EBEBEB] bg-[#F7F7F5] p-6 sm:p-7">
+              <p className="font-bold text-[#2D2D2D] mb-4">Ontvang Vergadermacht</p>
+              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.vergadermacht} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PUBLICATIES ──────────────────────────────────────────────── */}
+      <section className="bg-[#F7F7F5] border-t border-[#EBEBEB] py-14 md:py-16">
+        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="max-w-[680px] mb-9">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">Publicaties</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
+              Direct te downloaden
+            </h2>
             <p className="text-[#545454] leading-relaxed">
-              Waar wij over nadenken, op papier. Gratis, en bedoeld om door te geven.
+              Zonder formulier. Gratis, en bedoeld om door te geven.
             </p>
           </div>
 
@@ -126,7 +164,7 @@ export default function DownloadsPage() {
       </section>
 
       {/* ── HANDLEIDINGEN ────────────────────────────────────────────── */}
-      <section className="bg-[#F7F7F5] border-t border-[#EBEBEB] py-14 md:py-16">
+      <section className="bg-white border-t border-[#EBEBEB] py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="max-w-[680px] mb-9">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
@@ -155,7 +193,7 @@ export default function DownloadsPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────── */}
-      <section className="bg-white py-14 md:py-16">
+      <section className="bg-[#F7F7F5] border-t border-[#EBEBEB] py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="max-w-[640px]">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">

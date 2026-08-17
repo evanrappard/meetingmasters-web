@@ -22,6 +22,7 @@ de site geëmbed worden. Emilie maakt het formulier aan in HubSpot en levert de
 | 4 | **MM Website — Boeking & beschikbaarheid** | Zaaltje, R@venHack of EscapeMasters boeken | `/nl/boeken` — CTA's 'Boek je zaaltje', 'Check beschikbaarheid', 'Boek R@venHack' en 'Boek EscapeMasters' | naam, e-mail, organisatie, dropdown "wat wil je boeken", datum, aantal deelnemers | ✅ | `ddf3e496-b036-4720-b7b1-44eed87f7506` |
 | 5 | **MM Website — Kostenindicatie** | Vrijblijvende offerte | `/nl/offerte` — CTA's rond offerte en kosten | naam, e-mail, organisatie, type event, groepsgrootte, bericht | ✅ | `8fb6d169-df70-45f0-bb36-671df8ad0f58` |
 | 6 | **MM Website — Nieuwsbrief** | Inschrijving nieuwsbrief | `/nl/nieuwsbrief` — de footer linkt ernaartoe met "Schrijf je in" (het formulier stond eerst in de footer zelf, maar de lichte HubSpot-stijl liet zich in die donkere balk niet temmen) | e-mail | ✅ | `0992ca5c-97ed-4940-a45d-55357d69f57a` |
+| 7 | **Vergadermacht — download** | Publicatie downloaden | `/nl/downloads` — ingesloten, niet via de HubSpot-landingspagina | voornaam, achternaam, e-mail | ✅ | `cbf9b66f-20d8-4dae-86d4-f85b1dda4331` |
 | — | *(bestaat al)* | Berekening toesturen | vergaderkosten-calculator (los HTML-bestand) | e-mail, `berekening_samenvatting` | ✅ | `229f1966-fafc-4929-bfae-173a27b5edee` |
 
 ### Waarom zes en niet meer
@@ -82,3 +83,8 @@ verwijzen daarnaar in plaats van de ID's los te herhalen.
 - Wil je op losse velden kunnen segmenteren of rapporteren (bijvoorbeeld
   groepsgrootte of type event), maak die dan als contacteigenschap aan vóórdat
   je het formulier bouwt.
+
+> **Vergadermacht.** De HubSpot-landingspagina op `147433380.hs-sites-eu1.com/vergadermacht`
+> blijft bestaan, maar de site gebruikt hetzelfde formulier ingesloten. Dezelfde
+> leads, zonder sprong naar een ander domein en in de eigen stijl. Wijzig je het
+> formulier in HubSpot, dan verandert het op beide plekken mee.

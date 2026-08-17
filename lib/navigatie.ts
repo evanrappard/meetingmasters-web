@@ -22,6 +22,11 @@ export type NavItem = {
   /** Het gele kopje boven de dropdown. Zonder dit klapt er niets uit. */
   feature?: { title: string; desc: string };
   children?: NavChild[];
+  /**
+   * Alleen in de footer tonen, niet in de balk bovenaan. Voor pagina's die er
+   * wel horen te zijn maar de hoofdnavigatie niet hoeven te verlengen.
+   */
+  alleenFooter?: boolean;
   moreLabel?: string;
   moreHref?: string;
   /** Bepaalt onder welke kolom het item in de footer terechtkomt. */
@@ -94,6 +99,7 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Downloads",
     href: "/nl/downloads",
     groep: "diensten",
+    alleenFooter: true,
   },
   {
     label: "Over ons",

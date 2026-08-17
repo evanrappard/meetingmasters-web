@@ -6,6 +6,10 @@ import Image from "next/image";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/navigatie";
 
+// De balk toont niet alles: items met alleenFooter horen wel op de site,
+// maar hoeven de hoofdnavigatie niet langer te maken.
+const BALK_ITEMS = NAV_ITEMS.filter((i) => !i.alleenFooter);
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -49,7 +53,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-7">
-            {NAV_ITEMS.map((item) => {
+            {BALK_ITEMS.map((item) => {
               // Menu met subpagina's: geel kopje + witte lijst eronder
               if (item.children && item.feature) {
                 return (
@@ -183,7 +187,7 @@ export default function Navbar() {
           bovenkant vast, waardoor alles onder de schermrand onbereikbaar wordt. */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-x-0 top-[88px] bottom-0 overflow-y-auto overscroll-contain bg-white border-t border-[#EBEBEB] px-6 py-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] space-y-1">
-          {NAV_ITEMS.map((item) =>
+          {BALK_ITEMS.map((item) =>
             item.children && item.feature ? (
               <div key={item.label}>
                 <button
