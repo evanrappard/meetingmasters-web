@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  // Nog niet af of vervangen: wel bereikbaar via een directe link, maar niet
+  // in de zoekresultaten. Staat ook in NIET_INDEXEREN in app/sitemap.ts.
+  robots: { index: false, follow: true },
   title: "Online escape rooms | MeetingMasters",
   description:
     "Spannende, teambuildende online escape room-ervaringen — EscapeMasters en R@venHack Cyber Security.",

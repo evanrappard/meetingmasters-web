@@ -6,9 +6,9 @@ import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
-  title: "R@venHack — cybersecurity escape game voor teams | MeetingMasters",
+  title: "R@venHack — cybersecurity escape game | MeetingMasters",
   description:
-    "R@venHack is een cybersecurity escape game waarin je team samen een digitale aanval stopt. Beschikbaar als gewone versie (± 60 min) en als uitgebreide XL-versie. Leer al doende over phishing, datalekken en veilig digitaal gedrag — teambuilding én startpunt voor kennisoverdracht. Draait via SpatialChat.",
+    "Cybersecurity escape game waarin je team samen een digitale aanval stopt. Over phishing, datalekken en veilig gedrag. In 60 minuten of als XL-versie.",
 };
 
 const versies = [
@@ -107,9 +107,6 @@ export default function RavenHackPage() {
 
       {/* ── HERO ── */}
       <section>
-        <h1 className="sr-only">
-          R@venHack — cybersecurity escape game voor teams, in een gewone en een XL-versie
-        </h1>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <Image
             src="/images/ravenhack-hero.webp"
@@ -126,14 +123,14 @@ export default function RavenHackPage() {
                 <p className="inline-block bg-black/35 rounded px-2.5 py-1 text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
                   R@venHack · Cybersecurity
                 </p>
-                <h2
+                <h1
                   className="text-[1.75rem] sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-5"
                   style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}
                 >
                   Stop samen
                   <br />
                   de cyberaanval.
-                </h2>
+                </h1>
                 <p
                   className="text-white text-lg font-medium leading-relaxed mb-8"
                   style={{
@@ -254,7 +251,7 @@ export default function RavenHackPage() {
               R@venHack is er in twee smaken: een compacte, energieke gewone
               versie en een uitgebreidere XL-versie met meer diepgang. Beide
               stoppen samen de aanval — het verschil zit in de tijd, de omvang
-              en hoe ver je de securitythema's uitdiept.
+              en hoe ver je de securitythema’s uitdiept.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-5">

@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = {
   title: "Online zaaltje boeken | MeetingMasters Virtual Office",
   description:
-    "Boek een ingericht online zaaltje voor maximaal 12 personen — klaar voor gebruik. Voor een leuke, andersoortige meeting met een kleine groep. Laagdrempelig, niet duur, wel verrassend.",
+    "Boek een ingericht online zaaltje voor maximaal 12 personen, klaar voor gebruik. Laagdrempelig, niet duur en verrassender dan het zoveelste videogesprek.",
 };
 
 const locaties = [

@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = {
   title: "Kantoor + Cultuur — virtueel kantoor op maat | MeetingMasters",
   description:
-    "Kantoor + Cultuur: eerst het gesprek over waar je voor staat, welke waarden verbinden en hoe je wilt samenwerken. Daarna bouwen we samen het online kantoor waarin die cultuur tot leven komt.",
+    "Eerst het gesprek over waar je voor staat en hoe je wilt samenwerken. Daarna bouwen we samen het online kantoor waarin die cultuur tot leven komt.",
 };
 
 const stappen = [

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "SpatialChat | MeetingMasters Technologie",
   description:
-    "SpatialChat is het videoplatform dat werkt zoals echte ontmoetingen: je beweegt vrij, kiest je gesprekken en bouwt ongedwongen contact. MeetingMasters is officieel Channel Partner voor Nederland.",
+    "SpatialChat is het videoplatform waarin je vrij beweegt en zelf je gesprekken kiest. MeetingMasters is officieel Channel Partner voor Nederland.",
 };
 
 const stats = [

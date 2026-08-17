@@ -6,7 +6,7 @@ import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Games & Tools voor online meetings en events | MeetingMasters",
+  title: "Games & tools voor online meetings | MeetingMasters",
   description:
     "Online games die groepen samenbrengen — van escape room tot cybersecuritygame — en gratis tools voor levendige meetings. Speelklaar of volledig op maat gemaakt.",
 };

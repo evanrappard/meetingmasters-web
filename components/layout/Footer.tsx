@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, ArrowRight } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import LastUpdated from "@/components/ui/LastUpdated";
 import { BEDRIJF } from "@/lib/bedrijfsgegevens";
 import { navPerGroep, FOOTER_EXTRA, FOOTER_JURIDISCH } from "@/lib/navigatie";

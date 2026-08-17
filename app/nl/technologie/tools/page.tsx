@@ -5,9 +5,9 @@ import PlatformKeuze, { type Platform } from "@/components/ui/PlatformKeuze";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Waar wij mee werken — SpatialChat, Zoom, Teams, Miro | MeetingMasters",
+  title: "Waar wij mee werken: platforms en tools | MeetingMasters",
   description:
-    "De platforms en tools waarmee MeetingMasters online bijeenkomsten bouwt: SpatialChat, Zoom, Zoom Events en Microsoft Teams, gecombineerd met Miro, Mentimeter, Kahoot, streamAlive en Vote Company.",
+    "De platforms waarmee wij online bijeenkomsten bouwen: SpatialChat, Zoom, Zoom Events en Teams, met Miro, Mentimeter, Kahoot en streamAlive erbij.",
 };
 
 /**

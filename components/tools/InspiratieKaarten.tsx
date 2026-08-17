@@ -31,7 +31,7 @@ type Props = {
 };
 
 export default function InspiratieKaarten({ variant = "pagina" }: Props) {
-  const [dek, setDek] = useState<number[]>([]);
+  const [, setDek] = useState<number[]>([]);
   const [kaart, setKaart] = useState<number | null>(null);
   const [getrokken, setGetrokken] = useState(0);
   const [draait, setDraait] = useState(false);

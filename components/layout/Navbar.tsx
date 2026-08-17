@@ -40,7 +40,7 @@ export default function Navbar() {
       <div className="bg-white border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10 h-[84px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/nl/home" className="flex-shrink-0">
             <Image
               src="/images/logo.webp"
               alt="MeetingMasters Online — specialist in online bijeenkomsten voor groepen van 50 tot 500 mensen"
@@ -71,8 +71,19 @@ export default function Navbar() {
                       <ChevronDown size={13} className="opacity-50" />
                     </Link>
 
-                    {openDropdown === item.label && (
-                      <div className="absolute top-full left-0 pt-0 z-50">
+                    {/* Het uitklapmenu staat altijd in de pagina en wordt alleen
+                        verborgen. Rendeerden we het pas bij hover, dan stonden de
+                        links nergens in de HTML die de server verstuurt: Google
+                        vond de subpagina's dan niet via het menu. */}
+                    <div
+                      className={`absolute top-full left-0 pt-0 z-50 transition-opacity ${
+                        openDropdown === item.label
+                          ? "opacity-100"
+                          : "opacity-0 invisible pointer-events-none"
+                      }`}
+                      aria-hidden={openDropdown !== item.label}
+                    >
+                      {(
                         <div className="w-[300px] bg-white border border-[#EBEBEB] rounded-lg shadow-lg overflow-hidden">
                           {/* Geel kopje = moederpagina */}
                           <Link
@@ -106,8 +117,8 @@ export default function Navbar() {
                             )}
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                 );
               }
@@ -128,18 +139,27 @@ export default function Navbar() {
                       {item.label}
                     </Link>
 
-                    {openDropdown === item.label && (
-                      <div className="absolute top-full left-0 pt-0 z-50">
-                        <Link
-                          href={item.href}
-                          className="block w-[240px] bg-[#FFFBEE] border border-[#EBEBEB] rounded-lg shadow-lg px-5 py-4 hover:bg-[#FCF3D6] transition-colors"
-                        >
-                          <span className="text-[15px] font-semibold leading-snug text-[#2D2D2D]">
-                            {item.feature.title}
-                          </span>
-                        </Link>
-                      </div>
-                    )}
+                    {/* Het uitklapmenu staat altijd in de pagina en wordt alleen
+                        verborgen. Rendeerden we het pas bij hover, dan stonden de
+                        links nergens in de HTML die de server verstuurt: Google
+                        vond de subpagina's dan niet via het menu. */}
+                    <div
+                      className={`absolute top-full left-0 pt-0 z-50 transition-opacity ${
+                        openDropdown === item.label
+                          ? "opacity-100"
+                          : "opacity-0 invisible pointer-events-none"
+                      }`}
+                      aria-hidden={openDropdown !== item.label}
+                    >
+                      <Link
+                        href={item.href}
+                        className="block w-[240px] bg-[#FFFBEE] border border-[#EBEBEB] rounded-lg shadow-lg px-5 py-4 hover:bg-[#FCF3D6] transition-colors"
+                      >
+                        <span className="text-[15px] font-semibold leading-snug text-[#2D2D2D]">
+                          {item.feature.title}
+                        </span>
+                      </Link>
+                    </div>
                   </div>
                 );
               }

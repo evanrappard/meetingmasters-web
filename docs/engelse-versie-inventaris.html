@@ -1,0 +1,279 @@
+<title>Wat er vertaald moet worden — MeetingMasters</title>
+<style>
+  :root {
+    --papier: #FDFCF9;
+    --inkt: #2D2D2D;
+    --grijs: #6E6E68;
+    --lijn: #E4E1D8;
+    --geel: #EEBE3D;
+    --geelvlak: #FFFBEE;
+    --aqua: #28A8AA;
+    --aquavlak: #E4F3F3;
+    --rood: #C74B60;
+    --roodvlak: #FAEBEE;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --papier: #1B1B19; --inkt: #EDEAE2; --grijs: #A19E95; --lijn: #35342F;
+      --geelvlak: #2E2716; --aquavlak: #16302F; --roodvlak: #301A1E;
+    }
+  }
+  :root[data-theme="dark"] {
+    --papier: #1B1B19; --inkt: #EDEAE2; --grijs: #A19E95; --lijn: #35342F;
+    --geelvlak: #2E2716; --aquavlak: #16302F; --roodvlak: #301A1E;
+  }
+
+  body {
+    background: var(--papier);
+    color: var(--inkt);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 1.5rem 6rem;
+    font-size: 16px;
+  }
+  .blad { max-width: 62rem; margin: 0 auto; }
+
+  header { padding: 4rem 0 2.5rem; border-bottom: 3px solid var(--geel); }
+  .kop-label {
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--aqua); font-weight: 700; margin: 0 0 0.9rem;
+  }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.9rem); line-height: 1.12; margin: 0 0 1rem; text-wrap: balance; font-weight: 700; }
+  .inleiding { color: var(--grijs); max-width: 46rem; margin: 0; font-size: 1.05rem; }
+
+  h2 {
+    font-size: 1.45rem; margin: 3.5rem 0 0.4rem; font-weight: 700;
+    padding-top: 2rem; border-top: 1px solid var(--lijn);
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  .duiding { color: var(--grijs); margin: 0 0 1.5rem; max-width: 46rem; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  .schuif { overflow-x: auto; margin: 0 0 1rem; }
+  th {
+    text-align: left; font-size: 0.7rem; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--grijs); font-weight: 700; padding: 0 0.9rem 0.6rem 0;
+    border-bottom: 1px solid var(--lijn); white-space: nowrap;
+  }
+  td { padding: 0.75rem 0.9rem 0.75rem 0; border-bottom: 1px solid var(--lijn); vertical-align: top; }
+  td:first-child { font-weight: 600; }
+  code {
+    font-family: ui-monospace, Menlo, monospace; font-size: 0.85em;
+    background: var(--geelvlak); padding: 0.1em 0.35em; border-radius: 3px;
+  }
+
+  .merk {
+    display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.2em 0.55em; border-radius: 3px; white-space: nowrap;
+  }
+  .heb { background: var(--aquavlak); color: var(--aqua); }
+  .maak { background: var(--roodvlak); color: var(--rood); }
+  .tekst { background: var(--geelvlak); color: #8A6A12; }
+
+  .kader {
+    background: var(--geelvlak); border-left: 3px solid var(--geel);
+    padding: 1.2rem 1.4rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0;
+  }
+  .kader p { margin: 0; }
+  .kader p + p { margin-top: 0.7rem; }
+
+  ul.simpel { padding-left: 1.2rem; margin: 0 0 1.2rem; }
+  ul.simpel li { margin-bottom: 0.45rem; }
+
+  .telling {
+    display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+    padding: 1.4rem 0; margin: 0 0 1rem; border-bottom: 1px solid var(--lijn);
+  }
+  .telling div span {
+    display: block; font-size: 2rem; font-weight: 700; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .telling div small { color: var(--grijs); font-size: 0.8rem; }
+</style>
+
+<div class="blad">
+<header>
+  <p class="kop-label">Werkbrief · voor de Engelse site</p>
+  <h1>Wat er vertaald moet worden, en wat opnieuw gemaakt</h1>
+  <p class="inleiding">
+    Teksten in de code vertaalt de bouwer. Dit overzicht gaat over alles wat
+    <em>daarbuiten</em> valt: pdf's, video's, beelden met tekst erin, losse tools en de
+    formulieren. Die kunnen niet automatisch mee. Ik heb alle 289 beelden op de site
+    letterlijk uitgelezen met tekstherkenning, dus dit is gemeten, niet geschat.
+  </p>
+</header>
+
+<div class="telling">
+  <div><span>5</span><small>pdf-downloads</small></div>
+  <div><span>10</span><small>video's</small></div>
+  <div><span>29</span><small>beelden met tekst erin</small></div>
+  <div><span>50</span><small>inspiratiekaarten</small></div>
+  <div><span>3</span><small>losse tools</small></div>
+  <div><span>8</span><small>formulieren</small></div>
+</div>
+
+<h2>1 · Downloads (pdf)</h2>
+<p class="duiding">
+  Staan in <code>public/downloads/</code>. Vijf stuks, alle vijf Nederlands.
+  Lever je een Engelse pdf aan, dan zet ik hem erbij en maak ik het voorblad opnieuw.
+</p>
+<div class="schuif">
+<table>
+  <thead><tr><th>Bestand</th><th>Waar het staat</th><th>Wat er nodig is</th></tr></thead>
+  <tbody>
+    <tr><td>Het MeetingMasters-manifest</td><td>Downloads</td><td><span class="merk heb">heb je waarschijnlijk</span> Engelse versie</td></tr>
+    <tr><td>Checklist online ALV</td><td>Downloads + de ALV-eventpagina</td><td><span class="merk maak">opnieuw maken</span> — ALV is een Nederlands begrip</td></tr>
+    <tr><td>Keuzekompas meetingmix</td><td>Downloads</td><td><span class="merk maak">opnieuw maken</span> — tekst zit in het ontwerp</td></tr>
+    <tr><td>Instructies deelnemer SpatialChat</td><td>Downloads</td><td><span class="merk heb">heb je waarschijnlijk</span> — SpatialChat levert Engels</td></tr>
+    <tr><td>Instructies deelnemer Zoom</td><td>Downloads</td><td><span class="merk heb">heb je waarschijnlijk</span> — Zoom levert Engels</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="kader">
+  <p><strong>Let op bij het manifest.</strong> Het voorblad dat op de site staat is een
+  afbeelding van de eerste pagina, gemaakt uit de pdf zelf. Bij een Engelse pdf moet dat
+  voorblad opnieuw — anders staat er een Nederlandse cover boven een Engelse download.
+  Datzelfde geldt voor de checklist.</p>
+</div>
+
+<h2>2 · Video's</h2>
+<p class="duiding">
+  Tien videobestanden op de site plus drie YouTube-video's. De meeste hebben geen tekst
+  en kunnen blijven staan; twee zijn een probleem.
+</p>
+<div class="schuif">
+<table>
+  <thead><tr><th>Video</th><th>Waar</th><th>Wat er nodig is</th></tr></thead>
+  <tbody>
+    <tr><td>keuzekompas.mp4</td><td>Downloads</td><td><span class="merk maak">opnieuw maken</span> — Nederlandse tekst in beeld</td></tr>
+    <tr><td>hero-boomerang.mp4</td><td>Home</td><td>geen tekst — kan blijven</td></tr>
+    <tr><td>events-hero.mp4</td><td>Events + eventpagina's</td><td>geen tekst — kan blijven</td></tr>
+    <tr><td>vo-hero-office-v4</td><td>Virtueel Kantoor</td><td>geen tekst — kan blijven</td></tr>
+    <tr><td>tech-hulp-hero</td><td>Tech hulp</td><td>geen tekst — kan blijven</td></tr>
+    <tr><td>games-hero-v5</td><td>Games &amp; Tools</td><td>geen tekst — kan blijven</td></tr>
+    <tr><td>hero-v2.mp4</td><td>Meeting Platforms</td><td>geen tekst — kan blijven</td></tr>
+    <tr><td>YouTube <code>kBHFSnQDhX4</code></td><td>Home</td><td><span class="merk tekst">nakijken</span> — gesproken taal en ondertiteling</td></tr>
+    <tr><td>YouTube <code>Cling07_Kas</code></td><td>Over ons</td><td><span class="merk tekst">nakijken</span> — gesproken taal en ondertiteling</td></tr>
+    <tr><td>YouTube <code>5g3Vv51_hR0</code></td><td>Games &amp; Tools + R@venHack</td><td><span class="merk tekst">nakijken</span> — gesproken taal en ondertiteling</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="kader">
+  <p><strong>Over de YouTube-video's.</strong> Als de gesproken tekst Nederlands is, is een
+  Engelse ondertiteling in YouTube zelf de goedkoopste oplossing — dat kost geen nieuwe
+  opname. Vertel me welke van de drie Nederlands gesproken zijn, dan zet ik de juiste
+  ondertitelinstelling in de insluitcode.</p>
+</div>
+
+<h2>3 · Beelden met Nederlandse tekst erin</h2>
+<p class="duiding">
+  Van de 289 beelden op de site bevatten er 29 leesbare Nederlandse tekst, los van de 50 inspiratiekaarten.
+  Ze staan hieronder
+  in volgorde van hoe erg het opvalt. De eerste groep is echt storend op een Engelse site;
+  de tweede groep is een enkel woord in een schermafbeelding en valt nauwelijks op.
+</p>
+
+<h3 style="font-size:1.05rem;margin:1.8rem 0 .6rem">Vervangen — hier springt het Nederlands eruit</h3>
+<div class="schuif">
+<table>
+  <thead><tr><th>Beeld</th><th>Wat erin staat</th><th>Waar</th></tr></thead>
+  <tbody>
+    <tr><td>blog-hero</td><td>Het hele menu: Events, Virtueel Kantoor, Over ons</td><td>Blogoverzicht</td></tr>
+    <tr><td>manifest-voorblad</td><td>De volledige eerste pagina van het manifest</td><td>Downloads</td></tr>
+    <tr><td>checklist-alv-voorblad</td><td>"Checklist ALV online" + inleidende alinea</td><td>Downloads + ALV</td></tr>
+    <tr><td>keuzekompas-poster</td><td>"Online, onsite, hybride of gewoon bellen?"</td><td>Downloads</td></tr>
+    <tr><td>spatial-entree</td><td>"Welkom in SpatialChat! Wij helpen je meer van je meeting te maken."</td><td>Technologie</td></tr>
+    <tr><td>vergadermacht-boek</td><td>Ondertitel van het boek</td><td>Downloads</td></tr>
+    <tr><td>hero-4</td><td>"Welkom in SpatialChat!"</td><td>SpatialChat</td></tr>
+    <tr><td>events-townhall-praktijk-verandertraject</td><td>Hele vraag over ruimtelijke planprocessen</td><td>Online townhall</td></tr>
+    <tr><td>events-alv-praktijk-gewogen-stemmen</td><td>Stemdashboard: Instellingen, Teksten, Vragen</td><td>Online ALV</td></tr>
+    <tr><td>events-training-praktijk-bekendheid</td><td>"Hoe bekend ben je met dit onderwerp?"</td><td>Training &amp; workshop</td></tr>
+    <tr><td>events-worldcafe-praktijk-leren</td><td>"Wat is daarvoor nodig?"</td><td>World café</td></tr>
+    <tr><td>events-allhands-diversity</td><td>"Welkom · Wat is jouw plus? · Verschil verrijkt"</td><td>All-hands</td></tr>
+    <tr><td>events-netwerk-praktijk-conferentie</td><td>"Dubbelklik op een thema" + thema's</td><td>Netwerkevent</td></tr>
+    <tr><td>events-openspace-praktijk-community</td><td>"Ronde 1"</td><td>Open space</td></tr>
+    <tr><td>events-kerst-kerstquiz</td><td>"Kerstquiz · Veel succes &amp; fijne feestdagen · Teamnaam · Punten"</td><td>Kerstfeest</td></tr>
+    <tr><td>events-bedrijfsfeest-praktijk-quiz</td><td>"Veel succes &amp; fijne feestdagen · Teamnaam · Punten"</td><td>Bedrijfsfeest</td></tr>
+    <tr><td>ravenhack-doorbraak</td><td>"De codes gekraakt — de hack gestopt"</td><td>R@venHack</td></tr>
+    <tr><td>tool-storytelling-v2</td><td>"Vertel de verhalen · Start"</td><td>Games &amp; Tools</td></tr>
+    <tr><td>events-spatial</td><td>"Activeer audio en video in de onderbalk."</td><td>Events</td></tr>
+    <tr><td>blog/niet-hetzelfde-wel-goed</td><td>"Niet standaard. Wel lekker."</td><td>Blogartikel</td></tr>
+    <tr><td>planning-1</td><td>"Overzicht · Proces · Start hier"</td><td>Planning</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3 style="font-size:1.05rem;margin:2.2rem 0 .6rem">De 50 inspiratiekaarten — apart geval</h3>
+<p class="duiding">
+  Elke kaart heeft een Nederlands trefwoord (Moed, Eenvoud, Balans) plus de Nederlandse titel
+  van het kunstwerk. Dat zijn 50 beelden die stuk voor stuk opnieuw gezet moeten worden.
+</p>
+<div class="kader">
+  <p><strong>Mijn advies: doe dit niet met de hand.</strong> De kaarten zijn opgebouwd uit
+  een kunstwerk met tekst eroverheen. Lever me één lijst aan met per kaart het Engelse
+  trefwoord en de Engelse werktitel, dan zet ik alle 50 in één keer opnieuw op met hetzelfde
+  ontwerp. Werk van een uur, in plaats van dagen.</p>
+  <p>Bij een aantal kaarten is de Engelse titel de officiële: <em>Girl with a Pearl
+  Earring</em>, <em>The Night Watch</em>, <em>The Kiss</em>, <em>Almond Blossom</em>. Die zoek
+  ik zelf op als je dat wilt.</p>
+</div>
+
+<h3 style="font-size:1.05rem;margin:2.2rem 0 .6rem">Twijfelgevallen — hooguit één woord</h3>
+<p class="duiding">
+  In deze beelden staat een enkel Nederlands woord, meestal in een schermafbeelding waar het
+  niet opvalt. Ik zou ze laten staan tenzij jij ze storend vindt: <code>events-community-terugkerend</code>,
+  <code>events-brainstormen-hero</code>, <code>events-worldcafe-praktijk-inzicht</code>,
+  <code>events-klankbord-praktijk-heartbeat</code>, <code>home-essentie</code>.
+</p>
+
+<h2>4 · De drie losse tools</h2>
+<p class="duiding">
+  Bingo, Storytelling en de vergaderkosten-calculator zijn losse webpagina's, geen onderdeel
+  van de site zelf. Hun knoppen, labels en teksten staan hard in het bestand.
+</p>
+<div class="schuif">
+<table>
+  <thead><tr><th>Tool</th><th>Wat erin zit</th><th>Wat er nodig is</th></tr></thead>
+  <tbody>
+    <tr><td>Vergaderkosten-calculator</td><td>Alle vragen, uitkomsten, uitleg en het formulier</td><td><span class="merk tekst">tekst aanleveren</span> — de grootste van de drie</td></tr>
+    <tr><td>Storytelling</td><td>Spelregels, kaartvragen, knoppen, themanamen</td><td><span class="merk tekst">tekst aanleveren</span> — inclusief alle kaartvragen</td></tr>
+    <tr><td>Bingo</td><td>Uitleg, knoppen en de standaard woordenlijst</td><td><span class="merk tekst">tekst aanleveren</span> — kleinste klus</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="kader">
+  <p><strong>Hoe ik dit zou bouwen.</strong> Niet drie Engelse kopieën ernaast — dan heb je
+  zes bestanden om bij te houden en gaan ze uit elkaar lopen. Beter: één bestand met een
+  taalschakelaar, net zoals Storytelling nu al thema's laadt. Dan lever je alleen de teksten
+  aan en blijft de tool zelf één ding.</p>
+</div>
+
+<h2>5 · Formulieren en agenda (HubSpot)</h2>
+<p class="duiding">
+  De acht formulieren op de site staan niet in de code maar in HubSpot: contact, advies,
+  demo, boeking, kostenindicatie, nieuwsbrief, Vergadermacht en de calculator. Ook de
+  boekingsagenda staat daar. Die vertaal je in HubSpot zelf, niet hier.
+</p>
+<ul class="simpel">
+  <li>Per formulier een Engelse variant maken in HubSpot (velden, labels, bedanktekst, foutmeldingen).</li>
+  <li>De boekingsagenda heeft een eigen Engelse taalinstelling in HubSpot.</li>
+  <li>Geef me daarna de nieuwe formulier-id's, dan hang ik ze aan de Engelse pagina's.</li>
+  <li>Vergeet de automatische e-mails niet — die komen ná het formulier en zijn nu Nederlands.</li>
+</ul>
+
+<h2>6 · Wat de bouwer doet, niet jij</h2>
+<p class="duiding">
+  Voor de volledigheid, zodat je weet wat je <em>niet</em> hoeft aan te leveren als losse
+  productie: alle paginateksten, de 20 eventpagina's, de 11 blogartikelen, de 74 vragen in
+  Tech hulp, de menu-items, de titels en zoekomschrijvingen, het privacy-statement en de
+  cookieverklaring. Dat is tekstwerk in de code.
+</p>
+<div class="kader">
+  <p><strong>Eén ding om nu al te besluiten.</strong> De 11 blogartikelen zijn samen het
+  meeste tekstwerk van de hele site. Wil je die alle elf in het Engels, of begin je met de
+  vier of vijf die het meest gelezen worden? Dat scheelt aanzienlijk in doorlooptijd en het
+  is later altijd aan te vullen.</p>
+</div>
+
+</div>

@@ -5,7 +5,7 @@ import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 export const metadata: Metadata = {
   title: "Inspiratiekaarten — gratis online tool | MeetingMasters",
   description:
-    "Trek een digitale inspiratiekaart met een thema en een beeld. Gratis te gebruiken in je online meeting: deel je scherm, trek een kaart en het gesprek begint. Zonder account, ook op je telefoon.",
+    "Trek een digitale inspiratiekaart met een thema en een beeld. Deel je scherm, trek een kaart en het gesprek begint. Gratis, zonder account, ook mobiel.",
 };
 
 const GENUINE_CONTACT = "https://genuinecontact.net";

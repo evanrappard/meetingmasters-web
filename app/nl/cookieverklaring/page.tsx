@@ -37,9 +37,15 @@ export default function CookieverklaringPage() {
             Dat slaan we op in je eigen browser, niet bij ons.
           </li>
           <li>
-            <strong className="text-dark-grey">Onze formulieren</strong> — de formulieren
-            op deze site draaien op HubSpot. Die plaatst cookies die nodig zijn om het
-            formulier te tonen, je invulling te versturen en spam tegen te houden.
+            <strong className="text-dark-grey">Onze formulieren en de agenda</strong> — de
+            formulieren op deze site en de agenda waarin je een afspraak inplant, draaien op
+            HubSpot. Om die te kunnen tonen laden we een script van HubSpot, en dat gebeurt
+            zodra je zo&rsquo;n pagina opent — dus ook voordat je in de balk hierboven een
+            keuze maakt. Dat doen we omdat het formulier de dienst zélf is: zonder dat script
+            zie je een leeg vlak in plaats van een contactformulier. HubSpot plaatst daarbij
+            cookies die nodig zijn om het formulier te tonen, je invulling te versturen en
+            spam tegen te houden. Je gegevens gaan pas naar ons op het moment dat jij op
+            verzenden klikt.
           </li>
         </Lijst>
       </Blok>

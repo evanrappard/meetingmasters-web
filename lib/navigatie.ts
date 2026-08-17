@@ -109,6 +109,9 @@ export const NAV_ITEMS: NavItem[] = [
       title: "Online Meeting Professionals",
       desc: "",
     },
+    children: [
+      { label: "Ervaringen van klanten", href: "/nl/testimonials" },
+    ],
   },
   { label: "Blog", href: "/nl/blog", groep: "organisatie" },
 ];

@@ -14,6 +14,8 @@ export type BlogPost = {
   excerpt: string;
   dek: string;
   metaDescription: string;
+  /** Alleen invullen als de kop van het artikel te lang is voor een zoekresultaat. */
+  metaTitle?: string;
   readingMinutes: number;
   blocks: BlogBlock[];
 };
@@ -25,6 +27,7 @@ export type BlogPost = {
 const ONGESORTEERD: BlogPost[] = [
   {
     "slug": "terug-naar-kantoor",
+    "metaTitle": "Terug naar kantoor: de verkeerde vraag",
     "title": "Terug naar kantoor: het antwoord op de verkeerde vraag",
     "date": "14 augustus 2026",
     "iso": "2026-08-14",
@@ -32,7 +35,7 @@ const ONGESORTEERD: BlogPost[] = [
     "imgAlt": "Illustratie bij blog over de discussie tussen thuiswerken en terug naar kantoor",
     "excerpt": "Steeds meer werkgevers leggen kantoordagen vast. Maar de discussie gaat niet over waar mensen werken — hij gaat over samenhang. En daar praat niemand meer over.",
     "dek": "Bij ABN AMRO ligt een cao-voorstel om kantoordagen vast te leggen. Beide partijen willen hetzelfde, en toch loopt het gesprek vast. Omdat het over het verkeerde onderwerp gaat.",
-    "metaDescription": "Kantoordagen vastleggen in de cao: het middel is het doel geworden. Waarom de vraag niet is wáár mensen werken, maar hóé ze samenwerken — en wat een virtueel kantoor daaraan verandert.",
+    "metaDescription": "Kantoordagen vastleggen in de cao: het middel is het doel geworden. De vraag is niet wáár mensen werken, maar hóé ze samenwerken.",
     "readingMinutes": 6,
     "blocks": [
       {
@@ -146,6 +149,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "heen-en-weer",
+    "metaTitle": "Thuiswerken of terug naar kantoor?",
     "title": "Heen en weer. Thuiswerken — of terug naar kantoor?",
     "date": "30 juni 2026",
     "iso": "2026-06-30",
@@ -266,6 +270,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "wat-gamers-weten",
+    "metaTitle": "Wat gamers weten over online samenzijn",
     "title": "Wat gamers weten over online samenzijn dat organisaties nog moeten leren",
     "date": "27 mei 2026",
     "iso": "2026-05-27",
@@ -430,6 +435,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "systeemwoede",
+    "metaTitle": "Systeemwoede in online meetings",
     "title": "Systeemwoede in online meetings: maakt meer kapot dan je lief is",
     "date": "15 april 2026",
     "iso": "2026-04-15",
@@ -528,6 +534,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "ai-paradox",
+    "metaTitle": "De AI-paradox: meetings worden meer waard",
     "title": "De AI-paradox: waarom meetings nu meer waard zijn",
     "date": "1 april 2026",
     "iso": "2026-04-01",
@@ -593,7 +600,7 @@ const ONGESORTEERD: BlogPost[] = [
     "imgAlt": "Illustratie bij blog 'Niet hetzelfde. Wel goed.' over online versus offline bijeenkomsten",
     "excerpt": "De meeste bijeenkomsten waren al ineffectief voordat ze online gingen. Online maakte dat alleen zichtbaarder. Succes hangt af van de methodiek, niet van het medium — de vraag is nooit 'online of offline?' maar 'wat moet hier gebeuren?'",
     "dek": "De meeste bijeenkomsten waren al niet goed voordat ze online gingen. Online maakte het alleen zichtbaarder: het probleem is zelden het medium, maar de vorm en het ontwerp.",
-    "metaDescription": "Online vergaderingen zijn geen surrogaat van offline. Het probleem is zelden het medium, maar de vorm en het ontwerp. Ontdek hoe je bijeenkomsten bewust ontwerpt.",
+    "metaDescription": "Online vergaderen is geen surrogaat van offline. Het probleem is zelden het medium, maar de vorm. Zo ontwerp je een bijeenkomst bewust.",
     "readingMinutes": 4,
     "blocks": [
       {
@@ -728,6 +735,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "acht-grens",
+    "metaTitle": "De acht-grens in groepen",
     "title": "De acht-grens: wanneer een groep zichzelf niet meer regelt",
     "date": "25 maart 2026",
     "iso": "2026-03-25",
@@ -908,6 +916,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "olympiers",
+    "metaTitle": "Een online thuis voor oud-olympiërs",
     "title": "Een online thuis voor oud-olympiërs wereldwijd",
     "date": "7 februari 2026",
     "iso": "2026-02-07",
@@ -915,7 +924,7 @@ const ONGESORTEERD: BlogPost[] = [
     "imgAlt": "e-OLY House in SpatialChat — het virtuele clubhuis voor de World Olympians Association",
     "excerpt": "Een videocall is een hulpmiddel. Een online ontmoetingsplek is iets heel anders. De World Olympians Association bouwde met MeetingMasters e-OLY House — een digitale ontmoetingsruimte die echte verbinding mogelijk maakt zonder verplicht programma.",
     "dek": "Afgelopen vrijdag gingen de Olympische Winterspelen Milaan Cortina 2026 van start. Terwijl in Noord-Italië de openingsceremonies plaatsvonden, opende ergens op het internet een bijzondere plek zijn deuren: e-OLY House, de exclusieve ontmoetingsplek voor olympiërs tijdens de Spelen.",
-    "metaDescription": "Tijdens Milaan Cortina 2026 opende e-OLY House: de digitale ontmoetingsplek voor olympiërs. Ontdek waarom online samenkomen meer is dan een vierkant op je scherm.",
+    "metaDescription": "Tijdens Milaan Cortina 2026 opende e-OLY House, de digitale ontmoetingsplek voor olympiërs. Online samenkomen is meer dan een vakje op je scherm.",
     "readingMinutes": 3,
     "blocks": [
       {

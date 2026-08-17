@@ -66,9 +66,9 @@ export default function TestimonialsCarousel() {
       <div className={`flex-1 transition-opacity duration-200 ${fading ? "opacity-0" : "opacity-100"}`}>
         <div className="text-center">
           <p className="text-[#2D2D2D] text-lg sm:text-xl leading-relaxed mb-8">
-            <span className="text-[#EEBE3D] font-serif text-3xl leading-none align-top">"</span>
+            <span className="text-[#EEBE3D] font-serif text-3xl leading-none align-top">&ldquo;</span>
             {s.quote}
-            <span className="text-[#EEBE3D] font-serif text-3xl leading-none align-bottom">"</span>
+            <span className="text-[#EEBE3D] font-serif text-3xl leading-none align-bottom">&rdquo;</span>
           </p>
           <div className="flex items-center justify-center gap-5 flex-wrap">
             <div className="relative h-12 w-40 flex-shrink-0">

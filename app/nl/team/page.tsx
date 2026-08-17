@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
+  // Nog niet af of vervangen: wel bereikbaar via een directe link, maar niet
+  // in de zoekresultaten. Staat ook in NIET_INDEXEREN in app/sitemap.ts.
+  robots: { index: false, follow: true },
   title: "Ons team | MeetingMasters",
   description:
     "Maak kennis met Emilie van Rappard en het team van MeetingMasters — ervaren professionals in online vergaderingen.",

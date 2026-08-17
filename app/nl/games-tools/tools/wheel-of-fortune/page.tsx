@@ -6,7 +6,7 @@ import { tool } from "@/lib/tools";
 export const metadata: Metadata = {
   title: "Wheel of Fortune — gratis online rad | MeetingMasters",
   description:
-    "Draai een rad dat willekeurig een naam, vraag of opdracht kiest. Gratis te gebruiken in je online meeting: deel je scherm en laat het toeval kiezen. Zelf in te stellen, tot drie wielen naast elkaar.",
+    "Draai een rad dat willekeurig een naam, vraag of opdracht kiest. Deel je scherm en laat het toeval kiezen. Gratis, zelf in te stellen, tot drie wielen.",
 };
 
 const faq: FaqItem[] = [

@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = {
   title: "Virtueel kantoor voor teams (Virtual Office) | MeetingMasters",
   description:
-    "Een virtueel kantoor is de online plek waar je team elkaar weer tegenkomt, ook buiten meetings. Drie manieren om binnen te komen: boek een zaaltje, huur een instapklaar kantoor of kies Kantoor + Cultuur.",
+    "Een virtueel kantoor is de online plek waar je team elkaar weer tegenkomt, ook buiten meetings. Boek een zaaltje, huur een kantoor of bouw het op maat.",
 };
 
 const benefits = [
@@ -88,7 +88,6 @@ export default function VirtualOfficePage() {
 
       {/* ── HERO ── */}
       <section>
-        <h1 className="sr-only">Virtueel kantoor (Virtual Office) voor hybride en internationale teams</h1>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <video
             poster="/images/vo-hero-office.jpg"
@@ -116,11 +115,11 @@ export default function VirtualOfficePage() {
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-20">
               <div className="max-w-[600px]">
                 <p className="inline-block bg-black/35 rounded px-2.5 py-1 text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">Virtual Office</p>
-                <h2 className="text-[1.75rem] sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
+                <h1 className="text-[1.75rem] sm:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.1] sm:leading-[1.05] mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}>
                   Een plek waar je elkaar
                   <br />
                   weer tegenkomt.
-                </h2>
+                </h1>
                 <p className="text-white text-lg font-medium leading-relaxed mb-8" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.6)" }}>
                   Je hebt tools genoeg. Wat je mist is een plek om gewoon samen te zijn.
                 </p>

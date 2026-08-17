@@ -41,7 +41,7 @@ async function run() {
     const content = readFileSync(filePath)
     const mime = file.endsWith('.png') ? 'image/png' : 'image/jpeg'
 
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from(BUCKET)
       .upload(file, content, { contentType: mime, upsert: true })
 

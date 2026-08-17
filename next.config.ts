@@ -65,6 +65,28 @@ const nextConfig: NextConfig = {
       // Virtueel Kantoor verplaatst naar /nl/virtual-office
       { source: "/virtual-office", destination: "/nl/virtual-office", permanent: true },
       { source: "/virtual-office/:path*", destination: "/nl/virtual-office/:path*", permanent: true },
+      // ── Oude bloglinks ──
+      // De huidige site gebruikt /nl/blogs/<lange-slug>, de nieuwe
+      // /nl/blog/<korte-slug>. Zonder deze regels breekt elke link die ooit in
+      // een nieuwsbrief of op LinkedIn is gedeeld. De drie codes zijn
+      // automatisch gegenereerde adressen van het oude systeem; welk artikel
+      // erachter zat is per stuk nagekeken.
+      { source: "/nl/blogs/terug-naar-kantoor-het-antwoord-op-de-verkeerde-vraag", destination: "/nl/blog/terug-naar-kantoor", permanent: true },
+      { source: "/nl/blogs/vergelijking-online-offline", destination: "/nl/blog/niet-hetzelfde-wel-goed", permanent: true },
+      { source: "/nl/blogs/heen-en-weer-thuiswerken-of-toch-terug-naar-kantoor", destination: "/nl/blog/heen-en-weer", permanent: true },
+      { source: "/nl/blogs/online-contact-maken-is-een-vak-en-dat-is-goed-nieuws", destination: "/nl/blog/online-beheersen", permanent: true },
+      { source: "/nl/blogs/wat-gamers-weten-over-online-samenzijn-dat-organisaties-nog-moeten-leren", destination: "/nl/blog/wat-gamers-weten", permanent: true },
+      { source: "/nl/blogs/rondjes-versus-vierkantjes", destination: "/nl/blog/rondjes-versus-vierkantjes", permanent: true },
+      { source: "/nl/blogs/systeemwoede-maakt-meer-kapot-dan-je-lief-is", destination: "/nl/blog/systeemwoede", permanent: true },
+      { source: "/nl/blogs/edcjyif97qx3ryz6x45nrt5wo9of1z", destination: "/nl/blog/ai-paradox", permanent: true },
+      { source: "/nl/blogs/5sdvo1sdbtrac3ujijivy6mzxvbb6p", destination: "/nl/blog/acht-grens", permanent: true },
+      { source: "/nl/blogs/oxifta9r3w3fm9vk7ks43dn2glz4tw", destination: "/nl/blog/stok-om-mee-te-slaan", permanent: true },
+      { source: "/nl/blogs/een-online-thuis-voor-oud-olympiers-wereldwijd", destination: "/nl/blog/olympiers", permanent: true },
+      // Het overzicht en al het overige onder /nl/blogs.
+      { source: "/nl/blogs", destination: "/nl/blog", permanent: true },
+      { source: "/nl/blogs/category/:tak", destination: "/nl/blog", permanent: true },
+      { source: "/nl/blogs/:slug", destination: "/nl/blog", permanent: true },
+
       // Technologie-sectie herzien (aug 2026): hulp en tools losgetrokken, de
       // overlappende pagina's opgegaan in hun nieuwe plek. Zie
       // docs/technologie-herinrichting.md. De oude bestanden staan er nog —

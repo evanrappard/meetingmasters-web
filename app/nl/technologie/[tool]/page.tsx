@@ -215,7 +215,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             Veelgestelde vragen.
           </h2>
           <p className="text-[#777777] text-base max-w-[520px] mb-6">
-            De tool-specifieke Q&amp;A's vullen we aan vanuit de bestaande FAQ's en veelgezochte vragen.
+            De tool-specifieke Q&amp;A’s vullen we aan vanuit de bestaande FAQ’s en veelgezochte vragen.
           </p>
           <Link
             href="/nl/technologie/hulp"

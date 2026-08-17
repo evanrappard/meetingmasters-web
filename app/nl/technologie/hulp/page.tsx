@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import TechHulp from "@/components/ui/TechHulp";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { CATEGORIEEN, TOOLS, VRAGEN } from "./vragen";
@@ -8,7 +7,7 @@ import { CATEGORIEEN, TOOLS, VRAGEN } from "./vragen";
 export const metadata: Metadata = {
   title: "Directe support voor je online meeting | MeetingMasters",
   description:
-    "Technische problemen vlak voor een online bijeenkomst? Los het hier stap voor stap op — voor SpatialChat, Zoom, Zoom Events en Microsoft Teams. Met handleidingen en instellingen voor IT-afdelingen.",
+    "Technisch probleem vlak voor je online bijeenkomst? Los het hier stap voor stap op, voor SpatialChat, Zoom, Zoom Events en Microsoft Teams.",
 };
 
 /**

@@ -18,7 +18,7 @@ export const BEDRIJF = {
   mobiel: "+31 6 4575 2819",
   mobielHref: "tel:+31645752819",
   kvk: "34214932" as string | null,
-  btw: null as string | null,
+  btw: "NL001689693B11" as string | null,
 } as const;
 
 /** "Schellingwouderdijk 157, 1023 NC Amsterdam" — voor lopende tekst. */

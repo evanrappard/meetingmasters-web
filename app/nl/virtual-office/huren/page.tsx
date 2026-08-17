@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = {
   title: "Virtueel kantoor huren | MeetingMasters",
   description:
-    "Huur een ingericht, levend virtueel kantoor en trek er meteen in — per maand of per jaar. Inclusief technische ondersteuning en onboarding, zodat je team het ook echt gebruikt. Gebouwd in SpatialChat.",
+    "Huur een ingericht, levend virtueel kantoor en trek er meteen in, per maand of per jaar. Inclusief ondersteuning en onboarding. Gebouwd in SpatialChat.",
 };
 
 const inbegrepen = [

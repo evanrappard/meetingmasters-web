@@ -8,7 +8,7 @@ import { eventFormats } from "@/app/nl/events/page";
 import {
   Target, Mic2, Megaphone, Vote,
   UsersRound, GraduationCap, Lightbulb, DoorOpen,
-  Sparkles, Snowflake, Lock, Handshake,
+  Sparkles, Snowflake, Handshake,
   MapPin, MessageCircle, ScanSearch, Coffee,
   Radio, MonitorPlay, Pin, Network,
   Check,
@@ -24,6 +24,8 @@ interface EventData {
   heroImgStyle?: React.CSSProperties;
   /** Zwaardere donkerlaag links, voor hero's waar de witte kop anders wegvalt. */
   heroOverlay?: string;
+  /** Alleen invullen als de tagline te kort is voor een zoekresultaat. */
+  metaOmschrijving?: string;
   /** Alt-tekst van de hero: beschrijft het beeld in de context van dit event. */
   heroAlt?: string;
   iconSrc?: string;
@@ -115,6 +117,7 @@ const EVENT_DATA: Record<string, EventData> = {
     bg: "radial-gradient(circle at 38% 38%, #F8D84A, #EEBE3D)",
     heroSrc: "/images/events-allhands-hero.webp",
     heroAlt: "Deelnemer aan een online all-hands met het voltallige personeel in beeld op een groot scherm",
+    heroOverlay: HERO_DIM_MEDIUM,
     Icon: Megaphone, ic: "text-[#696758]",
     tagline: "Open gesprek tussen directie en medewerkers — transparant, live en met echte betrokkenheid.",
     intro:
@@ -143,7 +146,7 @@ const EVENT_DATA: Record<string, EventData> = {
         "Wat je regelt in de maand ervoor, op de dag zelf en na afloop — van de agenda en het stemmen tot de deelnemerslijst en de opname. Loop hem door met je bestuur.",
       href: "/downloads/checklist-online-alv.pdf",
       beeld: "/images/downloads/checklist-alv-voorblad.webp",
-      meta: "Checklist · pdf · 2022",
+      meta: "Checklist · pdf · 2024",
     },
     heroSrc: "/images/events-alv-hero.webp",
     heroAlt: "Online ALV met een stemming op het laptopscherm: de knop Vote now naast het jaarverslag en de cijfers op tafel",
@@ -176,6 +179,8 @@ const EVENT_DATA: Record<string, EventData> = {
     heroAlt: "Online teambuilding in een virtuele boomhut, waar deelnemers elkaar buiten de werkcontext ontmoeten",
     Icon: UsersRound, ic: "text-[#696758]",
     tagline: "Teams die beter samenwerken — ook als ze ver van elkaar werken.",
+    metaOmschrijving:
+      "Online teambuilding voor teams die elkaar zelden zien: kennismaken, werkafspraken maken en beter samenwerken, met werkvormen die op afstand echt werken.",
     intro:
       "Online teambuilding vraagt om meer dan een leuke activiteit. Wij ontwerpen online teamontwikkeling waarbij teams samen leren, reflecteren en experimenteren - met blijvend effect op samenwerking, communicatie en resultaat.",
     outcomes: [{ title: "Betere samenwerking", body: "Het team communiceert effectiever en werkt soepeler samen — ook op afstand en onder druk." }, { title: "Meer onderling begrip", body: "Teamleden leren elkaars werkstijl kennen en bouwen een sterkere vertrouwensband op." }, { title: "Concrete afspraken", body: "De dag sluit af met afspraken over werkwijze die daadwerkelijk worden nageleefd." }],
@@ -337,7 +342,7 @@ const EVENT_DATA: Record<string, EventData> = {
       items: [{ title: "Meer dan een online borrel", body: "Een goed online teamuitje heeft een duidelijke vorm. Geen los gesprek met ongemakkelijke stiltes, maar een gedeelde activiteit waar iedereen makkelijk in kan stappen." }, { title: "Ontmoeting met lichte structuur", body: "We combineren vrije ruimte met slimme werkvormen, zodat collega's elkaar ook online echt spreken. Dat maakt het uitje ontspannen, maar niet vrijblijvend." }, { title: "Schaalbaar en makkelijk georganiseerd", body: "Van één klein team tot meerdere afdelingen tegelijk. Wij verzorgen ontwerp, techniek, hosting en begeleiding, zodat deelnemers alleen hoeven in te loggen." }],
     },
     conditions: [{ title: "Een helder doel", body: "Gaat het om ontspanning, kennismaking, waardering, samenwerking of een afsluiting? Het doel bepaalt het programma en de toon." }, { title: "Een programma met ritme", body: "Online aandacht vraagt afwisseling. Korte rondes, duidelijke overgangen, actieve onderdelen en ruimte voor informele ontmoeting houden de energie goed." }, { title: "Techniek die niet in de weg zit", body: "Deelnemers moeten makkelijk kunnen binnenkomen, bewegen en meedoen. Wij kiezen het platform dat past bij de groep en begeleiden de hele productie." }],
-    cases: [{ label: "Internationaal team", title: "Even ontspannen samenzijn", body: "Een organisatie met collega's in meerdere landen wil even los van zakelijke inhoud iets samen doen. Wij ontwerpen een online teamuitje met korte plenaire momenten, spellen en informele ruimtes. Het resultaat: veel contact en gezellig weinig gedoe.", img: "/images/events-teamuitje-praktijk-terras.webp", imgAlt: "Virtueel terras aan zee met parasol, waar collega's uit meerdere landen informeel samenzijn" }, { label: "Projectteam", title: "Energie terug in de samenwerking", body: "Na een intensief traject wil een projectteam samen ontspannen en het werk goed afronden. Met een korte escape room en ruimte voor informele praatjes wordt het geen verplichte borrel, maar een gedeeld moment.", img: "/images/events-teamuitje-praktijk-energie.webp", imgAlt: "Virtuele sportruimte als ontspannen decor voor een teamuitje na een intensief traject" }, { label: "Afdeling", title: "Online bedrijfsuitje voor grote groep", body: "Voor een afdeling met meer dan honderd medewerkers maken we een programma met parallelle activiteiten, duidelijke begeleiding en een gezamenlijke afsluiting. Iedereen kan kiezen, meedoen en collega's ontmoeten buiten de dagelijkse werkcontext.", img: "/images/events-teamuitje-praktijk-escape.webp", imgAlt: "Eindscherm van een online escape room met de felicitatie voor het team" }],
+    cases: [{ label: "Internationaal team", title: "Even ontspannen samenzijn", body: "Een organisatie met collega's in meerdere landen wil even los van zakelijke inhoud iets samen doen. Wij ontwerpen een online teamuitje met korte plenaire momenten, spellen en informele ruimtes. Het resultaat: veel contact en gezellig weinig gedoe.", img: "/images/events-teamuitje-praktijk-terras.webp", imgAlt: "Virtueel terras aan zee met parasol, waar collega's uit meerdere landen informeel samenzijn" }, { label: "Projectteam", title: "Energie terug in de samenwerking", body: "Na een intensief traject wil een projectteam samen ontspannen en het werk goed afronden. Met een korte escape room en ruimte voor informele praatjes wordt het geen verplichte borrel, maar een gedeeld moment.", img: "/images/events-teamuitje-praktijk-escape.webp", imgAlt: "Eindscherm van een online escape room met de felicitatie voor het team" }, { label: "Afdeling", title: "Online bedrijfsuitje voor grote groep", body: "Voor een afdeling met meer dan honderd medewerkers maken we een programma met parallelle activiteiten, duidelijke begeleiding en een gezamenlijke afsluiting. Iedereen kan kiezen, meedoen en collega's ontmoeten buiten de dagelijkse werkcontext.", img: "/images/events-teamuitje-praktijk-energie.webp", imgAlt: "Virtuele sportruimte als ontspannen decor voor een teamuitje na een intensief traject" }],
     faq: [{ q: "Wat is een online teamuitje?", a: "Een online teamuitje is een online activiteit voor collega's waarin ontmoeting, ontspanning en samen iets beleven centraal staan. Denk aan een quiz, spel, creatieve opdracht, challenge of informele ontmoetingsruimte." }, { q: "Kan een online teamuitje echt leuk zijn?", a: "Ja. Mits het meer is dan een open Teams-call. Een goed online teamuitje heeft een duidelijke vorm, goede begeleiding en genoeg ruimte voor contact." }, { q: "Hoeveel mensen kunnen meedoen?", a: "Wij begeleiden online teamuitjes vanaf ongeveer 10 deelnemers tot grotere groepen van enkele honderden collega's." }, { q: "Welke activiteiten zijn mogelijk?", a: "Denk aan quizzen, interactieve spellen, challenges, speeddates, themakamers, creatieve opdrachten of een informeel programma in SpatialChat." }, { q: "Hoe lang duurt een online teamuitje?", a: "Meestal één tot twee uur. Voor grotere programma's of combinaties met een inhoudelijk moment kan het langer zijn." }, { q: "Wat kost een online teamuitje?", a: "Dat hangt af van de groepsgrootte, de activiteiten en de gewenste begeleiding. We maken graag een voorstel dat past bij het doel en de omvang." }],
     faqMore: [{ q: "Is een online teamuitje geschikt voor internationale teams?", a: "Ja. Juist voor internationale teams is een online teamuitje praktisch: geen reistijd, wel een gezamenlijk moment." }, { q: "Kunnen teams tegen elkaar spelen?", a: "Ja. Een lichte competitie kan veel energie geven. We zorgen wel dat plezier en ontmoeting centraal blijven staan." }, { q: "Welke software gebruiken jullie?", a: "We hebben ervaring met Zoom, Teams en SpatialChat. Voor informele online teamuitjes geven we vaak de voorkeur aan SpatialChat, omdat deelnemers daar vrijer kunnen bewegen en makkelijker in gesprek gaan." }, { q: "Moeten deelnemers iets installeren?", a: "Meestal niet. We kiezen bij voorkeur voor tools die in de browser werken en geven vooraf heldere instructies." }, { q: "Kunnen jullie het teamuitje personaliseren?", a: "Ja. We kunnen thema's, huisstijl, interne verhalen of organisatie-specifieke vragen verwerken in het programma." }, { q: "Kunnen jullie dit combineren met een inhoudelijk programma?", a: "Ja. Een online teamuitje kan goed aansluiten op een teamdag, onboarding, training, all-hands of eindejaarsbijeenkomst." }],
     outcomeSummary: "Voor remote en hybride teams die samen wat leuks willen doen.",
@@ -347,6 +352,7 @@ const EVENT_DATA: Record<string, EventData> = {
     bg: "radial-gradient(circle at 38% 38%, #FFF8E0, #FFEEC1)",
     heroSrc: "/images/events-community-hero-v2.webp",
     heroAlt: "Online community van Olympiërs die samen terugkijken op de Spelen waaraan zij deelnamen",
+    heroOverlay: HERO_DIM_MEDIUM,
     iconSrc: "/images/icons/communitybuilding.png",
     Icon: Handshake, ic: "text-[#696758]",
     tagline: "Een community bouwen die mensen écht verbindt — niet alleen bij elkaar in een groep zet.",
@@ -475,6 +481,8 @@ const EVENT_DATA: Record<string, EventData> = {
     heroAlt: "Online webinar waarin deelnemers na afloop napraten in een virtuele lounge",
     Icon: Radio, ic: "text-white",
     tagline: "Webinars die mensen boeien. Niet alleen zenden, maar echt verbinden.",
+    metaOmschrijving:
+      "Een webinar dat mensen vasthoudt: geen eenrichtingsverkeer maar vragen, polls en gesprek. Ontworpen, begeleid en technisch geproduceerd door MeetingMasters.",
     intro:
       "Een webinar hoeft geen eenrichtingsuitzending te zijn. Wij helpen organisaties een interactief webinar te organiseren met ruimte om te verdiepen en 1 op 1 na te praten.",
     outcomes: [{ title: "Betrokken deelnemers", body: "Geen passief publiek maar actieve deelnemers die vragen stellen, stemmen en reageren." }, { title: "Een boodschap die beklijft", body: "Inhoud die echt landt, ondersteund door de juiste structuur en interactie." }, { title: "Concrete opvolging", body: "Hogere conversie en betrokkenheid na afloop, doordat deelnemers echt meegedaan hebben." }],
@@ -581,7 +589,7 @@ export async function generateMetadata(
   if (!event) return {};
   return {
     title: `${event.title} | MeetingMasters`,
-    description: event.tagline,
+    description: event.metaOmschrijving ?? event.tagline,
   };
 }
 
@@ -592,7 +600,7 @@ export default async function EventTypePage(
   const event = EVENT_DATA[slug];
   if (!event) notFound();
 
-  const { title, bg, iconSrc, Icon, ic, tagline, intro, outcomes, forWho, range, steps, related } = event;
+  const { title, bg, iconSrc, Icon, ic, intro, forWho, range, related } = event;
 
   const shortTitle = title
     .replace(/^Online /i, "")

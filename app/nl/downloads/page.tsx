@@ -53,7 +53,7 @@ const PUBLICATIES: Item[] = [
   {
     titel: "Checklist online ALV",
     soort: "Checklist · pdf",
-    datum: "2022",
+    datum: "2024",
     body:
       "Voor een ledenvergadering die online moet kloppen: stemmen, quorum, en een verloop dat formeel standhoudt.",
     beeld: "/images/downloads/checklist-alv-voorblad.webp",
@@ -270,7 +270,7 @@ export default function DownloadsPage() {
               Direct te downloaden
             </h2>
             <p className="text-[#545454] leading-relaxed">
-              Zonder formulier. Gratis, en bedoeld om door te geven — aan je collega's, je bestuur
+              Zonder formulier. Gratis, en bedoeld om door te geven — aan je collega’s, je bestuur
               of de mensen die je uitnodigt.
             </p>
           </div>

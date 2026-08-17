@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Online Event Formats | MeetingMasters",
   description:
-    "20 online event formats voor elke bijeenkomst: van strategiedagen en webinars tot Escape Room R@venHack, participatietrajecten en community events. Ontworpen, begeleid en geproduceerd door MeetingMasters.",
+    "20 online event formats: van strategiedag en webinar tot escape game, participatietraject en community event. Ontworpen en begeleid door MeetingMasters.",
 };
 
 const results = [

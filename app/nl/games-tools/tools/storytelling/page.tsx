@@ -6,7 +6,7 @@ import { tool } from "@/lib/tools";
 export const metadata: Metadata = {
   title: "Storytelling — gratis online tool voor teams | MeetingMasters",
   description:
-    "Trek om de beurt een kaart met een vraag en vertel je verhaal binnen de tijd. Gratis online tool voor teams die elkaar echt willen leren kennen, in Zoom, Teams of SpatialChat.",
+    "Trek om de beurt een kaart met een vraag en vertel je verhaal binnen de tijd. Gratis tool voor teams, in Zoom, Teams of SpatialChat.",
 };
 
 const faq: FaqItem[] = [

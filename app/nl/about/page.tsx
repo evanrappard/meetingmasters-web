@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = {
   title: "Over ons | MeetingMasters",
   description:
-    "Sinds 2020 brengen wij oprecht contact terug in online bijeenkomsten — op de menselijke maat, gericht op verbinding. Lees ons manifest. Want hoe we elkaar ontmoeten, maakt uit.",
+    "Sinds 2020 brengen wij oprecht contact terug in online bijeenkomsten, op de menselijke maat. Lees ons manifest: hoe we elkaar ontmoeten, maakt uit.",
 };
 
 const klantLogos = [

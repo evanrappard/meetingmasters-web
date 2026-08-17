@@ -4,7 +4,7 @@ import ToolKader from "@/components/tools/ToolKader";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Vergaderkosten-calculator: wat kost een bijeenkomst echt? | MeetingMasters",
+  title: "Vergaderkosten berekenen: de calculator | MeetingMasters",
   description:
     "Reken in een paar stappen uit wat een bijeenkomst echt kost — in tijd, euro's en CO₂ — en zie meteen wat online zou schelen. Gratis, zonder account.",
 };

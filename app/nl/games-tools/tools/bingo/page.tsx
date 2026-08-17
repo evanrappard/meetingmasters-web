@@ -6,7 +6,7 @@ import { tool } from "@/lib/tools";
 export const metadata: Metadata = {
   title: "Bingo — gratis online bingo voor meetings | MeetingMasters",
   description:
-    "Interactieve bingo voor je online meeting, training of congres. Deelnemers strepen woorden weg terwijl de sessie vordert. Gratis, in de browser, met een eigen woordenlijst.",
+    "Interactieve bingo voor je online meeting, training of congres. Deelnemers strepen woorden weg terwijl de sessie vordert. Gratis, met eigen woordenlijst.",
 };
 
 const faq: FaqItem[] = [

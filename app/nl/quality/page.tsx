@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  // Nog niet af of vervangen: wel bereikbaar via een directe link, maar niet
+  // in de zoekresultaten. Staat ook in NIET_INDEXEREN in app/sitemap.ts.
+  robots: { index: false, follow: true },
   title: "Kwaliteit & Vertrouwelijkheid | MeetingMasters",
   description:
     "Onze toewijding aan kwaliteit, vertrouwelijkheid en professionele standaarden bij elke vergadering die wij ondersteunen.",

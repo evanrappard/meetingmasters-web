@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  // Nog niet af of vervangen: wel bereikbaar via een directe link, maar niet
+  // in de zoekresultaten. Staat ook in NIET_INDEXEREN in app/sitemap.ts.
+  robots: { index: false, follow: true },
   title: "Vergaderformats | MeetingMasters",
   description:
     "16+ online vergaderformats voor elke soort bijeenkomst — brainstorms, strategiedagen, escape rooms, webinars en meer.",

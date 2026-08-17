@@ -7,7 +7,7 @@ import CTABlock from "@/components/ui/CTABlock";
 export const metadata: Metadata = {
   title: "Vrijblijvend advies | MeetingMasters",
   description:
-    "Specialisten in online meetings. Houd vrijblijvend een idee, een bestaand ontwerp of een opzet tegen ons aan — je krijgt altijd ons eerlijke advies, desgewenst in een vrijblijvende offerte.",
+    "Houd je idee, ontwerp of opzet voor een online bijeenkomst vrijblijvend tegen ons aan. Je krijgt ons eerlijke advies, desgewenst met een offerte erbij.",
 };
 
 export default function ExpertAdviesPage() {
