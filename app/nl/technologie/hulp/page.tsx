@@ -387,6 +387,15 @@ export default function HulpPage() {
               </details>
             ))}
           </div>
+          <div className="mt-10 pt-8 border-t border-[#D8DFD2]">
+            <p className="text-[#545454] leading-relaxed max-w-[720px]">
+              Wil je weten waarmee we werken en waarom?{" "}
+              <Link href="/nl/technologie/tools" className="text-[#28A8AA] font-semibold hover:underline">
+                Bekijk de meeting platforms
+              </Link>{" "}
+              — met per platform waar het sterk in is, en de tools die we ermee combineren.
+            </p>
+          </div>
         </div>
       </section>
     </>
