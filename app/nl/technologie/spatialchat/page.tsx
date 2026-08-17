@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "SpatialChat | MeetingMasters Technologie",
@@ -80,9 +81,22 @@ export default function SpatialChatPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#2D2D2D] py-20 md:py-28">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="max-w-[640px]">
+      <section className="relative bg-[#2D2D2D] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/spatialchat-hero-v3.webp"
+            alt="Deelnemer aan een SpatialChat-bijeenkomst logt in op een groot scherm en ziet de virtuele ruimte al voor zich"
+            fill priority
+            className="object-cover object-right"
+          />
+          {/* De tekst staat links, het scherm rechts. De verloop naar rechts
+              houdt de kop leesbaar zonder het beeld dicht te smeren. */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D] via-[#2D2D2D]/75 lg:via-[#2D2D2D]/45 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/85 to-transparent lg:hidden" />
+        </div>
+
+        <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-16 md:py-24 lg:py-28">
+          <div className="max-w-[560px]">
             <p className="text-[#EEBE3D] text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
               Technologie → SpatialChat
             </p>
@@ -92,7 +106,7 @@ export default function SpatialChatPage() {
             >
               Videobellen dat voelt als echt ontmoeten.
             </h1>
-            <p className="text-white/60 text-base leading-relaxed max-w-[520px] mb-8">
+            <p className="text-white/80 text-base leading-relaxed max-w-[520px] mb-8">
               SpatialChat is ons platform van keuze — omdat het als enige platform de
               dynamiek nabootst van een echte bijeenkomst. Je beweegt vrij, zoekt
               het gesprek zelf op en ervaart ruimte.
