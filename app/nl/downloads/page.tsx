@@ -222,10 +222,7 @@ export default function DownloadsPage() {
                 welke vorm past bij wat je wilt bereiken? Het kompas loopt de afwegingen langs, zodat
                 je die keuze bewust maakt in plaats van uit gewoonte.
               </p>
-              <p className="text-sm text-[#8A9493] leading-relaxed mb-6">
-                Uit 2022. Dat zie je aan de vormgeving, maar de afwegingen zijn niet veranderd. Er
-                komt een keer een nieuwe versie.
-              </p>
+              <p className="text-sm text-[#8A9493] mb-6">(2022)</p>
               <a
                 href="/downloads/keuzekompas-meeting-mix.pdf"
                 target="_blank"
@@ -234,7 +231,6 @@ export default function DownloadsPage() {
               >
                 Download het keuzekompas →
               </a>
-              <p className="text-xs text-[#AAAAAA] mt-3">pdf · 11 MB</p>
             </div>
 
             <div>
