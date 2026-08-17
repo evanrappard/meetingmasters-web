@@ -485,7 +485,7 @@ const EVENT_DATA: Record<string, EventData> = {
   "conferentie": {
     title: "Online conferentie organiseren",
     bg: "radial-gradient(circle at 38% 38%, #555C50, #404840)",
-    heroSrc: "/images/events-conferentie-hero.webp",
+    heroSrc: "/images/events-conferentie-hero-v2.webp",
     heroAlt: "Online conferentie met deelnemers in beeld naast een scherm met de cijfers en resultaten van het programma",
     heroOverlay: HERO_DIM_STERK,
     iconSrc: "/images/icons/onlineconferenties.png",

@@ -62,11 +62,11 @@ leeft in de paginacode, niet in een apart bestand).
 | 11 | **Aanleverroute nog niet afgesproken:** hoe komen copy en visuals bij de bouwer binnen — geplakt in het gesprek of als bestand in `docs/`? Zolang dat niet vastligt, kan werk blijven liggen | T B | Emilie | open |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
-| 15 | Twee **bestaande** hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7% te licht) en `events-community-hero-v2` (16,9%). Zelfde `heroOverlay`-oplossing toepasbaar | B | visuals | open — wacht op akkoord |
+| 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
 | 16 | Nog **1** praktijk-kaart op de placeholder: bedrijfsfeest → "Internationaal team". Bewust zo gelaten. Was 48 | B | Emilie | vrijwel af |
-| 17 | De turkooizen hero-kicker ("← Event Formats") heeft op lichte beelden te weinig contrast (open-space 1,2:1, onboardingdag 1,5:1). Een donkerlaag lost dit **niet** op: turkoois zit qua helderheid in het midden. Echte oplossing is een lichtere kleur of een klein donker vlakje eronder — ontwerpkeuze | C B | Emilie | open — schaduw is nu een pleister |
-| 18 | Ongebruikte eerdere versies opruimen na akkoord: `events-teambuilding-hero.webp`, `events-netwerkevent-hero.webp`, `events-bewonersparticipatie-hero.webp` (zonder `-v2`) en `events-bewonersparticipatie-hero-v2.webp` (vervangen door `-v3`) | B | — | open — wacht op akkoord |
-| 19 | Het beeldscherm in de conferentie-hero staat in spiegelbeeld (de dashboardtekst leest achterstevoren). Techniek om alléén het scherm binnen zijn perspectief te spiegelen is uitgewerkt en werkt; de onderrand moest nog worden bijgesteld. Nog niet ingebouwd | B | visuals | open |
+| 17 | De turkooizen hero-kicker ("← Event Formats") heeft op lichte beelden te weinig contrast (open-space 1,2:1, onboardingdag 1,5:1). Een donkerlaag lost dit **niet** op: turkoois zit qua helderheid in het midden, dus lichter én donkerder eromheen geeft weinig verschil. Echte oplossing is een lichtere kleur of een klein donker vlakje eronder | C B | Emilie | **bewust geparkeerd** (17 aug 2026) — houden zoals het is; tekstschaduw is de pleister |
+| 18 | ~~Ongebruikte beeldbestanden opruimen~~ | B | — | **afgerond 17 aug 2026** — acht bestanden weg, alles terug te halen uit git |
+| 19 | ~~Spiegelbeeld in de conferentie-hero~~ | B | visuals | **afgerond 17 aug 2026** — `-v2` ingebouwd, script bewaard |
 | 20 | Praktijk-kaart 2 bij `teamuitje` noemt een escape room in de tekst, terwijl het escape-beeld op kaart 3 staat. Beeld wisselen of tekst aanpassen | T B | Emilie | open |
 | 21 | Tekst bij `bedrijfsfeest` kaart 3 begint met "Voor een grote groep", terwijl het label nu MKB is | T | Copy-Claude | open |
 | 13 | De Engelse pagina's gebruiken de **Nederlandse** navigatie: `app/en/layout.tsx` laadt dezelfde Navbar en Footer, en die lezen `NAV_ITEMS` uit `lib/navigatie.ts` (allemaal `/nl/`-links). Bij de Engelse ronde hier een EN-variant naast zetten. Ook de NL/EN-schakelaar in de balk wijst nu twee keer naar `/nl/home` | C | bouwer | open — hoort bij punt 2 |
@@ -74,6 +74,20 @@ leeft in de paginacode, niet in een apart bestand).
 ---
 
 ## 5. Log
+
+### 2026-08-17 — Conferentie-hero rechtgezet en opgeruimd
+
+- **B** — **Het scherm in de conferentie-hero is niet langer spiegelbeeld.** Alleen
+  het beeldscherm is omgedraaid, binnen zijn eigen perspectief, zodat de
+  schermrand exact op zijn plek blijft. Het hele beeld omdraaien zou de persoon
+  naar de andere kant verplaatsen en de lichte kant precies achter de kop zetten.
+  Nieuw bestand `events-conferentie-hero-v2.webp`; de techniek staat bewaard in
+  `scripts/scherm-spiegelen.mjs` voor als dit nog eens voorkomt.
+- **B** — **Acht ongebruikte beeldbestanden verwijderd**, waaronder de twee
+  eerdere hulp-hero's die door de video zijn vervangen. Gecontroleerd dat er geen
+  enkele verwijzing meer naar wees; alle 187 beeldpaden in de code wijzen naar een
+  bestaand bestand. Alles blijft terug te halen uit git.
+
 
 ### 2026-08-17 — Tech hulp en Meeting Platforms afgerond
 
