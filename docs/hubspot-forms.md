@@ -33,10 +33,39 @@ gesprek", …). Die vangen we af met één boekingsformulier met een dropdown, i
 plaats van vijf bijna-identieke formulieren die allemaal apart onderhouden
 moeten worden.
 
+## De Engelse formulieren
+
+Aangemaakt op 17 aug 2026 met hetzelfde script, met `--taal en`. Zeven stuks,
+herkenbaar aan het voorvoegsel **MM Website EN** in de HubSpot-lijst.
+
+| Sleutel | Naam in HubSpot | formId |
+|---|---|---|
+| `advies` | MM Website EN — Free advice | `e4d50964-6457-440f-a73c-5f31726c6060` |
+| `contact` | MM Website EN — General contact | `8afa782e-bc97-4fb0-a182-2621167527d1` |
+| `demo` | MM Website EN — Demo or tour | `e7294822-87d4-4759-97fc-532b52a4c9e2` |
+| `boeking` | MM Website EN — Booking & availability | `d2cce099-ab58-4753-915c-0d1c20a00eb1` |
+| `kostenindicatie` | MM Website EN — Cost estimate | `ae15b8b5-de37-40eb-8172-52da38e2cff2` |
+| `nieuwsbrief` | MM Website EN — Newsletter | `d6c9525f-7b57-46b2-bd74-243c30c3250e` |
+| `calculator` | MM Website EN — Meeting cost calculator | `77dffdf4-e911-49d3-ace3-8bc77b9c2cc7` |
+
+**Vergadermacht heeft geen Engelse variant.** Die publicatie bestaat niet in het
+Engels; op de Engelse site valt dat blok weg. Besluit van Emilie, 17 aug 2026.
+
+De contacteigenschappen zijn taalloos. Een keuzelijst slaat de wáárde op
+(`zaaltje`), niet het label, dus het Engelse formulier toont "An online meeting
+room" en er komt gewoon `zaaltje` in het CRM. Nederlandse en Engelse
+inzendingen belanden dus in hetzelfde veld en zijn samen te filteren.
+
+In de code: `HUBSPOT_FORMS_EN` in `lib/hubspot-forms.ts`, of gebruik
+`formulierVoor("contact", "en")`.
+
 ## Hoe ze zijn aangemaakt
 
-Alle zes zijn op 3 aug 2026 via de HubSpot Forms API aangemaakt met
-[`scripts/create-hubspot-forms.mjs`](../scripts/create-hubspot-forms.mjs). Dat
+Alle zes Nederlandse zijn op 3 aug 2026 via de HubSpot Forms API aangemaakt met
+[`scripts/create-hubspot-forms.mjs`](../scripts/create-hubspot-forms.mjs), de
+zeven Engelse op 17 aug 2026 met hetzelfde script en `--taal en`. Alle teksten
+staan per taal in `TEKSTEN` bovenin dat script — één bestand voor beide talen,
+geen tweede kopie, anders lopen ze uit elkaar zodra er een veld bij komt. Het
 script maakt eerst de benodigde contacteigenschappen aan
 (`mm_boeking_type`, `mm_gewenste_datum`, `mm_aantal_deelnemers`,
 `mm_type_event`, `mm_voorkeursmoment`) en daarna de formulieren zelf, inclusief
@@ -44,9 +73,15 @@ Nederlandse labels, knopteksten, bedanktekst, e-mailmelding en **onzichtbare
 reCAPTCHA**. Het is idempotent: bestaande eigenschappen en formulieren worden
 overgeslagen, niet overschreven.
 
-Draaien vereist `HUBSPOT_PRIVATE_APP_TOKEN` in `.env.local` (legacy/private app
-met scopes `forms`, `crm.schemas.contacts.read`, `crm.schemas.contacts.write`).
-Proefdraaien kan met `--dry-run`.
+Draaien vereist `HUBSPOT_PRIVATE_APP_TOKEN` in `.env.local` (private app met
+scopes `forms`, `crm.schemas.contacts.read`, `crm.schemas.contacts.write`).
+Proefdraaien kan met `--dry-run`; dat toont per formulier of hij al bestaat of
+aangemaakt zou worden, zonder iets te veranderen. Doe dat altijd eerst.
+
+**Let op bij het token:** het oude token gaf op 17 aug 2026 een 401 — de private
+app was verwijderd of het token vernieuwd. Loopt het script vast op
+authenticatie, maak dan in HubSpot onder Instellingen → Integraties → Private
+Apps een nieuw token met bovenstaande scopes.
 
 De formId's staan in [`lib/hubspot-forms.ts`](../lib/hubspot-forms.ts); pagina's
 verwijzen daarnaar in plaats van de ID's los te herhalen.

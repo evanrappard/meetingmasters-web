@@ -41,3 +41,40 @@ export const HUBSPOT_FORMS = {
 } as const;
 
 export type HubSpotFormKey = keyof typeof HUBSPOT_FORMS;
+
+/**
+ * De Engelse formulieren. Zelfde velden en dezelfde contacteigenschappen als de
+ * Nederlandse — een keuzelijst slaat de wáárde op, niet het label — dus in
+ * HubSpot komt alles netjes in één veld terecht, ongeacht de taal waarin
+ * iemand het formulier invulde.
+ *
+ * Vergadermacht ontbreekt met opzet: die publicatie bestaat niet in het Engels.
+ */
+export const HUBSPOT_FORMS_EN = {
+  /** Free advice */
+  advies: "e4d50964-6457-440f-a73c-5f31726c6060",
+  /** General contact */
+  contact: "8afa782e-bc97-4fb0-a182-2621167527d1",
+  /** Demo or tour */
+  demo: "e7294822-87d4-4759-97fc-532b52a4c9e2",
+  /** Booking & availability */
+  boeking: "d2cce099-ab58-4753-915c-0d1c20a00eb1",
+  /** Cost estimate */
+  kostenindicatie: "ae15b8b5-de37-40eb-8172-52da38e2cff2",
+  /** Newsletter */
+  nieuwsbrief: "d6c9525f-7b57-46b2-bd74-243c30c3250e",
+  /** Meeting cost calculator — los HTML-bestand, niet via HubSpotForm.tsx */
+  calculator: "77dffdf4-e911-49d3-ace3-8bc77b9c2cc7",
+} as const;
+
+/**
+ * Het juiste formulier bij de taal van de pagina. Vergadermacht bestaat alleen
+ * in het Nederlands; vraag je die op in het Engels, dan krijg je het
+ * Nederlandse formulier terug — daarom staat dat blok niet op de Engelse site.
+ */
+export function formulierVoor(sleutel: HubSpotFormKey, taal: "nl" | "en" = "nl"): string {
+  if (taal === "en" && sleutel in HUBSPOT_FORMS_EN) {
+    return HUBSPOT_FORMS_EN[sleutel as keyof typeof HUBSPOT_FORMS_EN];
+  }
+  return HUBSPOT_FORMS[sleutel];
+}

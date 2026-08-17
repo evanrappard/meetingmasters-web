@@ -6,8 +6,16 @@
  * Scopes op de private app: forms, crm.schemas.contacts.read, crm.schemas.contacts.write
  *
  * Gebruik:
- *   node scripts/create-hubspot-forms.mjs --dry-run   # toont wat er zou gebeuren
- *   node scripts/create-hubspot-forms.mjs             # maakt properties + formulieren aan
+ *   node scripts/create-hubspot-forms.mjs --dry-run       # toont wat er zou gebeuren
+ *   node scripts/create-hubspot-forms.mjs                 # Nederlandse formulieren
+ *   node scripts/create-hubspot-forms.mjs --taal en       # Engelse formulieren
+ *
+ * De teksten staan per taal in TEKSTEN hieronder. Eén script voor beide talen,
+ * geen tweede kopie: anders lopen ze uit elkaar zodra er een veld bij komt.
+ *
+ * De contacteigenschappen zijn taalloos — een keuzelijst slaat de wáárde op
+ * ('zaaltje'), niet het label. Het Engelse formulier toont dus een Engels label
+ * bij dezelfde waarde, en in HubSpot komt alles in hetzelfde veld terecht.
  *
  * Het script is idempotent: bestaande eigenschappen en formulieren met dezelfde
  * naam worden overgeslagen, niet overschreven. Zie docs/hubspot-forms.md.
@@ -19,6 +27,13 @@ config({ path: new URL('../.env.local', import.meta.url).pathname })
 
 const TOKEN = process.env.HUBSPOT_PRIVATE_APP_TOKEN
 const DRY_RUN = process.argv.includes('--dry-run')
+
+const taalArg = process.argv.indexOf('--taal')
+const TAAL = taalArg !== -1 ? process.argv[taalArg + 1] : 'nl'
+if (!['nl', 'en'].includes(TAAL)) {
+  console.error(`Onbekende taal "${TAAL}". Kies nl of en.`)
+  process.exit(1)
+}
 
 if (!TOKEN) {
   console.error('Ontbrekende HUBSPOT_PRIVATE_APP_TOKEN in .env.local')
@@ -96,6 +111,105 @@ async function ensureProperties() {
   }
 }
 
+/* ── Teksten per taal ─────────────────────────────────────────────────────── */
+
+const TEKSTEN = {
+  nl: {
+    voorvoegsel: 'MM Website',
+    velden: {
+      firstname: 'Voornaam',
+      lastname: 'Achternaam',
+      email: 'E-mailadres',
+      phone: 'Telefoonnummer (optioneel)',
+      company: 'Organisatie',
+      message: 'Je vraag of bericht',
+      moment: 'Wanneer komt het jou uit?',
+      benieuwd: 'Waar ben je vooral benieuwd naar?',
+      boekingType: 'Wat wil je boeken?',
+      datum: 'Gewenste datum',
+      aantal: 'Aantal deelnemers',
+      opmerkingen: 'Opmerkingen',
+      typeEvent: 'Om welk type event of kantoor gaat het?',
+      organiseren: 'Wat wil je organiseren?',
+      berekening: 'Berekening vergaderkosten',
+    },
+    boekingOpties: [
+      { label: 'Een online zaaltje', value: 'zaaltje' },
+      { label: 'R@venHack', value: 'ravenhack' },
+      { label: 'EscapeMasters', value: 'escapemasters' },
+      { label: 'Iets anders', value: 'anders' },
+    ],
+    juridisch: {
+      privacyText:
+        'Wij geven om je privacy. Lees hoe we met je gegevens omgaan in ons Privacybeleid.',
+      consentToProcessText:
+        'Om je vraag te kunnen behandelen, hebben we je toestemming nodig om je gegevens op te slaan en te verwerken.',
+      communicationConsentText:
+        'Door dit formulier te versturen ga je ermee akkoord dat MeetingMasters contact met je opneemt. Je kunt je altijd afmelden.',
+      vinkje: 'Ik ontvang graag ook andere berichten van MeetingMasters.',
+    },
+    formulieren: {
+      advies: { naam: 'Vrijblijvend advies', knop: 'Stuur mijn vraag →', dank: 'Dank je wel. We lezen je vraag en reageren binnen één werkdag.' },
+      contact: { naam: 'Algemeen contact', knop: 'Versturen →', dank: 'Dank je wel. We nemen zo snel mogelijk contact met je op.' },
+      demo: { naam: 'Demo of rondleiding', knop: 'Plan mijn rondleiding →', dank: 'Dank je wel. We stemmen een moment met je af voor de rondleiding.' },
+      boeking: { naam: 'Boeking & beschikbaarheid', knop: 'Check beschikbaarheid →', dank: 'Dank je wel. We laten je snel weten wat er mogelijk is.' },
+      kostenindicatie: { naam: 'Kostenindicatie', knop: 'Vraag een indicatie aan →', dank: 'Dank je wel. Je krijgt een vrijblijvende indicatie van ons.' },
+      nieuwsbrief: { naam: 'Nieuwsbrief', knop: 'Schrijf mij in →', dank: 'Je staat op de lijst. Tot in de volgende nieuwsbrief.' },
+      // Dit formulier bestond al vóór dit script, onder deze naam en zonder
+      // voorvoegsel. Zo herkent het script hem en maakt hij geen dubbele aan.
+      calculator: { naam: 'Vergaderkosten Calculator', losseNaam: true, knop: 'Verzenden', dank: 'Dank je wel! Download hier je berekening.' },
+    },
+  },
+  en: {
+    // Het voorvoegsel maakt de Engelse formulieren herkenbaar in de HubSpot-lijst.
+    voorvoegsel: 'MM Website EN',
+    velden: {
+      firstname: 'First name',
+      lastname: 'Last name',
+      email: 'Email address',
+      phone: 'Phone number (optional)',
+      company: 'Organisation',
+      message: 'Your question or message',
+      moment: 'When would suit you?',
+      benieuwd: 'What are you most curious about?',
+      boekingType: 'What would you like to book?',
+      datum: 'Preferred date',
+      aantal: 'Number of participants',
+      opmerkingen: 'Anything else we should know?',
+      typeEvent: 'What kind of event or office is it?',
+      organiseren: 'What would you like to organise?',
+      berekening: 'Meeting cost calculation',
+    },
+    // Dezelfde waarden als in het Nederlands, alleen het label verschilt.
+    boekingOpties: [
+      { label: 'An online meeting room', value: 'zaaltje' },
+      { label: 'R@venHack', value: 'ravenhack' },
+      { label: 'EscapeMasters', value: 'escapemasters' },
+      { label: 'Something else', value: 'anders' },
+    ],
+    juridisch: {
+      privacyText:
+        'We care about your privacy. Read how we handle your details in our Privacy Policy.',
+      consentToProcessText:
+        'To be able to handle your question, we need your permission to store and process your details.',
+      communicationConsentText:
+        'By submitting this form you agree that MeetingMasters may contact you. You can unsubscribe at any time.',
+      vinkje: 'I would also like to receive other updates from MeetingMasters.',
+    },
+    formulieren: {
+      advies: { naam: 'Free advice', knop: 'Send my question →', dank: 'Thank you. We will read your question and reply within one working day.' },
+      contact: { naam: 'General contact', knop: 'Send →', dank: 'Thank you. We will get back to you as soon as we can.' },
+      demo: { naam: 'Demo or tour', knop: 'Book my tour →', dank: 'Thank you. We will arrange a moment with you for the tour.' },
+      boeking: { naam: 'Booking & availability', knop: 'Check availability →', dank: 'Thank you. We will let you know what is possible shortly.' },
+      kostenindicatie: { naam: 'Cost estimate', knop: 'Request an estimate →', dank: 'Thank you. You will receive a no-obligation estimate from us.' },
+      nieuwsbrief: { naam: 'Newsletter', knop: 'Sign me up →', dank: 'You are on the list. See you in the next newsletter.' },
+      calculator: { naam: 'Meeting cost calculator', knop: 'Send me the calculation →', dank: 'Thank you. Your calculation is on its way.' },
+    },
+  },
+}
+
+const T = TEKSTEN[TAAL]
+
 /* ── Velddefinities ───────────────────────────────────────────────────────── */
 
 const field = (name, label, fieldType, required = false, extra = {}) => ({
@@ -109,88 +223,92 @@ const field = (name, label, fieldType, required = false, extra = {}) => ({
 })
 
 const NAAM = [
-  field('firstname', 'Voornaam', 'single_line_text', true),
-  field('lastname', 'Achternaam', 'single_line_text', true),
+  field('firstname', T.velden.firstname, 'single_line_text', true),
+  field('lastname', T.velden.lastname, 'single_line_text', true),
 ]
 // Alleen het e-mailveld heeft een verplicht validation-blok (zie een bestaand
 // HubSpot-formulier: GET /marketing/v3/forms/{id}).
-const EMAIL = field('email', 'E-mailadres', 'email', true, {
+const EMAIL = field('email', T.velden.email, 'email', true, {
   validation: { blockedEmailDomains: [], useDefaultBlockList: false },
 })
-const TEL = field('phone', 'Telefoonnummer (optioneel)', 'phone')
-const ORG = field('company', 'Organisatie', 'single_line_text', true)
-const BERICHT = field('message', 'Je vraag of bericht', 'multi_line_text', true)
+const TEL = field('phone', T.velden.phone, 'phone')
+const ORG = field('company', T.velden.company, 'single_line_text', true)
+const BERICHT = field('message', T.velden.message, 'multi_line_text', true)
 
 /* ── De formulieren ───────────────────────────────────────────────────────── */
+
+const naamVan = (sleutel) => {
+  const f = T.formulieren[sleutel]
+  return f.losseNaam ? f.naam : `${T.voorvoegsel} — ${f.naam}`
+}
 
 const FORMS = [
   {
     key: 'advies',
-    name: 'MM Website — Vrijblijvend advies',
-    submitButtonText: 'Stuur mijn vraag →',
-    thankYou: 'Dank je wel. We lezen je vraag en reageren binnen één werkdag.',
     fields: [...NAAM, EMAIL, TEL, BERICHT],
   },
   {
     key: 'contact',
-    name: 'MM Website — Algemeen contact',
-    submitButtonText: 'Versturen →',
-    thankYou: 'Dank je wel. We nemen zo snel mogelijk contact met je op.',
     fields: [...NAAM, EMAIL, TEL, BERICHT],
   },
   {
     key: 'demo',
-    name: 'MM Website — Demo of rondleiding',
-    submitButtonText: 'Plan mijn rondleiding →',
-    thankYou: 'Dank je wel. We stemmen een moment met je af voor de rondleiding.',
     fields: [
       ...NAAM,
       EMAIL,
       ORG,
-      field('mm_voorkeursmoment', 'Wanneer komt het jou uit?', 'single_line_text'),
-      field('message', 'Waar ben je vooral benieuwd naar?', 'multi_line_text'),
+      field('mm_voorkeursmoment', T.velden.moment, 'single_line_text'),
+      field('message', T.velden.benieuwd, 'multi_line_text'),
     ],
   },
   {
     key: 'boeking',
-    name: 'MM Website — Boeking & beschikbaarheid',
-    submitButtonText: 'Check beschikbaarheid →',
-    thankYou: 'Dank je wel. We laten je snel weten wat er mogelijk is.',
     fields: [
       ...NAAM,
       EMAIL,
       ORG,
-      field('mm_boeking_type', 'Wat wil je boeken?', 'dropdown', true, {
+      field('mm_boeking_type', T.velden.boekingType, 'dropdown', true, {
         // Elke optie heeft een displayOrder nodig in de Forms API.
-        options: PROPERTIES[0].options.map((o, i) => ({ ...o, displayOrder: i })),
+        options: T.boekingOpties.map((o, i) => ({ ...o, displayOrder: i })),
       }),
-      field('mm_gewenste_datum', 'Gewenste datum', 'datepicker'),
-      field('mm_aantal_deelnemers', 'Aantal deelnemers', 'number'),
-      field('message', 'Opmerkingen', 'multi_line_text'),
+      field('mm_gewenste_datum', T.velden.datum, 'datepicker'),
+      field('mm_aantal_deelnemers', T.velden.aantal, 'number'),
+      field('message', T.velden.opmerkingen, 'multi_line_text'),
     ],
   },
   {
     key: 'kostenindicatie',
-    name: 'MM Website — Kostenindicatie',
-    submitButtonText: 'Vraag een indicatie aan →',
-    thankYou: 'Dank je wel. Je krijgt een vrijblijvende indicatie van ons.',
     fields: [
       ...NAAM,
       EMAIL,
       ORG,
-      field('mm_type_event', 'Om welk type event of kantoor gaat het?', 'single_line_text', true),
-      field('mm_aantal_deelnemers', 'Aantal deelnemers', 'number'),
-      field('message', 'Wat wil je organiseren?', 'multi_line_text'),
+      field('mm_type_event', T.velden.typeEvent, 'single_line_text', true),
+      field('mm_aantal_deelnemers', T.velden.aantal, 'number'),
+      field('message', T.velden.organiseren, 'multi_line_text'),
     ],
   },
   {
     key: 'nieuwsbrief',
-    name: 'MM Website — Nieuwsbrief',
-    submitButtonText: 'Schrijf mij in →',
-    thankYou: 'Je staat op de lijst. Tot in de volgende nieuwsbrief.',
     fields: [EMAIL],
   },
-]
+  {
+    // De Nederlandse calculator heeft al een eigen formulier van vóór dit
+    // script; deze regel is er voor de Engelse variant. Bestaat hij al onder
+    // deze naam, dan slaat het script hem over.
+    key: 'calculator',
+    fields: [
+      field('firstname', T.velden.firstname, 'single_line_text'),
+      field('lastname', T.velden.lastname, 'single_line_text'),
+      EMAIL,
+      field('berekening_vergaderkosten', T.velden.berekening, 'multi_line_text'),
+    ],
+  },
+].map((f) => ({
+  ...f,
+  name: naamVan(f.key),
+  submitButtonText: T.formulieren[f.key].knop,
+  thankYou: T.formulieren[f.key].dank,
+}))
 
 function payload(form) {
   const now = new Date().toISOString()
@@ -209,7 +327,7 @@ function payload(form) {
       fields: [f],
     })),
     configuration: {
-      language: 'nl',
+      language: TAAL,
       cloneable: true,
       editable: true,
       archivable: true,
@@ -234,17 +352,14 @@ function payload(form) {
     // Zelfde AVG-opzet als het bestaande calculator-formulier.
     legalConsentOptions: {
       type: 'implicit_consent_to_process',
-      privacyText:
-        'Wij geven om je privacy. Lees hoe we met je gegevens omgaan in ons Privacybeleid.',
-      consentToProcessText:
-        'Om je vraag te kunnen behandelen, hebben we je toestemming nodig om je gegevens op te slaan en te verwerken.',
-      communicationConsentText:
-        'Door dit formulier te versturen ga je ermee akkoord dat MeetingMasters contact met je opneemt. Je kunt je altijd afmelden.',
+      privacyText: T.juridisch.privacyText,
+      consentToProcessText: T.juridisch.consentToProcessText,
+      communicationConsentText: T.juridisch.communicationConsentText,
       communicationsCheckboxes: [
         {
           required: false,
           subscriptionTypeId: SUBSCRIPTION_TYPE_ID,
-          label: 'Ik ontvang graag ook andere berichten van MeetingMasters.',
+          label: T.juridisch.vinkje,
         },
       ],
     },
@@ -284,7 +399,7 @@ async function createForms() {
 
 /* ── Uitvoeren ────────────────────────────────────────────────────────────── */
 
-console.log(DRY_RUN ? '\nProefrun — er wordt niets aangemaakt.\n' : '')
+console.log(DRY_RUN ? `\nProefrun (${TAAL}) — er wordt niets aangemaakt.\n` : `\nTaal: ${TAAL}\n`)
 console.log('Contacteigenschappen:')
 await ensureProperties()
 console.log('\nFormulieren:')
