@@ -82,3 +82,10 @@
 /en/blog/the-rule-of-eight
 /en/blog/a-stick-to-beat-it-with
 /en/blog/an-online-home-for-olympians
+/en/contact
+/en/demo
+/en/quote
+/en/booking
+/en/newsletter
+/en/expert-advice
+/en/testimonials

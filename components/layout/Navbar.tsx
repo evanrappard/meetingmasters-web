@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
-import { NAV_ITEMS, kies, taalVanPad, anderTaalPad } from "@/lib/navigatie";
+import { NAV_ITEMS, kies } from "@/lib/navigatie";
+import { taalVanPad, anderTaalPad } from "@/lib/talen";
 
 /** De paar losse teksten in de balk zelf, per taal. */
 const T = {
@@ -218,20 +219,12 @@ export default function Navbar() {
             {/* De schakelaar springt naar dezelfde pagina in de andere taal.
                 Bestaat die niet, dan naar de startpagina van die taal — zie
                 anderTaalPad in lib/navigatie.ts. */}
+            {/* De schakelaar springt naar dezelfde pagina in de andere taal.
+                Bestaat die pagina nog niet, dan staat de andere taal er grijs
+                bij in plaats van als link: liever niets dan iemand op een
+                willekeurige andere pagina laten belanden. */}
             <div className="hidden lg:flex items-center gap-1.5 text-xs text-[#898989]">
-              {taal === "nl" ? (
-                <>
-                  <span className="font-bold text-[#2D2D2D]">NL</span>
-                  <span>|</span>
-                  <Link href={anderePad} hrefLang="en" className="hover:text-[#545454] transition-colors">EN</Link>
-                </>
-              ) : (
-                <>
-                  <Link href={anderePad} hrefLang="nl" className="hover:text-[#545454] transition-colors">NL</Link>
-                  <span>|</span>
-                  <span className="font-bold text-[#2D2D2D]">EN</span>
-                </>
-              )}
+              <TaalKeuze taal={taal} anderePad={anderePad} />
             </div>
             <Link
               href={t.cta}
@@ -335,23 +328,66 @@ export default function Navbar() {
               {t.gesprek}
             </Link>
             <div className="flex gap-3 text-sm text-[#898989]">
-              {taal === "nl" ? (
-                <>
-                  <span className="font-bold text-[#2D2D2D]">NL</span>
-                  <span>|</span>
-                  <Link href={anderePad} hrefLang="en" onClick={closeMobile}>EN</Link>
-                </>
-              ) : (
-                <>
-                  <Link href={anderePad} hrefLang="nl" onClick={closeMobile}>NL</Link>
-                  <span>|</span>
-                  <span className="font-bold text-[#2D2D2D]">EN</span>
-                </>
-              )}
+              <TaalKeuze taal={taal} anderePad={anderePad} onKlik={closeMobile} />
             </div>
           </div>
         </div>
       )}
     </header>
+  );
+}
+
+/**
+ * NL | EN. De taal waarin je staat is vet, de andere is een link — maar alleen
+ * als die pagina bestaat. Zo niet, dan staat hij er lichtgrijs bij met een
+ * uitleg in de tooltip.
+ */
+function TaalKeuze({
+  taal,
+  anderePad,
+  onKlik,
+}: {
+  taal: "nl" | "en";
+  anderePad: string | null;
+  onKlik?: () => void;
+}) {
+  const ander = taal === "nl" ? "en" : "nl";
+  const merk = (t: string) => t.toUpperCase();
+
+  const huidig = <span className="font-bold text-[#2D2D2D]">{merk(taal)}</span>;
+  const andere = anderePad ? (
+    <Link
+      href={anderePad}
+      hrefLang={ander}
+      onClick={onKlik}
+      className="hover:text-[#545454] transition-colors"
+    >
+      {merk(ander)}
+    </Link>
+  ) : (
+    <span
+      className="text-[#C9C9C9] cursor-default"
+      title={
+        ander === "en"
+          ? "This page is not available in English yet"
+          : "Deze pagina is er nog niet in het Nederlands"
+      }
+    >
+      {merk(ander)}
+    </span>
+  );
+
+  return taal === "nl" ? (
+    <>
+      {huidig}
+      <span>|</span>
+      {andere}
+    </>
+  ) : (
+    <>
+      {andere}
+      <span>|</span>
+      {huidig}
+    </>
   );
 }

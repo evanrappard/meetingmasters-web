@@ -2,7 +2,26 @@ import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import HubSpotAgenda from "@/components/ui/HubSpotAgenda";
-import { HUBSPOT_PORTAL_ID, type HubSpotFormKey, HUBSPOT_FORMS, HUBSPOT_AGENDA } from "@/lib/hubspot-forms";
+import { HUBSPOT_PORTAL_ID, type HubSpotFormKey, HUBSPOT_AGENDA, formulierVoor } from "@/lib/hubspot-forms";
+import type { Taal } from "@/lib/talen";
+
+/** De vaste teksten naast het formulier, per taal. */
+const T = {
+  nl: {
+    directKop: "Liever direct contact?",
+    directTekst: "Bellen of mailen mag altijd. Je krijgt gewoon een van ons aan de lijn.",
+    nogNiet: "Nog niet zover?",
+    nogNietLink: "Houd je idee eerst vrijblijvend tegen ons aan →",
+    adviesHref: "/nl/expert-advies",
+  },
+  en: {
+    directKop: "Rather talk to someone?",
+    directTekst: "Calling or emailing is always fine. You get one of us on the line.",
+    nogNiet: "Not quite ready?",
+    nogNietLink: "Run your idea past us first, no strings attached →",
+    adviesHref: "/en/expert-advice",
+  },
+} as const;
 
 type Props = {
   /** Klein kopje boven de titel. */
@@ -21,6 +40,7 @@ type Props = {
   formulierKop: string;
   /** Regel onder die kop. */
   formulierUitleg: string;
+  taal?: Taal;
 };
 
 /**
@@ -36,7 +56,9 @@ export default function FormulierPagina({
   agenda = false,
   formulierKop,
   formulierUitleg,
+  taal = "nl",
 }: Props) {
+  const t = T[taal];
   return (
     <div className="bg-white">
       <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
@@ -62,15 +84,13 @@ export default function FormulierPagina({
               {agenda ? (
                 <HubSpotAgenda link={HUBSPOT_AGENDA} />
               ) : (
-                <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS[formulier]} />
+                <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor(formulier, taal)} />
               )}
             </div>
 
             <div className="lg:pt-1">
-              <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">Liever direct contact?</h2>
-              <p className="text-sm text-[#545454] leading-relaxed mb-8">
-                Bellen of mailen mag altijd. Je krijgt gewoon een van ons aan de lijn.
-              </p>
+              <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{t.directKop}</h2>
+              <p className="text-sm text-[#545454] leading-relaxed mb-8">{t.directTekst}</p>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-[#545454]">
                   <Mail size={18} className="text-[#28A8AA] shrink-0" />
@@ -90,12 +110,12 @@ export default function FormulierPagina({
               </ul>
 
               <p className="text-sm text-[#545454] leading-relaxed mt-10">
-                Nog niet zover?{" "}
+                {t.nogNiet}{" "}
                 <Link
-                  href="/nl/expert-advies"
+                  href={t.adviesHref}
                   className="text-[#28A8AA] font-semibold hover:text-[#D4A835] transition-colors"
                 >
-                  Houd je idee eerst vrijblijvend tegen ons aan →
+                  {t.nogNietLink}
                 </Link>
               </p>
             </div>

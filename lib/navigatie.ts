@@ -14,15 +14,16 @@
  * een directe link — hij staat alleen niet meer in menu en footer.
  *
  * ── Over de twee talen ──
- * Elk item heeft een Engelse tekst (`labelEn`) en, zodra de Engelse pagina
- * bestaat, een Engels adres (`hrefEn`). Zolang `hrefEn` ontbreekt wijst de
- * Engelse navigatie naar de Nederlandse pagina. Dat is een bewuste keuze: een
- * werkende link naar Nederlandse inhoud is beter dan een doodlopende link of
- * een menu waar bijna niets in staat. Bouw je een Engelse pagina, vul dan hier
- * `hrefEn` in — dan verspringt het menu vanzelf mee.
+ * Elk item heeft een Engelse tekst (`labelEn`). Het Engelse adres hoef je hier
+ * niet in te vullen: dat komt uit `lib/talen.ts`, waar bijgehouden wordt welke
+ * pagina's vertaald zijn. Bestaat de Engelse pagina nog niet, dan wijst het
+ * item naar de Nederlandse — een werkende link naar Nederlandse inhoud is beter
+ * dan een doodlopende link of een menu waar bijna niets in staat.
  */
 
-export type Taal = "nl" | "en";
+import { type Taal, engelsPad } from "@/lib/talen";
+
+export type { Taal };
 
 export type NavChild = {
   label: string;
@@ -154,8 +155,6 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Blog",
     labelEn: "Blog",
     href: "/nl/blog",
-    // De blog is de eerste sectie die wél volledig in het Engels bestaat.
-    hrefEn: "/en/blog",
     groep: "organisatie",
   },
 ];
@@ -182,67 +181,13 @@ export function kies<T extends { label: string; href: string; labelEn: string; h
   item: T,
   taal: Taal
 ): { label: string; href: string } {
-  return taal === "en"
-    ? { label: item.labelEn, href: item.hrefEn ?? item.href }
-    : { label: item.label, href: item.href };
+  if (taal !== "en") return { label: item.label, href: item.href };
+  // Het Engelse adres komt uit lib/talen.ts, zodat er maar één lijst is van wat
+  // er vertaald is. Bestaat de Engelse pagina nog niet, dan wijst het item naar
+  // de Nederlandse: een werkende link is beter dan een doodlopende.
+  return { label: item.labelEn, href: item.hrefEn ?? engelsPad(item.href) ?? item.href };
 }
 
 /** De navigatie-items van één footerkolom, in de gevraagde taal. */
 export const navPerGroep = (groep: NavItem["groep"]) =>
   NAV_ITEMS.filter((item) => item.groep === groep);
-
-/* ── Taalschakelaar ───────────────────────────────────────────────────────── */
-
-/**
- * Welke taal hoort bij dit adres? Alles wat niet met /en begint is Nederlands;
- * de site is immers in het Nederlands begonnen.
- */
-export function taalVanPad(pad: string): Taal {
-  return pad.startsWith("/en/") || pad === "/en" ? "en" : "nl";
-}
-
-/**
- * Blogartikelen hebben in beide talen een eigen adres. Deze koppeling laat de
- * taalschakelaar naar hetzelfde artikel springen in plaats van naar het
- * overzicht. Elf paar korte teksten — verwaarloosbaar voor de bezoeker, en
- * daarmee blijft de zware `posts.ts` buiten de code die de browser laadt.
- */
-const BLOG_PAREN: Array<[nl: string, en: string]> = [
-  ["terug-naar-kantoor", "back-to-the-office"],
-  ["niet-hetzelfde-wel-goed", "not-the-same-still-good"],
-  ["heen-en-weer", "back-and-forth"],
-  ["online-beheersen", "we-have-online-covered"],
-  ["wat-gamers-weten", "what-gamers-know"],
-  ["rondjes-versus-vierkantjes", "circles-versus-squares"],
-  ["systeemwoede", "system-rage"],
-  ["ai-paradox", "the-ai-paradox"],
-  ["acht-grens", "the-rule-of-eight"],
-  ["stok-om-mee-te-slaan", "a-stick-to-beat-it-with"],
-  ["olympiers", "an-online-home-for-olympians"],
-];
-
-/**
- * Het adres van de huidige pagina in de andere taal.
- *
- * Voor de blog springen we naar hetzelfde artikel. Voor al het andere bestaat
- * er nog geen Engelse tegenhanger, dus komt de bezoeker op de startpagina van
- * de andere taal uit. Dat is eerlijker dan een link die doodloopt. Zodra er
- * meer pagina's in het Engels bestaan, breidt deze functie mee uit.
- */
-export function anderTaalPad(pad: string): string {
-  const huidige = taalVanPad(pad);
-
-  if (huidige === "nl") {
-    if (pad === "/nl/blog") return "/en/blog";
-    const m = pad.match(/^\/nl\/blog\/(.+)$/);
-    const paar = m && BLOG_PAREN.find(([nl]) => nl === m[1]);
-    if (paar) return `/en/blog/${paar[1]}`;
-    return "/en/blog";
-  }
-
-  if (pad === "/en/blog") return "/nl/blog";
-  const m = pad.match(/^\/en\/blog\/(.+)$/);
-  const paar = m && BLOG_PAREN.find(([, en]) => en === m[1]);
-  if (paar) return `/nl/blog/${paar[0]}`;
-  return "/nl/home";
-}

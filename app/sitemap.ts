@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { POSTS } from "@/app/nl/blog/posts";
 import { eventFormats } from "@/app/nl/events/page";
 import { POSTS_EN } from "@/app/en/blog/posts";
+import { engelsPad } from "@/lib/talen";
 
 const BASE = "https://www.meetingmasters.online";
 
@@ -75,6 +76,7 @@ function gewicht(pad: string): { priority: number; changeFrequency: MetadataRout
   if (/^\/nl\/events\//.test(pad)) return { priority: 0.8, changeFrequency: "monthly" };
   if (/^\/nl\/(virtual-office|games-tools)\//.test(pad)) return { priority: 0.7, changeFrequency: "monthly" };
   if (pad === "/en/blog") return { priority: 0.8, changeFrequency: "weekly" };
+  if (/^\/en\//.test(pad)) return { priority: 0.6, changeFrequency: "monthly" };
   if (/^\/(nl|en)\/blog\//.test(pad)) return { priority: 0.6, changeFrequency: "yearly" };
   if (/^\/nl\/(privacy-statement|cookieverklaring)$/.test(pad)) return { priority: 0.3, changeFrequency: "yearly" };
   return { priority: 0.6, changeFrequency: "monthly" };
@@ -91,6 +93,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const e of eventFormats) paden.add(`/nl/events/${e.slug}`);
   for (const p of POSTS) paden.add(`/nl/blog/${p.slug}`);
+  // Elke Nederlandse pagina die een Engelse tegenhanger heeft, hoort er ook
+  // in te staan. lib/talen.ts weet welke dat zijn.
+  for (const pad of [...paden]) {
+    const en = engelsPad(pad);
+    if (en) paden.add(en);
+  }
   paden.add("/en/blog");
   for (const p of POSTS_EN) paden.add(`/en/blog/${p.slug}`);
   for (const t of ["zoom", "teams", "zoom-events"]) paden.delete(`/nl/technologie/${t}`);

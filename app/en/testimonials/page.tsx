@@ -1,71 +1,83 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Testimonials | MeetingMasters",
+  title: "What clients say | MeetingMasters",
   description:
-    "What our clients say about working with MeetingMasters Online.",
+    "What our clients say about working with MeetingMasters Online — from universities and hospitals to the World Olympians Association.",
+  alternates: {
+    canonical: "https://www.meetingmasters.online/en/testimonials",
+    languages: {
+      "nl-NL": "https://www.meetingmasters.online/nl/testimonials",
+      "en-GB": "https://www.meetingmasters.online/en/testimonials",
+    },
+  },
 };
 
+/**
+ * De quotes zijn oorspronkelijk in het Nederlands gegeven, op één na: die van
+ * de World Olympians Association was al Engels. Die staat hier dus in zijn
+ * eigen woorden; de rest is vertaald.
+ */
 const testimonials = [
   {
     company: "ROC TOP",
     quote:
-      "The flexibility and creative qualities of the MeetingMasters were of great value both before and during the event. A valuable contribution to connection in this time.",
+      "The flexibility and creative skills of the MeetingMasters were of great value both before and during the event. A real contribution to connection in these times.",
   },
   {
     company: "Bergman Clinics",
     quote:
-      "MeetingMasters not only ensure that you are technically supported. They also think along with you on how to get the best out of an online meeting or event. A valuable contribution to connection in this time.",
+      "MeetingMasters do not just make sure you are supported technically. They also think along about how to get the most out of an online meeting or event. A real contribution to connection in these times.",
   },
   {
     company: "ZonMW",
     quote:
-      "MeetingMasters provided us with the online facilitation of a meeting of an innovative learning network 'Make Room for Health'. A professional and warm approach that made participants feel genuinely at ease.",
+      "MeetingMasters ran the online facilitation of a gathering for an innovative learning network, 'Maak Ruimte voor Gezondheid'. A professional and warm approach that genuinely put participants at ease.",
   },
   {
     company: "Gemeente Roosendaal",
     quote:
-      "MeetingMasters guided us worry-free through the entire process: from defining goals and sharpening the content of the meeting to the live execution.",
+      "MeetingMasters guided us through the whole process without a worry: from setting the goals and sharpening the content of the gathering right through to running it live.",
   },
   {
     company: "PharmAccess",
     quote:
-      "Bringing together employees from 5 offices to strategize online for two weeks requires key facilitation skills. MeetingMasters got us there.",
+      "Bringing staff from five offices together online for two weeks of strategy work demands serious facilitation skills. MeetingMasters got us there.",
   },
   {
     company: "Oranje Fonds",
     quote:
-      "Emilie and her team are professional and skilled and prepare all meetings down to the second with great commitment. Highly recommended.",
+      "Emilie and her team are professional and skilled, and prepare every gathering to the second with real commitment. Highly recommended.",
   },
   {
     company: "World Olympians Association",
     quote:
-      "Our Olympians always expect excellence, and with Meeting Masters that's simply the standard. I don't know how they do their magic, but the key might lay in the fact that it's just such a joy to work with them.",
+      "Our Olympians always expect the very best, and with Meeting Masters that is simply the standard. I do not know how they do their magic, but the key may lie in the fact that they are such a pleasure to work with.",
   },
   {
     company: "Bouw & Infra",
     quote:
-      "Emilie and colleagues help us every time with proper preparation and they think carefully about what is needed before, during and after the meetings. They give tips and tricks and help where needed.",
+      "Emilie and colleagues help us every time with thorough preparation and think carefully about what is needed before, during and after the gatherings. They share tips and tricks and step in where needed.",
   },
   {
     company: "Omron",
     quote:
-      "Emilie and her team are constantly spot-on, attentive to all the details, and adapting the session to the needs. They delivered a highly interactive session on 'Effective Meetings', emphasizing all the important aspects that bring meetings to the next level.",
+      "Emilie and her team stay on top of everything, watch every detail and adapt the session to what is needed. They ran a highly interactive session on 'Effective Meetings' covering all the aspects that lift a meeting to another level.",
   },
   {
     company: "Red Cross Netherlands",
     quote:
-      "MeetingMasters organized Diversity Day for the Red Cross Netherlands, aiming to create more awareness around inclusion/exclusion. An event where people could truly listen to each other and learn from one another. Digital yet very natural.",
+      "MeetingMasters organised Diversity Day for the Netherlands Red Cross, aimed at building awareness around inclusion and exclusion. An event where people could genuinely listen to each other and learn from each other. Digital, and still entirely natural.",
   },
   {
     company: "Het Cultuurfonds",
     quote:
-      "With a clear vision, a fresh creative perspective, and very pleasant service, MeetingMasters truly excel in bringing people together online.",
+      "With a clear vision, a fresh creative eye and thoroughly pleasant service, MeetingMasters really do excel at bringing people together online.",
   },
   {
     company: "Digital Fitness",
     quote:
-      "MeetingMasters takes care of all the technical and facilitation aspects, so that as a trainer you can focus fully on the content. Whoever wants to make an online session a resounding success would do very well to talk to MeetingMasters.",
+      "MeetingMasters take all the technical and practical work off your hands, so that as a trainer you can focus entirely on the content. Anyone who wants to make an online session a resounding success would do well to talk to MeetingMasters.",
   },
 ];
 
@@ -74,7 +86,7 @@ export default function TestimonialsPage() {
     <div className="bg-white">
       {/* Header */}
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
-        <h1 className="text-4xl font-bold text-primary mb-3">Testimonials</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-3">What clients say</h1>
         <p className="text-[#666666] text-lg max-w-xl mx-auto">
           What our clients say about working with MeetingMasters.
         </p>
