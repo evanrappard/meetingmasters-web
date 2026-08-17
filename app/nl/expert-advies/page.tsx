@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Mail, Phone, Smartphone } from "lucide-react";
+import { Mail, Phone, Smartphone, CalendarDays } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
-import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
+import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID, HUBSPOT_AGENDA } from "@/lib/hubspot-forms";
 import CTABlock from "@/components/ui/CTABlock";
 
 export const metadata: Metadata = {
@@ -53,6 +53,24 @@ export default function ExpertAdviesPage() {
                 nergens aan vast.
               </p>
               <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.advies} />
+
+              {/* Het formulier blijft voorop: daarin staat waar het over gaat,
+                  en daardoor is het eerste gesprek meteen inhoudelijk. Wie dat
+                  liever overslaat, prikt hieronder gewoon een moment. */}
+              <div className="mt-8 pt-6 border-t border-[#EBEBEB]">
+                <p className="text-sm text-[#545454] leading-relaxed mb-3">
+                  Liever meteen een moment prikken? Dat kan ook.
+                </p>
+                <a
+                  href={HUBSPOT_AGENDA}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#2D2D2D] border border-[#D2D2D0] rounded px-5 py-3 hover:border-[#2D2D2D] transition-colors"
+                >
+                  <CalendarDays size={17} className="text-[#28A8AA]" />
+                  Kies een moment in de agenda
+                </a>
+              </div>
             </div>
 
             {/* Directe opties */}

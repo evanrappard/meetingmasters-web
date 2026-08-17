@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
-import { HUBSPOT_PORTAL_ID, type HubSpotFormKey, HUBSPOT_FORMS } from "@/lib/hubspot-forms";
+import HubSpotAgenda from "@/components/ui/HubSpotAgenda";
+import { HUBSPOT_PORTAL_ID, type HubSpotFormKey, HUBSPOT_FORMS, HUBSPOT_AGENDA } from "@/lib/hubspot-forms";
 
 type Props = {
   /** Klein kopje boven de titel. */
@@ -10,6 +11,12 @@ type Props = {
   /** Eén of twee alinea's onder de titel. */
   intro: React.ReactNode;
   formulier: HubSpotFormKey;
+  /**
+   * Toon de agenda in plaats van het formulier. Voor korte, vaste afspraken
+   * zoals een rondleiding: zelf een moment kiezen is sneller dan een
+   * voorkeursmoment opgeven en op antwoord wachten.
+   */
+  agenda?: boolean;
   /** Kop boven het formulier. */
   formulierKop: string;
   /** Regel onder die kop. */
@@ -26,6 +33,7 @@ export default function FormulierPagina({
   titel,
   intro,
   formulier,
+  agenda = false,
   formulierKop,
   formulierUitleg,
 }: Props) {
@@ -51,7 +59,11 @@ export default function FormulierPagina({
             <div>
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{formulierKop}</h2>
               <p className="text-sm text-[#545454] leading-relaxed mb-8">{formulierUitleg}</p>
-              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS[formulier]} />
+              {agenda ? (
+                <HubSpotAgenda link={HUBSPOT_AGENDA} />
+              ) : (
+                <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS[formulier]} />
+              )}
             </div>
 
             <div className="lg:pt-1">

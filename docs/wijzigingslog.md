@@ -75,14 +75,29 @@ leeft in de paginacode, niet in een apart bestand).
 | 25 | ~~Blogdatum "Niet hetzelfde. Wel goed."~~ | T | Emilie | **afgerond 17 aug 2026** — 13 juli, en het overzicht sorteert nu op datum |
 | 26 | ~~Eigen visual voor "Terug naar kantoor"~~ | B | Emilie | **afgerond 17 aug 2026** |
 | 27 | **Doorverwijzingen voor oude bloglinks.** Live staat op `/nl/blogs/lange-slug`, hier op `/nl/blog/korte-slug`. Bij livegang breekt elke gedeelde link. Volledige lijst oude URL's nodig | C | bouwer | open — vóór livegang |
-| 28 | ~~Vergadermacht op de downloadspagina~~ | T | Emilie | **afgerond 17 aug 2026** — formulier ingesloten. Nog open: welke publicaties horen er verder in? |
-| 29 | **Boekingstool van HubSpot inbouwen.** Advies: primair op de rondleiding/demo, als tweede optie onder het formulier bij "Plan een gesprek", en níét op Contact. Boekingslink nog nodig | C | Emilie | open — link nodig |
+| 28 | ~~Vergadermacht op de downloadspagina~~ | T B | Emilie | **afgerond 17 aug 2026** — formulier ingesloten, beeld van het boek erbij |
+| 31 | **Keuzekompas Meeting Mix** stond op de oude site achter een e-mailaanmelding; het bestand zelf is niet publiek. Terughalen? Dan is het pdf plus formulier | T | Emilie | open |
+| 29 | ~~Boekingstool van HubSpot inbouwen~~ | C | Emilie | **afgerond 17 aug 2026** — agenda op de rondleiding, knop bij Plan een gesprek, niet op Contact |
 | 30 | ~~Downloads in de hoofdnavigatie~~ | C | Emilie | **besloten 17 aug 2026** — alleen in de footer, via `alleenFooter` op het menu-item |
 | 13 | De Engelse pagina's gebruiken de **Nederlandse** navigatie: `app/en/layout.tsx` laadt dezelfde Navbar en Footer, en die lezen `NAV_ITEMS` uit `lib/navigatie.ts` (allemaal `/nl/`-links). Bij de Engelse ronde hier een EN-variant naast zetten. Ook de NL/EN-schakelaar in de balk wijst nu twee keer naar `/nl/home` | C | bouwer | open — hoort bij punt 2 |
 
 ---
 
 ## 5. Log
+
+### 2026-08-17 — Boekingsagenda en de downloads van de oude site
+
+- **C** — **Boekingsagenda ingebouwd.** Nieuw component `HubSpotAgenda`, met een
+  gewone link als terugval: laadt het script niet, dan ziet iemand anders een leeg
+  vlak en denkt hij dat het stuk is. Op de rondleiding staat de agenda nu wáár
+  eerst het formulier stond. Bij Plan een gesprek staat hij eronder als tweede
+  route; op Contact bewust niet.
+- **T** — **Vier checklists opgehaald van de oude site** — online vergaderen,
+  doelgericht vergaderen, online samenwerken en online ALV. Die stonden daar als
+  losse pdf's en waren nergens anders bewaard.
+- **B** — **Beeld bij Vergadermacht** (het boek in handen) met de ondertitel van
+  de publicatie, en een **eigen hero** voor de downloadspagina.
+
 
 ### 2026-08-17 — Downloads afgerond
 

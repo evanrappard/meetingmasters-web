@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_PORTAL_ID, HUBSPOT_FORMS } from "@/lib/hubspot-forms";
 
@@ -38,6 +39,38 @@ const PUBLICATIES: Item[] = [
       "Waar wij voor staan, in het kort. Over waarom hoe we elkaar ontmoeten ertoe doet, en wat er misgaat als een bijeenkomst een agendapunt wordt in plaats van een moment.",
     href: "/downloads/meetingmasters-manifest.pdf",
     actie: "Download het manifest",
+  },
+  {
+    titel: "Checklist online vergaderen",
+    soort: "Checklist · pdf",
+    body:
+      "De praktische kant: wat je regelt vóór je begint en waar je op let terwijl het loopt, zodat je online goed voor de dag komt.",
+    href: "/downloads/checklist-online-vergaderen-praktisch.pdf",
+    actie: "Download de checklist",
+  },
+  {
+    titel: "Checklist doelgericht vergaderen",
+    soort: "Checklist · pdf",
+    body:
+      "Wat wil je bereiken, wie heb je daarvoor nodig, en waaraan zie je achteraf dat het gelukt is? De voorbereiding die het verschil maakt.",
+    href: "/downloads/checklist-doelgericht-vergaderen.pdf",
+    actie: "Download de checklist",
+  },
+  {
+    titel: "Checklist online samenwerken",
+    soort: "Checklist · pdf",
+    body:
+      "Over de opzet en de begeleiding van een bijeenkomst waarin echt wordt samengewerkt — en over de afspraken die dat mogelijk maken.",
+    href: "/downloads/checklist-online-samenwerking.pdf",
+    actie: "Download de checklist",
+  },
+  {
+    titel: "Checklist online ALV",
+    soort: "Checklist · pdf",
+    body:
+      "Voor een ledenvergadering die online moet kloppen: stemmen, quorum, en een verloop dat formeel standhoudt.",
+    href: "/downloads/checklist-online-alv.pdf",
+    actie: "Download de checklist",
   },
 ];
 
@@ -91,9 +124,20 @@ export default function DownloadsPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#2D2D2D] py-14 md:py-20">
-        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <div className="max-w-[640px]">
+      <section className="relative bg-[#2D2D2D] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/downloads-hero.webp"
+            alt="Iemand aan een bureau met een laptop waarop een downloadknop staat"
+            fill priority
+            className="object-cover object-right"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D] via-[#2D2D2D]/70 lg:via-[#2D2D2D]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/80 to-transparent lg:hidden" />
+        </div>
+
+        <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-16 md:py-24 lg:py-28">
+          <div className="max-w-[560px]">
             <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-5">Downloads</p>
             <h1
               className="font-bold text-white leading-[1.05] text-balance mb-5"
@@ -101,14 +145,13 @@ export default function DownloadsPage() {
             >
               Meenemen, doorsturen, nalezen.
             </h1>
-            <p className="text-white/75 text-base leading-relaxed">
+            <p className="text-white/80 text-base leading-relaxed">
               Onze publicaties over online samenkomen, en de handleidingen die je deelnemers vooraf
               kunt sturen.
             </p>
           </div>
         </div>
       </section>
-
 
       {/* ── VERGADERMACHT ──
           Het formulier van de HubSpot-landingspagina staat hier ingesloten, in
@@ -119,12 +162,24 @@ export default function DownloadsPage() {
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-16 items-start">
             <div className="max-w-[620px]">
+              <div className="relative aspect-[3/2] rounded-lg overflow-hidden mb-7 shadow-md">
+                <Image
+                  src="/images/vergadermacht-boek.webp"
+                  alt="De publicatie Vergadermacht, over hoe centrale regie op overleg de waarde van bijeenkomsten vergroot"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 620px"
+                />
+              </div>
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
                 Onze publicatie
               </p>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 Vergadermacht
               </h2>
+              <p className="text-[#2D2D2D] font-semibold leading-snug mb-4">
+                Hoe centrale regie op overleg de waarde van bijeenkomsten vergroot.
+              </p>
               <p className="text-[#545454] leading-relaxed mb-4">
                 Over hoe bijeenkomsten werkelijk werken: wie er spreekt, wie er zwijgt, en wat dat
                 doet met wat er wordt besloten. Vergaderen is geen neutrale bezigheid — er wordt
@@ -151,7 +206,8 @@ export default function DownloadsPage() {
               Direct te downloaden
             </h2>
             <p className="text-[#545454] leading-relaxed">
-              Zonder formulier. Gratis, en bedoeld om door te geven.
+              Zonder formulier. Gratis, en bedoeld om door te geven — aan je collega's, je bestuur
+              of de mensen die je uitnodigt.
             </p>
           </div>
 

@@ -88,3 +88,18 @@ verwijzen daarnaar in plaats van de ID's los te herhalen.
 > blijft bestaan, maar de site gebruikt hetzelfde formulier ingesloten. Dezelfde
 > leads, zonder sprong naar een ander domein en in de eigen stijl. Wijzig je het
 > formulier in HubSpot, dan verandert het op beide plekken mee.
+
+## Boekingsagenda
+
+Naast de formulieren draait er een HubSpot-agenda waarin bezoekers zelf een
+moment kiezen. Staat als `HUBSPOT_AGENDA` in `lib/hubspot-forms.ts` en wordt
+ingesloten met `components/ui/HubSpotAgenda.tsx`.
+
+| Waar | Hoe |
+|---|---|
+| `/nl/demo` (rondleiding) | **Hoofdroute** — de agenda staat waar eerst het formulier stond. Een rondleiding is kort en vast; zelf een moment kiezen is sneller dan een voorkeursmoment opgeven en op antwoord wachten. |
+| `/nl/expert-advies` | **Tweede route** — het formulier blijft voorop, want daarin staat waar het over gaat en daardoor is het eerste gesprek meteen inhoudelijk. Daaronder een knop voor wie liever meteen prikt. |
+| `/nl/contact` | **Bewust niet.** Contact is een vangnet voor facturen, sollicitaties en persvragen; een boekingslink trekt daar de verkeerde afspraken binnen. |
+
+> Direct geboekte afspraken hebben een hoger no-show-percentage dan afspraken die
+> per mail zijn afgestemd. Zet de herinneringen in HubSpot aan.

@@ -25,8 +25,9 @@ export default function DemoPage() {
         </>
       }
       formulier="demo"
+      agenda
       formulierKop="Plan je rondleiding"
-      formulierUitleg="Laat weten wanneer het jou uitkomt, dan stemmen we een moment af."
+      formulierUitleg="Kies zelf een moment dat je uitkomt. Twintig minuten, meer is het niet."
     />
   );
 }

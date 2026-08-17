@@ -14,6 +14,13 @@ export const HUBSPOT_PORTAL_ID = "147433380";
 /** Datacenter van het account. Is ook de default in HubSpotForm.tsx. */
 export const HUBSPOT_REGION = "eu1";
 
+/**
+ * Boekingsagenda van Emilie. Bezoekers kiezen hier zelf een moment; wij
+ * gebruiken dat op de rondleiding en als snelle route naast het adviesformulier.
+ */
+export const HUBSPOT_AGENDA =
+  "https://meetings-eu1.hubspot.com/emilie-van-rappard?uuid=3053d26f-cdc7-495c-ab78-587396c1a7e3";
+
 export const HUBSPOT_FORMS = {
   /** Vrijblijvend advies — /nl/expert-advies */
   advies: "02bdc77f-14e3-4826-9d48-96449c8ca062",
