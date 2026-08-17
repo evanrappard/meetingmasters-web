@@ -91,6 +91,11 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    label: "Downloads",
+    href: "/nl/downloads",
+    groep: "diensten",
+  },
+  {
     label: "Over ons",
     href: "/nl/about",
     groep: "organisatie",

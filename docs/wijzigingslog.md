@@ -72,14 +72,30 @@ leeft in de paginacode, niet in een apart bestand).
 | 22 | **Briefing-tool** onder "Voor je begint" — nog te bedenken en te bouwen. Hoort bij de calculator, in hetzelfde blok | C | Emilie | open — nog **niet** zichtbaar op de site |
 | 23 | **Duidelijkere landingsplek voor "Check je format"**, aansluitend op "Voor je begint" | C T | Emilie | open — nog **niet** zichtbaar op de site |
 | 24 | **Tools mogelijk een eigen plek in het menu.** Besluit 17 aug 2026: pas doen zodra er méér tools zijn; nu blijft het onder Games & Tools | C | Emilie | geparkeerd |
-| 25 | **Blogdatum klopt niet:** "Niet hetzelfde. Wel goed." staat live op 13 juli 2026, hier op 31 maart 2026. Daardoor staat hij op de verkeerde plek in de volgorde | T | Emilie | open — welke datum is juist? |
-| 26 | **Eigen visual voor "Terug naar kantoor"** — leent nu het beeld van "Heen en weer" | B | Emilie | open |
+| 25 | ~~Blogdatum "Niet hetzelfde. Wel goed."~~ | T | Emilie | **afgerond 17 aug 2026** — 13 juli, en het overzicht sorteert nu op datum |
+| 26 | ~~Eigen visual voor "Terug naar kantoor"~~ | B | Emilie | **afgerond 17 aug 2026** |
 | 27 | **Doorverwijzingen voor oude bloglinks.** Live staat op `/nl/blogs/lange-slug`, hier op `/nl/blog/korte-slug`. Bij livegang breekt elke gedeelde link. Volledige lijst oude URL's nodig | C | bouwer | open — vóór livegang |
+| 28 | **Vergadermacht op de downloadspagina.** Loopt via een HubSpot-landingspagina met formulier; de URL daarvan ontbreekt nog. Ook: welke publicaties horen er verder in? | T | Emilie | open — URL nodig |
+| 29 | **Boekingstool van HubSpot inbouwen.** Advies: primair op de rondleiding/demo, als tweede optie onder het formulier bij "Plan een gesprek", en níét op Contact. Boekingslink nog nodig | C | Emilie | open — link nodig |
+| 30 | **Downloads staat nu ook in de hoofdnavigatie** (groep diensten). Daarmee heeft de balk zeven items. Alternatief: alleen in de footerkolom Diensten laten staan | C | Emilie | te beslissen |
 | 13 | De Engelse pagina's gebruiken de **Nederlandse** navigatie: `app/en/layout.tsx` laadt dezelfde Navbar en Footer, en die lezen `NAV_ITEMS` uit `lib/navigatie.ts` (allemaal `/nl/`-links). Bij de Engelse ronde hier een EN-variant naast zetten. Ook de NL/EN-schakelaar in de balk wijst nu twee keer naar `/nl/home` | C | bouwer | open — hoort bij punt 2 |
 
 ---
 
 ## 5. Log
+
+### 2026-08-17 — Blogcorrecties en een downloadspagina
+
+- **T B** — **"Niet hetzelfde. Wel goed." staat nu op 13 juli 2026**, zoals live.
+  Het blogoverzicht sorteert voortaan op datum in plaats van op volgorde in het
+  bestand; anders staat een post zo op de verkeerde plek.
+- **B** — **Eigen visual voor "Terug naar kantoor"** — het geleende beeld van
+  "Heen en weer" is vervangen.
+- **C T** — **Nieuwe downloadspagina** `/nl/downloads`, opgenomen in de groep
+  diensten (dus in het menu én in de footerkolom). Twee groepen: publicaties, en
+  handleidingen voor deelnemers. De laatste twee stonden al in `public/downloads`
+  maar waren alleen bereikbaar vanaf de hulppagina.
+
 
 ### 2026-08-17 — Blog bijgewerkt en de vergaderkosten-calculator ingebouwd
 

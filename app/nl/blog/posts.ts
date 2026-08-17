@@ -18,13 +18,17 @@ export type BlogPost = {
   blocks: BlogBlock[];
 };
 
-export const POSTS: BlogPost[] = [
+/**
+ * Nieuwste eerst, op datum — niet op volgorde in dit bestand. Een post op de
+ * verkeerde plek zetten is anders zo gebeurd, en dan klopt het overzicht niet.
+ */
+const ONGESORTEERD: BlogPost[] = [
   {
     "slug": "terug-naar-kantoor",
     "title": "Terug naar kantoor: het antwoord op de verkeerde vraag",
     "date": "14 augustus 2026",
     "iso": "2026-08-14",
-    "img": "/images/blog/heen-en-weer.webp",
+    "img": "/images/blog/terug-naar-kantoor.webp",
     "imgAlt": "Illustratie bij blog over de discussie tussen thuiswerken en terug naar kantoor",
     "excerpt": "Steeds meer werkgevers leggen kantoordagen vast. Maar de discussie gaat niet over waar mensen werken — hij gaat over samenhang. En daar praat niemand meer over.",
     "dek": "Bij ABN AMRO ligt een cao-voorstel om kantoordagen vast te leggen. Beide partijen willen hetzelfde, en toch loopt het gesprek vast. Omdat het over het verkeerde onderwerp gaat.",
@@ -583,8 +587,8 @@ export const POSTS: BlogPost[] = [
   {
     "slug": "niet-hetzelfde-wel-goed",
     "title": "Niet hetzelfde. Wel goed.",
-    "date": "31 maart 2026",
-    "iso": "2026-03-31",
+    "date": "13 juli 2026",
+    "iso": "2026-07-13",
     "img": "/images/blog/niet-hetzelfde-wel-goed.webp",
     "imgAlt": "Illustratie bij blog 'Niet hetzelfde. Wel goed.' over online versus offline bijeenkomsten",
     "excerpt": "De meeste bijeenkomsten waren al ineffectief voordat ze online gingen. Online maakte dat alleen zichtbaarder. Succes hangt af van de methodiek, niet van het medium — de vraag is nooit 'online of offline?' maar 'wat moet hier gebeuren?'",
@@ -1021,6 +1025,10 @@ export const POSTS: BlogPost[] = [
     ]
   }
 ];
+
+export const POSTS: BlogPost[] = [...ONGESORTEERD].sort((a, b) =>
+  b.iso.localeCompare(a.iso)
+);
 
 export const getPost = (slug: string): BlogPost | undefined =>
   POSTS.find((p) => p.slug === slug);
