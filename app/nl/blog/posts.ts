@@ -20,6 +20,127 @@ export type BlogPost = {
 
 export const POSTS: BlogPost[] = [
   {
+    "slug": "terug-naar-kantoor",
+    "title": "Terug naar kantoor: het antwoord op de verkeerde vraag",
+    "date": "14 augustus 2026",
+    "iso": "2026-08-14",
+    "img": "/images/blog/heen-en-weer.webp",
+    "imgAlt": "Illustratie bij blog over de discussie tussen thuiswerken en terug naar kantoor",
+    "excerpt": "Steeds meer werkgevers leggen kantoordagen vast. Maar de discussie gaat niet over waar mensen werken — hij gaat over samenhang. En daar praat niemand meer over.",
+    "dek": "Bij ABN AMRO ligt een cao-voorstel om kantoordagen vast te leggen. Beide partijen willen hetzelfde, en toch loopt het gesprek vast. Omdat het over het verkeerde onderwerp gaat.",
+    "metaDescription": "Kantoordagen vastleggen in de cao: het middel is het doel geworden. Waarom de vraag niet is wáár mensen werken, maar hóé ze samenwerken — en wat een virtueel kantoor daaraan verandert.",
+    "readingMinutes": 6,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Bij ABN AMRO ligt een cao-voorstel om kantoordagen vast te leggen. De onderhandeling gaat over waar mensen werken. Maar daar gaat de discussie niet echt over. En ook niet over productiviteit, zoals wordt gesteld. En slechts indirect over creativiteit of innovatiekracht. De onderliggende pijn die wordt beschreven, gaat over het teruglopen van de samenhang nu niet iedereen meer op dezelfde plek zit. Zolang dat echter slechts een afgeleide vraag is, en niet het hoofdpunt van gesprek, praat iedereen langs elkaar heen."
+      },
+      {
+        "type": "h2",
+        "text": "Steeds meer werkgevers leggen kantoordagen vast"
+      },
+      {
+        "type": "p",
+        "text": "Eerst de feiten. ABN AMRO wil in de nieuwe cao vastleggen dat medewerkers minimaal de helft van hun werkweek op kantoor doorbrengen. De bank motiveert dat met betere samenwerking, meer creativiteit en een duidelijkere scheiding tussen werk en privé. Ten dele verdedigbaar. Opvallend is echter vooral de route. Om zo'n verplichting in een cao op te nemen, is ongebruikelijk en lijkt af te sluiten waar het juist om gaat: meer contact. De huidige cao van de bank legt de keuze juist bij het overleg tussen medewerker en leidinggevende. Wat eerst een gesprek was, moet nu dus een afdwingbare afspraak worden."
+      },
+      {
+        "type": "p",
+        "text": "Daarmee loopt ABN AMRO voorop in een bredere beweging. Uit onderzoek van werkgeversorganisatie AWVN blijkt dat bijna acht op de tien werkgevers al een minimumaantal kantoordagen hanteert, meestal twee per week. En de druk neemt toe. In de CEO Outlook van KPMG uit 2024 verwachtte ruim acht op de tien bestuurders dat medewerkers binnen drie jaar weer volledig op kantoor zouden werken. Een jaar eerder was dat nog ruim zes op de tien. Wat toen een verwachting was, staat nu op de onderhandelingstafel."
+      },
+      {
+        "type": "h2",
+        "text": "Het leiderschap heeft een punt"
+      },
+      {
+        "type": "p",
+        "text": "Ook al wordt deze niet primair zo benoemd: de zorg voor uitholling van de organisatie is reëel. Een langlopende Amerikaanse studie in Science laat zien dat meer dan de helft van de thuiswerkers zich minder verbonden voelt met collega's. Alleenwonenden zijn het kwetsbaarst. Jonge medewerkers kennen niemand aan wie ze even een vraag kunnen stellen. Inwerken hapert, kennis stroomt trager, het wij-gevoel slijt. Wie eindverantwoordelijk is voor een organisatie, kan daar niet naar blijven kijken."
+      },
+      {
+        "type": "h2",
+        "text": "De medewerkers hebben ook een punt"
+      },
+      {
+        "type": "p",
+        "text": "Thuiswerken levert iets op waar niemand meer omheen kan. Geen twee uur reizen voor een overleg van één uur. Werk dat past rond school, mantelzorg of een ziekenhuisafspraak. Ruimte om geconcentreerd door te werken. Minder kilometers, lagere kosten. Ruim acht op de tien werknemers ziet thuiswerken inmiddels als een belangrijke arbeidsvoorwaarde. Mensen hebben hun leven erop ingericht, en wie dat terugdraait, neemt iets af."
+      },
+      {
+        "type": "p",
+        "text": "Opvallend genoeg delen ook zij de diagnose. Dat samenhang moeilijker wordt als iedereen ergens anders zit, ontkent bijna niemand. En dat daarvoor actie nodig is, ook niet."
+      },
+      {
+        "type": "h2",
+        "text": "Toch verhardt de discussie"
+      },
+      {
+        "type": "p",
+        "text": "Hoe loopt een gesprek vast waarin beide partijen hetzelfde willen? Doordat het over het verkeerde onderwerp gaat. Aanwezigheid is het enige middel dat te tellen, te controleren en vast te leggen is. Dus grijpt de leiding daarnaar, en stuurt op kantoordagen terwijl ze verbondenheid bedoelt. Medewerkers horen geen zorg, maar wantrouwen, en gaan over hun vrijheid praten. Vakbonden onderhandelen erover, en zodra iets onderhandelbaar wordt, is het een ruilmiddel. Twee dagen tegen een andere regeling."
+      },
+      {
+        "type": "p",
+        "text": "Bij ABN AMRO is dat al zichtbaar. Vakbond De Unie noemt het voorstel een zwaktebod van het management en stelt dat het maar om een kleine groep gaat die vrijwel nooit naar kantoor komt. De posities staan vast voordat het gesprek is begonnen."
+      },
+      {
+        "type": "quote",
+        "text": "Het middel is het doel geworden. Over de samenhang waar het mee begon, praat niemand meer."
+      },
+      {
+        "type": "h2",
+        "text": "De vraag is niet waar, maar hoe"
+      },
+      {
+        "type": "p",
+        "text": "Samenhang ontstaat niet door aanwezigheid zelf. Op de kantoren van vroeger ontstond zij door alles wat er omheen gebeurde: de vraag over het bureau heen, het praatje bij het apparaat, het samen nalopen van een lastig gesprek."
+      },
+      {
+        "type": "p",
+        "text": "Sinds 2020 is er veel geregeld over wáár mensen mogen werken. Over hóé ze samenwerken is bijna niets afgesproken. Dat groeide vanzelf, in het tempo waarin Teams en Zoom werden uitgerold. Steeds tactischer, steeds transactioneler. Agenda, aftikken, volgende. Organisaties accepteerden een manier van werken waarvan ze de spelregels nooit hebben opgeschreven. En nu dat structureel schuurt, grijpen ze naar het enige wat wel is vastgelegd. De plaats."
+      },
+      {
+        "type": "h2",
+        "text": "Voer het gesprek"
+      },
+      {
+        "type": "p",
+        "text": "De vragen die nodig zijn om anno 2026 weer aan samenhang te bouwen, zijn het gevolg van verwaarloosde relaties in een snel veranderende tijd. Ze gaan over de basis van samenwerken: over ik versus wij. Over vrijheid en bereikbaarheid. Over kennis en communicatie."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Waar spreken we elkaar op aan?",
+          "Hoe bereiken we elkaar: bellen, appen of mailen?",
+          "Wanneer ben je beschikbaar en wanneer juist niet?",
+          "Mogen die voorkeuren per persoon verschillen, of geldt voor iedereen hetzelfde?",
+          "Wat doen we samen en wat doet ieder alleen?",
+          "Welke momenten zijn zo belangrijk dat we ervoor bij elkaar komen, online of op locatie?"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Zo'n gesprek levert inzicht, toegenomen begrip en nieuwe richting: het startpunt voor een veranderende en meer verbindende cultuur. Bovendien kunnen daarmee afspraken worden gemaakt met veel meer houdbaarheid, waarmee een wij-gevoel niet alleen besproken wordt, maar ook beklijft."
+      },
+      {
+        "type": "h2",
+        "text": "Geef het een plek: de derde weg tussen thuis en kantoor"
+      },
+      {
+        "type": "p",
+        "text": "Cultuur ontstaat als mensen zich dagelijks op vergelijkbare manier gedragen, en gedrag dat het wij-gevoel bevordert heeft een plek nodig waar het zichtbaar is. Wie op kantoor zit, heeft die plek twee of drie dagen per week. De rest van de week is er niets."
+      },
+      {
+        "type": "p",
+        "text": "Echte samenhang ontstaat als er een speelveld ontstaat waar locatie niet uitmaakt. Waar nabijheid kan bestaan zonder dat die fysiek is. Waar verbinding kan ontstaan ongeacht de plaats of tijdzones. Wij pleiten voor 'de derde weg', namelijk het virtueel kantoor. Niet in plaats van thuiswerken. Niet in plaats van kantoor. Maar ertussen. Dat virtueel kantoor is een vaste online omgeving waar collega's aanwezig zijn zonder dat daar een agendapunt voor nodig is. Waar je zit en samen aan het werken bent, net als in het 'echte' kantoor. En waar, online, het informele gesprek ontstaat in en tussen meetings, net als op de fysieke werkvloer."
+      },
+      {
+        "type": "h2",
+        "text": "Verhuis naar een nieuwe plek — en ruim meteen de zolder op"
+      },
+      {
+        "type": "p",
+        "text": "Het mooie van een overgang naar een virtueel kantoor, is dat de plek en het gesprek elkaar versterken. Wie een nieuwe werkplek inricht, moet de vragen van hierboven wel beantwoorden. Waar zit je normaal gesproken? Wanneer sta je open voor een praatje en wanneer niet? Mag de camera uit? Moet je het melden als je even een boodschap gaat doen? Zoals je de zolder vaak pas opruimt als je gaat verhuizen, zo gaat het ook met het inrichten van je virtuele kantoor: het is de natuurlijke aanleiding voor het gesprek dat allang gevoerd had moeten worden. En daarna draait het om: de plek houdt de afspraken levend, omdat het gedrag er elke dag zichtbaar is. Het kantoor is de aanleiding, niet het doel."
+      }
+    ]
+  },
+  {
     "slug": "heen-en-weer",
     "title": "Heen en weer. Thuiswerken — of terug naar kantoor?",
     "date": "30 juni 2026",
