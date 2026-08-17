@@ -70,3 +70,15 @@
 /nl/virtual-office/huren
 /nl/virtual-office/kantoor-cultuur
 /nl/virtual-office/zaaltje
+/en/blog
+/en/blog/back-to-the-office
+/en/blog/not-the-same-still-good
+/en/blog/back-and-forth
+/en/blog/we-have-online-covered
+/en/blog/what-gamers-know
+/en/blog/circles-versus-squares
+/en/blog/system-rage
+/en/blog/the-ai-paradox
+/en/blog/the-rule-of-eight
+/en/blog/a-stick-to-beat-it-with
+/en/blog/an-online-home-for-olympians

@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "Blog | MeetingMasters",
   description:
     "Inzichten, reflecties en praktische ideeën over online meetings, virtuele events en menselijke verbinding — door Emilie van Rappard.",
+  alternates: {
+    canonical: "https://www.meetingmasters.online/nl/blog",
+    languages: {
+      "nl-NL": "https://www.meetingmasters.online/nl/blog",
+      "en-GB": "https://www.meetingmasters.online/en/blog",
+    },
+  },
 };
 
 export default function BlogPage() {

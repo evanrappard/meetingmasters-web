@@ -3,6 +3,7 @@ import { readdirSync } from "node:fs";
 import { join } from "node:path";
 import { POSTS } from "@/app/nl/blog/posts";
 import { eventFormats } from "@/app/nl/events/page";
+import { POSTS_EN } from "@/app/en/blog/posts";
 
 const BASE = "https://www.meetingmasters.online";
 
@@ -38,6 +39,8 @@ export const NIET_INDEXEREN = new Set([
 const OVERSLAAN = [
   /^\/embed\b/,
   /^\/studio\b/,
+  // /en verwijst grotendeels door naar /nl. Wat er wél in het Engels
+  // bestaat, voegen we hieronder expliciet toe.
   /^\/en\b/,
   /^\/nl\/technologie$/, // verwijst door naar /tools
   /^\/nl\/technologie\/(faq|helpdesk|platforms|hoe-het-werkt|support|zoom|teams|zoom-events)$/,
@@ -71,7 +74,8 @@ function gewicht(pad: string): { priority: number; changeFrequency: MetadataRout
   if (/^\/nl\/technologie\/(hulp|tools|spatialchat)$/.test(pad)) return { priority: 0.8, changeFrequency: "monthly" };
   if (/^\/nl\/events\//.test(pad)) return { priority: 0.8, changeFrequency: "monthly" };
   if (/^\/nl\/(virtual-office|games-tools)\//.test(pad)) return { priority: 0.7, changeFrequency: "monthly" };
-  if (/^\/nl\/blog\//.test(pad)) return { priority: 0.6, changeFrequency: "yearly" };
+  if (pad === "/en/blog") return { priority: 0.8, changeFrequency: "weekly" };
+  if (/^\/(nl|en)\/blog\//.test(pad)) return { priority: 0.6, changeFrequency: "yearly" };
   if (/^\/nl\/(privacy-statement|cookieverklaring)$/.test(pad)) return { priority: 0.3, changeFrequency: "yearly" };
   return { priority: 0.6, changeFrequency: "monthly" };
 }
@@ -87,6 +91,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const e of eventFormats) paden.add(`/nl/events/${e.slug}`);
   for (const p of POSTS) paden.add(`/nl/blog/${p.slug}`);
+  paden.add("/en/blog");
+  for (const p of POSTS_EN) paden.add(`/en/blog/${p.slug}`);
   for (const t of ["zoom", "teams", "zoom-events"]) paden.delete(`/nl/technologie/${t}`);
 
   return [...paden]
