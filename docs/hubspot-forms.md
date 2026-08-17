@@ -103,3 +103,18 @@ ingesloten met `components/ui/HubSpotAgenda.tsx`.
 
 > Direct geboekte afspraken hebben een hoger no-show-percentage dan afspraken die
 > per mail zijn afgestemd. Zet de herinneringen in HubSpot aan.
+
+## Boekingsagenda
+
+Naast de formulieren draait er een HubSpot-agenda waarin bezoekers zelf een
+moment kiezen. Staat als `HUBSPOT_AGENDA` in `lib/hubspot-forms.ts`, ingesloten
+met `components/ui/HubSpotAgenda.tsx`.
+
+| Waar | Hoe |
+|---|---|
+| `/nl/demo` (rondleiding) | **Hoofdroute** — de agenda staat waar eerst het formulier stond. Kort en vast; zelf een moment kiezen is sneller dan een voorkeur opgeven en wachten. |
+| `/nl/expert-advies` | **Tweede route** — het formulier blijft voorop, want daarin staat waar het over gaat. Daaronder een knop voor wie liever meteen prikt. |
+| `/nl/contact` | **Bewust niet.** Vangnet voor facturen, sollicitaties en persvragen; een boekingslink trekt daar de verkeerde afspraken binnen. |
+
+> Direct geboekte afspraken hebben een hoger no-show-percentage dan afspraken die
+> per mail zijn afgestemd. Zet de herinneringen in HubSpot aan.

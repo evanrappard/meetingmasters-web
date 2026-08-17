@@ -25,6 +25,12 @@ export const metadata: Metadata = {
 type Item = {
   titel: string;
   soort: string;
+  /**
+   * Publicatiedatum. Staat er bewust bij: een deel van deze stukken is van
+   * 2022 en dat lees je eruit, ook al klopt de inhoud nog. Beter dat de lezer
+   * dat zelf ziet dan dat hij het gaandeweg ontdekt.
+   */
+  datum: string;
   body: string;
   href: string;
   actie: string;
@@ -35,38 +41,16 @@ const PUBLICATIES: Item[] = [
   {
     titel: "Het MeetingMasters-manifest",
     soort: "Manifest · pdf",
+    datum: "2022",
     body:
       "Waar wij voor staan, in het kort. Over waarom hoe we elkaar ontmoeten ertoe doet, en wat er misgaat als een bijeenkomst een agendapunt wordt in plaats van een moment.",
     href: "/downloads/meetingmasters-manifest.pdf",
     actie: "Download het manifest",
   },
   {
-    titel: "Checklist online vergaderen",
-    soort: "Checklist · pdf",
-    body:
-      "De praktische kant: wat je regelt vóór je begint en waar je op let terwijl het loopt, zodat je online goed voor de dag komt.",
-    href: "/downloads/checklist-online-vergaderen-praktisch.pdf",
-    actie: "Download de checklist",
-  },
-  {
-    titel: "Checklist doelgericht vergaderen",
-    soort: "Checklist · pdf",
-    body:
-      "Wat wil je bereiken, wie heb je daarvoor nodig, en waaraan zie je achteraf dat het gelukt is? De voorbereiding die het verschil maakt.",
-    href: "/downloads/checklist-doelgericht-vergaderen.pdf",
-    actie: "Download de checklist",
-  },
-  {
-    titel: "Checklist online samenwerken",
-    soort: "Checklist · pdf",
-    body:
-      "Over de opzet en de begeleiding van een bijeenkomst waarin echt wordt samengewerkt — en over de afspraken die dat mogelijk maken.",
-    href: "/downloads/checklist-online-samenwerking.pdf",
-    actie: "Download de checklist",
-  },
-  {
     titel: "Checklist online ALV",
     soort: "Checklist · pdf",
+    datum: "2022",
     body:
       "Voor een ledenvergadering die online moet kloppen: stemmen, quorum, en een verloop dat formeel standhoudt.",
     href: "/downloads/checklist-online-alv.pdf",
@@ -78,6 +62,7 @@ const HANDLEIDINGEN: Item[] = [
   {
     titel: "Deelnemen via SpatialChat",
     soort: "Handleiding · pdf",
+    datum: "2026",
     body:
       "Stap voor stap voor deelnemers: binnenkomen, je weg vinden in de ruimte, en beeld en geluid goed zetten. Handig om vooraf mee te sturen.",
     href: "/downloads/spatialchat-instructies-deelnemer.pdf",
@@ -86,6 +71,7 @@ const HANDLEIDINGEN: Item[] = [
   {
     titel: "Deelnemen via Zoom",
     soort: "Handleiding · pdf",
+    datum: "2026",
     body:
       "Wat een deelnemer moet weten om zonder gedoe binnen te komen en mee te doen. Ook bruikbaar als bijlage bij je uitnodiging.",
     href: "/downloads/zoom-instructies-deelnemer.pdf",
@@ -96,7 +82,9 @@ const HANDLEIDINGEN: Item[] = [
 function Kaart({ item }: { item: Item }) {
   const inhoud = (
     <>
-      <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mb-2">{item.soort}</p>
+      <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mb-2">
+        {item.soort} · {item.datum}
+      </p>
       <h3 className="font-bold text-[#2D2D2D] text-lg mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">
         {item.titel}
       </h3>
@@ -198,8 +186,71 @@ export default function DownloadsPage() {
         </div>
       </section>
 
-      {/* ── PUBLICATIES ──────────────────────────────────────────────── */}
+
+      {/* ── KEUZEKOMPAS ──
+          Uit 2022, en dat zie je aan de vormgeving. De inhoud klopt nog, dus
+          het jaartal staat er gewoon bij in plaats van dat we het verstoppen. */}
       <section className="bg-[#F7F7F5] border-t border-[#EBEBEB] py-14 md:py-16">
+        <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+            <div>
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
+                Keuzehulp · 2022
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
+                Keuzekompas Meeting Mix
+              </h2>
+              <p className="text-[#545454] leading-relaxed mb-4">
+                Online, hybride, op locatie, alleen audio, asynchroon of helemaal geen bijeenkomst —
+                welke vorm past bij wat je wilt bereiken? Het kompas loopt de afwegingen langs, zodat
+                je die keuze bewust maakt in plaats van uit gewoonte.
+              </p>
+              <p className="text-sm text-[#8A9493] leading-relaxed mb-6">
+                Uit 2022. Dat zie je aan de vormgeving, maar de afwegingen zijn niet veranderd. Er
+                komt een keer een nieuwe versie.
+              </p>
+              <a
+                href="/downloads/keuzekompas-meeting-mix.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
+              >
+                Download het keuzekompas →
+              </a>
+              <p className="text-xs text-[#AAAAAA] mt-3">pdf · 11 MB</p>
+            </div>
+
+            <div>
+              {/* Kort filmpje, met bediening: er zit gesproken tekst op, dus
+                  niets start vanzelf. */}
+              <video
+                className="w-full rounded-lg border border-[#EBEBEB] bg-black"
+                controls
+                preload="metadata"
+                poster="/images/keuzekompas-poster.jpg"
+              >
+                <source src="/videos/keuzekompas.mp4" type="video/mp4" />
+                Je browser kan deze video niet tonen.{" "}
+                <a href="https://www.youtube.com/watch?v=2nyK35JZjUE">Bekijk hem op YouTube</a>.
+              </video>
+              <p className="text-sm text-[#777777] mt-3">
+                In veertien seconden uitgelegd. Ook{" "}
+                <a
+                  href="https://www.youtube.com/watch?v=2nyK35JZjUE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#28A8AA] font-semibold hover:underline"
+                >
+                  op YouTube ↗
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PUBLICATIES ──────────────────────────────────────────────── */}
+      <section className="bg-white border-t border-[#EBEBEB] py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="max-w-[680px] mb-9">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
@@ -220,7 +271,7 @@ export default function DownloadsPage() {
       </section>
 
       {/* ── HANDLEIDINGEN ────────────────────────────────────────────── */}
-      <section className="bg-white border-t border-[#EBEBEB] py-14 md:py-16">
+      <section className="bg-[#F7F7F5] border-t border-[#EBEBEB] py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="max-w-[680px] mb-9">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
@@ -249,7 +300,7 @@ export default function DownloadsPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────── */}
-      <section className="bg-[#F7F7F5] border-t border-[#EBEBEB] py-14 md:py-16">
+      <section className="bg-white border-t border-[#EBEBEB] py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="max-w-[640px]">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">

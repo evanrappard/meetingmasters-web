@@ -85,6 +85,25 @@ leeft in de paginacode, niet in een apart bestand).
 
 ## 5. Log
 
+### 2026-08-17 — Boekingsagenda, downloads opgeschoond en het Keuzekompas erbij
+
+- **C** — **Boekingsagenda ingebouwd.** Nieuw component `HubSpotAgenda`, met een
+  gewone link als terugval: laadt het script niet, dan ziet iemand anders een leeg
+  vlak en denkt hij dat het stuk is. Agenda op de rondleiding, knop bij Plan een
+  gesprek, op Contact bewust niet.
+- **T** — **Vier checklists opgehaald van de oude site.** Drie daarvan zijn op
+  verzoek meteen weer van de pagina gehaald: te gedateerd, worden aangescherpt.
+  Alleen de ALV-checklist blijft staan. Ze staan in git, dus terughalen kan.
+- **T B** — **Keuzekompas Meeting Mix** toegevoegd, met het filmpje erbij (14
+  seconden, lokaal gehost met bediening — er zit gesproken tekst op, dus niets
+  start vanzelf). Ook een link naar de YouTube-versie.
+- **T** — **Datum bij elke download.** Een deel is van 2022 en dat lees je eruit;
+  beter dat de lezer dat vooraf ziet dan gaandeweg ontdekt. Bij het Keuzekompas
+  staat het er ook in woorden bij.
+- **B** — Eigen hero voor de downloadspagina, en het boek in beeld bij
+  Vergadermacht met de ondertitel van de publicatie.
+
+
 ### 2026-08-17 — Boekingsagenda en de downloads van de oude site
 
 - **C** — **Boekingsagenda ingebouwd.** Nieuw component `HubSpotAgenda`, met een
