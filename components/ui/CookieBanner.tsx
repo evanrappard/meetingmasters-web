@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { taalVanPad } from "@/lib/navigatie";
 import {
   bewaarKeuze,
   leesKeuze,
@@ -17,8 +19,36 @@ import {
  * De banner blokkeert de pagina niet: de site plaatst uit zichzelf geen
  * analytische of marketingcookies, dus lezen kan gewoon doorgaan.
  */
+/**
+ * De teksten van de banner, per taal. De cookieverklaring zelf bestaat nog
+ * alleen in het Nederlands; de Engelse banner linkt daar dus naartoe, met een
+ * regel erbij dat de pagina Nederlandstalig is. Beter dat te zeggen dan iemand
+ * er onaangekondigd op te laten belanden.
+ */
+const T = {
+  nl: {
+    titel: "MeetingMasters maakt gebruik van cookies",
+    tekst:
+      "MeetingMasters gaat over contact maken en houden. En omdat we dat graag nog beter doen, niet alleen voor onze klanten maar ook mét onze klanten, gebruiken we cookies. Een deel is nodig om de site en onze formulieren te laten werken. Geef je ons ook toestemming voor statistieken, dan maken we de site daar beter mee. Wat we precies bewaren, lees je in onze ",
+    link: "cookieverklaring",
+    linkExtra: "",
+    noodzakelijk: "Alleen noodzakelijk",
+    alles: "Alles accepteren",
+  },
+  en: {
+    titel: "MeetingMasters uses cookies",
+    tekst:
+      "MeetingMasters is about making and keeping contact. And because we would like to do that even better, not only for our clients but with them, we use cookies. Some are needed to make the site and our forms work. Give us permission for statistics as well and we can make the site better with it. What exactly we store is set out in our ",
+    link: "cookie statement",
+    linkExtra: " (in Dutch)",
+    noodzakelijk: "Essential only",
+    alles: "Accept all",
+  },
+} as const;
+
 export default function CookieBanner() {
   const [zichtbaar, setZichtbaar] = useState(false);
+  const taal = taalVanPad(usePathname() ?? "/nl/home");
 
   useEffect(() => {
     // Pas na het monteren beslissen; op de server bestaat localStorage niet en
@@ -31,6 +61,8 @@ export default function CookieBanner() {
   }, []);
 
   if (!zichtbaar) return null;
+
+  const t = T[taal];
 
   const kies = (keuze: CookieKeuze) => {
     bewaarKeuze(keuze);
@@ -49,22 +81,16 @@ export default function CookieBanner() {
     >
       <div className="pointer-events-auto max-w-content mx-auto max-h-[70vh] overflow-y-auto bg-white border border-white-grey rounded-xl shadow-lg p-5 sm:p-7 flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-5 lg:gap-8">
         <div className="lg:flex-1">
-          <h2 className="text-primary font-bold mb-1">
-            MeetingMasters maakt gebruik van cookies
-          </h2>
+          <h2 className="text-primary font-bold mb-1">{t.titel}</h2>
           <p className="text-dark-grey text-sm leading-relaxed">
-            MeetingMasters gaat over contact maken en houden. En omdat we dat graag nog
-            beter doen, niet alleen voor onze klanten maar ook mét onze klanten, gebruiken
-            we cookies. Een deel is nodig om de site en onze formulieren te laten werken.
-            Geef je ons ook toestemming voor statistieken, dan maken we de site daar beter
-            mee. Wat we precies bewaren, lees je in onze{" "}
+            {t.tekst}
             <Link
               href="/nl/cookieverklaring"
               className="text-accent underline underline-offset-2 hover:text-accent-dark"
             >
-              cookieverklaring
+              {t.link}
             </Link>
-            .
+            {t.linkExtra}.
           </p>
         </div>
 
@@ -74,14 +100,14 @@ export default function CookieBanner() {
             onClick={() => kies("alleen-noodzakelijk")}
             className="border border-light-grey text-dark-grey px-6 py-3 text-sm font-semibold rounded hover:border-accent hover:text-accent transition-colors"
           >
-            Alleen noodzakelijk
+            {t.noodzakelijk}
           </button>
           <button
             type="button"
             onClick={() => kies("alles")}
             className="bg-aqua text-white px-6 py-3 text-sm font-semibold rounded hover:bg-aqua-dark transition-colors"
           >
-            Alles accepteren
+            {t.alles}
           </button>
         </div>
       </div>

@@ -1,6 +1,8 @@
 type LastUpdatedProps = {
   /** Weergavedatum, bv. "15 juni 2026". */
   date?: string;
+  /** Taal van het label ervoor. De datum zelf geef je zelf mee. */
+  taal?: "nl" | "en";
   className?: string;
 };
 
@@ -8,10 +10,14 @@ type LastUpdatedProps = {
  * Zichtbare "laatst bijgewerkt"-datum — een recency-signaal voor zoekmachines
  * en AI-tools (GEO). Geef per pagina de datum mee waarop de inhoud is bijgewerkt.
  */
-export default function LastUpdated({ date = "15 juni 2026", className = "" }: LastUpdatedProps) {
+export default function LastUpdated({
+  date = "15 juni 2026",
+  taal = "nl",
+  className = "",
+}: LastUpdatedProps) {
   return (
     <p className={`text-xs text-[#999999] ${className}`}>
-      Laatst bijgewerkt: {date}
+      {taal === "en" ? "Last updated" : "Laatst bijgewerkt"}: {date}
     </p>
   );
 }

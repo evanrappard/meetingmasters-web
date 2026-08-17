@@ -3,8 +3,32 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
-import { NAV_ITEMS } from "@/lib/navigatie";
+import { NAV_ITEMS, kies, taalVanPad, anderTaalPad } from "@/lib/navigatie";
+
+/** De paar losse teksten in de balk zelf, per taal. */
+const T = {
+  nl: {
+    gesprek: "Plan een gesprek",
+    menuOpen: "Menu openen",
+    menuDicht: "Menu sluiten",
+    logoAlt:
+      "MeetingMasters Online — specialist in online bijeenkomsten voor groepen van 50 tot 500 mensen",
+    thuis: "/nl/home",
+    cta: "/nl/expert-advies",
+  },
+  en: {
+    gesprek: "Book a conversation",
+    menuOpen: "Open menu",
+    menuDicht: "Close menu",
+    logoAlt:
+      "MeetingMasters Online — specialists in online gatherings for groups of 50 to 500 people",
+    thuis: "/en/blog",
+    // De adviespagina bestaat nog niet in het Engels.
+    cta: "/nl/expert-advies",
+  },
+} as const;
 
 // De balk toont niet alles: items met alleenFooter horen wel op de site,
 // maar hoeven de hoofdnavigatie niet langer te maken.
@@ -13,6 +37,10 @@ const BALK_ITEMS = NAV_ITEMS.filter((i) => !i.alleenFooter);
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pad = usePathname() ?? "/nl/home";
+  const taal = taalVanPad(pad);
+  const t = T[taal];
+  const anderePad = anderTaalPad(pad);
 
   const closeMobile = () => {
     setMobileOpen(false);
@@ -40,10 +68,10 @@ export default function Navbar() {
       <div className="bg-white border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10 h-[84px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/nl/home" className="flex-shrink-0">
+          <Link href={t.thuis} className="flex-shrink-0">
             <Image
               src="/images/logo.webp"
-              alt="MeetingMasters Online — specialist in online bijeenkomsten voor groepen van 50 tot 500 mensen"
+              alt={t.logoAlt}
               width={148}
               height={38}
               className="h-9 w-auto object-contain"
@@ -54,6 +82,14 @@ export default function Navbar() {
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-7">
             {BALK_ITEMS.map((item) => {
+              // Tekst en adres in de taal van de pagina. De sleutel voor het
+              // uitklappen blijft het Nederlandse label: dat is interne staat
+              // en moet niet meeveranderen met de taal.
+              const nav = kies(item, taal);
+              const kopje = taal === "en" ? item.feature?.titleEn : item.feature?.title;
+              const meerLabel = taal === "en" ? item.moreLabelEn : item.moreLabel;
+              const meerHref = taal === "en" ? item.moreHrefEn ?? item.moreHref : item.moreHref;
+
               // Menu met subpagina's: geel kopje + witte lijst eronder
               if (item.children && item.feature) {
                 return (
@@ -64,10 +100,10 @@ export default function Navbar() {
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <Link
-                      href={item.href}
+                      href={nav.href}
                       className="flex items-center gap-1 text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors py-2"
                     >
-                      {item.label}
+                      {nav.label}
                       <ChevronDown size={13} className="opacity-50" />
                     </Link>
 
@@ -87,11 +123,11 @@ export default function Navbar() {
                         <div className="w-[300px] bg-white border border-[#EBEBEB] rounded-lg shadow-lg overflow-hidden">
                           {/* Geel kopje = moederpagina */}
                           <Link
-                            href={item.href}
+                            href={nav.href}
                             className="block bg-[#FFFBEE] px-5 py-4 border-b border-[#F0E9CE] hover:bg-[#FCF3D6] transition-colors"
                           >
                             <span className="text-[15px] font-semibold leading-snug text-[#2D2D2D]">
-                              {item.feature.title}
+                              {kopje}
                             </span>
                           </Link>
 
@@ -100,18 +136,18 @@ export default function Navbar() {
                             {item.children.map((child) => (
                               <Link
                                 key={child.href}
-                                href={child.href}
+                                href={kies(child, taal).href}
                                 className="block px-4 py-2.5 text-sm text-[#545454] rounded hover:text-[#2D2D2D] hover:bg-[#FAFAFA] transition-colors"
                               >
-                                {child.label}
+                                {kies(child, taal).label}
                               </Link>
                             ))}
-                            {item.moreHref && (
+                            {meerHref && (
                               <Link
-                                href={item.moreHref}
+                                href={meerHref}
                                 className="flex items-center gap-1.5 mt-1 px-4 py-2.5 text-sm font-semibold text-[#D4A835] rounded border-t border-[#F3F3F3] hover:text-[#2D2D2D] hover:bg-[#FAFAFA] transition-colors"
                               >
-                                {item.moreLabel}
+                                {meerLabel}
                                 <ArrowRight size={14} />
                               </Link>
                             )}
@@ -133,10 +169,10 @@ export default function Navbar() {
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <Link
-                      href={item.href}
+                      href={nav.href}
                       className="text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors"
                     >
-                      {item.label}
+                      {nav.label}
                     </Link>
 
                     {/* Het uitklapmenu staat altijd in de pagina en wordt alleen
@@ -152,11 +188,11 @@ export default function Navbar() {
                       aria-hidden={openDropdown !== item.label}
                     >
                       <Link
-                        href={item.href}
+                        href={nav.href}
                         className="block w-[240px] bg-[#FFFBEE] border border-[#EBEBEB] rounded-lg shadow-lg px-5 py-4 hover:bg-[#FCF3D6] transition-colors"
                       >
                         <span className="text-[15px] font-semibold leading-snug text-[#2D2D2D]">
-                          {item.feature.title}
+                          {kopje}
                         </span>
                       </Link>
                     </div>
@@ -168,10 +204,10 @@ export default function Navbar() {
               return (
                 <Link
                   key={item.label}
-                  href={item.href}
+                  href={nav.href}
                   className="text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors"
                 >
-                  {item.label}
+                  {nav.label}
                 </Link>
               );
             })}
@@ -179,21 +215,34 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-5">
+            {/* De schakelaar springt naar dezelfde pagina in de andere taal.
+                Bestaat die niet, dan naar de startpagina van die taal — zie
+                anderTaalPad in lib/navigatie.ts. */}
             <div className="hidden lg:flex items-center gap-1.5 text-xs text-[#898989]">
-              <Link href="/nl/home" className="font-bold text-[#2D2D2D]">NL</Link>
-              <span>|</span>
-              <Link href="/nl/home" className="hover:text-[#545454] transition-colors">EN</Link>
+              {taal === "nl" ? (
+                <>
+                  <span className="font-bold text-[#2D2D2D]">NL</span>
+                  <span>|</span>
+                  <Link href={anderePad} hrefLang="en" className="hover:text-[#545454] transition-colors">EN</Link>
+                </>
+              ) : (
+                <>
+                  <Link href={anderePad} hrefLang="nl" className="hover:text-[#545454] transition-colors">NL</Link>
+                  <span>|</span>
+                  <span className="font-bold text-[#2D2D2D]">EN</span>
+                </>
+              )}
             </div>
             <Link
-              href="/nl/expert-advies"
+              href={t.cta}
               className="hidden lg:inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-6 py-2 rounded hover:bg-[#D4A835] transition-colors"
             >
-              Plan een gesprek
+              {t.gesprek}
             </Link>
             <button
               className="lg:hidden -mr-2 p-2 text-[#545454]"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? "Menu sluiten" : "Menu openen"}
+              aria-label={mobileOpen ? t.menuDicht : t.menuOpen}
               aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -207,8 +256,13 @@ export default function Navbar() {
           bovenkant vast, waardoor alles onder de schermrand onbereikbaar wordt. */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-x-0 top-[88px] bottom-0 overflow-y-auto overscroll-contain bg-white border-t border-[#EBEBEB] px-6 py-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] space-y-1">
-          {BALK_ITEMS.map((item) =>
-            item.children && item.feature ? (
+          {BALK_ITEMS.map((item) => {
+            const nav = kies(item, taal);
+            const kopje = taal === "en" ? item.feature?.titleEn : item.feature?.title;
+            const meerLabel = taal === "en" ? item.moreLabelEn : item.moreLabel;
+            const meerHref = taal === "en" ? item.moreHrefEn ?? item.moreHref : item.moreHref;
+
+            return item.children && item.feature ? (
               <div key={item.label}>
                 <button
                   onClick={() =>
@@ -216,7 +270,7 @@ export default function Navbar() {
                   }
                   className="w-full flex justify-between items-center py-3 text-sm font-medium text-[#545454]"
                 >
-                  {item.label}
+                  {nav.label}
                   <ChevronDown
                     size={14}
                     className={`transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`}
@@ -226,12 +280,12 @@ export default function Navbar() {
                   <div className="pb-3">
                     {/* Geel kopje = moederpagina */}
                     <Link
-                      href={item.href}
+                      href={nav.href}
                       onClick={closeMobile}
                       className="block rounded-lg bg-[#FFFBEE] border border-[#F1E4BA] px-4 py-3 mb-1"
                     >
                       <span className="block text-[15px] font-semibold leading-snug text-[#2D2D2D]">
-                        {item.feature.title}
+                        {kopje}
                       </span>
                     </Link>
 
@@ -240,20 +294,20 @@ export default function Navbar() {
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
-                          href={child.href}
+                          href={kies(child, taal).href}
                           onClick={closeMobile}
                           className="block py-2 text-sm text-[#898989] hover:text-[#2D2D2D]"
                         >
-                          {child.label}
+                          {kies(child, taal).label}
                         </Link>
                       ))}
-                      {item.moreHref && (
+                      {meerHref && (
                         <Link
-                          href={item.moreHref}
+                          href={meerHref}
                           onClick={closeMobile}
                           className="flex items-center gap-1.5 py-2 text-sm font-semibold text-[#D4A835] hover:text-[#2D2D2D]"
                         >
-                          {item.moreLabel}
+                          {meerLabel}
                           <ArrowRight size={13} />
                         </Link>
                       )}
@@ -264,26 +318,36 @@ export default function Navbar() {
             ) : (
               <Link
                 key={item.label}
-                href={item.href}
+                href={nav.href}
                 onClick={closeMobile}
                 className="block py-3 text-sm font-medium text-[#545454] hover:text-[#2D2D2D] border-b border-[#F5F5F5]"
               >
-                {item.label}
+                {nav.label}
               </Link>
-            )
-          )}
+            );
+          })}
           <div className="pt-4 flex flex-col gap-3">
             <Link
-              href="/nl/expert-advies"
+              href={t.cta}
               onClick={closeMobile}
               className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-3 rounded text-center hover:bg-[#D4A835] transition-colors"
             >
-              Plan een gesprek
+              {t.gesprek}
             </Link>
             <div className="flex gap-3 text-sm text-[#898989]">
-              <Link href="/nl/home" className="font-bold text-[#2D2D2D]">NL</Link>
-              <span>|</span>
-              <Link href="/nl/home">EN</Link>
+              {taal === "nl" ? (
+                <>
+                  <span className="font-bold text-[#2D2D2D]">NL</span>
+                  <span>|</span>
+                  <Link href={anderePad} hrefLang="en" onClick={closeMobile}>EN</Link>
+                </>
+              ) : (
+                <>
+                  <Link href={anderePad} hrefLang="nl" onClick={closeMobile}>NL</Link>
+                  <span>|</span>
+                  <span className="font-bold text-[#2D2D2D]">EN</span>
+                </>
+              )}
             </div>
           </div>
         </div>
