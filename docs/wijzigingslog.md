@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-13
+> Laatst bijgewerkt: 2026-08-17
 
 ---
 
@@ -74,6 +74,44 @@ leeft in de paginacode, niet in een apart bestand).
 ---
 
 ## 5. Log
+
+### 2026-08-17 — Tech hulp en Meeting Platforms afgerond
+
+- **B C** — **Hulppagina opnieuw opgebouwd.** Hero is een video (geluidloos,
+  herhaalt zichzelf, 983 kB mp4 en 691 kB webm met poster). Daaronder vier
+  probleemblokken met een kwart beeld, in de kleuren die letterlijk uit de
+  illustraties komen: geel, aqua, pistache en rose.
+- **T** — **Alle 74 hulpvragen staan nu in genummerde stappen**, ook de
+  tool-specifieke. Vulzinnen als "Geen paniek" zijn eruit, net als de
+  escalatieregel onder elk antwoord. Vragen die eigenlijk een conclusie waren
+  ("de browser vroeg toestemming en ik klikte op blokkeren") zijn opgegaan in de
+  stappen van de vraag waar iemand ze tegenkomt.
+- **C** — **Tool-antwoorden vervangen de algemene** in plaats van ze aan te
+  vullen. Wie een tool koos, kreeg allebei de sets en moest zelf ontdubbelen.
+- **C** — **Zoeken gerepareerd.** Het antwoordveld was leeg geraakt door de
+  omzetting naar stappen, en er werd op de hele zin gezocht in plaats van op
+  losse woorden. Van 48 realistische zoektermen leverden er twaalf niets op; nu
+  nog één. Drie ontbrekende onderwerpen toegevoegd: opnames, hand opsteken en
+  ondertiteling.
+- **T** — **FAQ's op de hulppagina** in drie groepen: algemene techniek,
+  instellingen op je eigen apparaat, en hulp tijdens de bijeenkomst — met het
+  verschil tussen een tech host en een Meeting Master.
+- **T C** — **Instellingen voor organisaties**: per platform wat een IT-afdeling
+  nodig heeft, als uitklapper. Alle vijf de links zijn nagelopen op inhoud, niet
+  alleen op of ze laden. Alles staat op de documentatie van de leverancier zelf.
+- **B T C** — **Meeting Platforms**: eigen hero (witranden van 248 en 227px eerst
+  weggesneden), vier selecteerbare platformkaarten met SpatialChat standaard aan,
+  en een nieuwe FAQ in de vorm van de event-pagina's — zes vragen plus zes achter
+  "Meer antwoorden?", met FAQPage-schema. Onderwerpen gekozen op wat online het
+  meest gezocht wordt.
+- **C** — **Menu**: "Tech hulp" landt op de hulppagina, met daaronder Meeting
+  Platforms en SpatialChat. **Footer**: de losse nieuwsbriefsectie is weg;
+  "Nieuwsbrief (aanmelden)" staat nu in de kolom Organisatie.
+- **B** — **Negen tool-logo's** verwerkt: doorzichtige achtergrond via een vulling
+  vanaf de rand (zodat wit ín een logo blijft staan) en geschaald op inktoppervlak,
+  anders oogt een compact woordmerk als Zoom veel groter dan streamAlive.
+  Script: `scripts/logo-normaliseren.mjs`.
+
 
 ### 2026-08-16 — Technologie-sectie herbouwd
 

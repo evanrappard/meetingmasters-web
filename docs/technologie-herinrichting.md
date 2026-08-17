@@ -4,7 +4,7 @@ Werkdocument voor de verbouwing van de technologiepagina's. Bevat de besluiten,
 het archief van bestaande teksten (zodat er niets verdwijnt) en de voorzet voor
 de nieuwe tools-pagina.
 
-> Opgesteld: 16 augustus 2026 · status: besloten, nog niet gebouwd
+> Opgesteld 16 augustus 2026 · **gebouwd en afgerond 17 augustus 2026** (t/m `d3caf83`)
 
 ---
 
@@ -42,11 +42,14 @@ kunnen ranken, en elke tool eindigt met een brug naar wat wij aanraden.
 
 ## 2. Nieuwe structuur
 
+> Bijgesteld 17 aug 2026: de oude hub `/nl/technologie` is óók opgeheven, net als
+> de losse pagina's voor Zoom, Teams en Zoom Events. Alles verwijst door naar
+> `/tools`, dat in het menu **Meeting Platforms** heet.
+
 | Route | Rol |
 |---|---|
-| `/nl/technologie` | Kiezen en vergelijken — voor wie zich oriënteert |
-| `/nl/technologie/hulp` | **Directe hulp bij online meetings** — landingspagina onder "Tech hulp" |
-| `/nl/technologie/tools` | Alle tools die wij gebruiken, met logo — voor vindbaarheid |
+| `/nl/technologie/hulp` | **Directe support voor je online meeting** — landing onder "Tech hulp" |
+| `/nl/technologie/tools` | Meeting Platforms: platforms, tools en FAQ — ook voor vindbaarheid |
 | `/nl/technologie/spatialchat` | Het eigen, uitgebreide verhaal |
 
 Op te heffen en door te verwijzen: `platforms`, `hoe-het-werkt`, `helpdesk`,
@@ -306,14 +309,36 @@ De eerste versie leek te veel op de mockup en te weinig op de site. Bijgesteld:
 | **De tools** | Nieuwe inleiding: externe tools om interactie en samenwerking te verhogen, plus een verwijzing naar de **eigen tools** (`/nl/games-tools#tools`), die ook op maat gemaakt kunnen worden. |
 | **"Wat kies jij?"** | Nieuwe slotsectie: wij beginnen bij het doel, niet bij de tool. Geen "we komen uit bij SpatialChat en Miro". |
 
+## 6c. Stand na afronding (17 aug 2026)
+
+| Wat | Waar |
+|---|---|
+| Hulppagina, met video-hero en FAQ's | `app/nl/technologie/hulp/page.tsx` |
+| 74 hulpvragen, allemaal in stappen | `app/nl/technologie/hulp/vragen.ts` |
+| Symptoom → tool → antwoord, met zoeken | `components/ui/TechHulp.tsx` |
+| Meeting Platforms, met FAQ en FAQPage-schema | `app/nl/technologie/tools/page.tsx` |
+| Selecteerbare platformkaarten | `components/ui/PlatformKeuze.tsx` |
+| Logo's + script | `public/images/logos/tools/`, `scripts/logo-normaliseren.mjs` |
+| Hero-video en poster | `public/videos/tech-hulp-hero.*`, `public/images/tech-hulp-hero-poster.jpg` |
+| Handleidingen | `public/downloads/{zoom,spatialchat}-instructies-deelnemer.pdf` |
+
+**Zoeken.** Werkt op losse woorden met een vulwoordenlijst, niet op de hele zin —
+anders vindt "ik hoor niets" alleen de vraag die letterlijk zo heet. Het veld
+`antwoord` wordt gevuld met de stappen; laat je dat leeg, dan zoekt de pagina
+alleen nog in de vraagtitels. Controleer na inhoudelijke wijzigingen even of
+gangbare zoektermen nog treffers opleveren.
+
+**Tool versus algemeen.** Kiest iemand een tool, dan **vervangen** die antwoorden
+de algemene. Beide tonen dwingt de bezoeker om zelf te ontdubbelen.
+
 ## 7. Nog te doen
 
 | # | Wat | Wanneer |
 |---|---|---|
-| 1 | **De 76 vragen nalopen en aanvullen** (besluit 3), en de belangrijkste omzetten naar `stappen` | vóór livegang |
+| 1 | ~~Vragen nalopen en omzetten naar stappen~~ | **afgerond** — alle 74 staan in stappen |
 | 2 | **URL-herkenning controleren** aan een echte uitnodiging: `spatial.chat`, `zoom.us`, `events.zoom.us`, `teams.microsoft.com` | vóór livegang |
 | 3 | Teksten van de tools-pagina langs de merkstem | vóór livegang |
-| 4 | ⚠️ **Het telefoonnummer staat nog groot op `/nl/technologie`** — in de support-sectie, als `tel:`-link op 2xl. Dat wringt met besluit 2. Bewust laten staan of alsnog verzachten? | te beslissen |
+| 4 | ~~Telefoonnummer op de oude hub~~ | **vervallen** — die hub verwijst nu door naar /tools |
 | 5 | **Eigen uitgebreide pagina voor SpatialChat**, met de inhoud van `hoe-het-werkt` erin | na livegang |
 | 6 | **Chatbot per tool**, gevoed door `vragen.ts` | later |
 | 7 | Oude pagina's verwijderen zodra de nieuwe opzet bevalt | later |
