@@ -646,3 +646,42 @@ De laatste vier pagina's en de twee overgebleven losse tools zijn omgezet.
 fouten, en alle 59 Engelse routes doorzocht op Nederlandse stopwoorden in de
 **gebouwde** HTML — schoon. Het enige wat de zoekopdracht nog vindt is "Het
 Cultuurfonds" op de testimonials: een organisatienaam.
+
+## 18 augustus 2026 — Engelse copy-ronde
+
+De hele Engelse site nagelopen als Engelse tekst, niet als vertaling. Nederlands
+naast me als bron, maar niet bindend.
+
+- **T** — **Nederlandismen eruit.** Uitdrukkingen die letterlijk waren
+  overgezet en in het Engels niet bestaan of iets anders betekenen: *think
+  along* (meedenken, 20×), *by itself* (vanzelf, 16×), *house style*
+  (huisstijl), *low threshold* (laagdrempelig), *harvest* (oogst — alleen op
+  World Café laten staan, daar is het de vakterm), *unburden* (ontzorgen),
+  *instrument* (voor tool), *concrete* (voor specifiek/hard).
+- **T** — **Echte fouten.** *How we come across each other* betekent in het
+  Engels iets anders dan "hoe we elkaar tegenkomen". *Less turnover* leest in
+  het VK als mínder omzet — nu "Better retention". *Constitutionally sound*
+  gaat over een grondwet, niet over statuten. *Stands up before a notary*: een
+  notaris speelt in het VK die rol niet.
+- **T** — **UK-Engels doorgevoerd.** Spelling was al goed; de
+  Microsoft-hulplinks wezen naar `en-us` en staan nu op `en-gb` (beide
+  gecontroleerd). ALV heet nu **AGM**, de gangbare Britse term.
+- **T** — **Samentrekkingen ingevoerd** (besluit Emilie): *don't*, *it's*,
+  *you'll*. Uitgezonderd: FAQ-vragen in zoekvorm, de juridische pagina's, de
+  klantquotes op Ervaringen, en een paar koppen waar de volle vorm harder
+  aankomt. De hulpvragen in de stem van de bezoeker ("I can't hear anyone")
+  juist wél.
+- **T** — **Blogtitel** "A stick to beat it with" → **"Blaming online"**
+  (besluit Emilie). Slug mee omgezet naar `/en/blog/blaming-online`, de
+  beeldspraak van de stok blijft in het artikel staan.
+- **C** — **Twee foute links hersteld**: het Engelse CTA-blok wees naar
+  `/nl/events`, en de platformpagina naar `/nl/games-tools#tools`. Ook de
+  Engelse link naar de Autoriteit Persoonsgegevens gaf 404 en staat nu op hun
+  Engelse hoofdpagina.
+
+De afspraken die hieruit volgen staan in `docs/vertaling-voortgang.md`, zodat
+nieuwe Engelse tekst er niet vanaf gaat wijken.
+
+**Gecontroleerd op de productiebouw:** 132 routes zonder 404, 132 routes × 3
+breedtes schoon, eslint 0 fouten, geen Nederlandse resten in de gebouwde HTML,
+en geen samentrekking op een plek waar de volle vorm moet staan.
