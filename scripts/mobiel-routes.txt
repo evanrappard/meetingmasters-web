@@ -118,3 +118,4 @@
 /en/virtual-office/meeting-room
 /en/virtual-office/rent
 /en/virtual-office/office-and-culture
+/en/about
