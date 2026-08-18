@@ -25,9 +25,8 @@ const T = {
     menuDicht: "Close menu",
     logoAlt:
       "MeetingMasters Online — specialists in online gatherings for groups of 50 to 500 people",
-    thuis: "/en/blog",
-    // De adviespagina bestaat nog niet in het Engels.
-    cta: "/nl/expert-advies",
+    thuis: "/en/home",
+    cta: "/en/expert-advice",
   },
 } as const;
 

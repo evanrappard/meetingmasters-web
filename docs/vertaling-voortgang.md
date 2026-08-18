@@ -20,10 +20,11 @@ Meer is het niet. Menu, footer, sitemap en taalschakelaar volgen `lib/talen.ts`
 vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 — dat is het signaal dat er nog iets ontbreekt.
 
-## Klaar (42 pagina's)
+## Klaar (43 pagina's)
 
 | Nederlands | Engels |
 |---|---|
+| `/nl/home` | `/en/home` |
 | `/nl/blog` | `/en/blog` |
 | 11 blogartikelen | 11 blogartikelen, eigen slug per stuk |
 | `/nl/contact` | `/en/contact` |
@@ -45,7 +46,6 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 
 | Pagina | Woorden | Opmerking |
 |---|---:|---|
-| `home/page` | 1.650 | |
 | `technologie/tools/page` | 1.610 | Meeting Platforms |
 | `virtual-office/page` | 1.590 | |
 | `about/page` | 1.560 | |
@@ -60,9 +60,14 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 | `cookieverklaring` | 550 | juridisch — laten nakijken |
 | 4 × tools-landingspagina | 1.690 | bingo, storytelling, wheel of fortune, inspiration cards |
 
-**Samen ongeveer 16.000 woorden.** Ter vergelijking: de elf blogartikelen waren
+**Samen ongeveer 14.500 woorden.** Ter vergelijking: de elf blogartikelen waren
 7.700, de twintig events 13.400 en de hulppagina met de 77 vragen 5.800. Dit is
 dus nog ongeveer twee rondes.
+
+### De homepage haalt content uit Sanity
+De Engelse homepage praat **niet** met het CMS: de inhoud daar is Nederlands.
+Die gebruikt altijd de teksten uit `tekst-en.ts`. Komt er ooit Engelse content
+in Sanity, dan is dat één regel in `components/home/HomePagina.tsx`.
 
 ### Let op bij helpteksten
 De knoppen en menupaden in de hulpvragen zijn de **echte Engelse labels** van de

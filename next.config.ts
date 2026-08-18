@@ -26,7 +26,7 @@ const eigenNetwerkAdressen = Object.values(networkInterfaces())
  * /en/newsletter, /en/expert-advice) stonden hier nooit in.
  */
 const enPaths = [
-  "home", "about", "about/team", "about/quality", "about/partners", "about/csr",
+  "about", "about/team", "about/quality", "about/partners", "about/csr",
   "cases", "csr", "design-preview", "escape-rooms",
   "games-tools", "games-tools/escape-masters", "games-tools/ravenhack",
   "inspiratie", "layout-preview", "meeting-formats", "partners",

@@ -112,3 +112,4 @@
 /en/events
 /en/help
 /en/spatialchat
+/en/home

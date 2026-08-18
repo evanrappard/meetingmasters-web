@@ -28,6 +28,8 @@ export type Taal = "nl" | "en";
  * niet in staat, is nog niet vertaald.
  */
 const PAREN: Array<[nl: string, en: string]> = [
+  ["/home", "/home"],
+
   // ── Blog ──
   ["/blog", "/blog"],
   ["/blog/terug-naar-kantoor", "/blog/back-to-the-office"],

@@ -13,7 +13,12 @@ export const HOME_EN = {
     "We design online gatherings for 50 to 500 people — events, virtual offices and interactive formats. 250+ events hosted, 94% satisfaction.",
 
   hero: {
-    titel: "We design online gatherings that genuinely matter.\nMore involvement — with 5, 50 or 500 people.",
+    // Het Nederlands speelt met "hebben" tegenover "maken": een vergadering
+    // overkomt je, een ontmoeting moet je maken. In het Engels houdt
+    // hold/make datzelfde onderscheid vast.
+    headline: "A meeting you hold.\nAn encounter you make.",
+    subline:
+      "We design online gatherings that genuinely matter.\nMore involvement — with 5, 50 or 500 people.",
     cta: "See for yourself →",
     voorbeelden: "See examples",
     videoAlt:
