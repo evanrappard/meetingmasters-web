@@ -13,10 +13,15 @@ export const HOME_EN = {
     "We design online gatherings for 50 to 500 people — events, virtual offices and interactive formats. 250+ events hosted, 94% satisfaction.",
 
   hero: {
-    // Het Nederlands speelt met "hebben" tegenover "maken": een vergadering
-    // overkomt je, een ontmoeting moet je maken. In het Engels houdt
-    // hold/make datzelfde onderscheid vast.
-    headline: "A meeting you hold.\nAn encounter you make.",
+    // Bewust géén vertaling van de Nederlandse kop. Die speelt met "hebben"
+    // tegenover "maken", en dat woordspel valt in het Engels niet goed: de
+    // constructie "A meeting you hold" zet het lijdend voorwerp vooraan, wat
+    // in het Nederlands gewoon is maar in het Engels gemarkeerd. Deze kop
+    // claimt in plaats daarvan meteen het domein ("online meetings", ook de
+    // zoekterm) en zet de mens in de tweede regel. Besluit Emilie, 18 aug 2026.
+    // Let op de breedte: de kop staat in een kolom van 600px op 56px vet, dus
+    // maximaal ± 24 tekens per regel. Zie docs/hero-briefing-en.md.
+    headline: "Better online meetings.\nMore real contact.",
     subline:
       "We design online gatherings that genuinely matter.\nMore engagement — with 5, 50 or 500 people.",
     cta: "See for yourself →",
