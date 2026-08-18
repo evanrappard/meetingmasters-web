@@ -52,11 +52,26 @@ export default function CookieverklaringPage() {
         </Lijst>
       </Blok>
 
-      <Blok kop="Analytische en marketingcookies">
+      <Blok kop="Analytische cookies">
         <p>
           Die staan standaard uit. Kies je &ldquo;Alles accepteren&rdquo;, dan mogen we
           meten hoe bezoekers de site gebruiken: welke pagina&rsquo;s gelezen worden, hoe
           mensen bij ons terechtkomen en waar ze afhaken. Daar maken we de site beter mee.
+        </p>
+        <p>
+          Daarvoor gebruiken we <strong className="text-dark-grey">Google Analytics</strong>.
+          Het script daarvan wordt pas geladen op het moment dat jij akkoord geeft: kies je
+          niet voor &ldquo;Alles accepteren&rdquo;, dan gaat er niets naar Google, ook geen
+          verzoek waarmee je IP-adres zou meegaan. We laten Google je IP-adres bovendien
+          inkorten, en we gebruiken de gegevens niet voor advertenties.
+        </p>
+        <p>
+          Trek je je toestemming later weer in, dan stopt het meten meteen en verwijderen
+          we de cookies die Google had gezet.
+        </p>
+        <p>
+          <strong className="text-dark-grey">Marketing- of advertentiecookies gebruiken
+          we niet.</strong> We volgen je dus niet over andere websites heen.
         </p>
         <p>
           Kies je &ldquo;Alleen noodzakelijk&rdquo;, of maak je geen keuze, dan gebeurt

@@ -162,6 +162,12 @@ export default function PrivacyStatementPage() {
             <strong className="text-dark-grey">YouTube</strong> — de video&rsquo;s op onze
             site. Die laden pas als je zelf op play klikt.
           </li>
+          <li>
+            <strong className="text-dark-grey">Google Analytics</strong> — het meten van
+            het gebruik van de site. Alleen als je daar in de cookiebalk toestemming voor
+            geeft; je IP-adres wordt daarbij ingekort en we gebruiken de gegevens niet
+            voor advertenties.
+          </li>
         </Lijst>
         <p>
           Verwerkt een leverancier gegevens buiten de Europese Economische Ruimte, dan

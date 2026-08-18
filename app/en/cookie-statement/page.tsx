@@ -65,11 +65,26 @@ export default function CookieStatementPage() {
         </Lijst>
       </Blok>
 
-      <Blok kop="Analytics and marketing cookies">
+      <Blok kop="Analytics cookies">
         <p>
           These are off by default. If you choose &ldquo;Accept all&rdquo;, we may measure
           how visitors use the site: which pages are read, how people find us and where
           they drop off. We use that to make the site better.
+        </p>
+        <p>
+          For that we use <strong className="text-dark-grey">Google Analytics</strong>. Its
+          script is only loaded at the moment you agree: if you do not choose &ldquo;Accept
+          all&rdquo;, nothing goes to Google at all &mdash; not even a request that would
+          carry your IP address. We also have Google shorten your IP address, and we do not
+          use the data for advertising.
+        </p>
+        <p>
+          If you withdraw your consent later, measuring stops straight away and we delete
+          the cookies Google had set.
+        </p>
+        <p>
+          <strong className="text-dark-grey">We do not use marketing or advertising
+          cookies.</strong> So we do not follow you around other websites.
         </p>
         <p>
           If you choose &ldquo;Essential only&rdquo;, or make no choice at all, none of

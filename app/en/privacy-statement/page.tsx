@@ -171,6 +171,11 @@ export default function PrivacyStatementPage() {
             <strong className="text-dark-grey">YouTube</strong> — the videos on our site.
             Those only load once you click play yourself.
           </li>
+          <li>
+            <strong className="text-dark-grey">Google Analytics</strong> — measuring how
+            the site is used. Only if you give permission for it in the cookie bar; your
+            IP address is shortened and we do not use the data for advertising.
+          </li>
         </Lijst>
         <p>
           If a supplier processes data outside the European Economic Area, that is done on
