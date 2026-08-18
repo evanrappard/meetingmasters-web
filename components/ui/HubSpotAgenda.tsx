@@ -18,15 +18,23 @@ import { useEffect, useRef, useState } from "react";
 
 const SCRIPT = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
 
+/** De terugvaltekst, per taal. */
+const T = {
+  nl: { laadt: "De agenda laadt.", link: "Lukt het niet? Open de agenda in een nieuw venster ↗" },
+  en: { laadt: "The calendar is loading.", link: "Not working? Open the calendar in a new window ↗" },
+} as const;
+
 type Props = {
   /** Volledige boekingslink uit HubSpot, zonder `?embed=true`. */
   link: string;
   /** Hoogte van het kader. HubSpot past zelf bij, dit is de startwaarde. */
   hoogte?: string;
   className?: string;
+  taal?: "nl" | "en";
 };
 
-export default function HubSpotAgenda({ link, hoogte = "700px", className }: Props) {
+export default function HubSpotAgenda({ link, hoogte = "700px", className, taal = "nl" }: Props) {
+  const t = T[taal];
   const houder = useRef<HTMLDivElement>(null);
   const [geladen, setGeladen] = useState(false);
 
@@ -55,9 +63,9 @@ export default function HubSpotAgenda({ link, hoogte = "700px", className }: Pro
       />
       {!geladen && (
         <p className="text-sm text-[#777777] mt-3">
-          De agenda laadt.{" "}
+          {t.laadt}{" "}
           <a href={link} target="_blank" rel="noopener noreferrer" className="text-[#28A8AA] font-semibold hover:underline">
-            Lukt het niet? Open de agenda in een nieuw venster ↗
+            {t.link}
           </a>
         </p>
       )}

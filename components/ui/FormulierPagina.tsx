@@ -82,7 +82,7 @@ export default function FormulierPagina({
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{formulierKop}</h2>
               <p className="text-sm text-[#545454] leading-relaxed mb-8">{formulierUitleg}</p>
               {agenda ? (
-                <HubSpotAgenda link={HUBSPOT_AGENDA} />
+                <HubSpotAgenda link={HUBSPOT_AGENDA} taal={taal} />
               ) : (
                 <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor(formulier, taal)} />
               )}

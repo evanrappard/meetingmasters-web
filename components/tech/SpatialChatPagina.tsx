@@ -104,6 +104,11 @@ const NL = {
       "— Één spreker tegelijk",
       "— Host bepaalt de structuur",
     ],
+    spatialPunten: [
+      "+ Vrije beweging, zelf keuzes maken",
+      "+ Meerdere gesprekken tegelijk",
+      "+ Deelnemers bepalen hun eigen flow",
+    ],
   },
   functies: { kicker: "Functionaliteiten", titel: "Alles wat een live bijeenkomst nodig heeft.", items: features },
   ruimtes: {
@@ -116,6 +121,8 @@ const NL = {
   partner: {
     kicker: "Officieel Channel Partner",
     titel: "Wij zijn de Nederlandse partner van SpatialChat.",
+    body:
+      "Sinds 2021 zijn wij officieel Channel Partner van SpatialChat voor Nederland. Dat betekent directe toegang tot de ontwikkelaars, vroeg inzicht in nieuwe functionaliteiten, en een team dat het platform door en door kent — niet vanuit een handleiding, maar vanuit honderden events.",
     trustedBy: trustedBy,
     certificering: "Certificering",
     soc: "SOC 2 Type II",
@@ -127,7 +134,8 @@ const NL = {
     knop: "Plan een gesprek",
     hulp: "Hulp bij SpatialChat →",
   },
-  links: { advies: "/nl/expert-advies", hulp: "/nl/technologie/hulp" },
+  links: { advies: "/nl/expert-advies", hulp: "/nl/technologie/hulp", technologie: "/nl/technologie/tools" },
+  terug: "← Terug naar Technologie",
 };
 
 export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
@@ -216,22 +224,9 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.waarom.titel}
               </h2>
               <div className="space-y-4 text-[#545454] text-[15px] leading-relaxed">
-                <p>
-                  Bij Zoom, Teams en Google Meet zit iedereen in een grid. Je krijgt
-                  één gesprek tegelijk, één scherm, één moderator. De vergadering bepaalt
-                  wie spreekt.
-                </p>
-                <p>
-                  Bij SpatialChat bewegen deelnemers vrij door een digitale ruimte.
-                  Je loopt naar iemand toe — letterlijk. De afstand tussen avatars bepaalt
-                  wie je hoort. Gesprekken ontstaan vanzelf, net als bij een borrel of
-                  in een kantoor.
-                </p>
-                <p>
-                  Dat verschil is niet cosmetisch. Het verandert de sociale dynamiek: minder
-                  formeel, meer spontaan, hogere betrokkenheid. Deelnemers nemen zelf
-                  initiatief in plaats van te wachten tot ze het woord krijgen.
-                </p>
+                <p>{t.waarom.alinea1}</p>
+                <p>{t.waarom.alinea2}</p>
+                <p>{t.waarom.alinea3}</p>
               </div>
             </div>
 
@@ -291,9 +286,9 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
                   </svg>
                 </div>
                 <ul className="text-[13px] text-[#7A6B20] space-y-1">
-                  <li>+ Vrije beweging, zelf keuzes maken</li>
-                  <li>+ Meerdere gesprekken tegelijk</li>
-                  <li>+ Deelnemers bepalen hun eigen flow</li>
+                  {t.waarom.spatialPunten.map((p) => (
+                    <li key={p}>{p}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -343,8 +338,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
               {t.ruimtes.titel}
             </h2>
             <p className="text-[#545454] text-[15px] leading-relaxed mt-4">
-              SpatialChat heeft vier ruimtetypen — elk met een eigen logica en capaciteit.
-              Binnen één event schakel je naadloos tussen plenair en breakout.
+              {t.ruimtes.onder}
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-5">
@@ -378,10 +372,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.partner.titel}
               </h2>
               <p className="text-white/60 text-[15px] leading-relaxed max-w-[520px] mb-6">
-                Sinds 2021 zijn wij officieel Channel Partner van SpatialChat voor Nederland.
-                Dat betekent directe toegang tot de ontwikkelaars, vroeg inzicht in nieuwe
-                functionaliteiten, en een team dat het platform door en door kent — niet
-                vanuit een handleiding, maar vanuit honderden events.
+                {t.partner.body}
               </p>
               <div className="flex flex-wrap gap-2">
                 {t.partner.trustedBy.map((org) => (
@@ -442,10 +433,10 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
       <div className="bg-white border-t border-[#EBEBEB] py-4">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <Link
-            href="/nl/technologie/tools"
+            href={t.links.technologie}
             className="text-[13px] text-[#898989] hover:text-[#545454] transition-colors"
           >
-            ← Terug naar Technologie
+            {t.terug}
           </Link>
         </div>
       </div>

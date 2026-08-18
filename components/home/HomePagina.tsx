@@ -220,7 +220,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
               {t.oplossingen.kicker}
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
-              Wij zijn online meeting professionals. Ontwerpers van bijzondere momenten.
+              {t.oplossingen.titel}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -73,6 +73,7 @@ export const NL = {
     kicker: "Ons manifest",
     titel: "Hier staan we voor.",
     body: "Ons manifest is in 2021 met en door MeetingMasters gemaakt: onze overtuiging over waarom samenkomen ertoe doet. En die houdt nog steeds.",
+    citaat: "Wij zijn bewaarders van het menselijk perspectief: bewakers van betrokkenheid, laagdrempeligheid en oprecht contact.",
     knop: "Download het manifest (PDF)",
     href: "/downloads/meetingmasters-manifest.pdf",
     videoId: "Cling07_Kas",

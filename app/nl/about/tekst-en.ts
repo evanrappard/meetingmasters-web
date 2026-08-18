@@ -34,6 +34,7 @@ export const ABOUT_EN = {
     kicker: "Our manifesto",
     titel: "This is what we stand for.",
     body: "Our manifesto was made in 2021 with and by MeetingMasters: our conviction about why coming together matters. And it still holds.",
+    citaat: "We are keepers of the human perspective: guardians of involvement, of low thresholds and of genuine contact.",
     knop: "Download the manifesto (PDF)",
     href: "/downloads/en/meetingmasters-manifesto.pdf",
     // De Engelse opname van het manifest, aangeleverd door Emilie.

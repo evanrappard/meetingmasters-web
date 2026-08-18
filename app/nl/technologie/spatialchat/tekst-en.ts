@@ -37,6 +37,11 @@ export const SPATIALCHAT_EN = {
       "— One speaker at a time",
       "— The host sets the structure",
     ],
+    spatialPunten: [
+      "+ Free movement, your own choices",
+      "+ Several conversations at once",
+      "+ Participants set their own flow",
+    ],
   },
 
   stats: [
@@ -113,6 +118,8 @@ export const SPATIALCHAT_EN = {
   partner: {
     kicker: "Official Channel Partner",
     titel: "We are SpatialChat's partner in the Netherlands.",
+    body:
+      "Since 2021 we have been the official Channel Partner of SpatialChat for the Netherlands. That means direct access to the developers, early sight of new features, and a team that knows the platform inside out — not from a manual, but from hundreds of events.",
     trustedBy: ["Stanford University", "Google", "McDonald's", "Accenture", "1,500+ organisations"],
     certificering: "Certification",
     soc: "SOC 2 Type II",
@@ -129,5 +136,7 @@ export const SPATIALCHAT_EN = {
   links: {
     advies: "/en/expert-advice",
     hulp: "/en/help",
+    technologie: "/en/platforms",
   },
+  terug: "← Back to Platforms",
 };

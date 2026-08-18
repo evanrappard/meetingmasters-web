@@ -100,8 +100,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                </p>
               <blockquote className="border-l-2 border-[#EEBE3D] pl-5 mb-8">
                 <p className="text-white text-xl leading-relaxed italic">
-                  &ldquo;Wij zijn bewaarders van het menselijk perspectief: bewakers van
-                  betrokkenheid, laagdrempeligheid en oprecht contact.&rdquo;
+                  &ldquo;{t.manifest.citaat}&rdquo;
                 </p>
               </blockquote>
               <a
