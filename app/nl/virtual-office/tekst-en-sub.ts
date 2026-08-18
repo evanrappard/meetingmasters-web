@@ -9,11 +9,11 @@
 export const ZAALTJE_EN = {
   metaTitle: "Book an online meeting room | MeetingMasters Virtual Office",
   metaDescription:
-    "Book a furnished online room for up to 12 people, ready to use. For a different kind of meeting with a small group. Easy, not expensive, and genuinely surprising.",
+    "Book a furnished online room for up to 12 people, ready to use. For a different kind of meeting with a small group. Easy, affordable, and genuinely surprising.",
 
   hero: {
     titel: "Book an online meeting room.",
-    intro: "Simply something different. Easy to arrange, not expensive, and genuinely surprising.",
+    intro: "Simply something different. Easy to arrange, affordable, and genuinely surprising.",
     cta: "Book a room →",
     beeldAlt: "A virtual meeting room in SpatialChat where a small group comes together",
   },
@@ -51,7 +51,7 @@ export const ZAALTJE_EN = {
     },
     cultuur: {
       title: "Office + Culture",
-      body: "When it is genuinely about how you work together: first the conversation about culture, then the office.",
+      body: "When it's genuinely about how you work together: first the conversation about culture, then the office.",
       cta: "More about Office + Culture →",
     },
   },
@@ -61,7 +61,7 @@ export const ZAALTJE_EN = {
   faq: [
     { q: "What is an online meeting room?", a: "A furnished online space in SpatialChat for a small group (up to 12 people), ready to use. You step in, move freely through the space and talk to whoever you come across — far more natural than a grid of video squares." },
     { q: "How many people does a room hold?", a: "A room is meant for small groups of up to around 12 people. Have a larger group, or want a permanent, continuous place? Then a ready-made office suits better." },
-    { q: "Do we have to install or prepare anything?", a: "No. You get a link, click it and walk in — in the browser, with nothing installed. The space is ready; you do not have to set anything up." },
+    { q: "Do we have to install or prepare anything?", a: "No. You get a link, click it and walk in — in the browser, with nothing installed. The space is ready; you don't have to set anything up." },
     { q: "What does a room cost?", a: "Not much. You pay for it being furnished and ready and for the support in the background, not for the tool. Do ask about the options." },
     { q: "What if we want more?", a: "Then you can move up to a ready-made office rented by the month or the year, or to Office + Culture, where we first have the conversation about working together and then build the office that fits. The room is the easiest way to feel how meeting online can also be." },
   ],
@@ -86,21 +86,21 @@ export const HUREN_EN = {
     kicker: "Ready to move in",
     titel: "Move straight in. We arrange the rest.",
     body1: "Your team is spread out. What is missing is the thing that binds you: a place where you run into each other, drop in for a moment, have a coffee together. Bring that back online and bring people back together. Rent a furnished office, by the month or by the year.",
-    body2: "You can move in within a week. The spaces are there, we open the online workplace together with your team and then hand over the keys. Ready to use, so you can get to work straight away, but it is not finished. A good place moves with your organisation. Change the colours, add a room or hang up bunting when it is someone's birthday. We help.",
+    body2: "You can move in within a week. The spaces are there, we open the online workplace together with your team and then hand over the keys. Ready to use, so you can get to work straight away, but it isn't finished. A good place moves with your organisation. Change the colours, add a room or hang up bunting when it's someone's birthday. We help.",
   },
 
   inbegrepen: {
     kicker: "Included",
     titel: "Everything your office needs.",
     optioneel: "Optional — Community Services",
-    optioneelBody: "HR, internal communications and community managers know it: steering and attention make organisations and communities closer. Online, that is doubly true. So where you want it, we support with Community Services: a mix of maintenance and unexpected touches that bring energy and encourage interaction. That way people go to the office with a smile, even when the office is their own house.",
+    optioneelBody: "HR, internal communications and community managers know it: steering and attention make organisations and communities closer. Online, that's doubly true. So where you want it, we support with Community Services: a mix of maintenance and unexpected touches that bring energy and encourage interaction. That way people go to the office with a smile, even when the office is their own house.",
     items: [
       { title: "Fit-out & design", desc: "An environment matched to how your team works — team rooms, focus zones, a coffee corner, a central stage." },
       { title: "Your own house style", desc: "Backdrops, colours and atmosphere matched to your organisation. Your office, your identity." },
-      { title: "Elements that connect", desc: "Small touches and activities that encourage informal contact — without anyone having to do anything for it." },
+      { title: "Elements that connect", desc: "Small touches and activities that encourage informal contact — without anyone having to organise it." },
       { title: "Technical support", desc: "Set-up, onboarding for your team and ongoing technical support." },
       { title: "Onboarding for your team", desc: "We make sure everyone knows how it works and actually starts using it — no empty space." },
-      { title: "Management & updates", desc: "We keep the environment current, adjust where needed and think along as the organisation changes." },
+      { title: "Management & updates", desc: "We keep the environment current, adjust where needed and keep pace as the organisation changes." },
     ],
   },
 
@@ -119,7 +119,7 @@ export const HUREN_EN = {
     { q: "Who is renting for?", a: "For a team or a group of changemakers who want a permanent online place quickly, without waiting for a long programme or building it themselves." },
     { q: "By the month or by the year?", a: "Either works. Renting is a continuing service; you choose the term that suits. On a tour we go through the options and make a proposal built around your case." },
     { q: "What does renting a virtual office cost?", a: "That depends on the size, the fit-out and the support you want. So we work with a proposal built around your case. Do ask for a quote." },
-    { q: "Do you keep the office alive as well?", a: "Optionally, yes. No community flourishes by itself. With Community Services we bring energy and movement: surprising interactions and something extra on the days that matter. You decide how much." },
+    { q: "Do you keep the office alive as well?", a: "Optionally, yes. No community flourishes on its own. With Community Services we bring energy and movement: surprising interactions and something extra on the days that matter. You decide how much." },
     { q: "Is a rented office secure?", a: "The environment is closed off and SpatialChat meets enterprise-grade security and privacy standards. We set up access and permissions to suit your organisation." },
   ],
 
@@ -142,7 +142,7 @@ export const CULTUUR_EN = {
   waarom: {
     kicker: "What it is really about",
     titel: "The office is the occasion, not the goal.",
-    body1: "A merger, a reorganisation, or simply a team that is never in the same place any more. The way people work together changes, and nobody can quite name how we do things around here, or why.",
+    body1: "A merger, a reorganisation, or simply a team that's never in the same place any more. The way people work together changes, and nobody can quite name how we do things around here, or why.",
     body2: "With a background in strategy and communication, we have that conversation first. Then we build, together, the online office in which the culture comes to life, day after day.",
   },
 
@@ -152,31 +152,31 @@ export const CULTUUR_EN = {
     onder: "Alongside specialists in culture, brand and collaboration, you build from the inside out.",
     stappen: [
       { title: "Connecting to the strategic foundation", body: "We start with what you stand for and what you are working towards. The direction of the organisation is the starting point — not the layout of the space." },
-      { title: "Making core values something you can discuss", body: "Which values connect, and how do they show — across teams and within them? We make it concrete and open to discussion, including what counts for you personally." },
+      { title: "Making core values something you can discuss", body: "Which values connect, and how do they show — across teams and within them? We make it specific and open to discussion, including what counts for you personally." },
       { title: "Translating into working together", body: "What does that mean for the way and the structure of working together? We set up both the structure and the softer side: how you keep working together and how you keep talking." },
       { title: "The office as the outcome", body: "The space is built around how your teams work — as a result of the programme. A place that gives direction and energy to how you want to work together." },
     ],
   },
 
   voorWie: {
-    kicker: "Who it is for",
+    kicker: "Who it's for",
     titel: "A question for the board. Not a fit-out job.",
     body: "Directors, strategists and the people responsible for the content, who want not only a place but clarity about how they work together and an environment that carries it. At the level of the individual, the team and the organisation as a whole.",
   },
   waarom2: {
     kicker: "Why with us",
     titel: "We come from strategy.",
-    body: "We work with specialists in culture, brand and collaboration. That is not only bought-in knowledge, it is our own foundation. Founder Emilie van Rappard has spent more than 20 years guiding organisations through questions of strategy, stakeholders, brand and culture.",
+    body: "We work with specialists in culture, brand and collaboration. That isn't knowledge we buy in; it's our own foundation. Founder Emilie van Rappard has spent more than 20 years guiding organisations through questions of strategy, stakeholders, brand and culture.",
   },
   terug: "← Virtual office",
 
   faqKop: "Frequently asked questions about Office + Culture",
   faq: [
-    { q: "What does Office + Culture involve?", a: "You do not start with the layout of the space but with the question of what you stand for, which values connect you and how you want to work together now that you are no longer in the same place. Alongside specialists in culture and collaboration you translate that into your way of working. Then we build the office in which that culture comes to life." },
-    { q: "Who is this programme for?", a: "For directors, strategists and the people responsible for the content — for instance when working at a distance is not going smoothly, or after a merger, or within a larger programme where how you want to work has to be named again." },
-    { q: "Why is a ready-made office not enough here?", a: "Because the question sits deeper. A ready-made office gives you a place straight away; Office + Culture first gives you clarity about how you want to work together and then the place that fits. When it matters, the standard will not do." },
+    { q: "What does Office + Culture involve?", a: "You don't start with the layout of the space but with the question of what you stand for, which values connect you and how you want to work together now that you're no longer in the same place. Alongside specialists in culture and collaboration you translate that into your way of working. Then we build the office in which that culture comes to life." },
+    { q: "Who is this programme for?", a: "For directors, strategists and the people responsible for the content — for instance when working at a distance isn't going smoothly, or after a merger, or within a larger programme where how you want to work has to be named again." },
+    { q: "Why is a ready-made office not enough here?", a: "Because the question sits deeper. A ready-made office gives you a place straight away; Office + Culture first gives you clarity about how you want to work together and then the place that fits. When it matters, the standard won't do." },
     { q: "Do you make collaboration open to discussion again?", a: "Yes. Moving to a virtual office is exactly the moment to revisit the agreements: how do we work together, what has become unclear online, can the camera be off? Not to police anyone, but to make working together better." },
-    { q: "Who guides this?", a: "Specialists in culture, brand and collaboration. That is not only bought-in knowledge, it is our own foundation: founder Emilie van Rappard has spent more than 20 years guiding organisations through questions of strategy, stakeholders, brand and culture. Not a consultancy programme handed down from above, but a guided conversation that gives direction, with the office as its concrete outcome." },
+    { q: "Who guides this?", a: "Specialists in culture, brand and collaboration. That isn't knowledge we buy in; it's our own foundation: founder Emilie van Rappard has spent more than 20 years guiding organisations through questions of strategy, stakeholders, brand and culture. Not a consultancy programme handed down from above, but a guided conversation that gives direction, with the office as its concrete outcome." },
     { q: "Can you keep the office alive afterwards?", a: "Optionally, yes. With Community Services we bring energy and movement into the environment: surprising interactions and something extra on the days that matter. You decide how much." },
   ],
 

@@ -22,11 +22,11 @@ export const RAVENHACK_EN = {
   wat: {
     kicker: "What it is",
     titel: "A cybersecurity escape game.",
-    body: "In R@venHack your team lands in the middle of a digital crisis full of data leaks, phishing and hidden clues. Together you follow the clues and stop the attack. It is not a lesson you sit through but an experience you live through — and that is exactly why what safe digital behaviour means stays with you.",
+    body: "In R@venHack your team lands in the middle of a digital crisis full of data leaks, phishing and hidden clues. Together you follow the clues and stop the attack. It isn't a lesson you sit through but an experience you live through — and that's exactly why what safe digital behaviour means stays with you.",
   },
 
   voorWie: {
-    kicker: "Who it is for",
+    kicker: "Who it's for",
     titel: "Team building with something to learn.",
     body: "For organisations that want to take awareness of digital safety further than a compulsory e-learning module. R@venHack works as team building and as a natural starting point for wider learning about cybersecurity — you learn together, and the conversation afterwards carries on by itself.",
   },
@@ -101,11 +101,11 @@ export const RAVENHACK_EN = {
 
   faqKop: "Frequently asked questions about R@venHack",
   faq: [
-    { q: "What exactly is R@venHack?", a: "R@venHack is a cybersecurity escape game. Your team lands in a digital crisis full of data leaks, phishing and hidden clues and has to stop the attack together. It is an awareness experience: you learn about safe digital behaviour by doing it, rather than by working through an e-learning." },
+    { q: "What exactly is R@venHack?", a: "R@venHack is a cybersecurity escape game. Your team lands in a digital crisis full of data leaks, phishing and hidden clues and has to stop the attack together. It's an awareness experience: you learn about safe digital behaviour by doing it, rather than by working through an e-learning." },
     { q: "What is the difference between the standard version and the XL version?", a: "The standard version is the compact, energetic R@venHack of around 60 minutes, focused on stopping the attack together and on the key awareness lessons. The XL version runs longer and goes deeper: with extra scenarios, more security themes and a fuller debrief. The XL version also suits larger groups playing in several teams at once, who want to put the way they work together further to the test." },
     { q: "How long does R@venHack take?", a: "The standard version takes around 60 minutes, including a short introduction and debrief. The XL version takes more time — expect a longer session with extra depth and a fuller debrief. Together we look at which variant and which length suit your team and your purpose best." },
-    { q: "What group sizes does it suit?", a: "The standard version is ideal for one team or a compact group. The XL version suits larger groups, because it is played by several teams at once and everyone takes an active part. We are glad to help work out the number of participants that fits your group." },
-    { q: "What will my team learn from it?", a: "Participants learn to recognise phishing and deception, how to contain a data leak and what safe digital behaviour means in practice. Because they discover it together and under gentle pressure, the lessons stick better than in a compulsory training. It is team building and a natural starting point for wider learning about cybersecurity at once. The XL version leaves extra room to go deeper into the security themes." },
+    { q: "What group sizes does it suit?", a: "The standard version is ideal for one team or a compact group. The XL version suits larger groups, because it's played by several teams at once and everyone takes an active part. We're glad to help work out the number of participants that fits your group." },
+    { q: "What will my team learn from it?", a: "Participants learn to recognise phishing and deception, how to contain a data leak and what safe digital behaviour means in practice. Because they discover it together and under gentle pressure, the lessons stick better than in a compulsory training. It's team building and a natural starting point for wider learning about cybersecurity at once. The XL version leaves extra room to go deeper into the security themes." },
     { q: "Which platform does R@venHack run on?", a: "Both versions run through SpatialChat and are hosted by the Meeting Masters. Participants open a link in the browser and walk straight in — nothing to install. The hosting keeps the game running smoothly and keeps everyone involved." },
   ],
 

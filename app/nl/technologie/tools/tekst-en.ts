@@ -22,26 +22,26 @@ export const PLATFORMS_EN = {
 
   platforms: {
     kop: "Four platforms, four purposes",
-    onder: "This is where your gathering takes place. You pick one; you do not need the rest.",
+    onder: "This is where your gathering takes place. You pick one; you don't need the rest.",
     sterkIn: "Strong at",
     items: {
       "Microsoft Teams": {
         sterk: "Internal day-to-day meetings",
         groep: "0 – 49",
         wanneer: "When your organisation runs on it",
-        body: "Already sits inside your Microsoft environment and in your calendar, so for internal meetings it saves an extra link and an extra account. Your documents are at hand, and chat and meeting flow into one another. For participants from outside your organisation it is less smooth. This is a work platform, not an events platform.",
+        body: "Already sits inside your Microsoft environment and in your calendar, so for internal meetings it saves an extra link and an extra account. Your documents are at hand, and chat and meeting flow into one another. For participants from outside your organisation it's less smooth. This is a work platform, not an events platform.",
       },
       Zoom: {
         sterk: "Meetings and events in larger groups",
         groep: "up to ~300",
         wanneer: "Business meetings with tight control",
-        body: "Stable, widely known and usable by almost anyone without explanation. Break-out rooms work reliably and recording is simple. We set everything up beforehand — waiting room, permissions, recordings — so that you do not have to think about it during the session.",
+        body: "Stable, widely known and usable by almost anyone without explanation. Break-out rooms work reliably and recording is simple. We set everything up beforehand — waiting room, permissions, recordings — so that you don't have to think about it during the session.",
       },
       "Zoom Events": {
         sterk: "Large events and congresses",
         groep: "from ~300",
         wanneer: "For multi-day or parallel programmes",
-        body: "Registration in advance, several sessions side by side, a lobby and a programme participants walk through themselves. You know beforehand who is coming and afterwards who went where. Clear layouts and good-looking design, with personalised itineraries. Built for scale, so for a small session it is more than you need.",
+        body: "Registration in advance, several sessions side by side, a lobby and a programme participants walk through themselves. You know beforehand who is coming and afterwards who went where. Clear layouts and good-looking design, with personalised itineraries. Built for scale, so for a small session it's more than you need.",
       },
       SpatialChat: {
         sterk: "Webinars and events with personal interaction",
@@ -55,7 +55,7 @@ export const PLATFORMS_EN = {
 
   tools: {
     kop: "More collaboration and interaction",
-    onder: "To raise interaction and collaboration within a gathering we sometimes bring in outside tools. We combine them with the platform, so you do not have to pick them yourself.",
+    onder: "To raise interaction and collaboration within a gathering we sometimes bring in outside tools. We combine them with the platform, so you don't have to pick them yourself.",
     binnenkort: "More to come",
     binnenkortBody: "Tools for recording and transcripts are on the way.",
     eigenVoor: "For more playful interaction we have also designed a",
@@ -92,11 +92,11 @@ export const PLATFORMS_EN = {
   faq: [
     {
       q: "What is the difference between Zoom and Microsoft Teams?",
-      a: "Teams is a work platform: it is tied to your Microsoft 365 environment, your calendar and your documents, and it is built for internal meetings. Zoom is more of a standalone meeting application that almost anyone can use without explanation, including people outside your organisation. For a gathering with external participants Zoom is therefore usually smoother; for daily internal work Teams is more practical.",
+      a: "Teams is a work platform: it's tied to your Microsoft 365 environment, your calendar and your documents, and it's built for internal meetings. Zoom is more of a standalone meeting application that almost anyone can use without explanation, including people outside your organisation. For a gathering with external participants Zoom is therefore usually smoother; for daily internal work Teams is more practical.",
     },
     {
       q: "How many participants can join an online gathering?",
-      a: "That depends on the platform and on the licence. In Zoom and Teams an ordinary meeting usually runs to a few hundred participants; with an add-on or a webinar licence that goes considerably higher. In SpatialChat we work with groups of up to around 600. We arrange the right licence, so this is not something you have to work out.",
+      a: "That depends on the platform and on the licence. In Zoom and Teams an ordinary meeting usually runs to a few hundred participants; with an add-on or a webinar licence that goes considerably higher. In SpatialChat we work with groups of up to around 600. We arrange the right licence, so this isn't something you have to work out.",
     },
     {
       q: "What is the difference between a webinar and an online meeting?",
@@ -112,7 +112,7 @@ export const PLATFORMS_EN = {
     },
     {
       q: "Can an online gathering be recorded?",
-      a: "Yes, on every platform we work with. The organiser switches it on and has to say so beforehand; participants see a notice on screen while it is recording. We agree in advance what is recorded and what is not — break-outs and informal spaces are left out of the recording as standard.",
+      a: "Yes, on every platform we work with. The organiser switches it on and has to say so beforehand; participants see a notice on screen while it's recording. We agree in advance what is recorded and what isn't — break-outs and informal spaces are left out of the recording as standard.",
     },
   ],
 
@@ -131,15 +131,15 @@ export const PLATFORMS_EN = {
     },
     {
       q: "Does it work on a phone or tablet?",
-      a: "Joining usually works, but it is rarely comfortable: the screen is small and not every feature works. For a gathering where people also work together, we advise a laptop or computer. As a fallback when your laptop is being difficult, the phone is perfectly fine.",
+      a: "Joining usually works, but it's rarely comfortable: the screen is small and not every feature works. For a gathering where people also work together, we advise a laptop or computer. As a fallback when your laptop is being difficult, the phone is perfectly fine.",
     },
     {
       q: "What does an online meeting platform cost?",
-      a: "For short, small meetings almost every platform has a free version, usually with a time limit. As soon as it is about larger groups, registration or a space of your own, a paid licence is needed. For a hosted gathering the licence is included in our proposal; you do not have to buy anything yourself.",
+      a: "For short, small meetings almost every platform has a free version, usually with a time limit. As soon as it is about larger groups, registration or a space of your own, a paid licence is needed. For a hosted gathering the licence is included in our proposal; you don't have to buy anything yourself.",
     },
     {
       q: "Can you also work with the platform we already have?",
-      a: "Yes. If your organisation runs on Teams or Zoom, we work in it with you. Sometimes that is the sensible thing: the gain then sits in how the gathering is built, not in a different tool. We say so honestly when a different platform would make a difference.",
+      a: "Yes. If your organisation runs on Teams or Zoom, we work in it with you. Sometimes that's the sensible thing: the gain then sits in how the gathering is built, not in a different tool. We say so honestly when a different platform would make a difference.",
     },
   ],
 
@@ -149,7 +149,7 @@ export const PLATFORMS_EN = {
     alinea1:
       "What has to have happened by the end of your gathering? Does something have to be decided, or do people need to get to know each other? Does the group meet regularly, or is this a one-off? And what are your participants used to — have they been in meetings all day, or is online the uncomfortable part for them?",
     alinea2:
-      "The form follows from those answers, and only then the platform. Sometimes that is the tool you already have, and the gain sits mostly in how you build the gathering. Sometimes something else is needed, because what you want simply does not happen in a grid.",
+      "The form follows from those answers, and only then the platform. Sometimes that's the tool you already have, and the gain sits mostly in how you build the gathering. Sometimes something else is needed, because what you want simply doesn't happen in a grid.",
   },
 
   cta: {

@@ -41,7 +41,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "How do I check whether someone really has bingo?",
-    a: "The player shows their card and the tool checks the combination. You do not have to keep score yourself.",
+    a: "The player shows their card and the tool checks the combination. You don't have to keep score yourself.",
   },
   {
     q: "Is the tool free?",
@@ -49,7 +49,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Can I use bingo in my own meeting environment?",
-    a: "Yes. Below the game there is an 'Embed code' button that copies the code you paste onto a screen in SpatialChat or on your own page. The allow=\"fullscreen\" attribute is already in that code.",
+    a: "Yes. Below the game there's an 'Embed code' button that copies the code you paste onto a screen in SpatialChat or on your own page. The allow=\"fullscreen\" attribute is already in that code.",
   },
 ];
 

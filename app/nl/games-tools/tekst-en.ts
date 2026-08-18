@@ -62,14 +62,14 @@ export const GAMES_EN = {
   ravenhack: {
     kicker: "R@venHack · Cybersecurity",
     titel: "Stop the cyberattack together.",
-    body1: "A digital crisis breaks out: data leaks, phishing and systems failing one after another. Your team has to keep a cool head together and bring the attack to a halt. Awareness does not come from hearing about it, but from doing it.",
-    body2: "That is how R@venHack combines team building with genuine knowledge about safe digital behaviour. There is a standard version and a longer XL version, so that it fits your group and the time you have.",
+    body1: "A digital crisis breaks out: data leaks, phishing and systems failing one after another. Your team has to keep a cool head together and bring the attack to a halt. Awareness doesn't come from hearing about it, but from doing it.",
+    body2: "That's how R@venHack combines team building with genuine knowledge about safe digital behaviour. There's a standard version and a longer XL version, so that it fits your group and the time you have.",
     cta: "See R@venHack →",
   },
 
   tools: {
     titel: "Free tools for livelier meetings.",
-    onder: "Small extras that make your meeting a good deal livelier. They are free and ready to use: you open the tool in your browser and share your screen — nothing to install.",
+    onder: "Small extras that make your meeting a good deal livelier. They're free and ready to use: you open the tool in your browser and share your screen — nothing to install.",
     open: "Open tool →",
     items: [
       { title: "Inspiration Cards", desc: "Cards with questions and statements that get the conversation going.", alt: "Inspiration Cards — cards with thought-provoking questions and statements" },
@@ -82,9 +82,9 @@ export const GAMES_EN = {
   voorJeBegint: {
     kicker: "Before you begin",
     titel: "First the question, then the gathering.",
-    body: "The tools above are for use during a session. This one is for before it — for the moment when you are still deciding whether, and how, to come together.",
+    body: "The tools above are for use during a session. This one is for before it — for the moment when you're still deciding whether, and how, to come together.",
     calculatorTitel: "Meeting cost calculator",
-    calculatorBody: "An hour of meeting with twenty people is not an hour — it is twenty hours, plus travel. Work out what a gathering costs in time, money and CO₂, and see what online would save.",
+    calculatorBody: "An hour of meeting with twenty people isn't an hour — it's twenty hours, plus travel. Work out what a gathering costs in time, money and CO₂, and see what online would save.",
     calculatorCta: "Open the calculator →",
   },
 
@@ -96,7 +96,7 @@ export const GAMES_EN = {
     { q: "What is the difference between the games and the tools?", a: "The games are complete experiences that we host: an escape room, a cybersecurity game or something bespoke, with a storyline and a clear beginning and end. The tools are small, free aids you use yourself during a meeting — a wheel, a bingo card or a set of inspiration cards — to raise involvement." },
     { q: "Are the tools free to use?", a: "Yes. Every tool on this page is free and ready to use. You open the tool in your browser and share your screen during the meeting — nothing else is needed." },
     { q: "How long do the games take?", a: "That varies per game. The short games run 20 to 30 minutes and fit inside a meeting or a party. The Online Escape Room takes around 60 minutes, with a longer XL version alongside it. For a bespoke game you set the length with us." },
-    { q: "What group sizes do the games suit?", a: "The games work for small teams up to large groups; participants usually play in subgroups working in parallel. Tell us your group size and we will advise on the best set-up." },
+    { q: "What group sizes do the games suit?", a: "The games work for small teams up to large groups; participants usually play in subgroups working in parallel. Tell us your group size and we'll advise on the best set-up." },
   ],
 
   faqMore: [

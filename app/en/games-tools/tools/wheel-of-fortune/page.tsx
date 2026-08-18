@@ -21,11 +21,11 @@ export const metadata: Metadata = {
 const faq: FaqItem[] = [
   {
     q: "What does the wheel do?",
-    a: "You fill the wheel with names, questions or tasks and spin it. Chance decides. Handy when you do not want to point at anyone, when the order does not matter, or precisely when you want to make a game of it.",
+    a: "You fill the wheel with names, questions or tasks and spin it. Chance decides. Handy when you don't want to point at anyone, when the order doesn't matter, or precisely when you want to make a game of it.",
   },
   {
     q: "How do I use it in an online meeting?",
-    a: "Open the tool, set up your options and share your screen. Click 'Full screen' so that only the wheel is visible. Participants do not have to open or install anything themselves.",
+    a: "Open the tool, set up your options and share your screen. Click 'Full screen' so that only the wheel is visible. Participants don't have to open or install anything themselves.",
   },
   {
     q: "Can I fill the wheel myself?",
@@ -49,7 +49,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Can I use the wheel in my own meeting environment?",
-    a: "Yes. Below the wheel there is an 'Embed code' button that copies the code you paste onto a screen in SpatialChat or on your own page. The allow=\"fullscreen\" attribute is already in that code.",
+    a: "Yes. Below the wheel there's an 'Embed code' button that copies the code you paste onto a screen in SpatialChat or on your own page. The allow=\"fullscreen\" attribute is already in that code.",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function WheelOfFortunePage() {
             About the wheel
           </p>
           <p className="text-[#545454] leading-relaxed mb-6">
-            A group does not much like pointing at itself. Let chance choose, and there is nothing
+            A group doesn&rsquo;t much like pointing at itself. Let chance choose, and there&rsquo;s nothing
             personal about it — the conversation simply carries on:
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">

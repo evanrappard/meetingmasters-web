@@ -21,7 +21,7 @@ export const OVERZICHT_EN = {
     kicker: "Virtual events",
     titel: "Online gatherings where people are genuinely present.",
     intro1: "An important gathering for 5, 50 or 500 people:",
-    intro2: "when it matters, the standard will not do.",
+    intro2: "when it matters, the standard won't do.",
     cta: "Expert advice →",
     formats: "See the event formats",
     videoAlt:
@@ -81,7 +81,7 @@ export const OVERZICHT_EN = {
     webinar: { title: "Webinar", desc: "Webinars that hold attention. Not just broadcasting, but connecting." },
     conferentie: { title: "Online conference", desc: "Professional conferences for large groups: interactive and well produced." },
     "open-space": { title: "Online Open Space", desc: "Letting the group set the agenda: open, energetic and productive." },
-    netwerkevent: { title: "Online networking event", desc: "Connecting people who do not know each other yet, online and easy to join." },
+    netwerkevent: { title: "Online networking event", desc: "Connecting people who don't know each other yet, online and easy to join." },
   } as Record<string, { title: string; desc: string }>,
 
   visie: {
@@ -99,7 +99,7 @@ export const OVERZICHT_EN = {
       },
       {
         kop: "In-meeting service.",
-        desc: "We are there live at your meeting. As facilitator, producer and the person to turn to for anything technical. So that you can focus on the people and the content.",
+        desc: "We're there live at your meeting. As facilitator, producer and the person to turn to for anything technical. So that you can focus on the people and the content.",
       },
     ],
     cta: "Advice, no strings attached →",
@@ -118,7 +118,7 @@ export const OVERZICHT_EN = {
     },
     {
       q: "How do you run a successful online event?",
-      a: "A successful online event starts with a clear purpose. After that come the choices about audience, programme, formats, technology and facilitation. It is exactly that combination that decides whether participants stay actively involved or drift off after twenty minutes.",
+      a: "A successful online event starts with a clear purpose. After that come the choices about audience, programme, formats, technology and facilitation. It's exactly that combination that decides whether participants stay actively involved or drift off after twenty minutes.",
     },
     {
       q: "Which software do you use for online events?",
@@ -130,18 +130,18 @@ export const OVERZICHT_EN = {
     },
     {
       q: "How many participants can take part in an online event?",
-      a: "Anything from ten participants to several thousand. The technology is rarely the limiting factor. It is the design of the programme that decides what works well.",
+      a: "Anything from ten participants to several thousand. The technology is rarely the limiting factor. It's the design of the programme that decides what works well.",
     },
     {
       q: "What does an online event cost?",
-      a: "The investment depends on the type of event, the group size, the technology and the support you want. That is why we draw up a proposal for every request.",
+      a: "The investment depends on the type of event, the group size, the technology and the support you want. That's why we draw up a proposal for every request.",
     },
   ],
 
   faqMore: [
     {
       q: "What is the difference between an online event and a webinar?",
-      a: "A webinar is usually about passing on knowledge around a single subject and leans heavily towards broadcasting. An online event is often built more broadly and contains, for instance, several sessions, opportunities to network or interactive elements. Knowledge is not only shared by the speaker: participants share their insights with each other too.",
+      a: "A webinar is usually about passing on knowledge around a single subject and leans heavily towards broadcasting. An online event is often built more broadly and contains, for instance, several sessions, opportunities to network or interactive elements. Knowledge isn't only shared by the speaker: participants share their insights with each other too.",
     },
     {
       q: "Is an online event as effective as meeting in person?",
@@ -149,7 +149,7 @@ export const OVERZICHT_EN = {
     },
     {
       q: "Can an online event be hybrid?",
-      a: "Yes. Some participants are then present online and some in the room. That does ask for a different approach from an event that is entirely online or entirely in person. We design hybrid gatherings so that everyone can take part on equal terms.",
+      a: "Yes. Some participants are then present online and some in the room. That does ask for a different approach from an event that's entirely online or entirely in person. We design hybrid gatherings so that everyone can take part on equal terms.",
     },
     {
       q: "Can you handle the whole organisation of it?",
@@ -165,11 +165,11 @@ export const OVERZICHT_EN = {
     },
     {
       q: "Can you help with interaction and formats?",
-      a: "Yes. It is an important part of what we do. Technology makes an online event possible, but the format decides whether people genuinely get involved.",
+      a: "Yes. It's an important part of what we do. Technology makes an online event possible, but the format decides whether people genuinely get involved.",
     },
     {
       q: "What does an online event deliver?",
-      a: "A good online event brings people together around a shared purpose. That might be sharing knowledge, taking decisions, meeting each other, building involvement or developing new ideas. Success is not in the number of participants but in what people take away afterwards.",
+      a: "A good online event brings people together around a shared purpose. That might be sharing knowledge, taking decisions, meeting each other, building involvement or developing new ideas. Success isn't in the number of participants but in what people take away afterwards.",
     },
     {
       q: "Does an online event suit international participants?",
@@ -177,7 +177,7 @@ export const OVERZICHT_EN = {
     },
     {
       q: "Why do organisations choose MeetingMasters?",
-      a: "Because we do not start with the technology but with the gathering and the people in it. We design online events from the question of what people need to experience, learn, discuss or decide. Only then do we choose the right formats and technology.",
+      a: "Because we don't start with the technology but with the gathering and the people in it. We design online events from the question of what people need to experience, learn, discuss or decide. Only then do we choose the right formats and technology.",
     },
   ],
 };

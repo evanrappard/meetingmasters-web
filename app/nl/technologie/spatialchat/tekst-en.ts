@@ -15,7 +15,7 @@ export const SPATIALCHAT_EN = {
     kicker: "Technology → SpatialChat",
     titel: "Video calling that feels like actually meeting.",
     intro:
-      "SpatialChat is our platform of choice — because it is the only one that mimics the dynamics of a real gathering. You move freely, seek out the conversation yourself and get a sense of space.",
+      "SpatialChat is our platform of choice — because it's the only one that mimics the dynamics of a real gathering. You move freely, seek out the conversation yourself and get a sense of space.",
     cta: "Book a conversation",
     hulp: "Help with SpatialChat →",
     beeldAlt:
@@ -30,7 +30,7 @@ export const SPATIALCHAT_EN = {
     alinea2:
       "In SpatialChat participants move freely through a digital space. You walk over to someone — literally. The distance between avatars decides who you hear. Conversations start by themselves, as they do at a drinks reception or in an office.",
     alinea3:
-      "That difference is not cosmetic. It changes the social dynamic: less formal, more spontaneous, higher involvement. Participants take the initiative themselves instead of waiting to be given the floor.",
+      "That difference isn't cosmetic. It changes the social dynamic: less formal, more spontaneous, higher involvement. Participants take the initiative themselves instead of waiting to be given the floor.",
     traditioneel: "Traditional video conferencing",
     traditioneelPunten: [
       "— Fixed positions, no movement",
@@ -45,7 +45,7 @@ export const SPATIALCHAT_EN = {
   },
 
   stats: [
-    { value: "47%", label: "more engagement than video calling" },
+    { value: "47%", label: "more involvement than video calling" },
     { value: "66%", label: "higher turnout at events" },
     { value: "94%", label: "participant satisfaction score" },
     { value: "6M+", label: "users worldwide" },
@@ -57,7 +57,7 @@ export const SPATIALCHAT_EN = {
     items: [
       {
         title: "Spatial audio",
-        body: "You hear people who are close by clearly, and people further away more softly — exactly as in a real room. Conversations do not overlap.",
+        body: "You hear people who are close by clearly, and people further away more softly — exactly as in a real room. Conversations don't overlap.",
       },
       {
         title: "Free movement",
@@ -119,7 +119,7 @@ export const SPATIALCHAT_EN = {
     kicker: "Official Channel Partner",
     titel: "We are SpatialChat's partner in the Netherlands.",
     body:
-      "Since 2021 we have been the official Channel Partner of SpatialChat for the Netherlands. That means direct access to the developers, early sight of new features, and a team that knows the platform inside out — not from a manual, but from hundreds of events.",
+      "Since 2021 we've been the official Channel Partner of SpatialChat for the Netherlands. That means direct access to the developers, early sight of new features, and a team that knows the platform inside out — not from a manual, but from hundreds of events.",
     trustedBy: ["Stanford University", "Google", "McDonald's", "Accenture", "1,500+ organisations"],
     certificering: "Certification",
     soc: "SOC 2 Type II",

@@ -20,9 +20,9 @@ export const CALCULATOR_EN = {
     kicker: "Why this sum is worth doing",
     titel: "An hour of meeting with twenty people is not an hour",
     body1:
-      "It is twenty hours. Plus the travel, plus the preparation, plus the half hour everyone needs afterwards to pick up where they left off. The diary shows a sixty-minute block; in reality a considerable sum is at stake.",
+      "It's twenty hours. Plus the travel, plus the preparation, plus the half hour everyone needs afterwards to pick up where they left off. The diary shows a sixty-minute block; in reality a considerable sum is at stake.",
     body2:
-      "That does not make a gathering wrong. It makes it expensive enough to think about: does this have to be a meeting, does everyone have to be there, and does it have to be in person? Once that figure is on the table, the conversation turns to the form of its own accord.",
+      "That doesn't make a gathering wrong. It makes it expensive enough to think about: does this have to be a meeting, does everyone have to be there, and does it have to be in person? Once that figure is on the table, the conversation turns to the form of its own accord.",
   },
 
   faqKop: "Frequently asked questions",
@@ -45,18 +45,18 @@ export const CALCULATOR_EN = {
     },
     {
       q: "Does this mean everything should be online?",
-      a: "No. Some gatherings are worth the journey many times over. The calculator helps you make that choice deliberately rather than out of habit — and shows which gatherings you are better off keeping online.",
+      a: "No. Some gatherings are worth the journey many times over. The calculator helps you make that choice deliberately rather than out of habit — and shows which gatherings you're better off keeping online.",
     },
     {
       q: "Is the calculator free?",
-      a: "Yes. No account and no installation; it simply runs in your browser. If you would like the outcome by email, you can leave your address for that.",
+      a: "Yes. No account and no installation; it simply runs in your browser. If you'd like the outcome by email, you can leave your address for that.",
     },
   ],
 
   cta: {
     titel: "Taken aback by the outcome?",
     body:
-      "Then the next question is not whether it can be cheaper, but whether it can be better. We design gatherings in which the time of all those people genuinely produces something.",
+      "Then the next question isn't whether it can be cheaper, but whether it can be better. We design gatherings in which the time of all those people genuinely produces something.",
     advies: "Ask for advice →",
     tools: "See our free tools",
   },

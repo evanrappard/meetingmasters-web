@@ -33,10 +33,10 @@ export default function ExpertAdvicePage() {
             <p className="text-[#545454] text-lg leading-relaxed mb-4">
               We are specialists in online meetings. Do feel free to get in touch
               and try an idea out on us. You always get our honest advice, worked
-              out into a no-obligation quote if that is what you want.
+              out into a no-obligation quote if that&rsquo;s what you want.
             </p>
             <p className="text-[#545454] text-base leading-relaxed">
-              Whether it is advice with no strings attached, a second opinion on a
+              Whether it&rsquo;s advice with no strings attached, a second opinion on a
               design you already have, or a set-up you have in mind — what we add is
               always the same: as much personal contact, interaction and involvement
               as the occasion allows.
@@ -55,7 +55,7 @@ export default function ExpertAdvicePage() {
                 Fill in the form
               </h2>
               <p className="text-sm text-[#545454] leading-relaxed mb-8">
-                Leave your question or idea and we will think it through. You are not
+                Leave your question or idea and we&rsquo;ll think it through. You&rsquo;re not
                 committing to anything.
               </p>
               <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("advies", "en")} />

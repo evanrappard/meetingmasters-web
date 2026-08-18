@@ -45,7 +45,7 @@ const T = {
     alleFormatsHref: "/nl/events#formats",
     actiefFormat: "An active format",
     overFormat: "About this format",
-    voorWie: "Who it is for",
+    voorWie: "Who it's for",
     groepsgrootte: "Group size",
     gesprek: "Book a conversation →",
     gesprekHref: "/en/expert-advice",

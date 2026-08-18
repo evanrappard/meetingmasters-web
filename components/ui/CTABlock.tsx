@@ -42,7 +42,7 @@ const T = {
       {
         level: "Orientation",
         title: "See what we do",
-        desc: "From strategy day to online team building — see which event formats fit what you are after.",
+        desc: "From strategy day to online team building — see which event formats fit what you're after.",
         ctaLabel: "View all events →",
         href: "/en/events",
         variant: "low" as const,
@@ -50,14 +50,14 @@ const T = {
       {
         level: "Interested",
         title: "Feel the difference",
-        desc: "20 minutes to see how a platform like SpatialChat does something Zoom and Teams do not.",
+        desc: "20 minutes to see how a platform like SpatialChat does something Zoom and Teams don't.",
         ctaLabel: "Book a tour →",
         href: "/en/demo",
         variant: "mid" as const,
       },
       {
         level: "Ready to go",
-        title: "Book a conversation — we will think it through with you",
+        title: "Book a conversation — we'll think it through with you",
         desc: "No obligation. We look straight away at your situation, your group and what it needs.",
         ctaLabel: "Book a conversation →",
         href: "/en/expert-advice",

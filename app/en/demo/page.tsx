@@ -4,7 +4,7 @@ import FormulierPagina from "@/components/ui/FormulierPagina";
 export const metadata: Metadata = {
   title: "Book a tour or demo | MeetingMasters",
   description:
-    "Twenty minutes to see how a platform like SpatialChat does something Zoom and Teams do not. No strings attached, in your own diary, with one of our people alongside.",
+    "Twenty minutes to see how a platform like SpatialChat does something Zoom and Teams don't. No strings attached, in your own diary, with one of our people alongside.",
   alternates: {
     canonical: "https://www.meetingmasters.online/en/demo",
     languages: {

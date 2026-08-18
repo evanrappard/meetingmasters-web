@@ -43,7 +43,7 @@ export const HOME_EN = {
         headline: "More involvement, even with large groups",
         bullets: ["Strategy day", "All-hands & kick-off", "Leadership day", "Community event"],
         cta: "Surprising, interactive gatherings",
-        sub: "When the standard will not do: from strategy days to all-hands and community events.",
+        sub: "When the standard won't do: from strategy days to all-hands and community events.",
       },
       "remote-office": {
         label: "Virtual Office",
@@ -68,9 +68,9 @@ export const HOME_EN = {
     kicker: "Essence",
     kop: "What we stand for",
     alinea1:
-      "When people come together, something good happens. We learn from each other. We strengthen each other. But it does not just happen.",
+      "When people come together, something good happens. We learn from each other. We strengthen each other. But it doesn't just happen.",
     alinea2:
-      "A good gathering is more than technology and logistics. Above all it is a human challenge. How we meet each other is what makes the difference.",
+      "A good gathering is more than technology and logistics. Above all it's a human challenge. How we meet each other is what makes the difference.",
     quote: "We design encounters with room for genuine contact.",
     manifest: "Download the MeetingMasters manifesto",
     manifestHref: "/downloads/en/meetingmasters-manifesto.pdf",
@@ -133,11 +133,11 @@ export const HOME_EN = {
     },
     {
       q: "What is SpatialChat, and why do you use it?",
-      a: "SpatialChat is a virtual platform where participants move freely through the space and fall into conversation. We use it because it makes behaviour possible that does not appear on its own in other tools.",
+      a: "SpatialChat is a virtual platform where participants move freely through the space and fall into conversation. We use it because it makes behaviour possible that doesn't appear on its own in other tools.",
     },
     {
       q: "What does an online event with MeetingMasters cost?",
-      a: "The cost depends on the type of event, the number of participants and the support you want. Get in touch through the form or at contact@meetingmasters.online and we will give you a first estimate.",
+      a: "The cost depends on the type of event, the number of participants and the support you want. Get in touch through the form or at contact@meetingmasters.online and we'll give you a first estimate.",
     },
   ],
 

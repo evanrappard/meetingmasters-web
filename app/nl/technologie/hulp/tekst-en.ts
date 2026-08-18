@@ -52,7 +52,7 @@ export const HULP_EN = {
   faq: {
     kop: "Frequently asked questions",
     onder:
-      "What we hear most often, in three groups: the general problems, the settings on your own device, and the help that is there during a meeting.",
+      "What we hear most often, in three groups: the general problems, the settings on your own device, and the help that's there during a meeting.",
     groepen: {
       algemeen: "Technical problems in general",
       device: "Settings on your own device",
@@ -62,35 +62,35 @@ export const HULP_EN = {
 
   algemeneFaq: [
     {
-      q: "It is not working and the meeting starts any minute. What do I do first?",
-      a: "Close the meeting completely and click the link in your invitation again. That solves most problems. If that does not work, open the link in Google Chrome; it works with every platform we use. If that does not help either, restart your computer — annoying just before a session, but often faster than carrying on trying.",
+      q: "It isn't working and the meeting starts any minute. What do I do first?",
+      a: "Close the meeting completely and click the link in your invitation again. That solves most problems. If that doesn't work, open the link in Google Chrome; it works with every platform we use. If that doesn't help either, restart your computer — annoying just before a session, but often faster than carrying on trying.",
     },
     {
       q: "Do I have to install anything to take part?",
-      a: "Not for SpatialChat: that runs entirely in your browser. For Zoom and Teams you can usually join through the browser too, although the app is a little more comfortable. If your organisation asks for an installation that will not work, there is usually a block on administrator rights — in which case your own IT department is the fastest place to go.",
+      a: "Not for SpatialChat: that runs entirely in your browser. For Zoom and Teams you can usually join through the browser too, although the app is a little more comfortable. If your organisation asks for an installation that won't work, there's usually a block on administrator rights — in which case your own IT department is the fastest place to go.",
     },
     {
       q: "Which browser should I use?",
-      a: "Google Chrome. Edge and Firefox usually work too. Safari more often causes problems with the microphone and camera. If you are on a computer belonging to your organisation, Chrome is often already installed.",
+      a: "Google Chrome. Edge and Firefox usually work too. Safari more often causes problems with the microphone and camera. If you're on a computer belonging to your organisation, Chrome is often already installed.",
     },
     {
       q: "My connection keeps dropping. What can I do?",
-      a: "Turn your camera off for a moment; video takes by far the most bandwidth and the sound then usually stays fine. Close programmes you do not need, especially if something is syncing in the background. If you are on wifi and it is possible, sit closer to the router or use a cable.",
+      a: "Turn your camera off for a moment; video takes by far the most bandwidth and the sound then usually stays fine. Close programmes you don't need, especially if something is syncing in the background. If you're on wifi and it's possible, sit closer to the router or use a cable.",
     },
     {
       q: "I am on a work computer and all sorts of things are blocked.",
-      a: "That happens more often than you might think: many organisations block unfamiliar domains or the use of the camera and microphone in the browser. This is not something we can solve for you. At the bottom of this page you will find, per platform, which settings an IT department needs — you can forward that information.",
+      a: "That happens more often than you might think: many organisations block unfamiliar domains or the use of the camera and microphone in the browser. This isn't something we can solve for you. At the bottom of this page you'll find, per platform, which settings an IT department needs — you can forward that information.",
     },
   ],
 
   deviceFaq: [
     {
-      q: "The browser is not asking for permission for my microphone or camera.",
+      q: "The browser isn't asking for permission for my microphone or camera.",
       a: "Click the padlock or the icon at the left of your browser's address bar. It shows per site whether the camera and microphone are allowed. Set them to allow and then refresh the page.",
     },
     {
-      q: "I have given permission, and it still does not work.",
-      a: "Then your operating system is probably still blocking it. On a Mac that sits under System Settings → Privacy & Security → Microphone and Camera; your browser has to be ticked there. On Windows it is under Settings → Privacy & security → Microphone and Camera.",
+      q: "I have given permission, and it still doesn't work.",
+      a: "Then your operating system is probably still blocking it. On a Mac that sits under System Settings → Privacy & Security → Microphone and Camera; your browser has to be ticked there. On Windows it's under Settings → Privacy & security → Microphone and Camera.",
     },
     {
       q: "My sound is coming out of the wrong speaker or microphone.",
@@ -98,7 +98,7 @@ export const HULP_EN = {
     },
     {
       q: "Another application is already using my camera.",
-      a: "Cameras can only be used by one programme at a time. Close other meeting programmes completely — including when they are only running in the background — and then refresh the page.",
+      a: "Cameras can only be used by one programme at a time. Close other meeting programmes completely — including when they're only running in the background — and then refresh the page.",
     },
   ],
 
@@ -117,15 +117,15 @@ export const HULP_EN = {
     },
     {
       q: "Will I miss the meeting if I need help?",
-      a: "No. You are helped separately while the rest carries on, and brought back into the session afterwards. The group notices nothing.",
+      a: "No. You're helped separately while the rest carries on, and brought back into the session afterwards. The group notices nothing.",
     },
     {
-      q: "Can someone look over my shoulder if I cannot get it to work?",
-      a: "During a hosted meeting, yes. We look at what you are seeing and walk through the steps with you. That is usually faster than carrying on searching alone.",
+      q: "Can someone look over my shoulder if I can't get it to work?",
+      a: "During a hosted meeting, yes. We look at what you're seeing and walk through the steps with you. That's usually faster than carrying on searching alone.",
     },
     {
       q: "What happens if the platform itself goes down?",
-      a: "Then we switch. At meetings we host there is a fallback ready, and participants are told through the channel they were invited on.",
+      a: "Then we switch. At meetings we host there's a fallback ready, and participants are told through the channel they were invited on.",
     },
   ],
 
@@ -168,7 +168,7 @@ export const HULP_EN = {
       {
         naam: "Microsoft Teams",
         logo: "teams",
-        kern: "Runs on your existing Microsoft 365 environment; if that is already set up, Teams is usually sorted too.",
+        kern: "Runs on your existing Microsoft 365 environment; if that's already set up, Teams is usually sorted too.",
         punten: [
           "Open the TCP ports and IP addresses from the Microsoft 365 list of URLs and IP ranges.",
           "Microsoft recommends split-tunnel VPN: Teams traffic outside the VPN, which makes a noticeable difference to quality.",

@@ -55,7 +55,7 @@ export const DOWNLOADS_EN = {
     youtubeLabel: "Watch it on YouTube",
     onderschrift: "Explained in fourteen seconds. Also",
     onderschriftLink: "on YouTube ↗",
-    geenVideo: "Your browser cannot show this video.",
+    geenVideo: "Your browser can't show this video.",
   },
 
   handleidingen: {

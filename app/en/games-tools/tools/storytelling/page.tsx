@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const faq: FaqItem[] = [
   {
     q: "How does the storytelling tool work?",
-    a: "Participants take turns drawing a card with a question and tell their story within a time you set yourself. The others listen, without interrupting. Then it is the next person's turn.",
+    a: "Participants take turns drawing a card with a question and tell their story within a time you set yourself. The others listen, without interrupting. Then it's the next person's turn.",
   },
   {
     q: "What are the rules?",
@@ -29,7 +29,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Why that closing line?",
-    a: "Because it marks a clear ending. Without that ritual a group does not know when listening turns into responding, and someone talks over the story before it is finished.",
+    a: "Because it marks a clear ending. Without that ritual a group doesn't know when listening turns into responding, and someone talks over the story before it's finished.",
   },
   {
     q: "How long does a round take?",
@@ -41,7 +41,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Where can I use the tool?",
-    a: "In any environment where you can share your screen: Zoom, Teams, SpatialChat or simply a room with a projector. Participants do not have to open anything themselves.",
+    a: "In any environment where you can share your screen: Zoom, Teams, SpatialChat or simply a room with a projector. Participants don't have to open anything themselves.",
   },
   {
     q: "Is the tool free?",
@@ -49,7 +49,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Can I use the tool in my own meeting environment?",
-    a: "Yes. Below the tool there is an 'Embed code' button that copies the code you paste onto a screen in SpatialChat or on your own page. The allow=\"fullscreen\" attribute is already in that code.",
+    a: "Yes. Below the tool there's an 'Embed code' button that copies the code you paste onto a screen in SpatialChat or on your own page. The allow=\"fullscreen\" attribute is already in that code.",
   },
 ];
 

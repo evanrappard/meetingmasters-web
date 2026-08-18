@@ -17,7 +17,7 @@ export const VO_EN = {
     kicker: "Virtual Office",
     titel1: "A place where you",
     titel2: "run into each other again.",
-    intro: "You have plenty of tools. What you are missing is a place to simply be together.",
+    intro: "You have plenty of tools. What you're missing is a place to simply be together.",
     cta: "Book a tour →",
     videoAlt:
       "Virtual office in SpatialChat — a light, open office space with team members present through video circles",
@@ -26,11 +26,11 @@ export const VO_EN = {
   watIsHet: {
     kicker: "What it is",
     titel: "A workplace that connects.",
-    body: "You can meet and chat, but without the encounters in between, contact turns transactional. The virtual office is a permanent online place where your team runs into each other, works together and is simply around — even when there is nothing on the agenda. Not another tool, but an environment.",
+    body: "You can meet and chat, but without the encounters in between, contact turns transactional. The virtual office is a permanent online place where your team runs into each other, works together and is simply around — even when there's nothing on the agenda. Not another tool, but an environment.",
   },
 
   voorWie: {
-    kicker: "Who it is for",
+    kicker: "Who it's for",
     titel: "For groups who rarely sit together.",
     body: "Your team is partly at home, partly in the office, sometimes spread across countries and time zones. Hybrid or remote-first, communities and partnerships: cohesion sometimes needs a push. A shared base helps.",
   },
@@ -45,7 +45,7 @@ export const VO_EN = {
       },
       {
         kpi: "Fewer square metres",
-        body: "With an online home base you do not have to keep a physical office at full capacity. Save on space and travel time, and grow flexibly.",
+        body: "With an online home base you don't have to keep a physical office at full capacity. Save on space and travel time, and grow flexibly.",
       },
       {
         kpi: "More cohesion & effectiveness",
@@ -89,7 +89,7 @@ export const VO_EN = {
       {
         tag: "When it matters",
         title: "Office + culture programme",
-        desc: "The way of working has changed, and the culture has not kept up. A new office is the occasion to make collaboration something you can talk about.",
+        desc: "The way of working has changed, and the culture hasn't kept up. A new office is the occasion to make collaboration something you can talk about.",
         alt: "Floor plan of a bespoke virtual office, filled with a team working in it — meeting room, workspaces, lounge and an 'on today' board",
       },
     ],
@@ -107,12 +107,12 @@ export const VO_EN = {
   minderAntwoorden: "Fewer answers",
 
   faq: [
-    { q: "What is a virtual office?", a: "A virtual office is a permanent online place where your team is present — even when no meeting is scheduled. You walk in, see who is around and go over to someone, and a conversation just starts. No agenda, no link. It is not just a place, but a way of running into each other again." },
+    { q: "What is a virtual office?", a: "A virtual office is a permanent online place where your team is present — even when no meeting is scheduled. You walk in, see who is around and go over to someone, and a conversation just starts. No agenda, no link. It isn't just a place, but a way of running into each other again." },
     { q: "Who is a virtual office for?", a: "For organisations and groups who work partly at home and partly in the office and therefore rarely see each other all at once: hybrid teams, international teams, remote-first companies, communities, local partnerships and project or programme groups looking for a shared base." },
-    { q: "Which platform do you build a virtual office on?", a: "We build virtual offices in SpatialChat. There are other options, but we choose SpatialChat because it is easy to step into and can be made and kept as personal as you like — it comes closest to the real interactions of a physical office." },
+    { q: "Which platform do you build a virtual office on?", a: "We build virtual offices in SpatialChat. There are other options, but we choose SpatialChat because it's easy to step into and can be made and kept as personal as you like — it comes closest to the real interactions of a physical office." },
     { q: "How do I get started — what are the options?", a: "There are three ways. Book a meeting room for a one-off gathering with a small group. Rent a ready-made office and move straight in. Or choose Office + Culture: with our specialists you first have the conversation about working together, and then we build the office in which that comes to life." },
     { q: "What does a virtual office cost?", a: "That depends on how you come in, the size and the fit-out. So we work with a proposal built around your case. On a tour we work out together what fits." },
-    { q: "How is it different from Zoom or Teams?", a: "Zoom and Teams are built for scheduled meetings. A virtual office is a continuous place where you are simply present, run into each other and have informal contact — without anyone having to send a link." },
+    { q: "How is it different from Zoom or Teams?", a: "Zoom and Teams are built for scheduled meetings. A virtual office is a continuous place where you're simply present, run into each other and have informal contact — without anyone having to send a link." },
   ],
 
   faqMore: [
@@ -121,7 +121,7 @@ export const VO_EN = {
     { q: "Can we use our own branding?", a: "Yes. We match the fit-out, the backdrops, the colours and the atmosphere to your organisation. It becomes your office, with your identity." },
     { q: "What about privacy and security?", a: "The environment is closed off: only people with access come in, and SpatialChat meets enterprise-grade security and privacy standards. We advise on the access and permissions that suit your organisation." },
     { q: "How quickly can a virtual office go live?", a: "A meeting room or a ready-made office can be quick. An Office + Culture programme takes more preparation. On a tour we sketch a realistic schedule." },
-    { q: "Does a virtual office replace our physical office?", a: "It does not have to. For many organisations it is an addition that brings back the chance encounters; for others it makes a physical office at full capacity unnecessary. Either is possible — we look at what suits you." },
+    { q: "Does a virtual office replace our physical office?", a: "It doesn't have to. For many organisations it's an addition that brings back the chance encounters; for others it makes a physical office at full capacity unnecessary. Either is possible — we look at what suits you." },
   ],
 
   links: {

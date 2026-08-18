@@ -27,14 +27,14 @@ export default function QuotePage() {
             work with a proposal built around your case rather than a price list.
           </p>
           <p className="text-base">
-            Tell us what you have in mind and we will give you a realistic range, with what is
-            in it and what is not.
+            Tell us what you have in mind and we&rsquo;ll give you a realistic range, with what&rsquo;s
+            in it and what isn&rsquo;t.
           </p>
         </>
       }
       formulier="kostenindicatie"
       formulierKop="Request an estimate"
-      formulierUitleg="Tell us what you want to organise and for how many people. You are not committing to anything."
+      formulierUitleg="Tell us what you want to organise and for how many people. You're not committing to anything."
     />
   );
 }

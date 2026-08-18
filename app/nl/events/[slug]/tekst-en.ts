@@ -18,7 +18,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "forWho": "Executive teams, management layers, programme managers",
     "range": "10-100 participants",
     "heroAlt": "Participant in an online strategy day with a digital whiteboard full of sticky notes on the current situation, strategic themes and priorities",
-    "outcomeSummary": "For a clear direction, wide support and a team that is genuinely involved.",
+    "outcomeSummary": "For a clear direction, wide support and a team that's genuinely involved.",
     "outcomes": [
       {
         "title": "A clear direction",
@@ -52,7 +52,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       }
     ],
     "validation": {
-      "headline": "Online strategy sessions work — provided they are properly designed.",
+      "headline": "Online strategy sessions work — provided they're properly designed.",
       "items": [
         {
           "title": "Sustainable and within reach",
@@ -64,7 +64,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "Inspiring and purposeful",
-          "body": "With the right set-up you get sharp, focused sessions with strong output. Online can work very well indeed, as long as it is well designed. That is our craft."
+          "body": "With the right set-up you get sharp, focused sessions with strong output. Online can work very well indeed, as long as it is well designed. That's our craft."
         }
       ]
     },
@@ -79,7 +79,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Guidance on technology and content alike",
-        "body": "A good moderator keeps the pace, makes room for every voice and steps in when the group gets bogged down. That is the difference between a good conversation and a clear decision."
+        "body": "A good moderator keeps the pace, makes room for every voice and steps in when the group gets bogged down. That's the difference between a good conversation and a clear decision."
       }
     ],
     "cases": [
@@ -105,7 +105,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faq": [
       {
         "q": "How long does an online strategy day take?",
-        "a": "An online strategy day usually runs for half a day (3 to 4 hours) or a full day (6 to 8 hours). Which works best depends on the number of topics, the depth you are after and the size of the group."
+        "a": "An online strategy day usually runs for half a day (3 to 4 hours) or a full day (6 to 8 hours). Which works best depends on the number of topics, the depth you're after and the size of the group."
       },
       {
         "q": "How many people can take part?",
@@ -125,17 +125,17 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "What does an online strategy day cost?",
-        "a": "The investment depends on group size, preparation, programme and the level of support you want. That is why we always make a proposal built around your case. Just get in touch."
+        "a": "The investment depends on group size, preparation, programme and the level of support you want. That's why we always make a proposal built around your case. Just get in touch."
       }
     ],
     "faqMore": [
       {
         "q": "Can an online strategy day also be hybrid?",
-        "a": "Yes. It is possible to run an online strategy day as a hybrid. It does ask for careful design, though. Simply adding a camera and a screen does not work here. We design programmes so that both groups, the people online and the people in the room, can take part on equal terms."
+        "a": "Yes. It's possible to run an online strategy day as a hybrid. It does ask for careful design, though. Simply adding a camera and a screen doesn't work here. We design programmes so that both groups, the people online and the people in the room, can take part on equal terms."
       },
       {
         "q": "Which software do you use?",
-        "a": "We always go for interactive platforms, because involvement is essential to a successful strategy day. We have experience with Zoom, Zoom Events and Teams. But for a strategy day we would gladly show you SpatialChat as well — often exactly the bit of extra interaction that gets decision-making moving. What fits best depends on your goal and your group."
+        "a": "We always go for interactive platforms, because involvement is essential to a successful strategy day. We have experience with Zoom, Zoom Events and Teams. But for a strategy day we'd gladly show you SpatialChat as well — often exactly the bit of extra interaction that gets decision-making moving. What fits best depends on your goal and your group."
       },
       {
         "q": "How do participants prepare?",
@@ -147,7 +147,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can you help with decision-making?",
-        "a": "Yes. Many strategy days are not only about gathering ideas but also about making choices. With well-trained facilitators we use formats that help set priorities and reach decisions together."
+        "a": "Yes. Many strategy days aren't only about gathering ideas but also about making choices. With well-trained facilitators we use formats that help set priorities and reach decisions together."
       },
       {
         "q": "What happens after the strategy day?",
@@ -158,7 +158,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "townhall": {
     "title": "Running an online town hall",
     "tagline": "The whole organisation together: open, transparent and professionally produced.",
-    "intro": "An online town hall is the moment when leaders and staff speak to each other directly. We help organisations run an online town hall that is not one-way traffic but a meeting: with live Q&A, polls, reflection and, where useful, break-outs for the questions that need more room.",
+    "intro": "An online town hall is the moment when leaders and staff speak to each other directly. We help organisations run an online town hall that isn't one-way traffic but a meeting: with live Q&A, polls, reflection and, where useful, break-outs for the questions that need more room.",
     "forWho": "Boards, communication teams, large organisations",
     "range": "30-600 participants",
     "heroAlt": "Employee following an online town hall with hundreds of colleagues on screen, next to a laptop showing the presentation",
@@ -230,13 +230,13 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "Large organisation",
         "title": "The board in conversation with 450 staff",
-        "body": "An organisation wants a quarterly update that does not feel like a broadcast. We design a compact town hall with live questions, polls and thematic break-outs. The result: more understanding of the course, and clear signals coming back from the organisation.",
+        "body": "An organisation wants a quarterly update that doesn't feel like a broadcast. We design a compact town hall with live questions, polls and thematic break-outs. The result: more understanding of the course, and clear signals coming back from the organisation.",
         "imgAlt": "Hybrid set-up with participants in the room and online during a town hall held by the board"
       },
       {
         "label": "Change programme",
         "title": "Gathering questions in a delicate phase",
-        "body": "During a reorganisation there is a need for transparency and calm. We handle the technical production and design a question process in which staff can respond both beforehand and live. The result is a careful conversation with room for nuance.",
+        "body": "During a reorganisation there's a need for transparency and calm. We handle the technical production and design a question process in which staff can respond both beforehand and live. The result is a careful conversation with room for nuance.",
         "imgAlt": "Digital board on which staff sort their questions around process, organisation and individual"
       },
       {
@@ -261,15 +261,15 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can staff ask questions anonymously?",
-        "a": "Dialogue and contact are central to everything we do. We work with anonymous questions only by exception, and in that case they are gathered beforehand."
+        "a": "Dialogue and contact are central to everything we do. We work with anonymous questions only by exception, and in that case they're gathered beforehand."
       },
       {
         "q": "Which software do you use?",
-        "a": "We work with Zoom, Zoom Events and Teams. For a town hall we would also gladly show you SpatialChat: it makes real interaction with a large group surprisingly easy. The choice ultimately depends on what you want the gathering to achieve."
+        "a": "We work with Zoom, Zoom Events and Teams. For a town hall we'd also gladly show you SpatialChat: it makes real interaction with a large group surprisingly easy. The choice ultimately depends on what you want the gathering to achieve."
       },
       {
         "q": "What does an online town hall cost?",
-        "a": "The investment depends on the number of participants, the production you want and the level of support. That is why we are happy to make a proposal built around your case."
+        "a": "The investment depends on the number of participants, the production you want and the level of support. That's why we're happy to make a proposal built around your case."
       }
     ],
     "faqMore": [
@@ -380,13 +380,13 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "HR and communication",
         "title": "Diversity Day",
-        "body": "For the annual Diversity Day we design a gathering with outside experts and colleagues from within. Alongside the presentations there is a virtual marketplace where participants talk further about the topics that matter to them.",
+        "body": "For the annual Diversity Day we design a gathering with outside experts and colleagues from within. Alongside the presentations there's a virtual marketplace where participants talk further about the topics that matter to them.",
         "imgAlt": "Colourful welcome space for Diversity Day asking: what is your plus?"
       },
       {
         "label": "Mid-sized Dutch company",
         "title": "A monthly all-hands with a fixed shape",
-        "body": "We help set up a recurring format for organisation-wide updates to staff spread across the country. With a recognisable structure and preparation that is easy to plan, it becomes a fixed point in the calendar.",
+        "body": "We help set up a recurring format for organisation-wide updates to staff spread across the country. With a recognisable structure and preparation that's easy to plan, it becomes a fixed point in the calendar.",
         "imgAlt": "Virtual organisation chart covering CEO, Finance, Sales, HR, Operations and Communications"
       }
     ],
@@ -545,7 +545,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can members vote in advance?",
-        "a": "That is possible where the statutes allow it and where you want it. We can support various forms of voting."
+        "a": "That's possible where the statutes allow it and where you want it. We can support various forms of voting."
       },
       {
         "q": "How many members can take part?",
@@ -553,7 +553,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "What does an online AGM cost?",
-        "a": "The investment depends on the number of participants, the voting procedures and the support you want. That is why we draw up a proposal for each association."
+        "a": "The investment depends on the number of participants, the voting procedures and the support you want. That's why we draw up a proposal for each association."
       }
     ],
     "faqMore": [
@@ -616,7 +616,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "steps": [
       {
         "title": "Intake",
-        "body": "Team dynamics, challenges and the change you are after."
+        "body": "Team dynamics, challenges and the change you're after."
       },
       {
         "title": "Design",
@@ -632,7 +632,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       }
     ],
     "validation": {
-      "headline": "Online team building becomes valuable when it is more than entertainment.",
+      "headline": "Online team building becomes valuable when it's more than entertainment.",
       "items": [
         {
           "title": "Connection with an effect",
@@ -672,7 +672,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "Hybrid department",
         "title": "Working together better at a distance",
-        "body": "A department works partly from home and partly in the office. In a series of online team development sessions they examine what does and does not work in their meetings, decisions and communication.",
+        "body": "A department works partly from home and partly in the office. In a series of online team development sessions they examine what does and doesn't work in their meetings, decisions and communication.",
         "imgAlt": "Digital strategy board on which a hybrid department discusses working together at a distance"
       },
       {
@@ -705,7 +705,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "What does online team development cost?",
-        "a": "That depends on group size, the number of sessions and the support you want. Do just call or email; we are glad to talk it through and give you a figure."
+        "a": "That depends on group size, the number of sessions and the support you want. Do just call or email; we're glad to talk it through and give you a figure."
       }
     ],
     "faqMore": [
@@ -750,11 +750,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Energy and creativity",
-        "body": "The right formats put everyone into a creative mode, including people who would not call themselves creative."
+        "body": "The right formats put everyone into a creative mode, including people who wouldn't call themselves creative."
       },
       {
         "title": "Clear next steps",
-        "body": "The brainstorm does not end at ideas but with a clear plan for what happens next."
+        "body": "The brainstorm doesn't end at ideas but with a clear plan for what happens next."
       }
     ],
     "steps": [
@@ -784,11 +784,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "From loose ideas to choices",
-          "body": "A good online brainstorm does not stop at sticky notes. We build in phases for clustering, deepening, prioritising and translating into next steps."
+          "body": "A good online brainstorm doesn't stop at sticky notes. We build in phases for clustering, deepening, prioritising and translating into next steps."
         },
         {
           "title": "Creative and structured",
-          "body": "With formats such as Miro, SpatialChat, Liberating Structures, World Café or our own, there is room for creativity without the session wandering off."
+          "body": "With formats such as Miro, SpatialChat, Liberating Structures, World Café or our own, there's room for creativity without the session wandering off."
         }
       ]
     },
@@ -849,13 +849,13 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "What does an online brainstorm cost?",
-        "a": "That depends on group size, preparation and facilitation. Do ask for a quote — it is usually less than people expect."
+        "a": "That depends on group size, preparation and facilitation. Do ask for a quote — it's usually less than people expect."
       }
     ],
     "faqMore": [
       {
         "q": "Can you help prioritise the ideas?",
-        "a": "Yes. That is why we usually build in a phase where ideas are weighed and prioritised. Prioritising online is easier and faster than offline."
+        "a": "Yes. That's why we usually build in a phase where ideas are weighed and prioritised. Prioritising online is easier and faster than offline."
       },
       {
         "q": "Can participants contribute anonymously?",
@@ -928,18 +928,18 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "Contact from day one",
-          "body": "Getting acquainted online works well when it is deliberately designed. Think of speed dates, themed tables, buddy conversations and informal spaces."
+          "body": "Getting acquainted online works well when it's deliberately designed. Think of speed dates, themed tables, buddy conversations and informal spaces."
         },
         {
           "title": "Scalable and recognisable",
-          "body": "Many onboarding programmes run longer than a day. We help set up a fixed format with several modules that is easy to reuse."
+          "body": "Many onboarding programmes run longer than a day. We help set up a fixed format with several modules that's easy to reuse."
         }
       ]
     },
     "conditions": [
       {
         "title": "Connection as the goal",
-        "body": "An onboarding day is not an information dump. Put getting acquainted and making contact at the centre; the rest can follow later."
+        "body": "An onboarding day isn't an information dump. Put getting acquainted and making contact at the centre; the rest can follow later."
       },
       {
         "title": "Colleagues who show up",
@@ -947,7 +947,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Technology anyone can use",
-        "body": "Participants are new. They should not get lost, and they should not drift off either. Accessible technology, clear instructions and a surprising design make the difference."
+        "body": "Participants are new. They shouldn't get lost, and they shouldn't drift off either. Accessible technology, clear instructions and a surprising design make the difference."
       }
     ],
     "cases": [
@@ -999,11 +999,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faqMore": [
       {
         "q": "Can managers take part?",
-        "a": "Yes. It is usually appreciated when they do."
+        "a": "Yes. It's usually appreciated when they do."
       },
       {
         "q": "Can onboarding be hybrid?",
-        "a": "Yes, provided it is deliberately designed."
+        "a": "Yes, provided it's deliberately designed."
       },
       {
         "q": "How do you encourage people to get acquainted?",
@@ -1015,7 +1015,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can parts be recorded?",
-        "a": "Yes. That is particularly handy for passing on knowledge."
+        "a": "Yes. That's particularly handy for passing on knowledge."
       },
       {
         "q": "Is bespoke work possible?",
@@ -1029,7 +1029,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "intro": "An online training or workshop takes more than a webinar. We help trainers, educators and L&D teams run engaging, interactive training online: with practice, reflection, collaboration and technical support that carries the learning experience.",
     "forWho": "L&D teams, HR departments, training institutes",
     "range": "6-100 participants per cohort",
-    "heroAlt": "Online training with participants marking on a coloured scale how familiar they are with the subject",
+    "heroAlt": "Online training with participants marking on a coloured scale how familiar they're with the subject",
     "outcomeSummary": "For interactive online training and workshops where people learn, practise and apply.",
     "outcomes": [
       {
@@ -1117,11 +1117,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faq": [
       {
         "q": "How does online training differ from a webinar?",
-        "a": "A webinar is usually about passing on knowledge. An online training asks for active participation. People practise, reflect, work together and apply what they learn straight away. That is exactly why the knowledge sticks better. Anyone who wants to run an interactive online training therefore needs more than a presentation and a camera."
+        "a": "A webinar is usually about passing on knowledge. An online training asks for active participation. People practise, reflect, work together and apply what they learn straight away. That's exactly why the knowledge sticks better. Anyone who wants to run an interactive online training therefore needs more than a presentation and a camera."
       },
       {
         "q": "Can any training be given online?",
-        "a": "Almost any training can be given online. A digital training does often ask for a different set-up, though. What works in a physical room does not automatically work online. So we help trainers and educators translate existing training into an effective online learning experience."
+        "a": "Almost any training can be given online. A digital training does often ask for a different set-up, though. What works in a physical room doesn't automatically work online. So we help trainers and educators translate existing training into an effective online learning experience."
       },
       {
         "q": "How do you keep participants actively involved?",
@@ -1129,7 +1129,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Which software do you use?",
-        "a": "We have experience with Zoom, Teams, Zoom Events, SpatialChat, Miro and various learning and interaction tools. Which environment works best depends on the learning goal, the group size and the experience you are after. The technology supports the training, not the other way round."
+        "a": "We have experience with Zoom, Teams, Zoom Events, SpatialChat, Miro and various learning and interaction tools. Which environment works best depends on the learning goal, the group size and the experience you're after. The technology supports the training, not the other way round."
       },
       {
         "q": "How many participants suit an online training?",
@@ -1143,7 +1143,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faqMore": [
       {
         "q": "Can you convert an existing training to online?",
-        "a": "Yes. It is one of the questions we get most often. We usually keep the content but redesign the formats so that they suit online learning better. The result is not an online version of a classroom training, but a training that makes the most of what digital learning can do."
+        "a": "Yes. It's one of the questions we get most often. We usually keep the content but redesign the formats so that they suit online learning better. The result isn't an online version of a classroom training, but a training that makes the most of what digital learning can do."
       },
       {
         "q": "How do you avoid Zoom fatigue during a training?",
@@ -1182,7 +1182,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "bedrijfsfeest": {
     "title": "Running an online company party",
     "tagline": "A party people genuinely remember, even with everyone logging in from home.",
-    "intro": "An online party does not have to be a compromise. Games, live entertainment, online escape rooms and social spaces can together make an evening that works beautifully — provided the programme is well designed and the technology runs smoothly.",
+    "intro": "An online party doesn't have to be a compromise. Games, live entertainment, online escape rooms and social spaces can together make an evening that works beautifully — provided the programme is well designed and the technology runs smoothly.",
     "forWho": "Teams, departments, whole organisations",
     "range": "20-400 participants",
     "heroAlt": "Online company party with confetti, balloons and colleagues closing the year together",
@@ -1198,7 +1198,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "A proper send-off",
-        "body": "Whether it is a milestone or an annual tradition, the moment gets the attention it deserves."
+        "body": "Whether it's a milestone or an annual tradition, the moment gets the attention it deserves."
       }
     ],
     "steps": [
@@ -1224,7 +1224,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       "items": [
         {
           "title": "Above all, not like a meeting",
-          "body": "A screen full of faces is not a party. We design a programme with games, entertainment and room to simply catch up."
+          "body": "A screen full of faces isn't a party. We design a programme with games, entertainment and room to simply catch up."
         },
         {
           "title": "Wandering around and running into people",
@@ -1273,7 +1273,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faq": [
       {
         "q": "Can an online company party really be fun?",
-        "a": "Yes, provided it is more than online drinks. The best online company parties combine meeting people, interaction and a shared experience."
+        "a": "Yes, provided it's more than online drinks. The best online company parties combine meeting people, interaction and a shared experience."
       },
       {
         "q": "How many people can take part?",
@@ -1318,7 +1318,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "kerstfeest": {
     "title": "Running an online Christmas party",
     "tagline": "A party people genuinely enjoy — even with the phone propped up on the kitchen table.",
-    "intro": "Online Christmas drinks do not have to be a compromise. We design online Christmas parties full of energy, humour and real connection: with escape rooms, live entertainment, quiz games and social spaces where people can meet each other freely.",
+    "intro": "Online Christmas drinks don't have to be a compromise. We design online Christmas parties full of energy, humour and real connection: with escape rooms, live entertainment, quiz games and social spaces where people can meet each other freely.",
     "forWho": "Teams, departments, whole organisations",
     "range": "10-500 participants",
     "heroAlt": "Online Christmas party in a festively decorated virtual space with gold balloons and colleagues on screen",
@@ -1330,7 +1330,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "A fit with your organisation",
-        "body": "The atmosphere, the level and the programme suit who you are as a company."
+        "body": "The atmosphere, the level and the programme suit who you're as a company."
       },
       {
         "title": "A memorable end to the year",
@@ -1356,7 +1356,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       }
     ],
     "validation": {
-      "headline": "An online Christmas party works when there is room for meeting, relaxing and telling stories.",
+      "headline": "An online Christmas party works when there's room for meeting, relaxing and telling stories.",
       "items": [
         {
           "title": "Closing the year together",
@@ -1402,14 +1402,14 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "Cooperative",
         "title": "A Christmas gathering with atmosphere",
-        "body": "A group of companies wants to pause at Christmas over the intense year behind them. With room for reflection, storytelling and quieter themed rooms, there is space for the real conversation.",
+        "body": "A group of companies wants to pause at Christmas over the intense year behind them. With room for reflection, storytelling and quieter themed rooms, there's space for the real conversation.",
         "imgAlt": "Atmospheric Christmas space with the words make a wish, where participants reflect on the past year"
       }
     ],
     "faq": [
       {
         "q": "How do you organise an online Christmas party?",
-        "a": "A good online Christmas party combines meeting, relaxing and a shared moment. It is not about broadcasting but about experiencing something together."
+        "a": "A good online Christmas party combines meeting, relaxing and a shared moment. It isn't about broadcasting but about experiencing something together."
       },
       {
         "q": "What activities are possible?",
@@ -1439,7 +1439,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can we personalise the party entirely?",
-        "a": "Yes. We are glad to work in themes, stories and elements from the organisation."
+        "a": "Yes. We're glad to work in themes, stories and elements from the organisation."
       },
       {
         "q": "Are team-building activities possible?",
@@ -1458,7 +1458,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "teamuitje": {
     "title": "Running an online team outing",
     "tagline": "Team building with real involvement: exciting, easy to join and entirely online.",
-    "intro": "An online team outing is not a digital version of the Friday afternoon drinks. We design online team and company outings where people play, talk and work together in an environment that invites contact. From quiz to escape challenge, from creative task to informal networking space: the programme fits your team, your goal and the energy you are after.",
+    "intro": "An online team outing isn't a digital version of the Friday afternoon drinks. We design online team and company outings where people play, talk and work together in an environment that invites contact. From quiz to escape challenge, from creative task to informal networking space: the programme fits your team, your goal and the energy you're after.",
     "forWho": "Teams, departments, project groups, international organisations",
     "range": "10-300 participants",
     "heroAlt": "Online team outing where colleagues work through a game course together instead of meeting",
@@ -1466,7 +1466,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "outcomes": [
       {
         "title": "Working together under pressure",
-        "body": "Teams discover each other's strengths in an exciting environment that is easy to step into."
+        "body": "Teams discover each other's strengths in an exciting environment that's easy to step into."
       },
       {
         "title": "High involvement",
@@ -1553,7 +1553,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can an online team outing really be fun?",
-        "a": "Yes, provided it is more than an open Teams call. A good online team outing has a clear shape, good guidance and enough room for contact."
+        "a": "Yes, provided it's more than an open Teams call. A good online team outing has a clear shape, good guidance and enough room for contact."
       },
       {
         "q": "How many people can join?",
@@ -1565,17 +1565,17 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "How long does an online team outing take?",
-        "a": "Usually one to two hours. For larger programmes, or where it is combined with something substantive, it can run longer."
+        "a": "Usually one to two hours. For larger programmes, or where it's combined with something substantive, it can run longer."
       },
       {
         "q": "What does an online team outing cost?",
-        "a": "That depends on group size, the activities and the support you want. We are glad to make a proposal that fits the purpose and the scale."
+        "a": "That depends on group size, the activities and the support you want. We're glad to make a proposal that fits the purpose and the scale."
       }
     ],
     "faqMore": [
       {
         "q": "Does an online team outing suit international teams?",
-        "a": "Yes. For international teams in particular it is practical: no travel time, and still a shared moment."
+        "a": "Yes. For international teams in particular it's practical: no travel time, and still a shared moment."
       },
       {
         "q": "Can teams compete against each other?",
@@ -1602,7 +1602,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "community-building": {
     "title": "Building an online community",
     "tagline": "Building a community that genuinely connects people — not one that just puts them in a group.",
-    "intro": "A strong community does not just appear, online no more than anywhere else. We design gatherings and structures that encourage connection, make contributing easy and let the online community grow step by step.",
+    "intro": "A strong community doesn't just appear, online no more than anywhere else. We design gatherings and structures that encourage connection, make contributing easy and let the online community grow step by step.",
     "forWho": "Membership bodies, alumni, professional networks, platforms",
     "range": "dozens to thousands of participants",
     "heroAlt": "Online community of Olympians looking back together on the Games they competed in",
@@ -1648,7 +1648,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "A recognisable place online",
-          "body": "A community benefits from an environment that does not feel like a stray meeting link. SpatialChat can work as an online clubhouse, meeting space or community hub."
+          "body": "A community benefits from an environment that doesn't feel like a stray meeting link. SpatialChat can work as an online clubhouse, meeting space or community hub."
         },
         {
           "title": "Contributing becomes easy",
@@ -1659,7 +1659,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "conditions": [
       {
         "title": "A shared purpose",
-        "body": "People come back when it is clear why the community exists and what taking part gives them. That purpose has to be felt in every format."
+        "body": "People come back when it's clear why the community exists and what taking part gives them. That purpose has to be felt in every format."
       },
       {
         "title": "Rhythm and recognition",
@@ -1693,11 +1693,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faq": [
       {
         "q": "Can you build a community online?",
-        "a": "Yes. But a community does not just appear. It takes rhythm, interaction and attention."
+        "a": "Yes. But a community doesn't just appear. It takes rhythm, interaction and attention."
       },
       {
         "q": "Is this an event or a programme?",
-        "a": "Usually a programme. You do not build a community in a single gathering."
+        "a": "Usually a programme. You don't build a community in a single gathering."
       },
       {
         "q": "How do you keep members involved?",
@@ -1709,7 +1709,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Which software do you use?",
-        "a": "We build communities in SpatialChat, because it is the only platform that combines the worlds of websites and online meetings, and can therefore support the community across every form of contact."
+        "a": "We build communities in SpatialChat, because it's the only platform that combines the worlds of websites and online meetings, and can therefore support the community across every form of contact."
       }
     ],
     "faqMore": [
@@ -1784,7 +1784,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       "items": [
         {
           "title": "Reaching more people",
-          "body": "Online participation makes taking part easier for residents who would not come to a hall. That can bring in more perspectives and a broader picture."
+          "body": "Online participation makes taking part easier for residents who wouldn't come to a hall. That can bring in more perspectives and a broader picture."
         },
         {
           "title": "Conversations with clear boundaries",
@@ -1807,7 +1807,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Transparency about influence",
-        "body": "Participation only works when there is genuinely something to choose. Be clear beforehand about what can and cannot be influenced."
+        "body": "Participation only works when there's genuinely something to choose. Be clear beforehand about what can and can't be influenced."
       }
     ],
     "cases": [
@@ -1833,7 +1833,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faq": [
       {
         "q": "Do residents really take part online?",
-        "a": "Yes. Online participation often reaches people who would not come to a gathering in person. That tends to make online resident participation more representative."
+        "a": "Yes. Online participation often reaches people who wouldn't come to a gathering in person. That tends to make online resident participation more representative."
       },
       {
         "q": "How many residents can take part?",
@@ -1871,7 +1871,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can you provide the moderation?",
-        "a": "Yes. Our facilitators guide the conversations, but you can supply a moderator yourself as well. We then make sure they are fully prepared on the technical side."
+        "a": "Yes. Our facilitators guide the conversations, but you can supply a moderator yourself as well. We then make sure they're fully prepared on the technical side."
       },
       {
         "q": "Can you support hybrid participation?",
@@ -1898,7 +1898,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "A view from outside",
-        "body": "You hear what is going on beyond the walls of your organisation, and that is worth a great deal."
+        "body": "You hear what is going on beyond the walls of your organisation, and that's worth a great deal."
       }
     ],
     "steps": [
@@ -1928,7 +1928,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "Everyone seen and heard",
-          "body": "With small conversations, clear roles and active moderation it is not only the fastest or loudest voice that comes through."
+          "body": "With small conversations, clear roles and active moderation it isn't only the fastest or loudest voice that comes through."
         },
         {
           "title": "Insights you can use straight away",
@@ -1985,7 +1985,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "How do you make sure everyone gets a say?",
-        "a": "With a clear structure for the conversation, active moderation and formats where everyone can contribute. We work at making sure everyone can be seen and heard, not only the people who take the floor naturally. In this kind of session that is essential."
+        "a": "With a clear structure for the conversation, active moderation and formats where everyone can contribute. We work at making sure everyone can be seen and heard, not only the people who take the floor naturally. In this kind of session that's essential."
       },
       {
         "q": "Which software do you use?",
@@ -1999,11 +1999,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faqMore": [
       {
         "q": "When do you choose an online sounding board?",
-        "a": "When you want to test regularly how policy, products or services are experienced by the people they are for. Or when you are looking for feedback on a new direction."
+        "a": "When you want to test regularly how policy, products or services are experienced by the people they're for. Or when you're looking for feedback on a new direction."
       },
       {
         "q": "How are the results captured?",
-        "a": "Every insight is captured digitally so that ideas, signals and recommendations do not get lost."
+        "a": "Every insight is captured digitally so that ideas, signals and recommendations don't get lost."
       },
       {
         "q": "Does this work internationally?",
@@ -2121,7 +2121,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Do you recruit participants?",
-        "a": "We can. We are able to support both selection and invitation."
+        "a": "We can. We're able to support both selection and invitation."
       },
       {
         "q": "Which software do you use?",
@@ -2240,7 +2240,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "Internal organisation",
         "title": "Learning from projects together",
-        "body": "An organisation wants to gather lessons from different teams. Combining table conversations with a digital harvest produces a picture that is both broad and concrete.",
+        "body": "An organisation wants to gather lessons from different teams. Combining table conversations with a digital harvest produces a picture that's both broad and concrete.",
         "imgAlt": "Digital board with the harvest of table conversations about the MMs, the organisation and the market"
       },
       {
@@ -2295,7 +2295,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can participants switch tables?",
-        "a": "Yes. That is an essential part of the method."
+        "a": "Yes. That's an essential part of the method."
       },
       {
         "q": "What happens to the harvest?",
@@ -2306,7 +2306,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "webinar": {
     "title": "Running a webinar",
     "tagline": "Webinars that hold people. Not just broadcasting, but genuinely connecting.",
-    "intro": "A webinar does not have to be a one-way broadcast. We help organisations run an interactive webinar with room to go deeper and to talk one to one afterwards.",
+    "intro": "A webinar doesn't have to be a one-way broadcast. We help organisations run an interactive webinar with room to go deeper and to talk one to one afterwards.",
     "forWho": "Marketing, communication and L&D teams, knowledge organisations",
     "range": "50-1000 participants",
     "metaOmschrijving": "A webinar that holds people: not one-way traffic but questions, polls and conversation. Designed, hosted and technically produced by MeetingMasters.",
@@ -2345,7 +2345,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       }
     ],
     "validation": {
-      "headline": "A good webinar is not a broadcast but an online gathering, with attention and coffee afterwards.",
+      "headline": "A good webinar isn't a broadcast but an online gathering, with attention and coffee afterwards.",
       "items": [
         {
           "title": "A clear story",
@@ -2353,11 +2353,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "Interaction that strengthens the content",
-          "body": "Polls, questions, chat and small conversations are not decoration. They help participants process information and stay involved."
+          "body": "Polls, questions, chat and small conversations aren't decoration. They help participants process information and stay involved."
         },
         {
           "title": "Talking it over instead of signing off",
-          "body": "The biggest difference sits at the end: room to talk further in small groups. That is where the real value appears."
+          "body": "The biggest difference sits at the end: room to talk further in small groups. That's where the real value appears."
         }
       ]
     },
@@ -2368,7 +2368,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Interaction as a design choice",
-        "body": "Involvement does not just happen. Build polls, questions and moments of exchange in beforehand."
+        "body": "Involvement doesn't just happen. Build polls, questions and moments of exchange in beforehand."
       },
       {
         "title": "Good support for speakers",
@@ -2428,7 +2428,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Which software do you use?",
-        "a": "For webinars we work with Zoom, Zoom Events and Teams. But we would gladly show you SpatialChat as well: participants can talk it over in small groups afterwards, which raises involvement considerably. What works best depends on your purpose and your audience."
+        "a": "For webinars we work with Zoom, Zoom Events and Teams. But we'd gladly show you SpatialChat as well: participants can talk it over in small groups afterwards, which raises involvement considerably. What works best depends on your purpose and your audience."
       },
       {
         "q": "Can webinars be hybrid?",
@@ -2493,7 +2493,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       "items": [
         {
           "title": "A programme that works online",
-          "body": "Putting a physical conference online one to one usually does not work. We redesign the rhythm, the session lengths, the interaction and the breaks for taking part online."
+          "body": "Putting a physical conference online one to one usually doesn't work. We redesign the rhythm, the session lengths, the interaction and the breaks for taking part online."
         },
         {
           "title": "Involved, even at scale",
@@ -2652,7 +2652,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "conditions": [
       {
         "title": "An urgent central theme",
-        "body": "Open Space works well around a question that is widely felt. Without urgency it stays too non-committal."
+        "body": "Open Space works well around a question that's widely felt. Without urgency it stays too non-committal."
       },
       {
         "title": "Clear ground rules",
@@ -2738,7 +2738,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   },
   "netwerkevent": {
     "title": "Running an online networking event",
-    "tagline": "Connecting people who do not know each other yet: online, easy to join and with real conversation.",
+    "tagline": "Connecting people who don't know each other yet: online, easy to join and with real conversation.",
     "intro": "We design online networking events where people genuinely meet: through smart matchmaking, structured conversations and an environment that encourages chance encounters.",
     "forWho": "Trade associations, alumni, platforms, HR teams",
     "range": "30-300 participants",
@@ -2777,11 +2777,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       }
     ],
     "validation": {
-      "headline": "Networking online works when it is more than putting people into break-outs at random.",
+      "headline": "Networking online works when it's more than putting people into break-outs at random.",
       "items": [
         {
           "title": "Conversations with a reason",
-          "body": "The best networking conversations do not come out of nowhere. We give participants a question, a theme or a match that makes contact feel natural."
+          "body": "The best networking conversations don't come out of nowhere. We give participants a question, a theme or a match that makes contact feel natural."
         },
         {
           "title": "Structure and freedom",
@@ -2796,7 +2796,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "conditions": [
       {
         "title": "Clear participant profiles",
-        "body": "Matchmaking works better when it is known who is taking part and why. Roles, interests or questions can help."
+        "body": "Matchmaking works better when it's known who is taking part and why. Roles, interests or questions can help."
       },
       {
         "title": "The right form of conversation",
@@ -2804,7 +2804,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "An environment that encourages meeting",
-        "body": "Moving freely and joining in spontaneously is not possible in every tool. The right environment makes chance encounters possible."
+        "body": "Moving freely and joining in spontaneously isn't possible in every tool. The right environment makes chance encounters possible."
       }
     ],
     "cases": [
@@ -2830,7 +2830,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faq": [
       {
         "q": "Does networking online actually work?",
-        "a": "Yes, provided you organise it properly. Most people are not waiting for a digital exchange of business cards. They are waiting for a good conversation. So we design networking events where meeting people is what it is about."
+        "a": "Yes, provided you organise it properly. Most people aren't waiting for a digital exchange of business cards. They're waiting for a good conversation. So we design networking events where meeting people is what it is about."
       },
       {
         "q": "How many people can take part?",
@@ -2868,7 +2868,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can you connect a community to the event?",
-        "a": "Yes. Organisations regularly use a networking event as the starting point for a longer collaboration. For the World Olympians Association we built an online clubhouse that is always open."
+        "a": "Yes. Organisations regularly use a networking event as the starting point for a longer collaboration. For the World Olympians Association we built an online clubhouse that's always open."
       },
       {
         "q": "Can participants exchange contact details?",

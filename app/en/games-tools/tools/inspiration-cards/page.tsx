@@ -24,7 +24,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "How do I use them in an online meeting?",
-    a: "Open the tool in your browser and share your screen. Click 'Full screen' so that only the card is visible, and draw a card with the button or the space bar. Participants do not have to open or install anything themselves.",
+    a: "Open the tool in your browser and share your screen. Click 'Full screen' so that only the card is visible, and draw a card with the button or the space bar. Participants don't have to open or install anything themselves.",
   },
   {
     q: "When do you bring a card in?",
@@ -32,7 +32,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Is the tool free?",
-    a: "Yes. The inspiration cards are free to use, with no account and no installation. They are meant to make your meeting better, even if you take nothing else from us.",
+    a: "Yes. The inspiration cards are free to use, with no account and no installation. They're meant to make your meeting better, even if you take nothing else from us.",
   },
   {
     q: "Does it work on my phone or tablet?",
@@ -44,7 +44,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Can I use the cards in my own meeting environment?",
-    a: "Yes. Below the card there is an 'Embed code' button that copies the code you paste onto a screen in SpatialChat or on your own page. The allow=\"fullscreen\" attribute is already in that code.",
+    a: "Yes. Below the card there's an 'Embed code' button that copies the code you paste onto a screen in SpatialChat or on your own page. The allow=\"fullscreen\" attribute is already in that code.",
   },
   {
     q: "Which gatherings do they suit?",
@@ -52,7 +52,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Can I order these inspiration cards?",
-    a: "No, the cards are not for sale. Using them is fine, free and as often as you like.",
+    a: "No, the cards aren't for sale. Using them is fine, free and as often as you like.",
   },
   {
     q: "Who made these cards?",

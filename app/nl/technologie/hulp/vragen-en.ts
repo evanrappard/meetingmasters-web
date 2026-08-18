@@ -13,9 +13,9 @@ import type { Vraag, Categorie } from "./vragen";
  */
 
 export const CATEGORIEEN_EN: Categorie[] = [
-  { id: "link", label: "I cannot get in", icoon: "🔑", intro: "Link lost, or nothing happens when you click it." },
-  { id: "audio", label: "My audio is not working", icoon: "🔊", intro: "I cannot hear anyone, or nobody can hear me." },
-  { id: "video", label: "My video is not working", icoon: "📷", intro: "Camera black or frozen, or you cannot see the others." },
+  { id: "link", label: "I can't get in", icoon: "🔑", intro: "Link lost, or nothing happens when you click it." },
+  { id: "audio", label: "My audio isn't working", icoon: "🔊", intro: "I can't hear anyone, or nobody can hear me." },
+  { id: "video", label: "My video isn't working", icoon: "📷", intro: "Camera black or frozen, or you can't see the others." },
   { id: "overig", label: "Something else is wrong", icoon: "🛟", intro: "Stuttering, screen sharing, breakout rooms or anything else." },
 ];
 
@@ -41,7 +41,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Copy the whole link and paste it into your browser's address bar.",
           "Use Google Chrome. Edge and Firefox usually work too; Safari causes the most trouble.",
-          "Close any window of the same meeting you opened earlier; two windows at once does not work."
+          "Close any window of the same meeting you opened earlier; two windows at once doesn't work."
         ]
       },
       {
@@ -55,7 +55,7 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "I have to log in or create an account.",
         "stappen": [
-          "Look for a “Join as guest” or “Join in browser” button; often you do not need to create anything.",
+          "Look for a “Join as guest” or “Join in browser” button; often you don't need to create anything.",
           "If the platform does ask for an account, use the email address the invitation came to.",
           "With SpatialChat you never have to log in: you only fill in your name."
         ]
@@ -63,7 +63,7 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "I am in a waiting room and nothing is happening.",
         "stappen": [
-          "Stay where you are: the organiser has to let you in and can see you in the list.",
+          "Stay where you're: the organiser has to let you in and can see you in the list.",
           "Check that your name is recognisable; if it says “iPhone of…”, change it.",
           "If it takes a while, refresh the page once — you rejoin the queue automatically."
         ]
@@ -71,18 +71,18 @@ const DATA_EN: Record<string, ToolBlock> = {
     ],
     "audio": [
       {
-        "q": "I cannot hear anyone.",
+        "q": "I can't hear anyone.",
         "stappen": [
-          "Turn your computer's sound on and up far enough — and check that it is not muted. Calling or meeting through the browser uses the same sound device as the rest of your computer.",
+          "Turn your computer's sound on and up far enough — and check that it isn't muted. Calling or meeting through the browser uses the same sound device as the rest of your computer.",
           "In the meeting settings, deliberately choose the right speaker (your headphones rather than the laptop speaker, for instance).",
           "Wearing earbuds or a headset? Take them out and put them back in, so the device is recognised again.",
-          "Test the sound with the meeting's test button, if there is one."
+          "Test the sound with the meeting's test button, if there's one."
         ]
       },
       {
         "q": "Nobody can hear me.",
         "stappen": [
-          "Check that your microphone is not off: there should be no line through the microphone icon.",
+          "Check that your microphone isn't off: there should be no line through the microphone icon.",
           "Choose the right microphone in the meeting; speak and see whether the level bar moves.",
           "Give your browser permission: click the padlock at the left of the address bar, set Microphone to “Allow” and refresh the page.",
           "Still silent? Then your operating system is blocking it. Mac: System Settings → Privacy & Security → Microphone, and tick your browser. Windows: Settings → Privacy & security → Microphone."
@@ -93,15 +93,15 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Choose the right device in the meeting, separately for the microphone and for the speaker.",
           "Then set it in your computer's own sound settings as well.",
-          "Plugging in a headset during the meeting? Select it by hand afterwards; that does not always happen automatically."
+          "Plugging in a headset during the meeting? Select it by hand afterwards; that doesn't always happen automatically."
         ]
       },
       {
         "q": "There is an echo or a whine.",
         "stappen": [
-          "If several of you are in the same room, let only one device have the sound on.",
+          "If several of you're in the same room, let only one device have the sound on.",
           "Use a headset or earbuds; that almost always solves an echo.",
-          "Mute your microphone when you are not speaking."
+          "Mute your microphone when you aren't speaking."
         ]
       },
       {
@@ -115,20 +115,20 @@ const DATA_EN: Record<string, ToolBlock> = {
     ],
     "video": [
       {
-        "q": "My camera is not working.",
+        "q": "My camera isn't working.",
         "stappen": [
-          "Check that your camera is not off: there should be no line through the camera icon.",
+          "Check that your camera isn't off: there should be no line through the camera icon.",
           "Choose the right camera in the meeting; laptops sometimes have more than one.",
           "Give your browser permission: click the padlock at the left of the address bar, set Camera to “Allow” and refresh the page.",
-          "If that does not help, your operating system is blocking it. Mac: System Settings → Privacy & Security → Camera, and tick your browser. Windows: Settings → Privacy & security → Camera.",
-          "Is another programme already using your camera? Close it completely — including when it is only running in the background — and refresh the page.",
-          "Finally, check that there is no shutter or cap over your camera lens."
+          "If that doesn't help, your operating system is blocking it. Mac: System Settings → Privacy & Security → Camera, and tick your browser. Windows: Settings → Privacy & security → Camera.",
+          "Is another programme already using your camera? Close it completely — including when it's only running in the background — and refresh the page.",
+          "Finally, check that there's no shutter or cap over your camera lens."
         ]
       },
       {
-        "q": "I cannot see the others.",
+        "q": "I can't see the others.",
         "stappen": [
-          "Check whether the others have their cameras on; often it is not you.",
+          "Check whether the others have their cameras on; often it isn't you.",
           "Refresh the page; the video streams then come in again.",
           "Turn your own camera off and on again, which rebuilds the video connection."
         ]
@@ -144,7 +144,7 @@ const DATA_EN: Record<string, ToolBlock> = {
     ],
     "overig": [
       {
-        "q": "I cannot share my screen.",
+        "q": "I can't share my screen.",
         "stappen": [
           "Click “Share screen” and choose what you want to show: your whole screen, one window or one tab.",
           "On a Mac you have to give your browser permission first: System Settings → Privacy & Security → Screen Recording. After that you have to quit the browser and open it again.",
@@ -154,8 +154,8 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "I am being put into a breakout room. What should I do?",
         "stappen": [
-          "That is a separate room for a conversation in a small group; click “Join” when you are asked to.",
-          "Your video and sound come with you; you do not have to set anything up again.",
+          "That's a separate room for a conversation in a small group; click “Join” when you're asked to.",
+          "Your video and sound come with you; you don't have to set anything up again.",
           "If you get stuck, click “Ask for help”. The host will come to you."
         ]
       },
@@ -163,7 +163,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "My connection keeps dropping.",
         "stappen": [
           "Turn your camera off.",
-          "Close programmes you do not need.",
+          "Close programmes you don't need.",
           "Sit closer to your wifi point or use a cable.",
           "If nothing helps: leave the meeting and come back in through the link."
         ]
@@ -172,7 +172,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "I am on a computer belonging to my organisation and all sorts of things are blocked.",
         "stappen": [
           "Try a different browser first; sometimes only one is allowed.",
-          "If that does not work, something is being blocked on the network or by your administrator rights.",
+          "If that doesn't work, something is being blocked on the network or by your administrator rights.",
           "Send your IT department the settings at the bottom of this page; they set out what is needed per platform.",
           "Need it to work quickly? Join from your phone or a private laptop."
         ]
@@ -181,8 +181,8 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "Is the meeting being recorded? (recording and watching back)",
         "stappen": [
           "The organiser decides that, and has to say so beforehand.",
-          "If a recording is running, you will see a notice or a red dot on screen.",
-          "Do not want to be on camera? Turn it off; you can still take part.",
+          "If a recording is running, you'll see a notice or a red dot on screen.",
+          "Don't want to be on camera? Turn it off; you can still take part.",
           "Ask the organiser whether you can watch the recording back afterwards."
         ]
       },
@@ -191,16 +191,16 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Look for the hand icon in the bar at the bottom, often under Reactions.",
           "Click it; the host can then see that you want to say something.",
-          "Do not forget to lower your hand afterwards — that does not happen automatically.",
-          "If there is no hand icon, type your question in the chat."
+          "Don't forget to lower your hand afterwards — that doesn't happen automatically.",
+          "If there's no hand icon, type your question in the chat."
         ]
       },
       {
         "q": "Can I turn on subtitles?",
         "stappen": [
           "Many platforms have live captions; look in the bar at the bottom or under the three dots.",
-          "If it is not there, the organiser has switched it off or the licence does not support it.",
-          "Do ask; it is usually a single setting away."
+          "If it is not there, the organiser has switched it off or the licence doesn't support it.",
+          "Do ask; it's usually a single setting away."
         ]
       },
       {
@@ -217,7 +217,7 @@ const DATA_EN: Record<string, ToolBlock> = {
   "SpatialChat": {
     "link": [
       {
-        "q": "I cannot find my invitation link.",
+        "q": "I can't find my invitation link.",
         "stappen": [
           "Search your mailbox for the organiser's name or for “invitation”.",
           "Check your calendar: with a calendar invitation the link is in the appointment.",
@@ -229,14 +229,14 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Copy the whole link and paste it into your browser's address bar.",
           "Use Chrome, Firefox or Edge — not Safari.",
-          "Press Enter. SpatialChat opens on its own; there is nothing to download."
+          "Press Enter. SpatialChat opens on its own; there's nothing to download."
         ]
       },
       {
         "q": "Do I have to create an account or install anything?",
         "stappen": [
-          "No. Click the link and you are in.",
-          "Fill in your name and organisation; that is your calling card in the space.",
+          "No. Click the link and you're in.",
+          "Fill in your name and organisation; that's your calling card in the space.",
           "Click Continue."
         ]
       },
@@ -244,11 +244,11 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "I have lost the SpatialChat tab.",
         "stappen": [
           "Look in your browser for the tab with a red dot.",
-          "That dot means your microphone and camera are active there — so that is where your meeting is still open."
+          "That dot means your microphone and camera are active there — so that's where your meeting is still open."
         ]
       },
       {
-        "q": "I cannot get into a room.",
+        "q": "I can't get into a room.",
         "stappen": [
           "Look at the participant count after the room name, for instance 50/50. If it is full, you cannot get in.",
           "Go to another room, or try again in a few minutes."
@@ -257,16 +257,16 @@ const DATA_EN: Record<string, ToolBlock> = {
     ],
     "audio": [
       {
-        "q": "My microphone is not working.",
+        "q": "My microphone isn't working.",
         "stappen": [
-          "Look at the bar at the bottom: if there is a red line through the microphone icon, click it so that it turns green.",
-          "Click the padlock at the left of the address bar and set the microphone to Allow. Also if you accidentally clicked Block earlier — that is by far the most common cause.",
+          "Look at the bar at the bottom: if there's a red line through the microphone icon, click it so that it turns green.",
+          "Click the padlock at the left of the address bar and set the microphone to Allow. Also if you accidentally clicked Block earlier — that's by far the most common cause.",
           "Reload the page.",
           "If it stays silent, give your browser access in your system settings under Privacy, and restart the browser."
         ]
       },
       {
-        "q": "Others cannot hear me, or I cannot hear them.",
+        "q": "Others can't hear me, or I can't hear them.",
         "stappen": [
           "Just as in real life, you have to be within earshot.",
           "Click your own video, hold, and drag yourself closer to the other person.",
@@ -274,28 +274,28 @@ const DATA_EN: Record<string, ToolBlock> = {
         ]
       },
       {
-        "q": "Everything is green, but the sound is not right.",
+        "q": "Everything is green, but the sound isn't right.",
         "stappen": [
           "Click the cog icon for the settings.",
           "Check that the right microphone and the right speaker are both selected.",
-          "Using an earbud or headset? Check that it is connected to your computer and not still to your phone."
+          "Using an earbud or headset? Check that it's connected to your computer and not still to your phone."
         ]
       }
     ],
     "video": [
       {
-        "q": "My camera is not working.",
+        "q": "My camera isn't working.",
         "stappen": [
-          "Look at the bottom bar: if there is a red line through the camera icon, click it so that it turns green.",
+          "Look at the bottom bar: if there's a red line through the camera icon, click it so that it turns green.",
           "Click the padlock at the left of the address bar and set the camera to Allow.",
           "Reload the page.",
-          "If you still cannot see yourself, give your browser access to the camera in your system settings under Privacy, and restart the browser."
+          "If you still can't see yourself, give your browser access to the camera in your system settings under Privacy, and restart the browser."
         ]
       },
       {
-        "q": "I can see myself, but others cannot.",
+        "q": "I can see myself, but others can't.",
         "stappen": [
-          "Your camera is fine, then; you are probably too far away.",
+          "Your camera is fine, then; you're probably too far away.",
           "Drag your own video closer to the other person; the video connection opens on its own.",
           "Check as well that the other person's camera is on."
         ]
@@ -303,7 +303,7 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "My camera is off in the presentation room.",
         "stappen": [
-          "That is how it should be. The presentation room is a room for listening: only the presenter can be seen and heard.",
+          "That's how it should be. The presentation room is a room for listening: only the presenter can be seen and heard.",
           "When you go back to an ordinary room, turn your camera and microphone on again in the bottom bar."
         ]
       }
@@ -313,7 +313,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "Which browser and which device work best?",
         "stappen": [
           "Use a laptop or computer; every feature works there.",
-          "Choose Chrome, Firefox or Edge. Safari does not always work properly.",
+          "Choose Chrome, Firefox or Edge. Safari doesn't always work properly.",
           "On a phone or tablet — an iPad included — not everything works and the screen is small."
         ]
       },
@@ -322,7 +322,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Click your own video, hold, and drag yourself to where you want to stand.",
           "Zoom in and out with your mouse wheel, or with the buttons at the bottom right.",
-          "You will find other rooms at the top right: click a room name and you walk there."
+          "You'll find other rooms at the top right: click a room name and you walk there."
         ]
       },
       {
@@ -330,7 +330,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Click the screen icon in the bottom bar, next to the microphone and the camera.",
           "Choose whether you share a tab, a window or your whole screen.",
-          "Prefer to share one tab or window; that is calmer for everyone. Going to present? Have your presentation open beforehand."
+          "Prefer to share one tab or window; that's calmer for everyone. Going to present? Have your presentation open beforehand."
         ]
       },
       {
@@ -348,9 +348,9 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "I have not received a registration or join email.",
         "stappen": [
-          "Look in your junk or spam folder; that is usually where it is.",
+          "Look in your junk or spam folder; that's usually where it is.",
           "Move the email to your inbox; the link then works as normal.",
-          "If you cannot find anything, ask the organiser for a personal join link."
+          "If you can't find anything, ask the organiser for a personal join link."
         ]
       },
       {
@@ -361,17 +361,17 @@ const DATA_EN: Record<string, ToolBlock> = {
         ]
       },
       {
-        "q": "My join link does not work.",
+        "q": "My join link doesn't work.",
         "stappen": [
-          "Check that you are signed in with the same email address you registered with; your access is tied to it.",
+          "Check that you're signed in with the same email address you registered with; your access is tied to it.",
           "Sign out and back in with the right address if you need to.",
-          "If it still does not work, ask the organiser to add you by hand."
+          "If it still doesn't work, ask the organiser to add you by hand."
         ]
       }
     ],
     "audio": [
       {
-        "q": "I cannot hear anything.",
+        "q": "I can't hear anything.",
         "stappen": [
           "Click the arrow next to the microphone icon at the bottom.",
           "Under Speaker, choose the right device — your headphones rather than the laptop speaker, for instance.",
@@ -379,18 +379,18 @@ const DATA_EN: Record<string, ToolBlock> = {
         ]
       },
       {
-        "q": "Others cannot hear me.",
+        "q": "Others can't hear me.",
         "stappen": [
-          "Check that you are not muted: if there is a red line through the microphone, click Unmute.",
+          "Check that you aren't muted: if there's a red line through the microphone, click Unmute.",
           "Click the arrow next to the microphone and choose the right microphone.",
           "Give your browser permission for the microphone and refresh the page.",
           "Close other programmes using your microphone, such as Teams or a second Zoom window."
         ]
       },
       {
-        "q": "I cannot turn my microphone on at all.",
+        "q": "I can't turn my microphone on at all.",
         "stappen": [
-          "In a webinar session your audio and video are deliberately off; that is how it should be.",
+          "In a webinar session your audio and video are deliberately off; that's how it should be.",
           "Ask your question there through the Q&A.",
           "In an ordinary meeting session you can turn your microphone on yourself."
         ]
@@ -398,12 +398,12 @@ const DATA_EN: Record<string, ToolBlock> = {
     ],
     "video": [
       {
-        "q": "My camera is not working.",
+        "q": "My camera isn't working.",
         "stappen": [
           "If you see a red line through the camera icon, click Start Video.",
           "Click the arrow next to the icon and choose the right camera.",
           "Give your browser permission for the camera.",
-          "Close other programmes using the camera; Zoom cannot switch it on while another programme is holding it."
+          "Close other programmes using the camera; Zoom can't switch it on while another programme is holding it."
         ]
       },
       {
@@ -411,22 +411,22 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Click the arrow next to the camera icon.",
           "Choose the right webcam in the video settings.",
-          "Check that there is no shutter or cap over the lens."
+          "Check that there's no shutter or cap over the lens."
         ]
       },
       {
-        "q": "I cannot get myself on camera.",
+        "q": "I can't get myself on camera.",
         "stappen": [
-          "In a webinar session you deliberately cannot share video; you follow the speakers and ask questions through the Q&A.",
+          "In a webinar session you deliberately can't share video; you follow the speakers and ask questions through the Q&A.",
           "In an ordinary meeting session you turn your camera on with Start Video."
         ]
       }
     ],
     "overig": [
       {
-        "q": "I cannot see the join button for a session.",
+        "q": "I can't see the join button for a session.",
         "stappen": [
-          "The session has not started yet.",
+          "The session hasn't started yet.",
           "Wait for the speaker to open it; the blue Join button then appears on its own.",
           "You can recognise sessions that are live by the red Now."
         ]
@@ -435,7 +435,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "How do I switch between sessions?",
         "stappen": [
           "Click the Sessions tab at the top for the full programme.",
-          "There is a Join button after every session.",
+          "There's a Join button after every session.",
           "The bookmark icon adds sessions to your own Itinerary, so that switching is easy."
         ]
       },
@@ -443,12 +443,12 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "Where do I find the coffee or lunch break?",
         "stappen": [
           "Go to the Expo tab.",
-          "Choose a space that is in progress; those are marked in red.",
+          "Choose a space that's in progress; those are marked in red.",
           "Click Enter booth and then Join."
         ]
       },
       {
-        "q": "I cannot get into the event at all.",
+        "q": "I can't get into the event at all.",
         "stappen": [
           "Try a different browser; almost any browser works.",
           "On a Chromebook, the Zoom web app works best.",
@@ -460,7 +460,7 @@ const DATA_EN: Record<string, ToolBlock> = {
   "Zoom": {
     "link": [
       {
-        "q": "I cannot find the link.",
+        "q": "I can't find the link.",
         "stappen": [
           "Search your mailbox for “Zoom” or “invitation”, and check your spam folder too.",
           "The email has a blue link or an address starting with zoom.us.",
@@ -475,26 +475,26 @@ const DATA_EN: Record<string, ToolBlock> = {
         ]
       },
       {
-        "q": "I have to download Zoom, and it will not work.",
+        "q": "I have to download Zoom, and it won't work.",
         "stappen": [
-          "You do not have to. Click Cancel in the window that appears.",
+          "You don't have to. Click Cancel in the window that appears.",
           "Choose Join from your browser at the bottom of the page.",
-          "Fill in your name and you are in, with nothing installed."
+          "Fill in your name and you're in, with nothing installed."
         ]
       },
       {
         "q": "I see “Please wait, the host will let you in soon”.",
         "stappen": [
-          "That is how it should be: you are in the digital waiting room.",
-          "Stay on this screen and do not close it; you will be let in within a minute."
+          "That's how it should be: you're in the digital waiting room.",
+          "Stay on this screen and don't close it; you'll be let in within a minute."
         ]
       }
     ],
     "audio": [
       {
-        "q": "I cannot hear anyone.",
+        "q": "I can't hear anyone.",
         "stappen": [
-          "Click Join with Computer Audio at the bottom left, next to the microphone, if that has not happened yet.",
+          "Click Join with Computer Audio at the bottom left, next to the microphone, if that hasn't happened yet.",
           "Turn your device's volume up.",
           "Click the arrow next to the microphone and, under Select a Speaker, choose your headphones or speakers."
         ]
@@ -502,7 +502,7 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "Nobody can hear me.",
         "stappen": [
-          "Look at the bottom left: a red line through the microphone means you are muted. Click it once.",
+          "Look at the bottom left: a red line through the microphone means you're muted. Click it once.",
           "Click the arrow next to the microphone and choose the right microphone.",
           "A headset or earbuds often work better than the built-in microphone."
         ]
@@ -518,9 +518,9 @@ const DATA_EN: Record<string, ToolBlock> = {
     ],
     "video": [
       {
-        "q": "Others cannot see me.",
+        "q": "Others can't see me.",
         "stappen": [
-          "Look at the camera icon at the bottom left: if there is a red line, click Start Video.",
+          "Look at the camera icon at the bottom left: if there's a red line, click Start Video.",
           "Close programmes already using your camera, such as Teams or FaceTime.",
           "Click the arrow next to the camera and choose the right camera."
         ]
@@ -530,7 +530,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Access is probably switched off. Windows: Settings → Privacy → Camera. Mac: System Settings → Privacy & Security → Camera.",
           "Switch Zoom on there.",
-          "If that does not help, restart your computer."
+          "If that doesn't help, restart your computer."
         ]
       },
       {
@@ -557,14 +557,14 @@ const DATA_EN: Record<string, ToolBlock> = {
           "Click the green Share Screen button at the bottom.",
           "Choose the window you want to show and click Share. Going to present? Have your presentation open beforehand.",
           "On a Mac you give Zoom permission once through System Settings → Privacy & Security → Screen Recording.",
-          "If it does not work, the host may have restricted sharing; do ask."
+          "If it doesn't work, the host may have restricted sharing; do ask."
         ]
       },
       {
         "q": "I am being put into a breakout room. What now?",
         "stappen": [
-          "That is a separate room for a conversation in a small group.",
-          "Click Join when you are asked to.",
+          "That's a separate room for a conversation in a small group.",
+          "Click Join when you're asked to.",
           "If you get stuck, click Ask for Help; the host will come to you."
         ]
       },
@@ -573,7 +573,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Click the invitation link again to come back.",
           "If it keeps happening, restart Zoom.",
-          "If that does not help, restart your computer."
+          "If that doesn't help, restart your computer."
         ]
       }
     ]
@@ -581,7 +581,7 @@ const DATA_EN: Record<string, ToolBlock> = {
   "Microsoft Teams": {
     "link": [
       {
-        "q": "I cannot find the link to the meeting.",
+        "q": "I can't find the link to the meeting.",
         "stappen": [
           "Look in the email invitation and in your calendar appointment; the Join meeting button is there.",
           "Otherwise search your mailbox for “Teams”.",
@@ -591,38 +591,38 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "I click the link and it asks for the app.",
         "stappen": [
-          "You do not have to install anything. Choose Continue on this browser.",
-          "If the link still does not work, copy it and paste it into Microsoft Edge or Google Chrome."
+          "You don't have to install anything. Choose Continue on this browser.",
+          "If the link still doesn't work, copy it and paste it into Microsoft Edge or Google Chrome."
         ]
       },
       {
         "q": "I have to sign in or enter a code.",
         "stappen": [
           "Teams sometimes sends a one-time code to your email; enter that.",
-          "If that does not work, fill in your name and join as a guest."
+          "If that doesn't work, fill in your name and join as a guest."
         ]
       }
     ],
     "audio": [
       {
-        "q": "I cannot hear the others.",
+        "q": "I can't hear the others.",
         "stappen": [
           "Turn your computer's sound on and up far enough.",
           "In the meeting, click the three dots and then Device settings.",
           "Check that the right speaker is selected.",
-          "If that does not help, try headphones or earbuds."
+          "If that doesn't help, try headphones or earbuds."
         ]
       },
       {
-        "q": "The others cannot hear me.",
+        "q": "The others can't hear me.",
         "stappen": [
-          "Check that your microphone is not muted; there should be no line through the microphone icon.",
+          "Check that your microphone isn't muted; there should be no line through the microphone icon.",
           "Click the three dots, then Device settings, and choose the right microphone.",
           "A headset with a microphone often works better than the built-in one."
         ]
       },
       {
-        "q": "Teams does not recognise my microphone.",
+        "q": "Teams doesn't recognise my microphone.",
         "stappen": [
           "Using a separate Bluetooth or USB microphone? Then choose the computer's own microphone for the moment.",
           "In the Teams settings, under Permissions, switch Media on.",
@@ -639,7 +639,7 @@ const DATA_EN: Record<string, ToolBlock> = {
     ],
     "video": [
       {
-        "q": "Others cannot see me.",
+        "q": "Others can't see me.",
         "stappen": [
           "Check that your camera is on; there should be no line through the camera icon.",
           "Click the three dots and then Device settings.",
@@ -647,7 +647,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         ]
       },
       {
-        "q": "Teams cannot find my camera.",
+        "q": "Teams can't find my camera.",
         "stappen": [
           "Using a separate webcam? Then choose the computer's own camera for the moment.",
           "In the Teams settings, under Permissions, switch Media on.",
@@ -666,11 +666,11 @@ const DATA_EN: Record<string, ToolBlock> = {
     ],
     "overig": [
       {
-        "q": "I do not have a Teams account. Can I still join?",
+        "q": "I don't have a Teams account. Can I still join?",
         "stappen": [
           "Yes. Click the link and choose Continue on this browser.",
           "Fill in your name and join as a guest.",
-          "You may wait in the lobby for a moment until the organiser lets you in; that is how it should be."
+          "You may wait in the lobby for a moment until the organiser lets you in; that's how it should be."
         ]
       },
       {
@@ -683,8 +683,8 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "How do the breakout rooms work?",
         "stappen": [
-          "As a participant you do not have to do anything; the organiser opens the rooms.",
-          "You are moved to your group automatically and back again afterwards.",
+          "As a participant you don't have to do anything; the organiser opens the rooms.",
+          "You're moved to your group automatically and back again afterwards.",
           "If you choose a room yourself, click Join."
         ]
       },

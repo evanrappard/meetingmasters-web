@@ -80,7 +80,7 @@
 /en/blog/system-rage
 /en/blog/the-ai-paradox
 /en/blog/the-rule-of-eight
-/en/blog/a-stick-to-beat-it-with
+/en/blog/blaming-online
 /en/blog/an-online-home-for-olympians
 /en/contact
 /en/demo

@@ -7,7 +7,7 @@ import { HUBSPOT_PORTAL_ID, formulierVoor } from "@/lib/hubspot-forms";
 export const metadata: Metadata = {
   title: "Contact | MeetingMasters",
   description:
-    "Get in touch with MeetingMasters. Book a no-obligation conversation or a demo in our virtual office. We would be glad to hear what you are working on.",
+    "Get in touch with MeetingMasters. Book a no-obligation conversation or a demo in our virtual office. We'd be glad to hear what you're working on.",
   alternates: {
     canonical: "https://www.meetingmasters.online/en/contact",
     languages: {
@@ -40,7 +40,7 @@ export default function ContactPage() {
           you.
         </p>
         <p className="text-[#666666] leading-relaxed mb-10">
-          If your question does not quite fit what we do, we will gladly point you somewhere
+          If your question doesn&rsquo;t quite fit what we do, we&rsquo;ll gladly point you somewhere
           that does.
         </p>
 
@@ -96,7 +96,7 @@ export default function ContactPage() {
         <div className="mt-14 pt-12 border-t border-gray-200">
           <h2 className="text-2xl font-bold text-primary mb-2">Send us a message</h2>
           <p className="text-[#666666] leading-relaxed mb-8 max-w-lg">
-            Rather write than call? Leave your question here and we will get back to you as soon
+            Rather write than call? Leave your question here and we&rsquo;ll get back to you as soon
             as we can.
           </p>
           <div className="max-w-lg">
