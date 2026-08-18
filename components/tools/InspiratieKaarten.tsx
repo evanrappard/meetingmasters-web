@@ -97,7 +97,7 @@ export default function InspiratieKaarten({ variant = "pagina", taal = "nl" }: P
       }
       return rest;
     });
-  }, [draait]);
+  }, [draait, taal]);
 
   const download = useCallback(() => {
     if (!kaart) return;
@@ -105,7 +105,7 @@ export default function InspiratieKaarten({ variant = "pagina", taal = "nl" }: P
     link.href = kaartSrc(kaart, taal);
     link.download = `MeetingMasters-${taal === "en" ? "inspiration-card" : "inspiratiekaart"}-${kaart}.webp`;
     link.click();
-  }, [kaart]);
+  }, [kaart, taal]);
 
   /**
    * Echt volledig scherm als het mag. In een iframe staat de browser dat alleen

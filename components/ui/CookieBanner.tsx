@@ -19,19 +19,14 @@ import {
  * De banner blokkeert de pagina niet: de site plaatst uit zichzelf geen
  * analytische of marketingcookies, dus lezen kan gewoon doorgaan.
  */
-/**
- * De teksten van de banner, per taal. De cookieverklaring zelf bestaat nog
- * alleen in het Nederlands; de Engelse banner linkt daar dus naartoe, met een
- * regel erbij dat de pagina Nederlandstalig is. Beter dat te zeggen dan iemand
- * er onaangekondigd op te laten belanden.
- */
+/** De teksten van de banner, per taal, met de verklaring in dezelfde taal. */
 const T = {
   nl: {
     titel: "MeetingMasters maakt gebruik van cookies",
     tekst:
       "MeetingMasters gaat over contact maken en houden. En omdat we dat graag nog beter doen, niet alleen voor onze klanten maar ook mét onze klanten, gebruiken we cookies. Een deel is nodig om de site en onze formulieren te laten werken. Geef je ons ook toestemming voor statistieken, dan maken we de site daar beter mee. Wat we precies bewaren, lees je in onze ",
     link: "cookieverklaring",
-    linkExtra: "",
+    href: "/nl/cookieverklaring",
     noodzakelijk: "Alleen noodzakelijk",
     alles: "Alles accepteren",
   },
@@ -40,7 +35,7 @@ const T = {
     tekst:
       "MeetingMasters is about making and keeping contact. And because we would like to do that even better, not only for our clients but with them, we use cookies. Some are needed to make the site and our forms work. Give us permission for statistics as well and we can make the site better with it. What exactly we store is set out in our ",
     link: "cookie statement",
-    linkExtra: " (in Dutch)",
+    href: "/en/cookie-statement",
     noodzakelijk: "Essential only",
     alles: "Accept all",
   },
@@ -85,12 +80,12 @@ export default function CookieBanner() {
           <p className="text-dark-grey text-sm leading-relaxed">
             {t.tekst}
             <Link
-              href="/nl/cookieverklaring"
+              href={t.href}
               className="text-accent underline underline-offset-2 hover:text-accent-dark"
             >
               {t.link}
             </Link>
-            {t.linkExtra}.
+            .
           </p>
         </div>
 

@@ -6,6 +6,7 @@ type JuridischePaginaProps = {
   children: React.ReactNode;
   /** Afwijkende datum; standaard de datum uit lib/bedrijfsgegevens.ts */
   bijgewerkt?: string;
+  taal?: "nl" | "en";
 };
 
 /**
@@ -18,6 +19,7 @@ export default function JuridischePagina({
   intro,
   children,
   bijgewerkt = JURIDISCH_BIJGEWERKT,
+  taal = "nl",
 }: JuridischePaginaProps) {
   return (
     <div className="bg-white">
@@ -30,7 +32,7 @@ export default function JuridischePagina({
         {children}
 
         <p className="text-[#888888] text-sm pt-6 border-t border-gray-200">
-          Laatst bijgewerkt: {bijgewerkt}.
+          {taal === "en" ? "Last updated" : "Laatst bijgewerkt"}: {bijgewerkt}.
         </p>
       </div>
     </div>

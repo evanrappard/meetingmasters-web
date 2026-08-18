@@ -128,3 +128,5 @@
 /nl/downloads
 /en/downloads
 /en/meeting-calculator
+/en/privacy-statement
+/en/cookie-statement

@@ -78,7 +78,7 @@ function gewicht(pad: string): { priority: number; changeFrequency: MetadataRout
   if (pad === "/en/blog") return { priority: 0.8, changeFrequency: "weekly" };
   if (/^\/en\//.test(pad)) return { priority: 0.6, changeFrequency: "monthly" };
   if (/^\/(nl|en)\/blog\//.test(pad)) return { priority: 0.6, changeFrequency: "yearly" };
-  if (/^\/nl\/(privacy-statement|cookieverklaring)$/.test(pad)) return { priority: 0.3, changeFrequency: "yearly" };
+  if (/^\/(nl\/(privacy-statement|cookieverklaring)|en\/(privacy-statement|cookie-statement))$/.test(pad)) return { priority: 0.3, changeFrequency: "yearly" };
   return { priority: 0.6, changeFrequency: "monthly" };
 }
 
