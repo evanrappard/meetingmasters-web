@@ -30,7 +30,7 @@ const eslintConfig = [
      * of next/image niet gewoon beter is voordat je het hier toevoegt.
      */
     files: [
-      "app/nl/technologie/hulp/page.tsx",
+      "components/tech/HulpPagina.tsx",
       "app/nl/technologie/tools/page.tsx",
       "components/ui/HeroVideo.tsx",
       "components/ui/PlatformKeuze.tsx",

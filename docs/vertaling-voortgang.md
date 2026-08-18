@@ -20,7 +20,7 @@ Meer is het niet. Menu, footer, sitemap en taalschakelaar volgen `lib/talen.ts`
 vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 — dat is het signaal dat er nog iets ontbreekt.
 
-## Klaar (39 pagina's)
+## Klaar (41 pagina's)
 
 | Nederlands | Engels |
 |---|---|
@@ -34,6 +34,8 @@ vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 | `/nl/expert-advies` | `/en/expert-advice` |
 | `/nl/testimonials` | `/en/testimonials` |
 | 20 eventpagina's | 20 eventpagina's, eigen Engels adres per stuk |
+| `/nl/events` | `/en/events` |
+| `/nl/technologie/hulp` | `/en/help` — inclusief de 77 hulpvragen |
 
 Ook tweetalig: menu, footer, cookiebanner, het CTA-blok en de gedeelde
 formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
@@ -42,13 +44,10 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 
 | Pagina | Woorden | Opmerking |
 |---|---:|---|
-| `technologie/hulp/vragen.ts` | 2.520 | 74 vragen met stappen |
-| `events/page` | 1.680 | het eventoverzicht |
 | `home/page` | 1.650 | |
 | `technologie/tools/page` | 1.610 | Meeting Platforms |
 | `virtual-office/page` | 1.590 | |
 | `about/page` | 1.560 | |
-| `technologie/hulp/page` | 1.480 | |
 | `games-tools/ravenhack` | 1.240 | |
 | `games-tools/page` | 1.230 | |
 | `privacy-statement` | 1.060 | juridisch — laten nakijken vóór publicatie |
@@ -61,8 +60,17 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 | `cookieverklaring` | 550 | juridisch — laten nakijken |
 | 4 × tools-landingspagina | 1.690 | bingo, storytelling, wheel of fortune, inspiration cards |
 
-**Samen ongeveer 23.000 woorden.** Ter vergelijking: de elf blogartikelen waren
-7.700 en de twintig events 13.400. Dit zijn dus nog twee tot drie rondes.
+**Samen ongeveer 17.000 woorden.** Ter vergelijking: de elf blogartikelen waren
+7.700, de twintig events 13.400 en de hulppagina met de 77 vragen 5.800. Dit is
+dus nog ongeveer twee rondes.
+
+### Let op bij helpteksten
+De knoppen en menupaden in de hulpvragen zijn de **echte Engelse labels** van de
+platforms: "Join from your browser", "Start Video", "System Settings → Privacy &
+Security → Screen Recording". Een letterlijke vertaling van de Nederlandse
+instructie stuurt een Engelse deelnemer naar een knop die niet bestaat. Datzelfde
+geldt voor de links naar Zoom en Microsoft: die wijzen naar de Engelse variant
+van hun hulppagina.
 
 ### Hoe een event vertalen werkt
 De teksten staan in losse bestanden; `scripts/_events-en-bouw.mjs` maakt daar

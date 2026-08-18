@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { Categorie, Vraag } from "@/app/nl/technologie/hulp/vragen";
+import type { Taal } from "@/lib/talen";
 
 /**
  * Hulp voor iemand die vastloopt, in de volgorde waarin hij denkt:
@@ -12,7 +13,7 @@ import type { Categorie, Vraag } from "@/app/nl/technologie/hulp/vragen";
  *
  * Bewust andersom dan een gewone FAQ. Wie in stress is, weet wél dat hij niets
  * hoort, maar niet altijd of hij in Zoom of Teams zit. Daarom kan stap 2 worden
- * overgeslagen met "Dat weet ik niet" — die leidt naar het herkennen van de
+ * overgeslagen met "{t.weetNiet}" — die leidt naar het herkennen van de
  * link, én laat je gewoon doorgaan met de algemene antwoorden.
  */
 
@@ -28,12 +29,19 @@ function normaliseer(s: string) {
 }
 
 // Woorden die niets onderscheiden. Zonder deze lijst matcht "ik hoor niets"
-// op elke vraag waarin "ik" voorkomt.
+// op elke vraag waarin "ik" voorkomt. Beide talen staan in één lijst: een
+// Engelse bezoeker die per ongeluk Nederlands typt krijgt zo nog steeds
+// bruikbare resultaten, en het scheelt een schakelaar in de zoekfunctie.
 const VULWOORDEN = new Set([
   "ik", "je", "jij", "mijn", "me", "het", "de", "een", "en", "of", "is", "zijn",
   "niet", "geen", "wat", "hoe", "waar", "wie", "kan", "kun", "moet", "doe",
   "doet", "er", "in", "op", "aan", "van", "voor", "met", "te", "bij", "dan",
   "maar", "als", "dat", "die", "dit", "nu", "wel", "ook", "nog", "worden",
+  "the", "and", "or", "is", "are", "am", "my", "me", "it", "to", "of", "for",
+  "with", "at", "on", "in", "a", "an", "do", "does", "did", "can", "cannot",
+  "cant", "how", "what", "where", "who", "when", "why", "not", "no", "get",
+  "got", "have", "has", "will", "would", "should", "there", "this", "that",
+  "but", "if", "so", "any", "all", "you", "your", "we", "our",
 ]);
 
 function woorden(s: string) {
@@ -44,17 +52,44 @@ function woorden(s: string) {
 
 type Kleur = { rand: string; vlak: string; randHex: string; vlakHex: string; beeld: string };
 
+/** De vaste teksten van het hulpblok, per taal. */
+const T = {
+  nl: {
+    kicker: "Support voor meetings",
+    kop: "Wat is je probleem?",
+    onder: "De meeste dingen zijn in drie stappen opgelost.",
+    waar: "Waar vindt je meeting plaats?",
+    weetNiet: "Dat weet ik niet",
+    nietGevonden: "Hier staat het antwoord niet bij.",
+    zoekPlaceholder: "Of typ hier je probleem, bijvoorbeeld “ik hoor niets”",
+    zoekLabel: "Zoek in de hulpvragen",
+  },
+  en: {
+    kicker: "Support for meetings",
+    kop: "What is the problem?",
+    onder: "Most things are sorted in three steps.",
+    waar: "Where is your meeting taking place?",
+    weetNiet: "I do not know",
+    nietGevonden: "The answer is not here.",
+    zoekPlaceholder: "Or type your problem here, for instance “I cannot hear anything”",
+    zoekLabel: "Search the help questions",
+  },
+} as const;
+
 export default function TechHulp({
   categorieen,
   tools,
   vragen,
   kleuren = {},
+  taal = "nl",
 }: {
   categorieen: Categorie[];
   tools: string[];
   vragen: Vraag[];
   kleuren?: Record<string, Kleur>;
+  taal?: Taal;
 }) {
+  const t = T[taal];
   const [symptoom, setSymptoom] = useState<string | null>(null);
   const [tool, setTool] = useState<string | null>(null);
   const [weetNiet, setWeetNiet] = useState(false);
@@ -118,9 +153,9 @@ export default function TechHulp({
   return (
     <div>
       {/* ── Stap 1: wat gaat er mis? ───────────────────────────────── */}
-      <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">Support voor meetings</p>
-      <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-1">Wat is je probleem?</h2>
-      <p className="text-[#777777] text-sm mb-5">De meeste dingen zijn in drie stappen opgelost.</p>
+      <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">{t.kicker}</p>
+      <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-1">{t.kop}</h2>
+      <p className="text-[#777777] text-sm mb-5">{t.onder}</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-3">
         {categorieen.map((c) => {
@@ -159,8 +194,8 @@ export default function TechHulp({
           type="search"
           value={zoek}
           onChange={(e) => setZoek(e.target.value)}
-          placeholder="Of typ hier je probleem, bijvoorbeeld “ik hoor niets”"
-          aria-label="Zoek in de hulpvragen"
+          placeholder={t.zoekPlaceholder}
+          aria-label={t.zoekLabel}
           className="w-full rounded-lg border border-[#E2E2DE] bg-[#F4F4F1] pl-11 pr-4 py-3.5 text-base text-[#2D2D2D] placeholder:text-[#AAAAAA] focus:outline-none focus:border-[#28A8AA] focus:ring-2 focus:ring-[#28A8AA]/25"
         />
       </div>
@@ -169,7 +204,7 @@ export default function TechHulp({
       {symptoom && !zoekend && (
         <div className="mt-6 rounded-xl border border-[#EBEBEB] overflow-hidden">
           <div className="bg-[#F7F7F5] px-5 py-3.5 border-b border-[#EBEBEB]">
-            <p className="font-bold text-[#2D2D2D]">Waar vindt je meeting plaats?</p>
+            <p className="font-bold text-[#2D2D2D]">{t.waar}</p>
             <p className="text-[13px] text-[#7A8483]">Dan maken we het antwoord meteen specifiek. Weet je het niet? Ook prima.</p>
           </div>
 
@@ -210,7 +245,7 @@ export default function TechHulp({
                 weetNiet ? "border-[#EEBE3D] bg-[#FFFBEE] text-[#2D2D2D]" : "border-[#C4CBCA] bg-white text-[#6E7877] hover:bg-[#FFFBEE]"
               }`}
             >
-              Dat weet ik niet
+              {t.weetNiet}
             </button>
           </div>
 
@@ -250,7 +285,7 @@ export default function TechHulp({
 
           {resultaten.length === 0 ? (
             <div className="rounded-xl border border-[#E8E8E8] bg-[#F9F9F7] p-6">
-              <p className="font-bold text-[#2D2D2D] mb-1">Hier staat het antwoord niet bij.</p>
+              <p className="font-bold text-[#2D2D2D] mb-1">{t.nietGevonden}</p>
               <p className="text-sm text-[#777777]">
                 Probeer een ander woord, of kies hierboven een andere tool. Is het een begeleide bijeenkomst
                 van MeetingMasters? Dan staat je contactpersoon klaar — die vind je in je uitnodiging.

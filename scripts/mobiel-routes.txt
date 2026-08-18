@@ -110,3 +110,4 @@
 /en/events/open-space
 /en/events/networking-event
 /en/events
+/en/help
