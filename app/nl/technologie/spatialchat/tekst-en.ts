@@ -15,7 +15,7 @@ export const SPATIALCHAT_EN = {
     kicker: "Technology → SpatialChat",
     titel: "Video calling that feels like actually meeting.",
     intro:
-      "SpatialChat is our platform of choice — because it is the only one that mimics the dynamic of a real gathering. You move freely, seek out the conversation yourself and get a sense of space.",
+      "SpatialChat is our platform of choice — because it is the only one that mimics the dynamics of a real gathering. You move freely, seek out the conversation yourself and get a sense of space.",
     cta: "Book a conversation",
     hulp: "Help with SpatialChat →",
     beeldAlt:
@@ -65,11 +65,11 @@ export const SPATIALCHAT_EN = {
       },
       {
         title: "Custom spaces",
-        body: "Every space has its own dimensions, backdrop and function. From reception hall to break-out lounge — built around the event.",
+        body: "Every space has its own dimensions, backdrop and function. From reception area to break-out lounge — built around the event.",
       },
       {
-        title: "House style",
-        body: "Backdrops, logos and colours fully adjustable. Participants land straight in the visual world of your organisation.",
+        title: "Your branding",
+        body: "Backdrops, logos and colours are fully adjustable. Participants land straight in the visual world of your organisation.",
       },
       {
         title: "Screen sharing & whiteboard",
@@ -127,7 +127,7 @@ export const SPATIALCHAT_EN = {
   },
 
   cta: {
-    titel: "Want to feel for yourself what SpatialChat does to a group?",
+    titel: "Want to feel for yourself what SpatialChat does for a group?",
     onder: "A pilot session shows in an hour why this platform produces different outcomes.",
     knop: "Book a conversation",
     hulp: "Help with SpatialChat →",

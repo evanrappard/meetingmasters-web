@@ -234,7 +234,7 @@ export default function PrivacyStatementPage() {
           If you see reason to take a more formal route, you can lodge a complaint with
           the Dutch Data Protection Authority (Autoriteit Persoonsgegevens), via{" "}
           <a
-            href="https://autoriteitpersoonsgegevens.nl/en/contact-us"
+            href="https://www.autoriteitpersoonsgegevens.nl/en"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent underline underline-offset-2 hover:text-accent-dark"

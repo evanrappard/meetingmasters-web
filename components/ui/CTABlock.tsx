@@ -44,7 +44,7 @@ const T = {
         title: "See what we do",
         desc: "From strategy day to online team building — see which event formats fit what you are after.",
         ctaLabel: "View all events →",
-        href: "/nl/events",
+        href: "/en/events",
         variant: "low" as const,
       },
       {
@@ -56,9 +56,9 @@ const T = {
         variant: "mid" as const,
       },
       {
-        level: "Something concrete",
-        title: "Book a conversation — we think along",
-        desc: "No obligation. We think straight away about your situation, your group and what it needs.",
+        level: "Ready to go",
+        title: "Book a conversation — we will think it through with you",
+        desc: "No obligation. We look straight away at your situation, your group and what it needs.",
         ctaLabel: "Book a conversation →",
         href: "/en/expert-advice",
         variant: "high" as const,

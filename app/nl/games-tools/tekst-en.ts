@@ -23,7 +23,7 @@ export const GAMES_EN = {
   },
 
   intro: {
-    gamesTitel: "Gamification for more surprise and better learning.",
+    gamesTitel: "Gamification: more surprise, better learning.",
     gamesBody: "Playing together brings groups closer and makes the material stick. From a tense escape room to a game built entirely around you — ready to play or fully tailored to your theme.",
     gamesCta: "See the games →",
     toolsTitel: "Smart tools that raise involvement and participation.",
@@ -44,14 +44,14 @@ export const GAMES_EN = {
       },
       {
         title: "Short games",
-        desc: "Interludes that bring energy: from pub quiz to brainstorm, a moment of meditation or inspiration. Various formats, short and activating.",
+        desc: "Interludes that bring energy: from pub quiz to brainstorm, a moment of meditation or inspiration. Various formats, short and energising.",
         detail: "20–30 min · any group size",
         alt: "A group playing a short online game during a meeting",
         cta: "Check your format",
       },
       {
         title: "Bespoke game",
-        desc: "We design games around you as well. Your own theme, your own story. Excellent for onboarding programmes or for the moments that matter.",
+        desc: "We also design games around you. Your own theme, your own story. Excellent for onboarding programmes or for the moments that matter.",
         detail: "bespoke · onboarding, awareness, team building",
         alt: "A bespoke online game with its own puzzles, story and visuals",
         cta: "See what is possible",
@@ -69,7 +69,7 @@ export const GAMES_EN = {
 
   tools: {
     titel: "Free tools for livelier meetings.",
-    onder: "Small aids that make your meeting a good deal livelier. They are free and ready to use: you open the tool in your browser and share your screen — nothing to install.",
+    onder: "Small extras that make your meeting a good deal livelier. They are free and ready to use: you open the tool in your browser and share your screen — nothing to install.",
     open: "Open tool →",
     items: [
       { title: "Inspiration Cards", desc: "Cards with questions and statements that get the conversation going.", alt: "Inspiration Cards — cards with thought-provoking questions and statements" },
@@ -82,7 +82,7 @@ export const GAMES_EN = {
   voorJeBegint: {
     kicker: "Before you begin",
     titel: "First the question, then the gathering.",
-    body: "The tools above you use during a session. This is one for before it — for the moment when you are still deciding whether, and how, to come together.",
+    body: "The tools above are for use during a session. This one is for before it — for the moment when you are still deciding whether, and how, to come together.",
     calculatorTitel: "Meeting cost calculator",
     calculatorBody: "An hour of meeting with twenty people is not an hour — it is twenty hours, plus travel. Work out what a gathering costs in time, money and CO₂, and see what online would save.",
     calculatorCta: "Open the calculator →",
@@ -93,7 +93,7 @@ export const GAMES_EN = {
   minderAntwoorden: "Fewer answers",
 
   faq: [
-    { q: "What is the difference between the games and the tools?", a: "The games are complete experiences that we host: an escape room, a cybersecurity game or something bespoke, with a storyline and a clear beginning and end. The tools are small aids you use yourself, free, during a meeting — a wheel, a bingo card or a set of inspiration cards — to raise involvement." },
+    { q: "What is the difference between the games and the tools?", a: "The games are complete experiences that we host: an escape room, a cybersecurity game or something bespoke, with a storyline and a clear beginning and end. The tools are small, free aids you use yourself during a meeting — a wheel, a bingo card or a set of inspiration cards — to raise involvement." },
     { q: "Are the tools free to use?", a: "Yes. Every tool on this page is free and ready to use. You open the tool in your browser and share your screen during the meeting — nothing else is needed." },
     { q: "How long do the games take?", a: "That varies per game. The short games run 20 to 30 minutes and fit inside a meeting or a party. The Online Escape Room takes around 60 minutes, with a longer XL version alongside it. For a bespoke game you set the length with us." },
     { q: "What group sizes do the games suit?", a: "The games work for small teams up to large groups; participants usually play in subgroups working in parallel. Tell us your group size and we will advise on the best set-up." },
@@ -101,7 +101,7 @@ export const GAMES_EN = {
 
   faqMore: [
     { q: "Which platform do the games run on?", a: "The games run online in the browser and can be combined with the video tool you already use, such as Zoom, Teams or SpatialChat. Participants install nothing and simply open a link." },
-    { q: "Can we have a game made around us?", a: "Yes. With a bespoke game we build our own puzzles, our own storyline and our own visuals, tailored entirely to your theme, your brand and your group — for onboarding, an anniversary or an awareness campaign, for instance." },
+    { q: "Can you build a game around us?", a: "Yes. With a bespoke game we write new puzzles, a storyline and visuals of your own, tailored entirely to your theme, your brand and your group — for onboarding, an anniversary or an awareness campaign, for instance." },
     { q: "Do participants need special software?", a: "No. Both the games and the tools run in the browser. For the tools you share your screen; for the games participants receive a link. No installation, no accounts, no fuss." },
     { q: "Do the games suit team building at a distance?", a: "Certainly. The games are designed to have people work together, talk things through and achieve something together — particularly valuable for hybrid and fully remote teams who see little of each other." },
   ],

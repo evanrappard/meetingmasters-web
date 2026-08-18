@@ -94,7 +94,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "Since 2020 a great deal has been settled about where people may work. About how they work together, almost nothing has been agreed. That grew by itself, at the pace Teams and Zoom were rolled out. Ever more tactical, ever more transactional. Agenda, tick it off, next. Organisations accepted a way of working whose rules they never wrote down. And now that it chafes structurally, they reach for the one thing that is on paper. The place."
+        "text": "Since 2020 a great deal has been settled about where people may work. About how they work together, almost nothing has been agreed. That just grew, at the pace Teams and Zoom were rolled out. Ever more tactical, ever more transactional. Agenda, tick it off, next. Organisations accepted a way of working whose rules they never wrote down. And now that it chafes structurally, they reach for the one thing that is on paper. The place."
       },
       {
         "type": "h2",
@@ -102,7 +102,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "The questions you need in order to rebuild cohesion in 2026 come out of relationships that were neglected in a fast-changing time. They are about the basics of working together: about me versus us. About freedom and being reachable. About knowledge and communication."
+        "text": "The questions you need to rebuild cohesion in 2026 come out of relationships that were neglected in a fast-changing time. They are about the basics of working together: about me versus us. About freedom and being reachable. About knowledge and communication."
       },
       {
         "type": "ul",
@@ -316,7 +316,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "Back and forth. Until we realise it is not home against office at all, and that location is a side issue. It is not about where somebody is, but whether they are there. Whether they are reachable, whether you can approach them. It is about contact. Seeing the other person. Making room for the chance conversation, at a distance too."
+        "text": "Back and forth. Until we realise it is not home against office at all, and that location is a side issue. It is not about where somebody is, but whether they are there. Whether they are reachable, whether you can approach them. It is about contact. Seeing the other person. Making room for the chance conversation, even at a distance."
       },
       {
         "type": "p",
@@ -340,7 +340,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "we-have-online-covered",
     "nlSlug": "online-beheersen",
-    "title": "We have all got online covered by now.",
+    "title": "We have all got the hang of online by now.",
     "date": "June 10, 2026",
     "iso": "2026-06-10",
     "img": "/images/blog/online-beheersen.webp",
@@ -443,7 +443,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "Those moments are scarce now. Not because we stopped wanting them, but because we are almost never all in the same place. Because online there is no space left where this kind of encounter happens by itself. We kept the meetings, the calls, the scheduled sessions. But the in-between is gone. And the in-between is exactly where culture comes from."
+        "text": "Those moments are scarce now. Not because we stopped wanting them, but because we are almost never all in the same place. Because online there is no space left where this kind of encounter happens naturally. We kept the meetings, the calls, the scheduled sessions. But the in-between is gone. And the in-between is exactly where culture comes from."
       },
       {
         "type": "h2",
@@ -479,7 +479,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "Culture does not come from scheduled sessions. It comes mostly from the space in between. From the moments you are there without having to be. Gamers have known that for years. They do not need to arrange anything in order to be together. They just make sure there is a place."
+        "text": "Culture does not come from scheduled sessions. It comes mostly from the space in between. From the moments you are there without having to be. Gamers have known that for years. They do not need to arrange anything to be together. They just make sure there is a place."
       },
       {
         "type": "p",
@@ -578,7 +578,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "system-rage",
     "nlSlug": "systeemwoede",
-    "title": "System rage in online meetings: it breaks more than you would like",
+    "title": "System rage in online meetings: it wrecks more than you realise",
     "date": "April 15, 2026",
     "iso": "2026-04-15",
     "img": "/images/blog/systeemwoede.webp",
@@ -910,7 +910,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "You can keep saying online does not work for important gatherings. Get everyone to one location. Hope that being physically present makes the magic appear by itself. Or you can face it. Accept that a good gathering asks for attention wherever people are sitting. That the environment matters, the online environment included. That bringing two hundred people together is always a design question."
+        "text": "You can keep saying online does not work for important gatherings. Get everyone to one location. Hope that being physically present makes the magic appear on its own. Or you can face it. Accept that a good gathering asks for attention wherever people are sitting. That the environment matters, the online environment included. That bringing two hundred people together is always a design question."
       },
       {
         "type": "p",

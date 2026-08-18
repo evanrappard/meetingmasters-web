@@ -35,12 +35,12 @@ export default function ContactPage() {
           It all starts with getting in touch.
         </h2>
         <p className="text-[#666666] leading-relaxed mb-4">
-          Once we understand what a gathering is for, we can think along, bring in what we know,
+          Once we understand what a gathering is for, we can think it through with you, bring in what we know,
           guide people through it and make complicated things easy. We would like to hear from
           you.
         </p>
         <p className="text-[#666666] leading-relaxed mb-10">
-          Does your question not quite fit what we do? Then we will gladly point you somewhere
+          If your question does not quite fit what we do, we will gladly point you somewhere
           that does.
         </p>
 

@@ -27,7 +27,7 @@ export default function BookingPage() {
             tell us what you are after and when, and we will let you know what is possible.
           </p>
           <p className="text-base">
-            Not sure yet? Add what you have in mind and we will think along about what fits.
+            Not sure yet? Add what you have in mind and we will suggest what fits.
           </p>
         </>
       }

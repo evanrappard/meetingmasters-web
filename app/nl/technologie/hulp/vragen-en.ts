@@ -93,7 +93,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Choose the right device in the meeting, separately for the microphone and for the speaker.",
           "Then set it in your computer's own sound settings as well.",
-          "Plugging in a headset during the meeting? Select it by hand afterwards; that does not always happen by itself."
+          "Plugging in a headset during the meeting? Select it by hand afterwards; that does not always happen automatically."
         ]
       },
       {
@@ -191,7 +191,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Look for the hand icon in the bar at the bottom, often under Reactions.",
           "Click it; the host can then see that you want to say something.",
-          "Do not forget to lower your hand afterwards — that does not happen by itself.",
+          "Do not forget to lower your hand afterwards — that does not happen automatically.",
           "If there is no hand icon, type your question in the chat."
         ]
       },
@@ -229,7 +229,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Copy the whole link and paste it into your browser's address bar.",
           "Use Chrome, Firefox or Edge — not Safari.",
-          "Press Enter. SpatialChat opens by itself; there is nothing to download."
+          "Press Enter. SpatialChat opens on its own; there is nothing to download."
         ]
       },
       {
@@ -296,7 +296,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "I can see myself, but others cannot.",
         "stappen": [
           "Your camera is fine, then; you are probably too far away.",
-          "Drag your own video closer to the other person; the video connection appears by itself.",
+          "Drag your own video closer to the other person; the video connection opens on its own.",
           "Check as well that the other person's camera is on."
         ]
       },
@@ -427,7 +427,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "I cannot see the join button for a session.",
         "stappen": [
           "The session has not started yet.",
-          "Wait for the speaker to open it; the blue Join button then appears by itself.",
+          "Wait for the speaker to open it; the blue Join button then appears on its own.",
           "You can recognise sessions that are live by the red Now."
         ]
       },

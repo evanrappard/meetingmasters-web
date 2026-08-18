@@ -55,7 +55,7 @@ export default function ExpertAdvicePage() {
                 Fill in the form
               </h2>
               <p className="text-sm text-[#545454] leading-relaxed mb-8">
-                Leave your question or idea and we will think along. You are not
+                Leave your question or idea and we will think it through. You are not
                 committing to anything.
               </p>
               <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("advies", "en")} />

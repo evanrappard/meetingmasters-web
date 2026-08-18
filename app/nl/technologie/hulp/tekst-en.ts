@@ -23,7 +23,7 @@ export const HULP_EN = {
 
   handleidingen: {
     kop: "Step-by-step guides",
-    onder: "Read through calmly before your meeting, or forward to your participants.",
+    onder: "Read through before your meeting, or forward to your participants.",
     items: [
       {
         naam: "SpatialChat",
@@ -42,7 +42,7 @@ export const HULP_EN = {
       {
         naam: "Microsoft Teams",
         logo: "teams",
-        href: "https://support.microsoft.com/en-us/teams/platform/troubleshoot-in-microsoft-teams",
+        href: "https://support.microsoft.com/en-gb/teams/platform/troubleshoot-in-microsoft-teams",
         soort: "Help from Microsoft itself",
         actie: "Go to the help page",
       },
@@ -52,7 +52,7 @@ export const HULP_EN = {
   faq: {
     kop: "Frequently asked questions",
     onder:
-      "What we hear most often, in three groups: the general trouble, the settings on your own device, and the help that is there during a meeting.",
+      "What we hear most often, in three groups: the general problems, the settings on your own device, and the help that is there during a meeting.",
     groepen: {
       algemeen: "Technical problems in general",
       device: "Settings on your own device",
@@ -63,7 +63,7 @@ export const HULP_EN = {
   algemeneFaq: [
     {
       q: "It is not working and the meeting starts any minute. What do I do first?",
-      a: "Close the meeting completely and click the link in your invitation again. That solves most of it. If that does not work, open the link in Google Chrome; it works with every platform we use. If that does not help either, restart your computer — annoying just before a session, but often faster than carrying on trying.",
+      a: "Close the meeting completely and click the link in your invitation again. That solves most problems. If that does not work, open the link in Google Chrome; it works with every platform we use. If that does not help either, restart your computer — annoying just before a session, but often faster than carrying on trying.",
     },
     {
       q: "Do I have to install anything to take part?",
@@ -75,7 +75,7 @@ export const HULP_EN = {
     },
     {
       q: "My connection keeps dropping. What can I do?",
-      a: "Turn your camera off for a moment; video takes by far the most bandwidth and the sound then usually stays fine. Close programmes you do not need, especially if something is syncing in the background. If you are on wifi and it is possible, sit closer to the point or use a cable.",
+      a: "Turn your camera off for a moment; video takes by far the most bandwidth and the sound then usually stays fine. Close programmes you do not need, especially if something is syncing in the background. If you are on wifi and it is possible, sit closer to the router or use a cable.",
     },
     {
       q: "I am on a work computer and all sorts of things are blocked.",
@@ -94,7 +94,7 @@ export const HULP_EN = {
     },
     {
       q: "My sound is coming out of the wrong speaker or microphone.",
-      a: "In the meeting settings, deliberately choose the right device, and do the same in your computer's own sound settings. Wearing earbuds or a headset? Take them out and put them back in; the device is then recognised again.",
+      a: "In the meeting settings, explicitly choose the right device, and do the same in your computer's own sound settings. Wearing earbuds or a headset? Take them out and put them back in; the device is then recognised again.",
     },
     {
       q: "Another application is already using my camera.",
@@ -113,11 +113,11 @@ export const HULP_EN = {
     },
     {
       q: "And what does a Meeting Master do?",
-      a: "The Meeting Master focuses on the people rather than the technology. They welcome participants, help anyone who gets stuck and keep the space hospitable — so that nobody has to work out how it all goes again.",
+      a: "The Meeting Master focuses on the people rather than the technology. They welcome participants, help anyone who gets stuck and keep the space hospitable — so that nobody has to work out how it all works.",
     },
     {
       q: "Will I miss the meeting if I need help?",
-      a: "No. You are helped separately while the rest carries on, and put back into the session afterwards. The group notices nothing.",
+      a: "No. You are helped separately while the rest carries on, and brought back into the session afterwards. The group notices nothing.",
     },
     {
       q: "Can someone look over my shoulder if I cannot get it to work?",
@@ -175,8 +175,8 @@ export const HULP_EN = {
           "Allow WebSocket traffic, otherwise Teams falls back on slower polling traffic.",
         ],
         links: [
-          { label: "Prepare your network for Teams", href: "https://learn.microsoft.com/en-us/microsoftteams/prepare-network" },
-          { label: "Troubleshoot in Microsoft Teams", href: "https://support.microsoft.com/en-us/teams/platform/troubleshoot-in-microsoft-teams" },
+          { label: "Prepare your network for Teams", href: "https://learn.microsoft.com/en-gb/microsoftteams/prepare-network" },
+          { label: "Troubleshoot in Microsoft Teams", href: "https://support.microsoft.com/en-gb/teams/platform/troubleshoot-in-microsoft-teams" },
         ],
       },
     ],

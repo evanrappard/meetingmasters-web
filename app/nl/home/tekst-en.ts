@@ -28,14 +28,14 @@ export const HOME_EN = {
   stats: [
     { number: "Since 2020", label: "online meeting professionals" },
     { number: "250+", label: "events hosted" },
-    { number: "94%", label: "satisfaction afterwards" },
+    { number: "94%", label: "participant satisfaction" },
     { number: "47%", label: "more involvement*" },
     { number: "66%", label: "higher turnout*" },
   ],
 
   oplossingen: {
     kicker: "Our solutions",
-    titel: "We are online meeting professionals. Designers of moments that matter.",
+    titel: "We are online meeting professionals. Designers of moments people remember.",
     meer: "More →",
     items: {
       events: {
@@ -47,14 +47,14 @@ export const HOME_EN = {
       },
       "remote-office": {
         label: "Virtual Office",
-        headline: "Working together better, at a distance too",
+        headline: "Working together well, wherever people are",
         bullets: ["International organisations", "Hybrid teams", "Project groups", "Partnerships"],
         cta: "Connected through a virtual office",
-        sub: "The place for your team to come together — also when nobody is in a meeting.",
+        sub: "The place where your team comes together — even when nobody is in a meeting.",
       },
       "games-tools": {
         label: "Games & Tools",
-        headline: "Discovering and learning together, more actively",
+        headline: "Learning together, by doing",
         bullets: ["Online escape rooms", "Onboarding games", "Games and quizzes", "Bespoke gamification"],
         cta: "More interaction and play",
         sub: "Online escape rooms, onboarding games and smart apps for more involvement.",
@@ -68,9 +68,9 @@ export const HOME_EN = {
     kicker: "Essence",
     kop: "What we stand for",
     alinea1:
-      "When people come together, something good happens. We learn from each other. We strengthen each other. But it does not happen by itself.",
+      "When people come together, something good happens. We learn from each other. We strengthen each other. But it does not just happen.",
     alinea2:
-      "A good gathering is more than technology and logistics. Above all it is a human challenge. How we come across each other is what makes the difference.",
+      "A good gathering is more than technology and logistics. Above all it is a human challenge. How we meet each other is what makes the difference.",
     quote: "We design encounters with room for genuine contact.",
     manifest: "Download the MeetingMasters manifesto",
     manifestHref: "/downloads/en/meetingmasters-manifesto.pdf",
@@ -83,8 +83,8 @@ export const HOME_EN = {
     onder: "A video platform. A meeting place.",
     demo: "Book a demo →",
     punten: [
-      "People move around themselves.",
-      "Proximity decides the interaction.",
+      "People move around freely.",
+      "Proximity shapes the conversation.",
       "Participants navigate and choose who they talk to.",
       "Conversations start spontaneously — as they do in real life.",
       "Designs that fit the occasion.",
@@ -133,11 +133,11 @@ export const HOME_EN = {
     },
     {
       q: "What is SpatialChat, and why do you use it?",
-      a: "SpatialChat is a virtual platform where participants move freely through the space and fall into conversation. We use it because it makes behaviour possible that does not appear by itself in other tools.",
+      a: "SpatialChat is a virtual platform where participants move freely through the space and fall into conversation. We use it because it makes behaviour possible that does not appear on its own in other tools.",
     },
     {
       q: "What does an online event with MeetingMasters cost?",
-      a: "The cost depends on the type of event, the number of participants and the support you want. Get in touch for a first estimate through the form or at contact@meetingmasters.online.",
+      a: "The cost depends on the type of event, the number of participants and the support you want. Get in touch through the form or at contact@meetingmasters.online and we will give you a first estimate.",
     },
   ],
 

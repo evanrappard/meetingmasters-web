@@ -14,7 +14,7 @@ export const PLATFORMS_EN = {
   hero: {
     kicker: "Technology",
     titel: "Every platform has its place.",
-    intro: "We choose deliberately which instrument fits when:",
+    intro: "We choose deliberately which tool fits when:",
     intro2: "to your purpose, your group and what your participants are used to.",
     videoAlt:
       "Online gathering in SpatialChat, with participants spread across a designed virtual space",
@@ -22,14 +22,14 @@ export const PLATFORMS_EN = {
 
   platforms: {
     kop: "Four platforms, four purposes",
-    onder: "This is where your gathering takes place. You choose one; the rest you then do not need.",
+    onder: "This is where your gathering takes place. You pick one; you do not need the rest.",
     sterkIn: "Strong at",
     items: {
       "Microsoft Teams": {
         sterk: "Internal day-to-day meetings",
         groep: "0 – 49",
         wanneer: "When your organisation runs on it",
-        body: "Already sits inside your Microsoft environment and hangs off your calendar, so for internal meetings it saves an extra link and an extra account. Your documents are at hand and chat and meeting run into each other. For participants from outside your organisation it is less smooth. This is a work platform, not an events platform.",
+        body: "Already sits inside your Microsoft environment and in your calendar, so for internal meetings it saves an extra link and an extra account. Your documents are at hand, and chat and meeting flow into one another. For participants from outside your organisation it is less smooth. This is a work platform, not an events platform.",
       },
       Zoom: {
         sterk: "Meetings and events in larger groups",
@@ -41,7 +41,7 @@ export const PLATFORMS_EN = {
         sterk: "Large events and congresses",
         groep: "from ~300",
         wanneer: "For multi-day or parallel programmes",
-        body: "Registration in advance, several sessions side by side, a lobby and a programme participants walk through themselves. You know beforehand who is coming and afterwards who went where. Clear layouts and handsome design with personalised itineraries. Built for scale, so for a small session it is more than you need.",
+        body: "Registration in advance, several sessions side by side, a lobby and a programme participants walk through themselves. You know beforehand who is coming and afterwards who went where. Clear layouts and good-looking design, with personalised itineraries. Built for scale, so for a small session it is more than you need.",
       },
       SpatialChat: {
         sterk: "Webinars and events with personal interaction",
@@ -55,7 +55,7 @@ export const PLATFORMS_EN = {
 
   tools: {
     kop: "More collaboration and interaction",
-    onder: "To raise interaction and collaboration within a gathering we sometimes bring in outside tools. We combine them with the platform; you do not choose them yourself.",
+    onder: "To raise interaction and collaboration within a gathering we sometimes bring in outside tools. We combine them with the platform, so you do not have to pick them yourself.",
     binnenkort: "More to come",
     binnenkortBody: "Tools for recording and transcripts are on the way.",
     eigenVoor: "For more playful interaction we have also designed a",
@@ -63,8 +63,8 @@ export const PLATFORMS_EN = {
     eigenNa: ". We can build those around your gathering too.",
     items: {
       Miro: {
-        sterk: "Thinking and harvesting together",
-        body: "The digital whiteboard we use most. Sticky notes, timelines and canvases; everyone works on the same board at once and at the end the harvest is already on paper. We build the board beforehand, so participants only have to write.",
+        sterk: "Thinking and capturing together",
+        body: "The digital whiteboard we use most. Sticky notes, timelines and canvases; everyone works on the same board at once, and by the end the output is already captured. We build the board beforehand, so participants only have to write.",
       },
       Mentimeter: {
         sterk: "Gauging and prioritising",
@@ -80,7 +80,7 @@ export const PLATFORMS_EN = {
       },
       "Vote Company": {
         sterk: "Voting that holds up legally",
-        body: "Weighted voting rights, secret ballots and a traceable result that stands up before a notary. We bring it in for members' meetings and board meetings, where the outcome has to hold formally.",
+        body: "Weighted voting rights, secret ballots and a traceable result that holds up to formal scrutiny. We bring it in for members' meetings and board meetings, where the outcome has to stand up.",
       },
     } as Record<string, { sterk: string; body: string }>,
   },
@@ -104,7 +104,7 @@ export const PLATFORMS_EN = {
     },
     {
       q: "Do participants have to install anything or create an account?",
-      a: "Not with SpatialChat: that runs entirely in the browser and you only fill in your name. With Zoom and Teams you can usually join through the browser too — choose “Continue on this browser” — although the app is a little more comfortable. For participants from outside an organisation we deliberately take the route with nothing to install.",
+      a: "Not with SpatialChat: that runs entirely in the browser and you just enter your name. With Zoom and Teams you can usually join through the browser too — choose “Continue on this browser” — although the app is a little more comfortable. For participants from outside an organisation we deliberately take the route with nothing to install.",
     },
     {
       q: "Which platform suits a large online event?",
@@ -163,6 +163,6 @@ export const PLATFORMS_EN = {
     advies: "/en/expert-advice",
     hulp: "/en/help",
     spatialchat: "/en/spatialchat",
-    eigenTools: "/nl/games-tools#tools",
+    eigenTools: "/en/games-tools#tools",
   },
 };

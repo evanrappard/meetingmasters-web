@@ -302,7 +302,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "all-hands": {
     "title": "Running an online all-hands",
     "tagline": "An open conversation between leadership and staff — transparent, live and genuinely involved.",
-    "intro": "An all-hands meeting is built on openness: staff can ask questions, think along and say what they think. We design interactive all-hands gatherings where that really happens — not as a front, but as an honest dialogue between leadership, teams and the rest of the organisation.",
+    "intro": "An all-hands meeting is built on openness: staff can ask questions, weigh in and say what they think. We design interactive all-hands gatherings where that really happens — not as a front, but as an honest dialogue between leadership, teams and the rest of the organisation.",
     "forWho": "Boards, HR and communication teams",
     "range": "50-500 participants",
     "heroAlt": "Participant in an online all-hands with the entire workforce on a large screen",
@@ -419,7 +419,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faqMore": [
       {
         "q": "Which software do you use?",
-        "a": "We have experience with Zoom, Zoom Events and Teams. For an all-hands, SpatialChat is worth considering — people move around freely and the conversation starts by itself. Together we pick the platform that fits your purpose."
+        "a": "We have experience with Zoom, Zoom Events and Teams. For an all-hands, SpatialChat is worth considering — people move around freely and conversation starts on its own. Together we pick the platform that fits your purpose."
       },
       {
         "q": "Can you handle the whole production?",
@@ -444,16 +444,16 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "alv": {
-    "title": "Running an online general meeting",
-    "tagline": "Your annual general meeting: constitutionally sound, well structured and still lively.",
-    "intro": "An online general meeting needs the right infrastructure: voting modules, attendance registration and a structured round of questions. We help associations, foundations and cooperatives run a legally valid online general meeting that goes off professionally.",
+    "title": "Running an online AGM",
+    "tagline": "Your AGM: formally watertight, well structured and still lively.",
+    "intro": "An online annual general meeting needs the right infrastructure: voting modules, attendance registration and a structured round of questions. We help associations, foundations and cooperatives run a legally valid online AGM that goes off professionally.",
     "forWho": "Associations, foundations, cooperatives",
     "range": "30-600 participants",
     "heroAlt": "Online general meeting with a vote on the laptop screen: the Vote now button beside the annual report and the figures on the table",
     "outcomeSummary": "For careful decision-making, transparent voting and members who can all take part in full.",
     "outcomes": [
       {
-        "title": "Constitutionally sound",
+        "title": "Formally watertight",
         "body": "The meeting satisfies every legal requirement, including quorum, voting procedures and minutes."
       },
       {
@@ -484,11 +484,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       }
     ],
     "validation": {
-      "headline": "A general meeting only works online when the process and the technology are both right.",
+      "headline": "An AGM only works online when the process and the technology are both right.",
       "items": [
         {
           "title": "Decisions that hold up",
-          "body": "An online general meeting has to be reliable. With specialist partners we think along about voting procedures, proxies, roles and formal adoption."
+          "body": "An online AGM has to be reliable. With specialist partners we advise on voting procedures, proxies, roles and formal adoption."
         },
         {
           "title": "A strong turnout",
@@ -511,13 +511,13 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "A tight run sheet",
-        "body": "A general meeting has a fixed structure and formal moments. A clear run sheet prevents confusion at the point where it counts."
+        "body": "An AGM has a fixed structure and formal moments. A clear run sheet prevents confusion at the point where it counts."
       }
     ],
     "cases": [
       {
         "label": "European trade association",
-        "title": "Board meeting and general meeting on one day",
+        "title": "Board meeting and AGM on the same day",
         "body": "This association, with members from across Europe, holds its statutory annual meeting with the board and with the members, after which the board has to formalise those outcomes. We handle the technical process, the voting environment, the switches between meetings and the guidance of participants.",
         "imgAlt": "Participants in an online members' meeting on screen during the statutory annual meeting"
       },
@@ -536,7 +536,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ],
     "faq": [
       {
-        "q": "Is online voting allowed during a general meeting?",
+        "q": "Is online voting allowed during an AGM?",
         "a": "That depends on your statutes and the way the meeting is set up. We help organisations run a careful and transparent voting process."
       },
       {
@@ -549,10 +549,10 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "How many members can take part?",
-        "a": "We run online general meetings for 30 to well over 600 participants."
+        "a": "We run online AGMs for 30 to well over 600 participants."
       },
       {
-        "q": "What does an online general meeting cost?",
+        "q": "What does an online AGM cost?",
         "a": "The investment depends on the number of participants, the voting procedures and the support you want. That is why we draw up a proposal for each association."
       }
     ],
@@ -566,7 +566,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         "a": "We work with the Online Voting Tool from VoteCompany. For informal votes we also use polling tools."
       },
       {
-        "q": "Can a general meeting be hybrid?",
+        "q": "Can an AGM be hybrid?",
         "a": "Yes. Some members can be present in the room while others take part online."
       },
       {
@@ -678,7 +678,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "International team",
         "title": "Connecting around a shared task",
-        "body": "For an international team we build online team building with creative tasks, a game and reflection. The session gives energy and produces concrete agreements about working together.",
+        "body": "For an international team we build online team building with creative tasks, a game and reflection. The session gives energy and produces firm agreements about working together.",
         "imgAlt": "Virtual meeting room with a timer set to three minutes during a short team task"
       }
     ],
@@ -705,7 +705,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "What does online team development cost?",
-        "a": "That depends on group size, the number of sessions and the support you want. Do just call or email; we are glad to think along and will give you a figure."
+        "a": "That depends on group size, the number of sessions and the support you want. Do just call or email; we are glad to talk it through and give you a figure."
       }
     ],
     "faqMore": [
@@ -746,7 +746,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "outcomes": [
       {
         "title": "Ideas you can use",
-        "body": "Not a confused wall of sticky notes, but a filled bank of ideas with concrete, well-documented input."
+        "body": "Not a confused wall of sticky notes, but a filled bank of ideas with specific, well-documented input."
       },
       {
         "title": "Energy and creativity",
@@ -754,7 +754,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Clear next steps",
-        "body": "The brainstorm does not end at ideas but with a concrete plan for what happens next."
+        "body": "The brainstorm does not end at ideas but with a clear plan for what happens next."
       }
     ],
     "steps": [
@@ -780,7 +780,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       "items": [
         {
           "title": "More input in less time",
-          "body": "In a digital brainstorm everyone can add ideas at once. That gives quieter participants a better hearing and makes the harvest visible straight away."
+          "body": "In a digital brainstorm everyone can add ideas at once. That gives quieter participants a better hearing and makes the output visible straight away."
         },
         {
           "title": "From loose ideas to choices",
@@ -816,13 +816,13 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "Innovation team",
         "title": "Testing and sharpening concepts",
-        "body": "For an innovation programme we bring several disciplines together in a digital working session. We capture the results immediately and turn them into concrete choices between concepts.",
+        "body": "For an innovation programme we bring several disciplines together in a digital working session. We capture the results immediately and turn them into real choices between concepts.",
         "imgAlt": "Participants respond with emoji to each other's concepts in a virtual workspace"
       },
       {
         "label": "Strategy team",
         "title": "Exploring opportunities with a large group",
-        "body": "An organisation wants broad input without organising a day in person. With break-outs, interactive canvases and a plenary harvest, an overview appears quickly.",
+        "body": "An organisation wants broad input without organising a day in person. With break-outs, interactive canvases and a plenary round-up, an overview appears quickly.",
         "imgAlt": "Virtual hill landscape in which a large group explores opportunities in small companies"
       }
     ],
@@ -875,7 +875,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "What happens afterwards?",
-        "a": "If you want, we help translate the ideas into concrete next steps."
+        "a": "If you want, we help turn the ideas into specific next steps."
       }
     ]
   },
@@ -946,7 +946,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         "body": "New people feel welcome when existing colleagues join in. Plan the presence of the team and the leadership deliberately."
       },
       {
-        "title": "Technology with a low threshold",
+        "title": "Technology anyone can use",
         "body": "Participants are new. They should not get lost, and they should not drift off either. Accessible technology, clear instructions and a surprising design make the difference."
       }
     ],
@@ -1083,7 +1083,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "conditions": [
       {
         "title": "Sharp learning goals",
-        "body": "What should participants know, be able to do or dare to do afterwards? A good online learning design starts with concrete behaviour, not with slides."
+        "body": "What should participants know, be able to do or dare to do afterwards? A good online learning design starts with specific behaviour, not with slides."
       },
       {
         "title": "A rhythm that works online",
@@ -1285,7 +1285,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Do participants have to install anything?",
-        "a": "For a festive session we prefer a platform where conversation happens by itself. SpatialChat is decidedly festive and runs straight in your browser. Book a demo and see for yourself."
+        "a": "For a festive session we prefer a platform where conversation happens naturally. SpatialChat is decidedly festive and runs straight in your browser. Book a demo and see for yourself."
       },
       {
         "q": "What does an online company party cost?",
@@ -1299,7 +1299,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can we add our own branding?",
-        "a": "Yes. We regularly work house style, themes and organisation-specific elements into the programme."
+        "a": "Yes. We regularly work branding, themes and organisation-specific elements into the programme."
       },
       {
         "q": "Are competitive games possible?",
@@ -1591,7 +1591,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Can you personalise the team outing?",
-        "a": "Yes. We can work themes, house style, internal stories or organisation-specific questions into the programme."
+        "a": "Yes. We can work themes, branding, internal stories or organisation-specific questions into the programme."
       },
       {
         "q": "Can this be combined with something substantive?",
@@ -1602,7 +1602,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "community-building": {
     "title": "Building an online community",
     "tagline": "Building a community that genuinely connects people — not one that just puts them in a group.",
-    "intro": "A strong community does not appear by itself, online no more than anywhere else. We design gatherings and structures that encourage connection, make contributing easy and let the online community grow step by step.",
+    "intro": "A strong community does not just appear, online no more than anywhere else. We design gatherings and structures that encourage connection, make contributing easy and let the online community grow step by step.",
     "forWho": "Membership bodies, alumni, professional networks, platforms",
     "range": "dozens to thousands of participants",
     "heroAlt": "Online community of Olympians looking back together on the Games they competed in",
@@ -1693,7 +1693,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faq": [
       {
         "q": "Can you build a community online?",
-        "a": "Yes. But a community does not appear by itself. It takes rhythm, interaction and attention."
+        "a": "Yes. But a community does not just appear. It takes rhythm, interaction and attention."
       },
       {
         "q": "Is this an event or a programme?",
@@ -1742,7 +1742,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "bewonersparticipatie": {
     "title": "Running online resident participation",
     "tagline": "Involving residents in policy, plans and decisions. In a way that actually works.",
-    "intro": "Participation only becomes valuable when residents feel their voice counts. We design online resident participation in which people genuinely think along and speak up — from a neighbourhood conversation to a city-wide consultation.",
+    "intro": "Participation only becomes valuable when residents feel their voice counts. We design online resident participation in which people genuinely have their say — from a neighbourhood conversation to a city-wide consultation.",
     "forWho": "Municipalities, provinces, housing associations, developers",
     "range": "10-500 participants",
     "heroAlt": "Online resident participation: residents respond to an aerial photo of their neighbourhood showing the proposed change",
@@ -1784,7 +1784,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       "items": [
         {
           "title": "Reaching more people",
-          "body": "Online participation makes taking part easier for residents who would not come to a hall. That can bring in more perspectives and a broader harvest."
+          "body": "Online participation makes taking part easier for residents who would not come to a hall. That can bring in more perspectives and a broader picture."
         },
         {
           "title": "Conversations with clear boundaries",
@@ -1799,7 +1799,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "conditions": [
       {
         "title": "Start with a question",
-        "body": "Consultation needs room to think along. What is the question actually on the table?"
+        "body": "Consultation needs room for people to weigh in. What is the question actually on the table?"
       },
       {
         "title": "Accessibility first",
@@ -1814,19 +1814,19 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "Municipality",
         "title": "Neighbourhood conversations about art in the area",
-        "body": "A municipality wants to involve residents online in a question about public space. We design a virtual tour, small rounds of conversation, a plenary report back and a clear digital harvest.",
+        "body": "A municipality wants to involve residents online in a question about public space. We design a virtual tour, small rounds of conversation, a plenary report back and a clear digital record.",
         "imgAlt": "Two snow globes with small parks as a conversation image about art and layout in the neighbourhood"
       },
       {
         "label": "Housing association",
-        "title": "Letting tenants think along about service",
+        "title": "Giving tenants a say in the service",
         "body": "For a housing association we build an online participation session in which residents share their experiences and set out their priorities. The outcomes can be taken forward straight away.",
-        "imgAlt": "Virtual hall in which tenants think along online about the service they receive"
+        "imgAlt": "Virtual hall in which tenants have their say online about the service they receive"
       },
       {
         "label": "City-wide consultation",
         "title": "Gathering many perspectives clearly",
-        "body": "In a larger programme we help split the group into thematic conversations. That keeps it personal while the harvest stays broad.",
+        "body": "In a larger programme we help split the group into thematic conversations. That keeps it personal while the range of input stays broad.",
         "imgAlt": "Residents choose in a virtual park between a picnic spot, a skate park and a playground"
       }
     ],
@@ -1932,18 +1932,18 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "Insights you can use straight away",
-          "body": "Signals, questions and advice are captured digitally. That makes the harvest quickly available for policy, communication or next steps."
+          "body": "Signals, questions and advice are captured digitally. That makes the results quickly available for policy, communication or next steps."
         }
       ]
     },
     "conditions": [
       {
         "title": "A clear question for the board",
-        "body": "What exactly are you asking feedback on? The sharper the question, the more useful the harvest."
+        "body": "What exactly are you asking feedback on? The sharper the question, the more useful the answers."
       },
       {
         "title": "The right composition",
-        "body": "The value of a sounding board lies in the perspectives at the table. We think along about group size, spread and how the conversations are divided."
+        "body": "The value of a sounding board lies in the perspectives at the table. We advise on group size, spread and how the conversations are divided."
       },
       {
         "title": "A fixed structure and feedback loop",
@@ -1966,7 +1966,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "Project team",
         "title": "Testing support with external partners",
-        "body": "A project lead wants input on plans without bringing everyone together in person. In an online session partners respond to the point and think along at different stages of the project.",
+        "body": "A project lead wants input on plans without bringing everyone together in person. In an online session partners respond to the point and stay involved at every stage of the project.",
         "imgAlt": "Virtual meeting room with a timer, where external partners respond briefly to the plans"
       }
     ],
@@ -2064,7 +2064,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "Comfortable participation",
-          "body": "Participants can join from their own surroundings. That lowers the threshold to respond honestly and concretely."
+          "body": "Participants can join from their own surroundings. That makes it easier to answer honestly and in detail."
         },
         {
           "title": "Capturing the research properly",
@@ -2368,7 +2368,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Interaction as a design choice",
-        "body": "Involvement does not appear by itself. Build polls, questions and moments of exchange in beforehand."
+        "body": "Involvement does not just happen. Build polls, questions and moments of exchange in beforehand."
       },
       {
         "title": "Good support for speakers",
@@ -2645,7 +2645,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         },
         {
           "title": "A great deal of output in a short time",
-          "body": "Every session produces insights, questions or next steps. Captured digitally, the harvest stays manageable."
+          "body": "Every session produces insights, questions or next steps. Captured digitally, the record stays manageable."
         }
       ]
     },

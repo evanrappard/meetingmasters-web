@@ -34,7 +34,7 @@ export const OVERZICHT_EN = {
     items: [
       {
         title: "More expertise",
-        body: "Thinking along from experience, taking work off your hands from a habit of hospitality: everything runs tightly, calmly and well looked after.",
+        body: "Experienced thinking partners who take work off your hands, with hospitality as second nature: everything runs to time, calmly, and nothing gets forgotten.",
       },
       {
         title: "More involvement",
@@ -48,7 +48,7 @@ export const OVERZICHT_EN = {
   },
 
   formats: {
-    kicker: "Every kind of event has its own build and its own logic.",
+    kicker: "Every kind of event has its own shape and its own logic.",
     titel: "The form follows the purpose. What do you want to achieve?",
   },
 
@@ -65,20 +65,20 @@ export const OVERZICHT_EN = {
     strategiedagen: { title: "Online strategy day", desc: "A day that leads to decisions, not only presentations." },
     townhall: { title: "Online town hall", desc: "Large internal gatherings that bring the whole organisation into line." },
     "all-hands": { title: "Online all-hands", desc: "An open conversation between leadership and staff — transparent and live." },
-    alv: { title: "Online general meeting", desc: "Constitutionally sound, well structured and still lively." },
+    alv: { title: "Online AGM", desc: "Formally watertight, well structured and still lively." },
     teambuilding: { title: "Online team building", desc: "Teams that work together better — even when they work far apart." },
     "training-workshop": { title: "Online training & workshops", desc: "Learning and growing in an online setting that genuinely works." },
-    brainstormen: { title: "Online brainstorming", desc: "Creative sessions that genuinely produce ideas, at a distance too." },
+    brainstormen: { title: "Online brainstorming", desc: "Creative sessions that genuinely produce ideas, even when everyone is apart." },
     onboardingdag: { title: "Online onboarding day", desc: "Welcoming new staff in a way that actually builds something." },
-    bedrijfsfeest: { title: "Online company party", desc: "A party people genuinely remember, online as well." },
-    kerstfeest: { title: "Online Christmas party", desc: "An end-of-year party that feels warm and gets retold for a long time." },
-    teamuitje: { title: "Online team outing", desc: "A team outing that connects. Relaxed together, at a distance too." },
+    bedrijfsfeest: { title: "Online company party", desc: "A party people genuinely remember, even online." },
+    kerstfeest: { title: "Online Christmas party", desc: "An end-of-year party that feels warm and gets talked about long afterwards." },
+    teamuitje: { title: "Online team outing", desc: "A team outing that connects. Time off together, however far apart you are." },
     "community-building": { title: "Online community building", desc: "Building a community that genuinely connects people." },
     bewonersparticipatie: { title: "Online resident participation", desc: "Involving residents online in policy, plans and decisions." },
     klankbordgroep: { title: "Online sounding board", desc: "Listening to the people who matter most." },
     focusgroep: { title: "Online focus group", desc: "In-depth research into what people really think, well facilitated." },
     "world-cafe": { title: "Online World Café", desc: "Deep conversations in small groups, with large groups." },
-    webinar: { title: "Webinar", desc: "Webinars that hold people. Not just broadcasting, but connecting." },
+    webinar: { title: "Webinar", desc: "Webinars that hold attention. Not just broadcasting, but connecting." },
     conferentie: { title: "Online conference", desc: "Professional conferences for large groups: interactive and well produced." },
     "open-space": { title: "Online Open Space", desc: "Letting the group set the agenda: open, energetic and productive." },
     netwerkevent: { title: "Online networking event", desc: "Connecting people who do not know each other yet, online and easy to join." },
@@ -91,7 +91,7 @@ export const OVERZICHT_EN = {
     punten: [
       {
         kop: "Event strategy.",
-        desc: "Which format fits your purpose, your group and your moment? Our specialists think along and help you take that one step further.",
+        desc: "Which format fits your purpose, your group and your moment? Our specialists advise you and help take it one step further.",
       },
       {
         kop: "Planning & design.",

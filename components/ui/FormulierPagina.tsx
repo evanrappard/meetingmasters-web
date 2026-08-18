@@ -16,7 +16,7 @@ const T = {
   },
   en: {
     directKop: "Rather talk to someone?",
-    directTekst: "Calling or emailing is always fine. You get one of us on the line.",
+    directTekst: "Call or email whenever you like — you will reach one of us directly.",
     nogNiet: "Not quite ready?",
     nogNietLink: "Run your idea past us first, no strings attached →",
     adviesHref: "/en/expert-advice",

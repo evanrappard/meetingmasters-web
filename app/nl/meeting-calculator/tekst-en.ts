@@ -22,7 +22,7 @@ export const CALCULATOR_EN = {
     body1:
       "It is twenty hours. Plus the travel, plus the preparation, plus the half hour everyone needs afterwards to pick up where they left off. The diary shows a sixty-minute block; in reality a considerable sum is at stake.",
     body2:
-      "That does not make a gathering wrong. It makes it expensive enough to think about: does this have to be a meeting, does everyone have to be there, and does it have to be in person? Once that figure is on the table, the conversation turns to the form by itself.",
+      "That does not make a gathering wrong. It makes it expensive enough to think about: does this have to be a meeting, does everyone have to be there, and does it have to be in person? Once that figure is on the table, the conversation turns to the form of its own accord.",
   },
 
   faqKop: "Frequently asked questions",

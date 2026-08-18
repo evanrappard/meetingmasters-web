@@ -34,7 +34,7 @@ export default function QuotePage() {
       }
       formulier="kostenindicatie"
       formulierKop="Request an estimate"
-      formulierUitleg="Tell us what you want to organise and with how many people. You are not committing to anything."
+      formulierUitleg="Tell us what you want to organise and for how many people. You are not committing to anything."
     />
   );
 }
