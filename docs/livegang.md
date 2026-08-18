@@ -1,7 +1,11 @@
 # Livegang — open punten en stappenplan
 
-Doorlichting van 18 augustus 2026, gemeten op de productiebouw (137 routes).
+Doorlichting van 18–19 augustus 2026, gemeten op de productiebouw (137 routes).
 Alles wat ík kon repareren is gerepareerd; wat overblijft staat hieronder.
+
+De huidige site draait op **Squarespace**, de nieuwe komt op **Vercel**. De
+overstap gebeurt in stap 5, met het omzetten van de DNS. Lees stap 9a
+(terugvalplan) vóórdat je daaraan begint.
 
 ---
 
@@ -17,6 +21,9 @@ Zodat je weet wat er níét meer op je lijstje staat.
 | **Deelbeeld van de calculator** | Beide calculator-bestanden verwezen naar een afbeelding die niet bestond. Elke deling op LinkedIn liet een leeg vlak zien. |
 | **Standaardtitel in de root** | Stond nog op "Online events & remote work specialisten", terwijl het inmiddels Virtueel Kantoor heet. |
 | **Vier routes ontbraken in mijn controlelijst** | `/nl/nieuwsbrief`, `/nl/technologie/hulp`, `/nl/technologie/tools` en `/nl/meeting-calculator` liepen nooit mee in de sweeps. Nu wel — en daardoor kwamen hun ontbrekende hreflang-tags alsnog aan het licht. |
+| **Google Analytics ingebouwd**, achter de cookiekeuze | Zie de aparte sectie hieronder. Jij hoeft alleen nog het meet-ID aan te leveren. |
+| **Kruimelpad op de 20 eventpagina's** | Google toont dan *Home › Events › Online strategiedag* boven het zoekresultaat in plaats van het kale adres. Dat levert meer kliks op. |
+| **Hero-video's lichter gemaakt** | Vier hero's haalden de hele video binnen terwijl de pagina nog moest renderen (`preload="auto"`, tot 2,3 MB). Nu `preload="metadata"`, en de twee die geen stilstaand beeld hadden hebben er nu een. Snelheid telt mee in de rangschikking. |
 
 **Stand van de bouw nu:** 137 routes zonder 404, 137 × 3 breedtes zonder
 overloop, eslint 0 fouten, sitemap 118 adressen die allemaal bestaan en geen
@@ -28,10 +35,6 @@ precies één H1.
 ## Deel 2 — Open punten
 
 ### Blokkeert de livegang
-
-**1. Twaalf commits staan nog niet op GitHub.**
-Al het werk van vandaag staat lokaal. Zolang je niet pusht, gaat er niets live.
-→ *Stap 1 van het stappenplan.*
 
 **2. GitHub en Vercel zijn niet gekoppeld.**
 Pushen start geen deploy. De laatste deploy is van 8 mei 2026, met de hand.
@@ -64,14 +67,9 @@ staat op de inspiratiekaarten-pagina, in beide talen, als bronvermelding bij
 Dalar Consultancy. Geef het juiste adres door, of zeg dat de link eruit mag en
 alleen de naam blijft staan.
 
-**7. Er is geen enkele vorm van statistiek.**
-Geen Google Analytics, geen Plausible, niets. Je gaat dus live zonder te kunnen
-zien wat er gebeurt. Dat is een keuze, geen fout — maar wel een die je bewust
-moet maken, want de eerste weken na een livegang zijn de interessantste. Wil je
-het wel, dan is een privacyvriendelijke variant (Plausible, Simple Analytics)
-het makkelijkst: die vraagt geen cookietoestemming, dus de banner hoeft niet mee
-te veranderen. Google Analytics kan ook, maar dan moet het achter de
-cookiekeuze en moet de cookieverklaring erop worden aangepast.
+**7. Google Analytics: het meet-ID ontbreekt nog.**
+De koppeling is gebouwd en getest; wat ontbreekt is jouw meet-ID (`G-XXXXXXX`).
+→ *Stap 3a van het stappenplan.*
 
 **8. Supabase: staat aanmelden nog open?**
 De site zelf gebruikt Supabase nergens meer — de auth is eruit. De bestanden in
@@ -113,19 +111,9 @@ formulier" voor.
 Doe ze op volgorde. Bij elke stap staat hoe je controleert of het gelukt is,
 zodat je niet pas aan het eind ontdekt dat er iets mis is.
 
-### Stap 1 · Het werk naar GitHub
+### Stap 1 · Het werk naar GitHub ✅ gedaan
 
-```bash
-cd ~/meetingmasters-web
-git status          # verwacht: nothing to commit, working tree clean
-git push origin main
-```
-
-**Controle:** open github.com/evanrappard/meetingmasters-web en kijk of de
-laatste commit van vandaag is.
-
-> Vraag je mij dit te doen, dan doe ik het — pushen doe ik alleen als je het
-> vraagt.
+Alles staat op `github.com/evanrappard/meetingmasters-web`, branch `main`.
 
 ### Stap 2 · Vercel aan GitHub koppelen
 
@@ -160,6 +148,68 @@ op. Deployments → laatste build → **⋯** → **Redeploy**.
 **Controle:** open na de redeploy de tijdelijke Vercel-URL en kijk of de
 homepage de logo's en cijfers toont. Zie je de vaste standaardcijfers, dan
 komt Sanity nog niet door.
+
+### Stap 3a · Google Analytics aanzetten
+
+De koppeling zit al in de site. Wat ontbreekt is jouw meet-ID.
+
+**Wat ik op je huidige site vond:** de Squarespace-site draait op
+`UA-215126398-2`. Dat is een **Universal Analytics**-property, en die verwerkt
+sinds 1 juli 2023 geen gegevens meer — Google heeft die generatie uitgezet.
+Je kunt dat ID dus niet hergebruiken; de nieuwe site heeft een **GA4**-property
+nodig, herkenbaar aan de vorm `G-XXXXXXXXXX`.
+
+Kijk eerst of je die al hebt. Bij de overstap in 2023/2024 heeft Google voor
+veel accounts automatisch een GA4-property naast de oude gezet:
+
+1. analytics.google.com → linksboven op de **propertykiezer** klikken
+2. Zoek onder hetzelfde account (MeetingMasters) naar een property met een ID
+   dat met **G-** begint
+
+**Heb je die?** Gebruik dat ID en sla stap 3 hieronder over. Je houdt dan één
+account, één plek waar alles samenkomt.
+
+**Heb je die niet?** Maak hem aan — in **hetzelfde account**, niet in een nieuw:
+
+1. analytics.google.com → **Beheer** → onder de kolom *Property*: **Property maken**
+   - Naam: MeetingMasters · tijdzone Nederland · valuta euro
+2. **Gegevensstream** → **Web** → `https://www.meetingmasters.online`
+3. Boven in het scherm staat je **meet-ID**, in de vorm `G-XXXXXXXXXX`. Kopieer die.
+
+Let op: verwacht geen historische cijfers. De Squarespace-site stuurde alleen
+naar de oude UA-property, dus ook een bestaande GA4-property is waarschijnlijk
+leeg. Je begint hoe dan ook bij nul — dat is geen fout, dat is hoe het ligt.
+
+Daarna:
+
+4. Vercel → Settings → Environment Variables → nieuw:
+
+   | Sleutel | Waarde |
+   |---|---|
+   | `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` |
+
+5. Opnieuw deployen (Deployments → **⋯** → Redeploy)
+
+**Hoe het werkt, zodat je weet wat je zegt als iemand ernaar vraagt:** het
+Google-script wordt pas geladen op het moment dat een bezoeker **Alles
+accepteren** kiest. Kiest hij *Alleen noodzakelijk*, of maakt hij geen keuze,
+dan gaat er geen enkel verzoek naar Google — dus ook geen IP-adres. Trekt hij
+zijn toestemming later in, dan stopt het meten en worden de Google-cookies
+gewist. Advertentiegegevens staan uit en het IP-adres wordt ingekort. Dat staat
+allemaal in beide cookieverklaringen en in beide privacyverklaringen.
+
+Ik heb dit gemeten, niet aangenomen:
+
+```
+keuze: geen                → 0 verzoeken naar Google, 0 cookies
+keuze: alleen noodzakelijk → 0 verzoeken naar Google, 0 cookies
+keuze: alles accepteren    → 2 verzoeken, 2 cookies
+toestemming ingetrokken    → cookies weg
+```
+
+**Controle:** open de live site, klik **Alles accepteren**, en kijk in Google
+Analytics onder **Rapporten → Realtime** of je jezelf ziet binnenkomen. Dat
+duurt meestal minder dan een minuut.
 
 ### Stap 4 · Het domein aan Vercel hangen
 
@@ -215,18 +265,94 @@ groene vinkje er staat.
 
 De site gebruikt Supabase nergens meer, dus dit breekt niets.
 
-### Stap 8 · Google Search Console
+### Stap 8 · Gevonden worden — indexering op gang brengen
 
-1. search.google.com/search-console → **Property toevoegen** → **URL-prefix** →
-   `https://www.meetingmasters.online`
-2. Verifiëren via **DNS-record** (TXT bij YourHosting) of via het
-   HTML-bestand dat Google aanbiedt — vraag mij bij de tweede route, dan zet ik
-   het bestand erin
+Dit is de belangrijkste stap van het hele plan, want vindbaarheid is een van de
+hoofddoelen van de site. Een nieuwe site wordt niet vanzelf gevonden: Google
+moet weten dat hij bestaat, en jij moet kunnen zien of het lukt.
+
+#### 8a · Search Console instellen
+
+1. search.google.com/search-console → **Property toevoegen** → kies
+   **Domein** (niet URL-prefix). Dan vallen `www`, kaal domein en alle
+   subdomeinen er in één keer onder.
+2. Verifiëren via een **TXT-record** bij YourHosting. Google geeft de waarde;
+   zet hem erbij zoals je in stap 5 de andere records hebt gezet.
 3. **Sitemaps** → toevoegen: `sitemap.xml`
-4. **URL-inspectie** → plak `https://www.meetingmasters.online/nl/home` →
-   **Indexering aanvragen**
 
-Doe hetzelfde voor `/en/home`, zodat Google de Engelse kant meteen oppikt.
+   Er staan 118 adressen in, en die is **automatisch gegenereerd uit de
+   routes** — hij kan dus niet meer scheefgroeien zoals de oude, handmatige.
+
+4. **Instellingen → Internationale targeting** hoeft niet: dat regelt de
+   hreflang die nu op alle 118 vertaalde pagina's staat.
+
+#### 8b · De eerste pagina's met de hand aanmelden
+
+Google vindt de rest vanzelf via de sitemap, maar deze tien wil je meteen
+binnen hebben. Ga per stuk naar **URL-inspectie**, plak het adres en klik
+**Indexering aanvragen**:
+
+```
+https://www.meetingmasters.online/nl/home
+https://www.meetingmasters.online/en/home
+https://www.meetingmasters.online/nl/events
+https://www.meetingmasters.online/en/events
+https://www.meetingmasters.online/nl/virtual-office
+https://www.meetingmasters.online/en/virtual-office
+https://www.meetingmasters.online/nl/events/strategiedagen
+https://www.meetingmasters.online/nl/blog
+https://www.meetingmasters.online/nl/about
+https://www.meetingmasters.online/nl/contact
+```
+
+#### 8c · Bing niet vergeten
+
+Bing voedt ook ChatGPT en Copilot, en dat wordt snel belangrijker.
+bing.com/webmasters → **Import from Google Search Console**. Dat is twee
+klikken; je hoeft niets opnieuw in te stellen.
+
+#### 8d · Wat je de eerste weken volgt
+
+Kijk **niet elke dag**. Zet twee momenten in je agenda:
+
+| Wanneer | Waar | Wat je wilt zien |
+|---|---|---|
+| Na 3 dagen | Search Console → **Pagina's** | Het aantal geïndexeerde pagina's loopt op. Staat er nog niets, dan is er iets mis met de verificatie of de sitemap. |
+| Na 2 weken | Search Console → **Pagina's** → *Niet geïndexeerd* | Hier staat per pagina wáárom hij er niet in staat. "Gecrawld, momenteel niet geïndexeerd" is normaal in het begin. "Pagina met omleiding" of "Alternatieve pagina met correcte canonical" bij een pagina die je wél wilt: stuur me dat door. |
+| Na 4–6 weken | Search Console → **Prestaties** | De eerste zoektermen. Dít is de informatie waar je iets mee kunt: waarop word je gevonden, en waarop niet terwijl je het wel verdient? |
+
+#### 8e · Wat er al voor je klaarstaat
+
+Zodat je weet wat je níét hoeft te regelen:
+
+| | |
+|---|---|
+| **Sitemap** | 118 adressen, automatisch uit de routes, geen doorverwijzingen erin |
+| **robots.txt** | Alles toegestaan, inclusief de AI-crawlers (GPTBot, ClaudeBot, PerplexityBot). Dat is een bewuste keuze: zo kun je ook in AI-antwoorden opduiken |
+| **Canonical** | Op alle 137 routes |
+| **hreflang** | Op alle 118 vertaalde pagina's, wederkerig gecontroleerd |
+| **Gestructureerde data** | 72× FAQ, 22× blogartikel, 20× kruimelpad, 8× tool, 6× dienst, 2× organisatie |
+| **Titels en omschrijvingen** | Op elke pagina aanwezig, geen dubbele omschrijvingen |
+| **Doorverwijzingen** | Alle 11 oude blogadressen wijzen naar het nieuwe artikel; oude `/nl/blogs/...`-links breken dus niet |
+| **Snelheid** | Hero-video's laden niet meer vooruit; er verschijnt eerst een stilstaand beeld |
+| **Koppen en alt-teksten** | Elke pagina één H1, elk beeld een alt-tekst |
+
+#### 8f · Wat vindbaarheid ná de livegang bepaalt
+
+De techniek is nu in orde. Wat er daarna nog toe doet is geen code meer:
+
+- **Links van buitenaf.** Zet het nieuwe adres op je LinkedIn-bedrijfspagina,
+  in je e-mailhandtekening, en vraag partners en klanten of ze de link
+  bijwerken. Dit is de zwaarste factor die je zelf in de hand hebt.
+- **Blijf publiceren.** Elf artikelen is een goede start; de blog is de motor
+  onder je vindbaarheid. Eén nieuw stuk per maand doet meer dan welke
+  technische ingreep ook.
+- **Nog niet gevulde pagina's.** Cases, Partners en Kwaliteit staan bewust op
+  `noindex` zolang ze half zijn. Vul je er een af, zeg het dan — dan haal ik de
+  rem eraf en zet ik hem terug in het menu.
+- **Google Bedrijfsprofiel.** Heb je dat nog niet, dan is het gratis en zorgt
+  het ervoor dat je bij een zoekopdracht op je eigen naam netjes rechts in beeld
+  komt met adres, telefoon en link.
 
 ### Stap 9 · Formulieren echt testen
 
@@ -244,6 +370,24 @@ ook aankomen kun je alleen echt testen door te versturen.
 - De calculator op `/nl/meeting-calculator` en `/en/meeting-calculator`:
   vul een e-mailadres in en klik **Download als pdf**
 
+### Stap 9a · Terugvalplan — zeg Squarespace nog niet op
+
+De huidige site draait op **Squarespace**. Zodra je in stap 5 de DNS omzet,
+gaat al het verkeer naar Vercel en is de Squarespace-site niet meer bereikbaar
+op je eigen domein — maar hij bestáát nog wel, op zijn eigen Squarespace-adres.
+
+Dat is je vangnet. Blijkt er iets grondig mis, dan zet je de DNS-records terug
+zoals ze waren en staat de oude site binnen een paar uur weer op het domein.
+
+**Dus: zeg het Squarespace-abonnement pas op als de nieuwe site een week of
+twee zonder problemen draait.** Maak vóór je opzegt een kopie van wat er alleen
+daar staat — oude blogafbeeldingen bijvoorbeeld, of formulierinzendingen die
+niet in HubSpot staan.
+
+> **Schrijf op wat de DNS-records nú zijn**, vóór je stap 5 doet. Een
+> schermafdruk van het DNS-scherm bij YourHosting is genoeg. Zonder dat kun je
+> niet terug.
+
 ### Stap 10 · Laatste blik
 
 - Open de site op je **telefoon**, niet alleen op de laptop
@@ -256,12 +400,12 @@ ook aankomen kun je alleen echt testen door te versturen.
 
 ## Wat je mij kunt vragen
 
-- De 12 commits pushen
 - Het LinkedIn-adres overal gelijkzetten zodra je weet welke het is
 - De Genuine Contact-link vervangen of weghalen
-- Statistiek inbouwen, als je dat wilt — inclusief de aanpassing in de
-  cookieverklaring als het Google Analytics wordt
-- Een verificatiebestand van Search Console plaatsen
+- Een verificatiebestand van Search Console plaatsen, als je liever niet met
+  een DNS-record verifieert
+- Meekijken in Search Console zodra er cijfers binnenkomen, en de vragen
+  beantwoorden die daaruit komen
 
 ## Wat alleen jij kunt doen
 

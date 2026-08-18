@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-18
+> Laatst bijgewerkt: 2026-08-19
 
 ---
 
@@ -729,3 +729,32 @@ fouten, sitemap 118 adressen die alle bestaan en geen doorverwijzing bevatten,
 elke pagina precies één H1, alle beelden met alt-tekst, alle 15 HubSpot-
 formulier-ID's bestaan nog in het portaal, alle externe links bereikbaar op twee
 na (LinkedIn blokkeert bots; genuinecontact.net bestaat niet meer).
+
+## 19 augustus 2026 — Google Analytics en vindbaarheid
+
+- **C** — **Google Analytics ingebouwd, achter de cookiekeuze.**
+  `components/ui/Analytics.tsx` laadt het script pas bij "Alles accepteren".
+  Gemeten met een echte browser: geen keuze → 0 verzoeken naar Google, alleen
+  noodzakelijk → 0, alles accepteren → 2 verzoeken en 2 cookies, en na
+  intrekken zijn die cookies weg. IP-adres ingekort, advertentiegegevens uit.
+  Zonder `NEXT_PUBLIC_GA_ID` doet het component niets, dus lokaal en op
+  previews wordt er niet gemeten.
+- **T** — **Cookie- en privacyverklaring bijgewerkt** in beide talen: Google
+  Analytics staat er nu bij naam in, met wanneer het laadt, wat er gebeurt bij
+  intrekken, en dat er géén marketingcookies zijn.
+- **C** — **Kruimelpad (BreadcrumbList)** op de 20 eventpagina's, in beide
+  talen. Nieuwe helper `lib/kruimels.ts`.
+- **C B** — **Hero-video's lichter.** Vier hero's stonden op `preload="auto"`
+  en haalden tot 2,3 MB binnen tijdens het renderen. Nu `preload="metadata"`,
+  en de home- en events-hero hebben een stilstaand beeld gekregen (uit de video
+  gehaald met ffmpeg-static). LCP gemeten op 116 ms.
+- **Bevinding:** de huidige Squarespace-site draait op `UA-215126398-2`, een
+  Universal Analytics-property. Die verwerkt sinds 1 juli 2023 geen gegevens
+  meer en kan dus niet hergebruikt worden; er moet een GA4-property komen.
+  Staat uitgelegd in `docs/livegang.md`, stap 3a.
+- **C** — 13 commits naar GitHub gepusht.
+
+`docs/livegang.md` is uitgebreid met een volledige vindbaarheidssectie (stap 8:
+Search Console, Bing, wat je de eerste weken volgt, wat er al klaarstaat, en
+wat ná de livegang nog telt) en met een terugvalplan (stap 9a): de
+Squarespace-site blijft het vangnet tot de nieuwe twee weken goed draait.
