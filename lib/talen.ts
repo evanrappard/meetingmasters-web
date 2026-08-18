@@ -58,6 +58,7 @@ const PAREN: Array<[nl: string, en: string]> = [
   // Het Engelse adres is korter: "tech help" is waar een Engelse bezoeker op
   // zoekt, niet "technology/help".
   ["/technologie/hulp", "/help"],
+  ["/technologie/spatialchat", "/spatialchat"],
 ];
 
 /**

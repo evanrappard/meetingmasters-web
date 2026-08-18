@@ -111,3 +111,4 @@
 /en/events/networking-event
 /en/events
 /en/help
+/en/spatialchat
