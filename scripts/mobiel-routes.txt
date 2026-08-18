@@ -115,3 +115,6 @@
 /en/home
 /en/platforms
 /en/virtual-office
+/en/virtual-office/meeting-room
+/en/virtual-office/rent
+/en/virtual-office/office-and-culture

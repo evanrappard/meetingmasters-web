@@ -57,6 +57,7 @@ export const ZAALTJE_EN = {
   },
 
   faqKop: "Frequently asked questions about an online meeting room",
+  terug: "← Virtual office",
   faq: [
     { q: "What is an online meeting room?", a: "A furnished online space in SpatialChat for a small group (up to 12 people), ready to use. You step in, move freely through the space and talk to whoever you come across — far more natural than a grid of video squares." },
     { q: "How many people does a room hold?", a: "A room is meant for small groups of up to around 12 people. Have a larger group, or want a permanent, continuous place? Then a ready-made office suits better." },
@@ -65,7 +66,7 @@ export const ZAALTJE_EN = {
     { q: "What if we want more?", a: "Then you can move up to a ready-made office rented by the month or the year, or to Office + Culture, where we first have the conversation about working together and then build the office that fits. The room is the easiest way to feel how meeting online can also be." },
   ],
 
-  links: { boeken: "/en/booking", huren: "/nl/virtual-office/huren", cultuur: "/nl/virtual-office/kantoor-cultuur" },
+  links: { boeken: "/en/booking", huren: "/en/virtual-office/rent", cultuur: "/en/virtual-office/office-and-culture", terug: "/en/virtual-office" },
 };
 
 export const HUREN_EN = {
@@ -84,12 +85,15 @@ export const HUREN_EN = {
   wat: {
     kicker: "Ready to move in",
     titel: "Move straight in. We arrange the rest.",
+    body1: "Your team is spread out. What is missing is the thing that binds you: a place where you run into each other, drop in for a moment, have a coffee together. Bring that back online and bring people back together. Rent a furnished office, by the month or by the year.",
+    body2: "You can move in within a week. The spaces are there, we open the online workplace together with your team and then hand over the keys. Ready to use, so you can get to work straight away, but it is not finished. A good place moves with your organisation. Change the colours, add a room or hang up bunting when it is someone's birthday. We help.",
   },
 
   inbegrepen: {
     kicker: "Included",
     titel: "Everything your office needs.",
     optioneel: "Optional — Community Services",
+    optioneelBody: "HR, internal communications and community managers know it: steering and attention make organisations and communities closer. Online, that is doubly true. So where you want it, we support with Community Services: a mix of maintenance and unexpected touches that bring energy and encourage interaction. That way people go to the office with a smile, even when the office is their own house.",
     items: [
       { title: "Fit-out & design", desc: "An environment matched to how your team works — team rooms, focus zones, a coffee corner, a central stage." },
       { title: "Your own house style", desc: "Backdrops, colours and atmosphere matched to your organisation. Your office, your identity." },
@@ -103,6 +107,8 @@ export const HUREN_EN = {
   praktijk: {
     kicker: "In practice",
     titel: "A living place, day in day out.",
+    beeldAlt: "The online clubhouse 'OLY Bar Milano' of the World Olympians Association — a living virtual lounge with members from all over the world",
+
     body: "The online clubhouse we built for the World Olympians Association shows what a rented office can be: open around the clock, a real place where people from all over the world walk in whenever they like.",
     veiligheid: "The environment meets enterprise-grade security and privacy standards, so that you can bring your organisation in with confidence.",
   },
@@ -117,7 +123,8 @@ export const HUREN_EN = {
     { q: "Is a rented office secure?", a: "The environment is closed off and SpatialChat meets enterprise-grade security and privacy standards. We set up access and permissions to suit your organisation." },
   ],
 
-  links: { demo: "/en/demo", offerte: "/en/quote" },
+  terug: "← Virtual office",
+  links: { demo: "/en/demo", offerte: "/en/quote", terug: "/en/virtual-office" },
 };
 
 export const CULTUUR_EN = {
@@ -151,8 +158,17 @@ export const CULTUUR_EN = {
     ],
   },
 
-  voorWie: { kicker: "Who it is for", titel: "A question for the board. Not a fit-out job." },
-  waarom2: { kicker: "Why with us", titel: "We come from strategy." },
+  voorWie: {
+    kicker: "Who it is for",
+    titel: "A question for the board. Not a fit-out job.",
+    body: "Directors, strategists and the people responsible for the content, who want not only a place but clarity about how they work together and an environment that carries it. At the level of the individual, the team and the organisation as a whole.",
+  },
+  waarom2: {
+    kicker: "Why with us",
+    titel: "We come from strategy.",
+    body: "We work with specialists in culture, brand and collaboration. That is not only bought-in knowledge, it is our own foundation. Founder Emilie van Rappard has spent more than 20 years guiding organisations through questions of strategy, stakeholders, brand and culture.",
+  },
+  terug: "← Virtual office",
 
   faqKop: "Frequently asked questions about Office + Culture",
   faq: [
@@ -164,5 +180,5 @@ export const CULTUUR_EN = {
     { q: "Can you keep the office alive afterwards?", a: "Optionally, yes. With Community Services we bring energy and movement into the environment: surprising interactions and something extra on the days that matter. You decide how much." },
   ],
 
-  links: { demo: "/en/demo" },
+  links: { demo: "/en/demo", terug: "/en/virtual-office" },
 };

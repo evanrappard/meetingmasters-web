@@ -65,6 +65,9 @@ const PAREN: Array<[nl: string, en: string]> = [
 
   // ── Virtueel Kantoor ──
   ["/virtual-office", "/virtual-office"],
+  ["/virtual-office/zaaltje", "/virtual-office/meeting-room"],
+  ["/virtual-office/huren", "/virtual-office/rent"],
+  ["/virtual-office/kantoor-cultuur", "/virtual-office/office-and-culture"],
 ];
 
 /**

@@ -126,8 +126,8 @@ export const VO_EN = {
 
   links: {
     demo: "/en/demo",
-    zaaltje: "/nl/virtual-office/zaaltje",
-    huren: "/nl/virtual-office/huren",
-    cultuur: "/nl/virtual-office/kantoor-cultuur",
+    zaaltje: "/en/virtual-office/meeting-room",
+    huren: "/en/virtual-office/rent",
+    cultuur: "/en/virtual-office/office-and-culture",
   },
 };
