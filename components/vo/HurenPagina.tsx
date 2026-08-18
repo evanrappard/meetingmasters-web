@@ -54,7 +54,7 @@ export default function HurenPagina({ taal = "nl" }: { taal?: Taal }) {
                   <Link href={t.links.demo} className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
                     {t.hero.cta}
                    </Link>
-                  <Link href={t.links.demo} className="text-white/80 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors">
+                  <Link href={t.links.offerte} className="text-white/80 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors">
                     {t.hero.offerte}
                    </Link>
                 </div>
