@@ -46,7 +46,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center center" }}
           >

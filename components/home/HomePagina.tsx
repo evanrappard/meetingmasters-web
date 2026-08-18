@@ -133,11 +133,12 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
         <div className="relative w-full md:aspect-video md:min-h-[360px] md:max-h-[90vh]">
           <video
             src="/videos/hero-boomerang.mp4"
+            poster="/images/home-hero-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             aria-label="MeetingMasters — online events en virtual office op SpatialChat"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center", filter: "contrast(1.04) saturate(1.06)" }}

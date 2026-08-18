@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import CTABlock from "@/components/ui/CTABlock";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { kruimelSchema, HOME_KRUIMEL } from "@/lib/kruimels";
 import { eventFormats } from "@/app/nl/events/page";
 import { EVENT_DATA, HERO_DIM_LICHT } from "@/app/nl/events/[slug]/data";
 import { EVENT_TEKST_EN, engelseEventSlug, nederlandseEventSlug } from "@/app/nl/events/[slug]/tekst-en";
@@ -123,9 +124,17 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
     })),
   } : null;
 
+  // Kruimelpad voor de zoekresultaten: Home › Events › dit format.
+  const kruimels = kruimelSchema([
+    HOME_KRUIMEL[taal],
+    { naam: taal === "en" ? "Events" : "Events", pad: taal === "en" ? "/en/events" : "/nl/events" },
+    { naam: displayTitle, pad: taal === "en" ? `/en/events/${engelseEventSlug(slug)}` : `/nl/events/${slug}` },
+  ]);
+
   return (
     <div className="bg-white">
 
+      <JsonLd data={kruimels} />
       {faqSchema && <JsonLd data={faqSchema} />}
 
       {/* ── HERO ── */}

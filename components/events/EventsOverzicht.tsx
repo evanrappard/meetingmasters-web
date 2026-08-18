@@ -90,11 +90,12 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <video
             src="/videos/events-hero.mp4"
+            poster="/images/events-hero-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             aria-label={t.hero.videoAlt}
             className="absolute inset-0 w-full h-full object-cover object-center"
             style={{ filter: "saturate(0.92) brightness(1.03) contrast(0.99)" }}

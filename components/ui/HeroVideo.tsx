@@ -156,7 +156,7 @@ export default function HeroVideo({
         aria-label={alt}
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition, ...layerStyle }}
       />
