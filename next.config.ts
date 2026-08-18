@@ -28,7 +28,7 @@ const eigenNetwerkAdressen = Object.values(networkInterfaces())
 const enPaths = [
   "about/team", "about/quality", "about/partners", "about/csr",
   "cases", "csr", "design-preview", "escape-rooms",
-  "games-tools", "games-tools/escape-masters", "games-tools/ravenhack",
+  "games-tools/escape-masters", "games-tools/ravenhack",
   "inspiratie", "layout-preview", "meeting-formats", "partners",
   "planning-support", "quality", "remote-office", "strategy-concept",
   "team",

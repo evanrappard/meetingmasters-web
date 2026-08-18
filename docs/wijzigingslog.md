@@ -598,3 +598,12 @@ van haar. Zie `docs/open-punten.html`.
 
 **Gecontroleerd op de productiebouw:** 116 pagina's, 63 bereikbare paden zonder
 404, 72 routes × 3 breedtes schoon, sitemap op 59 adressen.
+
+## 18 augustus 2026 — dubbele manifest-pdf
+
+`public/manifest-meetingmasters.pdf` is een identieke kopie (zelfde md5) van
+`public/downloads/meetingmasters-manifest.pdf`. Nagekeken: hij staat nergens in
+de code, niet in de gebouwde site en niet in de sitemap, en de site heeft nooit
+live gestaan — er kan dus geen externe link naar bestaan. Beide talen wijzen nu
+naar het exemplaar in `/downloads`. Het losse bestand blijft staan maar wordt
+nergens meer gebruikt; het mag bij een opruimronde weg.
