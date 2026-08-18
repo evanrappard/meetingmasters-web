@@ -125,3 +125,5 @@
 /en/games-tools/tools/bingo
 /en/games-tools/tools/storytelling
 /en/games-tools/tools/wheel-of-fortune
+/nl/downloads
+/en/downloads

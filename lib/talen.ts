@@ -54,6 +54,7 @@ const PAREN: Array<[nl: string, en: string]> = [
   ["/testimonials", "/testimonials"],
   ["/about", "/about"],
   ["/games-tools", "/games-tools"],
+  ["/downloads", "/downloads"],
   ["/games-tools/ravenhack", "/games-tools/ravenhack"],
   ["/games-tools/tools/inspiration-cards", "/games-tools/tools/inspiration-cards"],
   ["/games-tools/tools/bingo", "/games-tools/tools/bingo"],
