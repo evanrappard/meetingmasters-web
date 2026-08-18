@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-17
+> Laatst bijgewerkt: 2026-08-18
 
 ---
 
@@ -50,12 +50,15 @@ leeft in de paginacode, niet in een apart bestand).
 |---|---|---|---|---|
 | 0 | **GitHub en Vercel zijn niet gekoppeld** — pushen start géén deploy. Laatste deploy is 8 mei 2026, met de hand vanaf de commandoregel. Koppelen in Vercel → Project → Settings → Git vóór de livegang | C | Emilie | open — blokkeert livegang |
 | 1 | Bouwlijst componenten nieuwe website — nog te bepalen | C | Emilie | open |
-| 2 | Engelse vertaling van de NL-pagina's | T | Copy-Claude | **uitgesteld** — pas oppakken als álle Nederlandse tekst final is (besluit 12 aug 2026) |
+| 2 | ~~Engelse vertaling van de NL-pagina's~~ | T | bouwer | **afgerond 18 aug 2026** — 59 Engelse routes, alle vier de losse tools tweetalig. Privacy en cookies nog juridisch laten nakijken. Zie `docs/vertaling-voortgang.md` |
 | 3 | Virtueel Kantoor en R@venHack hebben een verborgen `sr-only` H1 boven een zichtbare `<h2>`-hero. Eén H1, maar wel een onzichtbare — nog bepalen of de zichtbare kop de H1 moet worden | C | Emilie | open |
 | 4 | `npx eslint .` loopt ook over `node_modules` (54k meldingen) — eslint-config mist een ignore | C | bouwer | open |
 | 5 | Mobiele weergave gemeten op 320/375/414px: 0 problemen. Nog wel op een écht toestel bekijken | C | Emilie | open — Emilie checkt |
 | 6 | Cases, Partners en Kwaliteit & vertrouwelijkheid terugzetten in `lib/navigatie.ts` zodra de pagina's gevuld zijn | T C | Emilie | geparkeerd — routes bestaan nog, alleen uit menu en footer |
 | 7 | `/nl/remote-office` en `/nl/publicaties` bestonden nooit als NL-route. Nog bepalen of ze er alsnog moeten komen | C | Emilie | open |
+| 32 | **Privacy statement en cookieverklaring in het Engels juridisch laten nakijken** vóór livegang. Ze staan er nu wel, in een eigen bestand per taal | T | Emilie | open — vóór livegang |
+| 33 | **Bingo en de vergaderkosten-calculator zijn kopieën**, geen gedeelde bestanden: `public/tools/bingo/en/` en `public/tools/vergaderkosten-calculator/en/`. Verandert de rekenlogica of de spelregels, dan in beide aanpassen | C | bouwer | let op |
+| 34 | **Blog-hero bevat het Nederlandse menu.** Op de Engelse blog staat nu het Nederlandse beeld; nieuw beeld maken | B | visuals | geparkeerd — besluit Emilie 17 aug 2026 |
 | 8 | Wheel of Fortune geeft een JS-fout (`addEventListener` op null) in de Netlify-app zelf, niet in deze site. Oppakken in die codebase | C | bouwer | open |
 | 9 | Schermafdrukken van de mobiele controle staan in `.gitignore` — werkmateriaal, opnieuw te maken met `npm run mobiel:shots` | C | bouwer | besloten |
 | 10 | De site draait lokaal in **ontwikkelmodus** (`next dev -H 0.0.0.0`), bereikbaar op het netwerk-IP. Wijzigingen zijn meteen zichtbaar, zonder bouwen of herstarten (gewijzigd 15 aug 2026) | C | bouwer | let op |
@@ -79,7 +82,7 @@ leeft in de paginacode, niet in een apart bestand).
 | 31 | **Keuzekompas Meeting Mix** stond op de oude site achter een e-mailaanmelding; het bestand zelf is niet publiek. Terughalen? Dan is het pdf plus formulier | T | Emilie | open |
 | 29 | ~~Boekingstool van HubSpot inbouwen~~ | C | Emilie | **afgerond 17 aug 2026** — agenda op de rondleiding, knop bij Plan een gesprek, niet op Contact |
 | 30 | ~~Downloads in de hoofdnavigatie~~ | C | Emilie | **besloten 17 aug 2026** — alleen in de footer, via `alleenFooter` op het menu-item |
-| 13 | De Engelse pagina's gebruiken de **Nederlandse** navigatie: `app/en/layout.tsx` laadt dezelfde Navbar en Footer, en die lezen `NAV_ITEMS` uit `lib/navigatie.ts` (allemaal `/nl/`-links). Bij de Engelse ronde hier een EN-variant naast zetten. Ook de NL/EN-schakelaar in de balk wijst nu twee keer naar `/nl/home` | C | bouwer | open — hoort bij punt 2 |
+| 13 | ~~Engelse navigatie en taalschakelaar~~ | C | bouwer | **afgerond 18 aug 2026** — menu, footer en schakelaar lezen `lib/talen.ts`; elke pagina landt op zijn eigen tegenhanger |
 
 ---
 
@@ -607,3 +610,39 @@ de code, niet in de gebouwde site en niet in de sitemap, en de site heeft nooit
 live gestaan — er kan dus geen externe link naar bestaan. Beide talen wijzen nu
 naar het exemplaar in `/downloads`. Het losse bestand blijft staan maar wordt
 nergens meer gebruikt; het mag bij een opruimronde weg.
+
+## 18 augustus 2026 — de site draait volledig tweetalig
+
+De laatste vier pagina's en de twee overgebleven losse tools zijn omgezet.
+
+- **T C** — **Downloads** (`/en/downloads`). Gedeelde template
+  `components/downloads/DownloadsPagina.tsx`, Nederlandse tekst in `data.ts`,
+  Engelse in `tekst-en.ts`. Het Vergadermacht-blok valt weg in het Engels: die
+  publicatie bestaat er niet, en het formulier erachter evenmin. De Engelse
+  pdf's en de Engelse Keuzekompas-video hangen eraan vast.
+- **T C** — **Vergaderkosten-calculator** (`/en/meeting-calculator`), plus een
+  Engelse kopie van de tool zelf in `public/tools/vergaderkosten-calculator/en/`.
+  Vertaald: de vijf stappen, de reisprofielen, de organisatiekosten, de
+  offline/online-vergelijking, het pdf-kaartje en de samenvatting die naar
+  HubSpot gaat. Getallen staan nu in `en-GB`-opmaak, het formulier eronder is
+  het Engelse (`77dffdf4-…`).
+- **C** — **Bingo in het Engels** ingehangen. De Engelse kopie in
+  `public/tools/bingo/en/` bestond al, inclusief hostpaneel en Engelse
+  standaardwoorden; `embedVoor()` in `lib/tools.ts` wijst er nu naartoe.
+- **T C** — **Privacy statement** (`/en/privacy-statement`) en
+  **cookieverklaring** (`/en/cookie-statement`). Bewust een eigen bestand per
+  taal en geen gedeelde template met tekstobject: juridische tekst moet per taal
+  nagelezen kunnen worden. De cookiebanner en de keuzeknop zijn nu ook Engels,
+  en de banner linkt naar de verklaring in de eigen taal — de regel "(in Dutch)"
+  kon eruit.
+- **T** — **Nederlandse resten opgeruimd** die via componenten binnenkwamen: de
+  drie alinea's en de vergelijkingslijst op SpatialChat, de terugkoppeling naar
+  Technologie, de kop bij "Our solutions" op de homepage, het manifest-citaat op
+  Over ons, en de terugvaltekst van de HubSpot-agenda op de demo-pagina. Die
+  stonden vast in de JSX in plaats van in het tekstobject.
+
+**Gecontroleerd op de productiebouw:** 132 routes zonder 404 (op negen bedoelde
+308-doorverwijzingen na), 132 routes × 3 breedtes zonder overloop, eslint 0
+fouten, en alle 59 Engelse routes doorzocht op Nederlandse stopwoorden in de
+**gebouwde** HTML — schoon. Het enige wat de zoekopdracht nog vindt is "Het
+Cultuurfonds" op de testimonials: een organisatienaam.

@@ -1,9 +1,9 @@
 # Engelse site — wat er staat en wat er nog moet
 
-Bijgewerkt 17 augustus 2026.
+Bijgewerkt 18 augustus 2026.
 
-De machinerie is klaar: elke pagina *kan* tweetalig draaien. Wat nog moet is de
-vertaling zelf, pagina voor pagina.
+**De site draait volledig tweetalig.** Elke publieke pagina bestaat in beide
+talen, de losse tools ook. Wat resteert is nalezen — zie "Nog open" onderaan.
 
 ## Hoe je een pagina vertaalt
 
@@ -20,7 +20,7 @@ Meer is het niet. Menu, footer, sitemap en taalschakelaar volgen `lib/talen.ts`
 vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 — dat is het signaal dat er nog iets ontbreekt.
 
-## Klaar (55 pagina's)
+## Klaar (59 pagina's)
 
 | Nederlands | Engels |
 |---|---|
@@ -47,22 +47,35 @@ vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 | `/nl/virtual-office/zaaltje` | `/en/virtual-office/meeting-room` |
 | `/nl/virtual-office/huren` | `/en/virtual-office/rent` |
 | `/nl/virtual-office/kantoor-cultuur` | `/en/virtual-office/office-and-culture` |
+| `/nl/downloads` | `/en/downloads` — Vergadermacht valt weg |
+| `/nl/meeting-calculator` | `/en/meeting-calculator` |
+| `/nl/privacy-statement` | `/en/privacy-statement` |
+| `/nl/cookieverklaring` | `/en/cookie-statement` |
 
 Ook tweetalig: menu, footer, cookiebanner, het CTA-blok en de gedeelde
 formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 
-## Nog te doen — op volgorde van omvang
+## Nog open
 
-| Pagina | Woorden | Opmerking |
-|---|---:|---|
-| `privacy-statement` | 1.060 | juridisch — laten nakijken vóór publicatie |
-| `downloads/page` | 810 | Vergadermacht valt weg in het Engels |
-| `meeting-calculator` | 650 | plus de losse tool zelf |
-| `cookieverklaring` | 550 | juridisch — laten nakijken |
+| Punt | Wat er moet gebeuren |
+|---|---|
+| Privacy statement en cookieverklaring | Juridisch nalezen vóór publicatie. Beide staan er nu wel in het Engels. |
+| Blog-hero | Het beeld bevat het Nederlandse menu. Op de Engelse blog staat nu het Nederlandse beeld; nieuw beeld maken. |
+| Vergadermacht | Bestaat niet in het Engels. Komt er een Engelse versie, dan kan het blok terug in `components/downloads/DownloadsPagina.tsx`. |
 
-**Samen ongeveer 3.100 woorden.** Ter vergelijking: de elf blogartikelen waren
-7.700, de twintig events 13.400 en de hulppagina met de 77 vragen 5.800. Dit is
-dus nog ongeveer twee rondes.
+## Hoe je controleert of er nog Nederlands in staat
+
+Bouw de site, start hem, en lees de **gebouwde HTML** — niet de bron. Zo vind je
+ook wat via een component binnenkomt:
+
+```bash
+npm run build && npx next start -p 3000
+# daarna elke route uit scripts/mobiel-routes.txt ophalen en de tekst
+# afspeuren op stopwoorden: het, een, niet, maar, wordt, deze, onze, zijn
+```
+
+Vals alarm om te herkennen: "Het Cultuurfonds" (organisatienaam), "door" en
+"over" (bestaan ook in het Engels).
 
 ### De homepage haalt content uit Sanity
 De Engelse homepage praat **niet** met het CMS: de inhoud daar is Nederlands.
@@ -85,13 +98,23 @@ bruikbaar voor de 74 techvragen.
 
 ## Aandachtspunten
 
-- **De losse tools** staan buiten de site, in `public/tools/`. Storytelling
-  draait op de Engelse pagina al in het Engels (thema `default-en`), en de
-  inspiratiekaarten tonen daar de Engelse set. **Bingo draait nog in het
-  Nederlands**: de landingspagina is Engels, de tool erin niet. Datzelfde geldt
-  voor de vergaderkosten-calculator. Zie `docs/engelse-media-register.md`.
-- **Privacy en cookies** zijn juridische teksten. Ik vertaal ze, maar laat ze
-  nakijken voordat ze live gaan.
+- **De losse tools** staan buiten de site, in `public/tools/`, en zijn nu alle
+  vier tweetalig. Welke variant een pagina laadt, staat in `embedVoor()` in
+  [`lib/tools.ts`](../lib/tools.ts):
+  - *Storytelling* — één app, Engels thema via `?theme=default-en`.
+  - *Inspiratiekaarten* — één app, Engelse set via `?taal=en`.
+  - *Wheel of Fortune* — draait op Netlify en kiest zijn taal zelf.
+  - *Bingo* — eigen Engelse kopie in `public/tools/bingo/en/`, inclusief
+    hostpaneel en Engelse standaardwoorden.
+  - *Vergaderkosten-calculator* — eigen Engelse kopie in
+    `public/tools/vergaderkosten-calculator/en/`, met het Engelse
+    HubSpot-formulier eronder.
+
+  Let op bij die laatste twee: het zijn **kopieën**, geen gedeelde bestanden.
+  Verander je iets aan de rekenlogica of de spelregels, doe het dan in beide.
+- **Privacy en cookies** staan er nu in het Engels, in een eigen bestand per
+  taal (geen gedeelde template): juridische tekst moet per taal nagelezen
+  kunnen worden. Laat ze nakijken voordat ze live gaan.
 - **Vergadermacht** bestaat niet in het Engels; dat blok valt op de Engelse
   Downloads-pagina weg. Besluit van Emilie, 17 aug 2026.
 - **De blog-hero** bevat het Nederlandse menu. Staat geparkeerd; op de Engelse
