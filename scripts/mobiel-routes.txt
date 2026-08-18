@@ -109,3 +109,4 @@
 /en/events/conference
 /en/events/open-space
 /en/events/networking-event
+/en/events
