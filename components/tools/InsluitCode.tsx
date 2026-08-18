@@ -10,6 +10,7 @@ type Props = {
   pad: string;
   /** Naam van de tool, voor de toelichting. */
   naam: string;
+  taal?: "nl" | "en";
 };
 
 /**
@@ -17,7 +18,26 @@ type Props = {
  * ophalen en nergens apart hoeft te bewaren. Bewust naast "Volledig scherm",
  * want het is dezelfde soort handeling: de tool ergens anders laten draaien.
  */
-export default function InsluitCode({ pad, naam }: Props) {
+/** De knopteksten, per taal. */
+const T = {
+  nl: {
+    tonen: "Insluitcode",
+    verbergen: "Verberg insluitcode",
+    sluiten: "Sluiten",
+    kopieer: "Kopieer code",
+    gekopieerd: "Gekopieerd ✓",
+  },
+  en: {
+    tonen: "Embed code",
+    verbergen: "Hide embed code",
+    sluiten: "Close",
+    kopieer: "Copy code",
+    gekopieerd: "Copied ✓",
+  },
+} as const;
+
+export default function InsluitCode({ pad, naam, taal = "nl" }: Props) {
+  const t = T[taal];
   const [open, setOpen] = useState(false);
   const [basis, setBasis] = useState("");
   const [gekopieerd, setGekopieerd] = useState(false);
@@ -63,7 +83,7 @@ export default function InsluitCode({ pad, naam }: Props) {
         onClick={() => setOpen((v) => !v)}
         className="text-[#7C7566] hover:text-[#28A8AA] transition-colors underline-offset-4 hover:underline text-xs"
       >
-        {open ? "Verberg insluitcode" : "Insluitcode"}
+        {open ? t.verbergen : t.tonen}
       </button>
 
       {open && (
@@ -72,7 +92,7 @@ export default function InsluitCode({ pad, naam }: Props) {
           <button
             type="button"
             onClick={() => setOpen(false)}
-            aria-label="Sluiten"
+            aria-label={t.sluiten}
             className="absolute top-2 right-2 w-7 h-7 rounded text-[#7C7566] hover:bg-[#F1EFE9] hover:text-[#2D2D2D] transition-colors text-base leading-none"
           >
             ×
@@ -95,7 +115,7 @@ export default function InsluitCode({ pad, naam }: Props) {
             onClick={kopieer}
             className="mt-2 bg-[#EEBE3D] text-[#2D2D2D] text-xs font-bold px-4 py-2 rounded hover:bg-[#D4A835] transition-colors"
           >
-            {gekopieerd ? "Gekopieerd ✓" : "Kopieer code"}
+            {gekopieerd ? t.gekopieerd : t.kopieer}
           </button>
         </div>
       )}

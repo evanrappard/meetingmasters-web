@@ -4,9 +4,8 @@
  * De toolnamen zijn al Engels (Inspiration Cards, Bingo, Storytelling, Wheel
  * of Fortune) en blijven staan. R@venHack is een eigennaam.
  *
- * De vier tools-landingspagina's zijn nog niet vertaald; de kaarten wijzen
- * daarom voorlopig naar de Nederlandse pagina's. Zodra die vertaald zijn,
- * hoeft alleen `links` hieronder aangepast te worden.
+ * De vier tools-landingspagina's bestaan inmiddels ook in het Engels; de
+ * kaarten wijzen daar naartoe.
  */
 
 export const GAMES_EN = {
@@ -113,10 +112,10 @@ export const GAMES_EN = {
     ravenhack: "/en/games-tools/ravenhack",
     calculator: "/nl/meeting-calculator",
     tools: [
-      "/nl/games-tools/tools/inspiration-cards",
-      "/nl/games-tools/tools/bingo",
-      "/nl/games-tools/tools/storytelling",
-      "/nl/games-tools/tools/wheel-of-fortune",
+      "/en/games-tools/tools/inspiration-cards",
+      "/en/games-tools/tools/bingo",
+      "/en/games-tools/tools/storytelling",
+      "/en/games-tools/tools/wheel-of-fortune",
     ],
   },
 };

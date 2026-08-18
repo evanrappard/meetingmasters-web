@@ -20,7 +20,7 @@ Meer is het niet. Menu, footer, sitemap en taalschakelaar volgen `lib/talen.ts`
 vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 — dat is het signaal dat er nog iets ontbreekt.
 
-## Klaar (51 pagina's)
+## Klaar (55 pagina's)
 
 | Nederlands | Engels |
 |---|---|
@@ -37,6 +37,7 @@ vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 | `/nl/about` | `/en/about` |
 | `/nl/games-tools` | `/en/games-tools` |
 | `/nl/games-tools/ravenhack` | `/en/games-tools/ravenhack` |
+| 4 × tools-landingspagina | zelfde adressen onder `/en` |
 | 20 eventpagina's | 20 eventpagina's, eigen Engels adres per stuk |
 | `/nl/events` | `/en/events` |
 | `/nl/technologie/hulp` | `/en/help` — inclusief de 77 hulpvragen |
@@ -58,9 +59,8 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 | `downloads/page` | 810 | Vergadermacht valt weg in het Engels |
 | `meeting-calculator` | 650 | plus de losse tool zelf |
 | `cookieverklaring` | 550 | juridisch — laten nakijken |
-| 4 × tools-landingspagina | 1.690 | bingo, storytelling, wheel of fortune, inspiration cards |
 
-**Samen ongeveer 5.300 woorden.** Ter vergelijking: de elf blogartikelen waren
+**Samen ongeveer 3.100 woorden.** Ter vergelijking: de elf blogartikelen waren
 7.700, de twintig events 13.400 en de hulppagina met de 77 vragen 5.800. Dit is
 dus nog ongeveer twee rondes.
 
@@ -85,9 +85,11 @@ bruikbaar voor de 74 techvragen.
 
 ## Aandachtspunten
 
-- **De losse tools** (bingo, storytelling, calculator) staan buiten de site, in
-  `public/tools/`. Storytelling is al tweetalig via thema's; bingo en de
-  calculator moeten nog. Zie `docs/engelse-media-register.md`.
+- **De losse tools** staan buiten de site, in `public/tools/`. Storytelling
+  draait op de Engelse pagina al in het Engels (thema `default-en`), en de
+  inspiratiekaarten tonen daar de Engelse set. **Bingo draait nog in het
+  Nederlands**: de landingspagina is Engels, de tool erin niet. Datzelfde geldt
+  voor de vergaderkosten-calculator. Zie `docs/engelse-media-register.md`.
 - **Privacy en cookies** zijn juridische teksten. Ik vertaal ze, maar laat ze
   nakijken voordat ze live gaan.
 - **Vergadermacht** bestaat niet in het Engels; dat blok valt op de Engelse

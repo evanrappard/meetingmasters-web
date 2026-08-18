@@ -18,10 +18,19 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function InspiratiekaartenEmbedPage() {
+/**
+ * De taal komt uit de zoekopdracht: `?taal=en` toont de Engelse kaartenset.
+ * Zo blijft er één insluitadres, met een parameter erachter.
+ */
+export default async function InspiratiekaartenEmbedPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ taal?: string }>;
+}) {
+  const { taal } = await searchParams;
   return (
     <div className="h-dvh w-full overflow-hidden">
-      <InspiratieKaarten variant="embed" />
+      <InspiratieKaarten variant="embed" taal={taal === "en" ? "en" : "nl"} />
     </div>
   );
 }

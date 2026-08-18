@@ -121,3 +121,7 @@
 /en/about
 /en/games-tools
 /en/games-tools/ravenhack
+/en/games-tools/tools/inspiration-cards
+/en/games-tools/tools/bingo
+/en/games-tools/tools/storytelling
+/en/games-tools/tools/wheel-of-fortune

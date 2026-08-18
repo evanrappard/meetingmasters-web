@@ -9,7 +9,14 @@ const LAATSTE = 50;
 const TOTAAL = LAATSTE - EERSTE + 1;
 const ACHTERKANT = "/images/tools/inspiratiekaarten/achterkant.webp";
 const TOOLPAGINA = "/nl/games-tools/tools/inspiration-cards";
-const kaartSrc = (n: number) => `/images/tools/inspiratiekaarten/kaart-${n}.webp`;
+/**
+ * Het kaartbeeld. De Engelse set staat in een submap: zelfde nummers, zelfde
+ * kunstwerken, Engelse trefwoorden. De achterkant is taalloos en wordt gedeeld.
+ */
+const kaartSrc = (n: number, taal: "nl" | "en" = "nl") =>
+  taal === "en"
+    ? `/images/tools/inspiratiekaarten/en/kaart-${n}.webp`
+    : `/images/tools/inspiratiekaarten/kaart-${n}.webp`;
 
 /** Kaarten in willekeurige volgorde, zodat je niet twee keer dezelfde trekt. */
 function schudDek() {
@@ -28,9 +35,25 @@ type Props = {
    * kader volledig, voor gebruik in een iframe (bv. een scherm in SpatialChat).
    */
   variant?: "pagina" | "embed";
+  taal?: "nl" | "en";
 };
 
-export default function InspiratieKaarten({ variant = "pagina" }: Props) {
+/** De twee knopteksten, per taal. */
+const KNOPPEN = {
+  nl: {
+    trek: "Trek een kaart →", download: "Download", volgende: "Volgende kaart",
+    vol: "Volledig scherm", sluit: "Sluit volledig scherm",
+    achterkant: "Achterkant van de MeetingMasters inspiratiekaarten",
+  },
+  en: {
+    trek: "Draw a card →", download: "Download", volgende: "Next card",
+    vol: "Full screen", sluit: "Close full screen",
+    achterkant: "Back of the MeetingMasters inspiration cards",
+  },
+} as const;
+
+export default function InspiratieKaarten({ variant = "pagina", taal = "nl" }: Props) {
+  const knop = KNOPPEN[taal];
   const [, setDek] = useState<number[]>([]);
   const [kaart, setKaart] = useState<number | null>(null);
   const [getrokken, setGetrokken] = useState(0);
@@ -70,7 +93,7 @@ export default function InspiratieKaarten({ variant = "pagina" }: Props) {
       // Volgende kaart vast inladen, zodat de omslag nooit hapert.
       if (rest[0]) {
         const vooruit = new window.Image();
-        vooruit.src = kaartSrc(rest[0]);
+        vooruit.src = kaartSrc(rest[0], taal);
       }
       return rest;
     });
@@ -79,8 +102,8 @@ export default function InspiratieKaarten({ variant = "pagina" }: Props) {
   const download = useCallback(() => {
     if (!kaart) return;
     const link = document.createElement("a");
-    link.href = kaartSrc(kaart);
-    link.download = `MeetingMasters-inspiratiekaart-${kaart}.webp`;
+    link.href = kaartSrc(kaart, taal);
+    link.download = `MeetingMasters-${taal === "en" ? "inspiration-card" : "inspiratiekaart"}-${kaart}.webp`;
     link.click();
   }, [kaart]);
 
@@ -162,7 +185,7 @@ export default function InspiratieKaarten({ variant = "pagina" }: Props) {
         href={TOOLPAGINA}
         target="_blank"
         rel="noopener"
-        title="Inspiratiekaarten van MeetingMasters — open de toolpagina"
+        title={taal === "en" ? "Inspiration Cards by MeetingMasters — open the tool page" : "Inspiratiekaarten van MeetingMasters — open de toolpagina"}
         className="absolute top-3 left-3 z-10 opacity-70 hover:opacity-100 transition-opacity"
       >
         <Image
@@ -190,11 +213,11 @@ export default function InspiratieKaarten({ variant = "pagina" }: Props) {
           style={{ perspective: 1400 }}
         >
           <Image
-            src={heeftKaart ? kaartSrc(kaart) : ACHTERKANT}
+            src={heeftKaart ? kaartSrc(kaart, taal) : ACHTERKANT}
             alt={
               heeftKaart
                 ? `Inspiratiekaart ${kaart} van MeetingMasters`
-                : "Achterkant van de MeetingMasters inspiratiekaarten"
+                : knop.achterkant
             }
             width={874}
             height={1240}
@@ -215,21 +238,25 @@ export default function InspiratieKaarten({ variant = "pagina" }: Props) {
               smal ? "text-sm px-6 py-2.5" : "text-sm px-8 py-3"
             }`}
           >
-            {heeftKaart ? "Download" : "Trek een kaart →"}
+            {heeftKaart ? knop.download : knop.trek}
           </button>
 
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs">
             {heeftKaart && (
               <button type="button" onClick={trek} className={secundair}>
-                Volgende kaart
+                {knop.volgende}
               </button>
             )}
             <button type="button" onClick={wisselVolledigScherm} className={secundair}>
-              {groot ? "Sluit volledig scherm" : "Volledig scherm"}
+              {groot ? knop.sluit : knop.vol}
             </button>
             {/* Alleen op de website vóór het trekken: daarna neemt 'volgende kaart' deze plek. */}
             {!isEmbed && !groot && !heeftKaart && (
-              <InsluitCode pad="/embed/inspiratiekaarten" naam="de kaarten" />
+              <InsluitCode
+                pad={taal === "en" ? "/embed/inspiratiekaarten?taal=en" : "/embed/inspiratiekaarten"}
+                naam={taal === "en" ? "the cards" : "de kaarten"}
+                taal={taal}
+              />
             )}
           </div>
         </div>

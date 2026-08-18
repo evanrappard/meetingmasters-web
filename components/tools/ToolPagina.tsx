@@ -2,6 +2,27 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { andereTools } from "@/lib/tools";
+import type { Taal } from "@/lib/talen";
+
+/** De vaste teksten van het toolsjabloon, per taal. */
+const T = {
+  nl: {
+    terug: "← Games & tools",
+    terugHref: "/nl/games-tools",
+    faqKop: (onderwerp: string) => `Veelgestelde vragen over ${onderwerp}`,
+    andere: "Andere tools",
+    advies: "Vrijblijvend advies →",
+    adviesHref: "/nl/expert-advies",
+  },
+  en: {
+    terug: "← Games & tools",
+    terugHref: "/en/games-tools",
+    faqKop: (onderwerp: string) => `Frequently asked questions about ${onderwerp}`,
+    andere: "Other tools",
+    advies: "Advice, no strings attached →",
+    adviesHref: "/en/expert-advice",
+  },
+} as const;
 
 export type FaqItem = {
   q: string;
@@ -27,6 +48,7 @@ type Props = {
   /** Beschrijving voor de zoekmachine-structuurdata. */
   appOmschrijving: string;
   appNaam: string;
+  taal?: Taal;
 };
 
 /**
@@ -44,7 +66,9 @@ export default function ToolPagina({
   ctaTekst,
   appOmschrijving,
   appNaam,
+  taal = "nl",
 }: Props) {
+  const vast = T[taal];
   const appSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -79,10 +103,10 @@ export default function ToolPagina({
         <div className="max-w-content mx-auto px-6 lg:px-10 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
           <div>
             <Link
-              href="/nl/games-tools"
+              href={vast.terugHref}
               className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase hover:text-[#D4A835] transition-colors"
             >
-              ← Games &amp; tools
+              {vast.terug}
             </Link>
             <h1 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mt-2">
               {titel}
@@ -106,7 +130,7 @@ export default function ToolPagina({
       <section className="bg-[#F5F5F5] py-12 border-t border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-8 text-center">
-            Veelgestelde vragen over {faqOnderwerp}
+            {vast.faqKop(faqOnderwerp)}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {faq.map((item) => (
@@ -138,16 +162,16 @@ export default function ToolPagina({
       <section className="bg-white py-10">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <p className="text-[#9A9384] text-xs font-bold tracking-widest uppercase mb-5">
-            Andere tools
+            {vast.andere}
           </p>
           <div className="flex flex-wrap gap-3">
             {andereTools(huidig).map((t) => (
               <Link
                 key={t.href}
-                href={t.href}
+                href={taal === "en" ? t.hrefEn : t.href}
                 className="text-sm font-semibold text-[#545454] border border-[#E4E1D8] rounded px-5 py-2.5 hover:border-[#EEBE3D] hover:bg-[#FFFBEE] hover:text-[#2D2D2D] transition-colors"
               >
-                {t.label} →
+                {taal === "en" ? t.labelEn : t.label} →
               </Link>
             ))}
           </div>
@@ -159,10 +183,10 @@ export default function ToolPagina({
         <div className="max-w-content mx-auto px-6 lg:px-10 flex flex-col md:flex-row md:items-center justify-between gap-5">
           <p className="font-bold text-[#2D2D2D] text-lg leading-snug max-w-[560px]">{ctaTekst}</p>
           <Link
-            href="/nl/expert-advies"
+            href={vast.adviesHref}
             className="shrink-0 bg-[#2D2D2D] text-white text-sm font-bold px-7 py-3.5 rounded hover:bg-[#1A1A1A] transition-colors self-start"
           >
-            Vrijblijvend advies →
+            {vast.advies}
           </Link>
         </div>
       </section>

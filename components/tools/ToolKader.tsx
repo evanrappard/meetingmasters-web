@@ -14,6 +14,7 @@ type Props = {
    * gebruikt klikt op volledig scherm.
    */
   hoogte?: string;
+  taal?: "nl" | "en";
 };
 
 /**
@@ -21,7 +22,13 @@ type Props = {
  * met eigen instellingen). Zorgt dat het op elke pagina hetzelfde voelt als de
  * inspiratiekaarten: rustig kader, dunne bediening, insluitcode bij de hand.
  */
-export default function ToolKader({ bron, naam, hoogte = "min(62dvh, 560px)" }: Props) {
+const T_KADER = {
+  nl: { vol: "Volledig scherm", sluit: "Sluit volledig scherm", tab: "Openen in een eigen tabblad" },
+  en: { vol: "Full screen", sluit: "Close full screen", tab: "Open in a separate tab" },
+} as const;
+
+export default function ToolKader({ bron, naam, hoogte = "min(62dvh, 560px)", taal = "nl" }: Props) {
+  const t = T_KADER[taal];
   const [volledigScherm, setVolledigScherm] = useState(false);
   const [vulVenster, setVulVenster] = useState(false);
   const kaderRef = useRef<HTMLDivElement>(null);
@@ -97,12 +104,12 @@ export default function ToolKader({ bron, naam, hoogte = "min(62dvh, 560px)" }: 
 
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           <button type="button" onClick={wisselVolledigScherm} className={secundair}>
-            {groot ? "Sluit volledig scherm" : "Volledig scherm"}
+            {groot ? t.sluit : t.vol}
           </button>
           <a href={bron} target="_blank" rel="noopener" className={secundair}>
-            Openen in een eigen tabblad
+            {t.tab}
           </a>
-          {!groot && <InsluitCode pad={bron} naam={naam} />}
+          {!groot && <InsluitCode pad={bron} naam={naam} taal={taal} />}
         </div>
       </div>
     </section>
