@@ -20,7 +20,7 @@ Meer is het niet. Menu, footer, sitemap en taalschakelaar volgen `lib/talen.ts`
 vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 — dat is het signaal dat er nog iets ontbreekt.
 
-## Klaar (43 pagina's)
+## Klaar (44 pagina's)
 
 | Nederlands | Engels |
 |---|---|
@@ -38,6 +38,7 @@ vanzelf. Vergeet je stap 3, dan blijft de schakelaar de andere taal grijs tonen
 | `/nl/events` | `/en/events` |
 | `/nl/technologie/hulp` | `/en/help` — inclusief de 77 hulpvragen |
 | `/nl/technologie/spatialchat` | `/en/spatialchat` |
+| `/nl/technologie/tools` | `/en/platforms` |
 
 Ook tweetalig: menu, footer, cookiebanner, het CTA-blok en de gedeelde
 formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
@@ -46,7 +47,6 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 
 | Pagina | Woorden | Opmerking |
 |---|---:|---|
-| `technologie/tools/page` | 1.610 | Meeting Platforms |
 | `virtual-office/page` | 1.590 | |
 | `about/page` | 1.560 | |
 | `games-tools/ravenhack` | 1.240 | |
@@ -60,7 +60,7 @@ formulierpagina. De zeven Engelse HubSpot-formulieren hangen eraan vast.
 | `cookieverklaring` | 550 | juridisch — laten nakijken |
 | 4 × tools-landingspagina | 1.690 | bingo, storytelling, wheel of fortune, inspiration cards |
 
-**Samen ongeveer 14.500 woorden.** Ter vergelijking: de elf blogartikelen waren
+**Samen ongeveer 13.000 woorden.** Ter vergelijking: de elf blogartikelen waren
 7.700, de twintig events 13.400 en de hulppagina met de 77 vragen 5.800. Dit is
 dus nog ongeveer twee rondes.
 

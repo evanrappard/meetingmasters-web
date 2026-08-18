@@ -61,6 +61,7 @@ const PAREN: Array<[nl: string, en: string]> = [
   // zoekt, niet "technology/help".
   ["/technologie/hulp", "/help"],
   ["/technologie/spatialchat", "/spatialchat"],
+  ["/technologie/tools", "/platforms"],
 ];
 
 /**

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { Taal } from "@/lib/talen";
 import Link from "next/link";
 
 /**
@@ -27,9 +28,11 @@ export type Platform = {
 export default function PlatformKeuze({
   platforms,
   standaard,
+  taal = "nl",
 }: {
   platforms: Platform[];
   standaard?: string;
+  taal?: Taal;
 }) {
   const [gekozen, setGekozen] = useState<string | null>(standaard ?? null);
 
@@ -66,7 +69,7 @@ export default function PlatformKeuze({
               className="h-12 w-auto max-w-full object-contain object-left"
             />
 
-            <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mt-5 mb-1">Sterk in</p>
+            <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mt-5 mb-1">{taal === "en" ? "Strong at" : "Sterk in"}</p>
             <p className="font-bold text-[#2D2D2D] leading-snug mb-4">{p.sterk}</p>
 
             <p className="text-[15px] text-[#545454] leading-relaxed flex-1">{p.body}</p>
@@ -75,11 +78,11 @@ export default function PlatformKeuze({
                 omdat de ene "Wanneer" langer is dan de andere. */}
             <dl className="grid grid-cols-2 gap-3 mt-5 pt-4 border-t border-[#E4E4E0] text-[13px] min-h-[84px] content-start">
               <div>
-                <dt className="text-[#AAAAAA] font-semibold uppercase tracking-wide text-[10px] mb-0.5">Groep</dt>
+                <dt className="text-[#AAAAAA] font-semibold uppercase tracking-wide text-[10px] mb-0.5">{taal === "en" ? "Group" : "Groep"}</dt>
                 <dd className="text-[#2D2D2D] font-semibold">{p.groep}</dd>
               </div>
               <div>
-                <dt className="text-[#AAAAAA] font-semibold uppercase tracking-wide text-[10px] mb-0.5">Wanneer</dt>
+                <dt className="text-[#AAAAAA] font-semibold uppercase tracking-wide text-[10px] mb-0.5">{taal === "en" ? "When" : "Wanneer"}</dt>
                 <dd className="text-[#2D2D2D] font-semibold leading-snug">{p.wanneer}</dd>
               </div>
             </dl>
