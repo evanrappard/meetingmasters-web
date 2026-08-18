@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import Link from "next/link";
 import { Mail, Phone, Smartphone, MapPin } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/contact"),
   title: "Contact | MeetingMasters",
   description:
     "Neem contact op met MeetingMasters. Plan een vrijblijvend gesprek of boek een demo in ons virtuele kantoor.",

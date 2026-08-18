@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import FormulierPagina from "@/components/ui/FormulierPagina";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/nieuwsbrief"),
   title: "Nieuwsbrief | MeetingMasters",
   description:
     "Af en toe iets bruikbaars over online bijeenkomsten: wat werkt, wat niet, en waarom. Geen verkooppraat, en je schrijft je met één klik weer uit.",

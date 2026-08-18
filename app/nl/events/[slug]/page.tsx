@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import EventPagina from "@/components/events/EventPagina";
 import { EVENT_DATA } from "./data";
 
@@ -13,6 +14,7 @@ export async function generateMetadata(
   const event = EVENT_DATA[slug];
   if (!event) return {};
   return {
+    alternates: taalAlternates(`/events/${slug}`),
     title: `${event.title} | MeetingMasters`,
     description: event.metaOmschrijving ?? event.tagline,
   };

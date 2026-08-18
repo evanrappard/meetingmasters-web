@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import FormulierPagina from "@/components/ui/FormulierPagina";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/offerte"),
   title: "Vrijblijvende offerte of kostenindicatie | MeetingMasters",
   description:
     "Vraag een vrijblijvende prijsindicatie voor een online event, een virtueel kantoor of een game. Vertel wat je wilt organiseren en met hoeveel mensen.",

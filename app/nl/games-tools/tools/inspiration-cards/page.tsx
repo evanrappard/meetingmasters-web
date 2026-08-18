@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import InspiratieKaarten from "@/components/tools/InspiratieKaarten";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/games-tools/tools/inspiration-cards"),
   title: "Inspiratiekaarten — gratis online tool | MeetingMasters",
   description:
     "Trek een digitale inspiratiekaart met een thema en een beeld. Deel je scherm, trek een kaart en het gesprek begint. Gratis, zonder account, ook mobiel.",

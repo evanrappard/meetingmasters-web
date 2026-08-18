@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import Link from "next/link";
 import JuridischePagina, { Blok, Lijst } from "@/components/ui/JuridischePagina";
 import { ADRES_REGEL, BEDRIJF } from "@/lib/bedrijfsgegevens";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/privacy-statement"),
   title: "Privacy Statement | MeetingMasters",
   description:
     "Wat MeetingMasters met je gegevens doet: welke gegevens we verwerken, waarom, hoe lang we ze bewaren en welke rechten je hebt.",

@@ -131,3 +131,29 @@ export function nederlandsPad(enPad: string): string | undefined {
 
 /** Hoeveel pagina's staan er inmiddels in beide talen? */
 export const VERTAALD_AANTAL = ALLE_PAREN.length;
+
+/** Het domein waarop de site draait, voor absolute adressen in de metadata. */
+const SITE = "https://www.meetingmasters.online";
+
+/**
+ * De `alternates` voor de metadata van een pagina: het eigen adres als
+ * canonical, en hreflang naar beide talen als de pagina vertaald is.
+ *
+ * Waarom dit in één functie staat: hreflang moet **wederkerig** zijn. Wijst de
+ * Engelse pagina naar de Nederlandse maar niet andersom, dan negeert Google
+ * het hele signaal en kan hij de verkeerde taal tonen — of de twee pagina's
+ * als duplicaat zien. Door beide kanten uit dezelfde bron te halen kan dat
+ * niet meer scheeflopen.
+ *
+ * Geef het **Nederlandse** pad zonder taalprefix, dus "/events" of
+ * "/virtual-office/huren". Voor de Engelse pagina zet je `taal: "en"`.
+ */
+export function taalAlternates(nlPad: string, taal: Taal = "nl") {
+  const en = engelsPad(nlPad); // bevat al het /en-deel
+  const nlUrl = `${SITE}/nl${nlPad}`;
+  const enUrl = en ? `${SITE}${en}` : undefined;
+  return {
+    canonical: taal === "en" && enUrl ? enUrl : nlUrl,
+    ...(enUrl && { languages: { "nl-NL": nlUrl, "en-GB": enUrl } }),
+  };
+}

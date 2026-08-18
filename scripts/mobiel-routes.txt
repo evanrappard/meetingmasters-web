@@ -2,6 +2,7 @@
 /nl/about
 /nl/blog
 /nl/blog/acht-grens
+/nl/blog/terug-naar-kantoor
 /nl/blog/ai-paradox
 /nl/blog/heen-en-weer
 /nl/blog/niet-hetzelfde-wel-goed
@@ -130,3 +131,7 @@
 /en/meeting-calculator
 /en/privacy-statement
 /en/cookie-statement
+/nl/nieuwsbrief
+/nl/technologie/hulp
+/nl/technologie/tools
+/nl/meeting-calculator

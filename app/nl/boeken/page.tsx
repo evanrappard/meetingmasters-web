@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import FormulierPagina from "@/components/ui/FormulierPagina";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/boeken"),
   title: "Boeken en beschikbaarheid | MeetingMasters",
   description:
     "Boek een online zaaltje, R@venHack of EscapeMasters. Laat je gewenste datum en groepsgrootte weten, dan laten we snel weten wat er mogelijk is.",

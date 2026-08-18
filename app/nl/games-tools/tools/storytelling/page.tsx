@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import ToolKader from "@/components/tools/ToolKader";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 import { tool } from "@/lib/tools";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/games-tools/tools/storytelling"),
   title: "Storytelling — gratis online tool voor teams | MeetingMasters",
   description:
     "Trek om de beurt een kaart met een vraag en vertel je verhaal binnen de tijd. Gratis tool voor teams, in Zoom, Teams of SpatialChat.",

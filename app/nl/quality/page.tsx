@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/quality"),
   // Nog niet af of vervangen: wel bereikbaar via een directe link, maar niet
   // in de zoekresultaten. Staat ook in NIET_INDEXEREN in app/sitemap.ts.
   robots: { index: false, follow: true },

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   // hydration mismatch die je alleen op een iPhone ziet. Onze eigen bel- en
   // maillinks blijven gewoon werken; die staan expliciet in de code.
   formatDetection: { telephone: false, date: false, address: false, email: false },
-  title: "MeetingMasters | Online events & remote work specialisten",
+  title: "MeetingMasters | Online events & virtueel kantoor",
   description:
     "MeetingMasters ontwerpt online bijeenkomsten voor 50 tot 500 mensen — events, virtual offices en interactieve formats. 250+ events begeleid, 94% tevredenheid.",
 };

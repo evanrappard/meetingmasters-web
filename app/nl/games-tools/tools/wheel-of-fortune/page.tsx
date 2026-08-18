@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import ToolKader from "@/components/tools/ToolKader";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 import { tool } from "@/lib/tools";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/games-tools/tools/wheel-of-fortune"),
   title: "Wheel of Fortune — gratis online rad | MeetingMasters",
   description:
     "Draai een rad dat willekeurig een naam, vraag of opdracht kiest. Deel je scherm en laat het toeval kiezen. Gratis, zelf in te stellen, tot drie wielen.",

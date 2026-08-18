@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import ToolKader from "@/components/tools/ToolKader";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 import { tool } from "@/lib/tools";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/games-tools/tools/bingo"),
   title: "Bingo — gratis online bingo voor meetings | MeetingMasters",
   description:
     "Interactieve bingo voor je online meeting, training of congres. Deelnemers strepen woorden weg terwijl de sessie vordert. Gratis, met eigen woordenlijst.",

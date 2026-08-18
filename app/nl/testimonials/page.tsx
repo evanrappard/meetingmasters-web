@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/testimonials"),
   title: "Ervaringen | MeetingMasters",
   description:
     "Wat onze klanten zeggen over de samenwerking met MeetingMasters Online.",

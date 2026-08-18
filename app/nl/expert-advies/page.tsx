@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import { Mail, Phone, Smartphone, CalendarDays } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID, HUBSPOT_AGENDA } from "@/lib/hubspot-forms";
 import CTABlock from "@/components/ui/CTABlock";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/expert-advies"),
   title: "Vrijblijvend advies | MeetingMasters",
   description:
     "Houd je idee, ontwerp of opzet voor een online bijeenkomst vrijblijvend tegen ons aan. Je krijgt ons eerlijke advies, desgewenst met een offerte erbij.",

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/partners"),
   // Nog niet af of vervangen: wel bereikbaar via een directe link, maar niet
   // in de zoekresultaten. Staat ook in NIET_INDEXEREN in app/sitemap.ts.
   robots: { index: false, follow: true },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import EventsOverzicht from "@/components/events/EventsOverzicht";
 import {
   Target, Mic2, Megaphone, Vote,
@@ -10,6 +11,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/events"),
   title: "Online Event Formats | MeetingMasters",
   description:
     "20 online event formats: van strategiedag en webinar tot escape game, participatietraject en community event. Ontworpen en begeleid door MeetingMasters.",

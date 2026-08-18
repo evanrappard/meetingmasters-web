@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import Link from "next/link";
 import JuridischePagina, { Blok, Lijst } from "@/components/ui/JuridischePagina";
 import CookieKeuzeKnop from "@/components/ui/CookieKeuzeKnop";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/cookieverklaring"),
   title: "Cookieverklaring | MeetingMasters",
   description:
     "Welke cookies MeetingMasters gebruikt, waarvoor ze dienen en hoe je je keuze wijzigt of cookies verwijdert.",

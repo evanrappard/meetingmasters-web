@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import FormulierPagina from "@/components/ui/FormulierPagina";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/demo"),
   title: "Plan een rondleiding of demo | MeetingMasters",
   description:
     "Twintig minuten om te zien hoe een platform als SpatialChat iets anders doet dan Zoom of Teams. Vrijblijvend, in je eigen agenda, met een van onze mensen erbij.",
