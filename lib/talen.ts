@@ -54,6 +54,7 @@ const PAREN: Array<[nl: string, en: string]> = [
   ["/testimonials", "/testimonials"],
   ["/about", "/about"],
   ["/games-tools", "/games-tools"],
+  ["/games-tools/ravenhack", "/games-tools/ravenhack"],
 
   // ── Events ──
   ["/events", "/events"],
