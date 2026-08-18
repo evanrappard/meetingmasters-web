@@ -79,9 +79,9 @@ export const tool = (key: string) => TOOLS.find((t) => t.key === key)!;
 export const andereTools = (huidig: string) => TOOLS.filter((t) => t.key !== huidig);
 
 /**
- * Het adres van de kale tool, per taal. Alleen storytelling heeft een echte
- * Engelse variant: dat is een thema binnen dezelfde app. Bingo draait nog in
- * het Nederlands; de inspiratiekaarten en het rad kiezen hun taal zelf.
+ * Het adres van de kale tool, per taal. Storytelling heeft een Engels thema
+ * binnen dezelfde app; bingo heeft een eigen Engelse kopie onder /en/, met
+ * eigen hostpaneel en Engelse standaardwoorden. Het rad kiest zijn taal zelf.
  */
 export const embedVoor = (key: string, taal: "nl" | "en" = "nl") => {
   const t = tool(key);
@@ -89,5 +89,6 @@ export const embedVoor = (key: string, taal: "nl" | "en" = "nl") => {
     return "/tools/storytelling/index.html?theme=default-en&set=happy-mad-sad-en";
   }
   if (taal === "en" && key === "inspiration-cards") return "/embed/inspiratiekaarten?taal=en";
+  if (taal === "en" && key === "bingo") return "/tools/bingo/en/index.html";
   return t.embedUrl;
 };

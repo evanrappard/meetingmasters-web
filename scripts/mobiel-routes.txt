@@ -127,3 +127,4 @@
 /en/games-tools/tools/wheel-of-fortune
 /nl/downloads
 /en/downloads
+/en/meeting-calculator

@@ -110,7 +110,7 @@ export const GAMES_EN = {
     boeken: "/en/booking",
     contact: "/en/contact",
     ravenhack: "/en/games-tools/ravenhack",
-    calculator: "/nl/meeting-calculator",
+    calculator: "/en/meeting-calculator",
     tools: [
       "/en/games-tools/tools/inspiration-cards",
       "/en/games-tools/tools/bingo",
