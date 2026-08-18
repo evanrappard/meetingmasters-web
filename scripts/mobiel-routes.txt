@@ -114,3 +114,4 @@
 /en/spatialchat
 /en/home
 /en/platforms
+/en/virtual-office
