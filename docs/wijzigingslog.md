@@ -698,3 +698,34 @@ en geen samentrekking op een plek waar de volle vorm moet staan.
   het **gemeten** tekenbudget (max ± 24 tekens per regel; desktop is de krapste
   situatie, niet mobiel), de koppen die al op andere pagina's staan, en wat er
   al is geprobeerd en waarom het afviel.
+
+## 18 augustus 2026 — livegang-doorlichting
+
+Volledige technische doorlichting op de productiebouw, met het oog op de
+livegang. Wat ik kon repareren is gerepareerd:
+
+- **C** — **Canonical op alle routes.** 53 Nederlandse pagina's hadden er geen.
+- **C** — **hreflang wederkerig gemaakt.** De Engelse pagina's wezen naar de
+  Nederlandse, maar niet andersom, en eenrichtings-hreflang wordt door Google
+  volledig genegeerd. Nieuwe helper `taalAlternates()` in `lib/talen.ts` haalt
+  beide kanten uit dezelfde bron, zodat het niet meer scheef kan lopen. 118
+  vertaalde pagina's machinaal gecontroleerd op wederkerigheid.
+- **C** — **Eigen 404-pagina** (`app/not-found.tsx`), tweetalig, met de weg
+  terug. Die was er niet.
+- **B** — **Deelbeeld voor de calculator** aangemaakt; beide calculator-
+  bestanden verwezen naar een afbeelding die niet bestond.
+- **T** — De standaardtitel in de root noemde nog "remote work specialisten".
+- **C** — Vier levende routes ontbraken in `scripts/mobiel-routes.txt` en
+  liepen dus nooit mee in de controles. Toegevoegd; daardoor kwamen hun
+  ontbrekende hreflang-tags alsnog boven water.
+
+Alles wat overblijft staat in **`docs/livegang.md`**: open punten plus een
+stappenplan van tien stappen voor de aansluitingen die Emilie zelf moet doen
+(GitHub pushen, Vercel koppelen, env-variabelen, domein, DNS bij YourHosting,
+certificaat, Supabase, Search Console, formulieren testen).
+
+**Gecontroleerd:** 137 routes zonder 404, 137 × 3 breedtes schoon, eslint 0
+fouten, sitemap 118 adressen die alle bestaan en geen doorverwijzing bevatten,
+elke pagina precies één H1, alle beelden met alt-tekst, alle 15 HubSpot-
+formulier-ID's bestaan nog in het portaal, alle externe links bereikbaar op twee
+na (LinkedIn blokkeert bots; genuinecontact.net bestaat niet meer).
