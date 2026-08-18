@@ -102,7 +102,7 @@ export const NAV_ITEMS: NavItem[] = [
     feature: {
       title: "Tools voor meer betrokkenheid",
       desc: "Interactieve formats voor verrassende ervaring en meer verbinding.",
-      titleEn: "Tools for more involvement",
+      titleEn: "Tools for more engagement",
       descEn: "Interactive formats for a surprising experience and more connection.",
     },
     children: [

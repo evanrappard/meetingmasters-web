@@ -87,7 +87,7 @@ export default function PlanningSupportPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-[#666666] text-lg leading-relaxed">
             Digital or hybrid: good meetings are not about technology. They are
-            about contact and involvement, which starts with human-centric design
+            about contact and engagement, which starts with human-centric design
             and a solid set-up. Our Meeting Masters are trained to guide and
             unburden participants and organizers as much as possible — planned
             and unplanned. That gives peace, focus, and a much more pleasant

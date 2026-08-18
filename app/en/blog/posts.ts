@@ -583,9 +583,9 @@ const ONGESORTEERD: BlogPostEN[] = [
     "iso": "2026-04-15",
     "img": "/images/blog/systeemwoede.webp",
     "imgAlt": "Illustration for an article on technical frustration in online meetings",
-    "excerpt": "Frustration with technology is an underrated factor in online sessions. Anyone still recovering from a technical fight isn't connecting with the content — involvement starts at the login, not at the first agenda item.",
+    "excerpt": "Frustration with technology is an underrated factor in online sessions. Anyone still recovering from a technical fight isn't connecting with the content — engagement starts at the login, not at the first agenda item.",
     "dek": "Rage at technology that won't cooperate is one of the most underrated factors in online gatherings. The answer isn't better kit, but more humanity.",
-    "metaDescription": "System rage in online meetings blocks involvement. Why the answer isn't better tech, but more humanity and real in-meeting service.",
+    "metaDescription": "System rage in online meetings blocks engagement. Why the answer isn't better tech, but more humanity and real in-meeting service.",
     "readingMinutes": 4,
     "blocks": [
       {
@@ -594,7 +594,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "In this piece we look at what powerlessness does to involvement, and why the answer isn't better kit or ever more advanced features, but more humanity."
+        "text": "In this piece we look at what powerlessness does to engagement, and why the answer isn't better kit or ever more advanced features, but more humanity."
       },
       {
         "type": "h2",
@@ -610,7 +610,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "h2",
-        "text": "Rage blocks involvement"
+        "text": "Rage blocks engagement"
       },
       {
         "type": "p",
@@ -658,11 +658,11 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "h2",
-        "text": "Involvement starts before the first slide"
+        "text": "Engagement starts before the first slide"
       },
       {
         "type": "p",
-        "text": "You don't organise involvement once the agenda begins. It starts the moment someone logs in. Do they feel welcome? Does everything work? Is there somebody to help when it doesn't? Or are you fiddling with your settings on your own while the rest have already started?"
+        "text": "You don't organise engagement once the agenda begins. It starts the moment someone logs in. Do they feel welcome? Does everything work? Is there somebody to help when it doesn't? Or are you fiddling with your settings on your own while the rest have already started?"
       },
       {
         "type": "p",
@@ -730,7 +730,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "Organisations that grasp this raise the bar. They go for meetings with real contact, and put involvement above attendance. And they carry it through everywhere. In meetings in a room, and all the more in meetings online. Don't settle for staring blankly at a screen full of square talking heads. Be curious, be critical, be creative. Try putting that on the agenda. A philosophical conversation. Feet on the desk. AI will handle the transcript."
+        "text": "Organisations that grasp this raise the bar. They go for meetings with real contact, and put engagement above attendance. And they carry it through everywhere. In meetings in a room, and all the more in meetings online. Don't settle for staring blankly at a screen full of square talking heads. Be curious, be critical, be creative. Try putting that on the agenda. A philosophical conversation. Feet on the desk. AI will handle the transcript."
       }
     ],
     "metaTitle": "The AI paradox: meetings are worth more"
@@ -782,11 +782,11 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "The real problem isn't group size in itself. You can have a wonderful, involved gathering with three hundred people. The problem is that we don't think about the sum of three things: what do we want to achieve? Who is in the room? And what kind of involvement are we after? That's what you pick a format for."
+        "text": "The real problem isn't group size in itself. You can have a wonderful, involved gathering with three hundred people. The problem is that we don't think about the sum of three things: what do we want to achieve? Who is in the room? And what kind of engagement are we after? That's what you pick a format for."
       },
       {
         "type": "p",
-        "text": "The \"I have a story, I have an audience, now I will tell it\" approach works for a presentation. But the moment you want something from the group — involvement, input, a decision — that asks for something else."
+        "text": "The \"I have a story, I have an audience, now I will tell it\" approach works for a presentation. But the moment you want something from the group — engagement, input, a decision — that asks for something else."
       },
       {
         "type": "h2",
@@ -794,7 +794,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "You put thirty people in a meeting room and expect a good conversation. You open a Zoom call with fifty participants and ask: \"Any questions?\" Afterwards you say: involvement was low. Or: online doesn't work for this sort of thing. But it wasn't the people. And it wasn't the medium. It was that the format didn't match what you were asking of the group."
+        "text": "You put thirty people in a meeting room and expect a good conversation. You open a Zoom call with fifty participants and ask: \"Any questions?\" Afterwards you say: engagement was low. Or: online doesn't work for this sort of thing. But it wasn't the people. And it wasn't the medium. It was that the format didn't match what you were asking of the group."
       },
       {
         "type": "h2",
@@ -898,7 +898,7 @@ const ONGESORTEERD: BlogPostEN[] = [
       },
       {
         "type": "p",
-        "text": "Online forces you to think about what you're actually trying to achieve. You can't lean on the lunch, the drinks, the chance conversations in the corridor. You have to design involvement. And that turns out to be an opportunity. Because if you design a gathering with intent, if you think about the beginning, the middle and the end, if you make room for real interaction, then it works. Online, offline, hybrid. The medium isn't the deciding factor."
+        "text": "Online forces you to think about what you're actually trying to achieve. You can't lean on the lunch, the drinks, the chance conversations in the corridor. You have to design engagement. And that turns out to be an opportunity. Because if you design a gathering with intent, if you think about the beginning, the middle and the end, if you make room for real interaction, then it works. Online, offline, hybrid. The medium isn't the deciding factor."
       },
       {
         "type": "quote",

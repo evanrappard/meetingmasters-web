@@ -34,7 +34,7 @@ export const ABOUT_EN = {
     kicker: "Our manifesto",
     titel: "This is what we stand for.",
     body: "Our manifesto was made in 2021 with and by MeetingMasters: our conviction about why coming together matters. And it still holds.",
-    citaat: "We are keepers of the human perspective: guardians of involvement, of easy access and of genuine contact.",
+    citaat: "We are keepers of the human perspective: guardians of engagement, of easy access and of genuine contact.",
     knop: "Download the manifesto (PDF)",
     href: "/downloads/en/meetingmasters-manifesto.pdf",
     // De Engelse opname van het manifest, aangeleverd door Emilie.
@@ -59,7 +59,7 @@ export const ABOUT_EN = {
   rollen: {
     kicker: "Our roles",
     titel: "What we do — beforehand and on the day itself.",
-    intro: "From strategy to concept. From online meeting support to evaluation and next steps. We aim for the fullest possible involvement, because that's what produces the best results — and we're careful with everyone's energy, time and budget.",
+    intro: "From strategy to concept. From online meeting support to evaluation and next steps. We aim for the fullest possible engagement, because that's what produces the best results — and we're careful with everyone's energy, time and budget.",
     vooraf: "Before the gathering",
     voorafOnder: "From the question behind the question to a space that's ready.",
     tijdens: "During the gathering",
@@ -98,7 +98,7 @@ export const ABOUT_EN = {
   ],
 
   faqMore: [
-    { q: "Are good online meetings about technology?", a: "No. Digital or hybrid: good meetings aren't about technology but about contact and involvement. And that starts with the design and the concept of the gathering, not with the delivery." },
+    { q: "Are good online meetings about technology?", a: "No. Digital or hybrid: good meetings aren't about technology but about contact and engagement. And that starts with the design and the concept of the gathering, not with the delivery." },
     { q: "What happens if a gathering doesn't go to plan?", a: "When things take a turn, it comes down to a clear grasp of the goals, knowledge of video platforms and switching quickly and sensibly. Our Meeting Masters are trained to guide participants and organisers and take the weight off them throughout, planned and unplanned alike. That brings calm, focus and a far more pleasant atmosphere." },
     { q: "Which platforms do you work with?", a: "Zoom, Zoom Events, Microsoft Teams and SpatialChat (our platform of choice), among others. Which platform fits best follows from the purpose of the gathering and the experience you want participants to have." },
     { q: "Who founded MeetingMasters?", a: "Emilie van Rappard, an experienced brand and participation strategist. She worked at KLM for many years, then independently through the consultancy ismu, and founded MeetingMasters Online in 2020." },

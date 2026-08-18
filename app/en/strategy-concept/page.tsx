@@ -13,7 +13,7 @@ const cards = [
     img: "/images/strategy-1.png",
     alt: "Goal and direction",
     title: "Goal & direction",
-    body: "We formulate meeting strategies that stimulate involvement and contribute to reaching your goals. What is the context of your meetings? What is the envisioned result, both in terms of content and relationships?",
+    body: "We formulate meeting strategies that stimulate engagement and contribute to reaching your goals. What is the context of your meetings? What is the envisioned result, both in terms of content and relationships?",
   },
   {
     img: "/images/format-1.jpg",

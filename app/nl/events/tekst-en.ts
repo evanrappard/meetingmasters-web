@@ -37,7 +37,7 @@ export const OVERZICHT_EN = {
         body: "Experienced thinking partners who take work off your hands, with hospitality as second nature: everything runs to time, calmly, and nothing gets forgotten.",
       },
       {
-        title: "More involvement",
+        title: "More engagement",
         body: "Interaction that means something strengthens trust, connection and reputation.",
       },
       {
@@ -114,7 +114,7 @@ export const OVERZICHT_EN = {
   faq: [
     {
       q: "What is an online event?",
-      a: "An online event is a gathering that takes place entirely digitally. That can be a webinar, but equally a conference, town hall, networking event, training or strategy day. The key difference from an ordinary online meeting is that an online event is deliberately designed around interaction, involvement and experience.",
+      a: "An online event is a gathering that takes place entirely digitally. That can be a webinar, but equally a conference, town hall, networking event, training or strategy day. The key difference from an ordinary online meeting is that an online event is deliberately designed around interaction, engagement and experience.",
     },
     {
       q: "How do you run a successful online event?",
@@ -169,7 +169,7 @@ export const OVERZICHT_EN = {
     },
     {
       q: "What does an online event deliver?",
-      a: "A good online event brings people together around a shared purpose. That might be sharing knowledge, taking decisions, meeting each other, building involvement or developing new ideas. Success isn't in the number of participants but in what people take away afterwards.",
+      a: "A good online event brings people together around a shared purpose. That might be sharing knowledge, taking decisions, meeting each other, building engagement or developing new ideas. Success isn't in the number of participants but in what people take away afterwards.",
     },
     {
       q: "Does an online event suit international participants?",

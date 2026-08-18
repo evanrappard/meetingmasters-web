@@ -135,7 +135,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Which software do you use?",
-        "a": "We always go for interactive platforms, because involvement is essential to a successful strategy day. We have experience with Zoom, Zoom Events and Teams. But for a strategy day we'd gladly show you SpatialChat as well — often exactly the bit of extra interaction that gets decision-making moving. What fits best depends on your goal and your group."
+        "a": "We always go for interactive platforms, because engagement is essential to a successful strategy day. We have experience with Zoom, Zoom Events and Teams. But for a strategy day we'd gladly show you SpatialChat as well — often exactly the bit of extra interaction that gets decision-making moving. What fits best depends on your goal and your group."
       },
       {
         "q": "How do participants prepare?",
@@ -203,7 +203,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
           "body": "A good online town hall brings strategy, decisions and questions together. Not as a stand-alone presentation, but as an interactive online gathering where staff understand what is going on and why it matters."
         },
         {
-          "title": "Involvement at scale",
+          "title": "Engagement at scale",
           "body": "Interaction can work well even with hundreds of participants. With polls, chat, Q&A, short processing tasks and smaller conversations, people stay actively involved."
         },
         {
@@ -275,11 +275,11 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faqMore": [
       {
         "q": "What is the difference between a town hall and a webinar?",
-        "a": "A webinar is usually about passing on knowledge. A town hall is more often about internal communication, involvement and dialogue between staff and management."
+        "a": "A webinar is usually about passing on knowledge. A town hall is more often about internal communication, engagement and dialogue between staff and management."
       },
       {
         "q": "Can a town hall be hybrid?",
-        "a": "Yes. Many organisations combine an audience in the room with online participants. This often costs involvement and interaction. We therefore prefer a clear choice: everyone online, or everyone in person."
+        "a": "Yes. Many organisations combine an audience in the room with online participants. This often costs engagement and interaction. We therefore prefer a clear choice: everyone online, or everyone in person."
       },
       {
         "q": "Can staff submit questions in advance?",
@@ -306,7 +306,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "forWho": "Boards, HR and communication teams",
     "range": "50-500 participants",
     "heroAlt": "Participant in an online all-hands with the entire workforce on a large screen",
-    "outcomeSummary": "For involvement across the organisation, open questions and a shared way forward.",
+    "outcomeSummary": "For engagement across the organisation, open questions and a shared way forward.",
     "outcomes": [
       {
         "title": "Involved staff",
@@ -1457,7 +1457,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   },
   "teamuitje": {
     "title": "Running an online team outing",
-    "tagline": "Team building with real involvement: exciting, easy to join and entirely online.",
+    "tagline": "Team building with real engagement: exciting, easy to join and entirely online.",
     "intro": "An online team outing isn't a digital version of the Friday afternoon drinks. We design online team and company outings where people play, talk and work together in an environment that invites contact. From quiz to escape challenge, from creative task to informal networking space: the programme fits your team, your goal and the energy you're after.",
     "forWho": "Teams, departments, project groups, international organisations",
     "range": "10-300 participants",
@@ -1469,7 +1469,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         "body": "Teams discover each other's strengths in an exciting environment that's easy to step into."
       },
       {
-        "title": "High involvement",
+        "title": "High engagement",
         "body": "Everyone joins in, including the people who normally stay in the background."
       },
       {
@@ -1960,7 +1960,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       {
         "label": "Membership body",
         "title": "A dialogue with a heartbeat",
-        "body": "For an association we build a recurring online format in which members share signals, concerns and ideas. Supported by good communication, both turnout and involvement rise over time.",
+        "body": "For an association we build a recurring online format in which members share signals, concerns and ideas. Supported by good communication, both turnout and engagement rise over time.",
         "imgAlt": "Online session with participants on screen alongside figures on working from home and CO2 saved"
       },
       {
@@ -2323,7 +2323,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Concrete follow-up",
-        "body": "Higher conversion and involvement afterwards, because participants actually took part."
+        "body": "Higher conversion and engagement afterwards, because participants actually took part."
       }
     ],
     "steps": [
@@ -2368,7 +2368,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "title": "Interaction as a design choice",
-        "body": "Involvement doesn't just happen. Build polls, questions and moments of exchange in beforehand."
+        "body": "Engagement doesn't just happen. Build polls, questions and moments of exchange in beforehand."
       },
       {
         "title": "Good support for speakers",
@@ -2428,7 +2428,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
       },
       {
         "q": "Which software do you use?",
-        "a": "For webinars we work with Zoom, Zoom Events and Teams. But we'd gladly show you SpatialChat as well: participants can talk it over in small groups afterwards, which raises involvement considerably. What works best depends on your purpose and your audience."
+        "a": "For webinars we work with Zoom, Zoom Events and Teams. But we'd gladly show you SpatialChat as well: participants can talk it over in small groups afterwards, which raises engagement considerably. What works best depends on your purpose and your audience."
       },
       {
         "q": "Can webinars be hybrid?",
@@ -2686,7 +2686,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "faq": [
       {
         "q": "What is Open Space?",
-        "a": "Open Space is a format in which participants propose subjects themselves and shape the agenda together. That creates ownership and involvement."
+        "a": "Open Space is a format in which participants propose subjects themselves and shape the agenda together. That creates ownership and engagement."
       },
       {
         "q": "Does Open Space work online?",

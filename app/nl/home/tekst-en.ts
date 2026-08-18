@@ -18,7 +18,7 @@ export const HOME_EN = {
     // hold/make datzelfde onderscheid vast.
     headline: "A meeting you hold.\nAn encounter you make.",
     subline:
-      "We design online gatherings that genuinely matter.\nMore involvement — with 5, 50 or 500 people.",
+      "We design online gatherings that genuinely matter.\nMore engagement — with 5, 50 or 500 people.",
     cta: "See for yourself →",
     voorbeelden: "See examples",
     videoAlt:
@@ -29,7 +29,7 @@ export const HOME_EN = {
     { number: "Since 2020", label: "online meeting professionals" },
     { number: "250+", label: "events hosted" },
     { number: "94%", label: "participant satisfaction" },
-    { number: "47%", label: "more involvement*" },
+    { number: "47%", label: "more engagement*" },
     { number: "66%", label: "higher turnout*" },
   ],
 
@@ -40,7 +40,7 @@ export const HOME_EN = {
     items: {
       events: {
         label: "Events",
-        headline: "More involvement, even with large groups",
+        headline: "More engagement, even with large groups",
         bullets: ["Strategy day", "All-hands & kick-off", "Leadership day", "Community event"],
         cta: "Surprising, interactive gatherings",
         sub: "When the standard won't do: from strategy days to all-hands and community events.",
@@ -57,7 +57,7 @@ export const HOME_EN = {
         headline: "Learning together, by doing",
         bullets: ["Online escape rooms", "Onboarding games", "Games and quizzes", "Bespoke gamification"],
         cta: "More interaction and play",
-        sub: "Online escape rooms, onboarding games and smart apps for more involvement.",
+        sub: "Online escape rooms, onboarding games and smart apps for more engagement.",
       },
     } as Record<string, { label: string; headline: string; bullets: string[]; cta: string; sub: string }>,
   },
@@ -113,7 +113,7 @@ export const HOME_EN = {
       {
         label: "Games & Tools",
         title: "A cybersecurity escape room for 80 people.",
-        body: "R@venHack — easy to step into, high involvement.",
+        body: "R@venHack — easy to step into, high engagement.",
         imgAlt:
           "RavenHack cybersecurity escape room — participants in a digital world, MeetingMasters Games & Tools",
       },

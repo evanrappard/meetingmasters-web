@@ -63,7 +63,7 @@ Vastgelegd 18 augustus 2026, zodat nieuwe tekst er niet vanaf gaat wijken.
 |---|---|
 | Spelling | **Brits**: organisation, programme, -ise, travellers. Geen -ize, geen color/center. |
 | Samentrekkingen | **Wel gebruiken**: don't, it's, you'll, we'll. Uitzonderingen: FAQ-vragen in zoekvorm ("What is a virtual office?"), de privacy- en cookieverklaring, en koppen waarin juist de ontkenning de klap uitdeelt ("An hour of meeting with twenty people is not an hour"). Klantquotes blijven onaangeroerd. |
-| Betrokkenheid | Nu overal **involvement**. Zie de open punten: engagement is nog een optie. |
+| Betrokkenheid | Overal **engagement** (besluit Emilie, 18 aug 2026). Niet "involvement". Let op: "involved" als bijvoeglijk naamwoord blijft gewoon staan. |
 | Bijeenkomst | **gathering** in merkverhaal, **event** waar op gezocht wordt. |
 | Huisstijl | **branding**, niet "house style". |
 | Meedenken | Niet "think along" — dat bestaat niet in het Engels. Gebruik "advise on", "think it through with you", "help work out". |
@@ -78,7 +78,6 @@ Vastgelegd 18 augustus 2026, zodat nieuwe tekst er niet vanaf gaat wijken.
 |---|---|
 | Privacy statement en cookieverklaring | Juridisch nalezen vóór publicatie. Beide staan er nu wel in het Engels. |
 | Blog-hero | Het beeld bevat het Nederlandse menu. Op de Engelse blog staat nu het Nederlandse beeld; nieuw beeld maken. |
-| Kernterm betrokkenheid | Nu overal "involvement". "Engagement" is de gangbaardere Engelse marktterm en waar op gezocht wordt, maar ook sleetser. Besluit staat nog open. |
 | Vergadermacht | Bestaat niet in het Engels. Komt er een Engelse versie, dan kan het blok terug in `components/downloads/DownloadsPagina.tsx`. |
 
 ## Hoe je controleert of er nog Nederlands in staat

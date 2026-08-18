@@ -30,7 +30,7 @@ export const SPATIALCHAT_EN = {
     alinea2:
       "In SpatialChat participants move freely through a digital space. You walk over to someone — literally. The distance between avatars decides who you hear. Conversations start by themselves, as they do at a drinks reception or in an office.",
     alinea3:
-      "That difference isn't cosmetic. It changes the social dynamic: less formal, more spontaneous, higher involvement. Participants take the initiative themselves instead of waiting to be given the floor.",
+      "That difference isn't cosmetic. It changes the social dynamic: less formal, more spontaneous, higher engagement. Participants take the initiative themselves instead of waiting to be given the floor.",
     traditioneel: "Traditional video conferencing",
     traditioneelPunten: [
       "— Fixed positions, no movement",
@@ -45,7 +45,7 @@ export const SPATIALCHAT_EN = {
   },
 
   stats: [
-    { value: "47%", label: "more involvement than video calling" },
+    { value: "47%", label: "more engagement than video calling" },
     { value: "66%", label: "higher turnout at events" },
     { value: "94%", label: "participant satisfaction score" },
     { value: "6M+", label: "users worldwide" },

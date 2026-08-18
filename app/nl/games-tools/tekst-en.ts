@@ -11,12 +11,12 @@
 export const GAMES_EN = {
   metaTitle: "Games & tools for online meetings | MeetingMasters",
   metaDescription:
-    "Ready-to-play online formats and interactive experiences built around you. From escape rooms to onboarding games — made for groups, designed for involvement.",
+    "Ready-to-play online formats and interactive experiences built around you. From escape rooms to onboarding games — made for groups, designed for engagement.",
 
   hero: {
     kicker: "Games & Tools",
     titel: "Play together. Learn something.",
-    intro: "Ready-to-play online formats and interactive experiences built around you. From escape rooms to onboarding games — made for groups, designed for involvement.",
+    intro: "Ready-to-play online formats and interactive experiences built around you. From escape rooms to onboarding games — made for groups, designed for engagement.",
     cta: "Check availability →",
     meer: "Find out more",
     videoAlt: "Participants playing an online game together during a meeting",
@@ -26,7 +26,7 @@ export const GAMES_EN = {
     gamesTitel: "Gamification: more surprise, better learning.",
     gamesBody: "Playing together brings groups closer and makes the material stick. From a tense escape room to a game built entirely around you — ready to play or fully tailored to your theme.",
     gamesCta: "See the games →",
-    toolsTitel: "Smart tools that raise involvement and participation.",
+    toolsTitel: "Smart tools that raise engagement and participation.",
     toolsBody: "Small aids that make your meeting livelier and give everyone a say. Free and ready to use: open them in the browser and share your screen — nothing else needed.",
     toolsCta: "See the tools →",
   },
@@ -93,7 +93,7 @@ export const GAMES_EN = {
   minderAntwoorden: "Fewer answers",
 
   faq: [
-    { q: "What is the difference between the games and the tools?", a: "The games are complete experiences that we host: an escape room, a cybersecurity game or something bespoke, with a storyline and a clear beginning and end. The tools are small, free aids you use yourself during a meeting — a wheel, a bingo card or a set of inspiration cards — to raise involvement." },
+    { q: "What is the difference between the games and the tools?", a: "The games are complete experiences that we host: an escape room, a cybersecurity game or something bespoke, with a storyline and a clear beginning and end. The tools are small, free aids you use yourself during a meeting — a wheel, a bingo card or a set of inspiration cards — to raise engagement." },
     { q: "Are the tools free to use?", a: "Yes. Every tool on this page is free and ready to use. You open the tool in your browser and share your screen during the meeting — nothing else is needed." },
     { q: "How long do the games take?", a: "That varies per game. The short games run 20 to 30 minutes and fit inside a meeting or a party. The Online Escape Room takes around 60 minutes, with a longer XL version alongside it. For a bespoke game you set the length with us." },
     { q: "What group sizes do the games suit?", a: "The games work for small teams up to large groups; participants usually play in subgroups working in parallel. Tell us your group size and we'll advise on the best set-up." },

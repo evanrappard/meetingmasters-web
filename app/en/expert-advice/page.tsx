@@ -38,7 +38,7 @@ export default function ExpertAdvicePage() {
             <p className="text-[#545454] text-base leading-relaxed">
               Whether it&rsquo;s advice with no strings attached, a second opinion on a
               design you already have, or a set-up you have in mind — what we add is
-              always the same: as much personal contact, interaction and involvement
+              always the same: as much personal contact, interaction and engagement
               as the occasion allows.
             </p>
           </div>
