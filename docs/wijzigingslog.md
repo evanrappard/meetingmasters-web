@@ -685,3 +685,16 @@ nieuwe Engelse tekst er niet vanaf gaat wijken.
 **Gecontroleerd op de productiebouw:** 132 routes zonder 404, 132 routes × 3
 breedtes schoon, eslint 0 fouten, geen Nederlandse resten in de gebouwde HTML,
 en geen samentrekking op een plek waar de volle vorm moet staan.
+
+## 18 augustus 2026 — engagement, en een briefing voor de Engelse H1
+
+- **T** — **"involvement" heet overal "engagement"** (besluit Emilie). 41
+  plekken. "Involved" als bijvoeglijk naamwoord blijft staan, dat is een ander
+  woord. Eén plek om in de gaten te houden: in het manifest-citaat staat nu
+  "guardians of engagement", wat in een geloofsuitspraak net iets zakelijker
+  klinkt dan de rest van die zin.
+- **C** — **`docs/hero-briefing-en.md`** aangemaakt: alles wat nodig is om in
+  de Claude-app te brainstormen over de Engelse H1 van de homepage. Inclusief
+  het **gemeten** tekenbudget (max ± 24 tekens per regel; desktop is de krapste
+  situatie, niet mobiel), de koppen die al op andere pagina's staan, en wat er
+  al is geprobeerd en waarom het afviel.
