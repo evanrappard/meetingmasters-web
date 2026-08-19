@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: { images: ogBeeld(deelBeeld("/events")!, "MeetingMasters") },
   twitter: { card: "summary_large_image", images: [deelBeeld("/events")!] },
   alternates: taalAlternates("/events"),
-  title: "Online Event Formats | MeetingMasters",
+  title: "Online event formats | MeetingMasters",
   description:
     "20 online event formats: van strategiedag en webinar tot escape game, participatietraject en community event. Ontworpen en begeleid door MeetingMasters.",
 };

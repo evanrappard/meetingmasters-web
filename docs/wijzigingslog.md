@@ -793,7 +793,13 @@ Squarespace-site blijft het vangnet tot de nieuwe twee weken goed draait.
 - **B** — `docs/beeld/tabbalk-en-titels.png`: hoe het vignet en de titels er in
   de tabbalk uitzien, oud naast nieuw.
 
-Nog open, aangedragen maar niet besloten: de haakjes "(Virtual Office)" in de
-titel van Virtueel kantoor (zoekmachine-truc uit een eerdere ronde, inmiddels
-overbodig nu er een echte Engelse pagina is), en `Online Event Formats` dat als
-enige kop hoofdletters gebruikt.
+- **T** — De haakjes **"(Virtual Office)"** uit de titel van Virtueel kantoor
+  gehaald. Dat was een zoekmachine-truc uit een eerdere ronde; nu er een echte
+  Engelse pagina is die op die term mikt, en hreflang de twee verbindt, deed hij
+  geen werk meer. Nu: *Virtueel kantoor voor teams | MeetingMasters*.
+- **T** — **`Online Event Formats`** naar `Online event formats`. Dat was de
+  enige titel op de site met hoofdletters midden in de zin.
+
+Gecontroleerd of er meer van dit soort titels stonden: nee. De overige
+hoofdletters zijn eigennamen van formats en tools (Open Space, Wheel of Fortune,
+Inspiration Cards, Kantoor + Cultuur) en die horen zo.
