@@ -131,7 +131,7 @@ export default function TechnologiePage() {
                 <h3 className="text-lg font-bold text-[#2D2D2D] mb-2 leading-snug group-hover:text-[#D4A835] transition-colors">
                   {p.label}
                 </h3>
-                <p className="text-sm text-[#898989] leading-relaxed mb-3">{p.why}</p>
+                <p className="text-sm text-[#6E6E6E] leading-relaxed mb-3">{p.why}</p>
                 <span className="text-[#EEBE3D] text-xs font-bold transition-all group-hover:text-[#D4A835]">Meer →</span>
               </Link>
             ))}
@@ -150,11 +150,11 @@ export default function TechnologiePage() {
             >
               Techniek is er om connectie te ondersteunen.
             </h2>
-            <p className="text-[#545454] text-lg leading-relaxed mb-5">
+            <p className="text-[#434343] text-lg leading-relaxed mb-5">
               Meetings draaien om mensen. Technologie maakt dat mogelijk, maar mag nooit de lead
               krijgen.
             </p>
-            <p className="text-[#777777] leading-relaxed">
+            <p className="text-[#5F5F5F] leading-relaxed">
               Er zijn inmiddels een paar standaarden ontstaan, maar het domein is nog volop in
               ontwikkeling. Wij kijken steeds opnieuw welk platform de menselijke vraag het beste
               ondersteunt — niet welke tool het bekendst of het goedkoopst is.
@@ -174,7 +174,7 @@ export default function TechnologiePage() {
             >
               Er zijn er veel. Dit zijn de drie soorten die tellen.
             </h2>
-            <p className="text-[#777777] text-base mt-3 max-w-[560px]">
+            <p className="text-[#5F5F5F] text-base mt-3 max-w-[560px]">
               Uit tientallen videoplatforms kiezen wij bewust. Grofweg vallen ze in drie soorten
               uiteen — elk met een eigen kracht en een eigen ideale groepsgrootte.
             </p>
@@ -193,7 +193,7 @@ export default function TechnologiePage() {
                 </div>
                 <div className={`${t.bg} flex-1 flex flex-col p-7`}>
                   <h3 className="text-[#2D2D2D] font-bold text-lg mb-3 leading-snug">{t.headline}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed mb-4 flex-1">{t.body}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed mb-4 flex-1">{t.body}</p>
                   <p className="text-[11px] font-bold text-[#28A8AA] uppercase tracking-wide mb-4">{t.meta}</p>
                   <div className="flex flex-wrap gap-2">
                     {t.links.map((l) => (
@@ -218,7 +218,7 @@ export default function TechnologiePage() {
               <h3 className="font-bold text-[#2D2D2D] text-xl md:text-2xl leading-snug mb-4">
                 De vorm van je ruimte bepaalt hoe mensen zich gedragen.
               </h3>
-              <p className="text-[#545454] leading-relaxed mb-6">
+              <p className="text-[#434343] leading-relaxed mb-6">
                 Vakjes zetten iedereen op zenden-en-wachten: één spreekt, de rest kijkt toe. Rondjes
                 laten mensen bewegen, zelf kiezen met wie ze praten en elkaar spontaan tegenkomen —
                 precies zoals aanlopen op kantoor. Dáárom is proximity voor bijzondere bijeenkomsten
@@ -245,7 +245,7 @@ export default function TechnologiePage() {
                   ))}
                 </div>
                 <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide">Vakjes</p>
-                <p className="text-xs text-[#888888]">Zoom · Teams</p>
+                <p className="text-xs text-[#6D6D6D]">Zoom · Teams</p>
               </div>
               <div className="text-[#CFCFCF] text-2xl font-light">vs</div>
               <div className="text-center">
@@ -264,7 +264,7 @@ export default function TechnologiePage() {
                   ))}
                 </div>
                 <p className="text-[10px] font-bold text-[#D4A835] uppercase tracking-wide">Rondjes</p>
-                <p className="text-xs text-[#888888]">SpatialChat</p>
+                <p className="text-xs text-[#6D6D6D]">SpatialChat</p>
               </div>
             </div>
           </div>
@@ -282,7 +282,7 @@ export default function TechnologiePage() {
             >
               Welke tool wanneer?
             </h2>
-            <p className="text-[#777777] text-base mt-3 max-w-[500px]">
+            <p className="text-[#5F5F5F] text-base mt-3 max-w-[500px]">
               Elk platform heeft zijn plek. Wij kiezen bewust welk instrument wanneer past.
             </p>
           </div>
@@ -306,7 +306,7 @@ export default function TechnologiePage() {
                   { name: "SpatialChat", kind: "Proximity", strong: "Verbinding, events, virtual offices, dynamische groepen", size: "tot ~600", use: "Altijd", highlight: true },
                 ].map((row) => (
                   <tr key={row.name} className={`border-b border-[#F0F0F0] last:border-0 ${row.highlight ? "bg-[#FFFDF5]" : ""}`}>
-                    <td className={`py-4 px-5 font-semibold ${row.highlight ? "text-[#2D2D2D]" : "text-[#545454]"}`}>
+                    <td className={`py-4 px-5 font-semibold ${row.highlight ? "text-[#2D2D2D]" : "text-[#434343]"}`}>
                       {row.name}
                       {row.highlight && (
                         <span className="ml-2 text-[9px] bg-[#EEBE3D] text-[#2D2D2D] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
@@ -314,9 +314,9 @@ export default function TechnologiePage() {
                         </span>
                       )}
                     </td>
-                    <td className="py-4 pr-6 text-[#888888]">{row.kind}</td>
-                    <td className="py-4 pr-6 text-[#545454]">{row.strong}</td>
-                    <td className="py-4 pr-6 text-[#888888]">{row.size}</td>
+                    <td className="py-4 pr-6 text-[#6D6D6D]">{row.kind}</td>
+                    <td className="py-4 pr-6 text-[#434343]">{row.strong}</td>
+                    <td className="py-4 pr-6 text-[#6D6D6D]">{row.size}</td>
                     <td className={`py-4 pr-5 font-bold ${row.highlight ? "text-[#EEBE3D]" : "text-[#CCCCCC]"}`}>{row.use}</td>
                   </tr>
                 ))}
@@ -337,7 +337,7 @@ export default function TechnologiePage() {
             >
               Tools die interactie versterken.
             </h2>
-            <p className="text-[#777777] text-sm mt-3 max-w-[480px]">
+            <p className="text-[#5F5F5F] text-sm mt-3 max-w-[480px]">
               Naast het videoplatform werken wij met een selectie van tools die specifieke
               interactiemomenten versterken. Geen onnodige software — alleen wat bijdraagt.
             </p>
@@ -363,7 +363,7 @@ export default function TechnologiePage() {
                   )}
                 </div>
                 <p className="font-bold text-[#2D2D2D] text-sm mb-2">{tool.name}</p>
-                <p className="text-xs text-[#777777] leading-relaxed">{tool.role}</p>
+                <p className="text-xs text-[#5F5F5F] leading-relaxed">{tool.role}</p>
               </div>
             ))}
           </div>
@@ -382,7 +382,7 @@ export default function TechnologiePage() {
               >
                 Je staat er nooit alleen voor.
               </h2>
-              <p className="text-[#545454] leading-relaxed mb-8 max-w-[560px]">
+              <p className="text-[#434343] leading-relaxed mb-8 max-w-[560px]">
                 De beste techniek is de techniek die je niet merkt. Daarom regelen wij support van
                 begin tot eind: we bereiden voor, we staan klaar aan de telefoon en we zijn live
                 aanwezig in je bijeenkomst.
@@ -396,7 +396,7 @@ export default function TechnologiePage() {
                   <div key={s.title} className="rounded-lg border border-[#EBEBEB] bg-white p-5">
                     <span className="text-2xl mb-3 block">{s.icon}</span>
                     <p className="font-bold text-[#2D2D2D] text-sm mb-1">{s.title}</p>
-                    <p className="text-xs text-[#777777] leading-relaxed">{s.body}</p>
+                    <p className="text-xs text-[#5F5F5F] leading-relaxed">{s.body}</p>
                   </div>
                 ))}
               </div>

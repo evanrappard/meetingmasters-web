@@ -72,8 +72,8 @@ export default function MeetingCalculatorPagina({ taal = "nl" }: { taal?: Taal }
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
               {t.waarom.titel}
             </h2>
-            <p className="text-[#545454] leading-relaxed mb-4">{t.waarom.body1}</p>
-            <p className="text-[#545454] leading-relaxed">{t.waarom.body2}</p>
+            <p className="text-[#434343] leading-relaxed mb-4">{t.waarom.body1}</p>
+            <p className="text-[#434343] leading-relaxed">{t.waarom.body2}</p>
           </div>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function MeetingCalculatorPagina({ taal = "nl" }: { taal?: Taal }
             {t.faq.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -102,7 +102,7 @@ export default function MeetingCalculatorPagina({ taal = "nl" }: { taal?: Taal }
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
               {t.cta.titel}
             </h2>
-            <p className="text-[#545454] leading-relaxed mb-6">{t.cta.body}</p>
+            <p className="text-[#434343] leading-relaxed mb-6">{t.cta.body}</p>
             <div className="flex flex-wrap gap-3">
               <Link
                 href={t.links.advies}
@@ -112,7 +112,7 @@ export default function MeetingCalculatorPagina({ taal = "nl" }: { taal?: Taal }
               </Link>
               <Link
                 href={t.links.tools}
-                className="text-[#545454] text-sm font-semibold px-6 py-3 border border-[#D2D2D0] rounded hover:border-[#2D2D2D] transition-colors"
+                className="text-[#434343] text-sm font-semibold px-6 py-3 border border-[#D2D2D0] rounded hover:border-[#2D2D2D] transition-colors"
               >
                 {t.cta.tools}
               </Link>

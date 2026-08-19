@@ -23,7 +23,7 @@ export default function EscapeRoomsPage() {
         <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
           Online escape rooms
         </h1>
-        <p className="text-[#666666] text-lg max-w-xl mx-auto">
+        <p className="text-[#525252] text-lg max-w-xl mx-auto">
           Spannende, teambuildende escape-ervaringen. Online. Ideaal voor
           teamevents, onboarding en congressen.
         </p>
@@ -46,7 +46,7 @@ export default function EscapeRoomsPage() {
             <h2 className="text-2xl font-bold text-primary mb-3">
               EscapeMasters
             </h2>
-            <p className="text-[#666666] leading-relaxed mb-6">
+            <p className="text-[#525252] leading-relaxed mb-6">
               Onze kenmerkende online escape room-ervaring — meeslepend, leuk en
               echt teambuildend. Deelnemers werken samen om puzzels op te lossen,
               aanwijzingen te ontcijferen en samen te ontsnappen. Ontworpen om
@@ -73,7 +73,7 @@ export default function EscapeRoomsPage() {
             <h2 className="text-2xl font-bold text-primary mb-3">
               R@venHack: Cyber Security
             </h2>
-            <p className="text-[#666666] leading-relaxed mb-6">
+            <p className="text-[#525252] leading-relaxed mb-6">
               Een escape game met cybersecurity-thema die leert én spanning geeft.
               Teams werken samen om een cyberaanval te stoppen en leren op de meest
               boeiende manier over digitale veiligheid. Ideaal voor organisaties die

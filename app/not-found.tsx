@@ -28,13 +28,13 @@ export default function NotFound() {
         </p>
         <h1 className="text-3xl sm:text-4xl font-bold text-[#2D2D2D] leading-snug mb-4 max-w-[620px]">
           Deze pagina bestaat niet meer.
-          <span className="block text-[#898989]">This page no longer exists.</span>
+          <span className="block text-[#6E6E6E]">This page no longer exists.</span>
         </h1>
-        <p className="text-[#545454] leading-relaxed max-w-[560px] mb-2">
+        <p className="text-[#434343] leading-relaxed max-w-[560px] mb-2">
           Misschien is hij verhuisd, of klopt er iets niet aan de link. Hieronder
           kom je weer op weg.
         </p>
-        <p className="text-[#898989] leading-relaxed max-w-[560px] mb-8">
+        <p className="text-[#6E6E6E] leading-relaxed max-w-[560px] mb-8">
           It may have moved, or the link may be wrong. The links below will get
           you back on track.
         </p>
@@ -51,7 +51,7 @@ export default function NotFound() {
               <span className="text-[#D2D2D0]">·</span>
               <Link
                 href={l.enHref}
-                className="text-sm text-[#898989] hover:text-[#28A8AA] transition-colors"
+                className="text-sm text-[#6E6E6E] hover:text-[#28A8AA] transition-colors"
               >
                 {l.en} <span className="text-[11px]">EN</span>
               </Link>
@@ -59,7 +59,7 @@ export default function NotFound() {
           ))}
         </div>
 
-        <p className="text-sm text-[#898989] mt-10">
+        <p className="text-sm text-[#6E6E6E] mt-10">
           Kom je er niet uit? Mail{" "}
           <a
             href="mailto:contact@meetingmasters.online"

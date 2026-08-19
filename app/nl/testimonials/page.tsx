@@ -77,7 +77,7 @@ export default function TestimonialsPage() {
       {/* Header */}
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
         <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-3">Ervaringen</h1>
-        <p className="text-[#666666] text-lg max-w-xl mx-auto">
+        <p className="text-[#525252] text-lg max-w-xl mx-auto">
           Wat onze klanten zeggen over de samenwerking met MeetingMasters.
         </p>
       </div>
@@ -92,7 +92,7 @@ export default function TestimonialsPage() {
             <h3 className="font-bold text-[#333333] text-lg mb-3">
               {t.company}
             </h3>
-            <p className="italic text-[#666666] leading-relaxed">
+            <p className="italic text-[#525252] leading-relaxed">
               &ldquo;{t.quote}&rdquo;
             </p>
           </div>

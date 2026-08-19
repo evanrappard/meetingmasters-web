@@ -72,10 +72,10 @@ export default function HurenPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
               {t.wat.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed mb-4">
+            <p className="text-[#434343] leading-relaxed mb-4">
               {t.wat.body1}
              </p>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.wat.body2}
              </p>
           </div>
@@ -95,7 +95,7 @@ export default function HurenPagina({ taal = "nl" }: { taal?: Taal }) {
             {punten.map((item) => (
               <div key={item.title} className="bg-white rounded p-6 shadow-sm border border-[#EBEBEB]">
                 <h3 className="font-bold text-[#2D2D2D] text-base mb-2 leading-snug">{item.title}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -103,7 +103,7 @@ export default function HurenPagina({ taal = "nl" }: { taal?: Taal }) {
           {/* Community Services — bijkoop */}
           <div className="mt-6 bg-white rounded p-6 shadow-sm border border-[#EBEBEB] border-l-4 border-l-[#EEBE3D]">
             <p className="text-[#28A8AA] text-[11px] font-bold tracking-widest uppercase mb-2">{t.inbegrepen.optioneel}</p>
-            <p className="text-sm text-[#545454] leading-relaxed">
+            <p className="text-sm text-[#434343] leading-relaxed">
               {t.inbegrepen.optioneelBody}
              </p>
           </div>
@@ -119,10 +119,10 @@ export default function HurenPagina({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.praktijk.titel}
                </h2>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#434343] leading-relaxed mb-4">
                 {t.praktijk.body}
                </p>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.praktijk.veiligheid}
                </p>
             </div>
@@ -148,7 +148,7 @@ export default function HurenPagina({ taal = "nl" }: { taal?: Taal }) {
             {faqs.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>

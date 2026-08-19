@@ -83,17 +83,17 @@ export default function RemoteOfficePage() {
                 Not just a meeting tool.
                 <br />A place where your team lives.
               </h2>
-              <p className="text-[#666666] leading-relaxed mb-4">
+              <p className="text-[#525252] leading-relaxed mb-4">
                 Most remote teams work in isolation and only come together when
                 something is scheduled. A virtual office changes that — it gives
                 people a shared space that&apos;s always there.
               </p>
-              <p className="text-[#666666] leading-relaxed mb-4">
+              <p className="text-[#525252] leading-relaxed mb-4">
                 We work with SpatialChat: a platform where participants move
                 through virtual rooms, fall into proximity-based conversations,
                 and experience something closer to an office than a call grid.
               </p>
-              <p className="text-[#666666] leading-relaxed mb-6">
+              <p className="text-[#525252] leading-relaxed mb-6">
                 We set it up, design the layout, train your team, and stay
                 available for the moments that need a facilitator.
               </p>
@@ -128,7 +128,7 @@ export default function RemoteOfficePage() {
                 <h3 className="font-bold text-[#333333] text-base mb-3">
                   {f.title}
                 </h3>
-                <p className="text-sm text-[#666666] leading-relaxed">{f.body}</p>
+                <p className="text-sm text-[#525252] leading-relaxed">{f.body}</p>
               </div>
             ))}
           </div>
@@ -145,7 +145,7 @@ export default function RemoteOfficePage() {
             <h3 className="text-xl font-bold text-primary mb-4">
               World Olympians Association: e-OLY House
             </h3>
-            <p className="text-[#666666] leading-relaxed mb-4">
+            <p className="text-[#525252] leading-relaxed mb-4">
               The World Olympians Association needed a virtual home for former
               Olympians around the globe — a place where members could connect,
               host events, and gather without mandated programming. We built

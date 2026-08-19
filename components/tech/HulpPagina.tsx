@@ -100,7 +100,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.handleidingen.kop}
             </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.handleidingen.onder}
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
                   loading="lazy"
                   className="h-11 w-auto max-w-full object-contain object-left"
                 />
-                <p className="text-[#545454] text-sm mt-6">{h.soort}</p>
+                <p className="text-[#434343] text-sm mt-6">{h.soort}</p>
                 <span className="inline-block mt-2 text-[#28A8AA] text-sm font-bold group-hover:underline">
                   {h.actie} →
                 </span>
@@ -139,7 +139,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.faq.kop}
             </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.faq.onder}
             </p>
           </div>
@@ -173,7 +173,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
               {t.it.kop}
             </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.it.onder}
             </p>
           </div>
@@ -203,7 +203,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
                   <p className="text-[15px] text-[#2D2D2D] font-semibold leading-snug mb-4">{p.kern}</p>
                   <ul className="space-y-2.5">
                     {p.punten.map((punt) => (
-                      <li key={punt} className="flex gap-2.5 items-start text-sm text-[#545454] leading-relaxed">
+                      <li key={punt} className="flex gap-2.5 items-start text-sm text-[#434343] leading-relaxed">
                         <span className="text-[#28A8AA] shrink-0 mt-0.5" aria-hidden>✓</span>
                         {punt}
                       </li>
@@ -227,7 +227,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
             ))}
           </div>
           <div className="mt-10 pt-8 border-t border-[#D8DFD2]">
-            <p className="text-[#545454] leading-relaxed max-w-[720px]">
+            <p className="text-[#434343] leading-relaxed max-w-[720px]">
               {t.it.platformsIntro}{" "}
               <Link href="/nl/technologie/tools" className="text-[#28A8AA] font-semibold hover:underline">
                 {t.it.platformsKnop}
@@ -251,7 +251,7 @@ function FaqLijst({ items }: { items: { q: string; a: string }[] }) {
             <span className="font-semibold text-[#2D2D2D] text-[15px] leading-snug">{f.q}</span>
             <span className="text-[#28A8AA] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden>+</span>
           </summary>
-          <p className="text-sm text-[#555555] leading-relaxed mt-3">{f.a}</p>
+          <p className="text-sm text-[#444444] leading-relaxed mt-3">{f.a}</p>
         </details>
       ))}
     </div>

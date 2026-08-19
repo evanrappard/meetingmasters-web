@@ -202,7 +202,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
                 >
                   {s.value}
                 </p>
-                <p className="text-[#898989] text-sm leading-snug">{s.label}</p>
+                <p className="text-[#6E6E6E] text-sm leading-snug">{s.label}</p>
               </div>
             ))}
           </div>
@@ -223,7 +223,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
               >
                 {t.waarom.titel}
               </h2>
-              <div className="space-y-4 text-[#545454] text-[15px] leading-relaxed">
+              <div className="space-y-4 text-[#434343] text-[15px] leading-relaxed">
                 <p>{t.waarom.alinea1}</p>
                 <p>{t.waarom.alinea2}</p>
                 <p>{t.waarom.alinea3}</p>
@@ -247,7 +247,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
                     </div>
                   ))}
                 </div>
-                <ul className="text-[13px] text-[#898989] space-y-1">
+                <ul className="text-[13px] text-[#6E6E6E] space-y-1">
                   {t.waarom.traditioneelPunten.map((p) => (
                     <li key={p}>{p}</li>
                   ))}
@@ -317,7 +317,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
               <div key={f.title} className="bg-white rounded-lg p-6 border border-[#EBEBEB]">
                 <span className="text-2xl text-[#EEBE3D] mb-4 block">{features[i]?.icon}</span>
                 <h3 className="font-bold text-[#2D2D2D] text-[15px] mb-2">{f.title}</h3>
-                <p className="text-[#898989] text-sm leading-relaxed">{f.body}</p>
+                <p className="text-[#6E6E6E] text-sm leading-relaxed">{f.body}</p>
               </div>
             ))}
           </div>
@@ -337,7 +337,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
             >
               {t.ruimtes.titel}
             </h2>
-            <p className="text-[#545454] text-[15px] leading-relaxed mt-4">
+            <p className="text-[#434343] text-[15px] leading-relaxed mt-4">
               {t.ruimtes.onder}
             </p>
           </div>
@@ -346,11 +346,11 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
               <div key={r.name} className={`rounded-lg p-6 border ${r.color}`}>
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="font-bold text-[#2D2D2D] text-[16px]">{r.name}</h3>
-                  <span className="text-[12px] font-medium text-[#898989] whitespace-nowrap pt-0.5">
+                  <span className="text-[12px] font-medium text-[#6E6E6E] whitespace-nowrap pt-0.5">
                     {r.capacity}
                   </span>
                 </div>
-                <p className="text-[#545454] text-sm leading-relaxed">{r.use}</p>
+                <p className="text-[#434343] text-sm leading-relaxed">{r.use}</p>
               </div>
             ))}
           </div>
@@ -407,7 +407,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
               >
                 {t.cta.titel}
               </h2>
-              <p className="text-[#545454] text-[15px] leading-relaxed max-w-[480px]">
+              <p className="text-[#434343] text-[15px] leading-relaxed max-w-[480px]">
                 {t.cta.onder}
               </p>
             </div>
@@ -420,7 +420,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
               </Link>
               <Link
                 href={t.links.hulp}
-                className="border border-[#EBEBEB] text-[#545454] text-sm font-medium px-7 py-3.5 rounded hover:border-[#CCCCCC] transition-colors text-center"
+                className="border border-[#EBEBEB] text-[#434343] text-sm font-medium px-7 py-3.5 rounded hover:border-[#CCCCCC] transition-colors text-center"
               >
                 {t.hero.hulp}
               </Link>
@@ -434,7 +434,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <Link
             href={t.links.technologie}
-            className="text-[13px] text-[#898989] hover:text-[#545454] transition-colors"
+            className="text-[13px] text-[#6E6E6E] hover:text-[#434343] transition-colors"
           >
             {t.terug}
           </Link>

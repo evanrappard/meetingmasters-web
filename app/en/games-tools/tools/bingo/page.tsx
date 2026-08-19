@@ -66,14 +66,14 @@ export default function BingoPage() {
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
             About the bingo
           </p>
-          <p className="text-[#545454] leading-relaxed mb-6">
+          <p className="text-[#434343] leading-relaxed mb-6">
             In a long plenary session attention drifts by itself. Give people something to watch
             for, and they listen more sharply than you asked:
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
             Which words are going to come up today?
           </h2>
-          <p className="text-[#545454] text-lg leading-[1.9]">
+          <p className="text-[#434343] text-lg leading-[1.9]">
             Put your own words on the card.
             <br />
             Share the link with your participants.

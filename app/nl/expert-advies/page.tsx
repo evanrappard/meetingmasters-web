@@ -25,13 +25,13 @@ export default function ExpertAdviesPage() {
             <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
               Houd je idee vrijblijvend tegen ons aan.
             </h1>
-            <p className="text-[#545454] text-lg leading-relaxed mb-4">
+            <p className="text-[#434343] text-lg leading-relaxed mb-4">
               Wij zijn specialisten op het gebied van online meetings. Voel je
               altijd vrij om even contact op te nemen om een idee tegen ons aan te
               houden. Je krijgt altijd ons eerlijke advies, desgewenst uitgewerkt
               in een vrijblijvende offerte.
             </p>
-            <p className="text-[#545454] text-base leading-relaxed">
+            <p className="text-[#434343] text-base leading-relaxed">
               Of het nu gaat om vrijblijvend advies, input op een bestaand ontwerp
               of een opzet die je voor ogen hebt — onze bijdrage ligt altijd in het
               toevoegen van maximaal persoonlijk contact en maximale interactie en
@@ -50,7 +50,7 @@ export default function ExpertAdviesPage() {
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">
                 Vul het formulier in
               </h2>
-              <p className="text-sm text-[#545454] leading-relaxed mb-8">
+              <p className="text-sm text-[#434343] leading-relaxed mb-8">
                 Laat je vraag of idee achter, dan denken we met je mee. Je zit
                 nergens aan vast.
               </p>
@@ -60,7 +60,7 @@ export default function ExpertAdviesPage() {
                   en daardoor is het eerste gesprek meteen inhoudelijk. Wie dat
                   liever overslaat, prikt hieronder gewoon een moment. */}
               <div className="mt-8 pt-6 border-t border-[#EBEBEB]">
-                <p className="text-sm text-[#545454] leading-relaxed mb-3">
+                <p className="text-sm text-[#434343] leading-relaxed mb-3">
                   Liever meteen een moment prikken? Dat kan ook.
                 </p>
                 <a
@@ -80,7 +80,7 @@ export default function ExpertAdviesPage() {
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">
                 Liever direct contact?
               </h2>
-              <p className="text-sm text-[#545454] leading-relaxed mb-8">
+              <p className="text-sm text-[#434343] leading-relaxed mb-8">
                 Mail of bel ons gerust — ook voor een kort overleg.
               </p>
 
@@ -95,7 +95,7 @@ export default function ExpertAdviesPage() {
                       <span className="block font-bold text-[#2D2D2D] text-sm">
                         Mail ons
                       </span>
-                      <span className="block text-sm text-[#545454]">
+                      <span className="block text-sm text-[#434343]">
                         contact@meetingmasters.online
                       </span>
                     </span>
@@ -111,9 +111,9 @@ export default function ExpertAdviesPage() {
                       <span className="block font-bold text-[#2D2D2D] text-sm">
                         Bel ons
                       </span>
-                      <span className="block text-sm text-[#545454]">
+                      <span className="block text-sm text-[#434343]">
                         +31 20 239 03 13{" "}
-                        <span className="text-[#898989] text-xs">(kantoor)</span>
+                        <span className="text-[#6E6E6E] text-xs">(kantoor)</span>
                       </span>
                     </span>
                   </a>
@@ -128,7 +128,7 @@ export default function ExpertAdviesPage() {
                       <span className="block font-bold text-[#2D2D2D] text-sm">
                         WhatsApp / mobiel
                       </span>
-                      <span className="block text-sm text-[#545454]">
+                      <span className="block text-sm text-[#434343]">
                         +31 6 4575 2819
                       </span>
                     </span>

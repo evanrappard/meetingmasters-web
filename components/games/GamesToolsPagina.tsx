@@ -85,7 +85,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.intro.gamesTitel}
                </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
-              <p className="text-[#545454] leading-relaxed mb-5">
+              <p className="text-[#434343] leading-relaxed mb-5">
                 {t.intro.gamesBody}
                </p>
               <Link href="#games" className="text-[#28A8AA] text-sm font-bold hover:underline">
@@ -98,7 +98,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.intro.toolsTitel}
                </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
-              <p className="text-[#545454] leading-relaxed mb-5">
+              <p className="text-[#434343] leading-relaxed mb-5">
                 {t.intro.toolsBody}
                </p>
               <Link href="#tools" className="text-[#28A8AA] text-sm font-bold hover:underline">
@@ -117,7 +117,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.games.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.games.onder}
              </p>
           </div>
@@ -129,7 +129,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-bold text-[#2D2D2D] text-base mb-1.5 leading-snug">{g.title}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed mb-3">{g.desc}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed mb-3">{g.desc}</p>
                   <div className="mt-auto">
                     <p className="text-xs font-semibold text-[#2D2D2D] mb-2">{g.detail}</p>
                     <Link href={g.href} className="text-[#28A8AA] text-sm font-bold hover:underline self-start">
@@ -157,10 +157,10 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.ravenhack.titel}
                </h2>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#434343] leading-relaxed mb-4">
                 {t.ravenhack.body1}
                </p>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#434343] leading-relaxed mb-4">
                 {t.ravenhack.body2}
                </p>
               <Link href={t.links.ravenhack} className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
@@ -179,7 +179,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.tools.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.tools.onder}
              </p>
           </div>
@@ -195,7 +195,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-bold text-[#2D2D2D] text-base mb-1.5 leading-snug group-hover:text-[#EEBE3D] transition-colors">{tool.title}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed mb-5">{tool.desc}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed mb-5">{tool.desc}</p>
                   <span className="mt-auto text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
                     {t.tools.open}
                    </span>
@@ -220,7 +220,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.voorJeBegint.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.voorJeBegint.body}
              </p>
           </div>
@@ -232,7 +232,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">
               {t.voorJeBegint.calculatorTitel}
              </h3>
-            <p className="text-[#545454] leading-relaxed mb-5">
+            <p className="text-[#434343] leading-relaxed mb-5">
               {t.voorJeBegint.calculatorBody}
              </p>
             <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">
@@ -255,7 +255,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
             {faqs.slice(0, 4).map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -272,7 +272,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
               {faqs.slice(4).map((item) => (
                 <div key={item.q}>
                   <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
                 </div>
               ))}
             </div>

@@ -63,14 +63,14 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
               height={83}
               className="h-9 w-auto"
             />
-            <p className="text-sm leading-relaxed text-[#898989]">{t.over}</p>
+            <p className="text-sm leading-relaxed text-[#6E6E6E]">{t.over}</p>
             <p className="text-sm font-semibold text-[#EEBE3D]">{t.slogan}</p>
             <a
               href="https://www.linkedin.com/company/meetingmastersonline"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-block text-[#898989] hover:text-[#EEBE3D] transition-colors"
+              className="inline-block text-[#6E6E6E] hover:text-[#EEBE3D] transition-colors"
             >
               <Linkedin size={20} />
             </a>
@@ -131,13 +131,13 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
               <li>
                 <a href="tel:+31202390313" className="hover:text-white transition-colors">
                   +31 20 239 03 13
-                  <span className="text-[#666666] text-xs ml-1">{t.kantoor}</span>
+                  <span className="text-[#525252] text-xs ml-1">{t.kantoor}</span>
                 </a>
               </li>
               <li>
                 <a href="tel:+31645752819" className="hover:text-white transition-colors">
                   +31 6 4575 2819
-                  <span className="text-[#666666] text-xs ml-1">{t.whatsapp}</span>
+                  <span className="text-[#525252] text-xs ml-1">{t.whatsapp}</span>
                 </a>
               </li>
               <li className="text-[#AAAAAA] text-xs leading-relaxed pt-1">
@@ -152,7 +152,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
       </div>
 
       <div className="border-t border-[#3D3D3D] px-6 lg:px-10 py-5 flex flex-col lg:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-[#555555] text-center lg:text-left">
+        <p className="text-xs text-[#444444] text-center lg:text-left">
           © 2026 {BEDRIJF.naam}
           {BEDRIJF.kvk && <> · KvK {BEDRIJF.kvk}</>}
           {BEDRIJF.btw && <> · {taal === "en" ? "VAT" : "Btw"} {BEDRIJF.btw}</>}
@@ -165,7 +165,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
               <Link
                 key={item.href}
                 href={l.href}
-                className="text-[#777777] hover:text-white transition-colors"
+                className="text-[#5F5F5F] hover:text-white transition-colors"
               >
                 {l.label}
               </Link>
@@ -175,7 +175,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
 
         <div className="flex items-center gap-4">
           <LastUpdated date={t.bijgewerkt} taal={taal} />
-          <p className="text-xs text-[#555555]">{t.plaats}</p>
+          <p className="text-xs text-[#444444]">{t.plaats}</p>
         </div>
       </div>
     </footer>

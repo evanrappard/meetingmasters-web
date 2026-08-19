@@ -215,7 +215,7 @@ export default function FaqTechniekPage() {
       <section className="bg-[#F5F5F2] border-t border-[#E8E8E4] py-14 md:py-16">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20 text-center">
           <h2 className="font-bold text-[#2D2D2D] text-xl mb-3">Staat je vraag er niet bij?</h2>
-          <p className="text-[#777777] text-sm max-w-[520px] mx-auto mb-6">
+          <p className="text-[#5F5F5F] text-sm max-w-[520px] mx-auto mb-6">
             Bij een begeleide bijeenkomst van MeetingMasters helpen we je direct — je hoeft niets
             zelf op te lossen. Bel of app ons gerust.
           </p>

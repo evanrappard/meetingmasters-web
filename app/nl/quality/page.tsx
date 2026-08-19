@@ -18,7 +18,7 @@ export default function QualityPage() {
         <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-3">
           Kwaliteit &amp; Vertrouwelijkheid
         </h1>
-        <p className="text-[#666666] text-lg max-w-xl mx-auto">
+        <p className="text-[#525252] text-lg max-w-xl mx-auto">
           Je vertrouwen in ons staat voorop, en wij streven ernaar om je
           verwachtingen bij elke gelegenheid te overtreffen.
         </p>
@@ -29,7 +29,7 @@ export default function QualityPage() {
           <h2 className="text-2xl font-bold text-primary mb-4">
             Echt contact vraagt om echte vertrouwelijkheid
           </h2>
-          <p className="text-[#666666] leading-relaxed">
+          <p className="text-[#525252] leading-relaxed">
             In ons vak zien wij veel, en horen wij veel. Wees gerust: wij zetten
             ons in om de hoogste standaarden op het gebied van privacy en
             vertrouwelijkheid te leveren. Elke Meeting Master heeft een
@@ -42,14 +42,14 @@ export default function QualityPage() {
           <h2 className="text-2xl font-bold text-primary mb-4">
             Kwaliteit is een mentaliteit die ons werk stuurt
           </h2>
-          <p className="text-[#666666] leading-relaxed mb-4">
+          <p className="text-[#525252] leading-relaxed mb-4">
             Met MeetingMasters kun je erop vertrouwen dat elk aspect van je
             vergaderingen met de grootste zorg en professionaliteit wordt
             behandeld. Hoewel wij graag gebruikmaken van technologie, is ons vak
             in de eerste plaats mensenwerk en is online gastvrijheid onze
             belangrijkste dienst.
           </p>
-          <p className="text-[#666666] leading-relaxed">
+          <p className="text-[#525252] leading-relaxed">
             Meeting Masters volgen een uitgebreide training over
             vergaderprotocollen, online etiquette, toegankelijke ondersteuning en
             noodprocedures — met op maat gemaakte briefings en proefsessies voor
@@ -59,7 +59,7 @@ export default function QualityPage() {
         </div>
 
         <div className="border-l-4 border-accent pl-6 py-2">
-          <p className="text-[#555555] italic text-lg">
+          <p className="text-[#444444] italic text-lg">
             &ldquo;Wij brengen inspiratie, innovatie en een menselijke touch naar
             het domein van online vergaderingen, virtuele evenementen en
             thuiswerken. Wij maken samenwerking mogelijk die technologiegedreven

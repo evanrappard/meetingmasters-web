@@ -74,7 +74,7 @@ export default function HoeHetWerktPage() {
                   {s.n}
                 </p>
                 <h3 className="font-bold text-[#2D2D2D] text-base mb-2">{s.title}</h3>
-                <p className="text-sm text-[#777777] leading-relaxed">{s.body}</p>
+                <p className="text-sm text-[#5F5F5F] leading-relaxed">{s.body}</p>
               </div>
             ))}
           </div>
@@ -83,7 +83,7 @@ export default function HoeHetWerktPage() {
           <div className="mt-14 bg-[#F5F5F2] border border-[#E8E8E4] rounded-lg p-7">
             <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-4">Klaar om te kopiëren</p>
             <p className="text-sm font-bold text-[#2D2D2D] mb-3">Uitnodigingstekst voor deelnemers</p>
-            <div className="bg-white border border-[#E8E8E8] rounded p-5 text-sm text-[#545454] leading-relaxed font-mono">
+            <div className="bg-white border border-[#E8E8E8] rounded p-5 text-sm text-[#434343] leading-relaxed font-mono">
               <p>Welkom bij onze bijeenkomst in SpatialChat!</p>
               <br />
               <p>Klik op de link hieronder om deel te nemen. Je hoeft niets te downloaden — de omgeving opent direct in je browser.</p>
@@ -118,7 +118,7 @@ export default function HoeHetWerktPage() {
               <div key={r.title} className="bg-white border border-[#E8E8E8] rounded-lg p-6">
                 <span className="text-2xl mb-4 block">{r.icon}</span>
                 <h3 className="font-bold text-[#2D2D2D] text-sm mb-2">{r.title}</h3>
-                <p className="text-xs text-[#777777] leading-relaxed">{r.body}</p>
+                <p className="text-xs text-[#5F5F5F] leading-relaxed">{r.body}</p>
               </div>
             ))}
           </div>
@@ -136,7 +136,7 @@ export default function HoeHetWerktPage() {
             >
               Vier soorten ruimtes.
             </h2>
-            <p className="text-[#777777] text-sm mt-3 max-w-[460px]">
+            <p className="text-[#5F5F5F] text-sm mt-3 max-w-[460px]">
               SpatialChat heeft verschillende ruimtetypen voor verschillende doelen. MeetingMasters
               bepaalt welk type wanneer past — je als deelnemer beweegt er gewoon doorheen.
             </p>
@@ -147,7 +147,7 @@ export default function HoeHetWerktPage() {
                 <span className="text-2xl shrink-0">{r.icon}</span>
                 <div>
                   <h3 className="font-bold text-[#2D2D2D] text-sm mb-1">{r.name}</h3>
-                  <p className="text-xs text-[#777777] leading-relaxed">{r.desc}</p>
+                  <p className="text-xs text-[#5F5F5F] leading-relaxed">{r.desc}</p>
                 </div>
               </div>
             ))}
@@ -166,7 +166,7 @@ export default function HoeHetWerktPage() {
               { label: "Helpdesk", href: "/nl/technologie/helpdesk" },
             ].map((t) => (
               <Link key={t.label} href={t.href}
-                className="text-sm font-medium text-[#545454] border border-[#E8E8E8] rounded px-4 py-2 hover:border-[#28A8AA] hover:text-[#28A8AA] transition-colors">
+                className="text-sm font-medium text-[#434343] border border-[#E8E8E8] rounded px-4 py-2 hover:border-[#28A8AA] hover:text-[#28A8AA] transition-colors">
                 {t.label}
               </Link>
             ))}

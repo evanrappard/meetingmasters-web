@@ -13,7 +13,7 @@ export default function TeamPage() {
       {/* Header */}
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
         <h1 className="text-4xl font-bold text-primary mb-3">Our Team</h1>
-        <p className="text-[#666666] text-lg">
+        <p className="text-[#525252] text-lg">
           A clear vision and many years of solid experience.
         </p>
       </div>
@@ -33,15 +33,15 @@ export default function TeamPage() {
             <h2 className="text-2xl font-bold text-primary mb-1">
               Emilie van Rappard
             </h2>
-            <p className="italic text-[#666666] text-base mb-6">Founder</p>
-            <p className="text-[#555555] leading-relaxed mb-4">
+            <p className="italic text-[#525252] text-base mb-6">Founder</p>
+            <p className="text-[#444444] leading-relaxed mb-4">
               As a brand and participative strategy consultant, Emilie has been
               guiding national and international groups to explore new directions
               and drive change. Based on the principles of Genuine Contact and
               Liberating Structures, she is in search of what connects people and
               organizations — onsite and online.
             </p>
-            <p className="text-[#555555] leading-relaxed">
+            <p className="text-[#444444] leading-relaxed">
               Emilie is the founder of MeetingMasters Online. With a passion for
               genuine human connection and a deep understanding of digital
               environments, she has built a team and a methodology that
@@ -57,7 +57,7 @@ export default function TeamPage() {
           <h2 className="text-2xl font-bold text-primary mb-2">
             About our Meeting Masters
           </h2>
-          <p className="text-[#666666] mb-8">
+          <p className="text-[#525252] mb-8">
             With a small back office, an extensive partner network, and a solid
             team of highly educated Meeting Masters, we work every day to make
             your meetings, summits, and events better.
@@ -70,7 +70,7 @@ export default function TeamPage() {
               className="object-cover"
             />
           </div>
-          <p className="text-[#555555] leading-relaxed max-w-3xl">
+          <p className="text-[#444444] leading-relaxed max-w-3xl">
             Our Masters are students, recruited for their initiative, customer
             focus, and digital interest. They are problem solvers and communicate
             well, in different languages. Every Meeting Master has been trained at

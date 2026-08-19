@@ -68,7 +68,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.wieWeZijn.titel}
                </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.wieWeZijn.body}
                </p>
             </div>
@@ -78,7 +78,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.drijft.titel}
                </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.drijft.body}
                </p>
             </div>
@@ -130,7 +130,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
               {t.mensen.titel}
              </h2>
-            <p className="text-[#545454] text-lg leading-relaxed">
+            <p className="text-[#434343] text-lg leading-relaxed">
               {t.mensen.body}
              </p>
           </div>
@@ -143,7 +143,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
               </div>
               <p className="text-[#28A8AA] text-[11px] font-bold tracking-widest uppercase mb-2">{t.mensen.oprichter}</p>
               <h3 className="text-xl font-bold text-[#2D2D2D] mb-3">Emilie van Rappard</h3>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#434343] leading-relaxed mb-4">
                 {t.mensen.oprichterBody}
                </p>
               <a
@@ -163,7 +163,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
               </div>
               <p className="text-[#28A8AA] text-[11px] font-bold tracking-widest uppercase mb-2">{t.mensen.team}</p>
               <h3 className="text-xl font-bold text-[#2D2D2D] mb-3">{t.mensen.teamNaam}</h3>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.mensen.teamBody}
                </p>
               <a
@@ -184,7 +184,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
               <h3 className="text-2xl font-bold text-[#2D2D2D] leading-snug mb-3">
                 {t.rollen.titel}
                </h3>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.rollen.intro}
                </p>
             </div>
@@ -193,7 +193,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
             <div className="mb-12">
               <div className="max-w-[760px] mb-6">
                 <h4 className="text-lg font-bold text-[#2D2D2D] mb-1.5">{t.rollen.vooraf}</h4>
-                <p className="text-[#545454] leading-relaxed">
+                <p className="text-[#434343] leading-relaxed">
                   {t.rollen.voorafOnder}
                  </p>
               </div>
@@ -202,7 +202,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                   <div key={r.name}>
                     <span className="block h-[3px] w-8 bg-[#EEBE3D] rounded-full mb-3" />
                     <h5 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h5>
-                    <p className="text-sm text-[#545454] leading-relaxed">{r.desc}</p>
+                    <p className="text-sm text-[#434343] leading-relaxed">{r.desc}</p>
                   </div>
                 ))}
               </div>
@@ -212,7 +212,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
             <div>
               <div className="max-w-[760px] mb-6">
                 <h4 className="text-lg font-bold text-[#2D2D2D] mb-1.5">{t.rollen.tijdens}</h4>
-                <p className="text-[#545454] leading-relaxed">
+                <p className="text-[#434343] leading-relaxed">
                   {t.rollen.tijdensOnder}
                  </p>
               </div>
@@ -221,13 +221,13 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                   <div key={r.name}>
                     <span className="block h-[3px] w-8 bg-[#EEBE3D] rounded-full mb-3" />
                     <h5 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h5>
-                    <p className="text-sm text-[#545454] leading-relaxed">{r.desc}</p>
+                    <p className="text-sm text-[#434343] leading-relaxed">{r.desc}</p>
                   </div>
                 ))}
               </div>
 
               {/* Afsluiter: bindt de twee groepen aan elkaar en wijst vooruit. */}
-              <p className="max-w-[760px] mt-10 text-[#545454] leading-relaxed">
+              <p className="max-w-[760px] mt-10 text-[#434343] leading-relaxed">
                 {t.rollen.na}
                </p>
             </div>
@@ -264,7 +264,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
             {faqs.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -281,7 +281,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
               {faqsMeer.map((item) => (
                 <div key={item.q}>
                   <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
                 </div>
               ))}
             </div>

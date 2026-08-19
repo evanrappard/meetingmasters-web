@@ -62,7 +62,7 @@ export default function HubSpotAgenda({ link, hoogte = "700px", className, taal 
         style={{ minHeight: hoogte }}
       />
       {!geladen && (
-        <p className="text-sm text-[#777777] mt-3">
+        <p className="text-sm text-[#5F5F5F] mt-3">
           {t.laadt}{" "}
           <a href={link} target="_blank" rel="noopener noreferrer" className="text-[#28A8AA] font-semibold hover:underline">
             {t.link}

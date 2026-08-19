@@ -18,7 +18,7 @@ export type FaqCategory = {
 };
 
 const TOOL_COLORS: Record<string, string> = {
-  Algemeen: "bg-[#EFEFEF] text-[#666666]",
+  Algemeen: "bg-[#EFEFEF] text-[#525252]",
   SpatialChat: "bg-[#FFF4D6] text-[#8A6D1A]",
   "Zoom Events": "bg-[#E3F0FB] text-[#2C6FA6]",
   Zoom: "bg-[#E3F0FB] text-[#2C6FA6]",
@@ -88,7 +88,7 @@ export default function TechFaq({
               className={`text-xs font-bold px-3 py-1.5 rounded-full border transition-colors ${
                 !query && activeTool === t
                   ? "bg-[#2D2D2D] text-white border-[#2D2D2D]"
-                  : "bg-white text-[#666666] border-[#DADADA] hover:border-[#2D2D2D]"
+                  : "bg-white text-[#525252] border-[#DADADA] hover:border-[#2D2D2D]"
               }`}
             >
               {t}
@@ -96,7 +96,7 @@ export default function TechFaq({
           ))}
         </div>
         {query && (
-          <p className="text-xs text-[#888888] mt-3">
+          <p className="text-xs text-[#6D6D6D] mt-3">
             {totalMatches} {totalMatches === 1 ? "resultaat" : "resultaten"} voor “{query}”
           </p>
         )}
@@ -131,20 +131,20 @@ export default function TechFaq({
                 <span className="text-2xl" aria-hidden>{c.icon}</span>
                 <h2 className="text-xl font-bold text-[#2D2D2D]">{c.label}</h2>
               </div>
-              {c.intro && <p className="text-sm text-[#777777] leading-relaxed mb-5 max-w-[640px]">{c.intro}</p>}
+              {c.intro && <p className="text-sm text-[#5F5F5F] leading-relaxed mb-5 max-w-[640px]">{c.intro}</p>}
               <div className="border-t border-[#F0F0F0]">
                 {list.map((it) => (
                   <details key={it.id} className="group border-b border-[#F0F0F0] py-4">
                     <summary className="flex justify-between items-start gap-4 list-none cursor-pointer">
                       <span className="flex items-start gap-3">
-                        <span className={`shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded ${TOOL_COLORS[it.tool] ?? "bg-[#EFEFEF] text-[#666666]"}`}>
+                        <span className={`shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded ${TOOL_COLORS[it.tool] ?? "bg-[#EFEFEF] text-[#525252]"}`}>
                           {it.tool}
                         </span>
                         <span className="font-semibold text-[#2D2D2D] text-[15px] leading-snug">{it.q}</span>
                       </span>
                       <span className="text-[#EEBE3D] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0">+</span>
                     </summary>
-                    <div className="text-sm text-[#555555] leading-relaxed mt-3 pl-0 sm:pl-[68px] whitespace-pre-line">{it.a}</div>
+                    <div className="text-sm text-[#444444] leading-relaxed mt-3 pl-0 sm:pl-[68px] whitespace-pre-line">{it.a}</div>
                   </details>
                 ))}
               </div>
@@ -155,7 +155,7 @@ export default function TechFaq({
         {totalMatches === 0 && (
           <div className="rounded-lg border border-[#E8E8E8] bg-[#F9F9F7] p-8 text-center">
             <p className="text-[#2D2D2D] font-bold mb-2">Niets gevonden voor “{query}”.</p>
-            <p className="text-sm text-[#777777] mb-4">
+            <p className="text-sm text-[#5F5F5F] mb-4">
               Geen zorgen — bij een begeleide bijeenkomst van MeetingMasters helpen we je direct.
             </p>
             <a href={`tel:${supportPhone.replace(/\s/g, "")}`} className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-6 py-3 rounded hover:bg-[#D4A835] transition-colors">

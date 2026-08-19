@@ -35,7 +35,7 @@ function Kaart({ item }: { item: Item }) {
       <h3 className="font-bold text-[#2D2D2D] text-lg mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">
         {item.titel}
       </h3>
-      <p className="text-sm text-[#545454] leading-relaxed mb-5 flex-1">{item.body}</p>
+      <p className="text-sm text-[#434343] leading-relaxed mb-5 flex-1">{item.body}</p>
       <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">
         {item.actie} {item.extern ? "↗" : "→"}
       </span>
@@ -123,12 +123,12 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
               <p className="text-[#2D2D2D] font-semibold leading-snug mb-4">
                 Hoe centrale regie op overleg de waarde van bijeenkomsten vergroot.
               </p>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#434343] leading-relaxed mb-4">
                 Over hoe bijeenkomsten werkelijk werken: wie er spreekt, wie er zwijgt, en wat dat
                 doet met wat er wordt besloten. Als vergaderingen de plaats zijn waar
                 strategie en beleid tot leven komen, hoe beleg je die verantwoordelijkheid?
               </p>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 Vul je gegevens in en je ontvangt de publicatie meteen.
               </p>
             </div>
@@ -155,7 +155,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.kompas.titel}
                </h2>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#434343] leading-relaxed mb-4">
                 {t.kompas.body}
                </p>
               <p className="text-sm text-[#8A9493] mb-6">{t.kompas.jaar}</p>
@@ -182,7 +182,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.kompas.geenVideo}{" "}
                 <a href={t.kompas.youtube}>{t.kompas.youtubeLabel}</a>.
               </video>
-              <p className="text-sm text-[#777777] mt-3">
+              <p className="text-sm text-[#5F5F5F] mt-3">
                 {t.kompas.onderschrift}{" "}
                 <a
                   href={t.kompas.youtube}
@@ -205,7 +205,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.direct.kicker}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.direct.titel}
              </p>
           </div>
@@ -225,7 +225,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.handleidingen.kop}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.handleidingen.onder}
              </p>
           </div>
@@ -236,7 +236,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
             ))}
           </div>
 
-          <p className="text-[#545454] leading-relaxed mt-8 max-w-[680px]">
+          <p className="text-[#434343] leading-relaxed mt-8 max-w-[680px]">
             {t.handleidingen.hulpVoor}{" "}
             <Link href={t.links.hulp} className="text-[#28A8AA] font-semibold hover:underline">
               {t.handleidingen.techHulp}
@@ -253,7 +253,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
               {t.cta.kop}
              </h2>
-            <p className="text-[#545454] leading-relaxed mb-6">
+            <p className="text-[#434343] leading-relaxed mb-6">
               {t.cta.onder}
              </p>
             <Link

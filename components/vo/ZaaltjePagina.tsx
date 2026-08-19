@@ -69,10 +69,10 @@ export default function ZaaltjePagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
               {t.wat.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed mb-4">
+            <p className="text-[#434343] leading-relaxed mb-4">
               {t.wat.body1}
              </p>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.wat.body2}
              </p>
           </div>
@@ -87,7 +87,7 @@ export default function ZaaltjePagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.locaties.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.locaties.onder}
              </p>
           </div>
@@ -109,7 +109,7 @@ export default function ZaaltjePagina({ taal = "nl" }: { taal?: Taal }) {
              </Link>
             <p className="leading-tight">
               <span className="text-2xl sm:text-3xl font-bold text-[#2D2D2D]">{t.locaties.vanaf}</span>
-              <span className="block text-sm text-[#545454] mt-1">inclusief korte onboarding-sessie</span>
+              <span className="block text-sm text-[#434343] mt-1">inclusief korte onboarding-sessie</span>
             </p>
           </div>
         </div>
@@ -127,12 +127,12 @@ export default function ZaaltjePagina({ taal = "nl" }: { taal?: Taal }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <Link href={t.links.huren} className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all">
               <h3 className="font-bold text-[#2D2D2D] text-lg mb-2 group-hover:text-[#EEBE3D] transition-colors">{t.meer.huren.title}</h3>
-              <p className="text-sm text-[#545454] leading-relaxed mb-4">{t.meer.huren.body}</p>
+              <p className="text-sm text-[#434343] leading-relaxed mb-4">{t.meer.huren.body}</p>
               <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">{t.meer.huren.cta}</span>
             </Link>
             <Link href={t.links.cultuur} className="group bg-white rounded p-7 shadow-sm border border-[#EBEBEB] hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all">
               <h3 className="font-bold text-[#2D2D2D] text-lg mb-2 group-hover:text-[#EEBE3D] transition-colors">{t.meer.cultuur.title}</h3>
-              <p className="text-sm text-[#545454] leading-relaxed mb-4">{t.meer.cultuur.body}</p>
+              <p className="text-sm text-[#434343] leading-relaxed mb-4">{t.meer.cultuur.body}</p>
               <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">{t.meer.cultuur.cta}</span>
             </Link>
           </div>
@@ -149,7 +149,7 @@ export default function ZaaltjePagina({ taal = "nl" }: { taal?: Taal }) {
             {faqs.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>

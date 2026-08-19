@@ -77,14 +77,14 @@ export default function InspirationCardsPage() {
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
             About the cards
           </p>
-          <p className="text-[#545454] leading-relaxed mb-6">
+          <p className="text-[#434343] leading-relaxed mb-6">
             The success of a brainstorm lies in making connections and associations. This little
             tool is a fine warm-up:
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
             Which card belongs to your question?
           </h2>
-          <p className="text-[#545454] text-lg leading-[1.9]">
+          <p className="text-[#434343] text-lg leading-[1.9]">
             Press Draw a card.
             <br />
             Let the word and the image work on you.

@@ -23,7 +23,7 @@ export default function PartnersPage() {
     <div className="bg-white">
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
         <h1 className="text-4xl font-bold text-primary mb-3">Partners</h1>
-        <p className="text-[#666666] text-lg">
+        <p className="text-[#525252] text-lg">
           We are surrounded by an extensive network of professional specialists.
         </p>
       </div>
@@ -36,15 +36,15 @@ export default function PartnersPage() {
               className="border border-gray-200 rounded-lg p-6 text-center hover:border-accent transition-colors"
             >
               <p className="font-bold text-[#333333] text-base mb-1">{p.name}</p>
-              <p className="italic text-[#888888] text-sm">{p.category}</p>
+              <p className="italic text-[#6D6D6D] text-sm">{p.category}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="bg-gray-50 py-12 text-center">
-        <p className="text-[#666666] mb-2 text-lg">Some of our clients:</p>
-        <p className="text-sm text-[#888888] mb-6">
+        <p className="text-[#525252] mb-2 text-lg">Some of our clients:</p>
+        <p className="text-sm text-[#6D6D6D] mb-6">
           Check out our testimonials section to see what they say…
         </p>
         <Link

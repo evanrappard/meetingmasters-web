@@ -23,7 +23,7 @@ export default function CSRPage() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 space-y-12">
         <div>
-          <p className="text-[#555555] text-lg font-medium mb-4">
+          <p className="text-[#444444] text-lg font-medium mb-4">
             We share a passion to do good. NGOs and aid organizations can count
             on reduced rates.
           </p>
@@ -33,7 +33,7 @@ export default function CSRPage() {
           <h2 className="text-xl font-bold text-primary mb-4">
             Sustainability is a top priority for us
           </h2>
-          <p className="text-[#666666] leading-relaxed mb-4">
+          <p className="text-[#525252] leading-relaxed mb-4">
             Naturally, online meetings are better for the environment than onsite
             gatherings. Participants don&apos;t need to travel, saving not only
             time and money but also fuel. If everyone in the Netherlands were to
@@ -41,7 +41,7 @@ export default function CSRPage() {
             reduction in CO₂ emissions. That is why we train people to turn
             online meetings into real interactions.
           </p>
-          <p className="text-[#666666] leading-relaxed">
+          <p className="text-[#525252] leading-relaxed">
             Additionally, we are committed to sustainability in other ways. We
             advocate for the sustainable employability of individuals. We train
             organizations to make online encounters a natural part of their
@@ -55,7 +55,7 @@ export default function CSRPage() {
           <h3 className="text-xl font-bold text-primary mb-4">
             Working with NGOs or aid organizations?
           </h3>
-          <p className="text-[#666666] mb-6">
+          <p className="text-[#525252] mb-6">
             We offer reduced rates for non-profit organizations. Get in touch to
             discuss the possibilities.
           </p>

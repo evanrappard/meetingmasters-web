@@ -72,14 +72,14 @@ export default function InspiratiekaartenPage() {
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
             Over de kaarten
           </p>
-          <p className="text-[#545454] leading-relaxed mb-6">
+          <p className="text-[#434343] leading-relaxed mb-6">
             Het succes van brainstorms ligt in het maken van verbindingen en associaties. Dit
             tooltje is een fijne opwarmer:
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
             Welke kaart hoort bij jouw vraag?
           </h2>
-          <p className="text-[#545454] text-lg leading-[1.9]">
+          <p className="text-[#434343] text-lg leading-[1.9]">
             Druk op Trek een kaart.
             <br />
             Laat het woord en het beeld op je inwerken.

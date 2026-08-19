@@ -188,7 +188,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
               >
                 <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-2">{item.label}</p>
                 <h3 className="text-base font-bold text-[#2D2D2D] mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">{item.title}</h3>
-                <p className="text-sm text-[#898989] leading-relaxed mb-3">{item.desc}</p>
+                <p className="text-sm text-[#6E6E6E] leading-relaxed mb-3">{item.desc}</p>
                 <span className="text-[#EEBE3D] text-xs font-bold transition-all group-hover:text-[#D4A835] group-hover:text-sm group-hover:tracking-wide">{t.oplossingen.meer}</span>
               </Link>
             ))}
@@ -205,7 +205,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
                 <p className={`font-bold text-[#EEBE3D] mb-1.5 leading-none ${s.number.length > 5 ? "text-xl lg:text-2xl" : "text-3xl lg:text-4xl"}`}>
                   {s.number}
                 </p>
-                <p className="text-xs text-[#545454] leading-snug">{s.label}</p>
+                <p className="text-xs text-[#434343] leading-snug">{s.label}</p>
               </div>
             ))}
           </div>
@@ -247,7 +247,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
                   <h3 className="text-[#2D2D2D] font-bold text-lg mb-4 leading-snug">{headline}</h3>
                   <ul className="space-y-2 mb-6 flex-1">
                     {bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-sm text-[#545454]">
+                      <li key={b} className="flex items-start gap-2 text-sm text-[#434343]">
                         <span className="text-[#2D2D2D] font-bold mt-0.5 flex-shrink-0">—</span>
                         {b}
                       </li>
@@ -310,8 +310,8 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.essentie.kop}
               </h2>
-              <p className="text-[#545454] leading-relaxed mb-4">{t.essentie.alinea1}</p>
-              <p className="text-[#545454] leading-relaxed mb-4">{t.essentie.alinea2}</p>
+              <p className="text-[#434343] leading-relaxed mb-4">{t.essentie.alinea1}</p>
+              <p className="text-[#434343] leading-relaxed mb-4">{t.essentie.alinea2}</p>
               <p className="text-[#2D2D2D] font-bold leading-relaxed mb-8">
                 {t.essentie.quote}
               </p>
@@ -343,12 +343,12 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-2">
                 {t.spatialchat.kop}
               </h2>
-              <p className="text-[#545454] mb-6">{t.spatialchat.onder}</p>
+              <p className="text-[#434343] mb-6">{t.spatialchat.onder}</p>
               <ul className="space-y-4 mb-8">
                 {spatialPunten.map((p) => (
                   <li key={p.kop} className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#EEBE3D] mt-2 flex-shrink-0" />
-                    <p className="text-sm text-[#545454] leading-relaxed">
+                    <p className="text-sm text-[#434343] leading-relaxed">
                       <strong className="text-[#2D2D2D] font-bold">{p.kop}</strong>{" "}{p.desc}
                     </p>
                   </li>
@@ -401,7 +401,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
                   <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-2">{item.label}</p>
                   <h3 className="text-base font-bold text-[#2D2D2D] mb-3 leading-snug flex-1">{item.title}</h3>
                   <p
-                    className="text-sm text-[#545454] leading-relaxed"
+                    className="text-sm text-[#434343] leading-relaxed"
                     {...(item.body.includes('R@venHack') && { 'aria-label': item.body.replace('R@venHack', 'RavenHack') })}
                   >{item.body}</p>
                 </div>
@@ -424,7 +424,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
             {faqs.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>

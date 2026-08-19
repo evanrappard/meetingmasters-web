@@ -112,7 +112,7 @@ export default function ToolPagina({
               {titel}
             </h1>
           </div>
-          <p className="text-[#545454] text-sm leading-relaxed max-w-[420px]">{oneliner}</p>
+          <p className="text-[#434343] text-sm leading-relaxed max-w-[420px]">{oneliner}</p>
         </div>
       </section>
 
@@ -136,7 +136,7 @@ export default function ToolPagina({
             {faq.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">
+                <p className="text-sm text-[#434343] leading-relaxed">
                   {item.a}
                   {item.link && (
                     <>
@@ -169,7 +169,7 @@ export default function ToolPagina({
               <Link
                 key={t.href}
                 href={taal === "en" ? t.hrefEn : t.href}
-                className="text-sm font-semibold text-[#545454] border border-[#E4E1D8] rounded px-5 py-2.5 hover:border-[#EEBE3D] hover:bg-[#FFFBEE] hover:text-[#2D2D2D] transition-colors"
+                className="text-sm font-semibold text-[#434343] border border-[#E4E1D8] rounded px-5 py-2.5 hover:border-[#EEBE3D] hover:bg-[#FFFBEE] hover:text-[#2D2D2D] transition-colors"
               >
                 {taal === "en" ? t.labelEn : t.label} →
               </Link>

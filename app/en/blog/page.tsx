@@ -80,7 +80,7 @@ export default function BlogPage() {
                   <h2 className="font-bold text-[#2D2D2D] text-lg leading-snug mb-3 group-hover:text-[#28A8AA] transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-sm text-[#666666] leading-relaxed mb-5 flex-1">
+                  <p className="text-sm text-[#525252] leading-relaxed mb-5 flex-1">
                     {post.excerpt}
                   </p>
                   <span className="text-xs font-semibold text-[#2D2D2D] pt-4 border-t border-[#F0F0F0] inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">

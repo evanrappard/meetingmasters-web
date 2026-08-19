@@ -76,7 +76,7 @@ export default function CasesPage() {
         <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
           Wat er gebeurt als het werkt.
         </h1>
-        <p className="text-[#666666] text-lg max-w-xl mx-auto">
+        <p className="text-[#525252] text-lg max-w-xl mx-auto">
           Echte organisaties, echte events, en wat zij zeggen over de
           samenwerking met ons.
         </p>
@@ -98,10 +98,10 @@ export default function CasesPage() {
                   <h2 className="text-xl font-bold text-primary mb-4">
                     {c.title}
                   </h2>
-                  <p className="text-[#666666] leading-relaxed">{c.summary}</p>
+                  <p className="text-[#525252] leading-relaxed">{c.summary}</p>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 flex flex-col justify-center">
-                  <p className="italic text-[#666666] text-sm leading-relaxed mb-4">
+                  <p className="italic text-[#525252] text-sm leading-relaxed mb-4">
                     &ldquo;{c.quote}&rdquo;
                   </p>
                   <p className="font-bold text-[#333333] text-sm">
@@ -126,7 +126,7 @@ export default function CasesPage() {
                 key={t.company}
                 className="bg-white rounded-xl p-6 border border-gray-200"
               >
-                <p className="italic text-[#666666] text-sm leading-relaxed mb-4">
+                <p className="italic text-[#525252] text-sm leading-relaxed mb-4">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <p className="font-bold text-[#333333] text-sm">

@@ -111,7 +111,7 @@ export default function PlatformsPage() {
             >
               Vier platforms, vier doelen.
             </h2>
-            <p className="text-[#777777] text-sm mt-3 max-w-[480px]">
+            <p className="text-[#5F5F5F] text-sm mt-3 max-w-[480px]">
               Elk platform heeft zijn plek. Wij werken met het platform dat het beste past bij
               wat wij doen: bijzondere bijeenkomsten en virtual offices.
             </p>
@@ -137,7 +137,7 @@ export default function PlatformsPage() {
                   <p className="text-[10px] font-bold text-[#28A8AA] uppercase tracking-wide mb-2">Voordelen</p>
                   <ul className="space-y-1.5">
                     {p.strengths.map((s) => (
-                      <li key={s} className="flex gap-2 items-start text-sm text-[#545454]">
+                      <li key={s} className="flex gap-2 items-start text-sm text-[#434343]">
                         <span className="text-[#28A8AA] shrink-0 mt-0.5">✓</span>
                         {s}
                       </li>
@@ -157,7 +157,7 @@ export default function PlatformsPage() {
                   </ul>
                 </div>
 
-                <p className={`text-xs leading-relaxed mt-auto pt-4 border-t ${p.highlight ? "border-[#EEE8D0] text-[#545454] font-medium" : "border-[#EBEBEB] text-[#AAAAAA]"}`}>
+                <p className={`text-xs leading-relaxed mt-auto pt-4 border-t ${p.highlight ? "border-[#EEE8D0] text-[#434343] font-medium" : "border-[#EBEBEB] text-[#AAAAAA]"}`}>
                   {p.verdict}
                 </p>
               </div>
@@ -178,18 +178,18 @@ export default function PlatformsPage() {
               >
                 Waarom MeetingMasters voor SpatialChat kiest.
               </h2>
-              <p className="text-[#545454] leading-relaxed mb-5">
+              <p className="text-[#434343] leading-relaxed mb-5">
                 We zijn al in 2021 met SpatialChat begonnen — lang voordat het platform breed
                 bekend was. Niet omdat het de makkelijkste keuze was, maar omdat het als enige
                 deed wat wij willen: echte ruimtelijkheid creëren in een online omgeving.
               </p>
-              <p className="text-[#545454] leading-relaxed mb-5">
+              <p className="text-[#434343] leading-relaxed mb-5">
                 In SpatialChat beweeg je als avatar door een gedeelde ruimte. Je ziet wie er is,
                 loopt naar iemand toe en het gesprek begint vanzelf. Geen link versturen, geen
                 break-out toewijzen, geen scherm afsluiten als het klaar is. Het voelt zoals
                 aanwezig zijn voelt.
               </p>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 Wij zijn officieel Dutch Channel Partner van SpatialChat. Dat betekent een directe
                 lijn met het platform, early access tot nieuwe functies en de zekerheid dat wij
                 dit platform door en door kennen.
@@ -205,7 +205,7 @@ export default function PlatformsPage() {
               ].map((item) => (
                 <div key={item.title} className="border border-[#E8E8E8] rounded-lg p-6 hover:border-[#EEBE3D] transition-colors">
                   <h3 className="font-bold text-[#2D2D2D] text-sm mb-2">{item.title}</h3>
-                  <p className="text-xs text-[#777777] leading-relaxed">{item.body}</p>
+                  <p className="text-xs text-[#5F5F5F] leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>

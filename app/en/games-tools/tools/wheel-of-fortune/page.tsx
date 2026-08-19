@@ -75,14 +75,14 @@ export default function WheelOfFortunePage() {
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
             About the wheel
           </p>
-          <p className="text-[#545454] leading-relaxed mb-6">
+          <p className="text-[#434343] leading-relaxed mb-6">
             A group doesn&rsquo;t much like pointing at itself. Let chance choose, and there&rsquo;s nothing
             personal about it — the conversation simply carries on:
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
             Whose turn is it?
           </h2>
-          <p className="text-[#545454] text-lg leading-[1.9]">
+          <p className="text-[#434343] text-lg leading-[1.9]">
             Fill the wheel with names, questions or tasks.
             <br />
             Spin it and wait.

@@ -18,7 +18,7 @@ export default function EscapeRoomsPage() {
         <h1 className="text-4xl font-bold text-primary mb-4">
           Online Escape Rooms
         </h1>
-        <p className="text-[#666666] text-lg max-w-xl mx-auto">
+        <p className="text-[#525252] text-lg max-w-xl mx-auto">
           Exciting, team-building escape experiences. Online. Perfect for team
           events, onboarding, and conferences.
         </p>
@@ -39,7 +39,7 @@ export default function EscapeRoomsPage() {
             <h2 className="text-2xl font-bold text-primary mb-3">
               EscapeMasters
             </h2>
-            <p className="text-[#666666] leading-relaxed mb-6">
+            <p className="text-[#525252] leading-relaxed mb-6">
               Our signature online escape room experience — engaging, fun, and
               genuinely team-building. Participants collaborate to solve puzzles,
               decode clues, and escape together. Designed to spark energy, laughter,
@@ -66,7 +66,7 @@ export default function EscapeRoomsPage() {
             <h2 className="text-2xl font-bold text-primary mb-3">
               R@venHack: Cyber Security
             </h2>
-            <p className="text-[#666666] leading-relaxed mb-6">
+            <p className="text-[#525252] leading-relaxed mb-6">
               A cybersecurity-themed escape game that educates and thrills. Teams
               work together to stop a cyberattack, learning about digital security
               in the most engaging way possible. Ideal for organizations that want

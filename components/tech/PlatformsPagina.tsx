@@ -87,7 +87,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-2">
               {t.platforms.kop}
             </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.platforms.onder}
             </p>
           </div>
@@ -104,7 +104,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.tools.kop}
             </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.tools.onder}
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
                 <Logo bestand={tool.bestand} naam={tool.naam} />
                 <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mt-5 mb-1">{t.platforms.sterkIn}</p>
                 <p className="font-bold text-[#2D2D2D] leading-snug mb-3">{tool.sterk}</p>
-                <p className="text-sm text-[#545454] leading-relaxed">{tool.body}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{tool.body}</p>
               </article>
             ))}
 
@@ -134,7 +134,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
             </article>
           </div>
 
-          <p className="text-[#545454] leading-relaxed mt-8 max-w-[720px]">
+          <p className="text-[#434343] leading-relaxed mt-8 max-w-[720px]">
             {t.tools.eigenVoor}{" "}
             <Link href={t.links.eigenTools} className="text-[#28A8AA] font-semibold hover:underline">
               {t.tools.eigenLink}
@@ -155,7 +155,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
             {faqs.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -172,7 +172,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
               {faqsMeer.map((item) => (
                 <div key={item.q}>
                   <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
                 </div>
               ))}
             </div>
@@ -189,13 +189,13 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.keuze.kop}
               </h2>
-              <p className="text-[#545454] leading-relaxed mb-4">{t.keuze.alinea1}</p>
-              <p className="text-[#545454] leading-relaxed">{t.keuze.alinea2}</p>
+              <p className="text-[#434343] leading-relaxed mb-4">{t.keuze.alinea1}</p>
+              <p className="text-[#434343] leading-relaxed">{t.keuze.alinea2}</p>
             </div>
 
             <div className="bg-[#F7F7F5] rounded-lg p-7 lg:w-[320px] shrink-0">
               <p className="font-bold text-[#2D2D2D] text-lg leading-snug mb-2">{t.cta.kop}</p>
-              <p className="text-sm text-[#545454] leading-relaxed mb-5">
+              <p className="text-sm text-[#434343] leading-relaxed mb-5">
                 {t.cta.onder}
               </p>
               <Link
@@ -206,7 +206,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
               </Link>
               <Link
                 href={t.links.hulp}
-                className="block text-center mt-3 text-[#545454] text-sm font-semibold px-6 py-3 border border-[#D2D2D0] rounded hover:border-[#2D2D2D] transition-colors"
+                className="block text-center mt-3 text-[#434343] text-sm font-semibold px-6 py-3 border border-[#D2D2D0] rounded hover:border-[#2D2D2D] transition-colors"
               >
                 {t.cta.hulp}
               </Link>

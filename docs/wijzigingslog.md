@@ -929,3 +929,42 @@ Daarmee zijn beeld, icoon en kleur voortaan taalloos, zoals bedoeld.
 bij de praktijkvoorbeelden, en over alle 59 vertaalde paren zijn er nog maar twee
 verschillen — allebei bedoeld: de Engelse homepage slaat het CMS over, en de
 Engelse downloadspagina mist het Vergadermacht-blok.
+
+## 19 augustus 2026 — drie ontwerpcorrecties
+
+Van Emilie, na haar controle van de live site.
+
+**1. Koppen niet verder dan 60% van het beeld.**
+Gemeten op 1440px: de H1's zaten al goed (35–44%), maar **21 sectiekoppen liepen
+tot 78%, en het CTA-blok zelfs tot 83%**. Een regel in `app/globals.css` legt nu
+`max-width: min(60vw, 860px)` op `main h1` en `main h2`, vanaf tablet — op een
+telefoon zou 60% te smal worden. Gecentreerde koppen (Contact, Ervaringen)
+houden hun `margin-inline: auto` en blijven dus gecentreerd. Na de wijziging:
+**nul koppen boven de 60%**.
+
+**2. Bodycopy 20% donkerder.**
+385 tekstkleuren omgezet; elke tint behoudt 80% van zijn waarde.
+
+| was | wordt | contrast op wit |
+|---|---|---|
+| `#545454` | `#434343` | 7,57 → 9,89 |
+| `#666666` | `#525252` | 5,74 → 7,81 |
+| `#777777` | `#5F5F5F` | 4,48 → 6,39 |
+| `#555555` | `#444444` | 7,46 → 9,74 |
+| `#898989` | `#6E6E6E` | 3,50 → **5,10** |
+| `#888888` | `#6D6D6D` | 3,54 → **5,17** |
+
+Meegenomen voordeel: `#898989` en `#888888` haalden met 3,5:1 de WCAG
+AA-drempel van 4,5:1 niet. Nu wel. Ook `dark-grey` en `mid-grey` in
+`tailwind.config.ts` en de body-kleur in `globals.css` zijn mee omgezet.
+
+**3. Alle blokken in dezelfde container.**
+Het CTA-blok had de marge **buiten** de maximumbreedte staan
+(`<section className="… px-6 lg:px-10">` met daarin `max-w-content mx-auto`),
+terwijl de rest van de site het andersom doet. Daardoor viel dat blok 80px
+breder uit en begon het 40px verder naar links. Nu dezelfde opbouw als overal:
+op de homepage staan alle tien containers op links 120, breedte 1200.
+
+**Gecontroleerd:** 137 routes × 3 breedtes zonder overloop, eslint 0 fouten,
+gecentreerde koppen nog gecentreerd, en op de gebouwde pagina is de hoofdtekst
+nu `rgb(67,67,67)`.

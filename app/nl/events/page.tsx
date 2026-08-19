@@ -182,7 +182,7 @@ export const eventCategories: EventCategory[] = [
         title: "Online focusgroep",
         desc: "Diepgaand onderzoek naar wat mensen écht denken, goed gefaciliteerd.",
         bg: "radial-gradient(circle at 38% 38%, #D4DDD0, #B8C4B0)",
-        ic: "text-[#545454]",
+        ic: "text-[#434343]",
         Icon: ScanSearch,
       },
       {

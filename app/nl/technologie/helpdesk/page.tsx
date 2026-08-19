@@ -193,7 +193,7 @@ export default function HelpdeskPage() {
                       <div className="px-6 pb-6 border-t border-[#F0F0F0] pt-5 bg-[#FAFAFA]">
                         <ol className="space-y-3">
                           {issue.steps.map((step, i) => (
-                            <li key={i} className="flex gap-3 items-start text-sm text-[#545454]">
+                            <li key={i} className="flex gap-3 items-start text-sm text-[#434343]">
                               <span className="font-bold text-[#EEBE3D] shrink-0 tabular-nums w-5 text-right">{i + 1}.</span>
                               <span className="leading-relaxed">{step}</span>
                             </li>
@@ -220,7 +220,7 @@ export default function HelpdeskPage() {
             >
               Live hulp via onze digitale assistent.
             </h2>
-            <p className="text-[#777777] text-sm leading-relaxed mb-6">
+            <p className="text-[#5F5F5F] text-sm leading-relaxed mb-6">
               Binnenkort staat hier een assistent die je direct kan helpen bij technische vragen —
               ook midden in een meeting. Stel je vraag en krijg je een directe, persoonlijke
               oplossing.

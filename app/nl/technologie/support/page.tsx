@@ -102,7 +102,7 @@ export default function SupportPage() {
               <div key={p.title} className="rounded-lg border border-[#EBEBEB] bg-white p-7">
                 <span className="text-3xl mb-4 block">{p.icon}</span>
                 <h3 className="font-bold text-[#2D2D2D] text-lg mb-2">{p.title}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{p.body}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{p.body}</p>
               </div>
             ))}
           </div>
@@ -128,10 +128,10 @@ export default function SupportPage() {
                   <span className="text-[#EEBE3D] font-bold text-2xl">{ph.num}</span>
                   <h3 className="font-bold text-[#2D2D2D] text-lg">{ph.title}</h3>
                 </div>
-                <p className="text-sm text-[#545454] leading-relaxed mb-4">{ph.body}</p>
+                <p className="text-sm text-[#434343] leading-relaxed mb-4">{ph.body}</p>
                 <ul className="space-y-1.5">
                   {ph.items.map((it) => (
-                    <li key={it} className="flex items-start gap-2 text-sm text-[#545454]">
+                    <li key={it} className="flex items-start gap-2 text-sm text-[#434343]">
                       <span className="text-[#EEBE3D] font-bold mt-0.5 shrink-0">✓</span>
                       {it}
                     </li>
@@ -154,7 +154,7 @@ export default function SupportPage() {
               >
                 Zorgeloos je volgende bijeenkomst draaien?
               </h2>
-              <p className="text-[#545454] text-base leading-relaxed">
+              <p className="text-[#434343] text-base leading-relaxed">
                 Vertel ons wat je wilt bereiken. Wij zorgen voor de techniek, de voorbereiding en de
                 begeleiding — zodat je je alleen met de inhoud en de mensen hoeft bezig te houden.
               </p>
@@ -180,7 +180,7 @@ export default function SupportPage() {
       {/* ── BACK NAV ─────────────────────────────────────────────────── */}
       <section className="bg-[#F5F5F2] border-t border-[#E8E8E4] py-10">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <Link href="/nl/technologie" className="text-[#888888] text-sm font-semibold hover:text-[#2D2D2D] transition-colors">
+          <Link href="/nl/technologie" className="text-[#6D6D6D] text-sm font-semibold hover:text-[#2D2D2D] transition-colors">
             ← Terug naar Technologie
           </Link>
         </div>

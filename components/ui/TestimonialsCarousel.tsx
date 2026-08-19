@@ -91,7 +91,7 @@ export default function TestimonialsCarousel({ taal = "nl" }: { taal?: Taal }) {
             <div className="w-px h-7 bg-[#DCDCDC] flex-shrink-0 hidden sm:block" />
             <div className="text-left sm:text-left text-center">
               <p className="font-bold text-[#2D2D2D] text-base leading-tight">{s.company}</p>
-              <p className="text-sm text-[#898989] leading-tight">{taal === "en" ? s.contextEn : s.context}</p>
+              <p className="text-sm text-[#6E6E6E] leading-tight">{taal === "en" ? s.contextEn : s.context}</p>
             </div>
           </div>
         </div>

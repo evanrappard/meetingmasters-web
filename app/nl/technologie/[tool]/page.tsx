@@ -90,7 +90,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section style={{ background: data.bg }} className="py-20 md:py-28 border-b border-[#E8E8E4]">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <Link href="/nl/technologie" className="text-[#888888] text-xs font-semibold hover:text-[#2D2D2D] transition-colors">
+          <Link href="/nl/technologie" className="text-[#6D6D6D] text-xs font-semibold hover:text-[#2D2D2D] transition-colors">
             ← Technologie
           </Link>
           <div className="max-w-[680px] mt-6">
@@ -101,7 +101,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             >
               {data.name}: {data.tagline}
             </h1>
-            <p className="text-[#545454] text-base leading-relaxed max-w-[560px] mb-8">{data.intro}</p>
+            <p className="text-[#434343] text-base leading-relaxed max-w-[560px] mb-8">{data.intro}</p>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/nl/expert-advies"
@@ -131,13 +131,13 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             >
               De belangrijkste redenen om te kiezen.
             </h2>
-            <p className="text-[#777777] text-base mt-3 max-w-[520px]">{data.bestFor}</p>
+            <p className="text-[#5F5F5F] text-base mt-3 max-w-[520px]">{data.bestFor}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {data.reasons.map((r) => (
               <div key={r.title} className="bg-white rounded p-6 border border-[#EBEBEB]">
                 <h3 className="font-bold text-[#2D2D2D] text-lg mb-2">{r.title}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{r.body}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{r.body}</p>
               </div>
             ))}
           </div>
@@ -145,7 +145,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
           {/* Zo neemt u deel */}
           <div className="mt-10 rounded-lg bg-[#F5F5F2] border border-[#E8E8E4] p-7 max-w-[760px]">
             <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">Zo neem je deel</p>
-            <p className="text-[#545454] leading-relaxed">{data.howitworks}</p>
+            <p className="text-[#434343] leading-relaxed">{data.howitworks}</p>
           </div>
         </div>
       </section>
@@ -160,7 +160,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
           >
             Events die wij op {data.name} draaiden.
           </h2>
-          <p className="text-[#777777] text-base max-w-[520px]">
+          <p className="text-[#5F5F5F] text-base max-w-[520px]">
             Deze sectie vullen we met echte voorbeelden uit onze praktijk — inclusief, waar mogelijk,
             events die we op {data.name} hebben verzorgd.
           </p>
@@ -179,7 +179,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
               >
                 Een goede tool is niets zonder goede begeleiding.
               </h2>
-              <p className="text-[#545454] leading-relaxed mb-5">
+              <p className="text-[#434343] leading-relaxed mb-5">
                 Elk platform kan haperen: iemand vindt de link niet, de microfoon doet het niet, het
                 beeld blijft zwart. Juist op dat moment maakt live begeleiding het verschil tussen een
                 soepele bijeenkomst en een stroeve. Wij zitten er tijdens je meeting bij — als host,
@@ -214,7 +214,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
           >
             Veelgestelde vragen.
           </h2>
-          <p className="text-[#777777] text-base max-w-[520px] mb-6">
+          <p className="text-[#5F5F5F] text-base max-w-[520px] mb-6">
             De tool-specifieke Q&amp;A’s vullen we aan vanuit de bestaande FAQ’s en veelgezochte vragen.
           </p>
           <Link
@@ -229,7 +229,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
       {/* ── BACK NAV ─────────────────────────────────────────────────── */}
       <section className="bg-white py-10 border-t border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
-          <Link href="/nl/technologie" className="text-[#888888] text-sm font-semibold hover:text-[#2D2D2D] transition-colors">
+          <Link href="/nl/technologie" className="text-[#6D6D6D] text-sm font-semibold hover:text-[#2D2D2D] transition-colors">
             ← Terug naar Technologie
           </Link>
         </div>

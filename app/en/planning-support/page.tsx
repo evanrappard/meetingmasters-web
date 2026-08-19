@@ -85,7 +85,7 @@ export default function PlanningSupportPage() {
       {/* Intro */}
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[#666666] text-lg leading-relaxed">
+          <p className="text-[#525252] text-lg leading-relaxed">
             Digital or hybrid: good meetings are not about technology. They are
             about contact and engagement, which starts with human-centric design
             and a solid set-up. Our Meeting Masters are trained to guide and
@@ -116,12 +116,12 @@ export default function PlanningSupportPage() {
                 <h3 className="font-bold text-[#333333] text-lg mb-3">
                   {phase.title}
                 </h3>
-                <p className="text-sm text-[#666666] leading-relaxed mb-4">
+                <p className="text-sm text-[#525252] leading-relaxed mb-4">
                   {phase.body}
                 </p>
                 <ul className="space-y-1">
                   {phase.services.map((s) => (
-                    <li key={s} className="text-sm text-[#555555] flex gap-2">
+                    <li key={s} className="text-sm text-[#444444] flex gap-2">
                       <span className="text-accent">►</span>
                       <span>{s}</span>
                     </li>
@@ -135,7 +135,7 @@ export default function PlanningSupportPage() {
 
       {/* CTA */}
       <section className="bg-gray-50 py-14 text-center">
-        <p className="text-[#666666] mb-2">
+        <p className="text-[#525252] mb-2">
           Curious? Need more information? Want to get a sense of the costs?
         </p>
         <div className="mt-6">

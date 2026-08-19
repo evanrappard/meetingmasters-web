@@ -101,7 +101,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={nav.href}
-                      className="flex items-center gap-1 text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors py-2"
+                      className="flex items-center gap-1 text-[15px] font-medium text-[#434343] hover:text-[#EEBE3D] hover:font-bold transition-colors py-2"
                     >
                       {nav.label}
                       <ChevronDown size={13} className="opacity-50" />
@@ -137,7 +137,7 @@ export default function Navbar() {
                               <Link
                                 key={child.href}
                                 href={kies(child, taal).href}
-                                className="block px-4 py-2.5 text-sm text-[#545454] rounded hover:text-[#2D2D2D] hover:bg-[#FAFAFA] transition-colors"
+                                className="block px-4 py-2.5 text-sm text-[#434343] rounded hover:text-[#2D2D2D] hover:bg-[#FAFAFA] transition-colors"
                               >
                                 {kies(child, taal).label}
                               </Link>
@@ -170,7 +170,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={nav.href}
-                      className="text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors"
+                      className="text-[15px] font-medium text-[#434343] hover:text-[#EEBE3D] hover:font-bold transition-colors"
                     >
                       {nav.label}
                     </Link>
@@ -205,7 +205,7 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={nav.href}
-                  className="text-[15px] font-medium text-[#545454] hover:text-[#EEBE3D] hover:font-bold transition-colors"
+                  className="text-[15px] font-medium text-[#434343] hover:text-[#EEBE3D] hover:font-bold transition-colors"
                 >
                   {nav.label}
                 </Link>
@@ -222,7 +222,7 @@ export default function Navbar() {
                 Bestaat die pagina nog niet, dan staat de andere taal er grijs
                 bij in plaats van als link: liever niets dan iemand op een
                 willekeurige andere pagina laten belanden. */}
-            <div className="hidden lg:flex items-center gap-1.5 text-xs text-[#898989]">
+            <div className="hidden lg:flex items-center gap-1.5 text-xs text-[#6E6E6E]">
               <TaalKeuze taal={taal} anderePad={anderePad} />
             </div>
             <Link
@@ -232,7 +232,7 @@ export default function Navbar() {
               {t.gesprek}
             </Link>
             <button
-              className="lg:hidden -mr-2 p-2 text-[#545454]"
+              className="lg:hidden -mr-2 p-2 text-[#434343]"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? t.menuDicht : t.menuOpen}
               aria-expanded={mobileOpen}
@@ -260,7 +260,7 @@ export default function Navbar() {
                   onClick={() =>
                     setOpenDropdown(openDropdown === item.label ? null : item.label)
                   }
-                  className="w-full flex justify-between items-center py-3 text-sm font-medium text-[#545454]"
+                  className="w-full flex justify-between items-center py-3 text-sm font-medium text-[#434343]"
                 >
                   {nav.label}
                   <ChevronDown
@@ -288,7 +288,7 @@ export default function Navbar() {
                           key={child.href}
                           href={kies(child, taal).href}
                           onClick={closeMobile}
-                          className="block py-2 text-sm text-[#898989] hover:text-[#2D2D2D]"
+                          className="block py-2 text-sm text-[#6E6E6E] hover:text-[#2D2D2D]"
                         >
                           {kies(child, taal).label}
                         </Link>
@@ -312,7 +312,7 @@ export default function Navbar() {
                 key={item.label}
                 href={nav.href}
                 onClick={closeMobile}
-                className="block py-3 text-sm font-medium text-[#545454] hover:text-[#2D2D2D] border-b border-[#F5F5F5]"
+                className="block py-3 text-sm font-medium text-[#434343] hover:text-[#2D2D2D] border-b border-[#F5F5F5]"
               >
                 {nav.label}
               </Link>
@@ -326,7 +326,7 @@ export default function Navbar() {
             >
               {t.gesprek}
             </Link>
-            <div className="flex gap-3 text-sm text-[#898989]">
+            <div className="flex gap-3 text-sm text-[#6E6E6E]">
               <TaalKeuze taal={taal} anderePad={anderePad} onKlik={closeMobile} />
             </div>
           </div>
@@ -359,7 +359,7 @@ function TaalKeuze({
       href={anderePad}
       hrefLang={ander}
       onClick={onKlik}
-      className="hover:text-[#545454] transition-colors"
+      className="hover:text-[#434343] transition-colors"
     >
       {merk(ander)}
     </Link>

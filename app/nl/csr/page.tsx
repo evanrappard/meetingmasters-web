@@ -28,7 +28,7 @@ export default function CSRPage() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 space-y-12">
         <div>
-          <p className="text-[#555555] text-lg font-medium mb-4">
+          <p className="text-[#444444] text-lg font-medium mb-4">
             We delen een passie om goed te doen. Ngo&apos;s en
             hulporganisaties kunnen rekenen op gereduceerde tarieven.
           </p>
@@ -38,7 +38,7 @@ export default function CSRPage() {
           <h2 className="text-xl font-bold text-primary mb-4">
             Duurzaamheid heeft voor ons de hoogste prioriteit
           </h2>
-          <p className="text-[#666666] leading-relaxed mb-4">
+          <p className="text-[#525252] leading-relaxed mb-4">
             Online vergaderingen zijn uiteraard beter voor het milieu dan
             bijeenkomsten op locatie. Deelnemers hoeven niet te reizen, wat niet
             alleen tijd en geld bespaart, maar ook brandstof. Als iedereen in
@@ -47,7 +47,7 @@ export default function CSRPage() {
             we mensen op om online vergaderingen om te zetten in echte
             interacties.
           </p>
-          <p className="text-[#666666] leading-relaxed">
+          <p className="text-[#525252] leading-relaxed">
             Daarnaast zetten we ons op andere manieren in voor duurzaamheid. We
             pleiten voor de duurzame inzetbaarheid van mensen. We trainen
             organisaties om online ontmoetingen een natuurlijk onderdeel van hun
@@ -61,7 +61,7 @@ export default function CSRPage() {
           <h3 className="text-xl font-bold text-primary mb-4">
             Werk je met ngo&apos;s of hulporganisaties?
           </h3>
-          <p className="text-[#666666] mb-6">
+          <p className="text-[#525252] mb-6">
             We bieden gereduceerde tarieven voor non-profitorganisaties. Neem
             contact met ons op om de mogelijkheden te bespreken.
           </p>

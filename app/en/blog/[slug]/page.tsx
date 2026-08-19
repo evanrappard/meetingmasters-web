@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* ── HEADER ────────────────────────────────────────────────── */}
         <header className="pt-10 md:pt-14">
           <div className="max-w-[760px] mx-auto px-6 md:px-8">
-            <Link href="/en/blog" className="text-[#888888] text-xs font-semibold hover:text-[#2D2D2D] transition-colors">
+            <Link href="/en/blog" className="text-[#6D6D6D] text-xs font-semibold hover:text-[#2D2D2D] transition-colors">
               ← All articles
             </Link>
             <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mt-6 mb-4">Blog</p>
@@ -92,7 +92,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             >
               {post.title}
             </h1>
-            <p className="text-[#545454] text-lg leading-relaxed mb-6">{post.dek}</p>
+            <p className="text-[#434343] text-lg leading-relaxed mb-6">{post.dek}</p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#999999] pb-8 border-b border-[#EEEEEE]">
               <span className="font-semibold text-[#2D2D2D]">Emilie van Rappard</span>
               <span>·</span>
@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
             <div>
               <p className="font-bold text-[#2D2D2D] text-sm">Emilie van Rappard</p>
-              <p className="text-sm text-[#777777] leading-relaxed">
+              <p className="text-sm text-[#5F5F5F] leading-relaxed">
                 Founder of MeetingMasters. Writes about meaningful gatherings at a distance —
                 online events, virtual offices and human connection.
               </p>

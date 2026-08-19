@@ -87,7 +87,7 @@ export default function MeetingFormatsPage() {
                   <Image src={f.img} alt={f.alt} fill className="object-cover" />
                 </div>
                 <h3 className="font-bold text-[#333333] text-lg mb-3">{f.title}</h3>
-                <p className="text-sm text-[#666666] leading-relaxed flex-1 mb-4">
+                <p className="text-sm text-[#525252] leading-relaxed flex-1 mb-4">
                   {f.desc}
                 </p>
                 <Link
@@ -108,7 +108,7 @@ export default function MeetingFormatsPage() {
           <h2 className="text-2xl font-bold text-primary text-center mb-3">
             All meeting formats
           </h2>
-          <p className="text-[#666666] text-center mb-10">
+          <p className="text-[#525252] text-center mb-10">
             Personal support does not have to be expensive.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
@@ -129,7 +129,7 @@ export default function MeetingFormatsPage() {
         <h2 className="text-xl font-bold text-primary mb-4">
           Not sure which format fits?
         </h2>
-        <p className="text-[#666666] mb-6">
+        <p className="text-[#525252] mb-6">
           We&apos;re happy to advise — no strings attached.
         </p>
         <Link

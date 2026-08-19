@@ -25,13 +25,13 @@ export default function JuridischePagina({
     <div className="bg-white">
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
         <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-3">{titel}</h1>
-        <p className="text-[#666666] text-lg max-w-2xl mx-auto px-4">{intro}</p>
+        <p className="text-[#525252] text-lg max-w-2xl mx-auto px-4">{intro}</p>
       </div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 space-y-10">
         {children}
 
-        <p className="text-[#888888] text-sm pt-6 border-t border-gray-200">
+        <p className="text-[#6D6D6D] text-sm pt-6 border-t border-gray-200">
           {taal === "en" ? "Last updated" : "Laatst bijgewerkt"}: {bijgewerkt}.
         </p>
       </div>
@@ -50,7 +50,7 @@ export function Blok({
   return (
     <section>
       <h2 className="text-2xl font-bold text-primary mb-4">{kop}</h2>
-      <div className="text-[#666666] leading-relaxed space-y-4">{children}</div>
+      <div className="text-[#525252] leading-relaxed space-y-4">{children}</div>
     </section>
   );
 }

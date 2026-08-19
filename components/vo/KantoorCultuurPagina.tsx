@@ -72,10 +72,10 @@ export default function KantoorCultuurPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
               {t.waarom.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed mb-4">
+            <p className="text-[#434343] leading-relaxed mb-4">
               {t.waarom.body1}
              </p>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.waarom.body2}
              </p>
           </div>
@@ -90,7 +90,7 @@ export default function KantoorCultuurPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.traject.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.traject.onder}
              </p>
           </div>
@@ -99,7 +99,7 @@ export default function KantoorCultuurPagina({ taal = "nl" }: { taal?: Taal }) {
               <div key={s.n} className="bg-white rounded p-6 shadow-sm border border-[#EBEBEB]">
                 <p className="text-[#EEBE3D] text-3xl font-bold leading-none mb-4">{s.n}</p>
                 <h3 className="font-bold text-[#2D2D2D] text-base mb-2 leading-snug">{s.title}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{s.body}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{s.body}</p>
               </div>
             ))}
           </div>
@@ -115,7 +115,7 @@ export default function KantoorCultuurPagina({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.voorWie.titel}
                </h2>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.voorWie.body}
                </p>
             </div>
@@ -124,7 +124,7 @@ export default function KantoorCultuurPagina({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.waarom2.titel}
                </h2>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.waarom2.body}
                </p>
             </div>
@@ -142,7 +142,7 @@ export default function KantoorCultuurPagina({ taal = "nl" }: { taal?: Taal }) {
             {faqs.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>

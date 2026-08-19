@@ -16,7 +16,7 @@ export default function EscapeMastersPage() {
           Games &amp; Tools
         </p>
         <h1 className="text-4xl font-bold text-primary mb-4">EscapeMasters</h1>
-        <p className="text-[#666666] text-lg max-w-xl mx-auto">
+        <p className="text-[#525252] text-lg max-w-xl mx-auto">
           Our signature online escape room. Teams collaborate to solve puzzles,
           decode clues, and escape together. Designed to spark energy, laughter,
           and real connection.
@@ -30,18 +30,18 @@ export default function EscapeMastersPage() {
               <h2 className="text-2xl font-bold text-primary mb-5">
                 What it is
               </h2>
-              <p className="text-[#666666] leading-relaxed mb-4">
+              <p className="text-[#525252] leading-relaxed mb-4">
                 EscapeMasters is a fully online escape room experience — no
                 physical room required. Participants work together in small
                 teams, solving a series of puzzles within a time limit. A
                 Meeting Master hosts and facilitates the entire session live.
               </p>
-              <p className="text-[#666666] leading-relaxed mb-4">
+              <p className="text-[#525252] leading-relaxed mb-4">
                 Works for 10 to 200 participants. We split large groups into
                 competing teams and run a shared leaderboard. The right size of
                 adrenaline for a kick-off, a company party, or a team day.
               </p>
-              <p className="text-[#666666] leading-relaxed mb-6">
+              <p className="text-[#525252] leading-relaxed mb-6">
                 Duration: 60–90 minutes. Platform: browser-based, no downloads
                 required.
               </p>
@@ -68,7 +68,7 @@ export default function EscapeMastersPage() {
         <h2 className="text-xl font-bold text-primary mb-4">
           Want to see it in action?
         </h2>
-        <p className="text-[#666666] mb-6 max-w-md mx-auto">
+        <p className="text-[#525252] mb-6 max-w-md mx-auto">
           We can run a short demo version of EscapeMasters — so you can
           experience it before you book.
         </p>

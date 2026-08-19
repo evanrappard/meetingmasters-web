@@ -72,7 +72,7 @@ export default function PlatformKeuze({
             <p className="text-[10px] font-bold text-[#AAAAAA] uppercase tracking-wide mt-5 mb-1">{taal === "en" ? "Strong at" : "Sterk in"}</p>
             <p className="font-bold text-[#2D2D2D] leading-snug mb-4">{p.sterk}</p>
 
-            <p className="text-[15px] text-[#545454] leading-relaxed flex-1">{p.body}</p>
+            <p className="text-[15px] text-[#434343] leading-relaxed flex-1">{p.body}</p>
 
             {/* Vaste hoogte: anders ligt de streep per kaart net anders,
                 omdat de ene "Wanneer" langer is dan de andere. */}

@@ -97,7 +97,7 @@ export default function InsluitCode({ pad, naam, taal = "nl" }: Props) {
           >
             ×
           </button>
-          <p className="text-xs text-[#545454] leading-relaxed mb-3">
+          <p className="text-xs text-[#434343] leading-relaxed mb-3">
             Plak deze code op een scherm in SpatialChat of op een eigen pagina. Dan draait{" "}
             {naam} daar zonder menu of footer. Het stukje{" "}
             <code className="text-[#2D2D2D]">allow=&quot;fullscreen&quot;</code> is nodig, anders

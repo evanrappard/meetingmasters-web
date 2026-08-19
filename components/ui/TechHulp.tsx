@@ -155,7 +155,7 @@ export default function TechHulp({
       {/* ── Stap 1: wat gaat er mis? ───────────────────────────────── */}
       <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">{t.kicker}</p>
       <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-1">{t.kop}</h2>
-      <p className="text-[#777777] text-sm mb-5">{t.onder}</p>
+      <p className="text-[#5F5F5F] text-sm mb-5">{t.onder}</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-3">
         {categorieen.map((c) => {
@@ -250,7 +250,7 @@ export default function TechHulp({
           </div>
 
           {weetNiet && (
-            <p className="border-t border-[#EBEBEB] bg-[#FCFCFB] px-5 py-3.5 text-sm text-[#545454] leading-relaxed">
+            <p className="border-t border-[#EBEBEB] bg-[#FCFCFB] px-5 py-3.5 text-sm text-[#434343] leading-relaxed">
               Kijk naar het begin van de link in je uitnodiging:{" "}
               {Object.entries(TOOL_INFO).map(([naam, i], n, r) => (
                 <span key={naam}>
@@ -273,7 +273,7 @@ export default function TechHulp({
       {(symptoom || zoekend) && (
         <div className="mt-7">
           {zoekend ? (
-            <p className="text-sm text-[#888888] mb-4">
+            <p className="text-sm text-[#6D6D6D] mb-4">
               {resultaten.length} {resultaten.length === 1 ? "resultaat" : "resultaten"} voor “{zoek.trim()}”
             </p>
           ) : (
@@ -286,7 +286,7 @@ export default function TechHulp({
           {resultaten.length === 0 ? (
             <div className="rounded-xl border border-[#E8E8E8] bg-[#F9F9F7] p-6">
               <p className="font-bold text-[#2D2D2D] mb-1">{t.nietGevonden}</p>
-              <p className="text-sm text-[#777777]">
+              <p className="text-sm text-[#5F5F5F]">
                 Probeer een ander woord, of kies hierboven een andere tool. Is het een begeleide bijeenkomst
                 van MeetingMasters? Dan staat je contactpersoon klaar — die vind je in je uitnodiging.
               </p>
@@ -312,12 +312,12 @@ export default function TechHulp({
                       {v.stappen.map((s, j) => (
                         <li key={j} className="grid grid-cols-[auto_1fr] gap-3 items-start">
                           <span className="w-6 h-6 rounded-full bg-[#28A8AA] text-white text-xs font-bold grid place-items-center mt-0.5">{j + 1}</span>
-                          <span className="text-sm text-[#545454] leading-relaxed">{s}</span>
+                          <span className="text-sm text-[#434343] leading-relaxed">{s}</span>
                         </li>
                       ))}
                     </ol>
                   ) : (
-                    <p className="text-sm text-[#555555] leading-relaxed mt-3 whitespace-pre-line">{v.antwoord}</p>
+                    <p className="text-sm text-[#444444] leading-relaxed mt-3 whitespace-pre-line">{v.antwoord}</p>
                   )}
 
                 </details>

@@ -94,7 +94,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
                 {t.watIsHet.titel}
               </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.watIsHet.body}
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
                 {t.voorWie.titel}
               </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.voorWie.body}
               </p>
             </div>
@@ -126,7 +126,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
               <div key={b.kpi} className="bg-white rounded p-7 shadow-sm border border-[#EBEBEB]">
                 <div className="w-8 h-1 bg-[#EEBE3D] rounded mb-4" />
                 <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug">{b.kpi}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{b.body}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{b.body}</p>
               </div>
             ))}
           </div>
@@ -141,7 +141,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.vormen.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.vormen.onder}
              </p>
           </div>
@@ -153,7 +153,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
                 </div>
                 <div className="p-5">
                   <h3 className="font-bold text-[#2D2D2D] text-base mb-1.5 leading-snug">{s.title}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{s.body}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{s.body}</p>
                 </div>
               </div>
             ))}
@@ -169,7 +169,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.ingangen.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.ingangen.onder}{" "}
               <span className="whitespace-nowrap">{t.ingangen.slot}</span>
             </p>
@@ -187,7 +187,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
                 <div className="p-7 flex flex-col flex-1">
                   <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">{p.tag}</span>
                   <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug group-hover:text-[#EEBE3D] transition-colors">{p.title}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed flex-1 mb-6">{p.desc}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed flex-1 mb-6">{p.desc}</p>
                   <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
                     {p.title} →
                   </span>
@@ -207,10 +207,10 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.praktijk.titel}
                </h2>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#434343] leading-relaxed mb-4">
                 {t.praktijk.body1}
                </p>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.praktijk.body2}
                </p>
             </div>
@@ -236,7 +236,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
             {faqs.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -253,7 +253,7 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
               {faqsMeer.map((item) => (
                 <div key={item.q}>
                   <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
                 </div>
               ))}
             </div>

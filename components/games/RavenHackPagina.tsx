@@ -89,7 +89,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.wat.titel}
                </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.wat.body}
                </p>
             </div>
@@ -101,7 +101,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.voorWie.titel}
                </h2>
               <span className="block h-[3px] w-10 bg-[#EEBE3D] rounded-full mb-5 transition-all duration-300 ease-out group-hover:w-20" />
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.voorWie.body}
                </p>
             </div>
@@ -119,7 +119,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.hoe.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.hoe.onder}
              </p>
           </div>
@@ -139,7 +139,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                   <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">
+                  <p className="text-sm text-[#434343] leading-relaxed">
                     {s.body}
                   </p>
                 </div>
@@ -159,7 +159,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
               {t.versies.titel}
              </h2>
-            <p className="text-[#545454] leading-relaxed">
+            <p className="text-[#434343] leading-relaxed">
               {t.versies.onder}
              </p>
           </div>
@@ -181,14 +181,14 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                 <p className="text-[#2D2D2D] font-semibold text-sm mb-3">
                   {v.lead}
                 </p>
-                <p className="text-sm text-[#545454] leading-relaxed mb-5">
+                <p className="text-sm text-[#434343] leading-relaxed mb-5">
                   {v.body}
                 </p>
                 <ul className="space-y-2 mb-6">
                   {v.kenmerken.map((k) => (
                     <li
                       key={k}
-                      className="flex items-start gap-2 text-sm text-[#545454] leading-relaxed"
+                      className="flex items-start gap-2 text-sm text-[#434343] leading-relaxed"
                     >
                       <span className="mt-1.5 block h-1.5 w-1.5 flex-none rounded-full bg-[#EEBE3D]" />
                       <span>{k}</span>
@@ -229,10 +229,10 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
               <p className="text-[#2D2D2D] font-semibold text-lg leading-relaxed mb-4">
                 {t.praktijk.lead}
                </p>
-              <p className="text-[#545454] leading-relaxed mb-4">
+              <p className="text-[#434343] leading-relaxed mb-4">
                 {t.praktijk.body}
                </p>
-              <p className="text-[#545454] leading-relaxed">
+              <p className="text-[#434343] leading-relaxed">
                 {t.praktijk.duur}
                </p>
             </div>
@@ -257,7 +257,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">
                   {item.q}
                 </h3>
-                <p className="text-sm text-[#545454] leading-relaxed">
+                <p className="text-sm text-[#434343] leading-relaxed">
                   {item.a}
                 </p>
               </div>

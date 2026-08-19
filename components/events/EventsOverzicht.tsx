@@ -150,7 +150,7 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
                   <span className="text-[#EEBE3D] text-2xl font-bold leading-none flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="font-bold text-[#2D2D2D] text-lg leading-snug">{r.title}</h3>
                 </div>
-                <p className="text-sm text-[#545454] leading-relaxed">{r.body}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{r.body}</p>
               </div>
             ))}
           </div>
@@ -259,14 +259,14 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
                 {t.visie.titel}
               </h2>
-              <p className="text-sm text-[#545454] leading-relaxed mb-8">
+              <p className="text-sm text-[#434343] leading-relaxed mb-8">
                 {t.visie.intro}
               </p>
               <ul className="space-y-5 mb-8">
                 {t.visie.punten.map((p) => (
                   <li key={p.kop} className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#EEBE3D] mt-2 flex-shrink-0" />
-                    <p className="text-sm text-[#545454] leading-relaxed">
+                    <p className="text-sm text-[#434343] leading-relaxed">
                       <strong className="text-[#2D2D2D] font-bold">{p.kop}</strong>{" "}{p.desc}
                     </p>
                   </li>
@@ -300,7 +300,7 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
             {faqs.map((item) => (
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -317,7 +317,7 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
               {faqsMeer.map((item) => (
                 <div key={item.q}>
                   <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
                 </div>
               ))}
             </div>

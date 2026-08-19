@@ -66,14 +66,14 @@ export default function StorytellingPage() {
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
             About the stories
           </p>
-          <p className="text-[#545454] leading-relaxed mb-6">
+          <p className="text-[#434343] leading-relaxed mb-6">
             Teams who have worked together for years often know surprisingly little about each
             other. One question and a bit of silence do more about that than a team day:
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
             Who tells the first story?
           </h2>
-          <p className="text-[#545454] text-lg leading-[1.9]">
+          <p className="text-[#434343] text-lg leading-[1.9]">
             Draw a card and read the question.
             <br />
             Talk for as long as the time runs.

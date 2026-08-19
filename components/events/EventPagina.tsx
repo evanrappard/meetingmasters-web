@@ -222,7 +222,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {event.validation.headline}
               </h2>
-              <p className="text-[#545454] leading-relaxed">{intro}</p>
+              <p className="text-[#434343] leading-relaxed">{intro}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {event.validation.items.map((item, i) => (
@@ -236,7 +236,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                     </div>
                     <h3 className="font-bold text-[#2D2D2D] text-base leading-snug">{item.title}</h3>
                   </div>
-                  <p className="text-sm text-[#545454] leading-relaxed">{item.body}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -248,18 +248,18 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
               <div>
                 <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">{t.overFormat}</p>
-                <p className="text-[#545454] leading-relaxed mb-8 text-base">{intro}</p>
+                <p className="text-[#434343] leading-relaxed mb-8 text-base">{intro}</p>
                 <div className="flex flex-col sm:flex-row gap-5 mb-8">
                   {forWho && (
                     <div className="border-l-2 border-[#EEBE3D] pl-4">
                       <p className="text-xs font-bold text-[#2D2D2D] uppercase tracking-widest mb-1">{t.voorWie}</p>
-                      <p className="text-sm text-[#545454] leading-snug">{forWho}</p>
+                      <p className="text-sm text-[#434343] leading-snug">{forWho}</p>
                     </div>
                   )}
                   {range && (
                     <div className="border-l-2 border-[#EEBE3D] pl-4">
                       <p className="text-xs font-bold text-[#2D2D2D] uppercase tracking-widest mb-1">{t.groepsgrootte}</p>
-                      <p className="text-sm text-[#545454]">{range}</p>
+                      <p className="text-sm text-[#434343]">{range}</p>
                     </div>
                   )}
                 </div>
@@ -285,11 +285,11 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                   <div className="flex gap-4 divide-x divide-[#E0E0E0]">
                     <div className="pr-4">
                       <p className="text-[#EEBE3D] text-2xl font-bold leading-none mb-1">250+</p>
-                      <p className="text-xs text-[#898989] leading-snug">events begeleid</p>
+                      <p className="text-xs text-[#6E6E6E] leading-snug">events begeleid</p>
                     </div>
                     <div className="pl-4">
                       <p className="text-[#EEBE3D] text-2xl font-bold leading-none mb-1">94%</p>
-                      <p className="text-xs text-[#898989] leading-snug">tevredenheid na afloop</p>
+                      <p className="text-xs text-[#6E6E6E] leading-snug">tevredenheid na afloop</p>
                     </div>
                   </div>
                 </div>
@@ -330,7 +330,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                   </div>
                   <div className="p-5">
                     <h3 className="font-bold text-[#2D2D2D] text-base mb-2 leading-snug">{c.title}</h3>
-                    <p className="text-sm text-[#545454] leading-relaxed">{c.body}</p>
+                    <p className="text-sm text-[#434343] leading-relaxed">{c.body}</p>
                   </div>
                 </div>
               ))}
@@ -349,13 +349,13 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                 {forWho && (
                   <div className="border-l-2 border-[#EEBE3D] pl-4">
                     <p className="text-xs font-bold text-[#2D2D2D] uppercase tracking-widest mb-1">{t.voorWie}</p>
-                    <p className="text-sm text-[#545454] leading-snug">{forWho}</p>
+                    <p className="text-sm text-[#434343] leading-snug">{forWho}</p>
                   </div>
                 )}
                 {range && (
                   <div className="border-l-2 border-[#EEBE3D] pl-4">
                     <p className="text-xs font-bold text-[#2D2D2D] uppercase tracking-widest mb-1">{t.groepsgrootte}</p>
-                    <p className="text-sm text-[#545454]">{range}</p>
+                    <p className="text-sm text-[#434343]">{range}</p>
                   </div>
                 )}
               </div>
@@ -370,7 +370,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="font-bold text-[#2D2D2D] text-base mb-2">{c.title}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{c.body}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{c.body}</p>
                 </div>
               ))}
             </div>
@@ -406,7 +406,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                 <span className="block font-bold text-[#2D2D2D] text-xl mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">
                   {event.download.titel}
                 </span>
-                <span className="block text-[15px] text-[#545454] leading-relaxed mb-4">
+                <span className="block text-[15px] text-[#434343] leading-relaxed mb-4">
                   {event.download.body}
                 </span>
                 <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">
@@ -429,7 +429,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
               {event.faq.map((item) => (
                 <div key={item.q}>
                   <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                  <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                  <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
                 </div>
               ))}
             </div>
@@ -447,7 +447,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                   {event.faqMore.map((item) => (
                     <div key={item.q}>
                       <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
-                      <p className="text-sm text-[#545454] leading-relaxed">{item.a}</p>
+                      <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
                     </div>
                   ))}
                 </div>

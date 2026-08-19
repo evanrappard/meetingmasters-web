@@ -66,7 +66,7 @@ export default function StrategyConceptPage() {
       {/* Intro */}
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[#666666] text-lg leading-relaxed">
+          <p className="text-[#525252] text-lg leading-relaxed">
             Of je nu een kleine, intense online meeting organiseert of een grote,
             meerdaagse online summit — bijeenkomsten staan zelden op zichzelf.
             Wij ontwerpen formats die echt werken: voor je inhoud, je relaties en
@@ -85,7 +85,7 @@ export default function StrategyConceptPage() {
                   <Image src={c.img} alt={c.alt} fill className="object-cover" />
                 </div>
                 <h3 className="font-bold text-[#333333] text-lg mb-3">{c.title}</h3>
-                <p className="text-sm text-[#666666] leading-relaxed">{c.body}</p>
+                <p className="text-sm text-[#525252] leading-relaxed">{c.body}</p>
               </div>
             ))}
           </div>

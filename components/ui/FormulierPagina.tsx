@@ -70,7 +70,7 @@ export default function FormulierPagina({
             <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
               {titel}
             </h1>
-            <div className="text-[#545454] text-lg leading-relaxed space-y-4">{intro}</div>
+            <div className="text-[#434343] text-lg leading-relaxed space-y-4">{intro}</div>
           </div>
         </div>
       </section>
@@ -80,7 +80,7 @@ export default function FormulierPagina({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{formulierKop}</h2>
-              <p className="text-sm text-[#545454] leading-relaxed mb-8">{formulierUitleg}</p>
+              <p className="text-sm text-[#434343] leading-relaxed mb-8">{formulierUitleg}</p>
               {agenda ? (
                 <HubSpotAgenda link={HUBSPOT_AGENDA} taal={taal} />
               ) : (
@@ -90,9 +90,9 @@ export default function FormulierPagina({
 
             <div className="lg:pt-1">
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{t.directKop}</h2>
-              <p className="text-sm text-[#545454] leading-relaxed mb-8">{t.directTekst}</p>
+              <p className="text-sm text-[#434343] leading-relaxed mb-8">{t.directTekst}</p>
               <ul className="space-y-4">
-                <li className="flex items-center gap-3 text-[#545454]">
+                <li className="flex items-center gap-3 text-[#434343]">
                   <Mail size={18} className="text-[#28A8AA] shrink-0" />
                   <a
                     href="mailto:contact@meetingmasters.online"
@@ -101,7 +101,7 @@ export default function FormulierPagina({
                     contact@meetingmasters.online
                   </a>
                 </li>
-                <li className="flex items-center gap-3 text-[#545454]">
+                <li className="flex items-center gap-3 text-[#434343]">
                   <Phone size={18} className="text-[#28A8AA] shrink-0" />
                   <a href="tel:+31202390313" className="hover:text-[#28A8AA] transition-colors">
                     +31 20 239 03 13
@@ -109,7 +109,7 @@ export default function FormulierPagina({
                 </li>
               </ul>
 
-              <p className="text-sm text-[#545454] leading-relaxed mt-10">
+              <p className="text-sm text-[#434343] leading-relaxed mt-10">
                 {t.nogNiet}{" "}
                 <Link
                   href={t.adviesHref}

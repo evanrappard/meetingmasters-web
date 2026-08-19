@@ -46,8 +46,8 @@ export default {
         mint:         "#F9FFED",   // Mint — cool section background
         pistachio:    "#D7DDD0",   // Pistachio
         seaweed:      "#696758",   // Seaweed
-        "dark-grey":  "#545454",   // MM Dark Grey — primary text
-        "mid-grey":   "#898989",   // Mid grey
+        "dark-grey":  "#434343",   // MM Dark Grey — 20% donkerder, aug 2026
+        "mid-grey":   "#6E6E6E",   // Mid grey — 20% donkerder, haalt nu WCAG AA
         "light-grey": "#C8C8C8",   // Light grey
         "white-grey": "#EBEBEB",   // White grey — borders
 

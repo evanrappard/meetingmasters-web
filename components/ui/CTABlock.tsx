@@ -82,7 +82,7 @@ function CTACard({ level, title, desc, ctaLabel, href, variant }: CTACardProps) 
   const levelColor =
     variant === "high" ? "text-[#B8962A]" :
     variant === "mid"  ? "text-[#28A8AA]" :
-                         "text-[#898989]";
+                         "text-[#6E6E6E]";
   const btnStyle = "bg-[#EEBE3D] text-[#2D2D2D] hover:bg-[#D4A835]";
 
   return (
@@ -91,7 +91,7 @@ function CTACard({ level, title, desc, ctaLabel, href, variant }: CTACardProps) 
         {level}
       </p>
       <h3 className="text-[#2D2D2D] text-lg font-bold mb-3 leading-snug">{title}</h3>
-      <p className="text-[#545454] text-sm leading-relaxed flex-1 mb-6">{desc}</p>
+      <p className="text-[#434343] text-sm leading-relaxed flex-1 mb-6">{desc}</p>
       <Link
         href={href}
         className={`${btnStyle} text-sm font-bold px-5 py-2.5 rounded text-center transition-colors inline-block`}
@@ -106,8 +106,8 @@ export default function CTABlock({ taal = "nl" }: { taal?: Taal }) {
   const t = T[taal];
   return (
     <>
-      <section className="bg-[#E3ECEC] py-14 px-6 lg:px-10 border-t border-[#D2DEDE]">
-        <div className="max-w-content mx-auto">
+      <section className="bg-[#E3ECEC] py-14 border-t border-[#D2DEDE]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="mb-8">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">{t.stap}</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] mb-8">{t.kop}</h2>
