@@ -228,25 +228,44 @@ live site, klik **Alles accepteren**, en kijk in Google Analytics onder
 dan een minuut. (Of het script überhaupt laadt en of het vóór de toestemming
 zwijgt, controleer ík met `npm run livecheck`.)
 
-### Stap 4 · Het domein aan Vercel hangen
+### Stap 4 · Het domein aan Vercel hangen ✅ gedaan
 
-1. Vercel → project → **Settings** → **Domains** → **Add**
-2. Voeg toe: `www.meetingmasters.online` **en** `meetingmasters.online`
-3. Zet `meetingmasters.online` op **Redirect to www** — de hele site gebruikt
-   `www` in canonical, hreflang en sitemap, dus dat moet het hoofdadres zijn
-4. Vercel toont nu de DNS-records die je nodig hebt
+Beide domeinen staan eraan, met het kale domein op *redirect naar www* (308).
+Zolang de DNS nog naar Squarespace wijst verandert er niets aan wat bezoekers
+zien — dat gebeurt pas in stap 5.
 
 ### Stap 5 · DNS bij YourHosting
 
 Log in bij YourHosting → domein `meetingmasters.online` → DNS-beheer.
 
+**Dit zijn de exacte waarden**, uitgelezen uit jouw Vercel-project op 19 aug 2026:
+
 | Type | Naam | Waarde |
 |---|---|---|
-| `A` | `@` | het IP-adres dat Vercel toont (meestal `76.76.21.21`) |
-| `CNAME` | `www` | `cname.vercel-dns.com` |
+| `A` | `@` | `216.198.79.1` |
+| `CNAME` | `www` | `aa82fb7ae2858b93.vercel-dns-017.com.` |
 
-**Neem de waarden over uit het scherm van Vercel**, niet uit deze tabel — ze
-kunnen per project verschillen.
+Let op: dit is níét het oude `76.76.21.21` / `cname.vercel-dns.com` dat je overal
+op internet tegenkomt. Vercel geeft dit project zijn eigen adres. Wijkt het
+scherm van Vercel af van deze tabel, dan wint dat scherm.
+
+#### Wat er nu staat, voor als je terug moet
+
+Vastgelegd vóór de wijziging, zodat het terugvalplan uit stap 9a echte waarden
+heeft in plaats van een herinnering:
+
+| Type | Naam | Huidige waarde (Squarespace) |
+|---|---|---|
+| `A` | `@` | `198.185.159.144`, `198.185.159.145`, `198.49.23.144`, `198.49.23.145` |
+| `CNAME` | `www` | `ext-cust.squarespace.com.` |
+
+#### Deze drie laat je staan
+
+| Type | Waarde | Waarvoor |
+|---|---|---|
+| `MX` | `meetingmasters-online.mail.protection.outlook.com.` | **je e-mail** — raak dit niet aan |
+| `TXT` | `v=spf1 include:spf.protection.outlook.com include:147433380.spf01.hubspotemail.net -all` | e-mail van Outlook én HubSpot mag namens jou verzenden |
+| `TXT` | `google-site-verification=rtFiH4mENnAsVC2t7ZQaZ0WvMj7fneLASmDuwVU8qzs` | een bestaande Google-verificatie — laat staan, scheelt je werk bij stap 8 |
 
 **Raak je e-mail-records niet aan.** MX, SPF, DKIM en DMARC blijven ongemoeid;
 verwijder je die per ongeluk, dan komt je mail niet meer aan.

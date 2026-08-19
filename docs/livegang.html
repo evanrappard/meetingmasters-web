@@ -509,16 +509,16 @@ footer h3 { margin-top: 0; }
     </div>
   </div>
 
-  <div class="stap" data-stap="3">
+  <div class="stap af" data-stap="3">
     <div class="stap-kop">
       <input class="vink" type="checkbox" aria-label="Stap 3 afvinken">
       <h4 class="stap-titel"><span class="nummer">Stap 3 ·</span> Omgevingsvariabelen in Vercel</h4>
     </div>
     <div class="stap-lijf">
-      <p>Vercel → project → <strong>Settings</strong> → <strong>Environment Variables</strong>.
-      Zet ze allemaal op <strong>Production, Preview én Development</strong>. De
-      waarden staan in <code>.env.local</code> op je Mac; open dat bestand en neem
-      ze letterlijk over.</p>
+      <p><span class="klaar-vlag">✓ Gedaan</span> — alle acht staan erin en er is
+      opnieuw gedeployd; die bouw is geslaagd. De drie Supabase-sleutels stonden er
+      al en zijn als <em>gevoelig</em> gemarkeerd; die kunnen van Vercel alleen op
+      Production staan, en dat is precies goed.</p>
       <div class="tabel-scroll">
         <table class="stapel">
           <thead><tr><th>Sleutel</th><th>Waarvoor</th></tr></thead>
@@ -625,20 +625,16 @@ toestemming ingetrokken    → cookies weg</code></pre>
     </div>
   </div>
 
-  <div class="stap" data-stap="4">
+  <div class="stap af" data-stap="4">
     <div class="stap-kop">
       <input class="vink" type="checkbox" aria-label="Stap 4 afvinken">
       <h4 class="stap-titel"><span class="nummer">Stap 4 ·</span> Het domein aan Vercel hangen</h4>
     </div>
     <div class="stap-lijf">
-      <ol>
-        <li>Vercel → project → <strong>Settings</strong> → <strong>Domains</strong> → <strong>Add</strong></li>
-        <li>Voeg toe: <code>www.meetingmasters.online</code> <strong>én</strong> <code>meetingmasters.online</code></li>
-        <li>Zet <code>meetingmasters.online</code> op <strong>Redirect to www</strong> —
-        de hele site gebruikt <code>www</code> in canonical, hreflang en sitemap,
-        dus dat moet het hoofdadres zijn</li>
-        <li>Vercel toont nu de DNS-records die je nodig hebt</li>
-      </ol>
+      <p><span class="klaar-vlag">✓ Gedaan</span> — beide domeinen staan eraan, met
+      het kale domein op <em>redirect naar www</em> (308). Zolang de DNS nog naar
+      Squarespace wijst verandert er niets aan wat bezoekers zien; dat gebeurt pas
+      in stap 5.</p>
     </div>
   </div>
 
@@ -656,22 +652,44 @@ toestemming ingetrokken    → cookies weg</code></pre>
       </div>
 
       <p>Log in bij YourHosting → domein <code>meetingmasters.online</code> → DNS-beheer.</p>
+      <p><strong>Dit zijn de exacte waarden</strong>, uitgelezen uit jouw
+      Vercel-project op 19 augustus:</p>
       <div class="tabel-scroll">
         <table>
           <thead><tr><th>Type</th><th>Naam</th><th>Waarde</th></tr></thead>
           <tbody>
-            <tr><td><code>A</code></td><td><code>@</code></td><td>het IP-adres dat Vercel toont (meestal <code>76.76.21.21</code>)</td></tr>
-            <tr><td><code>CNAME</code></td><td><code>www</code></td><td><code>cname.vercel-dns.com</code></td></tr>
+            <tr><td><code>A</code></td><td><code>@</code></td><td><code>216.198.79.1</code></td></tr>
+            <tr><td><code>CNAME</code></td><td><code>www</code></td><td><code>aa82fb7ae2858b93.vercel-dns-017.com.</code></td></tr>
           </tbody>
         </table>
       </div>
-      <p><strong>Neem de waarden over uit het scherm van Vercel</strong>, niet uit
-      deze tabel — ze kunnen per project verschillen.</p>
+      <p>Let op: dit is <strong>niet</strong> het oude
+      <code>76.76.21.21</code> / <code>cname.vercel-dns.com</code> dat je overal op
+      internet tegenkomt. Vercel geeft dit project zijn eigen adres. Wijkt het
+      scherm van Vercel af van deze tabel, dan wint dat scherm.</p>
+
+      <h3 style="margin-top:24px">Wat er nu staat, voor als je terug moet</h3>
+      <p>Vastgelegd vóór de wijziging, zodat het terugvalplan echte waarden heeft
+      in plaats van een herinnering:</p>
+      <div class="tabel-scroll">
+        <table>
+          <thead><tr><th>Type</th><th>Naam</th><th>Huidige waarde (Squarespace)</th></tr></thead>
+          <tbody>
+            <tr><td><code>A</code></td><td><code>@</code></td><td><code>198.185.159.144</code>, <code>198.185.159.145</code>, <code>198.49.23.144</code>, <code>198.49.23.145</code></td></tr>
+            <tr><td><code>CNAME</code></td><td><code>www</code></td><td><code>ext-cust.squarespace.com.</code></td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <div class="blok letop">
-        <span class="blok-titel">Raak je e-mail-records niet aan</span>
-        <p>MX, SPF, DKIM en DMARC blijven ongemoeid. Verwijder je die per ongeluk,
-        dan komt je mail niet meer aan.</p>
+        <span class="blok-titel">Deze drie laat je staan</span>
+        <p><code>MX → meetingmasters-online.mail.protection.outlook.com.</code> —
+        <strong>je e-mail</strong>. Verwijder je die, dan komt je mail niet meer aan.</p>
+        <p><code>TXT → v=spf1 include:spf.protection.outlook.com
+        include:147433380.spf01.hubspotemail.net -all</code> — hiermee mogen Outlook
+        én HubSpot namens jou verzenden.</p>
+        <p><code>TXT → google-site-verification=rtFiH4mENnAsVC2t7ZQaZ0WvMj7fneLASmDuwVU8qzs</code>
+        — een bestaande Google-verificatie. Laat staan, dat scheelt je werk bij stap 8.</p>
       </div>
 
       <div class="blok controle">

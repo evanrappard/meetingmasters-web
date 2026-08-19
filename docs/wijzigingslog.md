@@ -849,3 +849,34 @@ Error: Failed to collect configuration for /en/home
 Gecontroleerd: bouwt mét én zonder `.env.local`, en met de variabelen komt de
 CMS-inhoud gewoon binnen (cijferbalk en klantlogo's staan er). 31 livecheck-
 controles goed.
+
+## 19 augustus 2026 — Vercel ingericht
+
+Met een tijdelijk Vercel-token (team-gebonden, één dag geldig) de stappen 2 tot
+en met 4 uit `docs/livegang.md` uitgevoerd. Wat ik heb gedraaid:
+
+- **Bouwlogboek van de mislukte deploy opgehaald.** Bevestigt de diagnose
+  woordelijk: `Failed to collect configuration for /en/home` met als oorzaak
+  `Configuration must contain projectId`. De deploy daarná, met de reparatie
+  in `sanity/client.ts`, staat op READY.
+- **Acht omgevingsvariabelen gezet** (er stonden er drie). De drie
+  Supabase-sleutels zijn door Vercel als *gevoelig* gemarkeerd en kunnen daardoor
+  alleen op Production staan; dat is precies goed, de site gebruikt Supabase
+  nergens meer.
+- **Opnieuw gedeployd**, bouw geslaagd.
+- **Beide domeinen toegevoegd**, met het kale domein op redirect naar www (308).
+  Zolang de DNS naar Squarespace wijst verandert er niets voor bezoekers.
+- **De echte DNS-waarden uitgelezen.** Die wijken af van wat ik in het plan had
+  staan: het is **niet** `76.76.21.21` / `cname.vercel-dns.com` maar
+  `216.198.79.1` en `aa82fb7ae2858b93.vercel-dns-017.com.` — dit project krijgt
+  zijn eigen adres.
+- **De huidige DNS vastgelegd** met `dig`, zodat het terugvalplan echte waarden
+  heeft: A naar vier Squarespace-adressen, CNAME www naar
+  `ext-cust.squarespace.com.`
+- **Drie records gevonden die moeten blijven staan**: de MX naar Outlook, een
+  SPF die Outlook én HubSpot toestaat, en een bestaande
+  `google-site-verification` — die scheelt werk bij stap 8.
+
+**Niet aangeraakt:** de beveiligingsinstelling (`ssoProtection` staat op
+*all_except_custom_domains*, dus previews achter een login en het eigen domein
+publiek — precies goed), facturering, en andere projecten.
