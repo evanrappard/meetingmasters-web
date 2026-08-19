@@ -823,3 +823,29 @@ automatiseren.
   ik kan doen staan nu op mijn naam, met een tabel van de zeven dingen die
   alleen zij kan doen en waarom. Plus het aanbod om ook de Vercel-stappen over
   te nemen met een token.
+
+## 19 augustus 2026 — mislukte deploy op Vercel opgelost
+
+De eerste deploy na het koppelen van Vercel faalde. Gereproduceerd door lokaal
+te bouwen zonder `.env.local`:
+
+```
+Error: Failed to collect configuration for /en/home
+  [cause]: Error: Configuration must contain `projectId`
+```
+
+- **C** — **`sanity/client.ts`** maakte de client aan bij het laden van de
+  module. Ontbrak `NEXT_PUBLIC_SANITY_PROJECT_ID`, dan gooide `createClient`
+  meteen een fout — vóórdat de `.catch(() => null)` in de homepage zijn werk kon
+  doen. De hele bouw liep daarop stuk. `client` is nu `null` als Sanity niet is
+  ingesteld.
+- **C** — **`sanity/queries.ts`** geeft dan lege lijsten of `null` terug, en de
+  pagina's gebruiken hun vaste terugvalwaarden. **`sanity/image.ts`** maakt de
+  builder pas bij de eerste aanroep.
+- **T** — In `docs/livegang.md` een waarschuwing bij stap 2: koppelen start
+  meteen een bouw, nog vóór de variabelen er staan. Dat kan nu geen kwaad meer,
+  maar wie zeker wil zijn doet stap 3 eerst.
+
+Gecontroleerd: bouwt mét én zonder `.env.local`, en met de variabelen komt de
+CMS-inhoud gewoon binnen (cijferbalk en klantlogo's staan er). 31 livecheck-
+controles goed.

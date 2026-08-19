@@ -124,6 +124,13 @@ Alles staat op `github.com/evanrappard/meetingmasters-web`, branch `main`.
 
 ### Stap 2 · Vercel aan GitHub koppelen
 
+> **Let op de volgorde.** Zodra je koppelt, start Vercel meteen een bouw — nog
+> vóór je in stap 3 de omgevingsvariabelen hebt gezet. Dat gaf op 19 augustus
+> een mislukte deploy: de Sanity-client werd aangemaakt bij het laden van de
+> module en gooide `Configuration must contain projectId`. Dat is nu in de code
+> opgelost, dus de eerste bouw slaagt ook zonder variabelen. Wil je het zeker
+> weten, doe dan stap 3 vóór stap 2 — dan is er niets om over na te denken.
+
 1. vercel.com → je project → **Settings** → **Git**
 2. **Connect Git Repository** → GitHub → `evanrappard/meetingmasters-web`
 3. Production Branch op **main**
