@@ -259,14 +259,22 @@ try {
   {
     const ctx = await browser.newContext();
     const page = await ctx.newPage();
-    let alleGoed = true, leeg = [];
+    // HubSpot rendert het formulier in een iframe, dus tellen in het hoofddocument
+    // zegt niets. We kijken binnen elk frame naar echte invoervelden.
+    let alleGoed = true, leeg = [], captcha = [];
     for (const p of ["/nl/contact", "/en/quote", "/nl/nieuwsbrief"]) {
       await page.goto(BASIS + p, { waitUntil: "networkidle" });
-      await page.waitForTimeout(2500);
-      const velden = await page.locator("form input, iframe").count();
+      await page.waitForTimeout(5000);
+      let velden = 0;
+      for (const f of page.frames()) {
+        velden += await f.locator("input[type=email], input[type=text], textarea").count().catch(() => 0);
+      }
       if (velden === 0) { alleGoed = false; leeg.push(p); }
+      const test = await page.getByText(/testing purposes only/i).count().catch(() => 0);
+      if (test) captcha.push(p);
     }
-    meld(alleGoed, "HubSpot-formulieren laden", leeg.join(", "));
+    meld(alleGoed, "HubSpot-formulieren tonen echte velden", leeg.join(", "));
+    meld(captcha.length === 0, "reCAPTCHA niet in testmodus", captcha.join(", "));
     await ctx.close();
   }
 
