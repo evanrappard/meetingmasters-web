@@ -781,3 +781,19 @@ Squarespace-site blijft het vangnet tot de nieuwe twee weken goed draait.
   specialisten"; dat heet inmiddels Virtueel Kantoor.
 - **C** — `docs/livegang.md` uitgebreid met stap 9b: LinkedIn onthoudt oude
   deelbeelden, dus die moet je via de Post Inspector opfrissen.
+
+## 19 augustus 2026 — titel van de homepage
+
+- **T** — **`Online events, virtual offices & gamification | MeetingMasters`**
+  (besluit Emilie), in beide talen. Wat er stond noemde maar twee van de drie
+  beloftes en zette de merknaam vooraan — en juist daar passen in een tabblad
+  maar ongeveer 25 tekens, dus die gingen helemaal op aan de eigen naam. Gemeten
+  in een zoekresultaat: 540 px breed, en er past 600 px, dus hij wordt niet
+  afgekapt.
+- **B** — `docs/beeld/tabbalk-en-titels.png`: hoe het vignet en de titels er in
+  de tabbalk uitzien, oud naast nieuw.
+
+Nog open, aangedragen maar niet besloten: de haakjes "(Virtual Office)" in de
+titel van Virtueel kantoor (zoekmachine-truc uit een eerdere ronde, inmiddels
+overbodig nu er een echte Engelse pagina is), en `Online Event Formats` dat als
+enige kop hoofdletters gebruikt.
