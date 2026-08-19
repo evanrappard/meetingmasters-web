@@ -641,7 +641,7 @@ toestemming ingetrokken    → cookies weg</code></pre>
   <div class="stap" data-stap="5">
     <div class="stap-kop">
       <input class="vink" type="checkbox" aria-label="Stap 5 afvinken">
-      <h4 class="stap-titel"><span class="nummer">Stap 5 ·</span> DNS bij YourHosting</h4>
+      <h4 class="stap-titel"><span class="nummer">Stap 5 ·</span> DNS aanpassen</h4>
     </div>
     <div class="stap-lijf">
       <div class="blok letop">
@@ -651,9 +651,26 @@ toestemming ingetrokken    → cookies weg</code></pre>
         <a href="#stap9a">stap 9a</a>.</p>
       </div>
 
-      <p>Log in bij YourHosting → domein <code>meetingmasters.online</code> → DNS-beheer.</p>
-      <p><strong>Dit zijn de exacte waarden</strong>, uitgelezen uit jouw
-      Vercel-project op 19 augustus:</p>
+      <div class="blok letop">
+        <span class="blok-titel">Waar log je in? Niet bij YourHosting</span>
+        <p>Nagekeken: je domein wordt bediend door de nameservers van
+        <strong>VIP Internet</strong> — <code>nl.ns.vip.nl</code>,
+        <code>be.ns.vip.nl</code>, <code>dns.resolver.domains</code> — en het
+        SOA-record noemt <code>support.vip.nl</code>. De registrar is Realtime
+        Register, maar dat is een groothandel; daar log jij niet in.</p>
+        <p><strong>Zo weet je of je op de goede plek zit:</strong> je ziet deze
+        drie regels staan.</p>
+      </div>
+<pre><code>A      @     198.185.159.144  (en .145, en 198.49.23.144/.145)
+CNAME  www   ext-cust.squarespace.com.
+MX     @     meetingmasters-online.mail.protection.outlook.com.</code></pre>
+      <p>Zie je die lijst niet, dan is het de verkeerde plek. Heb je een
+      YourHosting-account, kijk daar dan eerst — sommige aanbieders draaien op de
+      infrastructuur van een ander. Kom je er niet uit, dan is
+      <code>support.vip.nl</code> het adres.</p>
+
+      <h3 style="margin-top:24px">De twee records die je wijzigt</h3>
+      <p>Uitgelezen uit jouw Vercel-project op 19 augustus:</p>
       <div class="tabel-scroll">
         <table>
           <thead><tr><th>Type</th><th>Naam</th><th>Waarde</th></tr></thead>
@@ -681,15 +698,26 @@ toestemming ingetrokken    → cookies weg</code></pre>
         </table>
       </div>
 
+      <h3 style="margin-top:24px">Alles hieronder laat je precies zoals het staat</h3>
+      <p>Zes records, en ze hebben niets met de website te maken. Raak je er een
+      aan, dan raakt dat je e-mail.</p>
+      <div class="tabel-scroll">
+        <table>
+          <thead><tr><th>Type</th><th>Naam</th><th>Waarvoor</th></tr></thead>
+          <tbody>
+            <tr><td><code>MX</code></td><td><code>@</code></td><td><strong>je e-mail</strong> — wijst naar Outlook</td></tr>
+            <tr><td><code>TXT</code></td><td><code>@</code></td><td>SPF: Outlook én HubSpot mogen namens jou verzenden</td></tr>
+            <tr><td><code>TXT</code></td><td><code>@</code></td><td><code>google-site-verification=…</code> — bestaande verificatie, scheelt werk bij stap 8</td></tr>
+            <tr><td><code>TXT</code></td><td><code>_dmarc</code></td><td>DMARC-beleid</td></tr>
+            <tr><td><code>CNAME</code></td><td><code>autodiscover</code></td><td>Outlook vindt hiermee je postvak</td></tr>
+            <tr><td><code>CNAME</code></td><td><code>selector1._domainkey</code><br><code>selector2._domainkey</code></td><td>DKIM — de handtekening onder je uitgaande mail</td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="blok letop">
-        <span class="blok-titel">Deze drie laat je staan</span>
-        <p><code>MX → meetingmasters-online.mail.protection.outlook.com.</code> —
-        <strong>je e-mail</strong>. Verwijder je die, dan komt je mail niet meer aan.</p>
-        <p><code>TXT → v=spf1 include:spf.protection.outlook.com
-        include:147433380.spf01.hubspotemail.net -all</code> — hiermee mogen Outlook
-        én HubSpot namens jou verzenden.</p>
-        <p><code>TXT → google-site-verification=rtFiH4mENnAsVC2t7ZQaZ0WvMj7fneLASmDuwVU8qzs</code>
-        — een bestaande Google-verificatie. Laat staan, dat scheelt je werk bij stap 8.</p>
+        <span class="blok-titel">In totaal wijzig je precies twee records</span>
+        <p>Het <code>A</code>-record op <code>@</code> en het <code>CNAME</code> op
+        <code>www</code>. Al het andere blijft staan.</p>
       </div>
 
       <div class="blok controle">

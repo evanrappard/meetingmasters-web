@@ -234,9 +234,26 @@ Beide domeinen staan eraan, met het kale domein op *redirect naar www* (308).
 Zolang de DNS nog naar Squarespace wijst verandert er niets aan wat bezoekers
 zien — dat gebeurt pas in stap 5.
 
-### Stap 5 · DNS bij YourHosting
+### Stap 5 · DNS aanpassen
 
-Log in bij YourHosting → domein `meetingmasters.online` → DNS-beheer.
+**Waar log je in?** Niet bij YourHosting, zoals ik eerder schreef. Ik heb het
+nagekeken: je domein wordt bediend door de nameservers van **VIP Internet**
+(`nl.ns.vip.nl`, `be.ns.vip.nl`, `dns.resolver.domains`), en het SOA-record
+noemt `support.vip.nl`. De registrar is Realtime Register, maar dat is een
+groothandel — daar log jij niet in.
+
+Zoek dus eerst het beheerscherm waar je deze records kunt zien:
+
+```
+A      @     198.185.159.144  (en .145, en 198.49.23.144/.145)
+CNAME  www   ext-cust.squarespace.com.
+MX     @     meetingmasters-online.mail.protection.outlook.com.
+```
+
+Zie je die lijst, dan zit je goed. Zie je hem niet, dan is dat niet de juiste
+plek. Heb je een YourHosting-account, kijk daar dan eerst — sommige aanbieders
+draaien op de infrastructuur van een ander. Kom je er niet uit, dan is
+`support.vip.nl` het adres.
 
 **Dit zijn de exacte waarden**, uitgelezen uit jouw Vercel-project op 19 aug 2026:
 
@@ -259,13 +276,21 @@ heeft in plaats van een herinnering:
 | `A` | `@` | `198.185.159.144`, `198.185.159.145`, `198.49.23.144`, `198.49.23.145` |
 | `CNAME` | `www` | `ext-cust.squarespace.com.` |
 
-#### Deze drie laat je staan
+#### Alles hieronder laat je precies zoals het staat
 
-| Type | Waarde | Waarvoor |
+Zes records, en ze hebben niets met de website te maken. Raak je er een aan, dan
+raakt dat je e-mail.
+
+| Type | Naam | Waarvoor |
 |---|---|---|
-| `MX` | `meetingmasters-online.mail.protection.outlook.com.` | **je e-mail** — raak dit niet aan |
-| `TXT` | `v=spf1 include:spf.protection.outlook.com include:147433380.spf01.hubspotemail.net -all` | e-mail van Outlook én HubSpot mag namens jou verzenden |
-| `TXT` | `google-site-verification=rtFiH4mENnAsVC2t7ZQaZ0WvMj7fneLASmDuwVU8qzs` | een bestaande Google-verificatie — laat staan, scheelt je werk bij stap 8 |
+| `MX` | `@` | **je e-mail** — wijst naar Outlook |
+| `TXT` | `@` | SPF: Outlook én HubSpot mogen namens jou verzenden |
+| `TXT` | `@` | `google-site-verification=…` — bestaande verificatie, scheelt werk bij stap 8 |
+| `TXT` | `_dmarc` | DMARC-beleid |
+| `CNAME` | `autodiscover` | Outlook vindt hiermee je postvak |
+| `CNAME` | `selector1._domainkey` en `selector2._domainkey` | DKIM, de handtekening onder je uitgaande mail |
+
+**In totaal wijzig je dus precies twee records.** Al het andere blijft.
 
 **Raak je e-mail-records niet aan.** MX, SPF, DKIM en DMARC blijven ongemoeid;
 verwijder je die per ongeluk, dan komt je mail niet meer aan.
