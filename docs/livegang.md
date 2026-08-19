@@ -1,5 +1,14 @@
 # Livegang — open punten en stappenplan
 
+> ## 🚀 De site staat live sinds 19 augustus 2026, 16:20
+>
+> `https://www.meetingmasters.online` draait op Vercel. DNS doorgevoerd om
+> 16:15, certificaat afgegeven om 16:19, en de 31 controles zijn **allemaal
+> goed**. Je e-mail is geen moment geraakt.
+>
+> Wat er nog ligt: het GA4-nummer (stap 3a), Search Console en Bing (stap 8),
+> één formulier echt versturen (stap 9), en de LinkedIn Post Inspector (9b).
+
 > **Fijner leesbare versie:** `docs/livegang.html` — open dat bestand in je
 > browser. Zelfde inhoud, maar met afvinkbare stappen (die blijven staan als je
 > de pagina sluit), een voortgangsbalk, en aparte opmaak voor de controles en de
@@ -234,7 +243,7 @@ Beide domeinen staan eraan, met het kale domein op *redirect naar www* (308).
 Zolang de DNS nog naar Squarespace wijst verandert er niets aan wat bezoekers
 zien — dat gebeurt pas in stap 5.
 
-### Stap 5 · DNS aanpassen
+### Stap 5 · DNS aanpassen ✅ gedaan
 
 **Waar log je in?** Niet bij YourHosting, zoals ik eerder schreef. Ik heb het
 nagekeken: je domein wordt bediend door de nameservers van **VIP Internet**
@@ -299,7 +308,7 @@ verwijder je die per ongeluk, dan komt je mail niet meer aan.
 Vercel → Domains hoort er een groen vinkje te komen. Zeg het zodra dat er staat,
 dan neem ik het over.
 
-### Stap 6 · Certificaat en doorverwijzingen
+### Stap 6 · Certificaat en doorverwijzingen ✅ gedaan
 
 Vercel regelt het https-certificaat zelf zodra de DNS klopt. Wacht tot het
 groene vinkje er staat.

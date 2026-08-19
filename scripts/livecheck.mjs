@@ -9,6 +9,40 @@
  * Sluit af met code 1 als er iets mis is, zodat het ook in een script kan.
  */
 import { chromium } from "playwright-core";
+import dns from "node:dns";
+import { Agent, setGlobalDispatcher } from "undici";
+
+/**
+ * Vlak na een DNS-wijziging hangt de resolver van je eigen netwerk of provider
+ * nog op de oude waarde, terwijl de rest van de wereld al bij is. Daarom vragen
+ * we het rechtstreeks aan publieke resolvers — dan meten we wat bezoekers zien
+ * en niet wat deze Mac toevallig nog onthoudt.
+ */
+dns.setServers(["1.1.1.1", "8.8.8.8", "9.9.9.9"]);
+
+/**
+ * `dns.setServers` werkt alleen voor `resolve*`, niet voor `lookup` — en juist
+ * `lookup` is wat `fetch` en het besturingssysteem gebruiken. Vandaar deze
+ * dispatcher: hij zoekt het adres op via de publieke resolvers en verbindt
+ * daarmee, met de juiste hostnaam voor het certificaat.
+ */
+const adressen = new Map();
+async function zoekOp(host) {
+  if (adressen.has(host)) return adressen.get(host);
+  const [ip] = await dns.promises.resolve4(host);
+  adressen.set(host, ip);
+  return ip;
+}
+const agent = new Agent({
+  connect: {
+    lookup: (host, opts, cb) =>
+      zoekOp(host)
+        // Met `all` wil Node een lijst; zonder, een los adres.
+        .then((ip) => (opts?.all ? cb(null, [{ address: ip, family: 4 }]) : cb(null, ip, 4)))
+        .catch((e) => cb(e)),
+  },
+});
+setGlobalDispatcher(agent);
 
 const PRODUCTIE = "https://www.meetingmasters.online";
 const BASIS = (process.argv[2] || PRODUCTIE).replace(/\/$/, "");
@@ -152,7 +186,16 @@ for (const f of ["/favicon.ico", "/icon.png", "/apple-icon.png", "/manifest.webm
 
 // ── 7. In de browser: taalschakelaar, cookies, Analytics, video ────────────
 kop("In een echte browser");
-const browser = await chromium.launch({ channel: "chrome", headless: true });
+// Chrome heeft een eigen resolver, los van die van Node. We zoeken het adres
+// dus zelf op via de publieke resolvers en geven het aan Chrome mee.
+const gastheer = new URL(BASIS).hostname;
+let resolverRegel = [];
+try {
+  const [address] = await dns.promises.resolve4(gastheer);
+  resolverRegel = [`--host-resolver-rules=MAP ${gastheer} ${address}, MAP ${gastheer.replace(/^www\./, "")} ${address}`];
+} catch { /* lukt het niet, dan gebruikt Chrome gewoon de eigen resolver */ }
+
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: resolverRegel });
 try {
   // taalschakelaar heen en terug
   {

@@ -880,3 +880,32 @@ en met 4 uit `docs/livegang.md` uitgevoerd. Wat ik heb gedraaid:
 **Niet aangeraakt:** de beveiligingsinstelling (`ssoProtection` staat op
 *all_except_custom_domains*, dus previews achter een login en het eigen domein
 publiek — precies goed), facturering, en andere projecten.
+
+## 19 augustus 2026 — DE SITE STAAT LIVE
+
+| | |
+|---|---|
+| 16:05 | DNS gewijzigd in het beheerscherm (VIP Internet) |
+| 16:15 | Doorgevoerd bij de nameservers — zoneserie van `2026022601` naar `2026081901` |
+| 16:19 | https-certificaat afgegeven door Vercel |
+| 16:25 | 31 controles gedraaid: **alles goed** |
+
+**Twee records gewijzigd, verder niets.** `A @` van vier Squarespace-adressen
+naar `216.198.79.1`, en `CNAME www` van `ext-cust.squarespace.com` naar
+`aa82fb7ae2858b93.vercel-dns-017.com`. Alle acht e-mailrecords (MX, SPF, DMARC,
+autodiscover, twee Microsoft-DKIM's en twee HubSpot-DKIM's) zijn voor én na
+gecontroleerd en ongemoeid.
+
+- **C** — `scripts/livecheck.mjs` liep eerst tegen de oude site aan: vlak na een
+  DNS-wijziging hangt de resolver van het eigen netwerk nog op de oude waarde.
+  `dns.setServers()` lost dat niet op, want dat werkt alleen voor `resolve*` en
+  niet voor `lookup` — en juist `lookup` gebruikt `fetch`. Nu zit er een
+  undici-dispatcher in die zelf via 1.1.1.1 opzoekt, plus
+  `--host-resolver-rules` voor Chrome. Zo meet het script wat bezoekers zien in
+  plaats van wat deze Mac onthoudt.
+- **Opgemerkt:** de ping-adressen van Google en Bing voor sitemaps zijn
+  afgeschaft (404 en 410). Aanmelden gaat via Search Console; dat staat al zo in
+  het plan.
+
+Nog open: het GA4-nummer, Search Console en Bing, één formulier echt versturen,
+de LinkedIn Post Inspector, en het Vercel-token intrekken.
