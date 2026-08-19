@@ -540,10 +540,11 @@ footer h3 { margin-top: 0; }
         Deployments → laatste build → <strong>⋯</strong> → <strong>Redeploy</strong>.</p>
       </div>
       <div class="blok controle">
-        <span class="blok-titel">Controle</span>
-        <p>Open na de redeploy de tijdelijke Vercel-URL en kijk of de homepage de
-        logo&rsquo;s en cijfers toont. Zie je de vaste standaardcijfers, dan komt
-        Sanity nog niet door.</p>
+        <span class="blok-titel">Controle — die doe ik</span>
+        <p>Stuur me de tijdelijke Vercel-URL, dan draai ik <code>npm run livecheck</code>
+        daartegen: 31 controles in één keer, nog vóór de DNS om is. Wil je zelf
+        kijken: staan de logo&rsquo;s en de cijfers op de homepage? Zie je de vaste
+        standaardcijfers, dan komt Sanity nog niet door.</p>
       </div>
     </div>
   </div>
@@ -615,9 +616,11 @@ toestemming ingetrokken    → cookies weg</code></pre>
 
       <div class="blok controle">
         <span class="blok-titel">Controle</span>
-        <p>Open de live site, klik <strong>Alles accepteren</strong>, en kijk in
-        Google Analytics onder <strong>Rapporten → Realtime</strong> of je jezelf
-        ziet binnenkomen. Dat duurt meestal minder dan een minuut.</p>
+        <p>Dít moet je zelf doen, want het vraagt je Google-account. Open de live
+        site, klik <strong>Alles accepteren</strong>, en kijk in Google Analytics
+        onder <strong>Rapporten → Realtime</strong> of je jezelf ziet binnenkomen.
+        Dat duurt meestal minder dan een minuut. Of het script überhaupt laadt en
+        of het vóór de toestemming zwijgt, controleer ík.</p>
       </div>
     </div>
   </div>
@@ -674,8 +677,8 @@ toestemming ingetrokken    → cookies weg</code></pre>
       <div class="blok controle">
         <span class="blok-titel">Controle</span>
         <p>DNS heeft tijd nodig, meestal een half uur tot een paar uur. In Vercel →
-        Domains hoort er een groen vinkje te komen. Ondertussen kun je zelf kijken met:</p>
-<pre><code>dig www.meetingmasters.online</code></pre>
+        Domains hoort er een groen vinkje te komen. <strong>Zeg het zodra dat er
+        staat, dan neem ik het over.</strong></p>
       </div>
     </div>
   </div>
@@ -689,7 +692,9 @@ toestemming ingetrokken    → cookies weg</code></pre>
       <p>Vercel regelt het https-certificaat zelf zodra de DNS klopt. Wacht tot het
       groene vinkje er staat.</p>
       <div class="blok controle">
-        <span class="blok-titel">Controle — loop deze vijf adressen langs</span>
+        <span class="blok-titel">Controle — die doe ik</span>
+        <p><code>npm run livecheck</code> loopt deze vijf adressen langs én
+        zesentwintig andere dingen. Wil je toch zelf even kijken:</p>
         <div class="tabel-scroll">
           <table class="stapel">
             <thead><tr><th>Je typt</th><th>Je hoort te landen op</th></tr></thead>
@@ -822,12 +827,15 @@ https://www.meetingmasters.online/nl/contact</code></pre>
   <div class="stap" data-stap="9">
     <div class="stap-kop">
       <input class="vink" type="checkbox" aria-label="Stap 9 afvinken">
-      <h4 class="stap-titel"><span class="nummer">Stap 9 ·</span> Formulieren echt testen</h4>
+      <h4 class="stap-titel"><span class="nummer">Stap 9 ·</span> Formulieren echt versturen</h4>
     </div>
     <div class="stap-lijf">
-      <p>Klik ze één voor één door en kijk of de inzending in HubSpot binnenkomt.
-      Ik heb gecontroleerd dat alle vijftien formulier-ID&rsquo;s in HubSpot
-      bestaan, maar of ze ook aankomen kun je alleen echt testen door te versturen.</p>
+      <p><strong>Wat ik al doe:</strong> de controle kijkt of elk formulier
+      daadwerkelijk laadt in de browser, en ik heb nagekeken dat alle vijftien
+      formulier-ID&rsquo;s in HubSpot bestaan.</p>
+      <p><strong>Wat jij moet doen:</strong> één keer echt versturen en kijken of
+      het in HubSpot binnenkomt. Dat kan ik niet voor je doen — een testinzending
+      maakt een echt contact in jouw CRM aan, en dat is niet aan mij.</p>
       <ul>
         <li><code>/nl/contact</code> en <code>/en/contact</code></li>
         <li><code>/nl/offerte</code> en <code>/en/quote</code></li>
@@ -907,23 +915,45 @@ https://www.meetingmasters.online/nl/contact</code></pre>
 </section>
 
 <footer>
-  <div class="twee">
-    <div>
-      <h3>Wat je mij kunt vragen</h3>
-      <ul>
-        <li>Het LinkedIn-adres overal gelijkzetten zodra je weet welke het is</li>
-        <li>De Genuine Contact-link vervangen of weghalen</li>
-        <li>Een verificatiebestand van Search Console plaatsen, als je liever niet
-        met een DNS-record verifieert</li>
-        <li>Meekijken in Search Console zodra er cijfers binnenkomen</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Wat alleen jij kunt doen</h3>
-      <p>Vercel koppelen, DNS wijzigen bij YourHosting, Supabase-instellingen,
-      Search Console verifiëren, en de formulieren echt versturen. Daar heb ik geen
-      toegang toe, en dat hoort ook zo.</p>
-    </div>
+  <h3>Wat ik doe</h3>
+  <div class="blok controle">
+    <span class="blok-titel">Alle controles</span>
+    <p><code>npm run livecheck</code> doet er 31 in één keer: doorverwijzingen,
+    oude bloglinks, elke pagina uit de sitemap, canonical, hreflang, deelbeelden,
+    iconen, taalschakelaar, cookiebanner, Analytics vóór en ná toestemming, of de
+    formulieren laden, en het gewicht van de hero-video. Zeg wanneer, dan draai ik
+    hem — en repareer ik wat eruit komt.</p>
+  </div>
+  <ul>
+    <li>Het LinkedIn-adres gelijkzetten zodra je weet welke werkt</li>
+    <li>De Genuine Contact-link vervangen of weghalen</li>
+    <li>Een verificatiebestand voor Search Console plaatsen, als je liever niet
+    met een DNS-record verifieert</li>
+    <li>Meekijken in Search Console zodra er cijfers binnenkomen</li>
+  </ul>
+
+  <h3>Wat alleen jij kunt doen</h3>
+  <p>Zeven dingen, en alle zeven omdat er een wachtwoord of een account aan hangt.</p>
+  <div class="tabel-scroll">
+    <table class="stapel">
+      <thead><tr><th>Stap</th><th>Waarom ik het niet kan</th></tr></thead>
+      <tbody>
+        <tr><td><strong>2, 3, 3a, 4</strong> — Vercel</td><td>Ik heb geen toegang tot je Vercel-account</td></tr>
+        <tr><td><strong>5</strong> — DNS bij YourHosting</td><td>Idem, en dit is de stap waar een fout je e-mail kan raken</td></tr>
+        <tr><td><strong>3a</strong> — het GA4-meet-ID ophalen</td><td>Zit in jouw Google-account</td></tr>
+        <tr><td><strong>7</strong> — Supabase dichtzetten</td><td>Zit in jouw Supabase-dashboard</td></tr>
+        <tr><td><strong>8</strong> — Search Console en Bing</td><td>Verificatie hangt aan jouw Google-account</td></tr>
+        <tr><td><strong>9</strong> — één formulier echt versturen</td><td>Een testinzending maakt een echt contact in jouw CRM</td></tr>
+        <tr><td><strong>9b</strong> — LinkedIn Post Inspector</td><td>Vraagt een LinkedIn-login</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="blok tip">
+    <span class="blok-titel">Wil je ook de Vercel-stappen uit handen geven?</span>
+    <p>Dat kan. Met een Vercel-token kan ik de koppeling, de omgevingsvariabelen,
+    het meet-ID en het domein zelf instellen. Dan houd jij alleen DNS, Google en
+    het versturen van één formulier over. Zeg het als je dat wilt, dan leg ik uit
+    hoe je zo&rsquo;n token maakt en daarna weer intrekt.</p>
   </div>
 </footer>
 

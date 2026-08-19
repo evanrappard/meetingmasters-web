@@ -152,9 +152,10 @@ op deze Mac; open dat bestand en neem ze letterlijk over.
 **Let op:** na het toevoegen moet je opnieuw deployen, anders pakt hij ze niet
 op. Deployments → laatste build → **⋯** → **Redeploy**.
 
-**Controle:** open na de redeploy de tijdelijke Vercel-URL en kijk of de
-homepage de logo's en cijfers toont. Zie je de vaste standaardcijfers, dan
-komt Sanity nog niet door.
+**Controle — die doe ik:** stuur me de tijdelijke Vercel-URL, dan draai ik
+`npm run livecheck` daartegen. Dan zie je meteen of alles staat, nog vóór de
+DNS om is. Wil je zelf kijken: staan de logo's en de cijfers op de homepage?
+Zie je de vaste standaardcijfers, dan komt Sanity nog niet door.
 
 ### Stap 3a · Google Analytics aanzetten
 
@@ -214,9 +215,11 @@ keuze: alles accepteren    → 2 verzoeken, 2 cookies
 toestemming ingetrokken    → cookies weg
 ```
 
-**Controle:** open de live site, klik **Alles accepteren**, en kijk in Google
-Analytics onder **Rapporten → Realtime** of je jezelf ziet binnenkomen. Dat
-duurt meestal minder dan een minuut.
+**Controle:** dít moet je zelf doen, want het vraagt je Google-account. Open de
+live site, klik **Alles accepteren**, en kijk in Google Analytics onder
+**Rapporten → Realtime** of je jezelf ziet binnenkomen. Dat duurt meestal minder
+dan een minuut. (Of het script überhaupt laadt en of het vóór de toestemming
+zwijgt, controleer ík met `npm run livecheck`.)
 
 ### Stap 4 · Het domein aan Vercel hangen
 
@@ -242,19 +245,17 @@ kunnen per project verschillen.
 verwijder je die per ongeluk, dan komt je mail niet meer aan.
 
 **Controle:** DNS heeft tijd nodig, meestal een half uur tot een paar uur. In
-Vercel → Domains hoort er een groen vinkje te komen. Ondertussen kun je
-controleren met:
-
-```bash
-dig www.meetingmasters.online
-```
+Vercel → Domains hoort er een groen vinkje te komen. Zeg het zodra dat er staat,
+dan neem ik het over.
 
 ### Stap 6 · Certificaat en doorverwijzingen
 
 Vercel regelt het https-certificaat zelf zodra de DNS klopt. Wacht tot het
 groene vinkje er staat.
 
-**Controle — loop deze vijf adressen in je browser langs:**
+**Controle — die doe ik.** `npm run livecheck` loopt deze vijf adressen langs
+én zesentwintig andere dingen. Zeg het zodra het groene vinkje in Vercel staat.
+Wil je toch zelf even kijken:
 
 | Je typt | Je hoort te landen op |
 |---|---|
@@ -361,11 +362,15 @@ De techniek is nu in orde. Wat er daarna nog toe doet is geen code meer:
   het ervoor dat je bij een zoekopdracht op je eigen naam netjes rechts in beeld
   komt met adres, telefoon en link.
 
-### Stap 9 · Formulieren echt testen
+### Stap 9 · Formulieren echt versturen
 
-Klik ze één voor één door en kijk of de inzending in HubSpot binnenkomt. Ik heb
-gecontroleerd dat alle vijftien formulier-ID's in HubSpot bestaan, maar of ze
-ook aankomen kun je alleen echt testen door te versturen.
+**Wat ik al doe:** `npm run livecheck` controleert of elk formulier daadwerkelijk
+laadt in de browser, en ik heb nagekeken dat alle vijftien formulier-ID's in
+HubSpot bestaan.
+
+**Wat jij moet doen:** één keer echt versturen en kijken of het in HubSpot
+binnenkomt. Dat kan ik niet voor je doen — een testinzending maakt een echt
+contact in jouw CRM aan, en dat is niet aan mij.
 
 - `/nl/contact` en `/en/contact`
 - `/nl/offerte` en `/en/quote`
@@ -418,17 +423,35 @@ LinkedIn nu bij dat adres heeft.
 
 ---
 
-## Wat je mij kunt vragen
+## De taakverdeling
 
-- Het LinkedIn-adres overal gelijkzetten zodra je weet welke het is
-- De Genuine Contact-link vervangen of weghalen
-- Een verificatiebestand van Search Console plaatsen, als je liever niet met
-  een DNS-record verifieert
-- Meekijken in Search Console zodra er cijfers binnenkomen, en de vragen
-  beantwoorden die daaruit komen
+### Wat ik doe
 
-## Wat alleen jij kunt doen
+| | |
+|---|---|
+| **Alle controles** | `npm run livecheck` doet er 31 in één keer: doorverwijzingen, oude bloglinks, elke pagina uit de sitemap, canonical, hreflang, deelbeelden, iconen, taalschakelaar, cookiebanner, Analytics vóór en ná toestemming, of de formulieren laden, en het gewicht van de hero-video. Zeg wanneer, dan draai ik hem. |
+| Het LinkedIn-adres gelijkzetten | zodra je weet welke werkt |
+| De Genuine Contact-link | vervangen of weghalen |
+| Een verificatiebestand voor Search Console | als je liever niet met een DNS-record verifieert |
+| Meekijken in Search Console | zodra er cijfers binnenkomen |
+| Alles repareren wat de controle vindt | — |
 
-Vercel koppelen, DNS wijzigen bij YourHosting, Supabase-instellingen, Search
-Console verifiëren, en de formulieren echt versturen. Daar heb ik geen toegang
-toe, en dat hoort ook zo.
+### Wat alleen jij kunt doen
+
+Vijf dingen, en alle vijf omdat er een wachtwoord of een account aan hangt:
+
+| Stap | Waarom ik het niet kan |
+|---|---|
+| **2, 3, 3a, 4** — Vercel | Ik heb geen toegang tot je Vercel-account |
+| **5** — DNS bij YourHosting | Idem, en dit is de stap waar een fout je e-mail kan raken |
+| **3a** — het GA4-meet-ID ophalen | Zit in jouw Google-account |
+| **7** — Supabase dichtzetten | Zit in jouw Supabase-dashboard |
+| **8** — Search Console en Bing | Verificatie hangt aan jouw Google-account |
+| **9** — één formulier echt versturen | Een testinzending maakt een echt contact in jouw CRM |
+| **9b** — LinkedIn Post Inspector | Vraagt een LinkedIn-login |
+
+> **Wil je ook de Vercel-stappen uit handen geven?** Dat kan: met een Vercel-token
+> kan ik de koppeling, de omgevingsvariabelen, het meet-ID en het domein zelf
+> instellen. Dan houd jij alleen DNS, Google en het versturen van één formulier
+> over. Zeg het als je dat wilt, dan leg ik uit hoe je zo'n token maakt en
+> daarna weer intrekt.

@@ -803,3 +803,23 @@ Squarespace-site blijft het vangnet tot de nieuwe twee weken goed draait.
 Gecontroleerd of er meer van dit soort titels stonden: nee. De overige
 hoofdletters zijn eigennamen van formats en tools (Open Space, Wheel of Fortune,
 Inspiration Cards, Kantoor + Cultuur) en die horen zo.
+
+## 19 augustus 2026 — livecheck-script en een eerlijker taakverdeling
+
+Emilie vroeg of het stappenplan zo geschreven was dat ík alles doe wat ik kan,
+en zij alleen wordt ingezet waar een handmatige koppeling nodig is. Dat was het
+niet: van de zes controlemomenten stonden er vier op haar naam terwijl ik ze kan
+automatiseren.
+
+- **C** — **`scripts/livecheck.mjs`** (`npm run livecheck`), 31 controles tegen
+  het live adres: doorverwijzingen (kaal → www, http → https), de elf oude
+  bloglinks, elke pagina uit de sitemap, robots, canonical, hreflang, of de
+  deelbeelden bestaan, de iconen, de taalschakelaar heen en terug, de
+  cookiebanner, Analytics bij alle drie de keuzes, of de HubSpot-formulieren
+  laden, en het gewicht van de hero-video. Werkt ook tegen een preview of tegen
+  localhost: adressen naar het productiedomein worden dan omgezet, en wat lokaal
+  niet te testen valt komt als `!` in plaats van als fout.
+- **T** — `docs/livegang.md` en de webversie herschreven: de vier controles die
+  ik kan doen staan nu op mijn naam, met een tabel van de zeven dingen die
+  alleen zij kan doen en waarom. Plus het aanbod om ook de Vercel-stappen over
+  te nemen met een token.
