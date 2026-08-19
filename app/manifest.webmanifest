@@ -1,0 +1,14 @@
+{
+  "name": "MeetingMasters",
+  "short_name": "MeetingMasters",
+  "description": "Online events, virtueel kantoor en games & tools voor bijeenkomsten die er toe doen.",
+  "start_url": "/nl/home",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#EEBE3D",
+  "lang": "nl",
+  "icons": [
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

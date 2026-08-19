@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import EventsOverzicht from "@/components/events/EventsOverzicht";
 import { OVERZICHT_EN } from "@/app/nl/events/tekst-en";
 
 const SITE = "https://www.meetingmasters.online";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/events")!, "MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/events")!] },
   title: OVERZICHT_EN.metaTitle,
   description: OVERZICHT_EN.metaDescription,
   alternates: {

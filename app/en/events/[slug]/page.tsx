@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import EventPagina, { eventInTaal } from "@/components/events/EventPagina";
 import { VERTAALDE_EVENTS, nederlandseEventSlug } from "@/app/nl/events/[slug]/tekst-en";
+import { deelBeeldVanBron, ogBeeld } from "@/lib/deelbeelden";
 
 const SITE = "https://www.meetingmasters.online";
 
@@ -21,9 +22,19 @@ export async function generateMetadata(
   const nl = nederlandseEventSlug(slug);
   const event = nl ? eventInTaal(nl, "en") : undefined;
   if (!event || !nl) return {};
+  // Zelfde hero als de Nederlandse pagina; het beeld is taalloos.
+  const beeld = event.heroSrc ? deelBeeldVanBron(event.heroSrc) : undefined;
   return {
     title: `${event.title} | MeetingMasters`,
     description: event.metaOmschrijving ?? event.tagline,
+    ...(beeld && {
+      openGraph: {
+        title: event.title,
+        description: event.metaOmschrijving ?? event.tagline,
+        images: ogBeeld(beeld, event.heroAlt ?? event.title),
+      },
+      twitter: { card: "summary_large_image", images: [beeld] },
+    }),
     alternates: {
       canonical: `${SITE}/en/events/${slug}`,
       languages: {

@@ -758,3 +758,26 @@ na (LinkedIn blokkeert bots; genuinecontact.net bestaat niet meer).
 Search Console, Bing, wat je de eerste weken volgt, wat er al klaarstaat, en
 wat ná de livegang nog telt) en met een terugvalplan (stap 9a): de
 Squarespace-site blijft het vangnet tot de nieuwe twee weken goed draait.
+
+## 19 augustus 2026 — deelbeelden en het vignet als favicon
+
+- **B C** — **Elke pagina deelt nu zijn eigen beeld.** Alleen de 22
+  blogartikelen hadden een eigen `og:image`; de overige 106 routes deelden
+  allemaal hetzelfde algemene beeld, dus een gedeelde link naar de strategiedag
+  zag er precies zo uit als een link naar de homepage. Nieuw register
+  `lib/deelbeelden.ts` plus `scripts/deelbeelden-maken.mjs`, dat 34 beelden
+  bijsnijdt naar 1200×630 **jpg** in `public/images/share/`. Jpg en niet de webp
+  van de hero zelf, omdat LinkedIn niet betrouwbaar omgaat met webp. Stand nu:
+  68 pagina's met een eigen deelbeeld, 22 met hun blogbeeld, 38 op het algemene
+  (formulieren, juridische pagina's en de tools — daar is dat juist).
+  Verandert er een hero, draai dan het script opnieuw.
+- **B** — **Het MM-vignet als favicon.** Er stond nog de standaard van Next.js,
+  een zwarte cirkel met een driehoek. Nu `app/icon.png` (512), `app/apple-icon.png`
+  (180, vullend op MM-geel omdat iOS transparantie slecht verwerkt),
+  `app/favicon.ico` (16/32/48) en `app/manifest.webmanifest`. Bron is
+  `public/images/logo-vignet.webp`, met de transparante rand eraf zodat het merk
+  op 16px zo veel mogelijk vlak vult.
+- **T** — De titel van de Nederlandse homepage noemde nog "remote work
+  specialisten"; dat heet inmiddels Virtueel Kantoor.
+- **C** — `docs/livegang.md` uitgebreid met stap 9b: LinkedIn onthoudt oude
+  deelbeelden, dus die moet je via de Post Inspector opfrissen.

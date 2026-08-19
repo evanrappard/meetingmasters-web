@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import Image from "next/image";
 import Link from "next/link";
 import { POSTS } from "./posts";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/blog")!, "MeetingMasters blog") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/blog")!] },
   title: "Blog | MeetingMasters",
   description:
     "Inzichten, reflecties en praktische ideeën over online meetings, virtuele events en menselijke verbinding — door Emilie van Rappard.",

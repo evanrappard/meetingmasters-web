@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import { taalAlternates } from "@/lib/talen";
 import OverOnsPagina from "@/components/about/OverOnsPagina";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/about")!, "MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/about")!] },
   alternates: taalAlternates("/about"),
   title: "Over ons | MeetingMasters",
   description:

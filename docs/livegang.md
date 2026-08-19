@@ -24,6 +24,8 @@ Zodat je weet wat er níét meer op je lijstje staat.
 | **hreflang, wederkerig** | De Engelse pagina's wezen naar de Nederlandse, maar niet andersom. Google negeert eenrichtings-hreflang volledig, dus het signaal deed niets. Nu wijzen alle 118 vertaalde pagina's over en weer, en dat is machinaal gecontroleerd. |
 | **Eigen 404-pagina** | Er was er geen. Iemand met een oude link kreeg een kale Engelse standaardpagina zonder menu. Nu een tweetalige pagina met de weg terug. |
 | **Deelbeeld van de calculator** | Beide calculator-bestanden verwezen naar een afbeelding die niet bestond. Elke deling op LinkedIn liet een leeg vlak zien. |
+| **Eigen deelbeeld per pagina** | Alleen de blogartikelen hadden er een; alle 106 andere pagina's deelden hetzelfde algemene beeld. Nu deelt elke event-, kantoor- en gamespagina zijn eigen hero. 34 beelden op 1200×630 jpg. |
+| **Het MM-vignet als favicon** | Er stond nog de standaard van Next.js: een zwarte cirkel met een driehoek. Nu het vignet, in alle maten plus een webmanifest. |
 | **Standaardtitel in de root** | Stond nog op "Online events & remote work specialisten", terwijl het inmiddels Virtueel Kantoor heet. |
 | **Vier routes ontbraken in mijn controlelijst** | `/nl/nieuwsbrief`, `/nl/technologie/hulp`, `/nl/technologie/tools` en `/nl/meeting-calculator` liepen nooit mee in de sweeps. Nu wel — en daardoor kwamen hun ontbrekende hreflang-tags alsnog aan het licht. |
 | **Google Analytics ingebouwd**, achter de cookiekeuze | Zie de aparte sectie hieronder. Jij hoeft alleen nog het meet-ID aan te leveren. |
@@ -392,6 +394,19 @@ niet in HubSpot staan.
 > **Schrijf op wat de DNS-records nú zijn**, vóór je stap 5 doet. Een
 > schermafdruk van het DNS-scherm bij YourHosting is genoeg. Zonder dat kun je
 > niet terug.
+
+### Stap 9b · LinkedIn zijn geheugen opfrissen
+
+LinkedIn onthoudt het deelbeeld van een adres, soms maanden. Heb je een link
+eerder gedeeld, dan blijft hij het oude beeld tonen — of een leeg vlak, als er
+toen niets was.
+
+Ga naar **linkedin.com/post-inspector**, plak het adres en klik
+**Inspect**. Daarmee haalt LinkedIn het beeld opnieuw op. Doe dat in elk geval
+voor de homepage en voor de pagina's die je binnenkort gaat delen.
+
+**Controle:** je ziet in het Post Inspector meteen welk beeld en welke titel
+LinkedIn nu bij dat adres heeft.
 
 ### Stap 10 · Laatste blik
 

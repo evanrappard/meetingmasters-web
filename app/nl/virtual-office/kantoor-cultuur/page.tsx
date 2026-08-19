@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import { taalAlternates } from "@/lib/talen";
 import KantoorCultuurPagina from "@/components/vo/KantoorCultuurPagina";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/virtual-office/kantoor-cultuur")!, "MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/virtual-office/kantoor-cultuur")!] },
   alternates: taalAlternates("/virtual-office/kantoor-cultuur"),
   title: "Kantoor + Cultuur — virtueel kantoor op maat | MeetingMasters",
   description:

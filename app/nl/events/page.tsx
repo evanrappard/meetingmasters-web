@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import { taalAlternates } from "@/lib/talen";
 import EventsOverzicht from "@/components/events/EventsOverzicht";
 import {
@@ -11,6 +12,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/events")!, "MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/events")!] },
   alternates: taalAlternates("/events"),
   title: "Online Event Formats | MeetingMasters",
   description:

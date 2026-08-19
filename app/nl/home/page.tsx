@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import { taalAlternates } from "@/lib/talen";
 import HomePagina from "@/components/home/HomePagina";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/home")!, "MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/home")!] },
   alternates: taalAlternates("/home"),
-  title: "MeetingMasters | Online events & remote work specialisten",
+  title: "MeetingMasters | Online events & virtueel kantoor",
   description:
     "Wij ontwerpen online bijeenkomsten voor 50 tot 500 mensen — events, virtual offices en interactieve formats. 250+ events begeleid, 94% tevredenheid.",
 };
