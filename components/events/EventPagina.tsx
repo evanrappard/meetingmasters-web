@@ -69,12 +69,39 @@ const T = {
  * structuur komen altijd uit het Nederlandse databestand — die zijn taalloos.
  * Ontbreekt een Engelse tekst, dan blijft de Nederlandse staan; dat is
  * zichtbaar en dus makkelijk te vinden.
+ *
+ * Let op de lijsten. Een gewone samenvoeging verving de héle lijst door de
+ * Engelse, en die bevat alleen tekst. Daarmee verdwenen de beelden uit de
+ * praktijkvoorbeelden, de stappen en de randvoorwaarden op de Engelse
+ * pagina's. We voegen ze daarom per onderdeel samen: het Nederlandse item is
+ * de basis, de Engelse tekst gaat eroverheen. Wat het Engels niet noemt —
+ * `img` bijvoorbeeld — blijft dus staan.
  */
+function samenvoegen<T extends object>(nl: T, en?: Record<string, unknown>): T {
+  if (!en) return nl;
+  const uit: Record<string, unknown> = { ...(nl as Record<string, unknown>) };
+  for (const [sleutel, waarde] of Object.entries(en)) {
+    const bestaand = (nl as Record<string, unknown>)[sleutel];
+    if (Array.isArray(waarde) && Array.isArray(bestaand)) {
+      // Zelfde volgorde in beide bestanden; daarom koppelen op positie.
+      uit[sleutel] = waarde.map((item, i) => {
+        const origineel = bestaand[i];
+        return item && typeof item === "object" && origineel && typeof origineel === "object"
+          ? { ...origineel, ...item }
+          : item;
+      });
+    } else {
+      uit[sleutel] = waarde;
+    }
+  }
+  return uit as T;
+}
+
 export function eventInTaal(slug: string, taal: Taal) {
   const basis = EVENT_DATA[slug];
   if (!basis || taal === "nl") return basis;
   const en = EVENT_TEKST_EN[slug];
-  return en ? { ...basis, ...en } : basis;
+  return en ? samenvoegen(basis, en as unknown as Record<string, unknown>) : basis;
 }
 
 export { engelseEventSlug, nederlandseEventSlug };

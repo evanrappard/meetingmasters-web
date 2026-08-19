@@ -909,3 +909,23 @@ gecontroleerd en ongemoeid.
 
 Nog open: het GA4-nummer, Search Console en Bing, één formulier echt versturen,
 de LinkedIn Post Inspector, en het Vercel-token intrekken.
+
+## 19 augustus 2026 — beelden ontbraken op de Engelse eventpagina's
+
+Emilie zag het: de praktijkvoorbeelden op de Engelse eventpagina's hadden wél de
+tekst, maar geen beeld.
+
+**Oorzaak.** `eventInTaal()` in `components/events/EventPagina.tsx` voegde de
+Engelse teksten samen met een gewone objectsamenvoeging. Bij een lijst vervangt
+dat de héle lijst. Het Engelse bestand bevat alleen tekst — `label`, `title`,
+`body`, `imgAlt` — dus het veld `img` verdween. Datzelfde gold voor de stappen
+en de randvoorwaarden.
+
+**Oplossing.** De samenvoeging gaat nu per onderdeel: het Nederlandse item is de
+basis, de Engelse tekst gaat eroverheen. Wat het Engels niet noemt blijft staan.
+Daarmee zijn beeld, icoon en kleur voortaan taalloos, zoals bedoeld.
+
+**Gecontroleerd:** alle twintig events tonen nu in beide talen evenveel beelden
+bij de praktijkvoorbeelden, en over alle 59 vertaalde paren zijn er nog maar twee
+verschillen — allebei bedoeld: de Engelse homepage slaat het CMS over, en de
+Engelse downloadspagina mist het Vergadermacht-blok.
