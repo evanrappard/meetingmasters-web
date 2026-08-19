@@ -1,5 +1,10 @@
 # Livegang — open punten en stappenplan
 
+> **Fijner leesbare versie:** `docs/livegang.html` — open dat bestand in je
+> browser. Zelfde inhoud, maar met afvinkbare stappen (die blijven staan als je
+> de pagina sluit), een voortgangsbalk, en aparte opmaak voor de controles en de
+> waarschuwingen. Ook als webpagina gepubliceerd; zie het gesprek voor de link.
+
 Doorlichting van 18–19 augustus 2026, gemeten op de productiebouw (137 routes).
 Alles wat ík kon repareren is gerepareerd; wat overblijft staat hieronder.
 
