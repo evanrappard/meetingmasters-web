@@ -167,7 +167,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                 {t.mensen.teamBody}
                </p>
               <a
-                href="https://nl.linkedin.com/company/meetingmasters"
+                href="https://www.linkedin.com/company/meetingmastersonline"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-4 text-[#28A8AA] text-sm font-bold hover:underline"

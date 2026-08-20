@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     "Trek een digitale inspiratiekaart met een thema en een beeld. Deel je scherm, trek een kaart en het gesprek begint. Gratis, zonder account, ook mobiel.",
 };
 
+// Het adres klopt; hun server ligt eruit (521, gecontroleerd 19–20 aug 2026).
+// Bevestigd door Emilie. Dus niet "repareren" als een controle hierover klaagt.
 const GENUINE_CONTACT = "https://genuinecontact.net";
 
 const faq: FaqItem[] = [

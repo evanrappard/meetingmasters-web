@@ -977,3 +977,15 @@ is en laat de rest ongemoeid. Na de wijziging is er nog één blok over: het lab
 *"Wij maken ontmoetingen — samen met onze klanten"* boven de logobalk op Over
 ons. Dat heeft een eigen `max-w-content` in de opmaak, past op één regel en lijnt
 uit met de carrousel eronder — bewust zo gelaten.
+
+## 20 augustus 2026 — de laatste twee open punten gesloten
+
+- **C** — **LinkedIn gelijkgetrokken.** Op Over ons stond
+  `nl.linkedin.com/company/meetingmasters`, terwijl de footer en de
+  bedrijfsgegevens naar `www.linkedin.com/company/meetingmastersonline` wezen —
+  twee verschillende bedrijfspagina's. Emilie bevestigde welke de juiste is;
+  alle drie de plekken wijzen nu daarheen. Haar persoonlijke profiel
+  (`/in/emilievanrappard/`) stond al goed.
+- **T** — **Genuine Contact:** het adres `genuinecontact.net` klopt, alleen ligt
+  hun server eruit (521). Bevestigd door Emilie. Er staat nu een notitie bij in
+  de code, zodat niemand hem later "repareert" als een controle erover klaagt.
