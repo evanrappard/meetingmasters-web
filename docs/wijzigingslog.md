@@ -1050,3 +1050,11 @@ dezelfde grootte, en de koppenreeks eronder klopt weer (`h3`/`h4`).
 **Bronbestand events (T)** — `docs/event-format-teksten.md` had nog
 `team-ontwikkeling`, `ontwikkeltraject` en `escaperoom` staan. Alle twintig
 slugs komen nu overeen met de site; gecontroleerd tegen `data.ts`.
+
+**Planning & support (C)** — de scan meldde `/en/planning-support` als kapot, en
+dat klopte: hij stond in `enPaths` en stuurde je dus naar de Nederlandse
+noindex-pagina. Wegsturen naar `/en/events` was de eerste reactie, maar er staat
+een echte, bijgehouden Engelse pagina (hij kreeg de engagement-ronde én de
+ontwerpronde mee). Daarom nu als paar in `PAREN`, met dezelfde status als de
+Nederlandse: bereikbaar, wederkerige hreflang, niet in de zoekresultaten en niet
+in de sitemap. Zeg het als je hem tóch liever laat doorverwijzen.

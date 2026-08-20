@@ -29,6 +29,7 @@ export const NIET_INDEXEREN = new Set([
   "/nl/meeting-formats",
   "/nl/partners",
   "/nl/planning-support",
+  "/en/planning-support",
   "/nl/quality",
   "/nl/strategy-concept",
   "/nl/team",

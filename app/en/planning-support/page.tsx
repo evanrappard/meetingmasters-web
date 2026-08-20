@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { taalAlternates } from "@/lib/talen";
 import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: taalAlternates("/planning-support", "en"),
+  // Zelfde status als de Nederlandse pagina: nog niet af of vervangen, dus wel
+  // bereikbaar maar niet in de zoekresultaten. Staat ook in NIET_INDEXEREN.
+  robots: { index: false, follow: true },
   title: "Planning & Support | MeetingMasters",
   description:
     "Expert planning, design, and live support for your online meetings — before, during, and after.",

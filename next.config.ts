@@ -109,8 +109,6 @@ const nextConfig: NextConfig = {
       { source: "/nlplanningdesign-copy", destination: "/nl/events", permanent: true },
       // Engelse adressen van de oude site horen op een Engelse pagina te landen.
       { source: "/en/online-all-staff", destination: "/en/events/all-hands", permanent: true },
-      // Stond in enPaths en landde daardoor op de Nederlandse noindex-pagina.
-      { source: "/en/planning-support", destination: "/en/events", permanent: true },
       // Cases is opgeheven (besluit Emilie, 20 aug 2026). Niet laten doodlopen:
       // wie een oude link volgt komt op de klantervaringen terecht.
       { source: "/nl/cases", destination: "/nl/testimonials", permanent: true },

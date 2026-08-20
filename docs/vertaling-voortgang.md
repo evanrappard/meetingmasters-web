@@ -79,7 +79,7 @@ aanmerkte. Het is een keuze, geen fout.
 
 De Engelse site heeft **geen `/en/technologie`-hub**. Waar het Nederlands drie
 pagina's onder één kop hangt, staan de Engelse pagina's er los onder:
-`/en/tech-help`, `/en/platforms`, `/en/spatialchat`. Reden: het Nederlandse
+`/en/help`, `/en/platforms`, `/en/spatialchat`. Reden: het Nederlandse
 "Technologie" is een verzamelwoord dat in het Engels ("Technology") nietszeggend
 wordt, en de drie pagina's worden in het Engels ook los gezocht.
 
