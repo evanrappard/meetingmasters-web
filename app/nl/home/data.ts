@@ -229,6 +229,8 @@ export const NL_TEKST = {
     meer: "Meer →",
   },
   klanten: "Klanten",
+  klantenLink: "Lees wat ze zeggen →",
+  klantenHref: "/nl/testimonials",
   essentie: {
     kicker: "Essentie",
     kop: "Waar wij voor staan",

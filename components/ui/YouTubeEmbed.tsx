@@ -1,10 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type YouTubeEmbedProps = {
   videoId: string;
   title: string;
+  /**
+   * Eigen voorbeeldbeeld. Zonder dit valt hij terug op de thumbnail van
+   * YouTube, en die halen we dan van i.ytimg.com — een extern adres dat we niet
+   * in de hand hebben en dat de bezoeker bij YouTube bekend maakt vóór hij op
+   * play klikt. Geef hem dus liever een bestand uit /public/images mee.
+   */
+  poster?: string;
+  /** Beschrijving van het beeld voor wie het niet ziet. Valt terug op `title`. */
+  posterAlt?: string;
 };
 
 /**
@@ -12,7 +22,7 @@ type YouTubeEmbedProps = {
  * De (zware) YouTube-speler wordt pas geladen zodra de bezoeker op play klikt —
  * dus geen impact op de laadtijd van de pagina.
  */
-export default function YouTubeEmbed({ videoId, title }: YouTubeEmbedProps) {
+export default function YouTubeEmbed({ videoId, title, poster, posterAlt }: YouTubeEmbedProps) {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -32,16 +42,26 @@ export default function YouTubeEmbed({ videoId, title }: YouTubeEmbedProps) {
           className="group absolute inset-0 h-full w-full cursor-pointer"
           aria-label={`Speel de film af: ${title}`}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-            }}
-            alt={title}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          {poster ? (
+            <Image
+              src={poster}
+              alt={posterAlt ?? title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 620px"
+              className="object-cover"
+            />
+          ) : (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+              }}
+              alt={posterAlt ?? title}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
           <span className="absolute inset-0 bg-black/25 transition-colors group-hover:bg-black/10" />
           <span className="absolute inset-0 flex items-center justify-center">
             <span className="flex h-16 w-24 items-center justify-center rounded-2xl bg-[#EEBE3D] shadow-lg transition-transform group-hover:scale-105">

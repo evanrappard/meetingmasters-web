@@ -68,6 +68,8 @@ export const HOME_EN = {
   },
 
   klanten: "Clients",
+  klantenLink: "Read what they say →",
+  klantenHref: "/en/testimonials",
 
   essentie: {
     kicker: "Essence",

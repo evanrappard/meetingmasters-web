@@ -1058,3 +1058,45 @@ een echte, bijgehouden Engelse pagina (hij kreeg de engagement-ronde én de
 ontwerpronde mee). Daarom nu als paar in `PAREN`, met dezelfde status als de
 Nederlandse: bereikbaar, wederkerige hreflang, niet in de zoekresultaten en niet
 in de sitemap. Zeg het als je hem tóch liever laat doorverwijzen.
+
+---
+
+## 20 augustus 2026 — Over ons en Ervaringen
+
+Beide talen, tenzij anders vermeld.
+
+**Over ons (T)** — *"En die houdt nog steeds"* liep niet; is *"En dat geldt nog
+steeds."* De teambeschrijving stond in het enkelvoud (*"zijn student"*) terwijl
+de FAQ het meervoud gebruikte. Beide staan nu gelijk, met de Academy vóór de
+selectiecriteria: opleiding eerst, dan wie ze zijn.
+
+**Manifestbeeld (B/C)** — het voorbeeldbeeld van de film werd extern gehaald bij
+`i.ytimg.com`. Dat is een adres dat we niet in de hand hebben, en het maakt de
+bezoeker bij YouTube bekend nog vóór hij op play klikt. Beide beelden staan nu
+lokaal (`manifest-video-nl.webp` / `-en.webp`, 51–53 kB), zwarte balken
+weggesneden, met een alt die vertelt wat er te zien is. `YouTubeEmbed` heeft
+daarvoor een `poster`-optie gekregen; zonder poster valt hij terug op het oude
+gedrag.
+
+**Eigen uitnodiging op Over ons (T/C)** — de enige twee knoppen bij "de mensen"
+waren links naar LinkedIn, terwijl dit de pagina is waar iemand besluit of hij
+ons vertrouwt. Er staat nu een blok onder de twee portretten: *"Liever meteen
+kennismaken?"* met **Plan een gesprek** en **Lees eerst wat klanten zeggen**.
+
+**Ervaringen beter vindbaar (T/C)** — twaalf quotes van herkenbare namen zaten
+te diep weggestopt. Nu drie ingangen: een link naast **KLANTEN** op de home,
+een link naast de klantenregel op Over ons, en de FAQ *"Waarom kiezen
+organisaties voor MeetingMasters?"* op het eventoverzicht verwijst er nu
+naartoe. Een FAQ-antwoord kan daarvoor een `href` meekrijgen; het FAQ-schema
+voor Google pakt nog steeds alleen vraag en antwoord op.
+
+**Dubbele slotzin (T)** — ROC TOP en Bergman Clinics eindigden allebei met
+*"Een waardevolle bijdrage aan verbinding in deze tijd."* Bij ROC TOP zat die
+zin er los op: het citaat gaat over flexibiliteit en creatieve kwaliteiten. Hij
+is daar weggehaald. **Let op:** dit is geen fout die bij het overzetten is
+ontstaan — de dubbeling staat al in de állereerste commit (`2d142c6`), in beide
+talen. Hij komt dus mee van de oude site. Wie het originele citaat van ROC TOP
+heeft, kan nakijken of er nog een eigen slotzin bij hoorde.
+
+**CTA op Ervaringen (C)** — de pagina eindigde in het niets. Nu staat het vaste
+CTA-blok eronder, in beide talen.

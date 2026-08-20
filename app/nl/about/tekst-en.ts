@@ -40,6 +40,8 @@ export const ABOUT_EN = {
     // De Engelse opname van het manifest, aangeleverd door Emilie.
     videoId: "0zKaXLEHtMQ",
     videoTitel: "The MeetingMasters manifesto",
+    videoBeeld: "/images/manifest-video-en.webp",
+    videoBeeldAlt: "The manifesto film open on a laptop on a desk by the window",
   },
 
   mensen: {
@@ -52,8 +54,12 @@ export const ABOUT_EN = {
     linkedin: "Connect on LinkedIn →",
     team: "The team",
     teamNaam: "The Meeting Masters",
-    teamBody: "Meeting Masters are there to make contact possible. The Meeting Masters are students, selected for initiative, a welcoming manner and an interest in the digital world. They're strong communicators, analytical, good at explaining things and speak several languages. Every Meeting Master is trained at the MeetingMasters Academy.",
+    teamBody: "Meeting Masters are there to make contact possible. Every Meeting Master is trained at the MeetingMasters Academy. They are students, selected for initiative, a welcoming manner and an interest in the digital world: strong communicators, analytical, good at explaining things, and between them they speak several languages.",
     teamLinkedin: "Follow us on LinkedIn →",
+    uitnodigingKop: "Rather just meet?",
+    uitnodigingBody: "Half an hour is enough to tell whether we fit. We'll think your gathering through with you straight away — no obligation.",
+    uitnodigingKnop: "Book a conversation →",
+    uitnodigingTweede: "Read what clients say first →",
   },
 
   rollen: {
@@ -83,6 +89,7 @@ export const ABOUT_EN = {
   },
 
   klanten: "We make gatherings — together with our clients",
+  klantenLink: "Read what they say →",
 
   faqKop: "Frequently asked questions about MeetingMasters",
   meerAntwoorden: "More answers?",
@@ -102,9 +109,9 @@ export const ABOUT_EN = {
     { q: "What happens if a gathering doesn't go to plan?", a: "When things take a turn, it comes down to a clear grasp of the goals, knowledge of video platforms and switching quickly and sensibly. Our Meeting Masters are trained to guide participants and organisers and take the weight off them throughout, planned and unplanned alike. That brings calm, focus and a far more pleasant atmosphere." },
     { q: "Which platforms do you work with?", a: "Zoom, Zoom Events, Microsoft Teams and SpatialChat (our platform of choice), among others. Which platform fits best follows from the purpose of the gathering and the experience you want participants to have." },
     { q: "Who founded MeetingMasters?", a: "Emilie van Rappard, an experienced brand and participation strategist. She worked at KLM for many years, then independently through the consultancy ismu, and founded MeetingMasters Online in 2020." },
-    { q: "Who are the Meeting Masters?", a: "The Meeting Masters are students, selected for initiative, a welcoming manner and an interest in the digital world. They're strong communicators, analytical, good at explaining things and speak several languages. Every Meeting Master is trained at the MeetingMasters Academy." },
+    { q: "Who are the Meeting Masters?", a: "Every Meeting Master is trained at the MeetingMasters Academy. They are students, selected for initiative, a welcoming manner and an interest in the digital world: strong communicators, analytical, good at explaining things, and between them they speak several languages." },
     { q: "How do I get started with MeetingMasters?", a: "Every project starts with an intake in which we go through the purpose and the context of a gathering. We always make a proposal built around your case — ask for advice with no strings attached and we'll gladly think it through with you." },
   ],
 
-  links: { advies: "/en/expert-advice", contact: "/en/contact" },
+  links: { advies: "/en/expert-advice", contact: "/en/contact", testimonials: "/en/testimonials" },
 };

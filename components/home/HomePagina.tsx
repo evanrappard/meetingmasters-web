@@ -271,7 +271,14 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
 
       {/* ── LOGO CARROUSEL ───────────────────────────────────────────── */}
       <section className="bg-[#F9F9F8] pt-14 pb-10 border-t border-[#EBEBEB] overflow-hidden">
-        <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-6 max-w-content mx-auto px-6 lg:px-10">{t.klanten}</p>
+        <div className="max-w-content mx-auto px-6 lg:px-10 mb-6">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase">{t.klanten}</p>
+            <Link href={t.klantenHref} className="text-[#28A8AA] text-sm font-bold hover:text-[#1E8E90] transition-colors">
+              {t.klantenLink}
+            </Link>
+          </div>
+        </div>
         <div
           className="overflow-hidden"
           style={{ maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)" }}

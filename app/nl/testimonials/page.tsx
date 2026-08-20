@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CTABlock from "@/components/ui/CTABlock";
 import { taalAlternates } from "@/lib/talen";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ const testimonials = [
   {
     company: "ROC TOP",
     quote:
-      "De flexibiliteit en creatieve kwaliteiten van de MeetingMasters waren zowel voor als tijdens het evenement van grote waarde. Een waardevolle bijdrage aan verbinding in deze tijd.",
+      "De flexibiliteit en creatieve kwaliteiten van de MeetingMasters waren zowel voor als tijdens het evenement van grote waarde.",
   },
   {
     company: "Bergman Clinics",
@@ -98,6 +99,8 @@ export default function TestimonialsPage() {
           </div>
         ))}
       </div>
+
+      <CTABlock taal="nl" />
     </div>
   );
 }

@@ -46,7 +46,7 @@ export const aboutFaqMore = [
   { q: "Wat gebeurt er als een bijeenkomst toch anders loopt?", a: "Als de zaken even anders lopen, komt het aan op goed inzicht in de doelstellingen, kennis van videoplatforms en slim en snel schakelen. Onze Meeting Masters zijn opgeleid om gedurende het hele proces — gepland én ongepland — deelnemers en organisatoren te begeleiden en te ontzorgen. Dat geeft rust, focus en een veel prettigere sfeer." },
   { q: "Met welke platforms werken jullie?", a: "Onder andere Zoom, Zoom Events, Microsoft Teams en SpatialChat (ons voorkeursplatform). Welk platform het beste past, volgt uit het doel van de bijeenkomst en de gewenste ervaring voor deelnemers." },
   { q: "Wie is de oprichter van MeetingMasters?", a: "Emilie van Rappard, een ervaren merk- en participatiestrateeg. Ze werkte lang bij KLM, daarna zelfstandig via adviesbureau ismu en richtte MeetingMasters Online op in 2020." },
-  { q: "Wie zijn de Meeting Masters?", a: "De Meeting Masters zijn studenten, geselecteerd op initiatief, klantvriendelijkheid en interesse in het digitale domein. Ze zijn communicatief en analytisch, kunnen goed uitleggen en spreken verschillende talen. Iedere Meeting Master wordt getraind aan de MeetingMasters Academy." },
+  { q: "Wie zijn de Meeting Masters?", a: "Iedere Meeting Master wordt opgeleid aan de MeetingMasters Academy. Het zijn studenten, geselecteerd op initiatief, klantvriendelijkheid en interesse in het digitale domein: communicatief en analytisch, goed in uitleggen, en samen spreken ze verschillende talen." },
   { q: "Hoe begin ik met MeetingMasters?", a: "Elk traject start met een intake waarin het doel en de context van een bijeenkomst worden doorgenomen. We maken altijd een voorstel op maat — vraag vrijblijvend advies aan en we denken graag mee." },
 ];
 
@@ -72,12 +72,14 @@ export const NL = {
   manifest: {
     kicker: "Ons manifest",
     titel: "Hier staan we voor.",
-    body: "Ons manifest is in 2021 met en door MeetingMasters gemaakt: onze overtuiging over waarom samenkomen ertoe doet. En die houdt nog steeds.",
+    body: "Ons manifest is in 2021 met en door MeetingMasters gemaakt: onze overtuiging over waarom samenkomen ertoe doet. En dat geldt nog steeds.",
     citaat: "Wij zijn bewaarders van het menselijk perspectief: bewakers van betrokkenheid, laagdrempeligheid en oprecht contact.",
     knop: "Download het manifest (PDF)",
     href: "/downloads/meetingmasters-manifest.pdf",
     videoId: "Cling07_Kas",
     videoTitel: "Het MeetingMasters Manifest",
+    videoBeeld: "/images/manifest-video-nl.webp",
+    videoBeeldAlt: "Een Meeting Master vertelt het manifest, te zien op een laptop op een bureau bij het raam",
   },
   mensen: {
     kicker: "De mensen",
@@ -89,8 +91,12 @@ export const NL = {
     linkedin: "Connect op LinkedIn →",
     team: "Het team",
     teamNaam: "De Meeting Masters",
-    teamBody: "Meeting Masters zijn gericht op het faciliteren van contact. De Meeting Masters zijn student, geselecteerd op initiatief, klantvriendelijkheid en interesse in het digitale domein. Ze zijn communicatief, analytisch, kunnen goed uitleggen en spreken verschillende talen. Iedere Meeting Master wordt getraind aan de MeetingMasters Academy.",
+    teamBody: "Meeting Masters zijn gericht op het faciliteren van contact. Iedere Meeting Master wordt opgeleid aan de MeetingMasters Academy. Het zijn studenten, geselecteerd op initiatief, klantvriendelijkheid en interesse in het digitale domein: communicatief en analytisch, goed in uitleggen, en samen spreken ze verschillende talen.",
     teamLinkedin: "Volg ons op LinkedIn →",
+    uitnodigingKop: "Liever meteen kennismaken?",
+    uitnodigingBody: "Een half uur is genoeg om te merken of we bij elkaar passen. We denken meteen mee over je bijeenkomst — vrijblijvend.",
+    uitnodigingKnop: "Plan een gesprek →",
+    uitnodigingTweede: "Lees eerst wat klanten zeggen →",
   },
   rollen: {
     kicker: "Onze rollen",
@@ -105,8 +111,9 @@ export const NL = {
     tijdensItems: rolesTijdens,
   },
   klanten: "Wij maken ontmoetingen — samen met onze klanten",
+  klantenLink: "Lees wat ze zeggen →",
   faqKop: "Veelgestelde vragen over MeetingMasters",
   meerAntwoorden: "Meer antwoorden?",
   minderAntwoorden: "Minder antwoorden",
-  links: { advies: "/nl/expert-advies", contact: "/nl/contact" },
+  links: { advies: "/nl/expert-advies", contact: "/nl/contact", testimonials: "/nl/testimonials" },
 };

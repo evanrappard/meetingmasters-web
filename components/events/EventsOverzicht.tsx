@@ -69,8 +69,10 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
   /** Het categorielabel in de juiste taal, met terugval op het Nederlands. */
   const label = (cat: { id: string; label: string }) =>
     (taal === "en" ? OVERZICHT_EN.categorieen[cat.id] : undefined) ?? cat.label;
-  const faqs = taal === "en" ? OVERZICHT_EN.faq : eventFaq;
-  const faqsMeer = taal === "en" ? OVERZICHT_EN.faqMore : eventFaqMore;
+  // Een antwoord mag naar een pagina verwijzen; het FAQ-schema pakt alleen q en a op.
+  type FaqItem = { q: string; a: string; href?: string; hrefLabel?: string };
+  const faqs: FaqItem[] = taal === "en" ? OVERZICHT_EN.faq : eventFaq;
+  const faqsMeer: FaqItem[] = taal === "en" ? OVERZICHT_EN.faqMore : eventFaqMore;
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -301,6 +303,11 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
               <div key={item.q}>
                 <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
                 <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
+                {item.href && (
+                  <Link href={item.href} className="inline-block mt-2 text-sm font-bold text-[#28A8AA] hover:text-[#1E8E90] transition-colors">
+                    {item.hrefLabel}
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -318,6 +325,11 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
                 <div key={item.q}>
                   <h3 className="text-sm font-bold text-[#2D2D2D] mb-2">{item.q}</h3>
                   <p className="text-sm text-[#434343] leading-relaxed">{item.a}</p>
+                  {item.href && (
+                    <Link href={item.href} className="inline-block mt-2 text-sm font-bold text-[#28A8AA] hover:text-[#1E8E90] transition-colors">
+                      {item.hrefLabel}
+                    </Link>
+                  )}
                 </div>
               ))}
             </div>

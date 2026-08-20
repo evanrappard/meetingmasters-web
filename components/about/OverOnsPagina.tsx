@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import YouTubeEmbed from "@/components/ui/YouTubeEmbed";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -116,7 +117,12 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                </a>
             </div>
             <div>
-              <YouTubeEmbed videoId={t.manifest.videoId} title={t.manifest.videoTitel} />
+              <YouTubeEmbed
+                videoId={t.manifest.videoId}
+                title={t.manifest.videoTitel}
+                poster={t.manifest.videoBeeld}
+                posterAlt={t.manifest.videoBeeldAlt}
+              />
             </div>
           </div>
         </div>
@@ -174,6 +180,28 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
               >
                 {t.mensen.teamLinkedin}
                </a>
+            </div>
+          </div>
+
+          {/* Uitnodiging — de enige twee knoppen hierboven wijzen naar LinkedIn */}
+          <div className="mt-12 rounded-lg bg-[#F7F7F5] border border-[#EBEBEB] px-6 py-7 sm:px-8 sm:py-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-10">
+            <div className="md:flex-1">
+              <h3 className="text-xl font-bold text-[#2D2D2D] mb-2">{t.mensen.uitnodigingKop}</h3>
+              <p className="text-[#434343] leading-relaxed">{t.mensen.uitnodigingBody}</p>
+            </div>
+            <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 shrink-0">
+              <Link
+                href={t.links.advies}
+                className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded text-center whitespace-nowrap hover:bg-[#D4A835] transition-colors"
+              >
+                {t.mensen.uitnodigingKnop}
+              </Link>
+              <Link
+                href={t.links.testimonials}
+                className="border border-[#D8D8D8] text-[#434343] text-sm font-bold px-5 py-2.5 rounded text-center whitespace-nowrap hover:border-[#28A8AA] hover:text-[#28A8AA] transition-colors"
+              >
+                {t.mensen.uitnodigingTweede}
+              </Link>
             </div>
           </div>
 
@@ -237,9 +265,14 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
 
       {/* ── LOGOBAND ── */}
       <section className="bg-[#F9F9F8] py-14 border-t border-[#EBEBEB] overflow-hidden">
-        <p className="text-[#28A8AA] text-base font-bold mb-7 max-w-content mx-auto px-6 lg:px-10">
-          {t.klanten}
-         </p>
+        <div className="max-w-content mx-auto px-6 lg:px-10 mb-7">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+            <p className="text-[#28A8AA] text-base font-bold">{t.klanten}</p>
+            <Link href={t.links.testimonials} className="text-[#28A8AA] text-sm font-bold hover:text-[#1E8E90] transition-colors">
+              {t.klantenLink}
+            </Link>
+          </div>
+        </div>
         <div
           className="overflow-hidden"
           style={{ maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)" }}

@@ -178,6 +178,8 @@ export const OVERZICHT_EN = {
     {
       q: "Why do organisations choose MeetingMasters?",
       a: "Because we don't start with the technology but with the gathering and the people in it. We design online events from the question of what people need to experience, learn, discuss or decide. Only then do we choose the right formats and technology.",
+      href: "/en/testimonials",
+      hrefLabel: "Read what clients say →",
     },
   ],
 };

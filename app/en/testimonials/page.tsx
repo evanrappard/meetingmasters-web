@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CTABlock from "@/components/ui/CTABlock";
 
 export const metadata: Metadata = {
   title: "What clients say | MeetingMasters",
@@ -22,7 +23,7 @@ const testimonials = [
   {
     company: "ROC TOP",
     quote:
-      "The flexibility and creative skills of the MeetingMasters were of great value both before and during the event. A real contribution to connection in these times.",
+      "The flexibility and creative skills of the MeetingMasters were of great value both before and during the event.",
   },
   {
     company: "Bergman Clinics",
@@ -108,6 +109,8 @@ export default function TestimonialsPage() {
           </div>
         ))}
       </div>
+
+      <CTABlock taal="en" />
     </div>
   );
 }
