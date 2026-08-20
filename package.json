@@ -6,6 +6,7 @@
     "start": "next start",
     "lint": "eslint .",
     "livecheck": "node scripts/livecheck.mjs",
+    "linkcheck": "node scripts/linkcheck.mjs",
     "mobiel": "node scripts/mobiel-check.mjs",
     "mobiel:menu": "node scripts/mobiel-menu-check.mjs",
     "mobiel:console": "node scripts/mobiel-console.mjs",
