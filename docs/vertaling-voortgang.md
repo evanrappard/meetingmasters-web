@@ -72,6 +72,25 @@ Vastgelegd 18 augustus 2026, zodat nieuwe tekst er niet vanaf gaat wijken.
 | Oogst | "harvest" alleen op World Café, waar het de vakterm is. Elders: output, results, record. |
 | Laagdrempelig | Niet "low threshold". Gebruik "easy access", "easy to join", "anyone can use". |
 
+## De Engelse routes zijn niet één-op-één
+
+Vastgelegd 20 augustus 2026, naar aanleiding van een scan die dit als een fout
+aanmerkte. Het is een keuze, geen fout.
+
+De Engelse site heeft **geen `/en/technologie`-hub**. Waar het Nederlands drie
+pagina's onder één kop hangt, staan de Engelse pagina's er los onder:
+`/en/tech-help`, `/en/platforms`, `/en/spatialchat`. Reden: het Nederlandse
+"Technologie" is een verzamelwoord dat in het Engels ("Technology") nietszeggend
+wordt, en de drie pagina's worden in het Engels ook los gezocht.
+
+Een handvol Nederlandse pagina's heeft **helemaal geen Engelse tegenhanger**;
+`anderTaalPad()` geeft daar `null` terug en de taalschakelaar verdwijnt. Dat is
+het bedoelde gedrag. Wat er wél is, staat als paar in `PAREN` in `lib/talen.ts`
+— dat bestand is de enige waarheid over welke pagina bij welke hoort, en voedt
+zowel de schakelaar als canonical en hreflang.
+
+Nieuwe Engelse pagina erbij? Zet hem in `PAREN` en nergens anders.
+
 ## Nog open
 
 | Punt | Wat er moet gebeuren |
