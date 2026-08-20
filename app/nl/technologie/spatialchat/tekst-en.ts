@@ -138,5 +138,6 @@ export const SPATIALCHAT_EN = {
     hulp: "/en/help",
     technologie: "/en/platforms",
   },
+  cijferBron: "Source: SpatialChat platform data 2024–2025",
   terug: "← Back to Platforms",
 };

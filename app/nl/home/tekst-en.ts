@@ -33,14 +33,14 @@ export const HOME_EN = {
   stats: [
     { number: "Since 2020", label: "online meeting professionals" },
     { number: "250+", label: "events hosted" },
-    { number: "94%", label: "participant satisfaction" },
+    { number: "94%", label: "participant satisfaction*" },
     { number: "47%", label: "more engagement*" },
     { number: "66%", label: "higher turnout*" },
   ],
 
   oplossingen: {
     kicker: "Our solutions",
-    titel: "We are online meeting professionals. Designers of moments people remember.",
+    titel: "How you meet each other makes the difference. We give your online gatherings their value back.",
     meer: "More →",
     items: {
       events: {
@@ -75,7 +75,7 @@ export const HOME_EN = {
     alinea1:
       "When people come together, something good happens. We learn from each other. We strengthen each other. But it doesn't just happen.",
     alinea2:
-      "A good gathering is more than technology and logistics. Above all it's a human challenge. How we meet each other is what makes the difference.",
+      "A good gathering is more than technology and logistics. Above all it's a human challenge.",
     quote: "We design encounters with room for genuine contact.",
     manifest: "Download the MeetingMasters manifesto",
     manifestHref: "/downloads/en/meetingmasters-manifesto.pdf",
@@ -112,6 +112,7 @@ export const HOME_EN = {
         label: "Virtual Office",
         title: "A virtual clubhouse for Olympians worldwide.",
         body: "World Olympians Association — active during the Paris and Milan Games.",
+        href: "/en/blog/an-online-home-for-olympians",
         imgAlt:
           "Virtual clubhouse of the World Olympians Association in SpatialChat — a snow-covered mountain terrace with OLY tables and participants worldwide",
       },

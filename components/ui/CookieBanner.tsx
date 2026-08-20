@@ -24,7 +24,7 @@ const T = {
   nl: {
     titel: "MeetingMasters maakt gebruik van cookies",
     tekst:
-      "MeetingMasters gaat over contact maken en houden. En omdat we dat graag nog beter doen, niet alleen voor onze klanten maar ook mét onze klanten, gebruiken we cookies. Een deel is nodig om de site en onze formulieren te laten werken. Geef je ons ook toestemming voor statistieken, dan maken we de site daar beter mee. Wat we precies bewaren, lees je in onze ",
+      "Een deel van de cookies is nodig om de site en onze formulieren te laten werken. Geef je ook toestemming voor statistieken, dan maken we de site daar beter mee. Meer in onze ",
     link: "cookieverklaring",
     href: "/nl/cookieverklaring",
     noodzakelijk: "Alleen noodzakelijk",
@@ -33,7 +33,7 @@ const T = {
   en: {
     titel: "MeetingMasters uses cookies",
     tekst:
-      "MeetingMasters is about making and keeping contact. And because we would like to do that even better, not only for our clients but with them, we use cookies. Some are needed to make the site and our forms work. Give us permission for statistics as well and we can make the site better with it. What exactly we store is set out in our ",
+      "Some cookies are needed to make the site and our forms work. Give us permission for statistics as well and we can make the site better with it. More in our ",
     link: "cookie statement",
     href: "/en/cookie-statement",
     noodzakelijk: "Essential only",
@@ -72,12 +72,12 @@ export default function CookieBanner() {
     <div
       role="dialog"
       aria-label="Cookies"
-      className="pointer-events-none fixed inset-x-0 bottom-0 z-50 p-4 sm:p-6"
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-50 p-3 sm:p-4"
     >
-      <div className="pointer-events-auto max-w-content mx-auto max-h-[70vh] overflow-y-auto bg-white border border-white-grey rounded-xl shadow-lg p-5 sm:p-7 flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-5 lg:gap-8">
-        <div className="lg:flex-1">
-          <h2 className="text-primary font-bold mb-1">{t.titel}</h2>
-          <p className="text-dark-grey text-sm leading-relaxed">
+      <div className="pointer-events-auto max-w-[820px] mx-auto max-h-[45vh] overflow-y-auto bg-white border border-white-grey rounded-lg shadow-lg px-4 py-3.5 sm:px-5 sm:py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+        <div className="sm:flex-1">
+          <h2 className="text-primary font-bold text-sm mb-0.5">{t.titel}</h2>
+          <p className="text-dark-grey text-[13px] leading-relaxed">
             {t.tekst}
             <Link
               href={t.href}
@@ -89,18 +89,18 @@ export default function CookieBanner() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0">
+        <div className="flex flex-row gap-2 shrink-0">
           <button
             type="button"
             onClick={() => kies("alleen-noodzakelijk")}
-            className="border border-light-grey text-dark-grey px-6 py-3 text-sm font-semibold rounded hover:border-accent hover:text-accent transition-colors"
+            className="border border-light-grey text-dark-grey px-4 py-2 text-[13px] font-semibold rounded whitespace-nowrap hover:border-accent hover:text-accent transition-colors"
           >
             {t.noodzakelijk}
           </button>
           <button
             type="button"
             onClick={() => kies("alles")}
-            className="bg-aqua text-white px-6 py-3 text-sm font-semibold rounded hover:bg-aqua-dark transition-colors"
+            className="bg-aqua text-white px-4 py-2 text-[13px] font-semibold rounded whitespace-nowrap hover:bg-aqua-dark transition-colors"
           >
             {t.alles}
           </button>

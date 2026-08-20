@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-19
+> Laatst bijgewerkt: 2026-08-20
 
 ---
 
@@ -989,3 +989,64 @@ uit met de carrousel eronder — bewust zo gelaten.
 - **T** — **Genuine Contact:** het adres `genuinecontact.net` klopt, alleen ligt
   hun server eruit (521). Bevestigd door Emilie. Er staat nu een notitie bij in
   de code, zodat niemand hem later "repareert" als een controle erover klaagt.
+
+---
+
+## 20 augustus 2026 — batch na de scan (footer, doorverwijzingen, home, cookiebanner)
+
+Alles hieronder is in **beide talen** doorgevoerd.
+
+**Footer (C)** — de tekst was grijs op donker en daarmee slecht leesbaar. Nu
+`text-white` voor de koppen, `/85` en `/70` voor de links, `/60` voor de
+laatst-bijgewerkt-regel. Elke hover is geel (`#EEBE3D`) in plaats van wit.
+`LastUpdated` had zijn grijs hard in het component staan; die kleur komt nu van
+buiten.
+
+**Doorverwijzingen (C)** — twaalf oude adressen erbij: `/nl/spatialchat`,
+`/nl/webinar`, `/nl/zoom`, `/nl/zoom-events`, `/zoom-events`,
+`/nl/onlinekerstfeestje`, `/nl/online-bedrijfsbijeenkomst`, `/nl-organisatie`,
+`/nl-academy-1-1`, `/nlplanningdesign-copy`, `/en/online-all-staff`,
+`/en/planning-support`. `cases` en `planning-support` zijn uit `enPaths`
+gehaald — een pad dat daar staat, is als route onbereikbaar.
+
+**Escape Room (C)** — was een event-format, is het niet meer. `/nl/events/escaperoom`
+en `/en/events/escaperoom` (plus `/nl/escaperoom` en `/en/escape-room`) gaan nu
+naar het Games-anker op Games & Tools, niet meer naar het Teamuitje.
+
+**Ankers bleven niet staan (C)** — `engelsPad`, `nederlandsPad` en
+`anderTaalPad` gooiden het `#deel` van een adres weg. Wie op
+`/nl/games-tools#games` op EN klikte, kwam bovenaan de pagina uit. Het anker
+wordt nu bewaard.
+
+**Cases weg (T/C)** — de pagina's zijn verwijderd, `/nl/cases` en `/en/cases`
+verwijzen naar de testimonials, en `/nl/inspiratie` en `/en/inspiratie` ook.
+
+**Home (T/C)** — hero lager (`44vw`, van onderen gesneden op `center 38%`) zodat
+de drie oplossingsblokken boven de vouw staan en "YOUR JOURNEY STARTS HERE" in
+beeld blijft. Nieuwe kop boven de oplossingen: *"Hoe je elkaar ontmoet maakt
+verschil. Wij maken je online bijeenkomsten weer waardevol."* De zin *"Hoe we
+elkaar tegenkomen maakt het verschil."* is uit alinea 2 gehaald — die stond er
+nu twee keer. De contactlink onder de essentie is weg. Het item over de
+Olympiërs verwijst naar het blogartikel.
+
+**Cijfers (T)** — bij `94%` staat nu een sterretje, en onder de
+SpatialChat-cijfers staat waar ze vandaan komen.
+
+**Aansprakelijkheid (T)** — nieuwe FAQ onderaan Techhulp: *"Waar zijn jullie
+verantwoordelijk voor, en waar niet?"* Software van derden (zoals SpatialChat)
+en de werkplek van de deelnemer vallen buiten wat wij kunnen garanderen. Staat
+bewust in de FAQ en niet op de pagina zelf. Geen vervanging voor algemene
+voorwaarden — dat staat als notitie in de code.
+
+**Cookiebanner (T/C)** — nam als iframe (bijvoorbeeld in SpatialChat) het halve
+scherm in. Beide teksten van 64 naar ~35 woorden, smaller kader (820px),
+kleinere letter en knoppen naast elkaar. Nu 13% van de hoogte op 1440×900, 21%
+op 900×560, 27% op mobiel.
+
+**Over ons (C)** — na *"Wat wij doen"* viel de sectie terug naar een kleinere
+schaal dan de secties erboven. Kop is nu `h2` op dezelfde grootte, intro op
+dezelfde grootte, en de koppenreeks eronder klopt weer (`h3`/`h4`).
+
+**Bronbestand events (T)** — `docs/event-format-teksten.md` had nog
+`team-ontwikkeling`, `ontwikkeltraject` en `escaperoom` staan. Alle twintig
+slugs komen nu overeen met de site; gecontroleerd tegen `data.ts`.

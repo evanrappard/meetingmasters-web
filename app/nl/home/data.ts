@@ -99,7 +99,7 @@ export const SCHEMA_FAQ = {
 export const DEFAULT_STATS = [
   { number: "Sinds 2020", label: "online meeting professionals" },
   { number: "250+", label: "events begeleid" },
-  { number: "94%", label: "tevredenheid na afloop" },
+  { number: "94%", label: "tevredenheid na afloop*" },
   { number: "47%", label: "meer betrokkenheid*" },
   { number: "66%", label: "hogere opkomst*" },
 ];
@@ -123,7 +123,17 @@ export const DEFAULT_LOGOS = [
   { src: "/images/logos/nmq.webp", alt: "NMQ — klant van MeetingMasters Online" },
 ];
 
-export const DEFAULT_INSPIRATIE = [
+export type InspiratieItem = {
+  label: string;
+  title: string;
+  body: string;
+  img: string;
+  imgAlt: string;
+  /** Eigen adres; zonder dit wijst het item naar zijn categoriepagina. */
+  href?: string;
+};
+
+export const DEFAULT_INSPIRATIE: InspiratieItem[] = [
   {
     label: "Event",
     title: "Online strategiedag voor 200 medewerkers.",
@@ -135,6 +145,9 @@ export const DEFAULT_INSPIRATIE = [
     label: "Virtual Office",
     title: "Virtueel clubhuis voor Olympiërs wereldwijd.",
     body: "World Olympians Association — actief tijdens de Spelen van Parijs en Milaan.",
+    // Hierover staat een uitgeschreven verhaal op het blog; daar is dit item
+    // meer waard dan op de algemene categoriepagina.
+    href: "/nl/blog/olympiers",
     img: "/images/home-inspiratie-virtualoffice.webp",
     imgAlt: "Virtueel clubhuis van de World Olympians Association in SpatialChat — een besneeuwd bergterras met OLY-tafels en deelnemers wereldwijd",
   },
@@ -212,7 +225,7 @@ export const NL_TEKST = {
   },
   oplossingen: {
     kicker: "Onze oplossingen",
-    titel: "Wij zijn online meeting professionals. Ontwerpers van bijzondere momenten.",
+    titel: "Hoe je elkaar ontmoet maakt verschil. Wij maken je online bijeenkomsten weer waardevol.",
     meer: "Meer →",
   },
   klanten: "Klanten",
@@ -222,7 +235,7 @@ export const NL_TEKST = {
     alinea1:
       "Als mensen samenkomen ontstaat iets moois. We leren van elkaar. We versterken elkaar. Maar dat gaat niet vanzelf.",
     alinea2:
-      "Een goede bijeenkomst is meer dan techniek en logistiek. Het is vooral een menselijke uitdaging. Hoe we elkaar tegenkomen maakt het verschil.",
+      "Een goede bijeenkomst is meer dan techniek en logistiek. Het is vooral een menselijke uitdaging.",
     quote: "Wij ontwerpen ontmoetingen met ruimte voor oprecht contact.",
     manifest: "Download het MeetingMasters Manifest",
     manifestHref: "/downloads/meetingmasters-manifest.pdf",

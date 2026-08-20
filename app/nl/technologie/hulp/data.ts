@@ -105,6 +105,13 @@ export const SUPPORT_FAQ = [
     q: "Wat gebeurt er als het platform zelf uitvalt?",
     a: "Dan schakelen we. Bij bijeenkomsten die wij begeleiden ligt er een terugvalscenario klaar, en deelnemers krijgen bericht via het kanaal waarop ze zijn uitgenodigd.",
   },
+  // Verwachtingen over aansprakelijkheid, op de plek waar mensen landen als er
+  // iets misgaat. Dit is géén vervanging van algemene voorwaarden — die horen
+  // in de offerte en de opdrachtbevestiging van toepassing te worden verklaard.
+  {
+    q: "Waar zijn jullie verantwoordelijk voor, en waar niet?",
+    a: "Wij staan in voor het ontwerp, de begeleiding en de live productie van je bijeenkomst: we bereiden voor, we testen vooraf en er ligt een terugvalscenario klaar. Wat we niet in de hand hebben, is de techniek van anderen. We werken op platforms van derden — SpatialChat, Zoom, Microsoft Teams. Valt zo'n platform uit, dan doen we wat we kunnen: overschakelen, deelnemers informeren, zorgen dat het doorgaat. Voor de storing zelf zijn wij niet aansprakelijk. Datzelfde geldt voor de kant van de deelnemer: de laptop, de internetverbinding, de koptelefoon of instellingen die een IT-afdeling heeft dichtgezet. Daar helpen we bij waar we kunnen — daar is deze pagina voor — maar we kunnen niet garanderen dat elk apparaat meewerkt.",
+  },
 ];
 
 

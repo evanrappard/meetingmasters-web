@@ -181,10 +181,10 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
           <div className="mt-14 pt-12 border-t border-[#EBEBEB]">
             <div className="max-w-[760px] mb-10">
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">{t.rollen.kicker}</p>
-              <h3 className="text-2xl font-bold text-[#2D2D2D] leading-snug mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-4">
                 {t.rollen.titel}
-               </h3>
-              <p className="text-[#434343] leading-relaxed">
+               </h2>
+              <p className="text-[#434343] text-lg leading-relaxed">
                 {t.rollen.intro}
                </p>
             </div>
@@ -192,7 +192,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
             {/* Voor de bijeenkomst */}
             <div className="mb-12">
               <div className="max-w-[760px] mb-6">
-                <h4 className="text-lg font-bold text-[#2D2D2D] mb-1.5">{t.rollen.vooraf}</h4>
+                <h3 className="text-xl font-bold text-[#2D2D2D] mb-1.5">{t.rollen.vooraf}</h3>
                 <p className="text-[#434343] leading-relaxed">
                   {t.rollen.voorafOnder}
                  </p>
@@ -201,7 +201,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                 {vooraf.map((r) => (
                   <div key={r.name}>
                     <span className="block h-[3px] w-8 bg-[#EEBE3D] rounded-full mb-3" />
-                    <h5 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h5>
+                    <h4 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h4>
                     <p className="text-sm text-[#434343] leading-relaxed">{r.desc}</p>
                   </div>
                 ))}
@@ -211,7 +211,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
             {/* Tijdens de bijeenkomst */}
             <div>
               <div className="max-w-[760px] mb-6">
-                <h4 className="text-lg font-bold text-[#2D2D2D] mb-1.5">{t.rollen.tijdens}</h4>
+                <h3 className="text-xl font-bold text-[#2D2D2D] mb-1.5">{t.rollen.tijdens}</h3>
                 <p className="text-[#434343] leading-relaxed">
                   {t.rollen.tijdensOnder}
                  </p>
@@ -220,7 +220,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
                 {tijdens.map((r) => (
                   <div key={r.name}>
                     <span className="block h-[3px] w-8 bg-[#EEBE3D] rounded-full mb-3" />
-                    <h5 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h5>
+                    <h4 className="text-base font-bold text-[#2D2D2D] mb-1.5">{r.name}</h4>
                     <p className="text-sm text-[#434343] leading-relaxed">{r.desc}</p>
                   </div>
                 ))}

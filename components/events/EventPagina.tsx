@@ -39,11 +39,11 @@ const T = {
   },
   en: {
     terug: "← Event formats",
-    terugHref: "/nl/events#formats",
+    terugHref: "/en/events#formats",
     offerte: "Ask for a quote",
     offerteHref: "/en/quote",
     alleFormats: "View all event formats",
-    alleFormatsHref: "/nl/events#formats",
+    alleFormatsHref: "/en/events#formats",
     actiefFormat: "An active format",
     overFormat: "About this format",
     voorWie: "Who it's for",

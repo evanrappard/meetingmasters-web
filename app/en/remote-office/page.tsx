@@ -154,7 +154,7 @@ export default function RemoteOfficePage() {
               members in every timezone.
             </p>
             <Link
-              href="/en/cases"
+              href="/en/testimonials"
               className="text-accent text-sm font-medium hover:text-accent-dark transition-colors"
             >
               Read more cases →

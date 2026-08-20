@@ -127,6 +127,10 @@ export const HULP_EN = {
       q: "What happens if the platform itself goes down?",
       a: "Then we switch. At meetings we host there's a fallback ready, and participants are told through the channel they were invited on.",
     },
+    {
+      q: "What are you responsible for, and what not?",
+      a: "We stand behind the design, the facilitation and the live production of your gathering: we prepare, we test beforehand and a fallback is ready. What we don't control is other people's technology. We work on third-party platforms — SpatialChat, Zoom, Microsoft Teams. If one of those goes down we do what we can: switch over, tell participants, keep things going. For the outage itself we aren't liable. The same goes for the participant's side: the laptop, the internet connection, the headset, or settings an IT department has locked down. We help where we can — that's what this page is for — but we can't guarantee that every device will cooperate.",
+    },
   ],
 
   it: {

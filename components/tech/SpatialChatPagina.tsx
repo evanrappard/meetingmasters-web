@@ -134,6 +134,7 @@ const NL = {
     knop: "Plan een gesprek",
     hulp: "Hulp bij SpatialChat →",
   },
+  cijferBron: "Bron: SpatialChat platformdata 2024–2025",
   links: { advies: "/nl/expert-advies", hulp: "/nl/technologie/hulp", technologie: "/nl/technologie/tools" },
   terug: "← Terug naar Technologie",
 };
@@ -206,6 +207,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
               </div>
             ))}
           </div>
+          <p className="text-[#8A857B] text-xs text-right mt-4">{t.cijferBron}</p>
         </div>
       </section>
 

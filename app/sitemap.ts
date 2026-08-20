@@ -24,7 +24,6 @@ const BASE = "https://www.meetingmasters.online";
  * af, of ze zijn vervangen. Ze blijven bereikbaar via een directe link.
  */
 export const NIET_INDEXEREN = new Set([
-  "/nl/cases",
   "/nl/csr",
   "/nl/escape-rooms",
   "/nl/meeting-formats",

@@ -112,21 +112,24 @@ export function zonderTaal(pad: string): string {
  */
 export function anderTaalPad(pad: string): string | null {
   const taal = taalVanPad(pad);
+  const anker = pad.match(/#.*$/)?.[0] ?? "";
   const kaal = zonderTaal(pad).replace(/#.*$/, "");
   const doel = taal === "nl" ? NAAR_EN.get(kaal) : NAAR_NL.get(kaal);
-  return doel ? `/${taal === "nl" ? "en" : "nl"}${doel}` : null;
+  return doel ? `/${taal === "nl" ? "en" : "nl"}${doel}${anker}` : null;
 }
 
 /** Het Engelse adres bij een Nederlandse route, voor menu en hreflang. */
 export function engelsPad(nlPad: string): string | undefined {
+  const anker = nlPad.match(/#.*$/)?.[0] ?? "";
   const en = NAAR_EN.get(zonderTaal(nlPad).replace(/#.*$/, ""));
-  return en ? `/en${en}` : undefined;
+  return en ? `/en${en}${anker}` : undefined;
 }
 
 /** Het Nederlandse adres bij een Engelse route. */
 export function nederlandsPad(enPad: string): string | undefined {
+  const anker = enPad.match(/#.*$/)?.[0] ?? "";
   const nl = NAAR_NL.get(zonderTaal(enPad).replace(/#.*$/, ""));
-  return nl ? `/nl${nl}` : undefined;
+  return nl ? `/nl${nl}${anker}` : undefined;
 }
 
 /** Hoeveel pagina's staan er inmiddels in beide talen? */

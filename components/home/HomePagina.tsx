@@ -68,6 +68,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
           body: c.summary ?? "",
           img: LOCAL_INSPIRATIE_IMG[normalizeLabel(c.label)] ?? c.image?.asset?.url ?? "/images/hero-1.webp",
           imgAlt: c.title,
+          href: undefined as string | undefined,
         }))
         .sort((a, b) => {
           const ai = INSPIRATIE_ORDER.indexOf(a.label);
@@ -130,7 +131,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
         {/* Mobiel: geen vaste hoogte — de container groeit mee met de tekst,
             anders loopt de H1 bovenlangs het beeld uit. Vanaf sm het
             oorspronkelijke, vaste beeldformaat. */}
-        <div className="relative w-full md:aspect-video md:min-h-[360px] md:max-h-[90vh]">
+        <div className="relative w-full md:h-[44vw] md:min-h-[340px] md:max-h-[560px]">
           <video
             src="/videos/hero-boomerang.mp4"
             poster="/images/home-hero-poster.jpg"
@@ -141,7 +142,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
             preload="metadata"
             aria-label="MeetingMasters — online events en virtual office op SpatialChat"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center", filter: "contrast(1.04) saturate(1.06)" }}
+            style={{ objectPosition: "center 38%", filter: "contrast(1.04) saturate(1.06)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-[#1E1E1E]/75 via-[#2D2D2D]/30 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
@@ -323,9 +324,6 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
                 >
                   {t.essentie.manifest}
                 </a>
-                <Link href={t.links.contact} className="text-[#28A8AA] text-sm font-bold hover:underline">
-                  {t.essentie.contact}
-                </Link>
               </div>
             </div>
           </div>
@@ -386,7 +384,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
             {inspiratie.map((item) => (
               <Link
                 key={item.label}
-                href={enHref(CATEGORY_HREF[item.label] ?? "/nl/events")}
+                href={item.href ?? enHref(CATEGORY_HREF[item.label] ?? "/nl/events")}
                 className="group rounded shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow"
               >
                 <div className="relative h-52 flex-shrink-0">

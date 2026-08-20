@@ -5,7 +5,7 @@
  * Waarom hier en niet in de Navbar: menu en footer liepen uit elkaar. De footer
  * wees nog naar pagina's die niet bestaan (`/nl/remote-office`,
  * `/nl/publicaties`) en naar pagina's die bewust nog niet zichtbaar zijn
- * (Cases, Partners, Kwaliteit & vertrouwelijkheid). Door beide vanaf hier te
+ * (Partners, Kwaliteit & vertrouwelijkheid). Door beide vanaf hier te
  * voeden kan dat niet meer gebeuren: een pagina toevoegen of verbergen doe je
  * op één plek.
  *
@@ -76,6 +76,7 @@ export const NAV_ITEMS: NavItem[] = [
     moreLabel: "Alle eventformats",
     moreLabelEn: "All event formats",
     moreHref: "/nl/events#formats",
+    moreHrefEn: "/en/events#formats",
   },
   {
     label: "Virtueel Kantoor",

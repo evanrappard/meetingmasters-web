@@ -16,7 +16,7 @@ export default function LastUpdated({
   className = "",
 }: LastUpdatedProps) {
   return (
-    <p className={`text-xs text-[#999999] ${className}`}>
+    <p className={`text-xs ${className}`}>
       {taal === "en" ? "Last updated" : "Laatst bijgewerkt"}: {date}
     </p>
   );

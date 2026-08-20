@@ -50,7 +50,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
   const t = T[taal];
 
   return (
-    <footer className="bg-[#2D2D2D] text-[#AAAAAA]">
+    <footer className="bg-[#2D2D2D] text-white">
       <div className="max-w-content mx-auto px-6 lg:px-10 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
@@ -63,14 +63,14 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
               height={83}
               className="h-9 w-auto"
             />
-            <p className="text-sm leading-relaxed text-[#6E6E6E]">{t.over}</p>
+            <p className="text-sm leading-relaxed text-white/85">{t.over}</p>
             <p className="text-sm font-semibold text-[#EEBE3D]">{t.slogan}</p>
             <a
               href="https://www.linkedin.com/company/meetingmastersonline"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-block text-[#6E6E6E] hover:text-[#EEBE3D] transition-colors"
+              className="inline-block text-white hover:text-[#EEBE3D] transition-colors"
             >
               <Linkedin size={20} />
             </a>
@@ -86,7 +86,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
                 const l = kies(item, taal);
                 return (
                   <li key={item.href}>
-                    <Link href={l.href} className="hover:text-white transition-colors">
+                    <Link href={l.href} className="hover:text-[#EEBE3D] transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -105,7 +105,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
                 const l = kies(item, taal);
                 return (
                   <li key={item.href}>
-                    <Link href={l.href} className="hover:text-white transition-colors">
+                    <Link href={l.href} className="hover:text-[#EEBE3D] transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -123,24 +123,24 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
               <li>
                 <a
                   href="mailto:contact@meetingmasters.online"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-[#EEBE3D] transition-colors"
                 >
                   contact@meetingmasters.online
                 </a>
               </li>
               <li>
-                <a href="tel:+31202390313" className="hover:text-white transition-colors">
+                <a href="tel:+31202390313" className="hover:text-[#EEBE3D] transition-colors">
                   +31 20 239 03 13
-                  <span className="text-[#525252] text-xs ml-1">{t.kantoor}</span>
+                  <span className="text-white/60 text-xs ml-1">{t.kantoor}</span>
                 </a>
               </li>
               <li>
-                <a href="tel:+31645752819" className="hover:text-white transition-colors">
+                <a href="tel:+31645752819" className="hover:text-[#EEBE3D] transition-colors">
                   +31 6 4575 2819
-                  <span className="text-[#525252] text-xs ml-1">{t.whatsapp}</span>
+                  <span className="text-white/60 text-xs ml-1">{t.whatsapp}</span>
                 </a>
               </li>
-              <li className="text-[#AAAAAA] text-xs leading-relaxed pt-1">
+              <li className="text-white/70 text-xs leading-relaxed pt-1">
                 Schellingwouderdijk 157<br />
                 1023NC Amsterdam<br />
                 {t.land}
@@ -152,7 +152,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
       </div>
 
       <div className="border-t border-[#3D3D3D] px-6 lg:px-10 py-5 flex flex-col lg:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-[#444444] text-center lg:text-left">
+        <p className="text-xs text-white/60 text-center lg:text-left">
           © 2026 {BEDRIJF.naam}
           {BEDRIJF.kvk && <> · KvK {BEDRIJF.kvk}</>}
           {BEDRIJF.btw && <> · {taal === "en" ? "VAT" : "Btw"} {BEDRIJF.btw}</>}
@@ -165,7 +165,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
               <Link
                 key={item.href}
                 href={l.href}
-                className="text-[#5F5F5F] hover:text-white transition-colors"
+                className="text-[#5F5F5F] hover:text-[#EEBE3D] transition-colors"
               >
                 {l.label}
               </Link>
@@ -174,8 +174,8 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
         </nav>
 
         <div className="flex items-center gap-4">
-          <LastUpdated date={t.bijgewerkt} taal={taal} />
-          <p className="text-xs text-[#444444]">{t.plaats}</p>
+          <LastUpdated date={t.bijgewerkt} taal={taal} className="text-white/60" />
+          <p className="text-xs text-white/60">{t.plaats}</p>
         </div>
       </div>
     </footer>

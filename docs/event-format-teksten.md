@@ -291,7 +291,7 @@ townhall, all-hands, conferentie, bewonersparticipatie
 
 ========================================================
 # Online teambuilding
-_slug: team-ontwikkeling_
+_slug: teambuilding_
 
 ## 1. Hero
 **Titel:** Online teambuilding
@@ -356,12 +356,12 @@ _slug: team-ontwikkeling_
 **A:** Ja. We begeleiden regelmatig trajecten met meerdere teams binnen één organisatie.
 
 ## 7. Gerelateerde formats
-ontwikkeltraject, onboardingdag, brainstormen, escaperoom
+training-workshop, onboardingdag, brainstormen, teamuitje
 
 
 ========================================================
 # Online training & workshop
-_slug: ontwikkeltraject_
+_slug: training-workshop_
 
 ## 1. Hero
 **Titel:** Online training & workshop
@@ -435,7 +435,7 @@ _slug: ontwikkeltraject_
 **A:** Omdat wij begrijpen dat online trainen iets anders vraagt dan een fysieke training kopiëren naar Zoom. Wij helpen trainers, opleiders en L&D-teams om hun expertise te vertalen naar interactieve online trainingen en workshops waarin deelnemers actief betrokken blijven en daadwerkelijk leren.
 
 ## 7. Gerelateerde formats
-team-ontwikkeling, onboardingdag, brainstormen, webinar
+teambuilding, onboardingdag, brainstormen, webinar
 
 
 ========================================================
@@ -505,7 +505,7 @@ _slug: brainstormen_
 **A:** Indien gewenst helpen wij bij het vertalen van ideeën naar concrete vervolgstappen.
 
 ## 7. Gerelateerde formats
-open-space, world-cafe, strategiedagen, team-ontwikkeling
+open-space, world-cafe, strategiedagen, teambuilding
 
 
 ========================================================
@@ -575,7 +575,7 @@ _slug: onboardingdag_
 **A:** Ja. Vrijwel iedere onboardingdag wordt op maat ontworpen.
 
 ## 7. Gerelateerde formats
-team-ontwikkeling, ontwikkeltraject, brainstormen, netwerkevent
+teambuilding, training-workshop, brainstormen, netwerkevent
 
 
 ========================================================
@@ -639,7 +639,7 @@ _slug: bedrijfsfeest_
 **A:** Ja. Wij vinden informele ontmoeting vaak minstens zo belangrijk als het programma zelf.
 
 ## 7. Gerelateerde formats
-kerstfeest, escaperoom, community-building, netwerkevent
+kerstfeest, teamuitje, community-building, netwerkevent
 
 
 ========================================================
@@ -706,12 +706,12 @@ _slug: kerstfeest_
 **A:** Een goede balans tussen programma, ontmoeting en ruimte voor spontane gesprekken.
 
 ## 7. Gerelateerde formats
-bedrijfsfeest, escaperoom, community-building, team-ontwikkeling
+bedrijfsfeest, teamuitje, community-building, teambuilding
 
 
 ========================================================
 # Online escape room
-_slug: escaperoom_
+_slug: teamuitje_
 
 ## 1. Hero
 **Titel:** Online escape room
@@ -776,7 +776,7 @@ _slug: escaperoom_
 **A:** Ja. Bijvoorbeeld rondom cybersecurity, onboarding of samenwerking.
 
 ## 7. Gerelateerde formats
-bedrijfsfeest, kerstfeest, team-ontwikkeling, brainstormen
+bedrijfsfeest, kerstfeest, teambuilding, brainstormen
 
 
 ========================================================
@@ -1184,7 +1184,7 @@ _slug: webinar_
 **A:** Wij kunnen ondersteunen bij registratie, herinneringen en opvolging na afloop. Meestal echter, gebeurt dit vanuit de klant.
 
 ## 7. Gerelateerde formats
-conferentie, townhall, strategiedagen, ontwikkeltraject
+conferentie, townhall, strategiedagen, training-workshop
 
 
 ========================================================

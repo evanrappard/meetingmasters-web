@@ -27,10 +27,10 @@ const eigenNetwerkAdressen = Object.values(networkInterfaces())
  */
 const enPaths = [
   "about/team", "about/quality", "about/partners", "about/csr",
-  "cases", "csr", "design-preview", "escape-rooms",
+  "csr", "design-preview", "escape-rooms",
   "games-tools/escape-masters",
   "inspiratie", "layout-preview", "meeting-formats", "partners",
-  "planning-support", "quality", "remote-office", "strategy-concept",
+  "quality", "remote-office", "strategy-concept",
   "team",
 ];
 
@@ -91,6 +91,31 @@ const nextConfig: NextConfig = {
       { source: "/nl/blogs/5sdvo1sdbtrac3ujijivy6mzxvbb6p", destination: "/nl/blog/acht-grens", permanent: true },
       { source: "/nl/blogs/oxifta9r3w3fm9vk7ks43dn2glz4tw", destination: "/nl/blog/stok-om-mee-te-slaan", permanent: true },
       { source: "/nl/blogs/een-online-thuis-voor-oud-olympiers-wereldwijd", destination: "/nl/blog/olympiers", permanent: true },
+      // ── Adressen van de Squarespace-site die nog in de zoekindex staan ──
+      // Gecontroleerd op 20 aug 2026: deze gaven allemaal een 404, terwijl ze
+      // wél nog in Google staan mét omschrijving. Elke oude ranking en elke
+      // gedeelde link liep dus dood. Doelen gekozen op wat er inhoudelijk het
+      // dichtst bij ligt.
+      { source: "/nl/spatialchat", destination: "/nl/technologie/spatialchat", permanent: true },
+      { source: "/nl/webinar", destination: "/nl/events/webinar", permanent: true },
+      { source: "/nl/zoom", destination: "/nl/technologie/tools", permanent: true },
+      { source: "/nl/zoom-events", destination: "/nl/technologie/tools", permanent: true },
+      { source: "/zoom-events", destination: "/nl/technologie/tools", permanent: true },
+      { source: "/nl/onlinekerstfeestje", destination: "/nl/events/kerstfeest", permanent: true },
+      { source: "/nl/online-bedrijfsbijeenkomst", destination: "/nl/events/bedrijfsfeest", permanent: true },
+      // Deze drie missen de schuine streep na "nl" — zo stonden ze op de oude site.
+      { source: "/nl-organisatie", destination: "/nl/about", permanent: true },
+      { source: "/nl-academy-1-1", destination: "/nl/about", permanent: true },
+      { source: "/nlplanningdesign-copy", destination: "/nl/events", permanent: true },
+      // Engelse adressen van de oude site horen op een Engelse pagina te landen.
+      { source: "/en/online-all-staff", destination: "/en/events/all-hands", permanent: true },
+      // Stond in enPaths en landde daardoor op de Nederlandse noindex-pagina.
+      { source: "/en/planning-support", destination: "/en/events", permanent: true },
+      // Cases is opgeheven (besluit Emilie, 20 aug 2026). Niet laten doodlopen:
+      // wie een oude link volgt komt op de klantervaringen terecht.
+      { source: "/nl/cases", destination: "/nl/testimonials", permanent: true },
+      { source: "/en/cases", destination: "/en/testimonials", permanent: true },
+
       // Het overzicht en al het overige onder /nl/blogs.
       { source: "/nl/blogs", destination: "/nl/blog", permanent: true },
       { source: "/nl/blogs/category/:tak", destination: "/nl/blog", permanent: true },
@@ -112,8 +137,11 @@ const nextConfig: NextConfig = {
       { source: "/nl/technologie/zoom", destination: "/nl/technologie/tools", permanent: true },
       { source: "/nl/technologie/teams", destination: "/nl/technologie/tools", permanent: true },
       { source: "/nl/technologie/zoom-events", destination: "/nl/technologie/tools", permanent: true },
-      // Escape Room is vervangen door Online Teamuitje
-      { source: "/nl/events/escaperoom", destination: "/nl/events/teamuitje", permanent: true },
+      // Escape Room is geen event-format meer; de escape rooms zelf staan bij Games
+      { source: "/nl/events/escaperoom", destination: "/nl/games-tools#games", permanent: true },
+      { source: "/en/events/escaperoom", destination: "/en/games-tools#games", permanent: true },
+      { source: "/nl/escaperoom", destination: "/nl/games-tools#games", permanent: true },
+      { source: "/en/escape-room", destination: "/en/games-tools#games", permanent: true },
       // Event-slugs gelijkgetrokken met de titels
       { source: "/nl/events/team-ontwikkeling", destination: "/nl/events/teambuilding", permanent: true },
       { source: "/nl/events/ontwikkeltraject", destination: "/nl/events/training-workshop", permanent: true },
