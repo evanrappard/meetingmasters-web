@@ -55,7 +55,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = getPost(slug);
   if (!post) notFound();
 
-  const related = POSTS.filter((p) => p.slug !== slug).slice(0, 3);
+  // Eerst artikelen uit dezelfde rubriek, dan aanvullen met de nieuwste rest.
+  const anderen = POSTS.filter((p) => p.slug !== slug);
+  const related = [
+    ...anderen.filter((p) => p.rubriek === post.rubriek),
+    ...anderen.filter((p) => p.rubriek !== post.rubriek),
+  ].slice(0, 3);
 
   const schema = {
     "@context": "https://schema.org",

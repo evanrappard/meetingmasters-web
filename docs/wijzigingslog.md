@@ -1100,3 +1100,37 @@ heeft, kan nakijken of er nog een eigen slotzin bij hoorde.
 
 **CTA op Ervaringen (C)** — de pagina eindigde in het niets. Nu staat het vaste
 CTA-blok eronder, in beide talen.
+
+---
+
+## 20 augustus 2026 — blog: rubrieken, filter en een vervolgstap
+
+**Slotzin definitief weg (T)** — de dubbele zin *"Een waardevolle bijdrage aan
+verbinding in deze tijd"* is nu ook bij Bergman Clinics verdwenen (de langste
+van de twee teksten). Hij staat daarmee nergens meer op de site.
+
+**Blog krijgt een vervolgstap (C)** — het overzicht was de enige pagina zónder
+CTA: elf stukken en geen enkele volgende stap, terwijl dit juist het verkeer is
+dat Google en AI-tools aanleveren. Het vaste CTA-blok staat er nu onder, in
+beide talen. De artikelen zelf hadden al een eigen CTA; die blijft.
+
+**Rubrieken en filter (C)** — elk artikel heeft een rubriek gekregen:
+Meetingontwerp (5), Online ontmoeten (3), Thuiswerken en hybride (2),
+Praktijkverhaal (1). De sleutel is taalonafhankelijk, dus een artikel staat in
+beide talen in dezelfde rubriek; de labels staan per taal
+(`BLOG_RUBRIEKEN` / `BLOG_RUBRIEKEN_EN`). Boven het overzicht staan knoppen met
+het aantal erbij; een lege rubriek verschijnt niet. De rubriek staat ook op de
+kaart, vóór de datum.
+
+Belangrijk voor vindbaarheid: het filteren gebeurt in de browser, maar de
+pagina rendert nog steeds alle elf kaarten aan de serverkant. Een crawler die
+geen JavaScript draait, ziet dus gewoon alle artikelen.
+
+**Verder lezen volgt nu de rubriek (C)** — onderaan een artikel stonden simpelweg
+de drie nieuwste andere stukken. Nu eerst uit dezelfde rubriek, daarna
+aangevuld op datum.
+
+**Eén component in plaats van twee pagina's (C)** — `app/nl/blog/page.tsx` en
+`app/en/blog/page.tsx` hadden hun opmaak ieder apart staan. Beide zijn nu een
+dunne wikkel om `components/blog/BlogOverzicht.tsx`, zoals de rest van de site.
+Een wijziging aan het overzicht raakt daarmee vanzelf beide talen.

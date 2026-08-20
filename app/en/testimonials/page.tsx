@@ -28,7 +28,7 @@ const testimonials = [
   {
     company: "Bergman Clinics",
     quote:
-      "MeetingMasters do not just make sure you are supported technically. They also help you get the most out of an online meeting or event. A real contribution to connection in these times.",
+      "MeetingMasters do not just make sure you are supported technically. They also help you get the most out of an online meeting or event.",
   },
   {
     company: "ZonMW",

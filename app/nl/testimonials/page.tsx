@@ -18,7 +18,7 @@ const testimonials = [
   {
     company: "Bergman Clinics",
     quote:
-      "MeetingMasters zorgen er niet alleen voor dat je technisch ondersteund wordt. Ze denken ook met je mee over hoe je het beste uit een online meeting of evenement haalt. Een waardevolle bijdrage aan verbinding in deze tijd.",
+      "MeetingMasters zorgen er niet alleen voor dat je technisch ondersteund wordt. Ze denken ook met je mee over hoe je het beste uit een online meeting of evenement haalt.",
   },
   {
     company: "ZonMW",

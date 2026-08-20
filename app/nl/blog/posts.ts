@@ -4,8 +4,26 @@ export type BlogBlock =
   | { type: "quote"; text: string }
   | { type: "ul"; items: string[] };
 
+/**
+ * De rubrieken van de blog. De sleutel is taalonafhankelijk, het label niet —
+ * de Engelse labels staan in app/en/blog/posts.ts. Een nieuwe rubriek voeg je
+ * hier toe én daar, anders loopt de bouw stuk.
+ *
+ * Houd het aantal klein: bij elf stukken zijn vier rubrieken al veel. Liever
+ * een volle rubriek dan vijf halve.
+ */
+export const BLOG_RUBRIEKEN = {
+  "meetingontwerp": "Meetingontwerp",
+  "online-ontmoeten": "Online ontmoeten",
+  "hybride": "Thuiswerken en hybride",
+  "praktijk": "Praktijkverhaal",
+} as const;
+
+export type BlogRubriek = keyof typeof BLOG_RUBRIEKEN;
+
 export type BlogPost = {
   slug: string;
+  rubriek: BlogRubriek;
   title: string;
   date: string;
   iso: string;
@@ -27,6 +45,7 @@ export type BlogPost = {
 const ONGESORTEERD: BlogPost[] = [
   {
     "slug": "terug-naar-kantoor",
+    "rubriek": "hybride",
     "metaTitle": "Terug naar kantoor: de verkeerde vraag",
     "title": "Terug naar kantoor: het antwoord op de verkeerde vraag",
     "date": "14 augustus 2026",
@@ -149,6 +168,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "heen-en-weer",
+    "rubriek": "hybride",
     "metaTitle": "Thuiswerken of terug naar kantoor?",
     "title": "Heen en weer. Thuiswerken — of terug naar kantoor?",
     "date": "30 juni 2026",
@@ -200,6 +220,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "online-beheersen",
+    "rubriek": "online-ontmoeten",
     "title": "Online beheersen we nu allemaal wel.",
     "date": "10 juni 2026",
     "iso": "2026-06-10",
@@ -270,6 +291,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "wat-gamers-weten",
+    "rubriek": "online-ontmoeten",
     "metaTitle": "Wat gamers weten over online samenzijn",
     "title": "Wat gamers weten over online samenzijn dat organisaties nog moeten leren",
     "date": "27 mei 2026",
@@ -349,6 +371,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "rondjes-versus-vierkantjes",
+    "rubriek": "meetingontwerp",
     "title": "Rondjes versus vierkantjes",
     "date": "13 mei 2026",
     "iso": "2026-05-13",
@@ -435,6 +458,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "systeemwoede",
+    "rubriek": "meetingontwerp",
     "metaTitle": "Systeemwoede in online meetings",
     "title": "Systeemwoede in online meetings: maakt meer kapot dan je lief is",
     "date": "15 april 2026",
@@ -534,6 +558,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "ai-paradox",
+    "rubriek": "online-ontmoeten",
     "metaTitle": "De AI-paradox: meetings worden meer waard",
     "title": "De AI-paradox: waarom meetings nu meer waard zijn",
     "date": "1 april 2026",
@@ -593,6 +618,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "niet-hetzelfde-wel-goed",
+    "rubriek": "meetingontwerp",
     "title": "Niet hetzelfde. Wel goed.",
     "date": "13 juli 2026",
     "iso": "2026-07-13",
@@ -735,6 +761,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "acht-grens",
+    "rubriek": "meetingontwerp",
     "metaTitle": "De acht-grens in groepen",
     "title": "De acht-grens: wanneer een groep zichzelf niet meer regelt",
     "date": "25 maart 2026",
@@ -854,6 +881,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "stok-om-mee-te-slaan",
+    "rubriek": "meetingontwerp",
     "title": "De stok om mee te slaan",
     "date": "4 maart 2026",
     "iso": "2026-03-04",
@@ -916,6 +944,7 @@ const ONGESORTEERD: BlogPost[] = [
   },
   {
     "slug": "olympiers",
+    "rubriek": "praktijk",
     "metaTitle": "Een online thuis voor oud-olympiërs",
     "title": "Een online thuis voor oud-olympiërs wereldwijd",
     "date": "7 februari 2026",

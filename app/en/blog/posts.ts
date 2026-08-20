@@ -1,4 +1,16 @@
-import type { BlogBlock, BlogPost } from "@/app/nl/blog/posts";
+import type { BlogBlock, BlogPost, BlogRubriek } from "@/app/nl/blog/posts";
+
+/**
+ * De Engelse labels bij de rubrieken uit app/nl/blog/posts.ts. De sleutels zijn
+ * gedeeld, dus een artikel staat in beide talen in dezelfde rubriek. Voeg je
+ * daar een rubriek toe, dan eist TypeScript hier ook een label.
+ */
+export const BLOG_RUBRIEKEN_EN: Record<BlogRubriek, string> = {
+  "meetingontwerp": "Meeting design",
+  "online-ontmoeten": "Meeting online",
+  "hybride": "Working from home",
+  "praktijk": "Case story",
+};
 
 /**
  * De Engelse blogartikelen. Zelfde vorm als de Nederlandse, met twee
@@ -22,6 +34,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "back-to-the-office",
     "nlSlug": "terug-naar-kantoor",
+    "rubriek": "hybride",
     "title": "Back to the office: the answer to the wrong question",
     "date": "August 14, 2026",
     "iso": "2026-08-14",
@@ -145,6 +158,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "not-the-same-still-good",
     "nlSlug": "niet-hetzelfde-wel-goed",
+    "rubriek": "meetingontwerp",
     "title": "Not the same. Still good.",
     "date": "July 13, 2026",
     "iso": "2026-07-13",
@@ -288,6 +302,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "back-and-forth",
     "nlSlug": "heen-en-weer",
+    "rubriek": "hybride",
     "title": "Back and forth. Work from home — or return to the office?",
     "date": "June 30, 2026",
     "iso": "2026-06-30",
@@ -340,6 +355,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "we-have-online-covered",
     "nlSlug": "online-beheersen",
+    "rubriek": "online-ontmoeten",
     "title": "We have all got the hang of online by now.",
     "date": "June 10, 2026",
     "iso": "2026-06-10",
@@ -411,6 +427,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "what-gamers-know",
     "nlSlug": "wat-gamers-weten",
+    "rubriek": "online-ontmoeten",
     "title": "What gamers know about being together online that organisations still have to learn",
     "date": "May 27, 2026",
     "iso": "2026-05-27",
@@ -491,6 +508,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "circles-versus-squares",
     "nlSlug": "rondjes-versus-vierkantjes",
+    "rubriek": "meetingontwerp",
     "title": "Circles versus squares",
     "date": "May 13, 2026",
     "iso": "2026-05-13",
@@ -578,6 +596,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "system-rage",
     "nlSlug": "systeemwoede",
+    "rubriek": "meetingontwerp",
     "title": "System rage in online meetings: it wrecks more than you realise",
     "date": "April 15, 2026",
     "iso": "2026-04-15",
@@ -678,6 +697,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "the-ai-paradox",
     "nlSlug": "ai-paradox",
+    "rubriek": "online-ontmoeten",
     "title": "The AI paradox: why meetings are worth more now",
     "date": "April 1, 2026",
     "iso": "2026-04-01",
@@ -738,6 +758,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "the-rule-of-eight",
     "nlSlug": "acht-grens",
+    "rubriek": "meetingontwerp",
     "title": "The rule of eight: when a group stops running itself",
     "date": "March 25, 2026",
     "iso": "2026-03-25",
@@ -858,6 +879,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "blaming-online",
     "nlSlug": "stok-om-mee-te-slaan",
+    "rubriek": "meetingontwerp",
     "title": "Blaming online",
     "date": "March 4, 2026",
     "iso": "2026-03-04",
@@ -921,6 +943,7 @@ const ONGESORTEERD: BlogPostEN[] = [
   {
     "slug": "an-online-home-for-olympians",
     "nlSlug": "olympiers",
+    "rubriek": "praktijk",
     "title": "An online home for former Olympians worldwide",
     "date": "February 7, 2026",
     "iso": "2026-02-07",
