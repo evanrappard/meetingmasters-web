@@ -1,0 +1,129 @@
+======================================================================
+PRIVACY STATEMENT (NL)
+======================================================================
+
+# Privacy Statement
+Bezoek je onze website of doe je mee aan een bijeenkomst die wij begeleiden, dan verwerken we een aantal persoonsgegevens. Daar gaan we zorgvuldig mee om, want privacy is belangrijk.
+
+## Wie zijn wij
+MeetingMasters Online is verantwoordelijk voor de gegevens die op deze website en rond onze bijeenkomsten worden verwerkt. Je vindt ons op Schellingwouderdijk 157, 1023 NC Amsterdam.
+
+Heb je een vraag over je gegevens? Mail contact@meetingmasters.online of bel +31 20 239 03 13. Je krijgt van ons antwoord, geen formulierbrief.
+
+KvK-nummer 34214932. Btw-nummer NL001689693B11.
+
+## Privacy voor deelnemers aan bijeenkomsten
+Veel klanten vragen om screenshots of opnames van de bijeenkomsten die wij begeleiden. Deelnemers horen dat bij aanvang van de bijeenkomst, inclusief waarvoor de opname wordt gebruikt. De opnames die wij voor een klant maken bewaren wij maximaal een jaar. Daarna verwijderen we ze van de server.
+
+Onze opdrachtgever bepaalt wat er daarna met een opname gebeurt; wij maken die in opdracht. Wil je als deelnemer niet in beeld of geluid, laat het weten aan de organisator of aan ons — daar vinden we altijd een oplossing voor.
+
+Voor elke bijeenkomst geldt de geheimhoudingsverklaring die alle Meeting Masters hebben ondertekend. Is er behoefte aan meer, dan stellen we graag een aparte non-disclosure-verklaring op tussen MeetingMasters Online en de organiserende partij.
+
+Bijeenkomsten draaien op platforms als Zoom, Microsoft Teams en SpatialChat. Die partijen verwerken zelf ook gegevens van deelnemers, zoals de naam waarmee je inlogt en je IP-adres. Daarvoor geldt hun eigen privacybeleid.
+
+## Welke gegevens we van websitebezoekers verwerken
+- Vul je een formulier in, dan bewaren we je naam, organisatie, e-mailadres, eventueel je telefoonnummer en wat je ons schrijft.
+- Meld je je aan voor de nieuwsbrief, dan bewaren we je naam en e-mailadres.
+- Mail of bel je ons, dan bewaren we wat je zelf deelt, zodat we je vraag kunnen beantwoorden.
+- Bezoek je de site, dan legt onze hostingpartij technische gegevens vast in logbestanden, waaronder je IP-adres. Die gebruiken we om storingen op te sporen en de site veilig te houden.
+Laat je geen gegevens achter, dan kunnen we je vraag niet beantwoorden en geen nieuwsbrief sturen. Je kunt er natuurlijk ook voor kiezen ons rechtstreeks te mailen of te bellen.
+
+## Waarom we dat doen, en op welke grond
+- Je vraag beantwoorden en een voorstel maken — nodig voor de uitvoering van een opdracht of de aanloop daarnaartoe.
+- De nieuwsbrief sturen — met je toestemming. Onderaan elke nieuwsbrief zit een afmeldlink.
+- Opnames en screenshots maken — in opdracht van de organiserende partij, die daarvoor de grondslag bepaalt. Deelnemers worden vooraf geïnformeerd.
+- De site veilig en werkend houden — ons gerechtvaardigd belang om misbruik en storingen tegen te gaan.
+- Onze administratie bijhouden — omdat de wet dat van ons vraagt.
+
+## Hoe lang we het bewaren
+Wij bewaren je gegevens niet langer dan nodig. Wettelijke bewaartermijnen respecteren we uiteraard.
+
+- Contactgegevens: tot een jaar na het laatste contact.
+- Aanmelding voor de nieuwsbrief: tot je je afmeldt.
+- Opnames en screenshots van bijeenkomsten: maximaal een jaar.
+- Facturen en administratie: zeven jaar, omdat de belastingwet dat vraagt.
+- Je cookiekeuze: een jaar, daarna vragen we het opnieuw.
+
+## Met wie we gegevens delen
+We verkopen je gegevens niet en geven ze niet zomaar door. Wel werken we met een paar leveranciers die gegevens voor ons verwerken. Met hen hebben we een verwerkersovereenkomst.
+
+- HubSpot — onze formulieren, de nieuwsbrief en ons klantcontact. Onze HubSpot-omgeving staat in het Europese datacentrum.
+- Vercel — de hosting van deze website, inclusief de logbestanden die daarbij horen.
+- YouTube— de video’s op onze site. Die laden pas als je zelf op play klikt.
+- Google Analytics — het meten van het gebruik van de site. Alleen als je daar in de cookiebalk toestemming voor geeft; je IP-adres wordt daarbij ingekort en we gebruiken de gegevens niet voor advertenties.
+Verwerkt een leverancier gegevens buiten de Europese Economische Ruimte, dan gebeurt dat op basis van de modelcontracten van de Europese Commissie of het EU-VS Data Privacy Framework.
+
+## Hoe we je gegevens beveiligen
+Deze website draait volledig op https. Daarmee gaan gegevens versleuteld over de lijn, zodat ze onderweg niet te onderscheppen zijn. Toegang tot wat er binnenkomt hebben alleen de mensen die het nodig hebben voor hun werk, en zij hebben allemaal een geheimhoudingsverklaring getekend.
+
+## Cookies
+Met cookies verzamelen we gegevens om de site goed te laten werken. Welke dat precies zijn en hoe je je keuze wijzigt, lees je in onze cookieverklaring.
+
+## Jouw rechten
+Je mag ons altijd vragen om:
+
+- in te zien welke gegevens we van je hebben;
+- iets te corrigeren dat niet klopt;
+- je gegevens te verwijderen;
+- het gebruik ervan te beperken of er bezwaar tegen te maken;
+- je gegevens in een overdraagbaar bestand te krijgen;
+- een eerder gegeven toestemming weer in te trekken.
+Stuur een e-mail naar contact@meetingmasters.online, dan maken wij dat binnen drie werkdagen in orde.
+
+## Niet tevreden?
+Heb je een klacht over hoe wij met je gegevens omgaan? Geef ons dan eerst de gelegenheid het samen op te lossen. Onze contactgegevens staan bovenaan deze pagina en onderaan de site.
+
+Zie je aanleiding om het formeler aan te pakken, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens, via autoriteitpersoonsgegevens.nl.
+
+## Wijzigingen
+Verandert er iets aan onze werkwijze of aan de partijen waarmee we werken, dan passen we dit statement aan. De datum hieronder laat zien wanneer dat voor het laatst gebeurde.
+
+Laatst bijgewerkt: augustus 2026.
+
+
+======================================================================
+COOKIEVERKLARING (NL)
+======================================================================
+
+# Cookieverklaring
+Wij houden het klein: alleen wat nodig is om de site en onze formulieren te laten werken. De rest vragen we eerst.
+
+## Wat is een cookie?
+Een cookie is een eenvoudig klein bestandje dat wordt meegestuurd met pagina’s van onze website en door je browser op de harde schijf van je computer wordt opgeslagen. Kom je later terug, dan kan die informatie weer naar onze servers worden teruggestuurd. Zo weet de site bijvoorbeeld dat je een keuze al hebt gemaakt.
+
+## Noodzakelijke en functionele cookies
+Deze staan altijd aan, want zonder werkt de site niet zoals het hoort. Je hoeft er niets voor te doen en we meten er niets mee.
+
+- Je cookiekeuze — we onthouden een jaar lang wat je hebt gekozen, zodat we het niet elk bezoek opnieuw vragen. Dat slaan we op in je eigen browser, niet bij ons.
+- Onze formulieren en de agenda— de formulieren op deze site en de agenda waarin je een afspraak inplant, draaien op HubSpot. Om die te kunnen tonen laden we een script van HubSpot, en dat gebeurt zodra je zo’n pagina opent — dus ook voordat je in de balk hierboven een keuze maakt. Dat doen we omdat het formulier de dienst zélf is: zonder dat script zie je een leeg vlak in plaats van een contactformulier. HubSpot plaatst daarbij cookies die nodig zijn om het formulier te tonen, je invulling te versturen en spam tegen te houden. Je gegevens gaan pas naar ons op het moment dat jij op verzenden klikt.
+
+## Analytische cookies
+Die staan standaard uit. Kies je “Alles accepteren”, dan mogen we meten hoe bezoekers de site gebruiken: welke pagina’s gelezen worden, hoe mensen bij ons terechtkomen en waar ze afhaken. Daar maken we de site beter mee.
+
+Daarvoor gebruiken we Google Analytics. Het script daarvan wordt pas geladen op het moment dat jij akkoord geeft: kies je niet voor “Alles accepteren”, dan gaat er niets naar Google, ook geen verzoek waarmee je IP-adres zou meegaan. We laten Google je IP-adres bovendien inkorten, en we gebruiken de gegevens niet voor advertenties.
+
+Trek je je toestemming later weer in, dan stopt het meten meteen en verwijderen we de cookies die Google had gezet.
+
+Marketing- of advertentiecookies gebruiken we niet. We volgen je dus niet over andere websites heen.
+
+Kies je “Alleen noodzakelijk”, of maak je geen keuze, dan gebeurt dat niet en plaatsen we deze cookies ook niet.
+
+## Video’s
+De video’s op onze site staan op YouTube. Wij laden ze in de privacyvriendelijke variant (youtube-nocookie) en pas op het moment dat je zelf op play klikt. Doe je dat niet, dan legt YouTube niets vast. Klik je wel, dan geldt vanaf dat moment het privacybeleid van Google.
+
+## Social media
+Op onze site staan geen like- of deelknoppen die code van sociale netwerken binnenhalen. Je vindt alleen een gewone link naar onze LinkedIn-pagina. Klik je daarop, dan ben je op LinkedIn en geldt hun beleid.
+
+## Je keuze wijzigen
+Van gedachten veranderd? Dat mag altijd, en het kost één klik.
+
+Je hebt nog geen keuze gemaakt. Op dit moment staan alleen de noodzakelijke cookies aan.
+Wijzig je cookiekeuze
+
+## Cookies verwijderen
+Wil je helemaal geen cookies, dan kun je dat in je browser uitzetten of eerder geplaatste cookies verwijderen. Raadpleeg daarvoor de helpfunctie of de instellingen van je browser. Houd er rekening mee dat sommige onderdelen van de site het dan niet meer doen — onze formulieren bijvoorbeeld.
+
+## Meer lezen
+Wat we verder met je gegevens doen, hoe lang we ze bewaren en welke rechten je hebt, staat in ons Privacy Statement.
+
+Laatst bijgewerkt: augustus 2026.

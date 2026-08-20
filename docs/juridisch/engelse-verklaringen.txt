@@ -1,0 +1,129 @@
+======================================================================
+PRIVACY STATEMENT  —  www.meetingmasters.online/en/privacy-statement
+======================================================================
+
+# Privacy statement
+If you visit our website or take part in a gathering we host, we process a number of personal details. We handle those carefully, because privacy matters.
+
+## Who we are
+MeetingMasters Online is responsible for the data processed on this website and around our gatherings. You will find us at Schellingwouderdijk 157, 1023 NC Amsterdam.
+
+Do you have a question about your data? Email contact@meetingmasters.online or call +31 20 239 03 13. You will get an answer from us, not a form letter.
+
+Chamber of Commerce number 34214932. VAT number NL001689693B11.
+
+## Privacy for participants in gatherings
+Many clients ask for screenshots or recordings of the gatherings we host. Participants are told at the start of the gathering, including what the recording will be used for. Recordings we make for a client are kept for a year at most. After that we remove them from the server.
+
+Our client decides what happens to a recording afterwards; we make it on their instruction. If you would rather not appear on camera or be recorded, let the organiser or us know — we always find a way around it.
+
+Every gathering is covered by the confidentiality declaration that all Meeting Masters have signed. If more is needed, we are glad to draw up a separate non-disclosure agreement between MeetingMasters Online and the organising party.
+
+Gatherings run on platforms such as Zoom, Microsoft Teams and SpatialChat. Those parties also process participant data themselves, such as the name you log in with and your IP address. Their own privacy policies apply to that.
+
+## Which data we process from website visitors
+- If you fill in a form, we keep your name, organisation, email address, your telephone number if you give it, and what you write to us.
+- If you sign up for the newsletter, we keep your name and email address.
+- If you email or call us, we keep what you share yourself, so that we can answer your question.
+- If you visit the site, our hosting provider records technical data in log files, including your IP address. We use those to trace faults and to keep the site secure.
+If you leave no details, we cannot answer your question and cannot send a newsletter. You are of course free to email or call us directly instead.
+
+## Why we do that, and on what legal basis
+- To answer your question and make a proposal — necessary for carrying out an assignment or the run-up to one.
+- To send the newsletter — with your consent. Every newsletter carries an unsubscribe link at the bottom.
+- To make recordings and screenshots — on the instruction of the organising party, who determines the legal basis for it. Participants are informed beforehand.
+- To keep the site secure and working — our legitimate interest in preventing misuse and faults.
+- To keep our records — because the law requires it of us.
+
+## How long we keep it
+We do not keep your data longer than necessary. Statutory retention periods we of course respect.
+
+- Contact details: up to a year after the last contact.
+- Newsletter sign-up: until you unsubscribe.
+- Recordings and screenshots of gatherings: a year at most.
+- Invoices and records: seven years, because tax law requires it.
+- Your cookie choice: a year, after which we ask again.
+
+## Who we share data with
+We do not sell your data and we do not pass it on lightly. We do work with a few suppliers who process data for us. We have a data processing agreement with each of them.
+
+- HubSpot — our forms, the newsletter and our client contact. Our HubSpot environment is in the European data centre.
+- Vercel — the hosting of this website, including the log files that go with it.
+- YouTube — the videos on our site. Those only load once you click play yourself.
+- Google Analytics — measuring how the site is used. Only if you give permission for it in the cookie bar; your IP address is shortened and we do not use the data for advertising.
+If a supplier processes data outside the European Economic Area, that is done on the basis of the European Commission’s standard contractual clauses or the EU-US Data Privacy Framework.
+
+## How we secure your data
+This website runs entirely on https. That means data travels encrypted, so that it cannot be intercepted along the way. Only the people who need it for their work have access to what comes in, and they have all signed a confidentiality declaration.
+
+## Cookies
+With cookies we collect data to make the site work properly. Exactly which ones, and how to change your choice, is set out in our cookie statement.
+
+## Your rights
+You may always ask us to:
+
+- show you which data we hold about you;
+- correct anything that is wrong;
+- delete your data;
+- restrict its use or object to it;
+- give you your data in a transferable file;
+- withdraw consent you gave earlier.
+Send an email to contact@meetingmasters.online, and we will sort it out within three working days.
+
+## Not satisfied?
+Do you have a complaint about the way we handle your data? Then please give us the chance to resolve it together first. Our contact details are at the top of this page and at the foot of the site.
+
+If you see reason to take a more formal route, you can lodge a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens), via autoriteitpersoonsgegevens.nl.
+
+## Changes
+If anything changes in the way we work or in the parties we work with, we will amend this statement. The date below shows when that last happened.
+
+Last updated: augustus 2026.
+
+
+======================================================================
+COOKIE STATEMENT  —  www.meetingmasters.online/en/cookie-statement
+======================================================================
+
+# Cookie statement
+We keep it small: only what is needed to make the site and our forms work. For the rest, we ask you first.
+
+## What is a cookie?
+A cookie is a small, simple file that is sent along with the pages of our website and stored by your browser on your computer’s hard drive. If you come back later, that information can be sent back to our servers. That is how the site knows, for instance, that you have already made a choice.
+
+## Essential and functional cookies
+These are always on, because without them the site does not work as it should. You do not have to do anything for them, and we do not measure anything with them.
+
+- Your cookie choice — we remember for a year what you chose, so that we do not have to ask again on every visit. We store that in your own browser, not with us.
+- Our forms and the calendar — the forms on this site and the calendar in which you book an appointment run on HubSpot. To be able to show them we load a script from HubSpot, and that happens as soon as you open such a page — so before you make a choice in the bar above. We do that because the form is the service itself: without that script you see an empty space instead of a contact form. HubSpot places cookies that are needed to show the form, to send what you fill in, and to keep out spam. Your details only reach us at the moment you click send.
+
+## Analytics cookies
+These are off by default. If you choose “Accept all”, we may measure how visitors use the site: which pages are read, how people find us and where they drop off. We use that to make the site better.
+
+For that we use Google Analytics. Its script is only loaded at the moment you agree: if you do not choose “Accept all”, nothing goes to Google at all — not even a request that would carry your IP address. We also have Google shorten your IP address, and we do not use the data for advertising.
+
+If you withdraw your consent later, measuring stops straight away and we delete the cookies Google had set.
+
+We do not use marketing or advertising cookies. So we do not follow you around other websites.
+
+If you choose “Essential only”, or make no choice at all, none of that happens and we do not place these cookies either.
+
+## Videos
+The videos on our site are hosted on YouTube. We load them in the privacy-friendly variant (youtube-nocookie) and only at the moment you click play yourself. If you do not, YouTube records nothing. If you do, Google’s privacy policy applies from that moment on.
+
+## Social media
+Our site carries no like or share buttons that pull in code from social networks. You will only find an ordinary link to our LinkedIn page. Click it and you are on LinkedIn, where their policy applies.
+
+## Changing your choice
+Changed your mind? That is always allowed, and it takes one click.
+
+You have not made a choice yet. At the moment only the essential cookies are switched on.
+Change your cookie choice
+
+## Deleting cookies
+If you would rather have no cookies at all, you can switch them off in your browser or delete cookies that were placed earlier. See the help function or the settings of your browser for that. Do bear in mind that some parts of the site will then stop working — our forms, for instance.
+
+## Read more
+What else we do with your details, how long we keep them and which rights you have is set out in our privacy statement.
+
+Last updated: augustus 2026.
