@@ -12,6 +12,8 @@ import type { EventData } from "./data";
  */
 export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "strategiedagen": {
+    "metaOmschrijving": "An online strategy day that ends in decisions and direction, not in presentations. For 10 to 100 participants, designed and facilitated by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful online strategy day needs.",
     "title": "Running an online strategy day",
     "tagline": "A day that leads to decisions and direction — not just to presentations.",
     "intro": "Rather than have people watch presentations passively, let them contribute actively to the outcome. From framing the question to the shape of the programme and the design of the interaction: with a background as strategy consultants, we help with content, form and technology.",
@@ -156,6 +158,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "townhall": {
+    "metaOmschrijving": "An online town hall that brings the whole organisation onto one line: 30 to 600 participants, with moderation and technical direction by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful online town hall needs.",
     "title": "Running an online town hall",
     "tagline": "The whole organisation together: open, transparent and professionally produced.",
     "intro": "An online town hall is the moment when leaders and staff speak to each other directly. We help organisations run an online town hall that isn't one-way traffic but a meeting: with live Q&A, polls, reflection and, where useful, break-outs for the questions that need more room.",
@@ -300,6 +304,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "all-hands": {
+    "metaOmschrijving": "An online all-hands where the board and the staff genuinely talk to each other. For 50 to 500 participants, designed, moderated and technically produced.",
+    "randvoorwaardenKop": "What a successful online all-hands needs.",
     "title": "Running an online all-hands",
     "tagline": "An open conversation between leadership and staff — transparent, live and genuinely involved.",
     "intro": "An all-hands meeting is built on openness: staff can ask questions, weigh in and say what they think. We design interactive all-hands gatherings where that really happens — not as a front, but as an honest dialogue between leadership, teams and the rest of the organisation.",
@@ -444,6 +450,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "alv": {
+    "metaOmschrijving": "An online AGM that meets the statutes and still feels alive. 30 to 600 members, weighted voting possible, checklist from MeetingMasters included.",
+    "randvoorwaardenKop": "What a successful online AGM needs.",
     "title": "Running an online AGM",
     "tagline": "Your AGM: formally watertight, well structured and still lively.",
     "intro": "An online annual general meeting needs the right infrastructure: voting modules, attendance registration and a structured round of questions. We help associations, foundations and cooperatives run a legally valid online AGM that goes off professionally.",
@@ -591,12 +599,13 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     }
   },
   "teambuilding": {
+    "metaOmschrijving": "Online team building for teams of 6 to 50 who work far apart. From a single session to a longer programme, designed and facilitated by MeetingMasters.",
+    "randvoorwaardenKop": "What successful online team building needs.",
     "title": "Running online team building",
     "tagline": "Teams that work together better — even when they work far apart.",
     "intro": "Online team building takes more than a nice activity. We design online team development in which teams learn, reflect and experiment together — with a lasting effect on how they collaborate, communicate and deliver.",
     "forWho": "Teams, departments, (project) managers",
     "range": "6-50 participants",
-    "metaOmschrijving": "Online team building for teams that rarely see each other: getting acquainted, agreeing how to work and collaborating better, with formats that genuinely work at a distance.",
     "heroAlt": "Online team building in a virtual treehouse, where participants meet outside the work context",
     "outcomeSummary": "For teams that want to work together better, even when they mostly see each other online.",
     "outcomes": [
@@ -736,6 +745,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "brainstormen": {
+    "metaOmschrijving": "An online brainstorm that gets past the sticky notes: from diverging to choosing. 10 to 100 participants, 2 to 4 hours, facilitated by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful online brainstorm session needs.",
     "title": "Running an online brainstorm session",
     "tagline": "Creative sessions that genuinely produce ideas, even with everyone at a distance.",
     "intro": "Brainstorming online asks for a different approach than a room does. We design online brainstorm sessions with the right energy, the right formats and tight facilitation — so that ideas flow, perspectives become visible and the best ideas get somewhere.",
@@ -880,6 +891,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "onboardingdag": {
+    "metaOmschrijving": "An online onboarding where new colleagues feel the culture, not only the slides. 10 to 100 per cohort, designed and facilitated by MeetingMasters.",
+    "randvoorwaardenKop": "What successful online onboarding needs.",
     "title": "Running online onboarding",
     "tagline": "A flying start for new staff, even when they log in from anywhere.",
     "intro": "First impressions count. We design online onboarding days where new staff are genuinely welcomed: they get to know the organisation and its culture, make contact with colleagues and understand how things work with you. That makes online onboarding more than a series of presentations.",
@@ -1024,6 +1037,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "training-workshop": {
+    "metaOmschrijving": "An online training or workshop where participants actually take part. For cohorts of 6 to 100, with meeting design, a run sheet and technical hosting.",
+    "randvoorwaardenKop": "What successful online training and workshops need.",
     "title": "Running online training and workshops",
     "tagline": "Learning and growing in an online setting that works: not just watching, but doing.",
     "intro": "An online training or workshop takes more than a webinar. We help trainers, educators and L&D teams run engaging, interactive training online: with practice, reflection, collaboration and technical support that carries the learning experience.",
@@ -1180,6 +1195,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "bedrijfsfeest": {
+    "metaOmschrijving": "An online company party where people wander freely and run into each other. For 20 to 400 colleagues, with games, entertainment and hosting by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful online company party needs.",
     "title": "Running an online company party",
     "tagline": "A party people genuinely remember, even with everyone logging in from home.",
     "intro": "An online party doesn't have to be a compromise. Games, live entertainment, online escape rooms and social spaces can together make an evening that works beautifully — provided the programme is well designed and the technology runs smoothly.",
@@ -1255,7 +1272,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         "label": "International team",
         "title": "An online party for colleagues in several countries",
         "body": "An organisation wants to close the year with staff who rarely see each other in person. We build an online evening with a plenary opening, an interactive game and free space to meet.",
-        "imgAlt": "Virtual roof terrace with a sea view where colleagues from several countries close the year together"
+        "imgAlt": "Virtual lounge bar where colleagues from several countries sit together at small tables"
       },
       {
         "label": "Department event",
@@ -1316,6 +1333,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "kerstfeest": {
+    "metaOmschrijving": "An online Christmas party that feels warm and gets retold for months. For 10 to 500 colleagues, from short drinks to a full end-of-year programme.",
+    "randvoorwaardenKop": "What a successful online Christmas party needs.",
     "title": "Running an online Christmas party",
     "tagline": "A party people genuinely enjoy — even with the phone propped up on the kitchen table.",
     "intro": "Online Christmas drinks don't have to be a compromise. We design online Christmas parties full of energy, humour and real connection: with escape rooms, live entertainment, quiz games and social spaces where people can meet each other freely.",
@@ -1456,6 +1475,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "teamuitje": {
+    "metaOmschrijving": "An online team outing that connects without the fuss. For 10 to 300 colleagues, with games, real encounters and facilitation by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful online team outing needs.",
     "title": "Running an online team outing",
     "tagline": "Team building with real engagement: exciting, easy to join and entirely online.",
     "intro": "An online team outing isn't a digital version of the Friday afternoon drinks. We design online team and company outings where people play, talk and work together in an environment that invites contact. From quiz to escape challenge, from creative task to informal networking space: the programme fits your team, your goal and the energy you're after.",
@@ -1543,7 +1564,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         "label": "Department",
         "title": "An online company outing for a large group",
         "body": "For a department of more than a hundred people we build a programme with parallel activities, clear guidance and a shared close. Everyone can choose, join in and meet colleagues outside the daily work context.",
-        "imgAlt": "Virtual sports space as a relaxed backdrop for a team outing after an intense programme"
+        "imgAlt": "Virtual sports space with equipment, where a department splits up across parallel activities"
       }
     ],
     "faq": [
@@ -1600,6 +1621,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "community-building": {
+    "metaOmschrijving": "An online community that grows on rhythm and real conversation. From clubhouse to recurring format, designed and facilitated by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful online community needs.",
     "title": "Building an online community",
     "tagline": "Building a community that genuinely connects people — not one that just puts them in a group.",
     "intro": "A strong community doesn't just appear, online no more than anywhere else. We design gatherings and structures that encourage connection, make contributing easy and let the online community grow step by step.",
@@ -1740,6 +1763,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "bewonersparticipatie": {
+    "metaOmschrijving": "Online resident participation that reaches more people than a hall does. 10 to 500 residents, with clear boundaries and feedback they can see afterwards.",
+    "randvoorwaardenKop": "What successful online resident participation needs.",
     "title": "Running online resident participation",
     "tagline": "Involving residents in policy, plans and decisions. In a way that actually works.",
     "intro": "Participation only becomes valuable when residents feel their voice counts. We design online resident participation in which people genuinely have their say — from a neighbourhood conversation to a city-wide consultation.",
@@ -1880,6 +1905,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "klankbordgroep": {
+    "metaOmschrijving": "An online sounding board of 8 to 250 participants, 60 to 120 minutes. Sharp input, support you can test, and feedback that keeps people on board.",
+    "randvoorwaardenKop": "What a successful online sounding board needs.",
     "title": "Running an online sounding board",
     "tagline": "Listening to the people who matter most, in a structured and effective way.",
     "intro": "A sounding board session is a valuable way to gather input, test support and keep relationships going. We design and facilitate online sounding boards with room for a proper conversation, so that the sounding board really does what it is for.",
@@ -1967,7 +1994,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         "label": "Project team",
         "title": "Testing support with external partners",
         "body": "A project lead wants input on plans without bringing everyone together in person. In an online session partners respond to the point and stay involved at every stage of the project.",
-        "imgAlt": "Virtual meeting room with a timer, where external partners respond briefly to the plans"
+        "imgAlt": "Virtual project room with long reading tables, where external partners work through the plans"
       }
     ],
     "faq": [
@@ -2016,6 +2043,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "focusgroep": {
+    "metaOmschrijving": "An online focus group of 6 to 20 participants: deeper insight than a survey, with a topic guide, moderation and clear agreements about recording.",
+    "randvoorwaardenKop": "What a successful online focus group needs.",
     "title": "Running an online focus group",
     "tagline": "In-depth research into what people really think: online, efficient and well facilitated.",
     "intro": "A focus group gives you insight into the world of the people you serve — their motives, their doubts and what they want. We design and facilitate inventive online focus groups where participants feel freer to be honest and researchers get insights they can use.",
@@ -2097,13 +2126,13 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
         "label": "Policy research",
         "title": "Gathering users' experiences",
         "body": "For a public body we make room for personal experiences of a service. The online setting helps participants speak from their own context.",
-        "imgAlt": "Game course with numbered lanes in which users sort their experiences"
+        "imgAlt": "Virtual forest circle of tree stumps where participants take turns telling how the service worked for them"
       },
       {
         "label": "Product development",
         "title": "Understanding needs and objections",
         "body": "A product team wants to look beyond survey figures. In small online focus groups with product features highlighted, the language, the doubts and the expectations come through more sharply.",
-        "imgAlt": "Participants in a virtual space with break-outs where needs and objections are explored"
+        "imgAlt": "Virtual meeting room with a large screen, where a small group works through the product features"
       }
     ],
     "faq": [
@@ -2160,6 +2189,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "world-cafe": {
+    "metaOmschrijving": "An online World Café for 20 to 400 participants: small table conversations, three to five rounds and a plenary harvest that makes the yield visible.",
+    "randvoorwaardenKop": "What a successful online World Café needs.",
     "title": "Running an online World Café",
     "tagline": "Deep conversations in small groups, even with a large group. Online.",
     "intro": "The World Café format is ideal for exchanging knowledge and building shared understanding. We translate this powerful format into an online setting — with table conversations, rounds, hosts and a plenary harvest that makes the result visible.",
@@ -2304,12 +2335,13 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "webinar": {
+    "metaOmschrijving": "A webinar that holds people: not one-way traffic but questions, polls and conversation. Designed, hosted and technically produced by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful webinar needs.",
     "title": "Running a webinar",
     "tagline": "Webinars that hold people. Not just broadcasting, but genuinely connecting.",
     "intro": "A webinar doesn't have to be a one-way broadcast. We help organisations run an interactive webinar with room to go deeper and to talk one to one afterwards.",
     "forWho": "Marketing, communication and L&D teams, knowledge organisations",
     "range": "50-1000 participants",
-    "metaOmschrijving": "A webinar that holds people: not one-way traffic but questions, polls and conversation. Designed, hosted and technically produced by MeetingMasters.",
     "heroAlt": "Online webinar where participants talk it over afterwards in a virtual lounge",
     "outcomeSummary": "For sharing knowledge in a way that goes beyond broadcasting.",
     "outcomes": [
@@ -2449,6 +2481,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "conferentie": {
+    "metaOmschrijving": "An online conference for 60 to 1,000 participants: keynotes, parallel sessions, networking moments and full technical production by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful online conference needs.",
     "title": "Running an online conference",
     "tagline": "Professional conferences for large groups: interactive, sharply produced and open to everyone.",
     "intro": "Online conferences need tight technical production and an approach to the content that keeps people involved. We handle both: from keynotes to parallel sessions, networking moments, live Q&A and support for participants.",
@@ -2593,6 +2627,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "open-space": {
+    "metaOmschrijving": "An online Open Space where the group sets its own agenda. 30 to 600 participants, clear ground rules and facilitation on process by MeetingMasters.",
+    "randvoorwaardenKop": "What a successful online Open Space needs.",
     "title": "Running an online Open Space",
     "tagline": "Letting the group set the agenda: open, energetic and surprisingly productive.",
     "intro": "Open Space Technology is a powerful method for large groups: the participants set the agenda themselves. Anyone who wants to discuss something opens a session. Anyone interested joins in. Online, this works surprisingly well.",
@@ -2737,6 +2773,8 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "netwerkevent": {
+    "metaOmschrijving": "An online networking event where people who don't know each other get talking. 30 to 300 participants, with speed dates, theme tables and hosting.",
+    "randvoorwaardenKop": "What a successful online networking event needs.",
     "title": "Running an online networking event",
     "tagline": "Connecting people who don't know each other yet: online, easy to join and with real conversation.",
     "intro": "We design online networking events where people genuinely meet: through smart matchmaking, structured conversations and an environment that encourages chance encounters.",

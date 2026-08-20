@@ -45,6 +45,12 @@ export interface EventData {
     items: { title: string; body: string }[];
   };
   conditions?: { title: string; body: string }[];
+  /**
+   * Kop boven de randvoorwaarden. Vrije tekst, geen samenstelling: bij
+   * het-woorden klopt "geslaagde" niet ("een geslaagd online teamuitje") en bij
+   * eigennamen als World Café en Open Space moeten de hoofdletters blijven staan.
+   */
+  randvoorwaardenKop: string;
   cases?: { label: string; title: string; body: string; img?: string; imgAlt?: string; imgStyle?: React.CSSProperties }[];
   faq?: { q: string; a: string }[];
   faqMore?: { q: string; a: string }[];
@@ -64,6 +70,9 @@ const HERO_DIM_STERK = "bg-gradient-to-r from-black/80 via-black/45 to-black/10"
 
 export const EVENT_DATA: Record<string, EventData> = {
   "strategiedagen": {
+
+    metaOmschrijving:
+      "Een online strategiedag die leidt tot besluiten en richting, niet tot presentaties. Voor 10 tot 100 deelnemers, ontworpen en begeleid door MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online strategiedag.",
     title: "Online strategiedag organiseren",
     bg: "radial-gradient(circle at 38% 38%, #6CCECE, #38BCBC)",
     heroSrc: "/images/events-strategiedag-hero.webp",
@@ -89,6 +98,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor een heldere richting, breed draagvlak en een betrokken team.",
   },
   "townhall": {
+
+    metaOmschrijving:
+      "Een online townhall waarin de hele organisatie op één lijn komt: 30 tot 600 deelnemers, met moderatie én technische regie van MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online townhall.",
     title: "Online townhall organiseren",
     bg: "radial-gradient(circle at 38% 38%, #ADB4A4, #989F8F)",
     heroSrc: "/images/events-townhall-hero.webp",
@@ -115,6 +127,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor betere kennisdeling en begrip. Een goed gesprek, ook met grote groepen.",
   },
   "all-hands": {
+
+    metaOmschrijving:
+      "Een online all-hands waarin directie en medewerkers elkaar echt spreken. Voor 50 tot 500 deelnemers, ontworpen, gemodereerd en technisch geregeld.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online all-hands.",
     title: "Online all-hands organiseren",
     bg: "radial-gradient(circle at 38% 38%, #F8D84A, #EEBE3D)",
     heroSrc: "/images/events-allhands-hero.webp",
@@ -140,6 +155,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor organisatiebrede betrokkenheid, open vragen en gedeelde actie voorwaarts.",
   },
   "alv": {
+
+    metaOmschrijving:
+      "Een online ALV die statutair klopt en toch levendig blijft. 30 tot 600 leden, gewogen stemmen mogelijk, inclusief checklist van MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online ALV.",
     title: "Online ALV organiseren",
     bg: "radial-gradient(circle at 38% 38%, #C0D8D0, #A0C8C0)",
     download: {
@@ -175,14 +193,15 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor zorgvuldige besluitvorming, transparant stemmen en leden die allemaal volwaardig deel kunnen nemen.",
   },
   "teambuilding": {
+
+    metaOmschrijving:
+      "Online teambuilding voor teams van 6 tot 50 die ver van elkaar werken. Van eenmalige sessie tot traject, ontworpen en begeleid door MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online teambuilding.",
     title: "Online teambuilding organiseren",
     bg: "radial-gradient(circle at 38% 38%, #F5BEC8, #EFA1AF)",
     heroSrc: "/images/events-teambuilding-hero-v2.webp",
     heroAlt: "Online teambuilding in een virtuele boomhut, waar deelnemers elkaar buiten de werkcontext ontmoeten",
     Icon: UsersRound, ic: "text-[#696758]",
     tagline: "Teams die beter samenwerken — ook als ze ver van elkaar werken.",
-    metaOmschrijving:
-      "Online teambuilding voor teams die elkaar zelden zien: kennismaken, werkafspraken maken en beter samenwerken, met werkvormen die op afstand echt werken.",
     intro:
       "Online teambuilding vraagt om meer dan een leuke activiteit. Wij ontwerpen online teamontwikkeling waarbij teams samen leren, reflecteren en experimenteren - met blijvend effect op samenwerking, communicatie en resultaat.",
     outcomes: [{ title: "Betere samenwerking", body: "Het team communiceert effectiever en werkt soepeler samen — ook op afstand en onder druk." }, { title: "Meer onderling begrip", body: "Teamleden leren elkaars werkstijl kennen en bouwen een sterkere vertrouwensband op." }, { title: "Concrete afspraken", body: "De dag sluit af met afspraken over werkwijze die daadwerkelijk worden nageleefd." }],
@@ -201,6 +220,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor teams die beter willen samenwerken, ook als ze elkaar vooral online zien.",
   },
   "training-workshop": {
+
+    metaOmschrijving:
+      "Een online training of workshop waarin deelnemers echt meedoen. Voor cohorten van 6 tot 100, met meeting design, draaiboek en technische hosting.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online training & workshop.",
     title: "Online training & workshop geven",
     bg: "radial-gradient(circle at 38% 38%, #3ABABA, #1E9898)",
     heroSrc: "/images/events-training-workshop-hero.webp",
@@ -227,6 +249,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor interactieve online trainingen en workshops waarin deelnemers actief leren, oefenen en toepassen.",
   },
   "brainstormen": {
+
+    metaOmschrijving:
+      "Een online brainstorm die verder komt dan post-its: van divergeren naar kiezen. 10 tot 100 deelnemers, 2 tot 4 uur, begeleid door MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online brainstormsessie.",
     title: "Online brainstormsessie organiseren",
     bg: "radial-gradient(circle at 38% 38%, #FFEEC1, #F5D070)",
     heroSrc: "/images/events-brainstormen-hero.webp",
@@ -252,6 +277,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor nieuwe ideeën, slimme keuzes en een sessie waarin iedereen bijdraagt.",
   },
   "onboardingdag": {
+
+    metaOmschrijving:
+      "Een online onboarding waarin nieuwe collega's de cultuur ervaren, niet alleen de presentaties. 10 tot 100 per cohort, ontworpen door MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online onboarding.",
     title: "Online onboarding organiseren",
     bg: "radial-gradient(circle at 38% 38%, #7A7868, #696758)",
     heroSrc: "/images/events-onboardingdag-hero.webp",
@@ -277,6 +305,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor een warm welkom, snelle verbinding en collega’s die zich thuis voelen.",
   },
   "bedrijfsfeest": {
+
+    metaOmschrijving:
+      "Een online bedrijfsfeest waar mensen vrij rondlopen en elkaar tegenkomen. Voor 20 tot 400 collega's, met spel, entertainment en hosting van MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagd online bedrijfsfeest.",
     title: "Online bedrijfsfeest organiseren",
     bg: "radial-gradient(circle at 38% 38%, #D85E7A, #C64A60)",
     heroSrc: "/images/events-bedrijfsfeest-hero.webp",
@@ -296,12 +327,15 @@ export const EVENT_DATA: Record<string, EventData> = {
       items: [{ title: "Vooral anders dan vergaderen", body: "Een scherm vol gezichten is geen feest. Wij ontwerpen een programma met spel, entertainment en ruimte om gewoon bij te kletsen." }, { title: "Vrij rondlopen en mensen tegenkomen", body: "In de juiste omgeving lopen mensen vrij rond en raken ze spontaan in gesprek. Net als op een echt feest." }, { title: "Iedereen erbij, waar ook ter wereld", body: "Collega’s thuis, op kantoor of in het buitenland vieren samen. Zonder reizen, zonder gedoe, op hetzelfde moment." }],
     },
     conditions: [{ title: "Een programma met energie", body: "Een online bedrijfsfeest vraagt tempo, afwisseling en korte onderdelen. Lange plenaire blokken halen de energie eruit." }, { title: "Een platform dat ontmoeting ondersteunt", body: "Voor informele online events werkt een sociale omgeving vaak beter dan een standaard videomeeting. Platformkeuze is cruciaal." }, { title: "Goede hosting", body: "Een feestelijke online bijeenkomst heeft duidelijke begeleiding nodig. Hosts zorgen voor sfeer, uitleg, techniek en overgang tussen onderdelen." }],
-    cases: [{ label: "Internationaal team", title: "Online feest voor collega's in meerdere landen", body: "Een organisatie wil het jaar afsluiten met medewerkers die elkaar zelden fysiek zien. Wij maken een online avond met plenaire start, interactieve game en vrije ontmoetingsruimte.", img: "/images/events-bijeenkomst.webp", imgAlt: "Virtueel dakterras met zeezicht waar collega's uit meerdere landen samen het jaar afsluiten" }, { label: "Afdelingsevent", title: "Van online borrel naar echt programma", body: "Een team wil iets leukers dan een standaard digitale borrel. We ontwerpen een compact bedrijfsfeest met een formeel woordje van de CEO, een maatwerk quiz en passende themakamers voor spontane gesprekken.", img: "/images/events-bedrijfsfeest-praktijk-quiz.webp", imgAlt: "Online bedrijfsfeest met een quiz in een feestelijk aangeklede virtuele bar" }, { label: "MKB", title: "Meerdere activiteiten in één online omgeving", body: "Voor een grote groep combineren we entertainment, spellen en sociale ruimtes. Deelnemers kiezen waar zij aan deelnemen, net als op een fysiek event.", img: "/images/events-bedrijfsfeest-praktijk-activiteiten.webp", imgAlt: "Spelparcours met genummerde banen waarin deelnemers zelf kiezen waar zij meedoen" }],
+    cases: [{ label: "Internationaal team", title: "Online feest voor collega's in meerdere landen", body: "Een organisatie wil het jaar afsluiten met medewerkers die elkaar zelden fysiek zien. Wij maken een online avond met plenaire start, interactieve game en vrije ontmoetingsruimte.", img: "/images/vo-clubhuis.webp", imgAlt: "Virtuele loungebar waar collega's uit meerdere landen aan tafeltjes bij elkaar zitten" }, { label: "Afdelingsevent", title: "Van online borrel naar echt programma", body: "Een team wil iets leukers dan een standaard digitale borrel. We ontwerpen een compact bedrijfsfeest met een formeel woordje van de CEO, een maatwerk quiz en passende themakamers voor spontane gesprekken.", img: "/images/events-bedrijfsfeest-praktijk-quiz.webp", imgAlt: "Online bedrijfsfeest met een quiz in een feestelijk aangeklede virtuele bar" }, { label: "MKB", title: "Meerdere activiteiten in één online omgeving", body: "Voor een grote groep combineren we entertainment, spellen en sociale ruimtes. Deelnemers kiezen waar zij aan deelnemen, net als op een fysiek event.", img: "/images/events-bedrijfsfeest-praktijk-activiteiten.webp", imgAlt: "Spelparcours met genummerde banen waarin deelnemers zelf kiezen waar zij meedoen" }],
     faq: [{ q: "Kan een online bedrijfsfeest echt leuk zijn?", a: "Ja. Mits het meer is dan een online borrel. De leukste online bedrijfsfeesten combineren ontmoeting, interactie en een gedeelde ervaring." }, { q: "Hoeveel mensen kunnen deelnemen?", a: "Wij begeleiden online bedrijfsfeesten van ongeveer 20 tot ruim 400 deelnemers." }, { q: "Welke activiteiten zijn mogelijk?", a: "Denk aan online escape rooms, quizzen, interactieve spellen, speeddates, entertainment, workshops of informele ontmoetingen." }, { q: "Moeten deelnemers iets installeren?", a: "Voor een feestelijke sessie kiezen we het liefst een platform waarop gesprekken vanzelf ontstaan. SpatialChat is uitgesproken feestelijk en draait gewoon in je browser. Boek een demo en ervaar het zelf." }, { q: "Wat kost een online bedrijfsfeest?", a: "Dat hangt af van het programma, de groepsgrootte en de gewenste begeleiding." }],
     faqMore: [{ q: "Kunnen internationale teams deelnemen?", a: "Ja. Online bedrijfsfeesten zijn juist zeer geschikt voor internationale organisaties." }, { q: "Kunnen we eigen branding toevoegen?", a: "Ja. Regelmatig verwerken wij huisstijl, thema's en organisatie-specifieke elementen in het programma." }, { q: "Zijn er competitieve spellen mogelijk?", a: "Ja. Veel groepen vinden een gezonde dosis competitie leuk, zolang plezier centraal blijft staan." }, { q: "Kunnen jullie entertainment verzorgen?", a: "Ja. Wij werken regelmatig samen met artiesten, quizmasters en andere professionals." }, { q: "Kunnen deelnemers elkaar vrij ontmoeten?", a: "Ja. Wij vinden informele ontmoeting vaak minstens zo belangrijk als het programma zelf." }],
     outcomeSummary: "Voor een online feest dat voelt als samen zijn, ook als iedereen op een andere plek zit.",
   },
   "kerstfeest": {
+
+    metaOmschrijving:
+      "Een online kerstfeest dat warm aanvoelt en lang wordt naverteld. Voor 10 tot 500 collega's, van compacte borrel tot volledig eindejaarsprogramma.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagd online kerstfeest.",
     title: "Online kerstfeest organiseren",
     bg: "radial-gradient(circle at 38% 38%, #A83058, #882040)",
     heroSrc: "/images/events-kerst-hero.webp",
@@ -326,6 +360,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor een warme afsluiting van het jaar, online en toch persoonlijk.",
   },
   "teamuitje": {
+
+    metaOmschrijving:
+      "Een online teamuitje dat verbindt zonder gedoe. Voor 10 tot 300 collega's, met spel, ontmoeting en begeleiding van MeetingMasters. Ontspannen samen, op afstand.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagd online teamuitje.",
     title: "Online teamuitje organiseren",
     bg: "radial-gradient(circle at 38% 38%, #7AAFC8, #4A85A8)",
     heroSrc: "/images/events-teamuitje-hero.webp",
@@ -344,12 +381,15 @@ export const EVENT_DATA: Record<string, EventData> = {
       items: [{ title: "Meer dan een online borrel", body: "Een goed online teamuitje heeft een duidelijke vorm. Geen los gesprek met ongemakkelijke stiltes, maar een gedeelde activiteit waar iedereen makkelijk in kan stappen." }, { title: "Ontmoeting met lichte structuur", body: "We combineren vrije ruimte met slimme werkvormen, zodat collega's elkaar ook online echt spreken. Dat maakt het uitje ontspannen, maar niet vrijblijvend." }, { title: "Schaalbaar en makkelijk georganiseerd", body: "Van één klein team tot meerdere afdelingen tegelijk. Wij verzorgen ontwerp, techniek, hosting en begeleiding, zodat deelnemers alleen hoeven in te loggen." }],
     },
     conditions: [{ title: "Een helder doel", body: "Gaat het om ontspanning, kennismaking, waardering, samenwerking of een afsluiting? Het doel bepaalt het programma en de toon." }, { title: "Een programma met ritme", body: "Online aandacht vraagt afwisseling. Korte rondes, duidelijke overgangen, actieve onderdelen en ruimte voor informele ontmoeting houden de energie goed." }, { title: "Techniek die niet in de weg zit", body: "Deelnemers moeten makkelijk kunnen binnenkomen, bewegen en meedoen. Wij kiezen het platform dat past bij de groep en begeleiden de hele productie." }],
-    cases: [{ label: "Internationaal team", title: "Even ontspannen samenzijn", body: "Een organisatie met collega's in meerdere landen wil even los van zakelijke inhoud iets samen doen. Wij ontwerpen een online teamuitje met korte plenaire momenten, spellen en informele ruimtes. Het resultaat: veel contact en gezellig weinig gedoe.", img: "/images/events-teamuitje-praktijk-terras.webp", imgAlt: "Virtueel terras aan zee met parasol, waar collega's uit meerdere landen informeel samenzijn" }, { label: "Projectteam", title: "Energie terug in de samenwerking", body: "Na een intensief traject wil een projectteam samen ontspannen en het werk goed afronden. Met een korte escape room en ruimte voor informele praatjes wordt het geen verplichte borrel, maar een gedeeld moment.", img: "/images/events-teamuitje-praktijk-escape.webp", imgAlt: "Eindscherm van een online escape room met de felicitatie voor het team" }, { label: "Afdeling", title: "Online bedrijfsuitje voor grote groep", body: "Voor een afdeling met meer dan honderd medewerkers maken we een programma met parallelle activiteiten, duidelijke begeleiding en een gezamenlijke afsluiting. Iedereen kan kiezen, meedoen en collega's ontmoeten buiten de dagelijkse werkcontext.", img: "/images/events-teamuitje-praktijk-energie.webp", imgAlt: "Virtuele sportruimte als ontspannen decor voor een teamuitje na een intensief traject" }],
+    cases: [{ label: "Internationaal team", title: "Even ontspannen samenzijn", body: "Een organisatie met collega's in meerdere landen wil even los van zakelijke inhoud iets samen doen. Wij ontwerpen een online teamuitje met korte plenaire momenten, spellen en informele ruimtes. Het resultaat: veel contact en gezellig weinig gedoe.", img: "/images/events-teamuitje-praktijk-terras.webp", imgAlt: "Virtueel terras aan zee met parasol, waar collega's uit meerdere landen informeel samenzijn" }, { label: "Projectteam", title: "Energie terug in de samenwerking", body: "Na een intensief traject wil een projectteam samen ontspannen en het werk goed afronden. Met een korte escape room en ruimte voor informele praatjes wordt het geen verplichte borrel, maar een gedeeld moment.", img: "/images/events-teamuitje-praktijk-escape.webp", imgAlt: "Eindscherm van een online escape room met de felicitatie voor het team" }, { label: "Afdeling", title: "Online bedrijfsuitje voor grote groep", body: "Voor een afdeling met meer dan honderd medewerkers maken we een programma met parallelle activiteiten, duidelijke begeleiding en een gezamenlijke afsluiting. Iedereen kan kiezen, meedoen en collega's ontmoeten buiten de dagelijkse werkcontext.", img: "/images/events-teamuitje-praktijk-energie.webp", imgAlt: "Virtuele sportruimte met toestellen, waar een afdeling in parallelle activiteiten uiteengaat" }],
     faq: [{ q: "Wat is een online teamuitje?", a: "Een online teamuitje is een online activiteit voor collega's waarin ontmoeting, ontspanning en samen iets beleven centraal staan. Denk aan een quiz, spel, creatieve opdracht, challenge of informele ontmoetingsruimte." }, { q: "Kan een online teamuitje echt leuk zijn?", a: "Ja. Mits het meer is dan een open Teams-call. Een goed online teamuitje heeft een duidelijke vorm, goede begeleiding en genoeg ruimte voor contact." }, { q: "Hoeveel mensen kunnen meedoen?", a: "Wij begeleiden online teamuitjes vanaf ongeveer 10 deelnemers tot grotere groepen van enkele honderden collega's." }, { q: "Welke activiteiten zijn mogelijk?", a: "Denk aan quizzen, interactieve spellen, challenges, speeddates, themakamers, creatieve opdrachten of een informeel programma in SpatialChat." }, { q: "Hoe lang duurt een online teamuitje?", a: "Meestal één tot twee uur. Voor grotere programma's of combinaties met een inhoudelijk moment kan het langer zijn." }, { q: "Wat kost een online teamuitje?", a: "Dat hangt af van de groepsgrootte, de activiteiten en de gewenste begeleiding. We maken graag een voorstel dat past bij het doel en de omvang." }],
     faqMore: [{ q: "Is een online teamuitje geschikt voor internationale teams?", a: "Ja. Juist voor internationale teams is een online teamuitje praktisch: geen reistijd, wel een gezamenlijk moment." }, { q: "Kunnen teams tegen elkaar spelen?", a: "Ja. Een lichte competitie kan veel energie geven. We zorgen wel dat plezier en ontmoeting centraal blijven staan." }, { q: "Welke software gebruiken jullie?", a: "We hebben ervaring met Zoom, Teams en SpatialChat. Voor informele online teamuitjes geven we vaak de voorkeur aan SpatialChat, omdat deelnemers daar vrijer kunnen bewegen en makkelijker in gesprek gaan." }, { q: "Moeten deelnemers iets installeren?", a: "Meestal niet. We kiezen bij voorkeur voor tools die in de browser werken en geven vooraf heldere instructies." }, { q: "Kunnen jullie het teamuitje personaliseren?", a: "Ja. We kunnen thema's, huisstijl, interne verhalen of organisatie-specifieke vragen verwerken in het programma." }, { q: "Kunnen jullie dit combineren met een inhoudelijk programma?", a: "Ja. Een online teamuitje kan goed aansluiten op een teamdag, onboarding, training, all-hands of eindejaarsbijeenkomst." }],
     outcomeSummary: "Voor remote en hybride teams die samen wat leuks willen doen.",
   },
   "community-building": {
+
+    metaOmschrijving:
+      "Een online community die groeit door ritme en echte gesprekken. Van clubhuis tot terugkerend format, ontworpen en begeleid door MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online community.",
     title: "Online community opbouwen",
     bg: "radial-gradient(circle at 38% 38%, #FFF8E0, #FFEEC1)",
     heroSrc: "/images/events-community-hero-v2.webp",
@@ -376,6 +416,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor leden, alumni en netwerken die elkaar\nonline vaker en beter willen ontmoeten.",
   },
   "bewonersparticipatie": {
+
+    metaOmschrijving:
+      "Online bewonersparticipatie die meer mensen bereikt dan een zaaltje. 10 tot 500 inwoners, met heldere kaders, goede moderatie en zichtbare terugkoppeling.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online bewonersparticipatie.",
     title: "Online bewonersparticipatie organiseren",
     bg: "radial-gradient(circle at 38% 38%, #52C4C4, #28A8AA)",
     heroSrc: "/images/events-bewonersparticipatie-hero-v3.webp",
@@ -401,6 +444,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor een breed bereik, een eerlijk gesprek en bewoners die zich gezien en gehoord voelen.",
   },
   "klankbordgroep": {
+
+    metaOmschrijving:
+      "Een online klankbordgroep van 8 tot 250 deelnemers, 60 tot 120 minuten. Scherpe input, getoetst draagvlak en terugkoppeling die deelnemers vasthoudt.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online klankbordgroep.",
     title: "Online klankbordgroep organiseren",
     bg: "radial-gradient(circle at 38% 38%, #B0B8A8, #989F8F)",
     heroSrc: "/images/events-klankbordgroep-hero.webp",
@@ -421,12 +467,15 @@ export const EVENT_DATA: Record<string, EventData> = {
       items: [{ title: "Toetsen voor draagvlak", body: "Een online klankbordgroep maakt het makkelijk om even feedback op te halen bij leden, bewoners, klanten of stakeholders." }, { title: "Iedereen gezien en gehoord", body: "Met kleine gesprekken, duidelijke rollen en actieve moderatie komt niet alleen de snelste of luidste stem naar voren." }, { title: "Inzichten direct bruikbaar", body: "Signalen, vragen en adviezen worden digitaal vastgelegd. Daardoor is de opbrengst snel beschikbaar voor beleid, communicatie of vervolgstappen." }],
     },
     conditions: [{ title: "Een duidelijke klankbordvraag", body: "Waarop wordt precies feedback gevraagd? Hoe scherper de vraag, hoe bruikbaarder de opbrengst." }, { title: "Een goede samenstelling", body: "De waarde van een klankbordgroep zit in de perspectieven aan tafel. We denken mee over groepsgrootte, spreiding en gespreksindeling." }, { title: "Vaste structuur en terugkoppeling", body: "Deelnemers blijven betrokken als zij merken dat hun input wordt verwerkt. Daarom is terugkoppeling onderdeel van het ontwerp." }],
-    cases: [{ label: "Beleidsprogramma", title: "Stakeholders vroeg betrekken", body: "Een programma wil toetsen hoe een nieuwe richting wordt ontvangen. Wij ontwerpen een online klankbord opzet met thematische breakouts waar verschillende stakeholders input kunnen geven.", img: "/images/events-klankbord-praktijk-stakeholders.webp", imgAlt: "Vogels rond een wereldbol met het thema migratie, als decor voor een online klankbordgroep" }, { label: "Ledenorganisatie", title: "Dialoog met een heartbeat", body: "Voor een vereniging maken we een terugkerend online format waarin leden signalen, zorgen en ideeën delen. Ondersteund door goede communicatie stijgen de opkomst en betrokkenheid over de tijd.", img: "/images/events-klankbord-praktijk-heartbeat.webp", imgAlt: "Online sessie met deelnemers in beeld naast cijfers over thuiswerken en CO2-besparing" }, { label: "Projectteam", title: "Draagvlak toetsen bij externe partners", body: "Een projectleider wil input op plannen zonder iedereen fysiek bijeen te brengen. Met een online sessie reageren partners gericht en denken ze mee in verschillende fases van het project.", img: "/images/events-teambuilding-praktijk-internationaal.webp", imgAlt: "Virtuele vergaderzaal met een timer, waar externe partners kort op de plannen reageren" }],
+    cases: [{ label: "Beleidsprogramma", title: "Stakeholders vroeg betrekken", body: "Een programma wil toetsen hoe een nieuwe richting wordt ontvangen. Wij ontwerpen een online klankbord opzet met thematische breakouts waar verschillende stakeholders input kunnen geven.", img: "/images/events-klankbord-praktijk-stakeholders.webp", imgAlt: "Vogels rond een wereldbol met het thema migratie, als decor voor een online klankbordgroep" }, { label: "Ledenorganisatie", title: "Dialoog met een heartbeat", body: "Voor een vereniging maken we een terugkerend online format waarin leden signalen, zorgen en ideeën delen. Ondersteund door goede communicatie stijgen de opkomst en betrokkenheid over de tijd.", img: "/images/events-klankbord-praktijk-heartbeat.webp", imgAlt: "Online sessie met deelnemers in beeld naast cijfers over thuiswerken en CO2-besparing" }, { label: "Projectteam", title: "Draagvlak toetsen bij externe partners", body: "Een projectleider wil input op plannen zonder iedereen fysiek bijeen te brengen. Met een online sessie reageren partners gericht en denken ze mee in verschillende fases van het project.", img: "/images/vo-project.webp", imgAlt: "Virtuele projectruimte met lange leestafels, waar externe partners de plannen doornemen" }],
     faq: [{ q: "Wat levert een online klankbordgroep op?", a: "Een online klankbordgroep geeft toegang tot praktijkervaringen, inzichten en signalen uit de doelgroep. Dat helpt om beleid, dienstverlening of communicatie beter aan te laten sluiten op de werkelijkheid." }, { q: "Hoe groot is een online klankbordgroep?", a: "Meestal bestaat een online klankbordgroep uit 8 tot 250 deelnemers, waarbij grotere groepen steeds in kleinere clubjes uiteengaan. Zo is de sessie groot genoeg voor verschillende perspectieven, klein genoeg voor een goed gesprek." }, { q: "Hoe vaak komt een klankbordgroep samen?", a: "Dat varieert van een eenmalige bijeenkomst tot een terugkerend overleg per maand of kwartaal." }, { q: "Hoe zorgen jullie dat iedereen aan het woord komt?", a: "Met een heldere gespreksstructuur, actieve moderatie en werkvormen waarbij iedereen kan bijdragen. Wij zetten ons in dat iedereen gezien en gehoord kan worden, niet alleen de mensen die vanzelfsprekend het woord nemen. Juist in dit soort sessies is dat essentieel." }, { q: "Welke software gebruiken jullie?", a: "We hebben ervaring met Zoom, Teams, Zoom Events, maar geven de voorkeur aan SpatialChat. De finale keuze hangt af van de groepsgrootte, de gewenste interactie en het doel van de bijeenkomst." }, { q: "Wat kost een online klankbordgroep?", a: "Dat hangt af van de groepsgrootte, de frequentie en de gewenste begeleiding. Daarom krijg je van ons een voorstel op maat." }],
     faqMore: [{ q: "Wanneer kies je voor een online klankbordgroep?", a: "Wanneer je regelmatig wilt toetsen hoe beleid, producten of dienstverlening worden ervaren door de doelgroep. Of als je feedback zoekt op een nieuwe richting." }, { q: "Hoe worden resultaten vastgelegd?", a: "Alle inzichten worden digitaal vastgelegd zodat ideeën, signalen en aanbevelingen niet verloren gaan." }, { q: "Werkt dit ook internationaal?", a: "Ja. Online klankbordgroepen maken het eenvoudig om deelnemers uit verschillende regio's of landen te betrekken." }, { q: "Hoe lang duurt een bijeenkomst?", a: "De meeste online klankbordgroepen duren tussen de 60 en 120 minuten." }],
     outcomeSummary: "Voor scherpe input, getoetst draagvlak en een gesprek dat verder helpt.",
   },
   "focusgroep": {
+
+    metaOmschrijving:
+      "Een online focusgroep van 6 tot 20 deelnemers: dieper inzicht dan een enquête, met gespreksleidraad, moderatie en heldere afspraken over opname.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online focusgroep.",
     title: "Online focusgroep organiseren",
     bg: "radial-gradient(circle at 38% 38%, #D4DDD0, #B8C4B0)",
     heroSrc: "/images/events-focusgroep-hero.webp",
@@ -445,12 +494,15 @@ export const EVENT_DATA: Record<string, EventData> = {
       items: [{ title: "Diepte in het gesprek", body: "Een online focusgroep is geschikt voor vragen achter het gedrag: waarom mensen iets vinden, waar twijfel zit en welke taal zij gebruiken. Dat vraagt meer dan ‘camera aan’." }, { title: "Comfortabel deelnemen", body: "Deelnemers kunnen vanuit hun eigen omgeving aansluiten. Dit verlaagt de drempel om eerlijk en concreet te reageren." }, { title: "Onderzoek goed vastleggen", body: "Met toestemming kunnen sessies worden opgenomen, samengevat of geanalyseerd. De digitale setting maakt verwerking overzichtelijk." }],
     },
     conditions: [{ title: "Zorgvuldige selectie", body: "De samenstelling bepaalt de waarde van de focusgroep. Deelnemers moeten passen bij de onderzoeksvraag en zich vrij genoeg voelen om te spreken." }, { title: "Een sterke gespreksleidraad", body: "Goede vragen helpen om dieper te komen zonder het gesprek dicht te timmeren. De moderator bewaakt structuur en nuance." }, { title: "Afspraken over privacy en opname", body: "Bij onderzoek is duidelijkheid over toestemming, opname en verwerking belangrijk. Dat regelen we vooraf en communiceren we helder." }],
-    cases: [{ label: "Marktonderzoek", title: "Reacties op een nieuw concept", body: "Een organisatie wil weten hoe verschillende doelgroepen reageren op een nieuw aanbod. Wij faciliteren meerdere online focusgroepen met een vaste gespreksleidraad.", img: "/images/events-focusgroep-praktijk-concept.webp", imgAlt: "Virtueel auditorium waarin deelnemers reageren op een nieuw product op het scherm" }, { label: "Beleidsonderzoek", title: "Ervaringen van gebruikers ophalen", body: "Voor een publieke organisatie maken we ruimte voor persoonlijke ervaringen rond dienstverlening. De online setting helpt deelnemers om vanuit hun eigen context te spreken.", img: "/images/events-bedrijfsfeest-praktijk-activiteiten.webp", imgAlt: "Spelparcours met genummerde banen waarin gebruikers hun ervaringen ordenen" }, { label: "Productontwikkeling", title: "Behoeften en bezwaren begrijpen", body: "Een productteam wil verder kijken dan enquêtecijfers. In kleine online focusgroepen met uitgelichte product features komen taal, twijfels en verwachtingen scherper naar voren.", img: "/images/events-open-space-hero.webp", imgAlt: "Deelnemers in een virtuele ruimte met breakouts waarin behoeften en bezwaren worden verkend" }],
+    cases: [{ label: "Marktonderzoek", title: "Reacties op een nieuw concept", body: "Een organisatie wil weten hoe verschillende doelgroepen reageren op een nieuw aanbod. Wij faciliteren meerdere online focusgroepen met een vaste gespreksleidraad.", img: "/images/events-focusgroep-praktijk-concept.webp", imgAlt: "Virtueel auditorium waarin deelnemers reageren op een nieuw product op het scherm" }, { label: "Beleidsonderzoek", title: "Ervaringen van gebruikers ophalen", body: "Voor een publieke organisatie maken we ruimte voor persoonlijke ervaringen rond dienstverlening. De online setting helpt deelnemers om vanuit hun eigen context te spreken.", img: "/images/zaaltje-bosdag.webp", imgAlt: "Virtuele boskring met boomstronken waarin deelnemers om de beurt hun ervaring met de dienstverlening vertellen" }, { label: "Productontwikkeling", title: "Behoeften en bezwaren begrijpen", body: "Een productteam wil verder kijken dan enquêtecijfers. In kleine online focusgroepen met uitgelichte product features komen taal, twijfels en verwachtingen scherper naar voren.", img: "/images/zaaltje-werksessie.webp", imgAlt: "Virtuele vergaderruimte met een groot scherm, waar een kleine groep de productkenmerken doorneemt" }],
     faq: [{ q: "Hoe groot is een online focusgroep?", a: "Meestal tussen de 6 en 20 deelnemers." }, { q: "Praten deelnemers online wel vrijuit?", a: "Vaak wel. Sommige deelnemers voelen zich online zelfs comfortabeler dan in een fysieke setting." }, { q: "Krijgen we een analyse achteraf?", a: "Ja. Indien gewenst leveren wij een samenvatting of analyse van de belangrijkste inzichten." }, { q: "Werven jullie deelnemers?", a: "Dat kan. We kunnen ondersteunen bij selectie en uitnodiging." }, { q: "Welke software gebruiken jullie?", a: "Dat hangt af van de doelgroep en onderzoeksvraag." }, { q: "Wat kost een online focusgroep?", a: "Dat hangt af van de omvang en gewenste ondersteuning." }],
     faqMore: [{ q: "Wat is het verschil tussen een focusgroep en een klankbordgroep?", a: "Een focusgroep is meestal eenmalig. Een klankbordgroep komt vaker samen." }, { q: "Wanneer kies je voor een focusgroep?", a: "Wanneer je diepgaand inzicht wilt krijgen in ervaringen, behoeften of meningen." }, { q: "Hoe lang duurt een focusgroep?", a: "Meestal tussen de 60 en 120 minuten." }, { q: "Kunnen jullie meerdere groepen draaien?", a: "Ja. Dat gebeurt regelmatig om verschillende doelgroepen te vergelijken." }, { q: "Hoe worden inzichten vastgelegd?", a: "Digitaal, zodat niets verloren gaat." }, { q: "Kunnen sessies worden opgenomen?", a: "Ja. Mits deelnemers daarvoor toestemming geven." }],
     outcomeSummary: "Voor wat een enquête mist: dieper inzicht in wat de doelgroep denkt, voelt en nodig heeft.",
   },
   "world-cafe": {
+
+    metaOmschrijving:
+      "Een online World Café van 20 tot 400 deelnemers: kleine tafelgesprekken, drie tot vijf rondes en een plenaire oogst die de opbrengst zichtbaar maakt.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagd online World Café.",
     title: "Online World Café organiseren",
     bg: "radial-gradient(circle at 38% 38%, #FFEEC1, #F5D070)",
     heroSrc: "/images/events-world-cafe-hero.webp",
@@ -477,14 +529,15 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor gedeelde kennis, nieuwe inzichten en een gesprek dat blijft bewegen.",
   },
   "webinar": {
+    metaOmschrijving:
+      "Een webinar dat mensen vasthoudt: geen eenrichtingsverkeer maar vragen, polls en gesprek. Ontworpen, begeleid en technisch geproduceerd door MeetingMasters.",
+    randvoorwaardenKop: "Randvoorwaarden voor een geslaagd online webinar.",
     title: "Webinar organiseren",
     bg: "radial-gradient(circle at 38% 38%, #C64A60, #A83852)",
     heroSrc: "/images/events-webinar-hero.webp",
     heroAlt: "Online webinar waarin deelnemers na afloop napraten in een virtuele lounge",
     Icon: Radio, ic: "text-white",
     tagline: "Webinars die mensen boeien. Niet alleen zenden, maar echt verbinden.",
-    metaOmschrijving:
-      "Een webinar dat mensen vasthoudt: geen eenrichtingsverkeer maar vragen, polls en gesprek. Ontworpen, begeleid en technisch geproduceerd door MeetingMasters.",
     intro:
       "Een webinar hoeft geen eenrichtingsuitzending te zijn. Wij helpen organisaties een interactief webinar te organiseren met ruimte om te verdiepen en 1 op 1 na te praten.",
     outcomes: [{ title: "Betrokken deelnemers", body: "Geen passief publiek maar actieve deelnemers die vragen stellen, stemmen en reageren." }, { title: "Een boodschap die beklijft", body: "Inhoud die echt landt, ondersteund door de juiste structuur en interactie." }, { title: "Concrete opvolging", body: "Hogere conversie en betrokkenheid na afloop, doordat deelnemers echt meegedaan hebben." }],
@@ -503,6 +556,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor kennisdeling die verder gaat dan alleen zenden.",
   },
   "conferentie": {
+
+    metaOmschrijving:
+      "Een online conferentie voor 60 tot 1.000 deelnemers: keynotes, parallelle sessies, netwerkmomenten en volledige technische productie door MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online conferentie.",
     title: "Online conferentie organiseren",
     bg: "radial-gradient(circle at 38% 38%, #555C50, #404840)",
     heroSrc: "/images/events-conferentie-hero-v2.webp",
@@ -529,6 +585,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor een mooi programma, betrokken deelnemers en ruimte voor ontmoeting.",
   },
   "open-space": {
+
+    metaOmschrijving:
+      "Een online Open Space waarin de groep zelf de agenda maakt. 30 tot 600 deelnemers, heldere spelregels en facilitatie op proces door MeetingMasters.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagde online Open Space.",
     title: "Online Open Space organiseren",
     bg: "radial-gradient(circle at 38% 38%, #F5BEC8, #EFA1AF)",
     heroSrc: "/images/events-open-space-hero.webp",
@@ -554,6 +613,9 @@ export const EVENT_DATA: Record<string, EventData> = {
     outcomeSummary: "Voor grote groepen die zelf agenda, eigenaarschap en beweging creëren.",
   },
   "netwerkevent": {
+
+    metaOmschrijving:
+      "Een online netwerkevent waar mensen die elkaar niet kennen echt in gesprek raken. 30 tot 300 deelnemers, met speeddates, thematafels en hosting.",    randvoorwaardenKop: "Randvoorwaarden voor een geslaagd online netwerkevent.",
     title: "Online netwerkevent organiseren",
     bg: "radial-gradient(circle at 38% 38%, #4ABABA, #28A0A0)",
     heroSrc: "/images/events-netwerkevent-hero-v2.webp",

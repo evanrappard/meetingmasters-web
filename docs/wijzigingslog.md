@@ -1134,3 +1134,60 @@ aangevuld op datum.
 `app/en/blog/page.tsx` hadden hun opmaak ieder apart staan. Beide zijn nu een
 dunne wikkel om `components/blog/BlogOverzicht.tsx`, zoals de rest van de site.
 Een wijziging aan het overzicht raakt daarmee vanzelf beide talen.
+
+---
+
+## 20 augustus 2026 — events: koppen, praktijkbeelden en meta descriptions
+
+### Randvoorwaardenkop is nu een vrij veld
+
+De kop werd samengesteld uit *"Randvoorwaarden voor een geslaagde online"* plus
+de formatnaam in kleine letters. Dat ging op twee manieren mis: bij het-woorden
+klopte *geslaagde* niet, en bij eigennamen (World Café, Open Space, ALV)
+verdwenen de hoofdletters. `randvoorwaardenKop` is nu een **verplicht** veld op
+`EventData`, ingevuld voor alle twintig formats. Verplicht, zodat een nieuw
+format een keuze afdwingt in plaats van stilletjes terug te vallen op een
+regel die niet klopt. Acht koppen aangepast, twaalf ongewijzigd.
+
+**In het Engels was het erger dan gedacht.** Het werkwoord werd eraf gehaald met
+een Nederlandse regex (`organiseren|geven|opbouwen|houden`), dus bij álle twintig
+Engelse pagina's bleef het Engelse werkwoord staan: *"What a successful **running
+an online** strategy day needs."* Dat stond zo live. Alle twintig hebben nu een
+eigen Engelse kop.
+
+### Praktijkbeelden nagelopen
+
+Alle zestig praktijkbeelden gecontroleerd op vier dingen: zit de slug in de
+bestandsnaam, staat hetzelfde bestand op meerdere pagina's, staat dezelfde
+alt-tekst op meerdere plekken, en bestaat het bestand. Uitkomst: precies de vier
+gemelde gevallen, geen vijfde.
+
+| Pagina | Stond er | Staat er nu |
+|---|---|---|
+| Focusgroep 2 | `events-bedrijfsfeest-praktijk-activiteiten` | `zaaltje-bosdag` |
+| Focusgroep 3 | `events-open-space-hero` | `zaaltje-werksessie` |
+| Klankbordgroep 3 | `events-teambuilding-praktijk-internationaal` | `vo-project` |
+| Bedrijfsfeest 1 | `events-bijeenkomst` (generiek) | `vo-clubhuis` |
+
+**Let op bij de vervangers:** er bestaat voor deze vier gevallen geen eigen
+praktijkbeeld. De vervangers komen uit de gedeelde ruimtes van het virtueel
+kantoor — echte MeetingMasters-omgevingen, en geen praktijkbeeld van een ánder
+format. Ze staan nergens anders in de events-sectie. Wil je hier alsnog eigen
+beeld, dan is dit de plek.
+
+Elk nieuw beeld heeft een eigen alt gekregen, in beide talen; de oude alt is
+níét meegekopieerd. Bij Teamuitje 3 stond de alt van voorbeeld 2 (*"na een
+intensief traject"*) — die beschrijft nu wat er te zien is.
+
+### Meta descriptions
+
+Negentien van de twintig waren een kopie van de kaarttekst: 70 tot 90 tekens,
+zonder cijfer en zonder merknaam. Alle negentien herschreven volgens het recept
+van de webinarpagina: format en belofte, één hard gegeven van de pagina zelf,
+en wat MeetingMasters doet. Alle twintig zitten nu tussen 140 en 160 tekens.
+De cijfers zijn stuk voor stuk teruggezocht in de pagina (`range`, en de duur
+bij brainstorm, klankbordgroep en World Café).
+
+**Ook in het Engels gedaan**, hoewel er geen Engelse concepten lagen: daar stond
+precies hetzelfde probleem, en vindbaarheid is juist het doel. Zelfde recept,
+zelfde cijfers, 140 tot 160 tekens.

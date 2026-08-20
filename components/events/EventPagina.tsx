@@ -34,7 +34,6 @@ const T = {
     minderAntwoorden: "Minder antwoorden",
     gerelateerd: "Gerelateerde event formats",
     gerelateerdOnder: "Misschien past dit ook - of zelfs beter.",
-    randvoorwaarden: (wat: string) => `Randvoorwaarden voor een geslaagde online ${wat}.`,
     alleFormatsPijl: "Bekijk alle event formats →",
   },
   en: {
@@ -59,7 +58,6 @@ const T = {
     minderAntwoorden: "Fewer answers",
     gerelateerd: "Related event formats",
     gerelateerdOnder: "This might fit too — or even better.",
-    randvoorwaarden: (wat: string) => `What a successful ${wat} needs.`,
     alleFormatsPijl: "View all event formats →",
   },
 } as const;
@@ -113,9 +111,6 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
 
   const { title, bg, iconSrc, Icon, ic, intro, forWho, range, related } = event;
 
-  const shortTitle = title
-    .replace(/^Online /i, "")
-    .replace(/\s+(organiseren|geven|opbouwen|houden)$/i, "");
   // Zichtbare kop = titel zonder het SEO-werkwoord op het eind (de volledige
   // titel blijft staan voor de <title>/metadata).
   const displayTitle = title.replace(/\s+(organiseren|geven|opbouwen|houden)$/i, "");
@@ -360,7 +355,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                 )}
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
-                {t.randvoorwaarden(shortTitle.toLowerCase())}
+                {event.randvoorwaardenKop}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
