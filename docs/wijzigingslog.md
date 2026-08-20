@@ -968,3 +968,12 @@ op de homepage staan alle tien containers op links 120, breedte 1200.
 **Gecontroleerd:** 137 routes × 3 breedtes zonder overloop, eslint 0 fouten,
 gecentreerde koppen nog gecentreerd, en op de gebouwde pagina is de hoofdtekst
 nu `rgb(67,67,67)`.
+
+**Aanvulling, zelfde dag:** op verzoek van Emilie geldt de 60%-grens nu ook voor
+lopende tekst — `main p`, `main li` en `main blockquote`. Gemeten vóóraf: van de
+290 tekstblokken liepen er maar **vijf** over de 60%; de rest staat al in een
+kolom of kaart en is dus smaller dan 860px. De regel knijpt alleen wat te breed
+is en laat de rest ongemoeid. Na de wijziging is er nog één blok over: het label
+*"Wij maken ontmoetingen — samen met onze klanten"* boven de logobalk op Over
+ons. Dat heeft een eigen `max-w-content` in de opmaak, past op één regel en lijnt
+uit met de carrousel eronder — bewust zo gelaten.

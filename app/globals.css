@@ -51,19 +51,28 @@
     letter-spacing: -0.01em;
   }
 
-  /* Koppen lopen niet verder dan 60% van het beeld.
-     Een kop die de volle breedte pakt leest slechter — je oog moet te ver
-     terug — en op een hero dekt hij dan het beeld af. Alleen vanaf tablet:
-     op een telefoon is 60% te smal. Gecentreerde koppen blijven gecentreerd. */
+  /* Koppen én lopende tekst blijven binnen 60% van het beeld.
+     Een regel die de volle breedte pakt leest slechter — je oog moet te ver
+     terug om de volgende regel te vinden — en op een hero dekt een brede kop
+     het beeld af. Alleen vanaf tablet: op een telefoon is 60% te smal.
+
+     Dit knijpt alleen wat te breed ís. Tekst die al in een kolom of kaart
+     staat is smaller dan 860px en verandert dus niet. Gecentreerde tekst
+     blijft gecentreerd. */
   @media (min-width: 768px) {
     main h1,
-    main h2 {
+    main h2,
+    main p,
+    main li,
+    main blockquote {
       max-width: min(60vw, 860px);
     }
     main .text-center h1,
     main .text-center h2,
+    main .text-center p,
     main [class*="items-center"] h1,
-    main [class*="items-center"] h2 {
+    main [class*="items-center"] h2,
+    main [class*="mx-auto"] > p {
       margin-inline: auto;
     }
   }
