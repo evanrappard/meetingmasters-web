@@ -1271,3 +1271,63 @@ waarmee we vooruit laden. Dat is ook goed: op die pagina's ís het formulier het
 doel, en een bezoeker die scrolt hoort geen leeg vak te zien. Het uitstellen
 werkt wél op pagina's waar het formulier dieper staat, en beschermt toekomstige
 pagina's.
+
+---
+
+## 22 augustus 2026 — privacy- en cookiepagina's
+
+Alles in beide talen, in acht commits.
+
+**Wat de meting liet zien.** `scripts/cookie-inventaris.mjs` (nieuw) loopt de
+site af in drie situaties — geen keuze, alleen noodzakelijk, alles accepteren —
+en zegt precies welke cookies en opslagsleutels er landen. Uitkomst:
+
+- Zonder keuze staat er **niets** in je browser, behalve `__cf_bm` op de
+  domeinen van HubSpot, en dan alleen op pagina's met een formulier. Dat is de
+  botfilter van hun CDN, dertig minuten geldig.
+- De **HubSpot-trackingcookies bestonden hier helemaal niet.** We laden alleen
+  het formulier-embedscript, niet HubSpots algemene trackingscript. Dus geen
+  `hubspotutk`, geen `__hstc`, geen `__hssc`, geen `__hssrc` — in geen van de
+  drie situaties.
+- Na "Alles accepteren": `_ga` en `_ga_<meetnummer>`, 400 dagen.
+
+**Wat er toch is gebouwd.** `lib/hubspot-toestemming.ts` zet `_hsq` op
+`doNotTrack` vóór elk HubSpot-script laadt, en pas bij "Alles accepteren" op
+`track: true`. Bij intrekken gaat hij terug én wissen we de vier
+trackingcookies. Dat is nu vooral een grendel voor later: zodra iemand het
+algemene trackingscript toevoegt, is de toestemming al geregeld. Eén plek waar
+het nú al telt: de **agenda**. De meetings-embed trekt HubSpots analytics-stack
+mee (`hs-analytics.net`, `hs-banner.com`, `track-eu1.hubspot.com`).
+
+**Wat daar niet mee opgelost is.** De agenda is een pagina van HubSpot zelf in
+een venster. Wat daarbinnen gebeurt, bereikt onze `_hsq` niet — dat is hun
+domein. Gemeten: ook zonder toestemming vuurt dat venster twee verzoeken naar
+HubSpots eigen tracking af. In de cookieverklaring staat dat nu zo beschreven,
+met een link naar hun beleid. Wil je dat helemaal dicht, dan moet de agenda net
+als de YouTube-video's achter een klik — dat kost een klik op een boekingspagina
+en is dus een keuze van Emilie.
+
+**De cookietabel** staat in beide verklaringen: naam, plaatser, doel,
+bewaartermijn, gesplitst naar "altijd" en "alleen na toestemming". Categorieën
+alleen volstaan niet (HvJ EU, Planet49). Op een smal scherm schuift de tabel in
+haar eigen kader; de pagina zelf beweegt niet mee.
+
+**De datums.** De pagina's zeiden augustus 2026 en de voettekst juni 2026, en de
+Engelse pagina's toonden *"Last updated: augustus 2026"*. Beide komen nu uit
+`lib/bijgewerkt.ts`, per taal uitgeschreven. Het blijven er bewust twee: de
+datum onder een privacy statement hoort niet mee te schuiven met elke knop die
+we op de site verzetten.
+
+**Tekst.** Openingszin scheidt nu wat wij als verantwoordelijke doen van wat wij
+in opdracht doen. Rechtenverzoeken: bericht binnen een paar dagen, afhandeling
+binnen de wettelijke maand (was "binnen drie werkdagen" — een belofte die je
+niet altijd waar kunt maken). Zin over geen geautomatiseerde besluitvorming.
+Nieuwsbrief: opens en clicks worden gemeten, dat stond er niet. Google Analytics
+naar GA4-taal — het "inkorten van je IP-adres" is Universal Analytics en klopt
+niet meer. Doorgifte concreet: HubSpot in een Europees datacentrum, Vercel en
+Google onder het EU-VS Data Privacy Framework. WhatsApp: Meta verwerkt daarbij
+zelf ook gegevens. Klachtlink naar de juiste AP-pagina, in beide talen
+gecontroleerd op status 200.
+
+**Nog te doen, buiten deze repo:** in de GA4-property nakijken dat Google
+Signals en data sharing uitstaan. De tekst zegt nu dat dat zo is.
