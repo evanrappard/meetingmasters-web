@@ -32,8 +32,11 @@ export default function PrivacyStatementPage() {
     >
       <Blok kop="Who we are">
         <p>
-          {BEDRIJF.naam} is responsible for the data processed on this website and around
-          our gatherings. You will find us at {ADRES_REGEL}.
+          {BEDRIJF.naam} is responsible for the personal data we process for running our
+          own business — through this website, for instance, and in our contact with
+          clients. At gatherings we also process personal data on behalf of our clients. In
+          those cases it is the client who decides what the data is used for and how. You
+          will find us at {ADRES_REGEL}.
         </p>
         <p>
           Do you have a question about your data? Email{" "}
@@ -97,7 +100,9 @@ export default function PrivacyStatementPage() {
           </li>
           <li>
             <strong className="text-dark-grey">If you email or call us</strong>, we keep
-            what you share yourself, so that we can answer your question.
+            what you share yourself, so that we can answer your question. If you reach us
+            through WhatsApp, bear in mind that Meta, as the provider of WhatsApp, also
+            processes your data itself, under its own policy.
           </li>
           <li>
             <strong className="text-dark-grey">If you visit the site</strong>, our hosting
@@ -120,7 +125,9 @@ export default function PrivacyStatementPage() {
           </li>
           <li>
             <strong className="text-dark-grey">To send the newsletter</strong> — with your
-            consent. Every newsletter carries an unsubscribe link at the bottom.
+            consent. Every newsletter carries an unsubscribe link at the bottom. We do
+            measure whether a newsletter is opened and what is clicked, so that we can see
+            which subjects readers find interesting.
           </li>
           <li>
             <strong className="text-dark-grey">To make recordings and screenshots</strong>{" "}
@@ -172,15 +179,27 @@ export default function PrivacyStatementPage() {
             Those only load once you click play yourself.
           </li>
           <li>
-            <strong className="text-dark-grey">Google Analytics</strong> — measuring how
-            the site is used. Only if you give permission for it in the cookie bar; your
-            IP address is shortened and we do not use the data for advertising.
+            <strong className="text-dark-grey">Google Analytics 4</strong> — measuring how
+            the site is used. Only if you give permission for it in the cookie bar. The
+            measurement is set up to be privacy-friendly: IP addresses are not stored, the
+            data is not shared with other Google services, and none of it is used for
+            advertising.
           </li>
         </Lijst>
         <p>
-          If a supplier processes data outside the European Economic Area, that is done on
-          the basis of the European Commission&rsquo;s standard contractual clauses or the
-          EU-US Data Privacy Framework.
+          Our HubSpot environment runs in a European data centre. Vercel and Google are US
+          companies; both take part in the EU-US Data Privacy Framework, under which the
+          European Commission has found their level of protection adequate. Where that
+          framework does not apply, we work with the European Commission&rsquo;s standard
+          contractual clauses.
+        </p>
+      </Blok>
+
+      <Blok kop="No decisions made by a computer">
+        <p>
+          We make no decisions about you on the basis of automated processing, and we build
+          no profiles that sort you into a category. There is no system sitting between us
+          deciding something about you with consequences for you.
         </p>
       </Blok>
 
@@ -225,7 +244,9 @@ export default function PrivacyStatementPage() {
           >
             {BEDRIJF.email}
           </a>
-          , and we will sort it out within three working days.
+          . You will hear from us within a few days, and we will deal with your request as
+          quickly as we can — within a month at the latest, which is the period the law
+          sets for it.
         </p>
       </Blok>
 
@@ -239,7 +260,7 @@ export default function PrivacyStatementPage() {
           If you see reason to take a more formal route, you can lodge a complaint with
           the Dutch Data Protection Authority (Autoriteit Persoonsgegevens), via{" "}
           <a
-            href="https://www.autoriteitpersoonsgegevens.nl/en"
+            href="https://www.autoriteitpersoonsgegevens.nl/en/submitting-a-tip-off-or-a-complaint-to-the-ap"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent underline underline-offset-2 hover:text-accent-dark"

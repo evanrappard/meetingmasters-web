@@ -19,8 +19,11 @@ export default function PrivacyStatementPage() {
     >
       <Blok kop="Wie zijn wij">
         <p>
-          {BEDRIJF.naam} is verantwoordelijk voor de gegevens die op deze website en
-          rond onze bijeenkomsten worden verwerkt. Je vindt ons op {ADRES_REGEL}.
+          {BEDRIJF.naam} is verantwoordelijk voor de persoonsgegevens die wij voor onze
+          eigen bedrijfsvoering verwerken, bijvoorbeeld via deze website en in het contact
+          met klanten. Bij bijeenkomsten verwerken wij daarnaast persoonsgegevens in
+          opdracht van onze klanten. In die gevallen bepaalt de opdrachtgever waarvoor en
+          hoe deze gegevens worden gebruikt. Je vindt ons op {ADRES_REGEL}.
         </p>
         <p>
           Heb je een vraag over je gegevens? Mail{" "}
@@ -85,7 +88,9 @@ export default function PrivacyStatementPage() {
           </li>
           <li>
             <strong className="text-dark-grey">Mail of bel je ons</strong>, dan bewaren we
-            wat je zelf deelt, zodat we je vraag kunnen beantwoorden.
+            wat je zelf deelt, zodat we je vraag kunnen beantwoorden. Neem je contact op via
+            WhatsApp, houd er dan rekening mee dat Meta als aanbieder van WhatsApp jouw
+            gegevens ook zelf verwerkt, volgens hun eigen beleid.
           </li>
           <li>
             <strong className="text-dark-grey">Bezoek je de site</strong>, dan legt onze
@@ -110,7 +115,9 @@ export default function PrivacyStatementPage() {
           </li>
           <li>
             <strong className="text-dark-grey">De nieuwsbrief sturen</strong> — met je
-            toestemming. Onderaan elke nieuwsbrief zit een afmeldlink.
+            toestemming. Onderaan elke nieuwsbrief zit een afmeldlink. We meten daarbij of
+            een nieuwsbrief geopend wordt en waarop geklikt wordt, zodat we zien welke
+            onderwerpen lezers interessant vinden.
           </li>
           <li>
             <strong className="text-dark-grey">Opnames en screenshots maken</strong> — in
@@ -163,16 +170,27 @@ export default function PrivacyStatementPage() {
             site. Die laden pas als je zelf op play klikt.
           </li>
           <li>
-            <strong className="text-dark-grey">Google Analytics</strong> — het meten van
+            <strong className="text-dark-grey">Google Analytics 4</strong> — het meten van
             het gebruik van de site. Alleen als je daar in de cookiebalk toestemming voor
-            geeft; je IP-adres wordt daarbij ingekort en we gebruiken de gegevens niet
-            voor advertenties.
+            geeft. De meting staat privacyvriendelijk ingesteld: IP-adressen worden niet
+            opgeslagen, de gegevens worden niet gedeeld met andere diensten van Google en er
+            gebeurt niets mee voor advertenties.
           </li>
         </Lijst>
         <p>
-          Verwerkt een leverancier gegevens buiten de Europese Economische Ruimte, dan
-          gebeurt dat op basis van de modelcontracten van de Europese Commissie of het
-          EU-VS Data Privacy Framework.
+          Onze HubSpot-omgeving draait in een Europees datacentrum. Vercel en Google zijn
+          Amerikaanse partijen; die zijn aangesloten bij het EU-VS Data Privacy Framework,
+          waarmee de Europese Commissie hun beschermingsniveau als passend heeft
+          aangemerkt. Waar dat kader niet geldt, werken we met de modelcontracten van de
+          Europese Commissie.
+        </p>
+      </Blok>
+
+      <Blok kop="Geen besluiten door een computer">
+        <p>
+          Wij nemen geen besluiten over jou op basis van geautomatiseerde verwerking, en we
+          maken geen profielen waarmee we je indelen. Er zit dus geen systeem tussen dat
+          namens ons iets over je beslist met gevolgen voor jou.
         </p>
       </Blok>
 
@@ -217,7 +235,8 @@ export default function PrivacyStatementPage() {
           >
             {BEDRIJF.email}
           </a>
-          , dan maken wij dat binnen drie werkdagen in orde.
+          . Je hoort binnen een paar dagen van ons, en we handelen je verzoek zo snel
+          mogelijk af — uiterlijk binnen een maand, de termijn die de wet daarvoor stelt.
         </p>
       </Blok>
 
@@ -231,7 +250,7 @@ export default function PrivacyStatementPage() {
           Zie je aanleiding om het formeler aan te pakken, dan kun je een klacht indienen
           bij de Autoriteit Persoonsgegevens, via{" "}
           <a
-            href="https://autoriteitpersoonsgegevens.nl/nl/contact-met-de-autoriteit-persoonsgegevens/tip-ons"
+            href="https://www.autoriteitpersoonsgegevens.nl/een-tip-of-klacht-indienen-bij-de-ap"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent underline underline-offset-2 hover:text-accent-dark"
