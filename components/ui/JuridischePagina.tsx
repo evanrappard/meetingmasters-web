@@ -62,3 +62,44 @@ export function Lijst({ children }: { children: React.ReactNode }) {
     <ul className="list-disc pl-5 space-y-2 marker:text-accent">{children}</ul>
   );
 }
+
+/**
+ * Cookietabel. Naam, plaatser, doel en bewaartermijn per regel — categorieën
+ * alleen volstaan niet (HvJ EU, Planet49). Op een smal scherm schuift de tabel
+ * horizontaal in haar eigen kader, zodat de pagina zelf niet meebeweegt.
+ */
+export function CookieTabel({
+  koppen,
+  rijen,
+}: {
+  koppen: [string, string, string, string];
+  rijen: { naam: string; plaatser: string; doel: string; termijn: string }[];
+}) {
+  return (
+    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+      <table className="w-full min-w-[560px] text-sm text-left border-collapse">
+        <thead>
+          <tr className="border-b border-gray-300">
+            {koppen.map((k) => (
+              <th key={k} className="py-2 pr-4 font-bold text-dark-grey align-bottom">
+                {k}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rijen.map((r) => (
+            <tr key={r.naam} className="border-b border-gray-200 align-top">
+              <td className="py-2 pr-4">
+                <code className="text-[13px] text-dark-grey">{r.naam}</code>
+              </td>
+              <td className="py-2 pr-4">{r.plaatser}</td>
+              <td className="py-2 pr-4">{r.doel}</td>
+              <td className="py-2 whitespace-nowrap">{r.termijn}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

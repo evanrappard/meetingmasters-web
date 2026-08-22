@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import JuridischePagina, { Blok, Lijst } from "@/components/ui/JuridischePagina";
+import JuridischePagina, { Blok, Lijst, CookieTabel } from "@/components/ui/JuridischePagina";
 import CookieKeuzeKnop from "@/components/ui/CookieKeuzeKnop";
 
 const SITE = "https://www.meetingmasters.online";
@@ -53,16 +53,47 @@ export default function CookieStatementPage() {
             We store that in your own browser, not with us.
           </li>
           <li>
-            <strong className="text-dark-grey">Our forms and the calendar</strong> — the
-            forms on this site and the calendar in which you book an appointment run on
-            HubSpot. To be able to show them we load a script from HubSpot, and that
-            happens as soon as you open such a page — so before you make a choice in the
-            bar above. We do that because the form is the service itself: without that
-            script you see an empty space instead of a contact form. HubSpot places
-            cookies that are needed to show the form, to send what you fill in, and to
-            keep out spam. Your details only reach us at the moment you click send.
+            <strong className="text-dark-grey">Our forms</strong> — the forms on this site
+            run on HubSpot. To be able to show one we load a script from HubSpot, and that
+            happens as soon as you open such a page — so before you make a choice in the bar
+            above. We do that because the form is the service itself: without that script
+            you see an empty space instead of a contact form. What appears alongside it is a
+            single cookie on HubSpot&rsquo;s own domain: a bot filter that lasts half an hour
+            and keeps the form from being spammed. Nothing about you is recognised and
+            nothing is measured. Your details only reach us at the moment you click send.
+          </li>
+          <li>
+            <strong className="text-dark-grey">Pages without a form</strong> — there we do
+            not load HubSpot at all. Open the home page, an event page or the blog and there
+            is not a single cookie in your browser until you make a choice.
           </li>
         </Lijst>
+      </Blok>
+
+      <Blok kop="HubSpot tracking: off unless you switch it on">
+        <p>
+          HubSpot can recognise visitors across separate visits, using cookies such as{" "}
+          <code className="text-[13px] text-dark-grey">hubspotutk</code> and{" "}
+          <code className="text-[13px] text-dark-grey">__hstc</code>. That is not an
+          essential cookie but tracking, and with us it is off by default: we set HubSpot to
+          &ldquo;do not track&rdquo; before the script loads. The form works perfectly well
+          that way. Choose &ldquo;Accept all&rdquo; and we switch it on; withdraw your
+          consent later and it goes back off, and we delete what was there.
+        </p>
+        <p>
+          One thing is outside our hands: the calendar in which you book an appointment is a
+          page of HubSpot&rsquo;s own that we show in a frame. What HubSpot does inside that
+          frame falls under{" "}
+          <a
+            href="https://legal.hubspot.com/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline underline-offset-2 hover:text-accent-dark"
+          >
+            their own privacy policy
+          </a>
+          . If you would rather not open that calendar, simply email or call us.
+        </p>
       </Blok>
 
       <Blok kop="Analytics cookies">
@@ -72,11 +103,12 @@ export default function CookieStatementPage() {
           they drop off. We use that to make the site better.
         </p>
         <p>
-          For that we use <strong className="text-dark-grey">Google Analytics</strong>. Its
+          For that we use <strong className="text-dark-grey">Google Analytics 4</strong>. Its
           script is only loaded at the moment you agree: if you do not choose &ldquo;Accept
           all&rdquo;, nothing goes to Google at all &mdash; not even a request that would
-          carry your IP address. We also have Google shorten your IP address, and we do not
-          use the data for advertising.
+          carry your IP address. The measurement is set up to be privacy-friendly: IP
+          addresses are not stored, the data is not shared with other Google services, and
+          none of it is used for advertising.
         </p>
         <p>
           If you withdraw your consent later, measuring stops straight away and we delete
@@ -89,6 +121,62 @@ export default function CookieStatementPage() {
         <p>
           If you choose &ldquo;Essential only&rdquo;, or make no choice at all, none of
           that happens and we do not place these cookies either.
+        </p>
+      </Blok>
+
+      <Blok kop="Exactly which cookies are set">
+        <p>
+          Below is what actually ends up in your browser. We measured this with{" "}
+          <code className="text-[13px] text-dark-grey">scripts/cookie-inventaris.mjs</code>{" "}
+          in all three situations: no choice, essential only, and accept all.
+        </p>
+        <p className="font-bold text-dark-grey">Always — essential and functional</p>
+        <CookieTabel
+          koppen={["Name", "Set by", "What for", "How long"]}
+          rijen={[
+            {
+              naam: "mm-cookie-keuze",
+              plaatser: "MeetingMasters (stored in your own browser)",
+              doel: "remembers which cookie choice you made",
+              termijn: "1 year",
+            },
+            {
+              naam: "__cf_bm",
+              plaatser: "Cloudflare, via HubSpot",
+              doel: "bot filter for our forms; sits on HubSpot's domain, not on ours",
+              termijn: "30 minutes",
+            },
+          ]}
+        />
+        <p className="font-bold text-dark-grey">Only after &ldquo;Accept all&rdquo;</p>
+        <CookieTabel
+          koppen={["Name", "Set by", "What for", "How long"]}
+          rijen={[
+            {
+              naam: "_ga",
+              plaatser: "Google Analytics",
+              doel: "tells visitors apart",
+              termijn: "13 months",
+            },
+            {
+              naam: "_ga_XXXXXXXXXX",
+              plaatser: "Google Analytics",
+              doel: "keeps track of your visit; the characters at the end are our measurement ID",
+              termijn: "13 months",
+            },
+            {
+              naam: "hubspotutk, __hstc, __hssc, __hssrc",
+              plaatser: "HubSpot",
+              doel: "recognises returning visitors and links a form to earlier visits",
+              termijn: "6 months to session",
+            },
+          ]}
+        />
+        <p>
+          Choose &ldquo;Essential only&rdquo;, or make no choice, and it stops at the first
+          table. Open HubSpot&rsquo;s calendar and HubSpot will also place its own cookies
+          inside that frame, on its own domain; those are not listed above, because we are
+          not the ones setting them.
         </p>
       </Blok>
 
