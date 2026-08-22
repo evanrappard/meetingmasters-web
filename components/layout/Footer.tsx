@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Linkedin } from "lucide-react";
 import LastUpdated from "@/components/ui/LastUpdated";
+import { SITE_BIJGEWERKT } from "@/lib/bijgewerkt";
 import { BEDRIJF } from "@/lib/bedrijfsgegevens";
 import { navPerGroep, FOOTER_EXTRA, FOOTER_JURIDISCH, kies, type Taal } from "@/lib/navigatie";
 
@@ -27,7 +28,6 @@ const T = {
     whatsapp: "(WhatsApp)",
     land: "Nederland",
     plaats: "Amsterdam, Nederland",
-    bijgewerkt: "juni 2026",
   },
   en: {
     logoAlt:
@@ -42,7 +42,6 @@ const T = {
     whatsapp: "(WhatsApp)",
     land: "The Netherlands",
     plaats: "Amsterdam, The Netherlands",
-    bijgewerkt: "June 2026",
   },
 } as const;
 
@@ -174,7 +173,7 @@ export default function Footer({ taal = "nl" }: { taal?: Taal }) {
         </nav>
 
         <div className="flex items-center gap-4">
-          <LastUpdated date={t.bijgewerkt} taal={taal} className="text-white/60" />
+          <LastUpdated date={SITE_BIJGEWERKT[taal]} taal={taal} className="text-white/60" />
           <p className="text-xs text-white/60">{t.plaats}</p>
         </div>
       </div>

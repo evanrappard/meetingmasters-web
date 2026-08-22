@@ -1,10 +1,10 @@
-import { JURIDISCH_BIJGEWERKT } from "@/lib/bedrijfsgegevens";
+import { JURIDISCH_BIJGEWERKT } from "@/lib/bijgewerkt";
 
 type JuridischePaginaProps = {
   titel: string;
   intro: string;
   children: React.ReactNode;
-  /** Afwijkende datum; standaard de datum uit lib/bedrijfsgegevens.ts */
+  /** Afwijkende datum; standaard de datum uit lib/bijgewerkt.ts */
   bijgewerkt?: string;
   taal?: "nl" | "en";
 };
@@ -18,9 +18,10 @@ export default function JuridischePagina({
   titel,
   intro,
   children,
-  bijgewerkt = JURIDISCH_BIJGEWERKT,
+  bijgewerkt,
   taal = "nl",
 }: JuridischePaginaProps) {
+  const datum = bijgewerkt ?? JURIDISCH_BIJGEWERKT[taal];
   return (
     <div className="bg-white">
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
@@ -32,7 +33,7 @@ export default function JuridischePagina({
         {children}
 
         <p className="text-[#6D6D6D] text-sm pt-6 border-t border-gray-200">
-          {taal === "en" ? "Last updated" : "Laatst bijgewerkt"}: {bijgewerkt}.
+          {taal === "en" ? "Last updated" : "Laatst bijgewerkt"}: {datum}.
         </p>
       </div>
     </div>

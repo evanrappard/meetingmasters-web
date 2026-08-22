@@ -24,5 +24,4 @@ export const BEDRIJF = {
 /** "Schellingwouderdijk 157, 1023 NC Amsterdam" — voor lopende tekst. */
 export const ADRES_REGEL = `${BEDRIJF.adres}, ${BEDRIJF.postcode} ${BEDRIJF.plaats}`;
 
-/** Datum die onder de juridische pagina's staat. Handmatig bijwerken bij een inhoudelijke wijziging. */
-export const JURIDISCH_BIJGEWERKT = "augustus 2026";
+// De "laatst bijgewerkt"-datums staan in lib/bijgewerkt.ts.
