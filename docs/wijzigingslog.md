@@ -1258,3 +1258,16 @@ geen dubbele titels meer, en geen te korte buiten de pagina's die bewust op
 aan als "poorly formatted". Onze adressen zijn kleine letters, met streepjes,
 kort en met het onderwerp erin. Een live adres wijzigen kost ranking en vraagt
 weer een doorverwijzing, voor niets. Laten staan.
+
+**Vastgelegd in de controle.** `npm run livecheck` heeft er drie controles bij:
+op /nl/home, /nl/events en /nl/virtual-office mag er op een telefoonscherm nul
+byte video geladen worden. Zet iemand later een `<video>` terug in een hero,
+dan valt dat meteen op. De teller staat nu op 35 controles.
+
+**Wat níét gelukt is.** Het HubSpot-formulier laadt op de meeste
+formulierpagina's tóch meteen. De formulieren staan daar 714 tot 1252 px van
+boven, en op een telefoonscherm van 844 px valt dat binnen de marge van 600px
+waarmee we vooruit laden. Dat is ook goed: op die pagina's ís het formulier het
+doel, en een bezoeker die scrolt hoort geen leeg vak te zien. Het uitstellen
+werkt wél op pagina's waar het formulier dieper staat, en beschermt toekomstige
+pagina's.

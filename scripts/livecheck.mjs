@@ -289,6 +289,29 @@ try {
     meld(mb < 3 * 1048576, "hero-video weegt niet te zwaar bij het laden", `${(mb / 1048576).toFixed(1)} MB`);
     await ctx.close();
   }
+
+  // Op de telefoon hoort er géén hero-video geladen te worden: dat scheelde
+  // 0,7 tot 2,4 MB per pagina. Zie components/ui/HeroAchtergrond.tsx.
+  {
+    for (const pad of ["/nl/home", "/nl/events", "/nl/virtual-office"]) {
+      const ctx = await browser.newContext({
+        viewport: { width: 390, height: 844 },
+        deviceScaleFactor: 3,
+        isMobile: true,
+        hasTouch: true,
+      });
+      const page = await ctx.newPage();
+      let bytes = 0;
+      page.on("response", (r) => {
+        const l = r.headers()["content-length"];
+        if (l && /\/videos\//.test(r.url())) bytes += Number(l);
+      });
+      await page.goto(`${BASIS}${pad}`, { waitUntil: "load" });
+      await page.waitForTimeout(1800);
+      meld(bytes === 0, `geen hero-video op de telefoon: ${pad}`, bytes ? `${Math.round(bytes / 1024)} kB geladen` : "0 kB");
+      await ctx.close();
+    }
+  }
 } finally {
   await browser.close();
 }
