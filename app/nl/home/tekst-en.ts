@@ -8,7 +8,7 @@
  */
 
 export const HOME_EN = {
-  metaTitle: "Online events, virtual offices & gamification | MeetingMasters",
+  metaTitle: "Online events, virtual offices and games | MeetingMasters",
   metaDescription:
     "We design online gatherings for 50 to 500 people — events, virtual offices and interactive formats. 250+ events hosted, 94% satisfaction.",
 

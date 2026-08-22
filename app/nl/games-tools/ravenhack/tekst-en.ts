@@ -6,7 +6,7 @@
  */
 
 export const RAVENHACK_EN = {
-  metaTitle: "R@venHack — cybersecurity escape game | MeetingMasters",
+  metaTitle: "R@venHack — online escape game on cybersecurity | MeetingMasters",
   metaDescription:
     "Cybersecurity escape game in which your team stops a digital attack together. About phishing, data leaks and safe behaviour. In 60 minutes or as an XL version.",
 

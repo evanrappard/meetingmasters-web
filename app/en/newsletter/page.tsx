@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import FormulierPagina from "@/components/ui/FormulierPagina";
 
 export const metadata: Metadata = {
-  title: "Newsletter | MeetingMasters",
+  title: "Newsletter on online gatherings | MeetingMasters",
   description:
     "Something useful about online gatherings now and then: what works, what doesn't, and why. No sales pitch, and you can unsubscribe with one click.",
   alternates: {

@@ -7,7 +7,7 @@ import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
 
 export const metadata: Metadata = {
   alternates: taalAlternates("/contact"),
-  title: "Contact | MeetingMasters",
+  title: "Contact — plan je online bijeenkomst | MeetingMasters",
   description:
     "Neem contact op met MeetingMasters. Plan een vrijblijvend gesprek of boek een demo in ons virtuele kantoor.",
 };

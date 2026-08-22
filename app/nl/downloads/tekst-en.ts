@@ -7,7 +7,7 @@
  */
 
 export const DOWNLOADS_EN = {
-  metaTitle: "Downloads | MeetingMasters",
+  metaTitle: "Downloads — guides and publications | MeetingMasters",
   metaDescription:
     "Our publications about meeting online, and the participant guides you can send out beforehand. Free, no form, and meant to be passed on.",
 

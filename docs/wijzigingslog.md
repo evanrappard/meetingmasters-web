@@ -1191,3 +1191,70 @@ bij brainstorm, klankbordgroep en World Café).
 **Ook in het Engels gedaan**, hoewel er geen Engelse concepten lagen: daar stond
 precies hetzelfde probleem, en vindbaarheid is juist het doel. Zelfde recept,
 zelfde cijfers, 140 tot 160 tekens.
+
+---
+
+## 22 augustus 2026 — laadsnelheid op de telefoon, en de titels
+
+### Hero-video's laden niet meer op de telefoon
+
+Dit was verreweg het grootste punt. Op een telefoon woog de home 2,7 MB, en
+2,4 MB daarvan was de hero-video. Events 2,2 MB, virtueel kantoor 1,9 MB, Games
+1,8 MB, Techhulp 0,9 MB — steeds bijna alles video.
+
+Alle vijf de hero's gaan nu door één component,
+`components/ui/HeroAchtergrond.tsx`. Dat toont altijd het rustbeeld en hangt de
+video er alléén overheen als het scherm breder is dan 768px, de bezoeker geen
+"verminder beweging" aan heeft staan, en er geen databesparing of trage
+verbinding is. De `<video>` komt pas ná die beslissing in de pagina, dus er
+wordt niets gedownload dat we daarna weggooien.
+
+De posters hangen in een `<picture>` met een media-query, niet in een srcset met
+breedtes. Reden: bij srcset telt de browser de pixeldichtheid mee, en een
+telefoon met dichtheid 3 vroeg alsnog het grootste bestand op. Nu kiezen wij:
+onder 768px het 900px-bestand, daarboven 1600px.
+
+`scripts/hero-posters.mjs` maakt die varianten. De desktopvariant wordt alleen
+bewaard als hij écht kleiner is dan het origineel — bij het events-poster (een
+korrelige videostill) is dat niet zo, en die blijft dus zoals hij was.
+
+### Wat er verder is gedaan
+
+- **AVIF aangezet** in `next.config.ts`. Op onze eigen beelden 9 tot 25% kleiner
+  dan WebP; browsers die het niet aankunnen krijgen gewoon WebP. Tegelijk de
+  `deviceSizes` afgetopt op 1920 in plaats van 3840 — geen beeld op deze site
+  wordt zo groot getoond.
+- **Blogoverzicht laadde alle artikelteksten in de browser.** Het is een
+  client-component (voor het filter) en importeerde de hele postlijst, dus de
+  volledige tekst van 22 artikelen zat in de bundel: 123 kB voor een overzicht
+  dat alleen titels en samenvattingen laat zien. De pagina geeft nu een
+  uitgeklede lijst mee; de teksten blijven aan de serverkant.
+- **HubSpot-formulieren laden pas als ze in de buurt komen.** Het HubSpot-script
+  trekt reCAPTCHA mee — ruim 300 kB — en dat werd op elke formulierpagina
+  meteen geladen, ook als het formulier pas na drie schermen in beeld kwam. Nu
+  met een marge van 600px, dus de bezoeker merkt er niets van.
+
+### Wat is onderzocht en níét gedaan
+
+- **De video's opnieuw comprimeren.** Geprobeerd met VP9 (webm) en met x264 op
+  verschillende kwaliteitsstanden. De webm-versies werden groter dan de
+  bestaande mp4's en de x264-hercodering leverde niets op: de bronbestanden zijn
+  al efficiënt gecodeerd. Opnieuw coderen zou alleen kwaliteit kosten.
+- **Beelden die groter geladen worden dan ze getoond worden.** Nagemeten over
+  acht pagina's op 390px en 1440px: op vijf logo's na klopt alles. Die vijf zijn
+  bestanden van een paar kB. De `sizes`-opgaven stonden dus al goed.
+
+### Titels
+
+Vijf paren hadden in het Nederlands en het Engels exact dezelfde titel, en
+dertien titels waren korter dan 30 tekens (*"Blog | MeetingMasters"*). Een titel
+is het sterkste on-page-signaal dat er is; zo kort is dat weggegooid. Alle
+dertien herschreven naar 45 tot 60 tekens met het onderwerp vóór de merknaam —
+en daarmee zijn de dubbelingen ook weg. Gecontroleerd over alle 127 routes:
+geen dubbele titels meer, en geen te korte buiten de pagina's die bewust op
+`noindex` staan.
+
+**Wat we níét doen: de URL's aanpassen.** Een SEO-controle merkte 19 adressen
+aan als "poorly formatted". Onze adressen zijn kleine letters, met streepjes,
+kort en met het onderwerp erin. Een live adres wijzigen kost ranking en vraagt
+weer een doorverwijzing, voor niets. Laten staan.

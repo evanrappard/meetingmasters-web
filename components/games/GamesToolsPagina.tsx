@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroAchtergrond from "@/components/ui/HeroAchtergrond";
 import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
@@ -35,20 +36,17 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
       {/* Hero */}
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px] overflow-hidden">
-          <video
+          <HeroAchtergrond
             poster="/images/games-hero-v5.jpg"
-            aria-label="Games &amp; Tools van MeetingMasters — een interactief online spel met deelnemers in beeld"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover"
+            posterMobiel="/images/games-hero-v5-mobiel.webp"
+            posterDesktop="/images/games-hero-v5-desktop.webp"
+            bronnen={[
+              { src: "/videos/games-hero-v5.webm", type: "video/webm" },
+              { src: "/videos/games-hero-v5.mp4", type: "video/mp4" },
+            ]}
+            alt="Games & Tools van MeetingMasters — een interactief online spel met deelnemers in beeld"
             style={{ objectPosition: "center center" }}
-          >
-            <source src="/videos/games-hero-v5.webm" type="video/webm" />
-            <source src="/videos/games-hero-v5.mp4" type="video/mp4" />
-          </video>
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
           <div className="relative md:absolute md:inset-0 flex items-end">

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroAchtergrond from "@/components/ui/HeroAchtergrond";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import YouTubeFacade from "@/components/ui/YouTubeFacade";
@@ -132,16 +133,12 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
             anders loopt de H1 bovenlangs het beeld uit. Vanaf sm het
             oorspronkelijke, vaste beeldformaat. */}
         <div className="relative w-full md:h-[44vw] md:min-h-[340px] md:max-h-[560px]">
-          <video
-            src="/videos/hero-boomerang.mp4"
+          <HeroAchtergrond
             poster="/images/home-hero-poster.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="MeetingMasters — online events en virtual office op SpatialChat"
-            className="absolute inset-0 w-full h-full object-cover"
+            posterMobiel="/images/home-hero-poster-mobiel.webp"
+            posterDesktop="/images/home-hero-poster-desktop.webp"
+            bronnen={[{ src: "/videos/hero-boomerang.mp4", type: "video/mp4" }]}
+            alt="MeetingMasters — online events en virtual office op SpatialChat"
             style={{ objectPosition: "center 38%", filter: "contrast(1.04) saturate(1.06)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-[#1E1E1E]/75 via-[#2D2D2D]/30 to-transparent" />

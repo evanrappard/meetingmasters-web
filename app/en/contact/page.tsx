@@ -5,7 +5,7 @@ import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_PORTAL_ID, formulierVoor } from "@/lib/hubspot-forms";
 
 export const metadata: Metadata = {
-  title: "Contact | MeetingMasters",
+  title: "Contact — plan your online gathering | MeetingMasters",
   description:
     "Get in touch with MeetingMasters. Book a no-obligation conversation or a demo in our virtual office. We'd be glad to hear what you're working on.",
   alternates: {

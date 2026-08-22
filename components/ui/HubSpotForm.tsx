@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 declare global {
   interface Window {
@@ -51,9 +51,39 @@ export default function HubSpotForm({
   // Geldige CSS/DOM-id (useId bevat ":") voor de target-div.
   const targetId = `hs-form-${reactId.replace(/:/g, "")}`;
   const created = useRef(false);
+  const doel = useRef<HTMLDivElement>(null);
+  const [inZicht, setInZicht] = useState(false);
+
+  /**
+   * Het HubSpot-script trekt reCAPTCHA mee: ruim 300 kB, en dat werd op elke
+   * formulierpagina meteen bij het openen geladen — ook als het formulier pas
+   * na drie schermen in beeld komt. We wachten daarom tot het formulier in de
+   * buurt is. De marge van 600px zorgt dat het al klaarstaat tegen de tijd dat
+   * de bezoeker er is; hij merkt er dus niets van.
+   *
+   * Zonder IntersectionObserver (heel oude browsers) laden we gewoon meteen.
+   */
+  useEffect(() => {
+    const el = doel.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setInZicht(true);
+      return;
+    }
+    const kijker = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInZicht(true);
+          kijker.disconnect();
+        }
+      },
+      { rootMargin: "600px" }
+    );
+    kijker.observe(el);
+    return () => kijker.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (created.current) return;
+    if (!inZicht || created.current) return;
 
     const create = () => {
       if (created.current || !window.hbspt) return;
@@ -82,7 +112,7 @@ export default function HubSpotForm({
     }
     script.addEventListener("load", create);
     return () => script?.removeEventListener("load", create);
-  }, [portalId, formId, region, targetId]);
+  }, [inZicht, portalId, formId, region, targetId]);
 
-  return <div id={targetId} className={className} />;
+  return <div ref={doel} id={targetId} className={className} />;
 }

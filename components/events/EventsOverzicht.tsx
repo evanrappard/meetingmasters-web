@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroAchtergrond from "@/components/ui/HeroAchtergrond";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import TestimonialsCarousel from "@/components/ui/TestimonialsCarousel";
@@ -90,15 +91,11 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
       {/* ── HERO ── */}
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
-          <video
-            src="/videos/events-hero.mp4"
+          <HeroAchtergrond
             poster="/images/events-hero-poster.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label={t.hero.videoAlt}
+            posterMobiel="/images/events-hero-poster-mobiel.webp"
+            bronnen={[{ src: "/videos/events-hero.mp4", type: "video/mp4" }]}
+            alt={t.hero.videoAlt}
             className="absolute inset-0 w-full h-full object-cover object-center"
             style={{ filter: "saturate(0.92) brightness(1.03) contrast(0.99)" }}
           />

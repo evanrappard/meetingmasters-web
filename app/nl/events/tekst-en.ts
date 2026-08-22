@@ -13,7 +13,7 @@
  */
 
 export const OVERZICHT_EN = {
-  metaTitle: "Online event formats | MeetingMasters",
+  metaTitle: "Twenty online event formats | MeetingMasters",
   metaDescription:
     "20 online event formats: from strategy day and webinar to escape game, participation programme and community event. Designed and hosted by MeetingMasters.",
 

@@ -5,8 +5,24 @@ import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import type { Taal } from "@/lib/talen";
-import { BLOG_RUBRIEKEN, POSTS, type BlogRubriek } from "@/app/nl/blog/posts";
-import { BLOG_RUBRIEKEN_EN, POSTS_EN } from "@/app/en/blog/posts";
+import { BLOG_RUBRIEKEN, type BlogRubriek } from "@/app/nl/blog/posts";
+
+/**
+ * Alleen wat een kaart nodig heeft. Eerder importeerde dit component de hele
+ * postlijst; omdat het een client-component is, belandde daarmee de vólledige
+ * tekst van 22 artikelen in de bundel van de browser — 123 kB voor een
+ * overzicht dat alleen titels en samenvattingen toont. De pagina geeft nu een
+ * uitgeklede lijst mee en de artikelteksten blijven aan de serverkant.
+ */
+export type BlogKaart = {
+  slug: string;
+  title: string;
+  date: string;
+  img: string;
+  imgAlt: string;
+  excerpt: string;
+  rubriek: BlogRubriek;
+};
 
 const T = {
   nl: {
@@ -37,11 +53,16 @@ const T = {
   },
 } as const;
 
-export default function BlogOverzicht({ taal = "nl" }: { taal?: Taal }) {
+export default function BlogOverzicht({
+  taal = "nl",
+  posts,
+  labels,
+}: {
+  taal?: Taal;
+  posts: BlogKaart[];
+  labels: Record<BlogRubriek, string>;
+}) {
   const t = T[taal];
-  const posts = taal === "en" ? POSTS_EN : POSTS;
-  const labels: Record<BlogRubriek, string> =
-    taal === "en" ? BLOG_RUBRIEKEN_EN : BLOG_RUBRIEKEN;
 
   const [gekozen, setGekozen] = useState<BlogRubriek | null>(null);
 

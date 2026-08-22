@@ -6,6 +6,7 @@ import { CATEGORIEEN_EN, TOOLS_EN, VRAGEN_EN } from "@/app/nl/technologie/hulp/v
 import { HULP_EN } from "@/app/nl/technologie/hulp/tekst-en";
 import { KLEUREN, HANDLEIDINGEN, ALGEMENE_FAQ, DEVICE_FAQ, SUPPORT_FAQ, IT_PLATFORMS, NL_TEKST } from "@/app/nl/technologie/hulp/data";
 import type { Taal } from "@/lib/talen";
+import HeroAchtergrond from "@/components/ui/HeroAchtergrond";
 
 /**
  * De hulppagina, in beide talen. De kleuren, iconen en indeling zijn taalloos
@@ -44,20 +45,16 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
       <section className="relative bg-[#2D2D2D] overflow-hidden">
         {/* Achtergrondvideo: geluidloos, herhaalt zichzelf, start meteen.
             playsInline houdt hem op iOS in de pagina in plaats van fullscreen. */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 88%" }}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
+        <HeroAchtergrond
           poster="/images/tech-hulp-hero-poster.jpg"
-          aria-hidden
-        >
-          <source src="/videos/tech-hulp-hero.webm" type="video/webm" />
-          <source src="/videos/tech-hulp-hero.mp4" type="video/mp4" />
-        </video>
+          posterMobiel="/images/tech-hulp-hero-poster-mobiel.webp"
+          posterDesktop="/images/tech-hulp-hero-poster-desktop.webp"
+          bronnen={[
+            { src: "/videos/tech-hulp-hero.webm", type: "video/webm" },
+            { src: "/videos/tech-hulp-hero.mp4", type: "video/mp4" },
+          ]}
+          style={{ objectPosition: "center 88%" }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D]/85 via-[#2D2D2D]/45 to-[#2D2D2D]/15" />
 
         <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-20 md:py-28 lg:py-32 min-h-[430px] md:min-h-[520px] flex items-center">

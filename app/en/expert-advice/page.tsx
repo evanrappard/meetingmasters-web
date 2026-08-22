@@ -5,7 +5,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_AGENDA, formulierVoor } from "@/lib/hubspot-
 import CTABlock from "@/components/ui/CTABlock";
 
 export const metadata: Metadata = {
-  title: "Free advice | MeetingMasters",
+  title: "Free advice on your online gathering | MeetingMasters",
   description:
     "Run your idea, design or set-up for an online gathering past us, no strings attached. You get our honest advice, with a quote alongside it if you want one.",
   alternates: {

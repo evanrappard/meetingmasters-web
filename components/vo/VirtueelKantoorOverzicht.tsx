@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroAchtergrond from "@/components/ui/HeroAchtergrond";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -39,20 +40,17 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
       {/* ── HERO ── */}
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
-          <video
+          <HeroAchtergrond
             poster="/images/vo-hero-office.jpg"
-            aria-label="Virtueel kantoor in SpatialChat — een lichte, open kantooromgeving met teamleden die via videocirkels aanwezig zijn"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover"
+            posterMobiel="/images/vo-hero-office-mobiel.webp"
+            posterDesktop="/images/vo-hero-office-desktop.webp"
+            bronnen={[
+              { src: "/videos/vo-hero-office-v4.webm", type: "video/webm" },
+              { src: "/videos/vo-hero-office-v4.mp4", type: "video/mp4" },
+            ]}
+            alt="Virtueel kantoor in SpatialChat — een lichte, open kantooromgeving met teamleden die via videocirkels aanwezig zijn"
             style={{ objectPosition: "center center" }}
-          >
-            <source src="/videos/vo-hero-office-v4.webm" type="video/webm" />
-            <source src="/videos/vo-hero-office-v4.mp4" type="video/mp4" />
-          </video>
+          />
           <div
             className="absolute inset-0"
             style={{

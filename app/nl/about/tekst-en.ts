@@ -7,7 +7,7 @@
  */
 
 export const ABOUT_EN = {
-  metaTitle: "About us | MeetingMasters",
+  metaTitle: "About us — masters of meeting online | MeetingMasters",
   metaDescription:
     "Since 2020 we have been bringing genuine contact back into online gatherings — on a human scale, built around connection. Read our manifesto.",
 
