@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { leesKeuze, TOESTEMMING_EVENT } from "@/lib/cookie-toestemming";
+import { zetHubSpotTracking } from "@/lib/hubspot-toestemming";
 
 /**
  * Insluitbare HubSpot-agenda: bezoekers kiezen zelf een moment in plaats van
@@ -39,16 +41,24 @@ export default function HubSpotAgenda({ link, hoogte = "700px", className, taal 
   const [geladen, setGeladen] = useState(false);
 
   useEffect(() => {
+    // De meetings-embed trekt HubSpots analytics-stack mee. Eerst de stand
+    // zetten (standaard: niet volgen), dan pas het script laden.
+    zetHubSpotTracking(leesKeuze() === "alles");
+    const bij = (e: Event) =>
+      zetHubSpotTracking(((e as CustomEvent).detail ?? null) === "alles");
+    window.addEventListener(TOESTEMMING_EVENT, bij);
+
     const bestaand = document.querySelector<HTMLScriptElement>(`script[src="${SCRIPT}"]`);
     if (bestaand) {
       setGeladen(true);
-      return;
+      return () => window.removeEventListener(TOESTEMMING_EVENT, bij);
     }
     const s = document.createElement("script");
     s.src = SCRIPT;
     s.async = true;
     s.addEventListener("load", () => setGeladen(true));
     document.body.appendChild(s);
+    return () => window.removeEventListener(TOESTEMMING_EVENT, bij);
   }, []);
 
   const scheiding = link.includes("?") ? "&" : "?";

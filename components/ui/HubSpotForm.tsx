@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { leesKeuze, TOESTEMMING_EVENT } from "@/lib/cookie-toestemming";
+import { zetHubSpotTracking } from "@/lib/hubspot-toestemming";
 
 declare global {
   interface Window {
@@ -85,6 +87,10 @@ export default function HubSpotForm({
   useEffect(() => {
     if (!inZicht || created.current) return;
 
+    // Standaard niet volgen; alleen bij "Alles accepteren" wél. Zie
+    // lib/hubspot-toestemming.ts — dit moet vóór het script gebeuren.
+    zetHubSpotTracking(leesKeuze() === "alles");
+
     const create = () => {
       if (created.current || !window.hbspt) return;
       created.current = true;
@@ -113,6 +119,15 @@ export default function HubSpotForm({
     script.addEventListener("load", create);
     return () => script?.removeEventListener("load", create);
   }, [inZicht, portalId, formId, region, targetId]);
+
+  // Wijzigt de bezoeker zijn keuze terwijl het formulier op het scherm staat,
+  // dan gaat die wijziging meteen mee.
+  useEffect(() => {
+    const bij = (e: Event) =>
+      zetHubSpotTracking(((e as CustomEvent).detail ?? null) === "alles");
+    window.addEventListener(TOESTEMMING_EVENT, bij);
+    return () => window.removeEventListener(TOESTEMMING_EVENT, bij);
+  }, []);
 
   return <div ref={doel} id={targetId} className={className} />;
 }
