@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Inspiratiekaarten | MeetingMasters",
   // Niet los in de zoekresultaten: de echte toolpagina is de vindbare versie.
   robots: { index: false, follow: false },
+  // De enige pagina op de site zonder canonical. Hij hoort niet in de index,
+  // maar zonder canonical moet Google zelf maar raden welk adres het origineel
+  // is — en dat is precies wat "duplicate without user-selected canonical"
+  // betekent.
+  alternates: { canonical: "https://www.meetingmasters.online/embed/inspiratiekaarten" },
 };
 
 /**

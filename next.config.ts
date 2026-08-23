@@ -48,11 +48,22 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
 ];
 
+/**
+ * Alles wat niet de echte productie-omgeving is (preview-deployments van Vercel,
+ * elk met hun eigen adres) krijgt een noindex mee. Ze serveren dezelfde inhoud
+ * op een ander adres, en dat is voor een zoekmachine een dubbele pagina.
+ * Op productie staat `VERCEL_ENV` op "production" en gebeurt er niets.
+ */
+const isPreview = Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== "production";
+
 const nextConfig: NextConfig = {
   allowedDevOrigins: eigenNetwerkAdressen,
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      ...(isPreview
+        ? [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }]
+        : []),
       {
         // De kaarten mogen niet los in Google Afbeeldingen belanden; ze horen
         // alleen binnen de tool. Zie ook app/robots.ts.
