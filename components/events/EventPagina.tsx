@@ -109,7 +109,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
   const event = eventInTaal(slug, taal);
   if (!event) notFound();
 
-  const { title, bg, iconSrc, Icon, ic, intro, forWho, range, related } = event;
+  const { title, bg, iconSrc, iconAlt, Icon, ic, intro, forWho, range, related } = event;
 
   // Zichtbare kop = titel zonder het SEO-werkwoord op het eind (de volledige
   // titel blijft staan voor de <title>/metadata).
@@ -271,7 +271,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                   style={{ background: bg, boxShadow: "0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10)" }}
                 >
                   {iconSrc ? (
-                    <Image src={iconSrc} alt="" fill className="object-cover" />
+                    <Image src={iconSrc} alt={iconAlt ?? ""} fill className="object-cover" />
                   ) : (
                     <Icon className={`w-24 h-24 ${ic}`} strokeWidth={1} />
                   )}
@@ -479,6 +479,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                         <Image
                           src={f.iconSrc}
                           alt=""
+                          aria-hidden
                           fill
                           className="object-cover transition-opacity duration-200 group-hover:opacity-0"
                         />

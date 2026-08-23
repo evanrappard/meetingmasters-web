@@ -173,7 +173,7 @@ export default function TechHulp({
               {/* Eerste kwart is beeld, de rest tekst. */}
               <span className="w-1/4 shrink-0 self-stretch" style={{ background: k?.vlakHex }}>
                 {k?.beeld && (
-                  <img src={k.beeld} alt="" loading="lazy" className="w-full h-full object-cover" />
+                  <img src={k.beeld} alt="" aria-hidden loading="lazy" className="w-full h-full object-cover" />
                 )}
               </span>
               <span className="flex-1 min-w-0 px-5 py-4">

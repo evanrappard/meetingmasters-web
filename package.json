@@ -10,7 +10,8 @@
     "mobiel": "node scripts/mobiel-check.mjs",
     "mobiel:menu": "node scripts/mobiel-menu-check.mjs",
     "mobiel:console": "node scripts/mobiel-console.mjs",
-    "mobiel:shots": "node scripts/mobiel-shots.mjs"
+    "mobiel:shots": "node scripts/mobiel-shots.mjs",
+    "altcheck": "node scripts/altcheck.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.1",

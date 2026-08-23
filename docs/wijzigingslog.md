@@ -1331,3 +1331,32 @@ gecontroleerd op status 200.
 
 **Nog te doen, buiten deze repo:** in de GA4-property nakijken dat Google
 Signals en data sharing uitstaan. De tekst zegt nu dat dat zo is.
+
+---
+
+## 23 augustus 2026 — alt-teksten
+
+Bing meldde drie eventpagina's met ontbrekende alt-teksten. Nagelopen met een
+nieuwe controle over de hele site (`npm run altcheck`, 137 routes, 1008
+beelden). Uitkomst: er ontbrak **nergens** een alt-attribuut. Wat er wél was:
+negentig beelden met `alt=""` zonder erbij te zetten dat ze versiering zijn. Dat
+leest een controleprogramma als "vergeten", en terecht: aan `alt=""` alleen is
+niet te zien of iemand een keuze heeft gemaakt of het simpelweg oversloeg.
+
+Twee groepen, elk anders opgelost:
+
+- **De pictogrammen bij gerelateerde formats** (dit is wat Bing zag: kerstfeest,
+  teambuilding en strategiedagen gebruiken zelf geen eigen beeld, maar tonen wel
+  de kaartjes van andere formats) en **de beeldjes in de hulpknoppen** op
+  Techhulp. Die staan pal naast hun eigen naam; het beeld herhaalt alleen wat er
+  al staat. Leeg alt is daar de goede keuze, maar nu mét `aria-hidden`, zodat de
+  bedoeling er staat.
+- **Het grote pictogram naast de intro** van een eventpagina is geen versiering
+  maar inhoud. Tien formats hebben zo'n eigen beeld; die hebben nu een
+  beschrijvende alt gekregen in beide talen, per pictogram uitgeschreven
+  ("Pictogram van een doelwit, het beeldmerk van de online strategiedag"). De
+  andere tien gebruiken een Lucide-icoon — dat is een SVG in de pagina zelf, daar
+  hoort geen alt bij.
+
+`npm run altcheck` staat er nu bij als vaste controle, naast livecheck, linkcheck
+en mobiel.

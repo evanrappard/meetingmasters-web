@@ -12,6 +12,7 @@ import type { EventData } from "./data";
  */
 export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
   "strategiedagen": {
+    "iconAlt": "Pictogram of a target, the emblem of the online strategy day",
     "metaOmschrijving": "An online strategy day that ends in decisions and direction, not in presentations. For 10 to 100 participants, designed and facilitated by MeetingMasters.",
     "randvoorwaardenKop": "What a successful online strategy day needs.",
     "title": "Running an online strategy day",
@@ -158,6 +159,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "townhall": {
+    "iconAlt": "Pictogram of a public building, the emblem of the online town hall",
     "metaOmschrijving": "An online town hall that brings the whole organisation onto one line: 30 to 600 participants, with moderation and technical direction by MeetingMasters.",
     "randvoorwaardenKop": "What a successful online town hall needs.",
     "title": "Running an online town hall",
@@ -1037,6 +1039,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "training-workshop": {
+    "iconAlt": "Pictogram of a screen with an open book, the emblem of online training and workshops",
     "metaOmschrijving": "An online training or workshop where participants actually take part. For cohorts of 6 to 100, with meeting design, a run sheet and technical hosting.",
     "randvoorwaardenKop": "What successful online training and workshops need.",
     "title": "Running online training and workshops",
@@ -1195,6 +1198,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "bedrijfsfeest": {
+    "iconAlt": "Pictogram of fireworks, the emblem of the online company party",
     "metaOmschrijving": "An online company party where people wander freely and run into each other. For 20 to 400 colleagues, with games, entertainment and hosting by MeetingMasters.",
     "randvoorwaardenKop": "What a successful online company party needs.",
     "title": "Running an online company party",
@@ -1621,6 +1625,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "community-building": {
+    "iconAlt": "Pictogram of three people with a light bulb above them, the emblem of building an online community",
     "metaOmschrijving": "An online community that grows on rhythm and real conversation. From clubhouse to recurring format, designed and facilitated by MeetingMasters.",
     "randvoorwaardenKop": "What a successful online community needs.",
     "title": "Building an online community",
@@ -1763,6 +1768,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "bewonersparticipatie": {
+    "iconAlt": "Pictogram of houses along a road, the emblem of online resident participation",
     "metaOmschrijving": "Online resident participation that reaches more people than a hall does. 10 to 500 residents, with clear boundaries and feedback they can see afterwards.",
     "randvoorwaardenKop": "What successful online resident participation needs.",
     "title": "Running online resident participation",
@@ -1905,6 +1911,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "klankbordgroep": {
+    "iconAlt": "Pictogram of people connected by lines, the emblem of the online sounding board",
     "metaOmschrijving": "An online sounding board of 8 to 250 participants, 60 to 120 minutes. Sharp input, support you can test, and feedback that keeps people on board.",
     "randvoorwaardenKop": "What a successful online sounding board needs.",
     "title": "Running an online sounding board",
@@ -2189,6 +2196,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "world-cafe": {
+    "iconAlt": "Pictogram of a laptop with a globe on the screen, the emblem of the online World Café",
     "metaOmschrijving": "An online World Café for 20 to 400 participants: small table conversations, three to five rounds and a plenary harvest that makes the yield visible.",
     "randvoorwaardenKop": "What a successful online World Café needs.",
     "title": "Running an online World Café",
@@ -2481,6 +2489,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "conferentie": {
+    "iconAlt": "Pictogram of a screen with an atom symbol, the emblem of the online conference",
     "metaOmschrijving": "An online conference for 60 to 1,000 participants: keynotes, parallel sessions, networking moments and full technical production by MeetingMasters.",
     "randvoorwaardenKop": "What a successful online conference needs.",
     "title": "Running an online conference",
@@ -2627,6 +2636,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     ]
   },
   "open-space": {
+    "iconAlt": "Pictogram of sheets of paper with a drawing pin, the emblem of the online Open Space",
     "metaOmschrijving": "An online Open Space where the group sets its own agenda. 30 to 600 participants, clear ground rules and facilitation on process by MeetingMasters.",
     "randvoorwaardenKop": "What a successful online Open Space needs.",
     "title": "Running an online Open Space",
