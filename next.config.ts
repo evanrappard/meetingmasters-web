@@ -143,6 +143,11 @@ const nextConfig: NextConfig = {
       { source: "/nl/planningdesign-copy", destination: "/nl/events", permanent: true },
       { source: "/nl/organisatie", destination: "/nl/about", permanent: true },
       { source: "/nl/academy-1", destination: "/nl/about", permanent: true },
+      // De Academy waar de Meeting Masters worden opgeleid, staat op Over ons.
+      { source: "/nl/academy", destination: "/nl/about", permanent: true },
+      { source: "/en/academy", destination: "/en/about", permanent: true },
+      // "uk-organisation" was de Engelse organisatiepagina van de oude site.
+      { source: "/uk-organisation", destination: "/en/about", permanent: true },
       { source: "/home", destination: "/nl/home", permanent: true },
       { source: "/cookieverklaring-nl", destination: "/nl/cookieverklaring", permanent: true },
       // Er staat geen vacaturepagina; wie hem zoekt, wil weten wie wij zijn.
