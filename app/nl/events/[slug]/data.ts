@@ -31,12 +31,6 @@ export interface EventData {
   /** Alt-tekst van de hero: beschrijft het beeld in de context van dit event. */
   heroAlt?: string;
   iconSrc?: string;
-  /**
-   * Beschrijving van dat pictogram. Alleen nodig waar `iconSrc` staat: de
-   * formats zonder eigen beeld gebruiken een Lucide-icoon, en dat is een SVG in
-   * de pagina zelf — daar hoort geen alt bij.
-   */
-  iconAlt?: string;
   Icon: LucideIcon;
   ic: string;
   tagline: string;
@@ -84,8 +78,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroSrc: "/images/events-strategiedag-hero.webp",
     heroAlt: "Deelnemer aan een online strategiedag met een digitaal whiteboard vol post-its over huidige situatie, strategische thema's en prioriteiten",
     iconSrc: "/images/icons/strategiedagen.png",
-    iconAlt:
-      "Pictogram van een doelwit, het beeldmerk van de online strategiedag",
     Icon: Target, ic: "text-white",
     tagline: "Een dag die leidt tot besluiten en richting — niet alleen tot presentaties.",
     intro:
@@ -115,8 +107,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroAlt: "Medewerker volgt een online townhall waarin honderden collega's in beeld zijn, naast een laptop met de presentatie",
     heroOverlay: HERO_DIM_MEDIUM,
     iconSrc: "/images/icons/townhall.png",
-    iconAlt:
-      "Pictogram van een openbaar gebouw, het beeldmerk van de online townhall",
     Icon: Mic2, ic: "text-white",
     tagline: "De hele organisatie bijeen: open, transparant en professioneel geproduceerd.",
     intro:
@@ -239,8 +229,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroAlt: "Online training met deelnemers die op een gekleurde schaal aangeven hoe bekend ze zijn met het onderwerp",
     heroOverlay: HERO_DIM_MEDIUM,
     iconSrc: "/images/icons/trainingen-en-workshops.png",
-    iconAlt:
-      "Pictogram van een beeldscherm met een open boek, het beeldmerk van online training en workshop",
     Icon: GraduationCap, ic: "text-white",
     tagline: "Leren en groeien in een online setting die werkt: niet alleen kijken, maar doen.",
     intro:
@@ -325,8 +313,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroSrc: "/images/events-bedrijfsfeest-hero.webp",
     heroAlt: "Online bedrijfsfeest met confetti, ballonnen en collega's die samen het jaar afsluiten",
     iconSrc: "/images/icons/bedrijfsfeest.png",
-    iconAlt:
-      "Pictogram van vuurwerk, het beeldmerk van het online bedrijfsfeest",
     Icon: Sparkles, ic: "text-white",
     tagline: "Een feest dat mensen écht bijblijft, ook als iedereen vanuit huis inlogt.",
     intro:
@@ -410,8 +396,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroAlt: "Online community van Olympiërs die samen terugkijken op de Spelen waaraan zij deelnamen",
     heroOverlay: HERO_DIM_MEDIUM,
     iconSrc: "/images/icons/communitybuilding.png",
-    iconAlt:
-      "Pictogram van drie mensen met een gloeilamp erboven, het beeldmerk van het bouwen van een online community",
     Icon: Handshake, ic: "text-[#696758]",
     tagline: "Een community bouwen die mensen écht verbindt — niet alleen bij elkaar in een groep zet.",
     intro:
@@ -440,8 +424,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroSrc: "/images/events-bewonersparticipatie-hero-v3.webp",
     heroAlt: "Online bewonersparticipatie: bewoners reageren op een luchtfoto van hun wijk met de voorgenomen ingreep",
     iconSrc: "/images/icons/bewonersparticipatie.png",
-    iconAlt:
-      "Pictogram van huizen langs een weg, het beeldmerk van online bewonersparticipatie",
     Icon: MapPin, ic: "text-white",
     tagline: "Inwoners betrekken bij beleid, plannen en beslissingen. Op een manier die echt werkt.",
     intro:
@@ -471,8 +453,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroAlt: "Online klankbordgroep in een virtuele vergaderzaal, waar stakeholders reageren op de plannen",
     heroOverlay: HERO_DIM_MEDIUM,
     iconSrc: "/images/icons/netwerkbijeenkomst.png",
-    iconAlt:
-      "Pictogram van mensen die met lijnen aan elkaar verbonden zijn, het beeldmerk van de online klankbordgroep",
     Icon: MessageCircle, ic: "text-white",
     tagline: "Luisteren naar de mensen die er het meest toe doen, gestructureerd en effectief.",
     intro:
@@ -529,8 +509,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroAlt: "Online World Café met deelnemers aan verschillende tafels en de oogst van het gesprek op een digitaal bord",
     heroOverlay: HERO_DIM_MEDIUM,
     iconSrc: "/images/icons/worldcafe.png",
-    iconAlt:
-      "Pictogram van een laptop met een wereldbol op het scherm, het beeldmerk van het online World Café",
     Icon: Coffee, ic: "text-[#696758]",
     tagline: "Diepgaande gesprekken in kleine groepen, ook met een grote groep. Online.",
     intro:
@@ -587,8 +565,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroAlt: "Online conferentie met deelnemers in beeld naast een scherm met de cijfers en resultaten van het programma",
     heroOverlay: HERO_DIM_STERK,
     iconSrc: "/images/icons/onlineconferenties.png",
-    iconAlt:
-      "Pictogram van een beeldscherm met een atoomsymbool, het beeldmerk van de online conferentie",
     Icon: MonitorPlay, ic: "text-white",
     tagline: "Professionele conferenties voor grote groepen: interactief, scherp geproduceerd en breed bereikbaar.",
     intro:
@@ -617,8 +593,6 @@ export const EVENT_DATA: Record<string, EventData> = {
     heroSrc: "/images/events-open-space-hero.webp",
     heroAlt: "Online Open Space waarin deelnemers zelf sessies aandragen en kiezen waar zij aanschuiven",
     iconSrc: "/images/icons/openspace.png",
-    iconAlt:
-      "Pictogram van papieren met een punaise, het beeldmerk van de online Open Space",
     Icon: Pin, ic: "text-[#696758]",
     tagline: "De agenda bepalen met de groep zelf: open, energiek en verrassend productief.",
     intro:
