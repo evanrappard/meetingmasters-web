@@ -1353,3 +1353,42 @@ Kort daarna weer weggehaald: ik had ook beschrijvende alt-teksten toegevoegd voo
 het grote pictogram naast de intro van een eventpagina. Dat pictogram rendert
 nergens — alle twintig formats gebruiken de validation-variant van die sectie, en
 daar zit het niet in. Dode data, dus eruit.
+
+---
+
+## 23 augustus 2026 — indexering: de dubbele pagina en de doodlopers
+
+**De dubbele pagina was een tool, geen pagina.** Search Console wees
+`/tools/storytelling/index.html?theme=default-en&set=happy-mad-sad-en` aan. Dat
+bestand is de machinerie achter `/nl/games-tools/tools/storytelling`: elke
+combinatie van `theme` en `set` levert hetzelfde HTML-bestand op, en een los
+HTML-bestand heeft geen canonical. Zo krijgt Google een handvol adressen met
+dezelfde inhoud en geen aanwijzing welk adres het origineel is.
+
+Alles onder `/tools` krijgt nu `X-Robots-Tag: noindex, follow` mee. Eén regel in
+`next.config.ts`, dus hij dekt ook de querystrings en de Engelse submappen.
+Delen en insluiten blijft gewoon werken — alleen zoeken valt af. De echte
+toolpagina's blijven indexeerbaar en houden hun eigen canonical.
+
+Eerder al gedaan in deze ronde: canonical op `/embed/inspiratiekaarten` (de enige
+pagina zonder), en `noindex` op preview-deployments van Vercel.
+
+**Acht doodlopende adressen doorverwezen**, uit de 404-lijst:
+
+| Adres | Gaat naar |
+|---|---|
+| `/nl/themagame-raven-hack` | `/nl/games-tools/ravenhack` |
+| `/nl/visiestrategie2copy-1` | `/nl/events/strategiedagen` |
+| `/nl/planningdesign-copy` | `/nl/events` |
+| `/nl/organisatie` | `/nl/about` |
+| `/nl/academy-1` | `/nl/about` |
+| `/home` | `/nl/home` |
+| `/cookieverklaring-nl` | `/nl/cookieverklaring` |
+| `/vacature` | `/nl/about` |
+
+Let op: er stonden al doorverwijzingen voor `/nl-organisatie`, `/nl-academy-1-1`
+en `/nlplanningdesign-copy` — dezelfde adressen zónder schuine streep na "nl".
+De oude site had ze allebei. Beide varianten staan er nu.
+
+`/en` en `/en/` stonden ook in de lijst, maar die verwijzen allang door naar
+`/nl/home`; dat is een oude waarneming van Google.
