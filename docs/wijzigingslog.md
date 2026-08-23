@@ -1390,5 +1390,10 @@ Let op: er stonden al doorverwijzingen voor `/nl-organisatie`, `/nl-academy-1-1`
 en `/nlplanningdesign-copy` — dezelfde adressen zónder schuine streep na "nl".
 De oude site had ze allebei. Beide varianten staan er nu.
 
+Later diezelfde dag de laatste drie erbij: `/nl/academy` en `/en/academy` naar
+Over ons (waar de Academy beschreven staat) en `/uk-organisation` naar de
+Engelse Over ons. Alle dertien uit de lijst geven nu een 308 naar een bestaande
+pagina.
+
 `/en` en `/en/` stonden ook in de lijst, maar die verwijzen allang door naar
 `/nl/home`; dat is een oude waarneming van Google.
