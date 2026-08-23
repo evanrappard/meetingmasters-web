@@ -70,6 +70,16 @@ const nextConfig: NextConfig = {
         source: "/images/tools/inspiratiekaarten/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, noimageindex" }],
       },
+      {
+        // De losse HTML-tools onder /tools zijn de machinerie achter de
+        // toolpagina's, geen pagina's op zichzelf. Google vond ze mét
+        // querystring (?theme=…&set=…), en dat levert een handvol adressen op
+        // met precies dezelfde inhoud en zonder canonical. De pagina die er wél
+        // hoort te staan is /nl/games-tools/tools/... Delen en insluiten blijft
+        // gewoon werken; alleen zoeken valt af.
+        source: "/tools/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
+      },
     ];
   },
   async redirects() {
@@ -124,6 +134,19 @@ const nextConfig: NextConfig = {
       // wie een oude link volgt komt op de klantervaringen terecht.
       { source: "/nl/cases", destination: "/nl/testimonials", permanent: true },
       { source: "/en/cases", destination: "/en/testimonials", permanent: true },
+
+      // ── 404's uit Search Console, 23 aug 2026 ──
+      // Adressen van de oude site die nog in de index staan en nergens op
+      // uitkwamen. Doelen gekozen op wat er inhoudelijk het dichtst bij ligt.
+      { source: "/nl/themagame-raven-hack", destination: "/nl/games-tools/ravenhack", permanent: true },
+      { source: "/nl/visiestrategie2copy-1", destination: "/nl/events/strategiedagen", permanent: true },
+      { source: "/nl/planningdesign-copy", destination: "/nl/events", permanent: true },
+      { source: "/nl/organisatie", destination: "/nl/about", permanent: true },
+      { source: "/nl/academy-1", destination: "/nl/about", permanent: true },
+      { source: "/home", destination: "/nl/home", permanent: true },
+      { source: "/cookieverklaring-nl", destination: "/nl/cookieverklaring", permanent: true },
+      // Er staat geen vacaturepagina; wie hem zoekt, wil weten wie wij zijn.
+      { source: "/vacature", destination: "/nl/about", permanent: true },
 
       // Het overzicht en al het overige onder /nl/blogs.
       { source: "/nl/blogs", destination: "/nl/blog", permanent: true },
