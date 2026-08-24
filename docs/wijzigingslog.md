@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-20
+> Laatst bijgewerkt: 2026-08-24
 
 ---
 
@@ -1397,3 +1397,25 @@ pagina.
 
 `/en` en `/en/` stonden ook in de lijst, maar die verwijzen allang door naar
 `/nl/home`; dat is een oude waarneming van Google.
+
+---
+
+## 24 augustus 2026 — uitsnede van de hero-video op de homepage
+
+De ontmoeting in het beeld — de gespreksbubbels met gezichten — viel er aan de
+onderkant af. De hero heeft een vaste hoogte (44vw, maximaal 560px) terwijl het
+filmbeeld 16:9 is; er wordt dus altijd boven- en onderlangs iets weggesneden.
+Welk deel je ziet, bepaalt `objectPosition` op zowel de video als het rustbeeld.
+
+Die stond op `center 38%`. Eerst op `53%` gezet (15% omhoog, zoals gevraagd),
+daarna heeft Emilie zelf de uitsnede gekozen in een HTML-proefpagina met een
+schuif: **`center 82%`**. Het beeld staat daarmee flink hoger — nauwelijks nog
+plafond, de ruimte en de bubbels vullen de band. De koptekst hangt onderaan en
+houdt bovenlangs lucht.
+
+Eén regel in `components/home/HomePagina.tsx`; geldt voor zowel de Nederlandse
+als de Engelse homepage, want die delen dit component.
+
+De proefpagina zelf staat niet in het project (scratchpad, `hero-uitsnede.html`):
+het rustbeeld in twee uitsnedes naast elkaar, plus een schuif van 0 tot 100 en
+drie schermbreedtes. Handig patroon om te herhalen bij een volgende uitsnedevraag.

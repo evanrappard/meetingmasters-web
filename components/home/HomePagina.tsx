@@ -139,7 +139,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
             posterDesktop="/images/home-hero-poster-desktop.webp"
             bronnen={[{ src: "/videos/hero-boomerang.mp4", type: "video/mp4" }]}
             alt="MeetingMasters — online events en virtual office op SpatialChat"
-            style={{ objectPosition: "center 38%", filter: "contrast(1.04) saturate(1.06)" }}
+            style={{ objectPosition: "center 82%", filter: "contrast(1.04) saturate(1.06)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-[#1E1E1E]/75 via-[#2D2D2D]/30 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
