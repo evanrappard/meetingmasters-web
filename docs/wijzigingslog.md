@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-24
+> Laatst bijgewerkt: 2026-08-25
 
 ---
 
@@ -1419,3 +1419,36 @@ als de Engelse homepage, want die delen dit component.
 De proefpagina zelf staat niet in het project (scratchpad, `hero-uitsnede.html`):
 het rustbeeld in twee uitsnedes naast elkaar, plus een schuif van 0 tot 100 en
 drie schermbreedtes. Handig patroon om te herhalen bij een volgende uitsnedevraag.
+
+---
+
+## 25 augustus 2026 — rustpauze in de hero-video
+
+De bubbel die uit het cirkeltje achterin naar voren komt, keerde te snel weer om.
+Emilie wilde langer rust op het moment dat ze achterin staat, zonder dat het naar
+voren komen trager wordt.
+
+Wat er in de video zit: de bron (`Downloads/welcome hero stock.mp4`, 387 frames)
+is één ronde — achterin, naar voren, groeten, terug. Die is 20% vertraagd (484
+frames) en daarna gespiegeld achter zichzelf geplakt. Dat spiegelen is geen
+sierlijkheid maar noodzaak: het laatste beeld van de bron verschilt meetbaar van
+het eerste (gemiddeld verschil 1,7 tegen 0,06–0,15 tussen opeenvolgende beelden in
+de rustfase), dus kaal herhalen geeft een zichtbaar sprongetje bij elke ronde.
+
+De bubbel staat daardoor twee keer per ronde stil achterin: op het keerpunt van de
+boomerang en bij de naad naar de volgende ronde. Op allebei die plekken staat nu
+**1,8 seconde stil beeld**. Alleen aan het eind zou een ongelijk ritme geven.
+
+Emilie koos die 1,8 s uit een proefpagina met vier versies naast elkaar (0, 1,0,
+1,8 en 3,0 seconden), in de hero-vorm met de 82%-uitsnede.
+
+Nieuw bestand: `public/videos/hero-boomerang-pauze.mp4` (2,7 MB, 35,9 s), opgebouwd
+uit het originele bronbestand en niet uit het al gecomprimeerde websitebestand —
+dat scheelt een compressieronde. `hero-boomerang.mp4` blijft staan maar wordt niet
+meer gebruikt. Het recept staat in `scripts/hero-video-pauze.mjs`, met een eigen
+pauzeduur als argument.
+
+Verder niets veranderd aan de hero: de bestaande verdonkering en de witte tekst
+blijven zoals ze waren. Ik had "geen donkere filter erbij" eerst gelezen als "haal
+de laag weg"; zonder die laag valt de witte subkop weg tegen de lichte vloer, dus
+dat is teruggedraaid.

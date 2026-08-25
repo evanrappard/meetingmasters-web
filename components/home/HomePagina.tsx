@@ -137,7 +137,7 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
             poster="/images/home-hero-poster.jpg"
             posterMobiel="/images/home-hero-poster-mobiel.webp"
             posterDesktop="/images/home-hero-poster-desktop.webp"
-            bronnen={[{ src: "/videos/hero-boomerang.mp4", type: "video/mp4" }]}
+            bronnen={[{ src: "/videos/hero-boomerang-pauze.mp4", type: "video/mp4" }]}
             alt="MeetingMasters — online events en virtual office op SpatialChat"
             style={{ objectPosition: "center 82%", filter: "contrast(1.04) saturate(1.06)" }}
           />
