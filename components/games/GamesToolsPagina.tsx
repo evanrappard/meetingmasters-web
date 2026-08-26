@@ -14,7 +14,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
   const engels = taal === "en";
   const t = engels ? GAMES_EN : NL;
   const spellen = engels
-    ? games.map((g, i) => ({ ...g, ...GAMES_EN.games.items[i] }))
+    ? games.map((g, i) => ({ ...g, ...GAMES_EN.games.items[i], href: GAMES_EN.links.games[i] }))
     : games;
   const hulpmiddelen = engels
     ? tools.map((x, i) => ({ ...x, ...GAMES_EN.tools.items[i], href: GAMES_EN.links.tools[i] }))
@@ -76,6 +76,11 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
       {/* ── GAMES + TOOLS (sub-sectie onder de hero) ── */}
       <section className="bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
+          {/* Eén zin die deze pagina aan de rest van het verhaal knoopt, zodat
+              hij niet als losse catalogus leest. */}
+          <p className="max-w-[760px] text-lg text-[#2D2D2D] leading-relaxed mb-10">
+            {t.intro.verbinding}
+          </p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             <div className="group">
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">Games</p>
@@ -146,9 +151,9 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <YouTubeFacade
-              videoId="5g3Vv51_hR0"
-              poster="/images/ravenhack-video-poster.jpg"
-              title="R@venHack"
+              videoId={engels ? "hE8qs_akrxM" : "5g3Vv51_hR0"}
+              poster={engels ? "/images/ravenhack-trailer-poster-en.webp" : "/images/ravenhack-video-poster.jpg"}
+              title={engels ? "R@venHack trailer" : "R@venHack trailer"}
             />
             <div>
               <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">{t.ravenhack.kicker}</p>

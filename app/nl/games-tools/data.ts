@@ -8,7 +8,7 @@ export const games = [
     img: "/images/format-escape.webp",
     alt: "Deelnemers lossen samen puzzels op in een online escape room in SpatialChat",
     cta: "Check beschikbaarheid",
-    href: "/nl/games-tools/ravenhack",
+    href: "/nl/boeken",
   },
   {
     title: "Korte games",
@@ -16,8 +16,8 @@ export const games = [
     detail: "20–30 min · elk groepsformaat",
     img: "/images/format-party.webp",
     alt: "Een groep speelt een korte online game tijdens een meeting",
-    cta: "Check je format",
-    href: "/nl/contact",
+    cta: "Vraag vrijblijvend advies",
+    href: "/nl/expert-advies",
   },
   {
     title: "Maatwerk game",
@@ -25,8 +25,8 @@ export const games = [
     detail: "op maat · onboarding, awareness, teambuilding",
     img: "/images/game-maatwerk.webp",
     alt: "Een online game op maat met eigen puzzels, verhaal en visuals",
-    cta: "Check wat kan",
-    href: "/nl/contact",
+    cta: "Bespreek je idee",
+    href: "/nl/expert-advies",
   },
 ];
 
@@ -80,18 +80,20 @@ export const NL = {
     titel: "Samen spelen. Iets leren.",
     intro:
       "Speelklare online formats en interactieve ervaringen op maat. Van escape rooms tot onboardinggames — gemaakt voor groepen, ontworpen voor betrokkenheid.",
-    cta: "Check beschikbaarheid →",
+    cta: "Plan een game →",
     meer: "Meer weten",
     videoAlt: "Een groep speelt een korte online game tijdens een meeting",
   },
   intro: {
+    verbinding:
+      "Een game is geen extraatje aan het eind van de dag. Het is de kortste weg naar wat elke bijeenkomst nodig heeft: mensen die samen iets doen in plaats van samen luisteren.",
     gamesTitel: "Gamification als inzet voor meer verrassing en leuker leren.",
     gamesBody:
-      "Samen spelen brengt groepen dichter bij elkaar en laat de stof beter beklijven. Van een spannende escape room tot een game volledig op maat — speelklaar of helemaal afgestemd op je thema.",
+      "Wat een groep samen doormaakt, blijft hangen. Een game brengt mensen aan het overleggen die anders alleen zouden luisteren, en maakt van de stof iets dat je meemaakt.",
     gamesCta: "Bekijk de games →",
     toolsTitel: "Slimme tools die betrokkenheid en participatie verhogen.",
     toolsBody:
-      "Kleine hulpmiddelen die je meeting levendiger maken en iedereen aan het woord laten. Gratis en direct te gebruiken: openen in de browser en je scherm delen — verder niets nodig.",
+      "Kleine hulpmiddelen die iedereen aan het woord laten, ook de mensen die uit zichzelf hun microfoon niet aanzetten. Vier stuks, gratis, klaar voor gebruik.",
     toolsCta: "Bekijk de tools →",
   },
   games: {
@@ -101,7 +103,7 @@ export const NL = {
     items: games,
   },
   ravenhack: {
-    kicker: "R@venHack · Cybersecurity",
+    kicker: "Escape Room R@venHack",
     titel: "Stop samen de cyberaanval.",
     body1:
       "Een digitale crisis breekt uit: datalekken, phishing en systemen die om beurten uitvallen. Je team moet samen het hoofd koel houden en de aanval een halt toeroepen. Awareness ontstaat niet door erover te horen, maar door het te dóen.",
@@ -118,7 +120,7 @@ export const NL = {
   },
   voorJeBegint: {
     kicker: "Voor je begint",
-    titel: "Eerst de vraag, dan de bijeenkomst.",
+    titel: "Voor de meeting maak je de belangrijkste keuzes.",
     body:
       "De tools hierboven gebruik je tijdens een sessie. Dit is er een voor daarvoor — voor het moment waarop je nog bepaalt of, en hoe, je bij elkaar komt.",
     calculatorTitel: "Vergaderkosten-calculator",

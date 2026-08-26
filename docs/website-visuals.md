@@ -189,7 +189,7 @@ hij een sectie verderop de pagina vast. Draait tegen het netwerk-IP.
 ## NL Games & Tools — `app/nl/games-tools/page.tsx`
 | Hero (video) | `/videos/games-hero-v5.webm` + `.mp4`, poster `/images/games-hero-v5.jpg` | LOKAAL |
 | Games-cards | Online escape room `/images/format-escape.webp`, Korte games `format-party.webp`, Maatwerk `/images/game-maatwerk.webp` (`Close up laptop scherm.png`) | LOKAAL |
-| R@venHack-blok | YouTube-facade (video-ID `5g3Vv51_hR0`), poster `/images/ravenhack-video-poster.jpg` — verving `format-2.webp` | LOKAAL + YouTube |
+| R@venHack-blok | YouTube-facade, **per taal**: NL trailer `5g3Vv51_hR0` + poster `/images/ravenhack-video-poster.jpg`, EN trailer `hE8qs_akrxM` + poster `/images/ravenhack-trailer-poster-en.webp` (frame 360 uit `R@venHack Trailer UK.mp4` in OneDrive, het Engelse equivalent van het Nederlandse posterbeeld) — verving `format-2.webp` | LOKAAL + YouTube |
 | Tool-cards (4×, volgorde Inspiration→Bingo→Storytelling→Wheel) | `/images/tool-inspiration-cards-v2.webp`, `tool-bingo-v2.webp`, `tool-storytelling-v2.webp`, `tool-wheel-of-fortune-v2.webp` — uniform 400×480, per beeld eigen achtergrondkleur bijgebakken (contain + trim). Oude `tool-*.webp` (zonder `-v2`) niet meer gebruikt. | LOKAAL |
 
 ### NL Games/Escape — subpagina's

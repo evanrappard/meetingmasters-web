@@ -1602,3 +1602,73 @@ dan valt alles op zijn plek".
 
 De naam R@venHack Quick blijft; "Light" stond in het lijstje, maar dat was
 geschreven tegen de pagina van vóór de hernoeming.
+
+---
+
+## 26 augustus 2026 — Games & Tools: Engelse kant recht getrokken en de herhaling eruit
+
+### Eén kapotte regel legde twee tools plat
+
+In `public/tools/storytelling/index.html` stond een tekenreeks over twee regels
+afgebroken:
+
+```js
+document.querySelectorAll('.card-header h1,
+        .card-header h2')[0].textContent = data.title;
+```
+
+Dat is een syntaxfout, en die sloopt het hele inline script. Gevolg: de
+Start-knop deed niets, én de tool laadde zijn thema en vragenset niet meer. Op de
+Engelse pagina zag je daardoor de Nederlandse versie: de parameters
+`?theme=default-en&set=happy-mad-sad-en` werden nooit uitgelezen. Eén regel
+hersteld, beide klachten weg. De andere tools zijn nagelopen met een
+syntaxcontrole: bingo (5 scripts), Engelse bingo (5) en de calculator (2) zijn
+schoon.
+
+### Engelse pagina
+
+- De drie CTA's onder de gamekaarten wezen naar Nederlandse pagina's, omdat de
+  `href` in de Nederlandse data stond en alleen de tools per taal werden
+  overschreven. Nu heeft `links.games` een eigen Engelse lijst.
+- Trailer in het R@venHack-blok is per taal: EN `hE8qs_akrxM`, met een eigen
+  poster uit de Engelse bron.
+- De startkaart van de inspiratiekaarten stond in het Nederlands. De titel zit in
+  het beeld gebakken, dus er is een Engelse versie gemaakt:
+  `public/images/tools/inspiratiekaarten/en/achterkant.webp`, met hetzelfde
+  lettertype (Rajdhani Bold) en dezelfde plek en kleur als het origineel.
+
+### CTA's opnieuw gekozen (beide talen)
+
+Vier knoppen begonnen met "Check" en gingen naar drie bestemmingen, waaronder één
+die niet klopte: "Check beschikbaarheid" leidde naar de R@venHack-pagina, waar
+geen beschikbaarheid staat.
+
+| Waar | Was | Wordt | Gaat naar |
+|---|---|---|---|
+| Hero | Check beschikbaarheid → | Plan een game → | boeken |
+| Escape room | Check beschikbaarheid (naar R@venHack-pagina) | Check beschikbaarheid | boeken |
+| Korte games | Check je format (naar contact) | Vraag vrijblijvend advies | expert-advies |
+| Maatwerk | Check wat kan (naar contact) | Bespreek je idee | expert-advies |
+
+### Herhaling eruit
+
+De twee teaserblokken bovenaan zeiden bijna letterlijk hetzelfde als de secties
+eronder. "Speelklaar of helemaal afgestemd op je thema" stond twee keer, "openen
+in de browser en je scherm delen" drie keer. De teasers gaan nu over het waaróm;
+de uitleg staat één keer, in de sectie zelf. De FAQ noemt het scherm delen nog
+een keer, maar dat is een antwoord op een expliciete vraag.
+
+### Verder
+
+- Kop boven de calculator: "Voor de meeting maak je de belangrijkste keuzes."
+  (was "Eerst de vraag, dan de bijeenkomst.")
+- Kicker bij de trailer: "Escape Room R@venHack", gelijk aan het menulabel.
+- Nieuw bovenaan: één zin die de pagina aan de rest van het verhaal knoopt, zodat
+  hij minder als catalogus leest. "Een game is geen extraatje aan het eind van de
+  dag. Het is de kortste weg naar wat elke bijeenkomst nodig heeft: mensen die
+  samen iets doen in plaats van samen luisteren."
+- Inspiratiekaarten pasten niet op één scherm: de kaart is 874×1240 en schaalt met
+  `max-h-full`, maar de container had alleen een mínimumhoogte. Zonder begrensde
+  hoogte heeft `max-h-full` niets om zich tegen af te zetten, dus rendeerde het
+  beeld op ware grootte en moest je scrollen. Nu `height: min(64dvh, 620px)`:
+  kaart plus knoppen passen op laptop, klein venster en telefoon.

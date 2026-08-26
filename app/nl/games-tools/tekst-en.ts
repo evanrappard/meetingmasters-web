@@ -17,17 +17,19 @@ export const GAMES_EN = {
     kicker: "Games & Tools",
     titel: "Play together. Learn something.",
     intro: "Ready-to-play online formats and interactive experiences built around you. From escape rooms to onboarding games — made for groups, designed for engagement.",
-    cta: "Check availability →",
+    cta: "Plan a game →",
     meer: "Find out more",
     videoAlt: "Participants playing an online game together during a meeting",
   },
 
   intro: {
+    verbinding:
+      "A game isn't a treat at the end of the day. It is the shortest route to what every gathering needs: people doing something together instead of listening together.",
     gamesTitel: "Gamification: more surprise, better learning.",
-    gamesBody: "Playing together brings groups closer and makes the material stick. From a tense escape room to a game built entirely around you — ready to play or fully tailored to your theme.",
+    gamesBody: "What a group goes through together tends to stay with them. A game gets people talking who would otherwise only listen, and turns the material into something you take part in.",
     gamesCta: "See the games →",
     toolsTitel: "Smart tools that raise engagement and participation.",
-    toolsBody: "Small aids that make your meeting livelier and give everyone a say. Free and ready to use: open them in the browser and share your screen — nothing else needed.",
+    toolsBody: "Small aids that give everyone a say, including the people who don't unmute themselves unprompted. Four of them, free, ready to use.",
     toolsCta: "See the tools →",
   },
 
@@ -47,20 +49,20 @@ export const GAMES_EN = {
         desc: "Interludes that bring energy: from pub quiz to brainstorm, a moment of meditation or inspiration. Various formats, short and energising.",
         detail: "20–30 min · any group size",
         alt: "A group playing a short online game during a meeting",
-        cta: "Check your format",
+        cta: "Ask for free advice",
       },
       {
         title: "Bespoke game",
         desc: "We also design games around you. Your own theme, your own story. Excellent for onboarding programmes or for the moments that matter.",
         detail: "bespoke · onboarding, awareness, team building",
         alt: "A bespoke online game with its own puzzles, story and visuals",
-        cta: "See what is possible",
+        cta: "Talk through your idea",
       },
     ],
   },
 
   ravenhack: {
-    kicker: "R@venHack · Cybersecurity",
+    kicker: "Escape Room R@venHack",
     titel: "Stop the cyberattack together.",
     body1: "A digital crisis breaks out: data leaks, phishing and systems failing one after another. Your team has to keep a cool head together and bring the attack to a halt. Awareness doesn't come from hearing about it, but from doing it.",
     body2: "That's how R@venHack combines team building with genuine knowledge about safe digital behaviour. The Experience of 90 minutes has the connection built in: the group gets to know each other along the way. The Quick of 60 minutes is purely the game, for groups of up to 30 who already know each other well.",
@@ -81,7 +83,7 @@ export const GAMES_EN = {
 
   voorJeBegint: {
     kicker: "Before you begin",
-    titel: "First the question, then the gathering.",
+    titel: "The biggest choices happen before the meeting.",
     body: "The tools above are for use during a session. This one is for before it — for the moment when you're still deciding whether, and how, to come together.",
     calculatorTitel: "Meeting cost calculator",
     calculatorBody: "An hour of meeting with twenty people isn't an hour — it's twenty hours, plus travel. Work out what a gathering costs in time, money and CO₂, and see what online would save.",
@@ -111,6 +113,7 @@ export const GAMES_EN = {
     contact: "/en/contact",
     ravenhack: "/en/games-tools/ravenhack",
     calculator: "/en/meeting-calculator",
+    games: ["/en/booking", "/en/expert-advice", "/en/expert-advice"],
     tools: [
       "/en/games-tools/tools/inspiration-cards",
       "/en/games-tools/tools/bingo",

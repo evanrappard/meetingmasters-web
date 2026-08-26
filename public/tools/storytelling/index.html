@@ -687,8 +687,7 @@
                 questions = data.questions || data;
 
                 if (data.title) {
-                    document.querySelectorAll('.card-header h1,
-        .card-header h2')[0].textContent = data.title;
+                    document.querySelectorAll('.card-header h1, .card-header h2')[0].textContent = data.title;
                 }
                 if (data.defaultTime) {
                     document.getElementById('time-input').value = data.defaultTime;

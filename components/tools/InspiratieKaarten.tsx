@@ -7,7 +7,13 @@ import InsluitCode from "./InsluitCode";
 const EERSTE = 2;
 const LAATSTE = 50;
 const TOTAAL = LAATSTE - EERSTE + 1;
-const ACHTERKANT = "/images/tools/inspiratiekaarten/achterkant.webp";
+/** De achterkant (startkaart) heeft een eigen Engelse versie: de titel staat
+ *  in het beeld gebakken, dus "Inspiratiekaarten" moest daar "Inspiration
+ *  Cards" worden. */
+const achterkantSrc = (taal: "nl" | "en" = "nl") =>
+  taal === "en"
+    ? "/images/tools/inspiratiekaarten/en/achterkant.webp"
+    : "/images/tools/inspiratiekaarten/achterkant.webp";
 const TOOLPAGINA = "/nl/games-tools/tools/inspiration-cards";
 /**
  * Het kaartbeeld. De Engelse set staat in een submap: zelfde nummers, zelfde
@@ -177,7 +183,12 @@ export default function InspiratieKaarten({ variant = "pagina", taal = "nl" }: P
             : // Op de pagina bewust bescheiden: wie langs surft moet de tool in één
               // oogopslag zien staan, niet erdoorheen moeten scrollen. Wie 'm echt
               // gebruikt, klikt op volledig scherm.
-              { minHeight: "min(52dvh, 440px)" }
+              //
+              // Let op de vaste hóógte, niet alleen een minimum. De kaart is
+              // 874×1240 en schaalt met `max-h-full`; zonder begrensde hoogte
+              // heeft die regel niets om zich tegen af te zetten en rendert het
+              // beeld op ware grootte (1240 px), waardoor je moest scrollen.
+              { height: "min(64dvh, 620px)", minHeight: "380px" }
       }
     >
       {/* Herkenbaar in elke screenshare, ook als de kaart zelf geen logo draagt. */}
@@ -213,7 +224,7 @@ export default function InspiratieKaarten({ variant = "pagina", taal = "nl" }: P
           style={{ perspective: 1400 }}
         >
           <Image
-            src={heeftKaart ? kaartSrc(kaart, taal) : ACHTERKANT}
+            src={heeftKaart ? kaartSrc(kaart, taal) : achterkantSrc(taal)}
             alt={
               heeftKaart
                 ? `Inspiratiekaart ${kaart} van MeetingMasters`
