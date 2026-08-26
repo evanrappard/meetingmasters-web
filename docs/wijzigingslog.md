@@ -1948,3 +1948,53 @@ door een beschrijving van wat er werkelijk te zien is.
 
 Ter controle `npm run altcheck` gedraaid: 1008 beelden, allemaal met alt of als
 versiering aangemerkt.
+
+
+---
+
+## 26 augustus 2026 — dialoog, inspraak, kennis en netwerk
+
+**Bewonersparticipatie.** De langste H2 van de site (24 woorden, twee zinnen,
+tweede zin wij-taal) is nu "Goede bewonersparticipatie begint met een breed
+gesprek." De claim over diversiteit is niet verdwenen maar verhuisd naar de tekst
+eronder, waar hij thuishoort. Verder: 'vote with your feet' staat nu tussen
+dubbele aanhalingstekens, het hybride-antwoord zegt eindelijk iets (de valkuil
+van een zaal met een paar mensen thuis), en de meta description volgt nu het
+model van de webinar-pagina: eerst een bewering, dan de cijfers.
+
+**De Roosendaal-koppeling.** Gemeente Roosendaal stond met de quote "Online
+participatiesessie" alleen in de carrousel op het overzicht, terwijl dat precies
+dit format is. Die getuigenis staat nu ook op de bewonersparticipatie-pagina
+zelf, onder de praktijkvoorbeelden. Nieuw veld `getuigenis` op een event: vul de
+naam van een klant in en de quote verschijnt. Zo kan hetzelfde bij andere formats.
+
+Onderweg liep dat stuk: de lijst met getuigenissen stond in een client-component,
+en dan krijgt een servercomponent daar geen echte array uit maar een verwijzing
+(`SLIDES.find is not a function`). De gegevens staan nu in `lib/getuigenissen.ts`
+en worden door beide kanten gelezen.
+
+**Klankbordgroep.** Spatiefout "klankbord opzet" hersteld. De alt-tekst ging over
+CO2-besparing, wat in het voorbeeld nergens terugkomt; die beschrijft nu de
+sessie zelf. En de privacy-randvoorwaarde van de focusgroep staat er nu ook: wat
+wordt vastgelegd, wat wordt gedeeld en met wie.
+
+**Focusgroep.** Het software-antwoord noemt nu platforms en de voorkeur voor
+SpatialChat, met de reden erbij. De en-dash in de groepsgrootte is een komma
+geworden. En de vergelijkende vraag staat er nu ook in spiegelbeeld: het verschil
+tussen een focusgroep (inzicht ophalen) en een klankbordgroep (draagvlak en
+correcties ophalen). Dat patroon staat nu op vier plekken en werkt goed voor
+antwoordmachines: het beantwoordt precies de vraag die mensen stellen.
+
+**World Café.** Intern jargon uit de alt-tekst ("de MMs") vervangen door een
+beschrijving van wat er te zien is. Het buzzword-antwoord over "sterke alignment
+in de te gebruiken tooling" is vervangen door Emilies formulering. En de
+meervoudsvorm is nu World Cafés.
+
+**Webinar.** De kromme zin over registratie is vervangen. "Leads die echt iets
+opstaken" is "Waardevolle leads als resultaat" geworden. Meta description en kop
+bewust ongemoeid gelaten: die zijn goed.
+
+**Conferentie.** De alt noemde "CoP24", wat leest als de VN-klimaattop. Nu
+voluit: de EU Community of Practice on Peace Mediation, editie 2024.
+
+**Netwerkevent.** Het kostenantwoord was in de vorige ronde al afgerond.

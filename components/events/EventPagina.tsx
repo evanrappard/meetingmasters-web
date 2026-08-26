@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import CTABlock from "@/components/ui/CTABlock";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { GETUIGENISSEN } from "@/lib/getuigenissen";
 import { kruimelSchema, HOME_KRUIMEL } from "@/lib/kruimels";
 import { eventFormats } from "@/app/nl/events/page";
 import { EVENT_DATA, HERO_DIM_LICHT } from "@/app/nl/events/[slug]/data";
@@ -114,6 +115,9 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
   // Zichtbare kop = titel zonder het SEO-werkwoord op het eind (de volledige
   // titel blijft staan voor de <title>/metadata).
   const displayTitle = title.replace(/\s+(organiseren|geven|opbouwen|houden)$/i, "");
+  const getuigenis = event.getuigenis
+    ? GETUIGENISSEN.find((x) => x.company === event.getuigenis)
+    : undefined;
   const iconColor = ic === "text-white" ? "#FFFFFF" : "#696758";
   const accentColor = bg.match(/#[A-Fa-f0-9]{6}/g)?.[1] ?? "#28A8AA";
 
@@ -295,6 +299,35 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── GETUIGENIS ──
+          Het bewijs hoort bij het format waar het over gaat, niet alleen in de
+          carrousel op het overzicht. */}
+      {getuigenis && (
+        <section className="bg-white py-12 border-b border-[#EBEBEB]">
+          <div className="max-w-content mx-auto px-6 lg:px-10">
+            <figure className="max-w-[820px]">
+              <blockquote className="text-xl sm:text-2xl text-[#2D2D2D] leading-snug font-medium">
+                &ldquo;{taal === "en" ? getuigenis.quoteEn : getuigenis.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-5 flex items-center gap-4">
+                <Image
+                  src={getuigenis.logo}
+                  alt={getuigenis.company}
+                  width={120}
+                  height={48}
+                  className="h-8 w-auto object-contain"
+                />
+                <span className="text-sm text-[#6E6E6E]">
+                  <span className="font-bold text-[#2D2D2D]">{getuigenis.company}</span>
+                  {" · "}
+                  {taal === "en" ? getuigenis.contextEn : getuigenis.context}
+                </span>
+              </figcaption>
+            </figure>
           </div>
         </section>
       )}
