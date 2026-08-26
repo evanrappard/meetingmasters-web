@@ -68,9 +68,9 @@ export const NAV_ITEMS: NavItem[] = [
     },
     children: [
       { label: "Strategiedag", labelEn: "Strategy day", href: "/nl/events/strategiedagen" },
-      { label: "Virtuele kerstborrel", labelEn: "Virtual Christmas party", href: "/nl/events/kerstfeest" },
+      { label: "Online kerstfeest", labelEn: "Online Christmas party", href: "/nl/events/kerstfeest" },
       { label: "All-hands", labelEn: "All-hands", href: "/nl/events/all-hands" },
-      { label: "Community-event", labelEn: "Community event", href: "/nl/events/community-building" },
+      { label: "Online community", labelEn: "Online community", href: "/nl/events/community-building" },
       { label: "Online teambuilding", labelEn: "Online team building", href: "/nl/events/teambuilding" },
     ],
     moreLabel: "Alle eventformats",

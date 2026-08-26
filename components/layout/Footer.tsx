@@ -16,9 +16,9 @@ import { navPerGroep, FOOTER_EXTRA, FOOTER_JURIDISCH, kies, type Taal } from "@/
 const T = {
   nl: {
     logoAlt:
-      "MeetingMasters Online — specialist in online bijeenkomsten voor groepen van 50 tot 500 mensen",
+      "MeetingMasters Online, specialist in online bijeenkomsten voor groepen van 50 tot 500 mensen",
     over:
-      "Wij ontwerpen online bijeenkomsten die mensen bijblijven — events, virtual offices en interactieve formats voor groepen van 50 tot 500 mensen.",
+      "Wij ontwerpen online bijeenkomsten die mensen bijblijven: events, virtual offices en interactieve formats voor groepen van 50 tot 500 mensen.",
     slogan: "Mensen maken meetings.",
     diensten: "Diensten",
     organisatie: "Organisatie",
@@ -30,9 +30,9 @@ const T = {
   },
   en: {
     logoAlt:
-      "MeetingMasters Online — specialists in online gatherings for groups of 50 to 500 people",
+      "MeetingMasters Online, specialists in online gatherings for groups of 50 to 500 people",
     over:
-      "We design online gatherings people remember — events, virtual offices and interactive formats for groups of 50 to 500 people.",
+      "We design online gatherings people remember: events, virtual offices and interactive formats for groups of 50 to 500 people.",
     slogan: "People make meetings.",
     diensten: "Services",
     organisatie: "Company",

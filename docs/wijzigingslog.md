@@ -1881,3 +1881,52 @@ koppelteken.
 
 **Opgemerkt, niet gedaan:** de Engelse eventpagina's hebben geen eigen meta
 description. /en/events/brainstorm valt terug op de algemene sitebeschrijving.
+
+
+---
+
+## 26 augustus 2026 — zes formatpagina's uit de tweede ronde
+
+**Teamuitje.** Nieuwe slotzin bij de internationale case, en een FAQ die het
+verschil met het bedrijfsfeest uitlegt: teamuitje is kleiner en draait om samen
+iets beleven, bedrijfsfeest is groter en feestelijker. Met de raad om bij twijfel
+naar groepsgrootte, doel en sfeer te kijken.
+
+**Netwerkevent.** Het kostenantwoord liep dood; het eindigt nu net als de andere
+formats met de uitnodiging om een vrijblijvende offerte aan te vragen.
+
+**Onboarding.** Zes van de twaalf FAQ-antwoorden zeiden niets. Herschreven:
+software (met SpatialChat als voorkeur en waarom), hybride, kosten, managers,
+benodigdheden, kennismaking en opnames. Verder: "onboardingsprogramma's" heeft nu
+de juiste spelling, het woord cohort is overal vervangen door groep, de
+apostrofs zijn gelijkgetrokken (recht, de norm in dit bestand) en de kaart heet
+"Online onboarding" in plaats van "Online onboardingdag". De meta description is
+teruggebracht tot 153 tekens.
+
+**Bedrijfsfeest.** De vraag "moeten deelnemers iets installeren?" werd niet
+beantwoord; nu begint het antwoord met "Nee" en staat de reden erbij. Het label
+"MKB" in de praktijkvoorbeelden is "Online mid year" geworden, met het
+middelgrote bedrijf verwerkt in de tekst eronder.
+
+**Kerstfeest.** Het menu zei "Virtuele kerstborrel" en de pagina "Online
+kerstfeest"; het menu volgt nu de pagina. De intro begon ook met kerstborrel en
+zegt nu kerstfeest. In het antwoord over groepsgrootte staat nu het aantal
+(10 tot 500), want dat is wat AI-tools overnemen. Randvoorwaardenkop en meta
+description waren al in orde.
+
+**Community.** Vier namen voor één format teruggebracht tot één: menu en kaart
+heten nu "Online community", en dat is ook wat als kop op de pagina staat (de
+titel houdt "opbouwen" voor de zoekmachine). Het bereik is nu een getal:
+25-500 leden per bijeenkomst, met uitleg in de FAQ over wat er boven de 500
+gebeurt. De claim dat SpatialChat "als enige" websites en meetings combineert is
+vervangen door wat het platform hier doet: spontane ontmoetingen mogelijk maken.
+En het antwoord op "event of traject" verwijst nu naar de mogelijkheid van een
+eigen plek zoals een virtueel kantoor.
+
+**Sitebreed.** Dertien gedachtestreepjes uit de eventteksten en vier uit de
+voettekst vervangen door een komma, dubbele punt of nieuwe zin. De stijlgids
+schrijft dat voor; de voettekst staat op elke pagina, dus dat scheelt op de hele
+site.
+
+**Niet gedaan:** in de Engelse teksten staat "cohort" nog. Daar is het een gewoon
+woord in trainingscontext, dus dat heb ik laten staan.

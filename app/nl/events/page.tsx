@@ -108,7 +108,7 @@ export const eventCategories: EventCategory[] = [
       },
       {
         slug: "onboardingdag",
-        title: "Online onboardingdag",
+        title: "Online onboarding",
         desc: "Nieuwe medewerkers welkom heten op een manier die écht iets opbouwt.",
         bg: "radial-gradient(circle at 38% 38%, #7A7868, #696758)",
         ic: "text-white",
@@ -147,7 +147,7 @@ export const eventCategories: EventCategory[] = [
       },
       {
         slug: "community-building",
-        title: "Online community building",
+        title: "Online community",
         desc: "Een community bouwen die mensen écht verbindt.",
         iconSrc: "/images/icons/communitybuilding.png",
         bg: "radial-gradient(circle at 38% 38%, #FFF8E0, #FFEEC1)",
