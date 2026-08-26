@@ -63,7 +63,7 @@ export const GAMES_EN = {
     kicker: "R@venHack · Cybersecurity",
     titel: "Stop the cyberattack together.",
     body1: "A digital crisis breaks out: data leaks, phishing and systems failing one after another. Your team has to keep a cool head together and bring the attack to a halt. Awareness doesn't come from hearing about it, but from doing it.",
-    body2: "That's how R@venHack combines team building with genuine knowledge about safe digital behaviour. There's a standard version and a longer XL version, so that it fits your group and the time you have.",
+    body2: "That's how R@venHack combines team building with genuine knowledge about safe digital behaviour. The Experience of 90 minutes has the connection built in: the group gets to know each other along the way. The Quick of 60 minutes is purely the game, for groups of up to 30 who already know each other well.",
     cta: "See R@venHack →",
   },
 
@@ -95,7 +95,7 @@ export const GAMES_EN = {
   faq: [
     { q: "What is the difference between the games and the tools?", a: "The games are complete experiences that we host: an escape room, a cybersecurity game or something bespoke, with a storyline and a clear beginning and end. The tools are small, free aids you use yourself during a meeting — a wheel, a bingo card or a set of inspiration cards — to raise engagement." },
     { q: "Are the tools free to use?", a: "Yes. Every tool on this page is free and ready to use. You open the tool in your browser and share your screen during the meeting — nothing else is needed." },
-    { q: "How long do the games take?", a: "That varies per game. The short games run 20 to 30 minutes and fit inside a meeting or a party. The Online Escape Room takes around 60 minutes, with a longer XL version alongside it. For a bespoke game you set the length with us." },
+    { q: "How long do the games take?", a: "That varies per game. The short games run 20 to 30 minutes and fit inside a meeting or a party. The Online Escape Room takes around 60 minutes. R@venHack Experience takes 90 minutes, with the shorter Quick alongside it. For a bespoke game you set the length with us." },
     { q: "What group sizes do the games suit?", a: "The games work for small teams up to large groups; participants usually play in subgroups working in parallel. Tell us your group size and we'll advise on the best set-up." },
   ],
 

@@ -79,6 +79,12 @@ export default function EscapeRoomsPage() {
               boeiende manier over digitale veiligheid. Ideaal voor organisaties die
               op een leuke manier het securitybewustzijn willen vergroten.
             </p>
+            <p className="text-[#525252] leading-relaxed mb-6">
+              In de Experience van 90 minuten zit de verbinding ingebouwd: er is tijd
+              om elkaar te leren kennen, samen vast te lopen en na afloop rustig na te
+              praten. De Quick van 60 minuten slaat dat over en is puur het spel, voor
+              groepen tot 30 deelnemers die elkaar al goed kennen.
+            </p>
             <Link
               href="/nl/boeken"
               className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"

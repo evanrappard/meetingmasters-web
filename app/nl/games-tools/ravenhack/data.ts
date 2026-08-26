@@ -1,30 +1,35 @@
 /** Taalloze data en Nederlandse teksten van R@venHack. */
 
+/**
+ * De Experience staat bewust vooraan en is de standaardkeuze: dat is de versie
+ * waarin het spel én het leren allebei tot hun recht komen. De Quick staat
+ * daarnaast voor de groep die alleen even samen wil spelen.
+ */
 export const versies = [
   {
-    tag: "De klassieker",
-    title: "R@venHack — gewone versie",
-    lead: "De standaard R@venHack: compact, energiek en meteen raak.",
-    body: "In ongeveer 60 minuten belandt je team midden in een cyberaanval en werkt het onder tijdsdruk samen om de aanval te stoppen. De focus ligt op de belangrijkste awareness-lessen — phishing herkennen, een datalek indammen en veilig digitaal gedrag — verpakt in een strakke, meeslepende escape. Ideaal als energieke teambuilding of als pakkende opening van een teamdag of securityweek.",
+    tag: "Onze aanrader",
+    title: "R@venHack Experience",
+    lead: "90 minuten waarin je groep elkaar vindt en samen wijzer wordt.",
+    body: "Hier zit de verbinding in. Er is tijd ingebouwd om elkaar te leren kennen, om samen vast te lopen en er weer uit te komen, en om na afloop rustig na te praten. Mensen die elkaar nog niet kenden, kennen elkaar daarna wel. Daar bovenop komen extra scenario's en securitythema's, met meer puzzels, meer plotwendingen en een nabespreking waarin de lessen echt landen. Dit is de versie die we standaard adviseren.",
     kenmerken: [
-      "± 60 minuten, strak en energiek",
-      "Focus op de kern-awarenesslessen",
-      "Perfect voor één team of een compacte groep",
-      "Sterke opener voor een teamdag of securityweek",
-    ],
-  },
-  {
-    tag: "Meer diepgang",
-    title: "R@venHack XL — uitgebreide versie",
-    lead: "Langer, rijker en met ruimte voor grotere groepen.",
-    body: "De XL-versie neemt meer tijd en gaat een stap verder. Naast de kern komen er extra scenario's en securitythema's bij, met meer puzzels, meer plotwendingen en een uitgebreidere nabespreking. Doordat het spel in meerdere teams tegelijk gespeeld kan worden, is deze variant uitstekend geschikt voor grotere groepen en voor organisaties die cybersecurity-awareness echt willen laten landen én de onderlinge samenwerking op de proef willen stellen.",
-    kenmerken: [
-      "Langere, verdiepende sessie",
+      "90 minuten: tijd voor het spel én voor elkaar",
+      "Verbinding zit erin, ook als de groep elkaar nog niet kent",
       "Extra scenario's en securitythema's",
-      "Geschikt voor grotere groepen, meerdere teams tegelijk",
-      "Uitgebreidere nabespreking en kennisoverdracht",
+      "Uitgebreide nabespreking waarin de lessen landen",
     ],
     highlight: true,
+  },
+  {
+    tag: "Alleen even spelen",
+    title: "R@venHack Quick",
+    lead: "Kort en puur voor de lol, voor groepen die elkaar al kennen.",
+    body: "60 minuten, tot 30 deelnemers, recht op de aanval af. Je stopt samen de hack en dat is het: geen kennismaking vooraf, geen uitgebreide nabespreking. Juist dat verbindende deel slaat de Quick over, en daarom werkt hij alleen als je collega's elkaar al goed kennen. Kennen ze elkaar nog niet, of wil je dat de groep hechter naar buiten loopt dan hij binnenkwam, neem dan de Experience.",
+    kenmerken: [
+      "60 minuten, tot 30 deelnemers",
+      "De kern van het spel, zonder verdieping",
+      "Alleen voor groepen die elkaar al goed kennen",
+      "Korte nabespreking",
+    ],
   },
 ];
 
@@ -58,20 +63,20 @@ export const faq = [
     a: "R@venHack is een cybersecurity escape game. Je team belandt in een digitale crisis vol datalekken, phishing en verborgen aanwijzingen en moet samen de aanval stoppen. Het is een bewustwordingservaring: je leert over veilig digitaal gedrag door het te dóen, in plaats van een e-learning te doorlopen.",
   },
   {
-    q: "Wat is het verschil tussen de gewone versie en de XL-versie?",
-    a: "De gewone versie is de compacte, energieke R@venHack van ongeveer 60 minuten, met de focus op samen de aanval stoppen en de belangrijkste awareness-lessen. De XL-versie duurt langer en gaat dieper: met extra scenario's, meer securitythema's en een uitgebreidere nabespreking. De XL-versie is ook geschikt voor grotere groepen die in meerdere teams tegelijk spelen en die de onderlinge samenwerking verder op de proef willen stellen.",
+    q: "Wat is het verschil tussen de Experience en de Quick?",
+    a: "Het verschil zit in de verbinding, niet in de omvang. De Experience duurt 90 minuten en heeft tijd ingebouwd om elkaar te leren kennen: samen vastlopen, er samen uitkomen en na afloop rustig napraten. Daar komen extra scenario's, meer securitythema's en een uitgebreide nabespreking bij. De Quick duurt 60 minuten en gaat recht op het spel af, zonder dat verbindende deel. Daarom is die alleen geschikt voor groepen die elkaar al goed kennen.",
   },
   {
     q: "Hoe lang duurt R@venHack?",
-    a: "De gewone versie duurt ongeveer 60 minuten, inclusief een korte introductie en nabespreking. De XL-versie neemt meer tijd — reken op een langere sessie met extra verdieping en een uitgebreidere nabespreking. Samen kijken we welke variant en welke tijdsduur het beste bij je team en je doel passen.",
+    a: "De Experience duurt 90 minuten, inclusief introductie en een uitgebreide nabespreking. De Quick duurt 60 minuten. Reken bij de Experience op meer verdieping en meer ruimte voor het gesprek na afloop. Samen kijken we welke versie bij je team en je doel past.",
   },
   {
     q: "Voor welke groepsgrootte is het geschikt?",
-    a: "De gewone versie is ideaal voor één team of een compacte groep. De XL-versie is juist geschikt voor grotere groepen, doordat er in meerdere teams tegelijk gespeeld wordt en iedereen actief meedoet. Voor het aantal deelnemers dat bij je groep past, kijken we graag even mee.",
+    a: "Allebei de versies worden in meerdere teams tegelijk gespeeld, dus grotere groepen kunnen prima meedoen. Bij de Quick ligt de grens op 30 deelnemers; de Experience gaat verder. Laat de groepsgrootte niet je eerste afweging zijn: kennen de mensen elkaar nog niet goed, dan is de Experience de juiste keuze, hoe klein de groep ook is.",
   },
   {
     q: "Wat leert mijn team ervan?",
-    a: "Deelnemers leren phishing en misleiding herkennen, hoe ze een datalek indammen en wat veilig digitaal gedrag in de praktijk betekent. Omdat ze het samen en onder lichte druk ontdekken, beklijven de lessen beter dan bij een verplichte training. Het is tegelijk teambuilding én een natuurlijk startpunt voor bredere kennisoverdracht over cybersecurity. In de XL-versie is er extra ruimte voor verdieping op securitythema's.",
+    a: "Deelnemers leren phishing en misleiding herkennen, hoe ze een datalek indammen en wat veilig digitaal gedrag in de praktijk betekent. Omdat ze het samen en onder lichte druk ontdekken, beklijven de lessen beter dan bij een verplichte training. Het is tegelijk teambuilding én een natuurlijk startpunt voor bredere kennisoverdracht over cybersecurity. In de Experience is daar de meeste ruimte voor: die versie heeft extra securitythema's en een uitgebreide nabespreking.",
   },
   {
     q: "Op welk platform draait R@venHack?",
@@ -87,7 +92,7 @@ export const NL = {
     titel1: "Stop samen",
     titel2: "de cyberaanval.",
     intro:
-      "Een cybersecurity escape game waarin je team al spelend leert over veilig digitaal gedrag — in een gewone en een XL-versie.",
+      "Een cybersecurity escape game waarin je groep al spelend leert over veilig digitaal gedrag. De Experience van 90 minuten verbindt de groep onderweg; de Quick van 60 minuten is puur het spel.",
     cta: "Check beschikbaarheid →",
     beeldAlt: "R@venHack in SpatialChat — een team in de High Security Zone kraakt samen de codes",
   },
@@ -104,13 +109,13 @@ export const NL = {
   hoe: {
     kicker: "Hoe het werkt",
     titel: "Van crisis naar doorbraak, samen als team.",
-    onder: "R@venHack draait via SpatialChat en wordt begeleid door de Meeting Masters. Je opent een link, loopt binnen en de crisis begint — zowel in de gewone als in de XL-versie.",
+    onder: "R@venHack draait via SpatialChat en wordt begeleid door de Meeting Masters. Je opent een link, loopt binnen en de crisis begint. Dat geldt voor de Experience en voor de Quick.",
     stappen: stappen,
   },
   versies: {
     kicker: "Twee versies",
-    titel: "Kies de R@venHack die bij je team past.",
-    onder: "R@venHack is er in twee smaken: een compacte, energieke gewone versie en een uitgebreidere XL-versie met meer diepgang. Beide stoppen samen de aanval — het verschil zit in de tijd, de omvang en hoe ver je de securitythema\u2019s uitdiept.",
+    titel: "De Experience is het uitgangspunt.",
+    onder: "Het verschil zit niet in het aantal deelnemers, maar in de verbinding. In de Experience is tijd ingebouwd om elkaar echt te leren kennen. De Quick slaat dat over en werkt daarom alleen bij groepen die elkaar al goed kennen.",
     cta: "Check beschikbaarheid",
     kosten: "Kosten",
     items: versies,
@@ -120,7 +125,7 @@ export const NL = {
     titel: "Verder dan de phishingtest.",
     lead: "Een datalek. Een verdachte mail. En steeds weer dezelfde naam: R@ven.",
     body: "Teams volgen het spoor van een hacker door een virtueel kantoor: wachtwoorden kraken, aanwijzingen ontcijferen, knopen doorhakken terwijl de klok tikt. Cybersecurity blijft zo niet bij erover horen.",
-    duur: "R@venHack duurt 60 minuten, of in de XL-versie 90 minuten, met meer ruimte voor teambuilding en leren.",
+    duur: "De Experience duurt 90 minuten, met tijd om elkaar te leren kennen en om samen te leren. De Quick duurt 60 minuten en is puur het spel, voor groepen tot 30 die elkaar al kennen.",
   },
   faqKop: "Veelgestelde vragen over R@venHack",
   terug: "← Games & Tools",

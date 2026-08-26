@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: taalAlternates("/games-tools/ravenhack"),
   title: "R@venHack — online escaperoom over cybersecurity | MeetingMasters",
   description:
-    "Cybersecurity escape game waarin je team samen een digitale aanval stopt. Over phishing, datalekken en veilig gedrag. In 60 minuten of als XL-versie.",
+    "Cybersecurity escape game waarin je team samen een digitale aanval stopt. Over phishing, datalekken en veilig gedrag. In de Experience van 90 minuten of de korte Quick.",
 };
 
 export default function RavenHackPage() {

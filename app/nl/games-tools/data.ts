@@ -64,7 +64,7 @@ export const tools = [
 export const faq = [
   { q: "Wat is het verschil tussen de games en de tools?", a: "De games zijn complete ervaringen die wij begeleiden: een escape room, een cybersecuritygame of maatwerk, met een verhaallijn en een duidelijk begin en einde. De tools zijn kleine hulpmiddelen die je zelf gratis inzet tijdens een meeting — een rad, een bingokaart of een set inspiratiekaarten — om de betrokkenheid te verhogen." },
   { q: "Zijn de tools gratis te gebruiken?", a: "Ja. Alle tools op deze pagina zijn gratis en direct te gebruiken. Je opent de tool in je browser en deelt je scherm tijdens de meeting — verder is er niets nodig." },
-  { q: "Hoe lang duren de games?", a: "Dat verschilt per game. De korte games duren 20 tot 30 minuten en passen binnen een meeting of feestje. De Online Escape Room duurt ongeveer 60 minuten, met daarnaast een uitgebreidere XL-versie. Bij een maatwerk game bepaal je samen met ons de duur." },
+  { q: "Hoe lang duren de games?", a: "Dat verschilt per game. De korte games duren 20 tot 30 minuten en passen binnen een meeting of feestje. De Online Escape Room duurt ongeveer 60 minuten. R@venHack Experience duurt 90 minuten, met de kortere Quick ernaast. Bij een maatwerk game bepaal je samen met ons de duur." },
   { q: "Voor welke groepsgrootte zijn de games geschikt?", a: "De games werken voor kleine teams tot grote groepen; deelnemers spelen meestal in subgroepjes die parallel aan de slag gaan. Vertel je ons je groepsgrootte, dan adviseren wij de best passende opzet." },
   { q: "Op welk platform draaien de games?", a: "De games draaien online in de browser en zijn te combineren met de videotool die je al gebruikt, zoals Zoom, Teams of SpatialChat. Deelnemers hoeven niets te installeren en openen simpelweg een link." },
   { q: "Kunnen we een game op maat laten maken?", a: "Ja. Met de maatwerk game bouwen we eigen puzzels, een eigen verhaallijn en eigen visuals, helemaal afgestemd op je thema, je merk en je groep — bijvoorbeeld voor onboarding, een jubileum of een awarenesscampagne." },
@@ -106,7 +106,7 @@ export const NL = {
     body1:
       "Een digitale crisis breekt uit: datalekken, phishing en systemen die om beurten uitvallen. Je team moet samen het hoofd koel houden en de aanval een halt toeroepen. Awareness ontstaat niet door erover te horen, maar door het te dóen.",
     body2:
-      "Zo combineert R@venHack teambuilding met echte kennisoverdracht over veilig digitaal gedrag. Er is een gewone versie en een uitgebreidere XL-versie, zodat het past bij je groep en de tijd die je hebt.",
+      "Zo combineert R@venHack teambuilding met echte kennisoverdracht over veilig digitaal gedrag. In de Experience van 90 minuten zit de verbinding ingebouwd: de groep leert elkaar onderweg kennen. De Quick van 60 minuten is puur het spel, voor groepen tot 30 die elkaar al goed kennen.",
     cta: "Bekijk R@venHack →",
   },
   tools: {

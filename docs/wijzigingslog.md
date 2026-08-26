@@ -1487,3 +1487,69 @@ video's worden daardoor bij elk bezoek opnieuw gecontroleerd bij de server. Een
 langere cache-header voor `/videos/*` en `/images/*` scheelt terugkerende
 bezoekers verkeer — maar dan moet een vervangen beeld wél een nieuwe
 bestandsnaam krijgen, anders blijven mensen het oude zien. Nog niet gedaan.
+
+---
+
+## 26 augustus 2026 — R@venHack: Experience en Quick
+
+Doel: bezoekers naar het grote pakket sturen. De namen zijn veranderd, de
+volgorde omgedraaid en de teksten zetten de Experience nu neer als het
+uitgangspunt.
+
+### Namen en volgorde
+
+| Was | Wordt |
+|---|---|
+| R@venHack XL — uitgebreide versie | **R@venHack Experience** |
+| R@venHack — gewone versie | **R@venHack Quick** |
+
+De Experience staat nu vooraan, de Quick daarnaast. In beide talen; de Engelse
+teksten staan op dezelfde volgorde, want het component koppelt de Nederlandse en
+Engelse kaarten op positie.
+
+### Keuze-gedrag
+
+Nieuw component `components/games/VersieKeuze.tsx`, dat het gedrag van
+`PlatformKeuze` op de platformspagina overneemt: de Experience staat standaard
+aan met het lichtgele vlak (`#FFFBEE`) en de gele rand, en beide kaarten krijgen
+datzelfde vlak als je er met de muis overheen gaat.
+
+Eén verschil met `PlatformKeuze`: daar is de kaart een `<button>`, hier een `div`
+met `role="button"`. In deze kaarten staan twee links, en een link in een knop mag
+niet van HTML. De div luistert zelf op klik en op Enter/spatie, en negeert kliks
+die op een link terechtkomen.
+
+### Teksten
+
+**De afweging is de verbinding, niet de groepsgrootte.** Dat is de kern van het
+verhaal, en die kreeg in de eerste versie van deze teksten te weinig aandacht.
+In de Experience (90 minuten) is tijd ingebouwd om elkaar te leren kennen: samen
+vastlopen, er samen uitkomen, na afloop rustig napraten. Mensen die elkaar nog
+niet kenden, kennen elkaar daarna wel. Daar bovenop komen de extra scenario's,
+de securitythema's en de uitgebreide nabespreking.
+
+De Quick (60 minuten, tot 30 deelnemers) slaat precies dat verbindende deel over.
+Daarom staat er expliciet bij dat hij alléén werkt voor groepen die elkaar al
+goed kennen, met de doorverwijzing erachteraan: kennen ze elkaar nog niet, of wil
+je dat de groep hechter naar buiten loopt dan hij binnenkwam, neem dan de
+Experience.
+
+Let op: de Quick is niet beperkt tot één team. Ook daar spelen meerdere teams
+tegelijk; de grens ligt op 30 deelnemers. Het FAQ-antwoord over groepsgrootte
+zegt daarom letterlijk dat de groepsgrootte niet je eerste afweging moet zijn.
+
+Aangepast: de twee versiekaarten, de sectiekop en -intro, vier FAQ-antwoorden, de
+hero-intro, de praktijkregel, de metabeschrijving, en op de overzichtspagina
+Games & Tools het R@venHack-blok plus de duur-FAQ. In beide talen. Op de twee
+escape-room-pagina's is een regel toegevoegd die het verschil uitlegt; daar
+stonden de versies nog niet genoemd.
+
+Kop van de sectie is nu een bewering in plaats van een keuzevraag: "De Experience
+is het uitgangspunt." (was: "Kies de R@venHack die bij je team past.")
+
+### Nog open
+
+Het boekingsformulier kent alleen "R@venHack" als keuze, zonder versie. Wil je
+sturen op Experience, dan hoort daar een veld bij (Experience standaard
+voorgeselecteerd). Dat is een wijziging in HubSpot via
+`scripts/create-hubspot-forms.mjs`, nog niet gedaan.

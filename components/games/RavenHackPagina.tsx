@@ -3,6 +3,7 @@ import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
+import VersieKeuze from "@/components/games/VersieKeuze";
 import { versies, stappen, faq, NL } from "@/app/nl/games-tools/ravenhack/data";
 import { RAVENHACK_EN } from "@/app/nl/games-tools/ravenhack/tekst-en";
 import type { Taal } from "@/lib/talen";
@@ -163,55 +164,13 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
               {t.versies.onder}
              </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-5">
-            {varianten.map((v) => (
-              <div
-                key={v.title}
-                className={`bg-white rounded p-7 shadow-sm border ${
-                  v.highlight ? "border-[#EEBE3D]/60" : "border-[#EBEBEB]"
-                } flex flex-col`}
-              >
-                <div className="w-8 h-1 bg-[#EEBE3D] rounded mb-4" />
-                <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-3">
-                  {v.tag}
-                </span>
-                <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug">
-                  {v.title}
-                </h3>
-                <p className="text-[#2D2D2D] font-semibold text-sm mb-3">
-                  {v.lead}
-                </p>
-                <p className="text-sm text-[#434343] leading-relaxed mb-5">
-                  {v.body}
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {v.kenmerken.map((k) => (
-                    <li
-                      key={k}
-                      className="flex items-start gap-2 text-sm text-[#434343] leading-relaxed"
-                    >
-                      <span className="mt-1.5 block h-1.5 w-1.5 flex-none rounded-full bg-[#EEBE3D]" />
-                      <span>{k}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto flex flex-wrap gap-3">
-                  <Link
-                    href={t.links.boeken}
-                    className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:bg-[#D4A835] transition-colors"
-                  >
-                    {t.versies.cta}
-                  </Link>
-                  <Link
-                    href={t.links.offerte}
-                    className="border border-[#D4D4D4] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:border-[#2D2D2D] transition-colors"
-                  >
-                    {t.versies.kosten}
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          <VersieKeuze
+            versies={varianten}
+            ctaLabel={t.versies.cta}
+            kostenLabel={t.versies.kosten}
+            boekenHref={t.links.boeken}
+            offerteHref={t.links.offerte}
+          />
         </div>
       </section>
 

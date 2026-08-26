@@ -72,6 +72,12 @@ export default function EscapeRoomsPage() {
               in the most engaging way possible. Ideal for organizations that want
               to raise security awareness while having fun.
             </p>
+            <p className="text-[#525252] leading-relaxed mb-6">
+              The Experience of 90 minutes has the connection built in: time to get to
+              know each other, to get stuck together and to talk it over calmly
+              afterwards. The Quick of 60 minutes leaves that out and is purely the
+              game, for groups of up to 30 who already know each other well.
+            </p>
             <Link
               href="/en/contact"
               className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
