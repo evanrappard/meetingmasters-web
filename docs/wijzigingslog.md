@@ -1766,3 +1766,69 @@ De rest van de historie is nagelopen op dezelfde soort lekken. De treffers op
 `pat-eu1-` (HubSpot) en `service_role` (Supabase) waren vals alarm: een
 voorbeeldregel in een commentaar en een uitleg in een SQL-migratie. Er staan geen
 `.env`-bestanden in de historie, alleen `.env.example`.
+
+---
+
+## 26 augustus 2026 — Events: nieuwe hero, scherpere CTA's en twee embed-bugs
+
+### Nieuwe hero-video
+
+`events-hero-v2.mp4` uit `Downloads/files (2)/MM_hero3_loop_v3.mp4`. Alleen
+gecomprimeerd (CRF 29, faststart, geen audio): 2,7 MB → 1,26 MB, en daarmee
+lichter dan de vorige hero. De poster komt uit hetzelfde bestand, dus still en
+video sluiten naadloos op elkaar aan. Geladen via `HeroAchtergrond`, dus niet op
+de telefoon, niet bij "verminder beweging" en niet bij databesparing.
+
+Onderweg een crossfade-loop gebouwd en weer weggegooid: de bron loopt zelf al
+rond en de crossfade maakte de naad juist slechter. Eerst kijken of het nodig is.
+
+**Uitsnede `center 70%`.** Op brede schermen wordt de band naar verhouding het
+meest bijgesneden (560px hoog van een beeld van 1080), en met `center` viel de
+onderste rij bolletjes weg. Op 70% staan alle zes in beeld, op 1100, 1440 en
+1920 px gecontroleerd. Het verloop links is iets sterker gezet (van black/55 naar
+black/70), want dit beeld is lichter dan het vorige en de subkop viel weg tegen
+het gras.
+
+### Events-pagina
+
+- Hero-CTA: "Expert advies" wordt **"Advies op maat"** (EN: "Tailored advice").
+- Onder het bolletjesoverzicht staat nu een slotregel met knop **Plan een
+  gesprek**, voor wie zijn format er niet bij ziet staan.
+- FAQ: "Wat is een online event?" was te generiek en is vervangen door **"Wat is
+  het verschil tussen een webinar en een online event?"**, in beide talen.
+- **"Bekijk alle events"** in de CTA-balk deed niets op de eventspagina zelf: het
+  was een link naar de pagina waar je al stond. `CTABlock` kent nu een
+  `eventsHref`, en daar geven we `#formats` mee.
+
+### Alle twintig formatpagina's
+
+- **"Vrijblijvende offerte" was geen knop.** Het stond als `<span>` met
+  `cursor-default`: het zag eruit als de primaire CTA van twintig pagina's, maar
+  je kon er niet op klikken. Nu een link naar de kostenindicatie (`/nl/offerte`,
+  EN `/en/quote`).
+- **Koppeltekens in de bodytekst.** Tien plekken waar een `-` stond op de plek van
+  een gedachtestreepje, vervangen volgens de stijlgids: komma, dubbele punt of
+  een nieuwe zin, afhankelijk van wat het streepje deed.
+- **Randvoorwaarden-koppen nagelopen, alle twintig.** Die kloppen al: de zes
+  het-woorden (bedrijfsfeest, kerstfeest, teamuitje, netwerkevent, webinar, World
+  Café) hebben "geslaagd", de veertien de-woorden "geslaagde".
+
+### Twee embed-bugs, één symptoom
+
+Emilie zag de agenda pas na het verversen, en bij "Plan een gesprek" soms een
+foutmelding. Het waren twee losse oorzaken:
+
+1. **De agenda.** HubSpots `MeetingsEmbedCode.js` zoekt alleen bij het laden van
+   het script naar `.meetings-iframe-container`. Kwam je via een link binnen de
+   site, dan stond dat script er al van een eerdere pagina en draaide het niet
+   opnieuw: de agenda werd nooit opgebouwd. Het script wordt nu bij elke montage
+   verwijderd en opnieuw geplaatst, zodat het altijd een verse ronde maakt.
+2. **Het formulier.** Diezelfde agenda-embed zet óók `window.hbspt`, maar zonder
+   `forms`. `HubSpotForm` keek alleen of `hbspt` bestond, dacht dus dat het
+   formulierenscript er al was, en klapte eruit op `hbspt.forms.create`. Precies
+   wanneer je van "Plan een rondleiding" doorklikte naar "Plan een gesprek". Nu
+   wordt op `hbspt.forms.create` zelf gecontroleerd.
+
+Nagelopen in vier stappen achter elkaar: rondleiding via een klik, daarna
+gesprek, dan terug naar de rondleiding, en tot slot gesprek vanaf de
+eventspagina. Alle vier laden nu meteen, zonder verversen en zonder JS-fouten.

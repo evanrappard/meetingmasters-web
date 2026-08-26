@@ -102,8 +102,23 @@ function CTACard({ level, title, desc, ctaLabel, href, variant }: CTACardProps) 
   );
 }
 
-export default function CTABlock({ taal = "nl" }: { taal?: Taal }) {
+export default function CTABlock({
+  taal = "nl",
+  eventsHref,
+}: {
+  taal?: Taal;
+  /**
+   * Waar de eerste kaart heen wijst. Standaard de eventspagina; op die pagina
+   * zelf leverde dat een link naar de pagina waar je al staat, en dan gebeurt er
+   * niets als je erop klikt. Daar geven we het anker van het formats-overzicht
+   * mee.
+   */
+  eventsHref?: string;
+}) {
   const t = T[taal];
+  const kaarten = eventsHref
+    ? t.kaarten.map((k, i) => (i === 0 ? { ...k, href: eventsHref } : k))
+    : t.kaarten;
   return (
     <>
       <section className="bg-[#E3ECEC] py-14 border-t border-[#D2DEDE]">
@@ -114,7 +129,7 @@ export default function CTABlock({ taal = "nl" }: { taal?: Taal }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            {t.kaarten.map((k) => (
+            {kaarten.map((k) => (
               <CTACard key={k.href + k.level} {...k} />
             ))}
           </div>

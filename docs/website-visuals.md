@@ -71,7 +71,7 @@ Sanity-query's: `sanity/queries.ts` (`getLogos`, `getHomepageCases`, `getHomepag
 | Groepsfoto | `/images/team-group.jpg` | LOKAAL |
 
 ## NL Events (overzicht) — `app/nl/events/page.tsx`
-| Hero (achtergrondvideo) | `/videos/events-hero.mp4` | LOKAAL | bron `Downloads/Hero events korter.mp4` → 3200×1800→1080p, 9,5s, **naadloze crossfade-loop** (1s, einde vloeit over in begin via split+overlay+alpha-fade), CRF 25, ~1,9 MB, niet vertraagd. Was `events-hero.webp` (nu vervangen) |
+| Hero (achtergrondvideo) | `/videos/events-hero-v2.mp4` | LOKAAL | 26 aug 2026; bron `Downloads/files (2)/MM_hero3_loop_v3.mp4` (1920×1080, 11,9s) → alleen gecomprimeerd (CRF 29, faststart, geen audio), 1,26 MB. Die bron loopt zelf al rond; een crossfade bleek onnodig en maakte de naad juist slechter. Posters uit hetzelfde bestand: `/images/events-hero-poster-v2.webp` (1600 br) en `-v2-mobiel.webp` (900 br). **Uitsnede** `object-position: center 70%`: op brede schermen wordt de band naar verhouding het meest bijgesneden en viel met "center" de onderste rij bolletjes weg. Voorganger `events-hero.mp4` (1,82 MB) staat er nog, niet meer in gebruik |
 | Event-type iconen (10×) | `/images/icons/*.png` | LOKAAL |
 | Spatial-sectie | `/images/events-spatial.webp` | LOKAAL |
 | Testimonials | `<TestimonialsCarousel />` → 4 lokale logo's | LOKAAL |

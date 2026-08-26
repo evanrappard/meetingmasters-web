@@ -7,7 +7,7 @@ import { zetHubSpotTracking } from "@/lib/hubspot-toestemming";
 declare global {
   interface Window {
     hbspt?: {
-      forms: {
+      forms?: {
         create: (options: {
           region: string;
           portalId: string;
@@ -147,11 +147,17 @@ export default function HubSpotForm({
     };
 
     const create = () => {
-      if (gestopt || created.current || !window.hbspt) return;
+      // Let op `hbspt.forms`: de agenda-embed (MeetingsEmbedCode.js) zet
+      // óók `window.hbspt`, maar zonder `forms`. Keek je alleen of `hbspt`
+      // bestond, dan dacht dit component dat het formulierenscript er al was,
+      // klapte `hbspt.forms.create` eruit en bleef het vlak leeg. Dat gebeurde
+      // precies als je van "Plan een rondleiding" doorklikte naar "Plan een
+      // gesprek".
+      if (gestopt || created.current || !window.hbspt?.forms?.create) return;
       created.current = true;
       opruimen();
       setMislukt(false);
-      window.hbspt.forms.create({ region, portalId, formId, target: `#${targetId}` });
+      window.hbspt!.forms!.create({ region, portalId, formId, target: `#${targetId}` });
     };
 
     const misgegaan = () => {

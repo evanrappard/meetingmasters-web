@@ -26,7 +26,7 @@ const NL = {
     titel: "Online bijeenkomsten waar mensen echt aanwezig zijn.",
     intro1: "Een belangrijke bijeenkomst voor 5, 50 of 500 mensen:",
     intro2: "als het erop aankomt, voldoet de standaard niet.",
-    cta: "Expert advies →",
+    cta: "Advies op maat →",
     formats: "Bekijk event formats",
     videoAlt:
       "Deelnemers bij een online event in een sfeervolle virtuele tuinomgeving met video-deelnemers, MeetingMasters Events op SpatialChat",
@@ -43,6 +43,8 @@ const NL = {
   formats: {
     kicker: "Elk type event heeft zijn eigen opbouw en logica.",
     titel: "De vorm volgt het doel. Wat wil je bereiken?",
+    slot: "Deze formats zijn een selectie. Neem contact op voor een vrijblijvende verkenning: op basis van jouw wensen ontwerpen we een passend format.",
+    slotCta: "Plan een gesprek →",
   },
   visie: {
     kicker: "Een deel van een groter verhaal",
@@ -92,15 +94,21 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <HeroAchtergrond
-            poster="/images/events-hero-poster.jpg"
-            posterMobiel="/images/events-hero-poster-mobiel.webp"
-            bronnen={[{ src: "/videos/events-hero.mp4", type: "video/mp4" }]}
+            poster="/images/events-hero-poster-v2.webp"
+            posterMobiel="/images/events-hero-poster-v2-mobiel.webp"
+            bronnen={[{ src: "/videos/events-hero-v2.mp4", type: "video/mp4" }]}
             alt={t.hero.videoAlt}
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            style={{ filter: "saturate(0.92) brightness(1.03) contrast(0.99)" }}
+            className="absolute inset-0 w-full h-full object-cover"
+            /* De uitsnede zit hoog (70%): op brede schermen wordt de band naar
+               verhouding het meest bijgesneden, en met "center" viel de onderste
+               rij bolletjes weg. Zo staan alle zes in beeld. */
+            style={{ objectPosition: "center 70%", filter: "saturate(0.92) brightness(1.03) contrast(0.99)" }}
           />
-          {/* Lichte gradient links→rechts — egaal contrast achter de tekstkolom, scherm rechts blijft helder */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
+          {/* Verloop links→rechts: contrast achter de tekstkolom, rechterhelft
+              blijft helder zodat de bolletjes zichtbaar blijven. Iets sterker
+              dan voorheen, want dit beeld is lichter dan de vorige video en de
+              subkop viel weg tegen het gras. */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/25 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
           <div className="relative md:absolute md:inset-0 flex items-end">
             <div className="w-full max-w-content mx-auto px-6 lg:px-10 pt-[42vw] pb-12 md:pt-0 md:pb-20">
@@ -239,6 +247,17 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
             </div>
           ))}
 
+          {/* Het overzicht is geen catalogus: wie zijn format er niet bij ziet
+              staan, hoort hier wat de volgende stap is. */}
+          <div className="mt-14 max-w-[640px] mx-auto text-center">
+            <p className="text-[#434343] leading-relaxed mb-6">{t.formats.slot}</p>
+            <Link
+              href={taal === "en" ? "/en/expert-advice" : "/nl/expert-advies"}
+              className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
+            >
+              {t.formats.slotCta}
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -335,7 +354,7 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
       </section>
 
       {/* ── CTA ── */}
-      <CTABlock taal={taal} />
+      <CTABlock taal={taal} eventsHref="#formats" />
 
     </div>
   );

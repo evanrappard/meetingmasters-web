@@ -22,7 +22,7 @@ export const OVERZICHT_EN = {
     titel: "Online gatherings where people are genuinely present.",
     intro1: "An important gathering for 5, 50 or 500 people:",
     intro2: "when it matters, the standard won't do.",
-    cta: "Expert advice →",
+    cta: "Tailored advice →",
     formats: "See the event formats",
     videoAlt:
       "Participants at an online event in an atmospheric virtual garden with video participants, MeetingMasters Events on SpatialChat",
@@ -48,6 +48,8 @@ export const OVERZICHT_EN = {
   },
 
   formats: {
+    slot: "These formats are a selection. Get in touch for a no-obligation exploration: we design a format that fits what you have in mind.",
+    slotCta: "Book a conversation →",
     kicker: "Every kind of event has its own shape and its own logic.",
     titel: "The form follows the purpose. What do you want to achieve?",
   },
@@ -113,8 +115,8 @@ export const OVERZICHT_EN = {
 
   faq: [
     {
-      q: "What is an online event?",
-      a: "An online event is a gathering that takes place entirely digitally. That can be a webinar, but equally a conference, town hall, networking event, training or strategy day. The key difference from an ordinary online meeting is that an online event is deliberately designed around interaction, engagement and experience.",
+      q: "What is the difference between a webinar and an online event?",
+      a: "In a webinar the initiative sits with the sender: one or two speakers, an audience that listens, and at most a round of questions at the end. In an online event the participants take part themselves. They talk to each other, work in smaller groups and leave with something they made together. A webinar is therefore one format within the broader online event, and the choice depends on what you want: to inform, or to set something in motion.",
     },
     {
       q: "How do you run a successful online event?",

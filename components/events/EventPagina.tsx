@@ -192,9 +192,14 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
                   </p>
                 )}
                 <div className="flex flex-wrap gap-3">
-                  <span className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded cursor-default">
+                  {/* Stond hier als <span>: zag eruit als een knop, maar was er
+                      geen. Dit is de eerste CTA van twintig formatpagina's. */}
+                  <Link
+                    href={t.offerteHref}
+                    className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
+                  >
                     {t.offerte}
-                  </span>
+                  </Link>
                   <Link
                     href={t.alleFormatsHref}
                     className="text-white/70 text-sm font-semibold px-5 py-3 border border-white/25 rounded hover:border-white/55 transition-colors"
