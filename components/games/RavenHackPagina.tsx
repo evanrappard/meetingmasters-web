@@ -33,7 +33,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <Image
-            src="/images/ravenhack-hero.webp"
+            src="/images/ravenhack-hero-v2.webp"
             alt={t.hero.beeldAlt}
             fill
             className="object-cover"
@@ -66,8 +66,14 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                  </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
-                    href={t.links.boeken}
+                    href={t.links.offerte}
                     className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
+                  >
+                    {t.hero.ctaKosten}
+                   </Link>
+                  <Link
+                    href={t.links.boeken}
+                    className="text-white text-sm font-semibold px-5 py-3 border border-white/40 rounded hover:border-white/80 hover:bg-white/10 transition-colors"
                   >
                     {t.hero.cta}
                    </Link>
@@ -124,28 +130,45 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
               {t.hoe.onder}
              </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {fasen.map((s) => (
-              <div
-                key={s.title}
-                className="bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col"
-              >
-                <div className="relative h-40">
-                  <Image src={s.img} alt={s.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-                </div>
-                <div className="p-7 flex flex-col flex-1">
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">
-                    {s.tag}
+          {/* Eén verhaal in drie stappen, niet drie losse voorbeelden: een gele
+              lijn met genummerde bolletjes verbindt ze. Op de telefoon staat de
+              lijn rechtop tussen de kaarten. */}
+          <div className="relative">
+            <span
+              aria-hidden
+              className="hidden md:block absolute top-[13px] left-[16.6%] right-[16.6%] h-[2px] bg-[#EEBE3D]/50"
+            />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-9 md:gap-5">
+              {fasen.map((s, i) => (
+                <div key={s.title} className="relative flex flex-col">
+                  {i > 0 && (
+                    <span
+                      aria-hidden
+                      className="md:hidden absolute -top-9 left-1/2 -translate-x-1/2 h-9 w-[2px] bg-[#EEBE3D]/50"
+                    />
+                  )}
+                  <span className="relative z-10 mx-auto mb-5 flex h-7 w-7 items-center justify-center rounded-full bg-[#EEBE3D] text-[13px] font-bold text-[#2D2D2D]">
+                    {s.stap ?? i + 1}
                   </span>
-                  <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm text-[#434343] leading-relaxed">
-                    {s.body}
-                  </p>
+                  <div className="bg-white rounded overflow-hidden shadow-sm border border-[#EBEBEB] flex flex-col flex-1">
+                    <div className="relative h-40">
+                      <Image src={s.img} alt={s.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                    </div>
+                    <div className="p-7 flex flex-col flex-1">
+                      <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-4">
+                        {s.tag}
+                      </span>
+                      <h3 className="font-bold text-[#2D2D2D] text-lg mb-3 leading-snug">
+                        {s.title}
+                      </h3>
+                      <p className="text-sm text-[#434343] leading-relaxed">
+                        {s.body}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -196,9 +219,9 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                </p>
             </div>
             <YouTubeFacade
-              videoId="5g3Vv51_hR0"
-              poster="/images/ravenhack-video-poster.jpg"
-              title="R@venHack"
+              videoId={engels ? "_y8yi-YgEhk" : "k8fXvDLmXtg"}
+              poster={engels ? "/images/ravenhack-video-poster-en.webp" : "/images/ravenhack-video-poster-nl.webp"}
+              title={engels ? "What is R@venHack" : "Wat is R@venHack"}
             />
           </div>
         </div>

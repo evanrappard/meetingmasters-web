@@ -4,7 +4,7 @@ Eén overzicht van álle beelden en video's op de site: waar ze staan, waar ze
 vandaan komen en (waar bekend) welk bronbestand ze zijn. Dit is de plek om te
 kijken vóór je een visual wijzigt.
 
-> Laatst bijgewerkt: 2026-08-15
+> Laatst bijgewerkt: 2026-08-26
 
 ## Hoe het werkt (belangrijk)
 
@@ -193,7 +193,7 @@ hij een sectie verderop de pagina vast. Draait tegen het netwerk-IP.
 | Tool-cards (4×, volgorde Inspiration→Bingo→Storytelling→Wheel) | `/images/tool-inspiration-cards-v2.webp`, `tool-bingo-v2.webp`, `tool-storytelling-v2.webp`, `tool-wheel-of-fortune-v2.webp` — uniform 400×480, per beeld eigen achtergrondkleur bijgebakken (contain + trim). Oude `tool-*.webp` (zonder `-v2`) niet meer gebruikt. | LOKAAL |
 
 ### NL Games/Escape — subpagina's
-| `/nl/games-tools/ravenhack` | hero `/images/ravenhack-hero.webp` (`Scherm…2025-10-08 om 21.21.45.png`, OneDrive escape-marketing); Hoe-het-werkt stappen `ravenhack-crisis.webp` / `ravenhack-onderzoek.webp` (`UK Designs Escape (1)`) / `ravenhack-doorbraak.webp` (`UK Designs Escape (2)`); In-de-praktijk = YouTube-facade `5g3Vv51_hR0` + poster `ravenhack-video-poster.jpg` | LOKAAL + YouTube |
+| `/nl/games-tools/ravenhack` | hero `/images/ravenhack-hero-v2.webp` (26 aug 2026; bron `Downloads/Erik_en_Dave_HSZ_scherper.png`, 2338×1212 → 1920 breed, scherper dan de vorige); Hoe-het-werkt stappen `ravenhack-crisis-v2.webp` (play-knop uit het beeld gepoetst met een lap uit een egaal stuk ernaast) / `ravenhack-onderzoek.webp` (`UK Designs Escape (1)`) / `ravenhack-doorbraak.webp` (`UK Designs Escape (2)`); videoblok = YouTube-facade, NL `k8fXvDLmXtg` + poster `ravenhack-video-poster-nl.webp`, EN `_y8yi-YgEhk` + poster `ravenhack-video-poster-en.webp` (posterbeeld = frame 300 uit de bronvideo's in OneDrive, `Wat is RavenHack.mp4` / `What is RavenHack EN.mp4`). Niet meer in gebruik: `ravenhack-hero.webp`, `ravenhack-crisis.webp`, `ravenhack-video-poster.jpg` en de oude trailer `5g3Vv51_hR0` | LOKAAL + YouTube |
 | `/nl/escape-rooms` | `/images/format-escape.png`, `/images/format-2.png` | LOKAAL |
 | `/nl/games-tools/tools/*` | geen beeld (interactieve tools) | n.v.t. |
 

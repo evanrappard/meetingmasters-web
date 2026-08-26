@@ -9,6 +9,7 @@ export const versies = [
   {
     tag: "Onze aanrader",
     title: "R@venHack Experience",
+    duur: "90 minuten",
     lead: "90 minuten waarin je groep elkaar vindt en samen wijzer wordt.",
     body: "Hier zit de verbinding in. Er is tijd ingebouwd om elkaar te leren kennen, om samen vast te lopen en er weer uit te komen, en om na afloop rustig na te praten. Mensen die elkaar nog niet kenden, kennen elkaar daarna wel. Daar bovenop komen extra scenario's en securitythema's, met meer puzzels, meer plotwendingen en een nabespreking waarin de lessen echt landen. Dit is de versie die we standaard adviseren.",
     kenmerken: [
@@ -22,36 +23,40 @@ export const versies = [
   {
     tag: "Alleen even spelen",
     title: "R@venHack Quick",
+    duur: "60 minuten",
     lead: "Kort en puur voor de lol, voor groepen die elkaar al kennen.",
     body: "60 minuten, tot 30 deelnemers, recht op de aanval af. Je stopt samen de hack en dat is het: geen kennismaking vooraf, geen uitgebreide nabespreking. Juist dat verbindende deel slaat de Quick over, en daarom werkt hij alleen als je collega's elkaar al goed kennen. Kennen ze elkaar nog niet, of wil je dat de groep hechter naar buiten loopt dan hij binnenkwam, neem dan de Experience.",
     kenmerken: [
       "60 minuten, tot 30 deelnemers",
       "De kern van het spel, zonder verdieping",
       "Alleen voor groepen die elkaar al goed kennen",
-      "Korte nabespreking",
+      "Sterke kick-off voor een teamdag of securityweek",
     ],
   },
 ];
 
 export const stappen = [
   {
+    stap: 1,
     tag: "De crisis",
     title: "Je team belandt midden in een aanval",
-    body: "Datalekken, phishing en verborgen aanwijzingen: er is iets goed mis en de klok tikt. Samen moet je de digitale crisis ontrafelen.",
-    img: "/images/ravenhack-crisis.webp",
+    body: "Het begint met een melding die niet klopt. Datalekken, phishing en verborgen aanwijzingen: er is iets goed mis en de klok tikt.",
+    img: "/images/ravenhack-crisis-v2.webp",
     alt: "Digitale ruis en glitch op het scherm — het begin van de cyberaanval in R@venHack",
   },
   {
+    stap: 2,
     tag: "Het onderzoek",
     title: "Samen zoek je naar de sleutels",
-    body: "In een reeks puzzels en aanwijzingen ontdek je hoe de aanval in elkaar zit. Overleggen, combineren en doorpakken — als team.",
+    body: "Dan gaat je team op onderzoek. In een reeks puzzels ontdek je stap voor stap hoe de aanval in elkaar zit: overleggen, combineren en doorpakken.",
     img: "/images/ravenhack-onderzoek.webp",
     alt: "Silhouet tegen een muur vol datastromen — het team onderzoekt de aanval",
   },
   {
+    stap: 3,
     tag: "De doorbraak",
     title: "Je stopt de aanval",
-    body: "Op het juiste moment valt alles op zijn plek en keer je de aanval. En ondertussen heb je geleerd hoe je dit in het echt voorkomt.",
+    body: "En dan valt alles op zijn plek. Je keert de aanval, en ondertussen weet je hoe je dit op een gewone werkdag voorkomt.",
     img: "/images/ravenhack-doorbraak.webp",
     alt: "De codes gekraakt, de hack gestopt — de doorbraak in R@venHack",
   },
@@ -93,18 +98,19 @@ export const NL = {
     titel2: "de cyberaanval.",
     intro:
       "Een cybersecurity escape game waarin je groep al spelend leert over veilig digitaal gedrag. De Experience van 90 minuten verbindt de groep onderweg; de Quick van 60 minuten is puur het spel.",
-    cta: "Check beschikbaarheid →",
+    ctaKosten: "Kostenindicatie",
+    cta: "Check beschikbaarheid",
     beeldAlt: "R@venHack in SpatialChat — een team in de High Security Zone kraakt samen de codes",
   },
   wat: {
     kicker: "Wat het is",
     titel: "Een cybersecurity escape game.",
-    body: "In R@venHack belandt je team midden in een digitale crisis vol datalekken, phishing en verborgen aanwijzingen. Samen ontrafel je de aanwijzingen en stop je de aanval. Het is geen les die je ondergaat, maar een ervaring die je doorleeft — en juist daardoor blijft hangen wat veilig digitaal gedrag betekent.",
+    body: "In R@venHack belandt je team midden in een digitale crisis vol datalekken, phishing en verborgen aanwijzingen. Samen ontrafel je de puzzel en stop je de aanval. Onderweg kom je precies die digitale keuzes tegen die ook op een gewone werkdag het verschil maken.",
   },
   voorWie: {
     kicker: "Voor wie",
     titel: "Teambuilding met een leerdoel.",
-    body: "Voor organisaties die het bewustzijn rond digitale veiligheid verder willen brengen dan een verplichte e-learning. R@venHack werkt als teambuilding én als natuurlijk startpunt voor bredere kennisoverdracht over cybersecurity — je leert samen, en het gesprek erna gaat vanzelf verder.",
+    body: "Voor organisaties die digitale veiligheid niet alleen willen uitleggen, maar ook willen laten ervaren. R@venHack combineert teambuilding met cybersecurity awareness en biedt een natuurlijk startpunt voor het gesprek over veilig digitaal gedrag.",
   },
   hoe: {
     kicker: "Hoe het werkt",
@@ -121,8 +127,8 @@ export const NL = {
     items: versies,
   },
   praktijk: {
-    kicker: "In de praktijk",
-    titel: "Verder dan de phishingtest.",
+    kicker: "Bekijk de video",
+    titel: "Zo werkt R@venHack.",
     lead: "Een datalek. Een verdachte mail. En steeds weer dezelfde naam: R@ven.",
     body: "Teams volgen het spoor van een hacker door een virtueel kantoor: wachtwoorden kraken, aanwijzingen ontcijferen, knopen doorhakken terwijl de klok tikt. Cybersecurity blijft zo niet bij erover horen.",
     duur: "De Experience duurt 90 minuten, met tijd om elkaar te leren kennen en om samen te leren. De Quick duurt 60 minuten en is puur het spel, voor groepen tot 30 die elkaar al kennen.",

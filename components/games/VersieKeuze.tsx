@@ -19,6 +19,7 @@ export type Versie = {
   title: string;
   lead: string;
   body: string;
+  duur?: string;
   kenmerken: string[];
   highlight?: boolean;
 };
@@ -67,9 +68,16 @@ export default function VersieKeuze({
             }`}
           >
             <div className="w-8 h-1 bg-[#EEBE3D] rounded mb-4" />
-            <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA] mb-3">
-              {v.tag}
-            </span>
+            <div className="flex items-center justify-between gap-3 mb-3">
+              <span className="text-[10px] font-bold tracking-widest uppercase text-[#28A8AA]">
+                {v.tag}
+              </span>
+              {v.duur && (
+                <span className="text-[11px] font-bold text-[#2D2D2D] bg-[#EEBE3D]/20 rounded px-2 py-0.5 whitespace-nowrap">
+                  {v.duur}
+                </span>
+              )}
+            </div>
             <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug">
               {v.title}
             </h3>

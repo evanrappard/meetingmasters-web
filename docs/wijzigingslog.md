@@ -1553,3 +1553,52 @@ Het boekingsformulier kent alleen "R@venHack" als keuze, zonder versie. Wil je
 sturen op Experience, dan hoort daar een veld bij (Experience standaard
 voorgeselecteerd). Dat is een wijziging in HubSpot via
 `scripts/create-hubspot-forms.mjs`, nog niet gedaan.
+
+---
+
+## 26 augustus 2026 — R@venHack-pagina: nieuw beeld, nieuwe video, verhaallijn
+
+Een reeks aanpassingen op `/nl|en/games-tools/ravenhack`, aangeleverd door Emilie.
+
+### Beeld
+
+- **Nieuwe hero**: `ravenhack-hero-v2.webp`, uit `Downloads/Erik_en_Dave_HSZ_scherper.png`
+  (2338×1212, teruggeschaald naar 1920 breed, 108 kB). Zichtbaar scherper dan de
+  vorige, die een uitsnede van een schermafdruk was.
+- **Play-knop weggepoetst** uit het crisisbeeld van stap 1. Het beeld was een
+  schermafdruk van een videospeler, inclusief knop. Weggehaald door een lap uit een
+  egaal zwart stuk ernaast eroverheen te zetten: `ravenhack-crisis-v2.webp`.
+
+### Video
+
+De oude trailer (`5g3Vv51_hR0`) is vervangen door de uitlegvideo, per taal een
+eigen versie: NL `k8fXvDLmXtg`, EN `_y8yi-YgEhk`. Posters gemaakt uit de
+bronbestanden in OneDrive (frame 300, de High Security Zone met deelnemers in
+beeld): `ravenhack-video-poster-nl.webp` en `-en.webp`.
+
+Let op: op de overzichtspagina Games & Tools staat de oude trailer nog.
+
+### Van crisis naar doorbraak: één verhaal
+
+De drie stappen lazen als drie losse voorbeelden. Nu een zichtbare verhaallijn:
+een gele lijn met genummerde bolletjes (1, 2, 3) verbindt de drie kaarten, op de
+telefoon rechtop tussen de kaarten in. De teksten haken nu ook aan elkaar: "Het
+begint met een melding die niet klopt" → "Dan gaat je team op onderzoek" → "En
+dan valt alles op zijn plek".
+
+### Teksten en knoppen
+
+- **Wat het is** en **Voor wie**: nieuwe teksten, aangeleverd door Emilie,
+  vertaald naar het Engels.
+- **Hero**: twee knoppen in plaats van één, in deze volgorde: Kostenindicatie
+  (geel, naar de offerte) en Check beschikbaarheid (wit omlijnd, naar boeken).
+- **Videoblok**: kopje was "In de praktijk", wordt "Bekijk de video" met als kop
+  "Zo werkt R@venHack." Emilie koos die formulering; "Bekijk de trailer" stond in
+  haar lijstje, maar het is geen trailer meer.
+- **Tijdsindicator** op beide versiekaarten: 90 minuten en 60 minuten, als klein
+  geel label naast de tag.
+- **Quick, vierde kenmerk**: "Korte nabespreking" is "Sterke kick-off voor een
+  teamdag of securityweek" geworden.
+
+De naam R@venHack Quick blijft; "Light" stond in het lijstje, maar dat was
+geschreven tegen de pagina van vóór de hernoeming.

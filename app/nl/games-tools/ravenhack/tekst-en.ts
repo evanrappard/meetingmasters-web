@@ -15,20 +15,21 @@ export const RAVENHACK_EN = {
     titel1: "Stop the cyberattack",
     titel2: "together.",
     intro: "A cybersecurity escape game in which your group learns about safe digital behaviour by playing. The Experience of 90 minutes connects the group along the way; the Quick of 60 minutes is purely the game.",
-    cta: "Check availability →",
+    ctaKosten: "Cost indication",
+    cta: "Check availability",
     beeldAlt: "R@venHack in SpatialChat — a team in the High Security Zone cracking the codes together",
   },
 
   wat: {
     kicker: "What it is",
     titel: "A cybersecurity escape game.",
-    body: "In R@venHack your team lands in the middle of a digital crisis full of data leaks, phishing and hidden clues. Together you follow the clues and stop the attack. It isn't a lesson you sit through but an experience you live through — and that's exactly why what safe digital behaviour means stays with you.",
+    body: "In R@venHack your team lands in the middle of a digital crisis full of data leaks, phishing and hidden clues. Together you work out the puzzle and stop the attack. Along the way you run into exactly the digital choices that make the difference on an ordinary working day too.",
   },
 
   voorWie: {
     kicker: "Who it's for",
     titel: "Team building with something to learn.",
-    body: "For organisations that want to take awareness of digital safety further than a compulsory e-learning module. R@venHack works as team building and as a natural starting point for wider learning about cybersecurity — you learn together, and the conversation afterwards carries on by itself.",
+    body: "For organisations that want to do more than explain digital safety: to let people experience it. R@venHack combines team building with cybersecurity awareness and gives you a natural starting point for the conversation about safe digital behaviour.",
   },
 
   hoe: {
@@ -39,19 +40,19 @@ export const RAVENHACK_EN = {
       {
         tag: "The crisis",
         title: "Your team lands in the middle of an attack",
-        body: "Data leaks, phishing and hidden clues: something is badly wrong and the clock is ticking. Together you have to unravel the digital crisis.",
+        body: "It starts with an alert that doesn't add up. Data leaks, phishing and hidden clues: something is badly wrong and the clock is ticking.",
         alt: "Digital noise and glitch on screen — the start of the cyberattack in R@venHack",
       },
       {
         tag: "The investigation",
         title: "Together you look for the keys",
-        body: "Through a series of puzzles and clues you work out how the attack fits together. Talking it through, piecing it together and pushing on — as a team.",
+        body: "Then your team starts digging. Through a series of puzzles you work out step by step how the attack fits together: talking it through, piecing it together and pushing on.",
         alt: "Silhouette against a wall of data streams — the team investigating the attack",
       },
       {
         tag: "The breakthrough",
         title: "You stop the attack",
-        body: "At the right moment everything falls into place and you push the attack back. And along the way you have learned how to prevent this for real.",
+        body: "And then everything falls into place. You push the attack back, and by now you know how to prevent this on an ordinary working day.",
         alt: "The codes cracked, the hack stopped — the breakthrough in R@venHack",
       },
     ],
@@ -67,6 +68,7 @@ export const RAVENHACK_EN = {
       {
         tag: "What we recommend",
         title: "R@venHack Experience",
+        duur: "90 minutes",
         lead: "90 minutes in which your group finds each other and comes away wiser.",
         body: "This is where the connection sits. Time is built in to get to know each other, to get stuck together and work your way out, and to talk it over calmly afterwards. People who didn't know each other before do by the end. On top of that come extra scenarios and security themes, with more puzzles, more plot turns and a debrief in which the lessons genuinely land. This is the version we recommend as standard.",
         kenmerken: [
@@ -79,21 +81,22 @@ export const RAVENHACK_EN = {
       {
         tag: "Just a game",
         title: "R@venHack Quick",
+        duur: "60 minutes",
         lead: "Short and purely for the fun of it, for groups who already know each other.",
         body: "60 minutes, up to 30 participants, straight at the attack. You stop the hack together and that's it: no introductions beforehand, no extended debrief. It is exactly that connecting part the Quick leaves out, which is why it only works when your colleagues already know each other well. If they don't yet, or if you want the group to leave closer than it arrived, take the Experience.",
         kenmerken: [
           "60 minutes, up to 30 participants",
           "The heart of the game, without the depth",
           "Only for groups who already know each other well",
-          "A short closing round",
+          "A strong kick-off for a team day or security week",
         ],
       },
     ],
   },
 
   praktijk: {
-    kicker: "In practice",
-    titel: "Further than the phishing test.",
+    kicker: "Watch the video",
+    titel: "This is how R@venHack works.",
     lead: "A data leak. A suspicious email. And the same name, again and again: R@ven.",
     body: "Teams follow a hacker's trail through a virtual office: cracking passwords, decoding messages, making calls while the clock ticks. Cybersecurity then stops being something you merely hear about.",
     duur: "The Experience takes 90 minutes, with time to get to know each other and to learn together. The Quick takes 60 minutes and is purely the game, for groups of up to 30 who already know each other.",
