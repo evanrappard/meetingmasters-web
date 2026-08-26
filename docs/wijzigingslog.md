@@ -1998,3 +1998,28 @@ bewust ongemoeid gelaten: die zijn goed.
 voluit: de EU Community of Practice on Peace Mediation, editie 2024.
 
 **Netwerkevent.** Het kostenantwoord was in de vorige ronde al afgerond.
+
+
+---
+
+## 26 augustus 2026 — blog: "Spel is nergens goed voor. Dat is erg nuttig."
+
+Nieuw artikel in de rubriek Meetingontwerp, over waarom spel werkt in een
+bijeenkomst en waarom die laag online als eerste wegvalt. Tekst van Emilie,
+onveranderd overgenomen op wat kleine redactie na: een paar zinnen vloeiender
+gemaakt en "meeten" vervangen door "vergaderen".
+
+Beeld: `Downloads/Spatial magic spel.png` (3200x1800) naar
+`public/images/blog/spel-is-nuttig.webp`, 1400 px breed, 104 kB.
+
+**Nieuw bloktype `cta`.** Het artikel eindigt met een verwijzing naar Games &
+Tools. Alinea's in de blog renderen platte tekst, dus een link in de lopende
+tekst werd een kale URL. Er is nu een bloktype dat een alinea met een echte knop
+toont; beide taalversies van de artikelpagina kennen het. Handig voor elk
+volgend stuk dat ergens naartoe wijst.
+
+Nog niet vertaald: dit stuk staat alleen in het Nederlands.
+
+Engelse versie erbij: `/en/blog/play-is-good-for-nothing`. Het taalpaar staat in
+`lib/talen.ts`, want de schakelaar werkt met een vaste lijst; zonder die regel
+biedt hij op een nieuw artikel geen vertaling aan. Beide kanten gecontroleerd.

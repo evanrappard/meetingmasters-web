@@ -32,6 +32,60 @@ export type BlogPostEN = BlogPost & { nlSlug: string };
 
 const ONGESORTEERD: BlogPostEN[] = [
   {
+    "slug": "play-is-good-for-nothing",
+    "nlSlug": "spel-is-nergens-goed-voor",
+    "rubriek": "meetingontwerp",
+    "title": "Play is good for nothing. Which makes it very useful.",
+    "date": "August 26, 2026",
+    "iso": "2026-08-26",
+    "img": "/images/blog/spel-is-nuttig.webp",
+    "imgAlt": "Participants in coloured circles inside a picture frame with a cloudy sky, as an image for play in an online gathering",
+    "excerpt": "Playing during working hours sounds like a waste of time. Yet a group that plays now and then does almost everything better than a group that never does.",
+    "dek": "Play produces no decision, no action point, no output. And that is exactly why it works. Especially online, where that layer is the first to go.",
+    "metaDescription": "Playing during working hours looks like wasted time. Yet play lowers the hierarchy, builds trust and makes room for better ideas. Online most of all.",
+    "readingMinutes": 3,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Playing during working hours sounds like a waste of time. Yet a group that plays now and then does almost everything better than a group that never does."
+      },
+      {
+        "type": "p",
+        "text": "At first sight play produces nothing. No decision, no action point, no output. And that is exactly why it works. Last century Johan Huizinga already pointed out that playing and being serious are not opposites. Anyone who has watched a department turn fiercely competitive during a pub quiz knows he had a point."
+      },
+      {
+        "type": "h2",
+        "text": "What play does to a group"
+      },
+      {
+        "type": "p",
+        "text": "Inside a game its own rules apply. For a while it doesn't matter who is the boss and who joined last week, and that loosens something. People take the initiative, speak up and try something without fear of being held to account. You also learn more by doing than by listening. Researchers see it too: play lowers the hierarchy, builds trust and makes the room in which better ideas appear. Not because it is more fun, although it is that as well. But because you are doing it yourself."
+      },
+      {
+        "type": "h2",
+        "text": "Play belongs in the rhythm"
+      },
+      {
+        "type": "p",
+        "text": "And then the meeting itself. A long gathering that holds people's attention has variety in it. Presenting, questioning, exploring, discussing. Playing and creating belong on that list too. Not as dessert, but as a serious part of how a group develops. It is precisely in playing that you discover things which otherwise stay hidden. Play gets you past entrenched positions far quicker than discussion does. Opinions get explored afresh, roles are allowed to shift, and the way people work together often takes a new shape."
+      },
+      {
+        "type": "h2",
+        "text": "Online this counts double"
+      },
+      {
+        "type": "p",
+        "text": "Online, this is the first thing to disappear. Because making contact takes more effort, most organisations fled towards shorter meetings. Less small talk, less creative exploration, less play. What was left was the formally useful part: the agenda and the action points. While that is precisely the layer in which a team becomes a team. And then people wonder afterwards why it all feels so bare. Putting play back is not decoration, then. It is replacing the layer you lost. Online most of all."
+      },
+      {
+        "type": "cta",
+        "text": "Play now has a section of its own on our site. From small tools that get a conversation or a story going to escape rooms of an hour and a half. Because it is more fun. And because it works.",
+        "label": "See our games and tools",
+        "href": "/en/games-tools"
+      }
+    ]
+  },
+  {
     "slug": "back-to-the-office",
     "nlSlug": "terug-naar-kantoor",
     "rubriek": "hybride",

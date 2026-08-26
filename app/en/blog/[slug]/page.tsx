@@ -148,6 +148,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </ul>
               );
             }
+            if (block.type === "cta") {
+              return (
+                <div key={i} className="mt-10 mb-2">
+                  <p className="text-[#333333] text-[17px] leading-[1.75] mb-4">{block.text}</p>
+                  <Link
+                    href={block.href}
+                    className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
+                  >
+                    {block.label}
+                  </Link>
+                </div>
+              );
+            }
             return (
               <p key={i} className="text-[#333333] text-[17px] leading-[1.75] mb-6">
                 {block.text}

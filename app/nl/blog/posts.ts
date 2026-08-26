@@ -2,7 +2,13 @@ export type BlogBlock =
   | { type: "h2"; text: string }
   | { type: "p"; text: string }
   | { type: "quote"; text: string }
-  | { type: "ul"; items: string[] };
+  | { type: "ul"; items: string[] }
+  /**
+   * Afsluitende verwijzing met een knop. Een gewone alinea rendert platte
+   * tekst, dus een link in de lopende tekst werd een kale URL. Hiermee staat er
+   * een echte knop onder het artikel.
+   */
+  | { type: "cta"; text: string; label: string; href: string };
 
 /**
  * De rubrieken van de blog. De sleutel is taalonafhankelijk, het label niet —
@@ -43,6 +49,59 @@ export type BlogPost = {
  * verkeerde plek zetten is anders zo gebeurd, en dan klopt het overzicht niet.
  */
 const ONGESORTEERD: BlogPost[] = [
+  {
+    "slug": "spel-is-nergens-goed-voor",
+    "rubriek": "meetingontwerp",
+    "title": "Spel is nergens goed voor. Dat is erg nuttig.",
+    "date": "26 augustus 2026",
+    "iso": "2026-08-26",
+    "img": "/images/blog/spel-is-nuttig.webp",
+    "imgAlt": "Deelnemers in gekleurde cirkels binnen een lijst met wolkenlucht, als beeld voor spel in een online bijeenkomst",
+    "excerpt": "Spelen onder werktijd klinkt als tijdverspilling. Toch doet een groep die af en toe speelt bijna alles beter dan een groep die dat nooit doet.",
+    "dek": "Spel levert geen besluit op, geen actiepunt, geen output. En juist daarom werkt het. Zeker online, waar die laag als eerste wegvalt.",
+    "metaDescription": "Spelen onder werktijd lijkt tijdverspilling. Toch verlaagt spel de hiërarchie, vergroot het vertrouwen en maakt het ruimte voor betere ideeën. Zeker online.",
+    "readingMinutes": 3,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Spelen onder werktijd klinkt als tijdverspilling. Toch doet een groep die af en toe speelt bijna alles beter dan een groep die dat nooit doet."
+      },
+      {
+        "type": "p",
+        "text": "Spel levert op het eerste gezicht niets op. Geen besluit, geen actiepunt, geen output. En juist daarom werkt het. Vorige eeuw wees Johan Huizinga er al op dat spelen en serieus zijn geen tegenpolen zijn. Wie weleens een afdeling fanatiek heeft zien worden bij een pubquiz, weet dat hij gelijk had."
+      },
+      {
+        "type": "h2",
+        "text": "Wat spel met een groep doet"
+      },
+      {
+        "type": "p",
+        "text": "Binnen een spel gelden eigen regels. Even doet het er niet toe wie de baas is en wie er net binnen is, en dat maakt iets los. Mensen nemen initiatief, spreken zich uit en proberen iets zonder bang te zijn voor een afrekening. Je leert er bovendien meer door te doen dan door te luisteren. Onderzoekers zien het terug: spel verlaagt de hiërarchie, vergroot het vertrouwen en maakt de ruimte waarin betere ideeën ontstaan. Niet omdat het leuker is, al is het dat ook. Maar omdat je het zelf doet."
+      },
+      {
+        "type": "h2",
+        "text": "Spel hoort in het ritme"
+      },
+      {
+        "type": "p",
+        "text": "En dan de meeting zelf. Een lange bijeenkomst die blijft boeien, kent afwisseling. Zenden, bevragen, verkennen, bespreken. Spelen en creëren horen ook in dat rijtje. Niet als toetje, maar als serieus onderdeel van ontwikkeling. Juist in het spelen ontdek je namelijk dingen die anders verborgen blijven. Met spel kom je veel sneller langs vastgeroeste posities dan met discussie. Meningen worden opnieuw verkend, rollen mogen veranderen en de samenwerking neemt vaak een nieuwe vorm aan."
+      },
+      {
+        "type": "h2",
+        "text": "Online telt dit dubbel"
+      },
+      {
+        "type": "p",
+        "text": "Online valt dit als eerste weg. Omdat contact maken meer vergt, vluchtten de meeste organisaties naar korter vergaderen. Minder praatjes, minder creatieve verkenning, minder spel. Wat overbleef was het formeel nuttige: de agenda en de actiepunten. Terwijl dat nou juist de laag is waarin een team een team wordt. En dan vraagt men zich daarna af waarom het zo kaal aanvoelt. Spel terugzetten is dan geen versiering. Het is de laag terugleggen die je kwijtraakte. Juist online."
+      },
+      {
+        "type": "cta",
+        "text": "Voor spel hebben we inmiddels een eigen pijler op de site ingericht. Van kleine tools die een gesprek of een verhaal op gang brengen tot escape rooms van anderhalf uur. Omdat het leuker is. En omdat het werkt.",
+        "label": "Bekijk onze games en tools",
+        "href": "/nl/games-tools"
+      }
+    ]
+  },
   {
     "slug": "terug-naar-kantoor",
     "rubriek": "hybride",
