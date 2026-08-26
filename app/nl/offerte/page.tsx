@@ -21,8 +21,7 @@ export default function OffertePage() {
             met een voorstel op maat in plaats van een prijslijst.
           </p>
           <p className="text-base">
-            Vertel kort wat je voor ogen hebt, dan krijg je een realistische indicatie. Meestal
-            valt het mee.
+            Vertel kort wat je voor ogen hebt, dan krijg je een realistische indicatie.
           </p>
         </>
       }

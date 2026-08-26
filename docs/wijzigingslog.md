@@ -1832,3 +1832,52 @@ foutmelding. Het waren twee losse oorzaken:
 Nagelopen in vier stappen achter elkaar: rondleiding via een klik, daarna
 gesprek, dan terug naar de rondleiding, en tot slot gesprek vanaf de
 eventspagina. Alle vier laden nu meteen, zonder verversen en zonder JS-fouten.
+
+
+---
+
+## 26 augustus 2026 — zes formatpagina's nagelopen
+
+**Townhall.** "Het ontwerp bepaalt de richtlijn en mate van participatie" liep
+niet en is nu "Een doordacht ontwerp bepaalt waar, wanneer en hoe deelnemers
+bijdragen." Het verschil tussen townhall en all-hands stond alleen op de
+all-handspagina; die uitleg staat er nu ook, en op allebei de pagina's benoemt
+hij nu beide kanten. Kort: bij een townhall staat het gesprek centraal, bij een
+all-hands het gezamenlijke beeld.
+
+**All-hands.** "technische ondersteuning van alle aanwezigen" is "voor alle
+aanwezigen" geworden.
+
+**ALV.** De kop stond al met hoofdletters, ook live; daar was niets aan te doen.
+Wel een extra vraag toegevoegd aan het uitklapmenu, over leden die niet online
+kunnen of willen meedoen. Dat is de vraag die bij vrijwel elke vereniging op tafel
+komt en die bepaalt of de vergadering rechtsgeldig verloopt.
+
+**Teambuilding.** De pagina sprak zichzelf tegen: kop en titel zeiden
+teambuilding, de body en een FAQ zeiden teamontwikkeling, en weer een andere FAQ
+legde uit dat het twee verschillende dingen zijn. Nu overal teambuilding, de
+hoofdterm waar mensen op zoeken. De FAQ die het verschil uitlegde is vervangen
+door "Blijft het bij gezelligheid, of levert het ook iets op?": dezelfde inhoud,
+maar zonder de eigen paginanaam te ondergraven. En-dash in de FAQ vervangen.
+
+**Trainingen & workshops.** Titel en overzichtskaart staan nu in het meervoud, wat
+aansluit bij de ondertitel en bij de inhoud. De kop noemde twee dingen die niemand
+verwacht ("geen computerprogramma of digitaal college"); die is vervangen door
+"Online training? Een leerervaring vraagt meer dan alleen kennisoverdracht", met
+de bijbehorende body.
+
+**Brainstorm.** Kaart en H1 heetten anders; de kaart heet nu ook "Online
+brainstormsessie" (de slug blijft brainstormen). De meta description was de
+kaarttekst; nu Emilies zin als opening, aangevuld tot 158 tekens met de gegevens
+die er al waren. De zes denkhoeden van De Bono stonden alleen in de alt-tekst van
+het hero-beeld en staan nu ook in de tekst zelf.
+
+**Sitebreed.** "Meestal valt het mee" stond in de brainstorm-FAQ en op de
+offertepagina. Vervangen door "Vraag vooral een vrijblijvende offerte aan om een
+beeld te krijgen van de kosten." Verder stond in het blok met gerelateerde
+formats nog een los koppelteken in "Misschien past dit ook - of zelfs beter"; dat
+is een komma geworden. Daarmee staat er op geen van de zes pagina's nog een los
+koppelteken.
+
+**Opgemerkt, niet gedaan:** de Engelse eventpagina's hebben geen eigen meta
+description. /en/events/brainstorm valt terug op de algemene sitebeschrijving.

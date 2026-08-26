@@ -33,7 +33,7 @@ const T = {
     meerAntwoorden: "Meer antwoorden?",
     minderAntwoorden: "Minder antwoorden",
     gerelateerd: "Gerelateerde event formats",
-    gerelateerdOnder: "Misschien past dit ook - of zelfs beter.",
+    gerelateerdOnder: "Misschien past dit ook, of zelfs beter.",
     alleFormatsPijl: "Bekijk alle event formats →",
   },
   en: {

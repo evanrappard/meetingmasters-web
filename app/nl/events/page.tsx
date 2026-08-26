@@ -91,7 +91,7 @@ export const eventCategories: EventCategory[] = [
       },
       {
         slug: "training-workshop",
-        title: "Online training & workshop",
+        title: "Online trainingen & workshops",
         desc: "Leren en groeien in een online setting die écht werkt.",
         iconSrc: "/images/icons/trainingen-en-workshops.png",
         bg: "radial-gradient(circle at 38% 38%, #3ABABA, #1E9898)",
@@ -100,7 +100,7 @@ export const eventCategories: EventCategory[] = [
       },
       {
         slug: "brainstormen",
-        title: "Online brainstormen",
+        title: "Online brainstormsessie",
         desc: "Creatieve sessies die écht ideeën opleveren, ook op afstand.",
         bg: "radial-gradient(circle at 38% 38%, #FFEEC1, #F5D070)",
         ic: "text-[#696758]",
