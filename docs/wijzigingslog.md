@@ -1734,3 +1734,35 @@ In `scripts/seed-sanity.mjs` staat een Sanity-schrijftoken hard in de code, en d
 bestand staat in git. Volgens de afspraak in `CLAUDE.md` horen tokens alleen in
 `.env.local`. Dat token kan iedereen met toegang tot de repo gebruiken om
 CMS-inhoud te wijzigen; intrekken en vervangen is verstandig.
+
+---
+
+## 26 augustus 2026 — Sanity-schrijftoken uit de code
+
+`scripts/seed-sanity.mjs` had het Sanity-schrijftoken hard in de code staan. Deze
+repository is **openbaar** op GitHub, dus dat token lag daarmee op straat, en wel
+sinds commit `2d142c6` van 8 juni 2026.
+
+Nagemeten wat het token kan: het is nog geldig en heeft de rol Editor, oftewel
+lees- én schrijftoegang tot alle datasets van project `u17ha8px`. Iemand met dat
+token kan dus de teksten, cijfers en cases op de homepage aanpassen of wissen.
+
+Het script leest het token nu uit `.env.local` (dat bestand staat in .gitignore),
+net als `scripts/create-hubspot-forms.mjs`. Ontbreekt het, dan stopt het script
+met uitleg in plaats van een onbegrijpelijke fout.
+
+**Wat de code níét oplost: het token blijft in de git-historie staan.** Wie de
+repo kloont kan het daar terugvinden. Het intrekken van het token is dus de
+eigenlijke oplossing, en dat kan alleen Emilie doen:
+
+1. sanity.io/manage → project `u17ha8px` → API → Tokens
+2. het token met de naam **"Seed script"** verwijderen
+3. een nieuw token aanmaken met dezelfde rol (Editor) en dat in `.env.local`
+   zetten als `SANITY_API_TOKEN`
+
+Zolang stap 2 niet gebeurd is, verandert er feitelijk niets aan het risico.
+
+De rest van de historie is nagelopen op dezelfde soort lekken. De treffers op
+`pat-eu1-` (HubSpot) en `service_role` (Supabase) waren vals alarm: een
+voorbeeldregel in een commentaar en een uitleg in een SQL-migratie. Er staan geen
+`.env`-bestanden in de historie, alleen `.env.example`.

@@ -2,14 +2,32 @@ import { createClient } from "@sanity/client";
 import { readFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { config } from "dotenv";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+config({ path: resolve(__dirname, "../.env.local") });
+
+/**
+ * Het schrijftoken komt uit `.env.local` en hoort daar ook te blijven: dat
+ * bestand staat in .gitignore. Het stond hier eerder hard in de code, en omdat
+ * deze repo openbaar is, lag het daarmee op straat.
+ */
+const token = process.env.SANITY_API_TOKEN;
+if (!token) {
+  console.error(
+    "SANITY_API_TOKEN ontbreekt. Zet hem in .env.local:\n" +
+      "  SANITY_API_TOKEN=sk...\n" +
+      "Een nieuw token maak je aan op sanity.io/manage → project u17ha8px → API → Tokens."
+  );
+  process.exit(1);
+}
 
 const client = createClient({
   projectId: "u17ha8px",
   dataset: "production",
   apiVersion: "2024-01-01",
-  token: "sk9Yzao86s1EKy639dUBKlevFJp1kABw83hkTTQ68v30exMIWjKKwQnExnEmo1Q41DnWNfo6UaLObmdtsYz7rhjGNcdIvkIC4bTkq0ws7pG4xlblAOLeExPI76eYITP6KjSauNrLJN60GvBtCdCItyQVfMGoTPMgDV9PjkAp9CpBNFsYmT1q",
+  token,
   useCdn: false,
 });
 
