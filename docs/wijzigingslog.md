@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-25
+> Laatst bijgewerkt: 2026-08-26
 
 ---
 
@@ -1452,3 +1452,38 @@ Verder niets veranderd aan de hero: de bestaande verdonkering en de witte tekst
 blijven zoals ze waren. Ik had "geen donkere filter erbij" eerst gelezen als "haal
 de laag weg"; zonder die laag valt de witte subkop weg tegen de lichte vloer, dus
 dat is teruggedraaid.
+
+---
+
+## 26 augustus 2026 — hero-video 40% lichter
+
+Vraag van Emilie: is de video wel zo licht mogelijk? Nagemeten in plaats van
+gegokt. Alle varianten opgebouwd uit dezelfde bron en vergeleken met SSIM tegen
+een bijna verliesvrije ijkversie:
+
+| variant | grootte | SSIM |
+|---|---|---|
+| H.264 crf 25 (wat live stond) | 2,68 MB | 0,993 |
+| **H.264 crf 29 (nu live)** | **1,61 MB** | **0,988** |
+| H.264 crf 31 | 1,30 MB | 0,985 |
+| VP9 crf 36 (WebM) | 2,84 MB | 0,989 |
+| AV1 crf 40 | 4,37 MB | 0,995 |
+
+Twee conclusies. **H.264 wint hier**: VP9 en AV1 leverden op vergelijkbare
+kwaliteit een gróter bestand, dus een WebM- of AV1-variant ernaast heeft geen zin
+— dat scheelt ook een tweede bestand om bij te houden. En **crf 29 is niet van
+crf 25 te onderscheiden**: op ware grootte naast elkaar gelegd, ingezoomd op de
+gezichten in de bubbels, zie je geen verschil. Dit beeld staat bovendien achter
+een verloop en wordt teruggeschaald naar een band van 1440 px.
+
+Nieuw bestand `hero-boomerang-pauze-licht.mp4` (1,61 MB). De twee voorgangers
+staan er nog maar worden niet meer gebruikt; die mogen weg zodra Emilie het zegt.
+
+Het script kent nu `--crf=` en `--naam=`, met crf 29 als standaard.
+
+**Nog open, apart van de video:** statische bestanden uit `public/` worden
+geserveerd met `cache-control: public, max-age=0, must-revalidate`. Beelden en
+video's worden daardoor bij elk bezoek opnieuw gecontroleerd bij de server. Een
+langere cache-header voor `/videos/*` en `/images/*` scheelt terugkerende
+bezoekers verkeer — maar dan moet een vervangen beeld wél een nieuwe
+bestandsnaam krijgen, anders blijven mensen het oude zien. Nog niet gedaan.

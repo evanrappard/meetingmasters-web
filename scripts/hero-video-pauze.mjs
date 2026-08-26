@@ -1,9 +1,11 @@
 /**
  * Bouwt de hero-video van de homepage opnieuw op, mét een rustpauze.
  *
- *   node scripts/hero-video-pauze.mjs                  → 1,8 s pauze
- *   node scripts/hero-video-pauze.mjs 2.5              → eigen pauzeduur
- *   node scripts/hero-video-pauze.mjs 1.8 --overschrijf → bestaand bestand vervangen
+ *   node scripts/hero-video-pauze.mjs                    → 1,8 s pauze, crf 29
+ *   node scripts/hero-video-pauze.mjs 2.5                → eigen pauzeduur
+ *   node scripts/hero-video-pauze.mjs --crf=25           → mooier en zwaarder
+ *   node scripts/hero-video-pauze.mjs --naam=proef.mp4   → ander uitvoerbestand
+ *   node scripts/hero-video-pauze.mjs --overschrijf      → bestaand bestand vervangen
  *
  * Wat er gebeurt, en waarom zo:
  *
@@ -28,9 +30,17 @@
  *    ronde). Op allebei die plekken bevriezen we het laatste beeld, anders krijg
  *    je een ongelijk ritme. Het naar voren komen blijft even snel.
  *
- * Uitvoer: `public/videos/hero-boomerang-pauze.mp4`. Het oude
- * `hero-boomerang.mp4` blijft staan; dit script overschrijft niets zonder
- * `--overschrijf`.
+ * 5. **Compressie: CRF 29.** Gemeten tegen een bijna verliesvrije ijkversie
+ *    (SSIM): crf 25 → 0,993 bij 2,68 MB; crf 29 → 0,988 bij 1,61 MB; crf 31 →
+ *    0,985 bij 1,30 MB. Op ware grootte is 29 niet van 25 te onderscheiden,
+ *    ook niet op de gezichten in de bubbels — en dit beeld staat achter een
+ *    verloop, op een band die naar 1440 px wordt teruggeschaald. VP9 (2,84 MB)
+ *    en AV1 (4,37 MB) waren op vergelijkbare kwaliteit groter dan H.264, dus
+ *    een WebM-variant ernaast heeft hier geen zin.
+ *
+ * Uitvoer: `public/videos/hero-boomerang-pauze-licht.mp4`. Eerdere versies
+ * (`hero-boomerang.mp4`, `hero-boomerang-pauze.mp4`) blijven staan; dit script
+ * overschrijft niets zonder `--overschrijf`.
  */
 import { spawn } from "node:child_process";
 import { existsSync, statSync } from "node:fs";
@@ -41,14 +51,21 @@ import ffmpeg from "ffmpeg-static";
 const args = process.argv.slice(2);
 const pauze = Number(args.find((a) => !a.startsWith("--")) ?? 1.8);
 const overschrijven = args.includes("--overschrijf");
+const crf = Number(args.find((a) => a.startsWith("--crf="))?.slice(6) ?? 29);
+const naam = args.find((a) => a.startsWith("--naam="))?.slice(7)
+  ?? "hero-boomerang-pauze-licht.mp4";
 
 if (!Number.isFinite(pauze) || pauze < 0 || pauze > 10) {
   console.error("Geef een pauze tussen 0 en 10 seconden.");
   process.exit(1);
 }
+if (!Number.isInteger(crf) || crf < 16 || crf > 40) {
+  console.error("Geef een crf tussen 16 en 40 (lager = mooier en zwaarder).");
+  process.exit(1);
+}
 
 const bron = join(homedir(), "Downloads", "welcome hero stock.mp4");
-const doel = join(process.cwd(), "public", "videos", "hero-boomerang-pauze.mp4");
+const doel = join(process.cwd(), "public", "videos", naam);
 
 if (!existsSync(bron)) {
   console.error(`Bronbestand niet gevonden: ${bron}`);
@@ -66,14 +83,14 @@ const filter = [
   `[a][b]concat=n=2:v=1:a=0[v]`,
 ].join(";");
 
-console.log(`Bouwen met ${pauze} s pauze op beide rustpunten…`);
+console.log(`Bouwen met ${pauze} s pauze op beide rustpunten, crf ${crf} → ${naam}…`);
 
 const ff = spawn(ffmpeg, [
   "-hide_banner", "-loglevel", "error", "-stats",
   "-i", bron,
   "-filter_complex", filter,
   "-map", "[v]", "-an",
-  "-c:v", "libx264", "-preset", "slow", "-crf", "25",
+  "-c:v", "libx264", "-preset", "slow", "-crf", String(crf),
   "-pix_fmt", "yuv420p", "-movflags", "+faststart",
   "-y", doel,
 ], { stdio: "inherit" });
