@@ -45,8 +45,13 @@ type Props = {
 
 /**
  * Vaste opzet voor de pagina's die om één formulier draaien: rondleiding,
- * boeking en kostenindicatie. Het formulier staat links, de directe route
- * (mail en telefoon) daarnaast — bellen mag altijd sneller zijn dan typen.
+ * boeking en kostenindicatie.
+ *
+ * Het formulier staat naast de introtekst, rechts in het openingsblok. Het
+ * stond eerder in een aparte sectie eronder, waardoor je eerst voorbij een
+ * scherm tekst moest scrollen voor je het zag, terwijl de rechterhelft van de
+ * opening leeg stond. De directe route (mail en telefoon) staat daaronder:
+ * bellen mag altijd sneller zijn dan typen.
  */
 export default function FormulierPagina({
   label,
@@ -63,14 +68,27 @@ export default function FormulierPagina({
     <div className="bg-white">
       <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="max-w-2xl">
-            <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
-              {label}
-            </p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
-              {titel}
-            </h1>
-            <div className="text-[#434343] text-lg leading-relaxed space-y-4">{intro}</div>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,520px)] gap-10 lg:gap-16 items-start">
+            <div className="max-w-2xl lg:pt-2">
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
+                {label}
+              </p>
+              <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
+                {titel}
+              </h1>
+              <div className="text-[#434343] text-lg leading-relaxed space-y-4">{intro}</div>
+            </div>
+
+            {/* Het formulier meteen in beeld, in een eigen wit kaartje. */}
+            <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-2">{formulierKop}</h2>
+              <p className="text-sm text-[#434343] leading-relaxed mb-6">{formulierUitleg}</p>
+              {agenda ? (
+                <HubSpotAgenda link={HUBSPOT_AGENDA} taal={taal} />
+              ) : (
+                <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor(formulier, taal)} taal={taal} />
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -79,16 +97,6 @@ export default function FormulierPagina({
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>
-              <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{formulierKop}</h2>
-              <p className="text-sm text-[#434343] leading-relaxed mb-8">{formulierUitleg}</p>
-              {agenda ? (
-                <HubSpotAgenda link={HUBSPOT_AGENDA} taal={taal} />
-              ) : (
-                <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor(formulier, taal)} />
-              )}
-            </div>
-
-            <div className="lg:pt-1">
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{t.directKop}</h2>
               <p className="text-sm text-[#434343] leading-relaxed mb-8">{t.directTekst}</p>
               <ul className="space-y-4">
@@ -108,8 +116,10 @@ export default function FormulierPagina({
                   </a>
                 </li>
               </ul>
+            </div>
 
-              <p className="text-sm text-[#434343] leading-relaxed mt-10">
+            <div className="lg:pt-1">
+              <p className="text-sm text-[#434343] leading-relaxed">
                 {t.nogNiet}{" "}
                 <Link
                   href={t.adviesHref}

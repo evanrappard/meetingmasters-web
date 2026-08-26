@@ -1672,3 +1672,65 @@ een keer, maar dat is een antwoord op een expliciete vraag.
   hoogte heeft `max-h-full` niets om zich tegen af te zetten, dus rendeerde het
   beeld op ware grootte en moest je scrollen. Nu `height: min(64dvh, 620px)`:
   kaart plus knoppen passen op laptop, klein venster en telefoon.
+
+---
+
+## 26 augustus 2026 — pagina's openen bovenaan, formulier in beeld, twee punten op de i
+
+### Pagina's openden niet bovenaan
+
+Klikte je door naar een volgende pagina, dan stond je zo'n 89 pixels onder de
+bovenkant: je moest eerst omhoog scrollen om het begin te zien. De oorzaak stond
+in `app/globals.css`: `scroll-behavior: smooth` op `html`. Next scrollt bij een
+paginawissel naar 0, maar met zacht scrollen wordt dat een animatie die halverwege
+blijft steken.
+
+Nu geldt zacht scrollen alleen nog als er echt een anker in de URL staat
+(`html:has(:target)`). Paginawissels springen weer hard naar boven; de ankerlinks
+binnen een pagina (#games, #tools) scrollen nog steeds zacht. Nagelopen op twaalf
+routes via de voettekst: allemaal bovenaan.
+
+### Formulier stond te laag
+
+Op "Plan een gesprek" en "Plan een rondleiding" stond de rechterhelft van het
+openingsblok leeg terwijl het formulier pas ná een scherm tekst begon. Het
+formulier staat nu in een wit kaartje rechts naast de introtekst, meteen in beeld.
+"Liever direct contact?" is de sectie eronder geworden.
+
+Dat geldt voor beide talen en voor alle pagina's die `FormulierPagina` gebruiken:
+rondleiding, boeking en kostenindicatie.
+
+### Formulier laadde soms niet
+
+Emilie zag soms een leeg vlak of een foutmelding, en na herladen werkte het wel.
+`HubSpotForm` wachtte alleen op het `load`-event van het HubSpot-script. Stond dat
+script al in de pagina van een eerdere formulierpagina, dan kan dat event al
+geweest zijn voordat het component zijn luisteraar aanhaakt: die gaat dan nooit
+meer af en je houdt een leeg vlak tot je herlaadt.
+
+Drie voorzorgen toegevoegd:
+
+1. **Pollen** (elke 200 ms) naast het `load`-event, zodat een gemist event niet
+   meer uitmaakt.
+2. **Foutafhandeling** op het script. Blokkeert een browser of extensie het,
+   dan verschijnt een boodschap met mail- en telefoonknop in plaats van niets.
+3. **Tijdslimiet** van 10 seconden met diezelfde terugval, plus een knop
+   "Probeer opnieuw" die het formulier opnieuw opbouwt zonder paginaherlading.
+
+### Homepage
+
+- **Sterretje bij 94%.** De cijfers komen uit de CMS, en daar ontbrak het
+  sterretje bij "tevredenheid na afloop" terwijl 47% en 66% het wél hadden.
+  Daardoor leek dat cijfer van onszelf te komen in plaats van uit
+  SpatialChat-platformdata. De code zet het sterretje nu zeker bij de drie
+  SpatialChat-cijfers (94%, 47%, 66%), ongeacht wat er in de CMS staat.
+- **LinkedIn-icoon in de voet.** Was een dunne omtrek uit lucide en werd niet
+  herkend. Nu het officiële merkteken, diapositief: gevuld vierkant met de
+  letters uitgespaard, als inline SVG (scherp op elk formaat, geen extra bestand).
+
+### Opgemerkt, niet aangeraakt
+
+In `scripts/seed-sanity.mjs` staat een Sanity-schrijftoken hard in de code, en dat
+bestand staat in git. Volgens de afspraak in `CLAUDE.md` horen tokens alleen in
+`.env.local`. Dat token kan iedereen met toegang tot de repo gebruiken om
+CMS-inhoud te wijzigen; intrekken en vervangen is verstandig.

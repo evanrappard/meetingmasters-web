@@ -34,11 +34,25 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
         getHomepageCases().catch(() => []),
       ]);
 
-  const stats = engels
-    ? HOME_EN.stats
-    : cmsContent?.stats?.length
-      ? cmsContent.stats.map((s) => ({ number: s.value, label: s.label }))
-      : DEFAULT_STATS;
+  /**
+   * De drie cijfers die uit SpatialChat-platformdata komen dragen een sterretje,
+   * dat verwijst naar de voetnoot onder de balk. Bij 94% ontbrak dat in de CMS,
+   * waardoor het leek alsof dat cijfer van onszelf kwam. We zetten het hier
+   * zeker, zodat het klopt ongeacht hoe het label in de CMS staat.
+   */
+  const SPATIALCHAT_CIJFERS = ["94%", "47%", "66%"];
+  const metSterretje = (s: { number: string; label: string }) =>
+    SPATIALCHAT_CIJFERS.includes(s.number.trim()) && !s.label.trim().endsWith("*")
+      ? { ...s, label: `${s.label}*` }
+      : s;
+
+  const stats = (
+    engels
+      ? HOME_EN.stats
+      : cmsContent?.stats?.length
+        ? cmsContent.stats.map((s) => ({ number: s.value, label: s.label }))
+        : DEFAULT_STATS
+  ).map(metSterretje);
 
   // Een logo-item uit het CMS kan (nog) zonder afbeelding zijn opgeslagen; die
   // slaan we over in plaats van de hele pagina te laten struikelen.

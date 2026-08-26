@@ -32,8 +32,24 @@
     --radius: 0.5rem;
   }
 
-  html {
+  /*
+    Zacht scrollen alleen voor ankerlinks binnen een pagina (#games, #tools).
+    Stond dit op `html` zonder voorwaarde, dan raakte de sprong naar boven bij
+    een paginawissel eronder: Next scrollt naar 0, de zachte animatie liep nog
+    en de pagina bleef ~89px onder de bovenkant hangen. Je moest dus omhoog
+    scrollen om het begin te zien.
+
+    `:has(:target)` betekent: er is een element aangewezen door een #-adres in
+    de URL. Alleen dan scrollen we zacht.
+  */
+  html:has(:target) {
     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:has(:target) {
+      scroll-behavior: auto;
+    }
   }
 
   * {

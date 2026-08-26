@@ -35,7 +35,29 @@ type HubSpotFormProps = {
   /** HubSpot-datacenter van het account, bv. "eu1" of "na1". */
   region?: string;
   className?: string;
+  /** Taal van de terugvalboodschap als het formulier niet laadt. */
+  taal?: "nl" | "en";
 };
+
+/** Wat er staat als het formulier er niet komt. */
+const TERUGVAL = {
+  nl: {
+    kop: "Het formulier laadt niet.",
+    tekst:
+      "Dat ligt aan de dienst waarmee we formulieren maken, niet aan jou. Probeer het opnieuw, of neem gewoon rechtstreeks contact op.",
+    opnieuw: "Probeer opnieuw",
+    mail: "Mail ons",
+    bel: "Bel ons",
+  },
+  en: {
+    kop: "The form isn't loading.",
+    tekst:
+      "That's down to the service we build forms with, not to you. Try again, or simply get in touch directly.",
+    opnieuw: "Try again",
+    mail: "Email us",
+    bel: "Call us",
+  },
+} as const;
 
 /**
  * Herbruikbaar component voor het embedden van een HubSpot-formulier.
@@ -48,6 +70,7 @@ export default function HubSpotForm({
   formId,
   region = "eu1",
   className,
+  taal = "nl",
 }: HubSpotFormProps) {
   const reactId = useId();
   // Geldige CSS/DOM-id (useId bevat ":") voor de target-div.
@@ -55,6 +78,9 @@ export default function HubSpotForm({
   const created = useRef(false);
   const doel = useRef<HTMLDivElement>(null);
   const [inZicht, setInZicht] = useState(false);
+  const [mislukt, setMislukt] = useState(false);
+  /** Ophogen forceert een nieuwe poging zonder de pagina te herladen. */
+  const [poging, setPoging] = useState(0);
 
   /**
    * Het HubSpot-script trekt reCAPTCHA mee: ruim 300 kB, en dat werd op elke
@@ -84,6 +110,21 @@ export default function HubSpotForm({
     return () => kijker.disconnect();
   }, []);
 
+  /**
+   * Laden en aanmaken, met drie voorzorgen die eerder ontbraken:
+   *
+   * 1. **Pollen in plaats van alleen op `load` wachten.** Stond het script al
+   *    in de pagina van een vorige formulierpagina, dan kan zijn `load` al
+   *    geweest zijn voordat dit component zijn luisteraar aanhaakt. Die
+   *    luisteraar gaat dan nooit meer af en je houdt een leeg vlak, tot je de
+   *    pagina herlaadt. Daarom kijken we ook elke 200 ms zelf of `hbspt` er is.
+   * 2. **Een fout op het script opvangen.** Blokkeert een browser of extensie
+   *    het (Safari doet dat sneller dan Chrome), dan tonen we een boodschap met
+   *    directe contactmogelijkheden in plaats van niets.
+   * 3. **Een tijdslimiet.** Komt het formulier binnen 10 seconden niet, dan
+   *    laten we diezelfde terugval zien, met een knop om het opnieuw te
+   *    proberen zonder de pagina te herladen.
+   */
   useEffect(() => {
     if (!inZicht || created.current) return;
 
@@ -91,21 +132,36 @@ export default function HubSpotForm({
     // lib/hubspot-toestemming.ts — dit moet vóór het script gebeuren.
     zetHubSpotTracking(leesKeuze() === "alles");
 
-    const create = () => {
-      if (created.current || !window.hbspt) return;
-      created.current = true;
-      window.hbspt.forms.create({
-        region,
-        portalId,
-        formId,
-        target: `#${targetId}`,
-      });
+    let gestopt = false;
+    // In één houder, zodat `opruimen` ernaar kan verwijzen voordat de tellers
+    // bestaan: `create()` draait namelijk al één keer vóór we ze zetten.
+    const tellers: {
+      poller?: ReturnType<typeof setInterval>;
+      limiet?: ReturnType<typeof setTimeout>;
+    } = {};
+
+    const opruimen = () => {
+      gestopt = true;
+      if (tellers.poller) clearInterval(tellers.poller);
+      if (tellers.limiet) clearTimeout(tellers.limiet);
     };
 
-    if (window.hbspt) {
-      create();
-      return;
-    }
+    const create = () => {
+      if (gestopt || created.current || !window.hbspt) return;
+      created.current = true;
+      opruimen();
+      setMislukt(false);
+      window.hbspt.forms.create({ region, portalId, formId, target: `#${targetId}` });
+    };
+
+    const misgegaan = () => {
+      if (gestopt || created.current) return;
+      opruimen();
+      setMislukt(true);
+    };
+
+    create();
+    if (created.current) return;
 
     // Script eenmalig laden; meerdere formulieren delen hetzelfde script.
     const bron = scriptAdres(region);
@@ -117,8 +173,17 @@ export default function HubSpotForm({
       document.body.appendChild(script);
     }
     script.addEventListener("load", create);
-    return () => script?.removeEventListener("load", create);
-  }, [inZicht, portalId, formId, region, targetId]);
+    script.addEventListener("error", misgegaan);
+
+    tellers.poller = setInterval(create, 200);
+    tellers.limiet = setTimeout(misgegaan, 10000);
+
+    return () => {
+      opruimen();
+      script?.removeEventListener("load", create);
+      script?.removeEventListener("error", misgegaan);
+    };
+  }, [inZicht, portalId, formId, region, targetId, poging]);
 
   // Wijzigt de bezoeker zijn keuze terwijl het formulier op het scherm staat,
   // dan gaat die wijziging meteen mee.
@@ -129,5 +194,42 @@ export default function HubSpotForm({
     return () => window.removeEventListener(TOESTEMMING_EVENT, bij);
   }, []);
 
-  return <div ref={doel} id={targetId} className={className} />;
+  const t = TERUGVAL[taal];
+
+  return (
+    <>
+      <div ref={doel} id={targetId} className={className} />
+      {mislukt && (
+        <div className="rounded-lg border border-[#EBEBEB] bg-[#FAFAFA] p-6">
+          <p className="font-bold text-[#2D2D2D] mb-2">{t.kop}</p>
+          <p className="text-sm text-[#434343] leading-relaxed mb-5">{t.tekst}</p>
+          <div className="flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                created.current = false;
+                setMislukt(false);
+                setPoging((n) => n + 1);
+              }}
+              className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:bg-[#D4A835] transition-colors"
+            >
+              {t.opnieuw}
+            </button>
+            <a
+              href="mailto:contact@meetingmasters.online"
+              className="border border-[#D2D2D0] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:border-[#2D2D2D] transition-colors"
+            >
+              {t.mail}
+            </a>
+            <a
+              href="tel:+31202390313"
+              className="border border-[#D2D2D0] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:border-[#2D2D2D] transition-colors"
+            >
+              {t.bel}
+            </a>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }

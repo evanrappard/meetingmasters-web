@@ -23,7 +23,8 @@ export default function ExpertAdvicePage() {
       {/* ── HERO / INTRO ── */}
       <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="max-w-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,520px)] gap-10 lg:gap-16 items-start">
+          <div className="max-w-2xl lg:pt-2">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
               Expert advice
             </p>
@@ -42,23 +43,17 @@ export default function ExpertAdvicePage() {
               as the occasion allows.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* ── CONTACT-OPTIES + FORMULIER ── */}
-      <section className="bg-white py-16">
-        <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Formulier */}
-            <div>
-              <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">
+            {/* The form right there in view, in its own white card. */}
+            <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-2">
                 Fill in the form
               </h2>
-              <p className="text-sm text-[#434343] leading-relaxed mb-8">
+              <p className="text-sm text-[#434343] leading-relaxed mb-6">
                 Leave your question or idea and we&rsquo;ll think it through. You&rsquo;re not
                 committing to anything.
               </p>
-              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("advies", "en")} />
+              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("advies", "en")} taal="en" />
 
               {/* Het formulier blijft voorop: daarin staat waar het over gaat,
                   en daardoor is het eerste gesprek meteen inhoudelijk. Wie dat
@@ -78,9 +73,15 @@ export default function ExpertAdvicePage() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Directe opties */}
-            <div className="lg:pt-1">
+      {/* ── DIRECTE OPTIES ── */}
+      <section className="bg-white py-16">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <div>
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">
                 Rather talk to someone?
               </h2>

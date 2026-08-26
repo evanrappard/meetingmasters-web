@@ -18,7 +18,8 @@ export default function ExpertAdviesPage() {
       {/* ── HERO / INTRO ── */}
       <section className="bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="max-w-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,520px)] gap-10 lg:gap-16 items-start">
+          <div className="max-w-2xl lg:pt-2">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
               Expert advies
             </p>
@@ -38,23 +39,19 @@ export default function ExpertAdviesPage() {
               betrokkenheid.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* ── CONTACT-OPTIES + FORMULIER ── */}
-      <section className="bg-white py-16">
-        <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Formulier */}
-            <div>
-              <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">
+            {/* Het formulier meteen in beeld, in een eigen wit kaartje. Stond
+                eerder in een sectie hieronder, waardoor je er eerst een scherm
+                tekst voorbij moest scrollen terwijl deze helft leeg stond. */}
+            <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-2">
                 Vul het formulier in
               </h2>
-              <p className="text-sm text-[#434343] leading-relaxed mb-8">
+              <p className="text-sm text-[#434343] leading-relaxed mb-6">
                 Laat je vraag of idee achter, dan denken we met je mee. Je zit
                 nergens aan vast.
               </p>
-              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.advies} />
+              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.advies} taal="nl" />
 
               {/* Het formulier blijft voorop: daarin staat waar het over gaat,
                   en daardoor is het eerste gesprek meteen inhoudelijk. Wie dat
@@ -74,9 +71,15 @@ export default function ExpertAdviesPage() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Directe opties */}
-            <div className="lg:pt-1">
+      {/* ── DIRECTE OPTIES ── */}
+      <section className="bg-white py-16">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <div>
               <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">
                 Liever direct contact?
               </h2>
