@@ -2780,7 +2780,7 @@ export const EVENT_TEKST_EN: Record<string, Partial<EventData>> = {
     "intro": "We design online networking events where people genuinely meet: through smart matchmaking, structured conversations and an environment that encourages chance encounters.",
     "forWho": "Trade associations, alumni, platforms, HR teams",
     "range": "30-300 participants",
-    "heroAlt": "Online networking event in a virtual bar, where participants meet each other informally",
+    "heroAlt": "Participant following an online networking event in SpatialChat on her laptop, with small groups talking across the virtual space",
     "outcomeSummary": "For conversations worth having, smart matches and online meeting that feels natural.",
     "outcomes": [
       {

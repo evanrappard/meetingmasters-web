@@ -619,7 +619,7 @@ export const EVENT_DATA: Record<string, EventData> = {
     title: "Online netwerkevent organiseren",
     bg: "radial-gradient(circle at 38% 38%, #4ABABA, #28A0A0)",
     heroSrc: "/images/events-netwerkevent-hero-v2.webp",
-    heroAlt: "Online netwerkevent in een virtuele bar, waar deelnemers elkaar informeel ontmoeten",
+    heroAlt: "Deelnemer volgt op haar laptop een online netwerkevent in SpatialChat, met groepjes die verspreid over de virtuele ruimte in gesprek zijn",
     Icon: Network, ic: "text-white",
     tagline: "Mensen verbinden die elkaar nog niet kennen: online, laagdrempelig en met echte gesprekken.",
     intro:

@@ -1930,3 +1930,21 @@ site.
 
 **Niet gedaan:** in de Engelse teksten staat "cohort" nog. Daar is het een gewoon
 woord in trainingscontext, dus dat heb ik laten staan.
+
+
+---
+
+## 26 augustus 2026 — netwerkevent: uitsnede gecontroleerd, alt-tekst hersteld
+
+De uitsnede zelf is in orde. Nagekeken op 1100, 1440 en 1920 px: het laptopscherm
+met de SpatialChat-ruimte blijft op alle drie volledig in beeld, de handen ook, en
+de tekstkolom links blijft leesbaar. Er is dus geen eigen crop of donkerlaag nodig.
+
+Wel klopte de alt-tekst niet. Die beschreef "een virtuele bar waar deelnemers
+elkaar informeel ontmoeten", terwijl het beeld een vrouw achter haar laptop toont
+met een virtuele ruimte vol planten op het scherm. Dat is iets anders dan wat er
+staat, en het is precies waar een screenreader op afgaat. In beide talen vervangen
+door een beschrijving van wat er werkelijk te zien is.
+
+Ter controle `npm run altcheck` gedraaid: 1008 beelden, allemaal met alt of als
+versiering aangemerkt.
