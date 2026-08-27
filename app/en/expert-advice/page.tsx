@@ -41,7 +41,7 @@ export default function ExpertAdvicePage() {
               quote.
             </p>
             <p className="text-[#434343] text-lg leading-relaxed mb-10">
-              Ask your question through the form, or simply book a conversation.
+              Ask your question through the form, book a conversation, or simply get in touch directly.
             </p>
 
             {/* De directe routes staan bij de tekst, net als op de Nederlandse

@@ -36,7 +36,7 @@ export default function ExpertAdviesPage() {
               werken we dat uit in een vrijblijvende offerte.
             </p>
             <p className="text-[#434343] text-lg leading-relaxed mb-10">
-              Stel je vraag via het formulier of plan gewoon een gesprek.
+              Stel je vraag via het formulier, plan gewoon een gesprek of neem direct contact met ons op.
             </p>
 
             {/* De directe routes staan bij de tekst, niet in een sectie onder het
