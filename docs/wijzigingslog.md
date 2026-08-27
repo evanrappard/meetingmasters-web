@@ -2142,3 +2142,30 @@ bestaan er precies twee advies-formulieren (NL en EN, geen van beide gearchiveer
 in de code wordt alleen `HUBSPOT_FORMS.advies` gebruikt op `/nl/expert-advies` en
 `/en/expert-advice`, en alle 40 links op de site die over advies of een gesprek
 gaan wijzen naar die twee pagina's. Er is dus geen oude versie meer in omloop.
+
+
+---
+
+## 26 augustus 2026 — adviespagina: nieuwe opening, één tekstgrootte
+
+De linkerkolom van `/nl/expert-advies` en `/en/expert-advice`:
+
+- **Nieuwe kop en opening.** "Even sparren maakt veel verschil." met daaronder
+  de tekst van Emilie. De oude kop ("Houd je idee vrijblijvend tegen ons aan.")
+  is vervallen, want haar tekst begon met een eigen kop.
+- **Eén tekstgrootte.** De tweede alinea stond op `text-base` en de eerste op
+  `text-lg`; dat las als een voetnoot in plaats van als doorlopende tekst. Nu
+  allebei `text-lg` (18 px).
+- **"Liever meteen een moment kiezen"** staat nu in de linkerkolom onder de
+  tekst, in plaats van onder het formulier. Wie liever belt of meteen prikt,
+  leest dat nu bij het verhaal en niet pas voorbij het formulier.
+
+Het gedachtestreepje in de tweede alinea is meteen een dubbele punt geworden,
+zoals de stijlgids voorschrijft.
+
+**Bestandsveld niet aangeraakt.** "Bestand kiezen" en "Geen bestand gekozen" zijn
+tekst van de browser zelf (16 px, Helvetica Neue), binnen het venster dat HubSpot
+om het formulier zet. Onze opmaak komt daar niet bij, en de Forms API kent geen
+instelling per veld. Het had gekund door het formulier zonder dat venster te laten
+renderen, maar dan verandert het uiterlijk overal; Emilie koos ervoor het te
+laten zoals het is.

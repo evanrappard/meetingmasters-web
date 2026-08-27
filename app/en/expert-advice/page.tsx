@@ -29,19 +29,39 @@ export default function ExpertAdvicePage() {
               Expert advice
             </p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
-              Run your idea past us, no strings attached.
+              Talking it through makes a difference.
             </h1>
+            {/* Eén tekstgrootte voor de hele introductie, net als op de
+                Nederlandse pagina. */}
             <p className="text-[#434343] text-lg leading-relaxed mb-4">
-              We are specialists in online meetings. Do feel free to get in touch
-              and try an idea out on us. You always get our honest advice, worked
-              out into a no-obligation quote if that&rsquo;s what you want.
+              No idea yet what you want? Or a concrete plan you find yourself
+              wondering about, whether it could be done differently or better? Do
+              give us a call. We think along straight away and you always get our
+              honest advice. If you&rsquo;d like, we work it out into a no-obligation
+              quote.
             </p>
-            <p className="text-[#434343] text-base leading-relaxed">
+            <p className="text-[#434343] text-lg leading-relaxed">
               Whether it&rsquo;s advice with no strings attached, a second opinion on a
-              design you already have, or a set-up you have in mind — what we add is
-              always the same: as much personal contact, interaction and engagement
+              design you already have, or a set-up you have in mind: what we add is
+              always the same, as much personal contact, interaction and engagement
               as the occasion allows.
             </p>
+
+            {/* Stond eerder onder het formulier. */}
+            <div className="mt-8 pt-6 border-t border-[#EBEBEB]">
+              <p className="text-[#434343] leading-relaxed mb-3">
+                Rather pick a moment straight away? That works too.
+              </p>
+              <a
+                href={HUBSPOT_AGENDA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#2D2D2D] border border-[#D2D2D0] rounded px-5 py-3 hover:border-[#2D2D2D] transition-colors"
+              >
+                <CalendarDays size={17} className="text-[#28A8AA]" />
+                Pick a moment in the diary
+              </a>
+            </div>
           </div>
 
             {/* The form right there in view, in its own white card. */}
@@ -54,24 +74,6 @@ export default function ExpertAdvicePage() {
                 committing to anything.
               </p>
               <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("advies", "en")} taal="en" />
-
-              {/* Het formulier blijft voorop: daarin staat waar het over gaat,
-                  en daardoor is het eerste gesprek meteen inhoudelijk. Wie dat
-                  liever overslaat, prikt hieronder gewoon een moment. */}
-              <div className="mt-8 pt-6 border-t border-[#EBEBEB]">
-                <p className="text-sm text-[#434343] leading-relaxed mb-3">
-                  Rather pick a moment straight away? That works too.
-                </p>
-                <a
-                  href={HUBSPOT_AGENDA}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#2D2D2D] border border-[#D2D2D0] rounded px-5 py-3 hover:border-[#2D2D2D] transition-colors"
-                >
-                  <CalendarDays size={17} className="text-[#28A8AA]" />
-                  Pick a moment in the diary
-                </a>
-              </div>
             </div>
           </div>
         </div>
