@@ -2156,9 +2156,13 @@ De linkerkolom van `/nl/expert-advies` en `/en/expert-advice`:
 - **Eén tekstgrootte.** De tweede alinea stond op `text-base` en de eerste op
   `text-lg`; dat las als een voetnoot in plaats van als doorlopende tekst. Nu
   allebei `text-lg` (18 px).
-- **"Liever meteen een moment kiezen"** staat nu in de linkerkolom onder de
-  tekst, in plaats van onder het formulier. Wie liever belt of meteen prikt,
-  leest dat nu bij het verhaal en niet pas voorbij het formulier.
+- **De directe routes staan nu bij de tekst.** Het blok "Liever direct contact?"
+  met mail, telefoon en WhatsApp is uit de sectie onder het formulier gehaald en
+  staat in de linkerkolom. De agenda is daar gewoon een vierde optie geworden,
+  zonder eigen tussenzin. De sectie eronder is daarmee vervallen, dus de pagina
+  is een blok korter.
+- **De tweede alinea is één zin**: "Stel je vraag via het formulier of plan gewoon
+  een gesprek." 
 
 Het gedachtestreepje in de tweede alinea is meteen een dubbele punt geworden,
 zoals de stijlgids voorschrijft.
