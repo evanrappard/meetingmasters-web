@@ -2288,3 +2288,31 @@ gaan niet door de beeldverwerking van Next, maar staan als bestand op de site.
 Daar verandert kwaliteit 90 dus niets. `events-hero-poster-v2.webp` is met 386 kB
 het zwaarste losse beeld van de site; die is het bekijken waard als de laadtijd
 ooit knelt, maar hij wordt op desktop meteen bedekt door de video.
+
+
+---
+
+## 26 augustus 2026 — de posterbeeld achter de events-video gehalveerd
+
+Emilie vroeg zich af of die poster wel nodig is als er toch een video draait.
+Nagemeten wat een bezoeker binnenhaalt:
+
+| Situatie | Poster | Video | Samen |
+|---|---|---|---|
+| Desktop, was | 386 kB | 1286 kB | 1672 kB |
+| Desktop, nu | 191 kB | 1286 kB | **1477 kB** |
+| Verminder beweging | 191 kB | geen | 191 kB |
+| Telefoon | 141 kB | geen | 141 kB |
+
+De poster is dus wél nodig: op de telefoon en bij "verminder beweging" ís hij de
+hero, en op desktop is hij het eerste beeld in de 265 ms voordat de video begint,
+plus het vangnet als die niet speelt.
+
+Maar 1600 px was overmaat voor die rol. Nu 1280 px: `events-hero-poster-v3.webp`,
+191 kB. Lichter comprimeren hielp nauwelijks; dit beeld zit vol bladeren en
+lichtjes en blijft daardoor zwaar (op kwaliteit 58 nog 287 kB). De winst zat in
+de afmeting.
+
+Dit is de uitzondering op "kwaliteit gaat voor": het verschil is alleen zichtbaar
+voor wie de poster permanent ziet, en 1280 px op een band van 1440 px blijft daar
+ruim scherp genoeg.

@@ -94,7 +94,7 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <HeroAchtergrond
-            poster="/images/events-hero-poster-v2.webp"
+            poster="/images/events-hero-poster-v3.webp"
             posterMobiel="/images/events-hero-poster-v2-mobiel.webp"
             bronnen={[{ src: "/videos/events-hero-v2.mp4", type: "video/mp4" }]}
             alt={t.hero.videoAlt}
