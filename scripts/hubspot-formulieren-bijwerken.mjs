@@ -97,8 +97,39 @@ const interesseVeld = (taal, label) =>
   });
 
 /**
- * Per formulier: wat er moet staan. `labels` past bestaande velden aan,
- * `voorVeld` zet een nieuw veld vóór een bestaand veld.
+ * De keuzelijst "wat wil je boeken / waar gaat je vraag over". Zelfde waarden op
+ * beide formulieren en in beide talen, zodat alles in HubSpot in één veld
+ * terechtkomt en vergelijkbaar blijft.
+ *
+ * `escapemasters` staat nog wel in de contacteigenschap, maar niet meer in de
+ * formulieren: oude aanmeldingen moeten leesbaar blijven.
+ */
+const BOEKING_WAARDEN = ["zaaltje", "event", "ravenhack", "anders"];
+const BOEKING_OPTIES = {
+  nl: ["Online zaaltje", "Event", "Escape Room R@venHack", "Anders (licht hieronder toe)"],
+  en: ["Online meeting room", "Event", "Escape Room R@venHack", "Other (please specify below)"],
+};
+const boekingVeld = (taal, label) =>
+  veld("mm_boeking_type", label, "dropdown", {
+    options: BOEKING_WAARDEN.map((value, i) => ({
+      label: BOEKING_OPTIES[taal][i],
+      value,
+      displayOrder: i,
+    })),
+  });
+
+/**
+ * Per formulier: wat er moet staan.
+ *
+ *   labels        past het label van een bestaand veld aan
+ *   placeholders  zet een voorbeeldtekst ín een bestaand veld
+ *   voorVeld      zet een nieuw veld vóór een bestaand veld
+ *   naVeld        zet een nieuw veld ná een bestaand veld
+ *   opDezelfdeRegel  zet een nieuw veld naast een bestaand veld, in dezelfde
+ *                    groep; HubSpot toont een groep met twee velden als één rij
+ *   velden        vervangt een bestaand veld door een nieuwe versie
+ *   weg           haalt een veld uit het formulier (de gegevens in HubSpot
+ *                 blijven bestaan)
  */
 const FORMULIEREN = {
   advies: {
@@ -116,6 +147,53 @@ const FORMULIEREN = {
       labels: { message: "Question or message" },
       naVeld: { message: () => veld("mm_bijlage", "Attach a file or photo (optional)", "file") },
     },
+  },
+  boeking: {
+    nl: {
+      id: "ddf3e496-b036-4720-b7b1-44eed87f7506",
+      knop: "Check beschikbaarheid",
+      dank: "Dank je wel. We bevestigen je aanvraag binnen twee werkdagen. Iets met haast? Bel of mail ons: +31 6 4575 2819 | contact@meetingmasters.online",
+      velden: { mm_boeking_type: () => boekingVeld("nl", "Wat wil je boeken?") },
+      opDezelfdeRegel: {
+        mm_gewenste_datum: () => veld("mm_voorkeurstijd", "Voorkeurstijd (van … tot)", "single_line_text", { placeholder: "bijvoorbeeld 10:00 tot 12:00" }),
+      },
+    },
+    en: {
+      id: "d2cce099-ab58-4753-915c-0d1c20a00eb1",
+      knop: "Check availability",
+      dank: "Thank you. We will confirm your request within 2 working days. Anything urgent? Call or email us: +31 6 45752819 | contact@meetingmasters.online",
+      velden: { mm_boeking_type: () => boekingVeld("en", "What would you like to book?") },
+      opDezelfdeRegel: {
+        mm_gewenste_datum: () => veld("mm_voorkeurstijd", "Preferred time (from … to)", "single_line_text", { placeholder: "for example 10:00 to 12:00" }),
+      },
+    },
+  },
+  kostenindicatie: {
+    nl: {
+      id: "8fb6d169-df70-45f0-bb36-671df8ad0f58",
+      knop: "Vraag een indicatie aan",
+      dank: "Dank je wel! We komen zo snel mogelijk bij je terug. Meer haast? Bel of mail ons even: +31 6 4575 2819 | contact@meetingmasters.online",
+      voorVeld: { mm_aantal_deelnemers: () => boekingVeld("nl", "Waarover gaat deze vraag?") },
+      labels: { message: "Kun je hier meer over vertellen?" },
+      placeholders: { message: "Soort event, doel, aanleiding, voorlopige data, voorziene duur" },
+      // De keuzelijst vraagt nu waar het over gaat; het losse tekstveld met
+      // dezelfde vraag zou de bezoeker twee keer hetzelfde laten invullen.
+      weg: ["mm_type_event"],
+    },
+    en: {
+      id: "ae15b8b5-de37-40eb-8172-52da38e2cff2",
+      knop: "Request an estimate",
+      dank: "Thank you! We will get back to you as soon as we can. In a hurry? Call or email us: +31 6 45752819 | contact@meetingmasters.online",
+      voorVeld: { mm_aantal_deelnemers: () => boekingVeld("en", "What is your question about?") },
+      labels: { message: "Can you tell us a bit more?" },
+      placeholders: { message: "Kind of event, purpose, occasion, provisional dates, expected length" },
+      weg: ["mm_type_event"],
+    },
+  },
+  contact: {
+    // Alleen de huisstijl: logo, disclaimer op 11px en de knop in MM-geel.
+    nl: { id: "c747d7cd-4850-44f4-965f-a87120e55d38", knop: "Versturen" },
+    en: { id: "8afa782e-bc97-4fb0-a182-2621167527d1", knop: "Send" },
   },
   demo: {
     nl: {
@@ -166,9 +244,27 @@ for (const [sleutel, talen] of Object.entries(FORMULIEREN)) {
     const uit = [];
     const toegevoegd = [];
     for (const g of groepen) {
-      const velden = (g.fields ?? []).map((v) =>
-        f.labels?.[v.name] ? { ...v, label: f.labels[v.name] } : v
-      );
+      let velden = (g.fields ?? []).map((v) => {
+        let nieuwVeld = f.velden?.[v.name] ? { ...f.velden[v.name]() } : { ...v };
+        if (f.labels?.[v.name]) nieuwVeld = { ...nieuwVeld, label: f.labels[v.name] };
+        if (f.placeholders?.[v.name]) nieuwVeld = { ...nieuwVeld, placeholder: f.placeholders[v.name] };
+        return nieuwVeld;
+      });
+
+      // Velden die eruit mogen.
+      const voor = velden.length;
+      velden = velden.filter((v) => !(f.weg ?? []).includes(v.name));
+      if (velden.length < voor) toegevoegd.push(`${voor - velden.length} veld weg`);
+      if (!velden.length && !g.richText) continue;
+
+      // Een tweede veld in dezelfde groep, dus op dezelfde regel.
+      for (const [anker, maak] of Object.entries(f.opDezelfdeRegel ?? {})) {
+        const nieuw = maak();
+        if (velden.some((v) => v.name === anker) && !aanwezig(nieuw.name)) {
+          velden = [...velden, nieuw];
+          toegevoegd.push(`${nieuw.name} naast ${anker}`);
+        }
+      }
 
       // Een nieuw veld vóór een bestaand veld.
       for (const [anker, maak] of Object.entries(f.voorVeld ?? {})) {

@@ -2316,3 +2316,32 @@ de afmeting.
 Dit is de uitzondering op "kwaliteit gaat voor": het verschil is alleen zichtbaar
 voor wie de poster permanent ziet, en 1280 px op een band van 1440 px blijft daar
 ruim scherp genoeg.
+
+
+---
+
+## 26 augustus 2026 — boeking, kostenindicatie en contact bijgewerkt
+
+Zes formulieren (drie soorten, twee talen) in één ronde.
+
+**Boeking & beschikbaarheid.** Nieuwe keuzelijst: Online zaaltje, Event, Escape
+Room R@venHack, Anders. Naast de gewenste datum staat nu een voorkeurstijd (van
+… tot), niet verplicht en met een voorbeeld in het veld. Die twee staan op één
+regel; dat gaat door ze in dezelfde veldgroep te zetten, want HubSpot toont een
+groep met twee velden als één rij. Nieuwe bedanktekst met telefoonnummer en
+mailadres.
+
+**Kostenindicatie.** Dezelfde keuzelijst, met de vraag "Waarover gaat deze
+vraag?". Het open veld heet nu "Kun je hier meer over vertellen?" met de
+voorbeelden ín het veld in plaats van in de kop, zodat het label kort blijft.
+
+Daarbij één ingreep die niet gevraagd was: het losse tekstveld "Wat voor event of
+kantoor gaat het om?" is uit dit formulier gehaald. Met de nieuwe keuzelijst
+erboven zou de bezoeker twee keer hetzelfde invullen. De eigenschap en de
+eerdere antwoorden blijven in HubSpot staan, dus dit is terug te draaien.
+
+**Algemeen contact.** Alleen de huisstijl, zoals gevraagd.
+
+**Aan de kant van de gegevens:** `event` toegevoegd aan `mm_boeking_type` (de
+oude waarde `escapemasters` blijft bestaan voor eerdere aanmeldingen), en een
+nieuwe eigenschap `mm_voorkeurstijd`.

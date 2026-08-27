@@ -211,3 +211,28 @@ verschillen per taal, de waarden niet, dus in HubSpot komt alles in één veld.
 HubSpot-agenda, niet dit formulier: bij een rondleiding is zelf een moment kiezen
 sneller dan een voorkeur opgeven en wachten. Het formulier bestaat dus wel, maar
 een bezoeker ziet het alleen als je de link zelf deelt.
+
+
+## Boeking, kostenindicatie en contact (26 augustus 2026)
+
+Alle drie hebben nu de huisstijl van de andere formulieren: logo bovenaan,
+disclaimer op 11px, knop in MM-geel.
+
+**Boeking & beschikbaarheid.** De keuzelijst "Wat wil je boeken?" heeft nieuwe
+opties: Online zaaltje, Event, Escape Room R@venHack, Anders (licht hieronder
+toe). De waarde `escapemasters` staat nog wél in de contacteigenschap maar niet
+meer in het formulier, zodat oude aanmeldingen leesbaar blijven; `event` is
+toegevoegd. Naast "Gewenste datum" staat nu "Voorkeurstijd (van … tot)", niet
+verplicht, met een voorbeeld in het veld. Twee velden in één veldgroep zetten
+levert bij HubSpot één rij op, dus ze staan naast elkaar.
+
+**Kostenindicatie.** Dezelfde keuzelijst, hier met de vraag "Waarover gaat deze
+vraag?". Het open veld heet nu "Kun je hier meer over vertellen?" met als
+voorbeeld in het veld: soort event, doel, aanleiding, voorlopige data, voorziene
+duur. Het losse tekstveld `mm_type_event` is uit het formulier gehaald: dat
+vroeg hetzelfde als de nieuwe keuzelijst. De eigenschap en de eerder ingevulde
+antwoorden blijven in HubSpot staan.
+
+**Algemeen contact.** Alleen de huisstijl; velden en teksten ongewijzigd.
+
+Nieuwe contacteigenschap: `mm_voorkeurstijd` (string/text).
