@@ -93,7 +93,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
 "Kijk of je microfoon niet uitstaat: er mag geen streepje door het microfoon-icoon staan.",
 "Kies in de meeting de juiste microfoon; praat en kijk of het balkje beweegt.",
-"Geef je browser toestemming: klik op het slotje links in de adresbalk, zet microfoon op “toestaan” en ververs de pagina.",
+"Geef je browser toestemming: klik links in de adresbalk op het icoon vóór het webadres — in Chrome zijn dat twee schuifjes, in Firefox, Edge en Safari een slotje. Zet microfoon op “toestaan” en ververs de pagina.",
 "Blijft het stil, dan blokkeert je besturingssysteem het. Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon, en vink je browser aan. Windows: Instellingen → Privacy en beveiliging → Microfoon.",
         ],
       },
@@ -128,7 +128,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
 "Kijk of je camera niet uitstaat: er mag geen streepje door het camera-icoon staan.",
 "Kies in de meeting de juiste camera; laptops hebben er soms meer dan één.",
-"Geef je browser toestemming: klik op het slotje links in de adresbalk, zet camera op “toestaan” en ververs de pagina.",
+"Geef je browser toestemming: klik links in de adresbalk op het icoon vóór het webadres — in Chrome zijn dat twee schuifjes, in Firefox, Edge en Safari een slotje. Zet camera op “toestaan” en ververs de pagina.",
 "Helpt dat niet, dan blokkeert je besturingssysteem het. Mac: Systeeminstellingen → Privacy en beveiliging → Camera, en vink je browser aan. Windows: Instellingen → Privacy en beveiliging → Camera.",
 "Gebruikt een ander programma je camera al? Sluit dat volledig af — ook als het alleen nog op de achtergrond draait — en ververs de pagina.",
 "Controleer tot slot of er geen schuifje of dopje voor je cameralens zit.",
@@ -143,7 +143,7 @@ const DATA: Record<string, ToolBlock> = {
         ],
       },
       {
-        q: "Mijn beeld is bevroren of blokkerig.",
+        q: "Mijn beeld hapert of bevriest.",
         stappen: [
 "Zet je camera uit en na een paar seconden weer aan.",
 "Sluit andere programma's; video kost veel van je processor.",
@@ -269,9 +269,9 @@ const DATA: Record<string, ToolBlock> = {
         q: "Mijn microfoon doet het niet.",
         stappen: [
           "Kijk in de balk onderin: staat er een rode streep door het microfoon-icoon, klik erop zodat het groen wordt.",
-          "Klik op het slotje links in de adresbalk en zet de microfoon op Toestaan. Ook als je eerder per ongeluk op Blokkeren klikte — dat is verreweg de meest voorkomende oorzaak.",
+          "Klik links in de adresbalk op het icoon vóór het webadres — in Chrome zijn dat twee schuifjes, in Firefox, Edge en Safari een slotje — en zet de microfoon op Toestaan. Ook als je eerder per ongeluk op Blokkeren klikte — dat is verreweg de meest voorkomende oorzaak.",
           "Herlaad de pagina.",
-          "Blijft het stil, geef je browser dan toegang in je systeeminstellingen onder Privacy, en start de browser opnieuw.",
+          "Blijft het stil, dan staat de toegang op je computer uit. Windows: Instellingen → Privacy en beveiliging → Microfoon. Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon. Zet je browser daar aan en start hem opnieuw.",
         ],
       },
       {
@@ -283,7 +283,7 @@ const DATA: Record<string, ToolBlock> = {
         ],
       },
       {
-        q: "Alles staat groen, maar het geluid klopt niet.",
+        q: "Alles staat goed, maar het geluid klopt niet.",
         stappen: [
           "Klik op het tandwiel-icoon voor de instellingen.",
           "Controleer of de juiste microfoon én de juiste speaker gekozen zijn.",
@@ -296,9 +296,9 @@ const DATA: Record<string, ToolBlock> = {
         q: "Mijn camera doet het niet.",
         stappen: [
           "Kijk in de onderbalk: staat er een rode streep door het camera-icoon, klik erop zodat het groen wordt.",
-          "Klik op het slotje links in de adresbalk en zet de camera op Toestaan.",
+          "Klik links in de adresbalk op het icoon vóór het webadres — in Chrome zijn dat twee schuifjes, in Firefox, Edge en Safari een slotje — en zet de camera op Toestaan.",
           "Herlaad de pagina.",
-          "Zie je jezelf nog niet, geef je browser dan toegang tot de camera in je systeeminstellingen onder Privacy, en start de browser opnieuw.",
+          "Zie je jezelf nog niet, dan staat de toegang op je computer uit. Windows: Instellingen → Privacy en beveiliging → Camera. Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet je browser daar aan en start hem opnieuw.",
         ],
       },
       {
@@ -357,7 +357,7 @@ const DATA: Record<string, ToolBlock> = {
       {
         q: "Ik heb geen registratie- of join-mail ontvangen.",
         stappen: [
-          "Kijk in je map ongewenste e-mail of spam; daar zit hij meestal.",
+          "Kijk in je map ongewenste e-mail of spam; daar zit hij meestal in.",
           "Verplaats de mail naar je inbox; daarna werkt de link gewoon.",
           "Vind je niets, vraag de organisator dan om een persoonlijke join-link.",
         ],
@@ -372,7 +372,7 @@ const DATA: Record<string, ToolBlock> = {
       {
         q: "Mijn join-link werkt niet.",
         stappen: [
-          "Controleer of je bent ingelogd met hetzelfde e-mailadres als bij de registratie; daar hangt je toegang aan.",
+          "Controleer of je bent ingelogd met hetzelfde e-mailadres als bij de registratie; daar is je toegang aan gekoppeld.",
           "Log zo nodig uit en opnieuw in met het juiste adres.",
           "Lukt het nog niet, vraag de organisator dan om je handmatig toe te voegen.",
         ],
@@ -411,7 +411,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Zie je een rode streep door het camera-icoon, klik dan op Start video.",
           "Klik op het pijltje naast het icoon en kies de juiste camera.",
-          "Geef je browser toestemming voor de camera.",
+          "Geef je browser toestemming voor de camera. Blijft het zwart, dan staat de toegang op je computer uit. Windows: Instellingen → Privacy en beveiliging → Camera. Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet je browser daar aan.",
           "Sluit andere programma's die de camera gebruiken; Zoom kan hem niet aanzetten als een ander programma hem vasthoudt.",
         ],
       },
@@ -635,7 +635,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Gebruik je een losse Bluetooth- of USB-microfoon? Kies dan tijdelijk de microfoon van de computer zelf.",
           "Zet in de Teams-instellingen onder Machtigingen de optie Media aan.",
-          "Zet in de instellingen van je computer onder Privacy de toegang tot de microfoon aan, ook voor apps.",
+          "Zet de toegang aan in de instellingen van je computer. Windows: Instellingen → Privacy en beveiliging → Microfoon. Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon. Zet Teams daar aan, en ook de toegang voor apps.",
         ],
       },
       {
@@ -660,7 +660,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Gebruik je een losse webcam? Kies dan tijdelijk de camera van de computer zelf.",
           "Zet in de Teams-instellingen onder Machtigingen de optie Media aan.",
-          "Zet in de instellingen van je computer onder Privacy de toegang tot de camera aan, ook voor apps.",
+          "Zet de toegang aan in de instellingen van je computer. Windows: Instellingen → Privacy en beveiliging → Camera. Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet Teams daar aan, en ook de toegang voor apps.",
         ],
       },
       {

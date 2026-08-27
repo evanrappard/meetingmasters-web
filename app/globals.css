@@ -52,6 +52,22 @@
     }
   }
 
+  /* Uitklapbare vragen links uitlijnen, in élke browser.
+     Safari en oudere webkit-browsers tekenen vóór een <summary> hun eigen
+     driehoekje. Dat duwt de vraag een stukje naar rechts, en omdat het per
+     browser en per apparaat anders uitpakt, staat de ene vraag ingesprongen
+     en de andere niet. Tailwind's `list-none` zet alleen list-style-type en
+     haalt het webkit-driehoekje er niet af; deze drie regels samen wel. */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::marker {
+    content: "";
+  }
+
   * {
     @apply border-border;
   }

@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-26
+> Laatst bijgewerkt: 2026-08-27
 
 ---
 
@@ -2345,3 +2345,108 @@ eerdere antwoorden blijven in HubSpot staan, dus dit is terug te draaien.
 **Aan de kant van de gegevens:** `event` toegevoegd aan `mm_boeking_type` (de
 oude waarde `escapemasters` blijft bestaan voor eerdere aanmeldingen), en een
 nieuwe eigenschap `mm_voorkeurstijd`.
+
+
+---
+
+## 27 augustus 2026 — kostenindicatie: vraag verplicht, voorbeelden in de vraag
+
+Kleine correctie op gisteren: de voorbeelden staan nu ín de vraag zelf ("Kun je
+hier meer over vertellen? Soort event, aanleiding, doel, voorlopige data,
+voorziene duur, eventuele drempels waarmee we rekening moeten houden etc.") in
+plaats van als grijze voorbeeldtekst in het veld. Zo blijven ze staan zodra
+iemand begint te typen. Het veld is nu ook verplicht. In beide talen.
+
+Het script kent daarvoor een nieuwe optie `verplicht`, naast `labels` en
+`placeholders`. Een lege `placeholder` haalt de voorbeeldtekst juist weg.
+
+
+---
+
+## 27 augustus 2026 — Tech hulp: algemeen als volwaardige keuze, en de pdf's hersteld
+
+Een ronde over de hele technische kant: de hulppagina in beide talen, de
+platformpagina en de twee SpatialChat-handleidingen.
+
+### Het hulpblok: "Algemeen" doet nu mee
+
+**C** — De belangrijkste ingreep. "Algemeen" (Engels: "General") stond wel in de
+data, maar niet als knop: de rij toonde alleen SpatialChat, Zoom Events, Zoom en
+Teams. Nu staat de algemene set als eerste knop tussen de platforms, met dezelfde
+werking — je kunt er ook weer op terugklikken. Elke categorie opent er standaard
+mee.
+
+Dat repareerde meteen twee dingen die scheef stonden:
+
+- In het Engels heette de algemene set "General", terwijl het filter zocht op
+  "Algemeen". Wie op de Engelse pagina een probleem koos zonder platform, kreeg
+  daardoor "The answer is not here" te zien terwijl er twaalf antwoorden klaar
+  stonden.
+- "Dat weet ik niet" zette de tool op leeg. Nu zet die knop hem op algemeen, dus
+  je houdt antwoorden in beeld terwijl je leest hoe je je platform herkent.
+
+**T** — Vier zinnen in het hulpblok stonden hard in het Nederlands in de code en
+verschenen dus ook op de Engelse pagina: de regel onder "Where is your meeting
+taking place?", de uitleg onder "I do not know", het aantal zoekresultaten en de
+tekst bij "The answer is not here". Alle vier nu per taal.
+
+**C** — De hero is lager: `min-h` van 430/520 naar 280/320 px en minder ruimte
+boven en onder. Op een laptop staat "Wat is je probleem?" met de vier vlakken nu
+in één blik in beeld, zonder scrollen.
+
+**C** — Uitklapvragen lijnen weer links uit, in élke browser. Safari tekent voor
+een `<summary>` zijn eigen driehoekje en duwt de vraag daarmee naar rechts;
+Tailwinds `list-none` haalt dat niet weg. In `globals.css` staan nu drie regels
+(`list-style`, `::-webkit-details-marker`, `::marker`) die dat wel doen. Dit
+raakt alle uitklapvragen op de site, niet alleen deze pagina.
+
+**T** — De inleiding boven de veelgestelde vragen: "het algemene gedoe" is
+"algemene vragen" geworden en de zin loopt korter.
+
+**T** — Onderaan de Engelse pagina wees "See the meeting platforms" naar de
+Nederlandse pagina. Nu naar `/en/platforms`.
+
+### De antwoorden zelf (beide talen)
+
+**T** — Het slotje in de adresbalk bestaat in Chrome niet meer; daar staan twee
+schuifjes. Overal waar we naar dat icoon verwijzen staat nu wat je per browser
+ziet: "in Chrome twee schuifjes, in Firefox, Edge en Safari een slotje". Dat zijn
+vier plekken, niet alleen de plek waar het opviel.
+
+**T** — De uitgebreide uitleg over toegang terugzetten (Windows: Instellingen →
+Privacy en beveiliging → Camera / Mac: Systeeminstellingen → …) stond alleen bij
+Zoom. Die staat nu ook bij SpatialChat (camera én microfoon), Zoom Events
+(camera) en Teams (camera én microfoon).
+
+**T** — Losse tekstcorrecties: "daar zit hij meestal in" (Zoom Events, spam),
+"daar is je toegang aan gekoppeld" in plaats van "daar hangt je toegang aan",
+"Alles staat goed, maar het geluid klopt niet" in plaats van "staat groen", en
+"Mijn beeld hapert of bevriest" in plaats van "is bevroren of blokkerig" — die
+laatste voor de continuïteit met Zoom en Teams, waar al "hapert" stond.
+
+### Meeting platforms
+
+- **T** — Het label bij SpatialChat is "Innovatief" (Engels: "Innovative") in
+  plaats van "Nieuw".
+- **C** — Het standaard CTA-blok staat nu onderaan de pagina, net als elders.
+
+### De SpatialChat-handleidingen (pdf, beide talen)
+
+**B** — Twee fouten op pagina 2 hersteld met
+`scripts/handleiding-spatialchat-herstel.swift`:
+
+1. Het woordmerk "SpatialChat" in de gele balk viel uiteen in losse stippen. Dat
+   ligt niet aan de pdf-lezer: het logo zit als afbeelding met een
+   transparantiemasker in het bestand, en dat masker is stuk — het laat alleen de
+   puntjes van de i's door. Er ligt nu ons eigen logo overheen.
+2. Alleen in het Nederlands: de avatar met de megafoon liep uit het kader.
+   Omhoogschuiven kon niet, want de afbeelding ín de pdf is zelf al afgesneden —
+   de onderkant van de cirkel zit er niet in. Daar staat nu de complete avatar
+   uit de Engelse handleiding, kleiner en hoger.
+
+De originelen zijn niet overschreven. De herstelde versies staan naast het
+origineel als `…-v2.pdf`, en de site linkt daarnaar. Wie de oude bestanden wil
+opruimen kan dat later doen.
+
+**C** — `scripts/_vragen-en-bouw.mjs` is als verlopen gemarkeerd: het las uit een
+tijdelijke map die niet meer bestaat, en `vragen-en.ts` is inmiddels zelf de bron.

@@ -84,7 +84,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Check that your microphone isn't off: there should be no line through the microphone icon.",
           "Choose the right microphone in the meeting; speak and see whether the level bar moves.",
-          "Give your browser permission: click the padlock at the left of the address bar, set Microphone to “Allow” and refresh the page.",
+          "Give your browser permission: click the icon just before the web address in the address bar — two sliders in Chrome, a padlock in Firefox, Edge and Safari. Set Microphone to “Allow” and refresh the page.",
           "Still silent? Then your operating system is blocking it. Mac: System Settings → Privacy & Security → Microphone, and tick your browser. Windows: Settings → Privacy & security → Microphone."
         ]
       },
@@ -119,7 +119,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Check that your camera isn't off: there should be no line through the camera icon.",
           "Choose the right camera in the meeting; laptops sometimes have more than one.",
-          "Give your browser permission: click the padlock at the left of the address bar, set Camera to “Allow” and refresh the page.",
+          "Give your browser permission: click the icon just before the web address in the address bar — two sliders in Chrome, a padlock in Firefox, Edge and Safari. Set Camera to “Allow” and refresh the page.",
           "If that doesn't help, your operating system is blocking it. Mac: System Settings → Privacy & Security → Camera, and tick your browser. Windows: Settings → Privacy & security → Camera.",
           "Is another programme already using your camera? Close it completely — including when it's only running in the background — and refresh the page.",
           "Finally, check that there's no shutter or cap over your camera lens."
@@ -134,7 +134,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         ]
       },
       {
-        "q": "My picture is frozen or blocky.",
+        "q": "My picture stutters or freezes.",
         "stappen": [
           "Turn your camera off and, after a few seconds, on again.",
           "Close other programmes; video takes a lot of your processor.",
@@ -260,9 +260,9 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "My microphone isn't working.",
         "stappen": [
           "Look at the bar at the bottom: if there's a red line through the microphone icon, click it so that it turns green.",
-          "Click the padlock at the left of the address bar and set the microphone to Allow. Also if you accidentally clicked Block earlier — that's by far the most common cause.",
+          "Click the icon just before the web address in the address bar — two sliders in Chrome, a padlock in Firefox, Edge and Safari — and set the microphone to Allow. Also if you accidentally clicked Block earlier — that's by far the most common cause.",
           "Reload the page.",
-          "If it stays silent, give your browser access in your system settings under Privacy, and restart the browser."
+          "If it stays silent, access is switched off on your computer. Windows: Settings → Privacy & security → Microphone. Mac: System Settings → Privacy & Security → Microphone. Switch your browser on there and restart it."
         ]
       },
       {
@@ -274,7 +274,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         ]
       },
       {
-        "q": "Everything is green, but the sound isn't right.",
+        "q": "Everything looks right, but the sound isn't.",
         "stappen": [
           "Click the cog icon for the settings.",
           "Check that the right microphone and the right speaker are both selected.",
@@ -287,9 +287,9 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "My camera isn't working.",
         "stappen": [
           "Look at the bottom bar: if there's a red line through the camera icon, click it so that it turns green.",
-          "Click the padlock at the left of the address bar and set the camera to Allow.",
+          "Click the icon just before the web address in the address bar — two sliders in Chrome, a padlock in Firefox, Edge and Safari — and set the camera to Allow.",
           "Reload the page.",
-          "If you still can't see yourself, give your browser access to the camera in your system settings under Privacy, and restart the browser."
+          "If you still can't see yourself, access is switched off on your computer. Windows: Settings → Privacy & security → Camera. Mac: System Settings → Privacy & Security → Camera. Switch your browser on there and restart it."
         ]
       },
       {
@@ -402,7 +402,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "If you see a red line through the camera icon, click Start Video.",
           "Click the arrow next to the icon and choose the right camera.",
-          "Give your browser permission for the camera.",
+          "Give your browser permission for the camera. If the picture stays black, access is switched off on your computer. Windows: Settings → Privacy & security → Camera. Mac: System Settings → Privacy & Security → Camera. Switch your browser on there.",
           "Close other programmes using the camera; Zoom can't switch it on while another programme is holding it."
         ]
       },
@@ -626,7 +626,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Using a separate Bluetooth or USB microphone? Then choose the computer's own microphone for the moment.",
           "In the Teams settings, under Permissions, switch Media on.",
-          "In your computer's settings, under Privacy, switch on access to the microphone, for apps as well."
+          "Switch access on in your computer's settings. Windows: Settings → Privacy & security → Microphone. Mac: System Settings → Privacy & Security → Microphone. Switch Teams on there, and allow access for apps as well."
         ]
       },
       {
@@ -651,7 +651,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Using a separate webcam? Then choose the computer's own camera for the moment.",
           "In the Teams settings, under Permissions, switch Media on.",
-          "In your computer's settings, under Privacy, switch on access to the camera, for apps as well."
+          "Switch access on in your computer's settings. Windows: Settings → Privacy & security → Camera. Mac: System Settings → Privacy & Security → Camera. Switch Teams on there, and allow access for apps as well."
         ]
       },
       {

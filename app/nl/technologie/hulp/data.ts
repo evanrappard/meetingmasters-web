@@ -18,7 +18,7 @@ export const HANDLEIDINGEN = [
   {
     naam: "SpatialChat",
     logo: "spatialchat",
-    href: "/downloads/spatialchat-instructies-deelnemer.pdf",
+    href: "/downloads/spatialchat-instructies-deelnemer-v2.pdf",
     soort: "Handleiding voor deelnemers (pdf)",
     actie: "Download",
   },
@@ -182,7 +182,7 @@ export const NL_TEKST = {
   faq: {
     kop: "Veelgestelde vragen",
     onder:
-      "Wat we het vaakst horen, in drie groepen: het algemene gedoe, de instellingen op je eigen apparaat, en de hulp die er tijdens een bijeenkomst is.",
+      "Wat we het vaakst horen, in drie groepen: algemene vragen, de instellingen op je eigen apparaat, en de hulp tijdens een bijeenkomst.",
     groepen: {
       algemeen: "Technische problemen in het algemeen",
       device: "Instellingen op je eigen apparaat",

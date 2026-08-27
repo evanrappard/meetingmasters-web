@@ -50,7 +50,7 @@ export const PLATFORMS_EN = {
         body: "You hear and see people as you come closer, so you can genuinely walk over to someone. You can join a table, take someone aside for a moment, talk it over afterwards. Runs in the browser with nothing to install, and we build the backdrops, rooms and layout around your event.",
       },
     } as Record<string, { sterk: string; groep: string; wanneer: string; body: string }>,
-    badge: "New",
+    badge: "Innovative",
   },
 
   tools: {

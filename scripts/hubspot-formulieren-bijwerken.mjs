@@ -122,6 +122,7 @@ const boekingVeld = (taal, label) =>
  * Per formulier: wat er moet staan.
  *
  *   labels        past het label van een bestaand veld aan
+ *   verplicht     zet een bestaand veld op verplicht (of juist niet)
  *   placeholders  zet een voorbeeldtekst ín een bestaand veld
  *   voorVeld      zet een nieuw veld vóór een bestaand veld
  *   naVeld        zet een nieuw veld ná een bestaand veld
@@ -174,8 +175,12 @@ const FORMULIEREN = {
       knop: "Vraag een indicatie aan",
       dank: "Dank je wel! We komen zo snel mogelijk bij je terug. Meer haast? Bel of mail ons even: +31 6 4575 2819 | contact@meetingmasters.online",
       voorVeld: { mm_aantal_deelnemers: () => boekingVeld("nl", "Waarover gaat deze vraag?") },
-      labels: { message: "Kun je hier meer over vertellen?" },
-      placeholders: { message: "Soort event, doel, aanleiding, voorlopige data, voorziene duur" },
+      labels: {
+        message:
+          "Kun je hier meer over vertellen? Soort event, aanleiding, doel, voorlopige data, voorziene duur, eventuele drempels waarmee we rekening moeten houden etc.",
+      },
+      verplicht: { message: true },
+      placeholders: { message: "" },
       // De keuzelijst vraagt nu waar het over gaat; het losse tekstveld met
       // dezelfde vraag zou de bezoeker twee keer hetzelfde laten invullen.
       weg: ["mm_type_event"],
@@ -185,8 +190,12 @@ const FORMULIEREN = {
       knop: "Request an estimate",
       dank: "Thank you! We will get back to you as soon as we can. In a hurry? Call or email us: +31 6 45752819 | contact@meetingmasters.online",
       voorVeld: { mm_aantal_deelnemers: () => boekingVeld("en", "What is your question about?") },
-      labels: { message: "Can you tell us a bit more?" },
-      placeholders: { message: "Kind of event, purpose, occasion, provisional dates, expected length" },
+      labels: {
+        message:
+          "Can you tell us a bit more? Kind of event, occasion, purpose, provisional dates, expected length, anything we should take into account, and so on.",
+      },
+      verplicht: { message: true },
+      placeholders: { message: "" },
       weg: ["mm_type_event"],
     },
   },
@@ -247,7 +256,11 @@ for (const [sleutel, talen] of Object.entries(FORMULIEREN)) {
       let velden = (g.fields ?? []).map((v) => {
         let nieuwVeld = f.velden?.[v.name] ? { ...f.velden[v.name]() } : { ...v };
         if (f.labels?.[v.name]) nieuwVeld = { ...nieuwVeld, label: f.labels[v.name] };
-        if (f.placeholders?.[v.name]) nieuwVeld = { ...nieuwVeld, placeholder: f.placeholders[v.name] };
+        if (f.verplicht?.[v.name] !== undefined) nieuwVeld = { ...nieuwVeld, required: f.verplicht[v.name] };
+        if (f.placeholders?.[v.name] !== undefined) {
+          // Een lege waarde haalt de voorbeeldtekst juist weg.
+          nieuwVeld = { ...nieuwVeld, placeholder: f.placeholders[v.name] };
+        }
         return nieuwVeld;
       });
 

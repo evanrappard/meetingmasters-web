@@ -28,7 +28,7 @@ export const HULP_EN = {
       {
         naam: "SpatialChat",
         logo: "spatialchat",
-        href: "/downloads/en/spatialchat-participant-instructions.pdf",
+        href: "/downloads/en/spatialchat-participant-instructions-v2.pdf",
         soort: "Participant guide (pdf)",
         actie: "Download",
       },
@@ -52,7 +52,7 @@ export const HULP_EN = {
   faq: {
     kop: "Frequently asked questions",
     onder:
-      "What we hear most often, in three groups: the general problems, the settings on your own device, and the help that's there during a meeting.",
+      "What we hear most often, in three groups: general questions, the settings on your own device, and the help available during a meeting.",
     groepen: {
       algemeen: "Technical problems in general",
       device: "Settings on your own device",

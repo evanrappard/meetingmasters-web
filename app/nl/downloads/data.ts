@@ -47,7 +47,7 @@ export const HANDLEIDINGEN: Item[] = [
     datum: "2026",
     body:
       "Stap voor stap voor deelnemers: binnenkomen, je weg vinden in de ruimte, en beeld en geluid goed zetten. Handig om vooraf mee te sturen.",
-    href: "/downloads/spatialchat-instructies-deelnemer.pdf",
+    href: "/downloads/spatialchat-instructies-deelnemer-v2.pdf",
     actie: "Download de handleiding",
   },
   {

@@ -1,4 +1,12 @@
-// Bouwt app/nl/technologie/hulp/vragen-en.ts uit de losse vertaalbestanden.
+// VERLOPEN — niet meer draaien.
+//
+// Dit script bouwde app/nl/technologie/hulp/vragen-en.ts eenmalig uit losse
+// vertaalbestanden in een tijdelijke map die allang is opgeruimd. De teksten
+// zijn daarna met de hand bijgewerkt, dus vragen-en.ts is nu zelf de bron.
+// Draai je dit script alsnog, dan overschrijft het die tekst met een oudere
+// versie (of het valt om, omdat de map niet bestaat).
+//
+// Bouwde app/nl/technologie/hulp/vragen-en.ts uit de losse vertaalbestanden.
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 const MAP = "/private/tmp/claude-501/-Users-emilievanrappard/4da308e1-f28d-4ad3-a632-d535c7e29365/scratchpad/";
 const alles = {};

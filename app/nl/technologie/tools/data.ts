@@ -46,7 +46,7 @@ export const PLATFORMS: Platform[] = [
     body:
       "Je hoort en ziet mensen naarmate je dichterbij komt, dus je kunt echt naar iemand toe lopen. Je kunt aanschuiven bij een tafel, iemand even apart nemen, napraten na afloop. Draait in de browser zonder installatie, en achtergronden, kamers en indeling maken we op maat.",
     accent: "border-t-[#EEBE3D]",
-    badge: { label: "Nieuw", href: "/nl/technologie/spatialchat" },
+    badge: { label: "Innovatief", href: "/nl/technologie/spatialchat" },
   },
 ];
 

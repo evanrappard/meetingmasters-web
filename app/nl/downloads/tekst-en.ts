@@ -66,7 +66,7 @@ export const DOWNLOADS_EN = {
         titel: "Taking part through SpatialChat",
         soort: "Guide · pdf",
         body: "Step by step for participants: getting in, finding your way around the space, and setting video and sound properly. Handy to send in advance.",
-        href: "/downloads/en/spatialchat-participant-instructions.pdf",
+        href: "/downloads/en/spatialchat-participant-instructions-v2.pdf",
         actie: "Download the guide",
       },
       {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { JsonLd } from "@/components/ui/JsonLd";
 import PlatformKeuze from "@/components/ui/PlatformKeuze";
+import CTABlock from "@/components/ui/CTABlock";
 import { PLATFORMS, TOOLS, PLATFORM_FAQ, PLATFORM_FAQ_MEER, NL_TEKST } from "@/app/nl/technologie/tools/data";
 import { PLATFORMS_EN } from "@/app/nl/technologie/tools/tekst-en";
 import type { Taal } from "@/lib/talen";
@@ -214,6 +215,8 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
           </div>
         </div>
       </section>
+
+      <CTABlock taal={taal} />
     </>
   );
 }

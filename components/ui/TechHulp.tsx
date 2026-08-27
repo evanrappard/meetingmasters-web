@@ -59,8 +59,16 @@ const T = {
     kop: "Wat is je probleem?",
     onder: "De meeste dingen zijn in drie stappen opgelost.",
     waar: "Waar vindt je meeting plaats?",
+    waarOnder: "We beginnen met de algemene antwoorden. Kies je platform en het wordt specifieker.",
     weetNiet: "Dat weet ik niet",
+    weetNietUitleg: "Kijk naar het begin van de link in je uitnodiging:",
+    weetNietStaart: "Kun je het niet vinden? Blijf dan gerust bij de algemene antwoorden hieronder.",
     nietGevonden: "Hier staat het antwoord niet bij.",
+    nietGevondenUitleg:
+      "Probeer een ander woord, of kies hierboven een andere tool. Is het een begeleide bijeenkomst van MeetingMasters? Dan staat je contactpersoon klaar — die vind je in je uitnodiging.",
+    resultaat: "resultaat",
+    resultaten: "resultaten",
+    resultatenVoor: "voor",
     zoekPlaceholder: "Of typ hier je probleem, bijvoorbeeld “ik hoor niets”",
     zoekLabel: "Zoek in de hulpvragen",
   },
@@ -69,8 +77,16 @@ const T = {
     kop: "What is the problem?",
     onder: "Most things are sorted in three steps.",
     waar: "Where is your meeting taking place?",
+    waarOnder: "We start with the general answers. Choose your platform and they get more specific.",
     weetNiet: "I do not know",
+    weetNietUitleg: "Look at the start of the link in your invitation:",
+    weetNietStaart: "Can't find it? Then stay with the general answers below.",
     nietGevonden: "The answer is not here.",
+    nietGevondenUitleg:
+      "Try another word, or choose a different tool above. Is this a meeting hosted by MeetingMasters? Then your contact is standing by — you'll find them in your invitation.",
+    resultaat: "result",
+    resultaten: "results",
+    resultatenVoor: "for",
     zoekPlaceholder: "Or type your problem here, for instance “I cannot hear anything”",
     zoekLabel: "Search the help questions",
   },
@@ -90,6 +106,10 @@ export default function TechHulp({
   taal?: Taal;
 }) {
   const t = T[taal];
+  // De eerste tool in de lijst is de algemene set: "Algemeen" in het
+  // Nederlands, "General" in het Engels. Die staat als gewone knop tussen de
+  // platforms en is de stand waarin een categorie opengaat.
+  const algemeen = tools[0];
   const [symptoom, setSymptoom] = useState<string | null>(null);
   const [tool, setTool] = useState<string | null>(null);
   const [weetNiet, setWeetNiet] = useState(false);
@@ -100,12 +120,15 @@ export default function TechHulp({
   useEffect(() => {
     const uitHash = () => {
       const h = window.location.hash.replace("#hulp-", "");
-      if (h && categorieen.some((c) => c.id === h)) setSymptoom(h);
+      if (h && categorieen.some((c) => c.id === h)) {
+        setSymptoom(h);
+        setTool(algemeen);
+      }
     };
     uitHash();
     window.addEventListener("hashchange", uitHash);
     return () => window.removeEventListener("hashchange", uitHash);
-  }, [categorieen]);
+  }, [categorieen, algemeen]);
 
   const zoekend = zoek.trim().length > 1;
 
@@ -135,18 +158,23 @@ export default function TechHulp({
     }
     if (!symptoom) return [];
     const inCategorie = vragen.filter((v) => v.categorie === symptoom);
-    if (!tool) return inCategorie.filter((v) => v.tool === "Algemeen");
+    if (!tool) return inCategorie.filter((v) => v.tool === algemeen);
     // Heeft de gekozen tool eigen antwoorden, dan zijn die het meest precies.
     // De algemene set zegt vaak hetzelfde in andere woorden; die twee naast
     // elkaar tonen dwingt de bezoeker om zelf te ontdubbelen.
     const perTool = inCategorie.filter((v) => v.tool === tool);
-    return perTool.length > 0 ? perTool : inCategorie.filter((v) => v.tool === "Algemeen");
-  }, [vragen, zoek, zoekend, symptoom, tool]);
+    return perTool.length > 0 ? perTool : inCategorie.filter((v) => v.tool === algemeen);
+  }, [vragen, zoek, zoekend, symptoom, tool, algemeen]);
 
   const huidigeCategorie = categorieen.find((c) => c.id === symptoom);
 
   function kiesSymptoom(id: string) {
     setSymptoom((was) => (was === id ? null : id));
+    // Elke categorie opent op de algemene antwoorden. Zonder die stand stond
+    // er eerst een lege lijst, en moest je eerst een platform kiezen om iets
+    // te zien te krijgen — terwijl de meeste antwoorden overal gelden.
+    setTool(algemeen);
+    setWeetNiet(false);
     setZoek("");
   }
 
@@ -205,41 +233,41 @@ export default function TechHulp({
         <div className="mt-6 rounded-xl border border-[#EBEBEB] overflow-hidden">
           <div className="bg-[#F7F7F5] px-5 py-3.5 border-b border-[#EBEBEB]">
             <p className="font-bold text-[#2D2D2D]">{t.waar}</p>
-            <p className="text-[13px] text-[#7A8483]">Dan maken we het antwoord meteen specifiek. Weet je het niet? Ook prima.</p>
+            <p className="text-[13px] text-[#7A8483]">{t.waarOnder}</p>
           </div>
 
           <div className="flex flex-wrap items-stretch gap-2 px-5 py-4">
-            {tools
-              .filter((t) => t !== "Algemeen")
-              .map((t) => {
-                const actief = tool === t;
-                const info = TOOL_INFO[t];
-                return (
-                  <button
-                    key={t}
-                    onClick={() => { setTool(actief ? null : t); setWeetNiet(false); }}
-                    aria-pressed={actief}
-                    aria-label={t}
-                    className={`px-4 py-3 rounded-lg border-2 bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
-                      actief ? "border-[#EEBE3D] bg-[#FFFBEE]" : "border-[#E2E2DE] hover:bg-[#FFFBEE]"
-                    }`}
-                  >
-                    {info ? (
-                      <img
-                        src={`/images/logos/tools/${info.logo}.webp`}
-                        alt={t}
-                        width={440}
-                        height={176}
-                        className="h-6 w-auto max-w-[124px] object-contain"
-                      />
-                    ) : (
-                      <span className="text-sm font-semibold text-[#2D2D2D]">{t}</span>
-                    )}
-                  </button>
-                );
-              })}
+            {tools.map((naam) => {
+              const actief = tool === naam;
+              const info = TOOL_INFO[naam];
+              return (
+                <button
+                  key={naam}
+                  onClick={() => { setTool(actief && naam !== algemeen ? algemeen : naam); setWeetNiet(false); }}
+                  aria-pressed={actief}
+                  aria-label={naam}
+                  className={`px-4 py-3 rounded-lg border-2 bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
+                    actief ? "border-[#EEBE3D] bg-[#FFFBEE]" : "border-[#E2E2DE] hover:bg-[#FFFBEE]"
+                  }`}
+                >
+                  {info ? (
+                    <img
+                      src={`/images/logos/tools/${info.logo}.webp`}
+                      alt={naam}
+                      width={440}
+                      height={176}
+                      className="h-6 w-auto max-w-[124px] object-contain"
+                    />
+                  ) : (
+                    // De algemene knop heeft geen logo; even hoog als de rest,
+                    // anders staat hij lager in de rij dan de platformknoppen.
+                    <span className="flex h-6 items-center text-sm font-semibold text-[#2D2D2D]">{naam}</span>
+                  )}
+                </button>
+              );
+            })}
             <button
-              onClick={() => { setWeetNiet((w) => !w); setTool(null); }}
+              onClick={() => { setWeetNiet((w) => !w); setTool(algemeen); }}
               aria-expanded={weetNiet}
               className={`text-sm font-semibold px-4 py-3 rounded-lg border-2 border-dashed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
                 weetNiet ? "border-[#EEBE3D] bg-[#FFFBEE] text-[#2D2D2D]" : "border-[#C4CBCA] bg-white text-[#6E7877] hover:bg-[#FFFBEE]"
@@ -251,7 +279,7 @@ export default function TechHulp({
 
           {weetNiet && (
             <p className="border-t border-[#EBEBEB] bg-[#FCFCFB] px-5 py-3.5 text-sm text-[#434343] leading-relaxed">
-              Kijk naar het begin van de link in je uitnodiging:{" "}
+              {t.weetNietUitleg}{" "}
               {Object.entries(TOOL_INFO).map(([naam, i], n, r) => (
                 <span key={naam}>
                   <button
@@ -263,7 +291,7 @@ export default function TechHulp({
                   {n < r.length - 1 ? ", " : ". "}
                 </span>
               ))}
-              Kun je het niet vinden? Sla dit gerust over.
+              {t.weetNietStaart}
             </p>
           )}
         </div>
@@ -274,7 +302,7 @@ export default function TechHulp({
         <div className="mt-7">
           {zoekend ? (
             <p className="text-sm text-[#6D6D6D] mb-4">
-              {resultaten.length} {resultaten.length === 1 ? "resultaat" : "resultaten"} voor “{zoek.trim()}”
+              {resultaten.length} {resultaten.length === 1 ? t.resultaat : t.resultaten} {t.resultatenVoor} “{zoek.trim()}”
             </p>
           ) : (
             <h3 className="text-lg font-bold text-[#2D2D2D] mb-4">
@@ -286,10 +314,7 @@ export default function TechHulp({
           {resultaten.length === 0 ? (
             <div className="rounded-xl border border-[#E8E8E8] bg-[#F9F9F7] p-6">
               <p className="font-bold text-[#2D2D2D] mb-1">{t.nietGevonden}</p>
-              <p className="text-sm text-[#5F5F5F]">
-                Probeer een ander woord, of kies hierboven een andere tool. Is het een begeleide bijeenkomst
-                van MeetingMasters? Dan staat je contactpersoon klaar — die vind je in je uitnodiging.
-              </p>
+              <p className="text-sm text-[#5F5F5F]">{t.nietGevondenUitleg}</p>
             </div>
           ) : (
             <div className="border-t border-[#F0F0F0]">
@@ -297,7 +322,7 @@ export default function TechHulp({
                 <details key={v.id} className="group border-b border-[#F0F0F0] py-4" open={i === 0 && !zoekend}>
                   <summary className="flex justify-between items-start gap-4 list-none cursor-pointer">
                     <span className="font-semibold text-[#2D2D2D] text-[15px] leading-snug">
-                      {zoekend && v.tool !== "Algemeen" && (
+                      {zoekend && v.tool !== algemeen && (
                         <span className="inline-block align-middle mr-2 text-[10px] font-bold uppercase tracking-wide text-[#6E7877] bg-[#F0F3F3] rounded px-2 py-0.5">
                           {v.tool}
                         </span>

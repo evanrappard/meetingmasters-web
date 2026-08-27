@@ -15,9 +15,17 @@ Wat hier **niet** in staat, staat in `docs/engelse-versie-inventaris.html` onder
 |---|---|---|
 | `downloads/meetingmasters-manifest.pdf` | `downloads/en/meetingmasters-manifesto.pdf` | Emilie, OneDrive |
 | `downloads/keuzekompas-meeting-mix.pdf` | `downloads/en/meeting-compass.pdf` | Emilie |
-| `downloads/spatialchat-instructies-deelnemer.pdf` | `downloads/en/spatialchat-participant-instructions.pdf` | Emilie, OneDrive |
+| `downloads/spatialchat-instructies-deelnemer-v2.pdf` | `downloads/en/spatialchat-participant-instructions-v2.pdf` | Emilie, OneDrive — pagina 2 hersteld, zie hieronder |
 | `downloads/zoom-instructies-deelnemer.pdf` | `downloads/en/zoom-participant-instructions.pdf` | Emilie, OneDrive |
 | `downloads/checklist-online-alv.pdf` | `downloads/en/online-agm-checklist.pdf` | **zelf vertaald en opgemaakt** |
+
+**De SpatialChat-handleidingen zijn de `-v2`-bestanden.** Op pagina 2 viel het
+woordmerk "SpatialChat" uiteen in losse stippen (kapot transparantiemasker in de
+bron), en in de Nederlandse versie liep de avatar met de megafoon uit het kader.
+Hersteld met `scripts/handleiding-spatialchat-herstel.swift`, dat het origineel
+laat staan en er een nieuw bestand naast zet. Levert Emilie een nieuwe versie
+aan, draai dat script er dan opnieuw overheen — of controleer eerst of de fouten
+er nog in zitten.
 
 De ALV-checklist bestond niet in het Engels. Ik heb de volledige inhoud uit de
 Nederlandse pdf gehaald, vertaald en opnieuw opgemaakt in de huisstijl. Bron:

@@ -57,7 +57,9 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D]/85 via-[#2D2D2D]/45 to-[#2D2D2D]/15" />
 
-        <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-20 md:py-28 lg:py-32 min-h-[430px] md:min-h-[520px] flex items-center">
+        {/* Bewust lager dan onze andere hero's: wie hier komt heeft haast en
+            moet "Wat is je probleem?" meteen zien staan, zonder te scrollen. */}
+        <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-12 md:py-14 lg:py-16 min-h-[280px] md:min-h-[320px] flex items-center">
           <div className="max-w-[620px]">
             <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-5">{t.hero.kicker}</p>
             <h1
@@ -226,7 +228,10 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
           <div className="mt-10 pt-8 border-t border-[#D8DFD2]">
             <p className="text-[#434343] leading-relaxed max-w-[720px]">
               {t.it.platformsIntro}{" "}
-              <Link href="/nl/technologie/tools" className="text-[#28A8AA] font-semibold hover:underline">
+              <Link
+                href={taal === "en" ? "/en/platforms" : "/nl/technologie/tools"}
+                className="text-[#28A8AA] font-semibold hover:underline"
+              >
                 {t.it.platformsKnop}
               </Link>
               {t.it.platformsStaart}
