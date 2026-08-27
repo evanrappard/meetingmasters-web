@@ -2055,3 +2055,37 @@ Wat níét meer helpt: `deviceSizes` in `next.config.ts` gaat tot 1920. Op een
 retina-scherm wordt de band daarboven opgerekt. Een grotere maat toestaan zou
 scherper zijn, maar dat raakt élk beeld op de site en dus de laadtijd. Niet
 gedaan, wel het noemen waard.
+
+
+---
+
+## 26 augustus 2026 — cache, sleutelcontrole en twee kleine dingen
+
+**Beelden en video's werden nooit bewaard.** Alles uit `public/` kwam binnen met
+`max-age=0, must-revalidate`: een terugkerende bezoeker vroeg elk beeld opnieuw
+op. Nu staan video's op een jaar met `immutable` (die vervangen we zelden, en dan
+onder een nieuwe naam) en beelden op dertig dagen, zodat een vergissing zichzelf
+binnen een maand herstelt. Pagina's blijven onveranderd vers.
+
+De voorwaarde die hierbij hoort: **een vervangen beeld krijgt een nieuwe
+bestandsnaam.** Dat stond al als afspraak in het beeldregister; nu hangt er ook
+echt iets vanaf.
+
+**Sleutelcontrole vóór elke commit.** `scripts/sleutelcheck.mjs` kijkt naar wat
+er klaarstaat en herkent Sanity-tokens, HubSpot private app tokens, JWT's zoals de
+Supabase service role, AWS- en Google-sleutels en privésleutels. Wordt er iets
+gevonden, dan gaat de commit niet door en staat er bij welk bestand en welke
+regel. Voorbeelden met `...` of `<placeholder>` worden overgeslagen.
+
+De haak staat in `.githooks/pre-commit`, in git dus, en wordt aangezet met
+`git config core.hooksPath .githooks` (eenmalig per computer, hier al gedaan).
+De hele repo nakijken kan met `npm run sleutelcheck`; die gaf bij invoering
+298 bestanden en geen treffers. Getest met een nepsleutel: de commit werd
+tegengehouden.
+
+**`docs/waar-staat-wat.md` staat nu in git.** Dat bestand was untracked, dus het
+liep niet mee in de back-up en was niet terug te draaien.
+
+**Engelse eventpagina's:** loos alarm van mijn kant. Alle twintig hebben een eigen
+meta description. Ik had eerder `/en/events/brainstorm` bekeken, maar die pagina
+heet `brainstorm-session`; ik keek dus naar een 404. Alle twintig nagelopen.

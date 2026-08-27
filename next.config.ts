@@ -61,6 +61,29 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      /*
+       * Beelden en video's mochten helemaal niet bewaard worden: alles uit
+       * `public/` kwam met `max-age=0, must-revalidate` binnen, dus een
+       * terugkerende bezoeker vroeg elk beeld opnieuw op. Dat kost tijd op
+       * precies de plek waar het opvalt.
+       *
+       * Voorwaarde bij deze instelling: **een vervangen beeld krijgt een nieuwe
+       * bestandsnaam** (zie docs/website-visuals.md, de `-v2`/`-v3`-afspraak).
+       * Doe je dat niet, dan blijft een bezoeker de oude versie zien tot de
+       * termijn om is.
+       *
+       * Video's staan op een jaar en immutable: die vervangen we zelden en dan
+       * altijd onder een nieuwe naam. Beelden staan op dertig dagen, zodat een
+       * vergissing zichzelf binnen een maand herstelt.
+       */
+      {
+        source: "/videos/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      {
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
+      },
       ...(isPreview
         ? [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }]
         : []),
