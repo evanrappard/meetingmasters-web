@@ -51,6 +51,12 @@ type Props = {
    * Zelfde opzet als de adviespagina.
    */
   directContactBijTekst?: boolean;
+  /**
+   * Kop boven dat blok. Zonder deze staat er "Liever direct contact?"; met een
+   * eigen kop kan de pagina zelf zeggen wat de bedoeling is. De toelichtende
+   * zin eronder vervalt dan, want die zei hetzelfde nog een keer.
+   */
+  directContactKop?: string;
   taal?: Taal;
 };
 
@@ -73,6 +79,7 @@ export default function FormulierPagina({
   formulierKop,
   formulierUitleg,
   directContactBijTekst = false,
+  directContactKop,
   taal = "nl",
 }: Props) {
   const t = T[taal];
@@ -88,12 +95,15 @@ export default function FormulierPagina({
               <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
                 {titel}
               </h1>
-              <div className="text-[#434343] text-lg leading-relaxed space-y-4">{intro}</div>
+              {/* Eén maat kleiner dan voorheen (text-lg): op de andere pagina's staat
+                  de lopende tekst ook op deze grootte. */}
+              <div className="text-[#434343] leading-relaxed space-y-4">{intro}</div>
 
               {directContactBijTekst && (
                 <div className="mt-10">
-                  <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{t.directKop}</h2>
-                  <p className="text-sm text-[#434343] leading-relaxed mb-6">{t.directTekst}</p>
+                  <h2 className="text-2xl font-bold text-[#2D2D2D] mb-6">
+                    {directContactKop ?? t.directKop}
+                  </h2>
                   <ul className="space-y-4">
                     {[
                       { icoon: Mail, kop: t.mailKop, regel: "contact@meetingmasters.online", href: "mailto:contact@meetingmasters.online" },

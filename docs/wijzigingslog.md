@@ -2231,3 +2231,21 @@ Dat is dezelfde rondleiding, dus die regel klopt niet meer.
 
 Verder is `scripts/hubspot-advies-bijwerken.mjs` verwijderd; dat is opgegaan in
 `hubspot-formulieren-bijwerken.mjs`.
+
+
+---
+
+## 26 augustus 2026 — rondleidingspagina: kop, en kleinere lopende tekst
+
+- "Plan een rondleiding of neem even contact op." is de kop van het contactblok
+  geworden, in plaats van "Liever direct contact?". De toelichtende zin eronder is
+  vervallen: die zei hetzelfde nog een keer.
+- De lopende tekst staat een maat kleiner, van 18 naar 16 px, gelijk aan de rest
+  van de site.
+
+De kop is een eigen optie op `FormulierPagina` (`directContactKop`), dus andere
+pagina's die dat component gebruiken houden hun eigen kop.
+
+**De kleinere tekst geldt wel voor alle pagina's met dit component**: naast de
+rondleiding zijn dat boeking en kostenindicatie. Dat is de bedoeling, want daar
+stond de introtekst om dezelfde reden te groot.

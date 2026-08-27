@@ -22,12 +22,12 @@ export default function DemoPage() {
             Geen presentatie, geen verkooppraat. Sommige dingen kun je beter ervaren dan
             uitleggen.
           </p>
-          <p>Plan een rondleiding of neem even contact op.</p>
         </>
       }
       formulier="demo"
       agenda
       directContactBijTekst
+      directContactKop="Plan een rondleiding of neem even contact op."
       formulierKop="Plan je rondleiding"
       formulierUitleg="Kies zelf een moment dat je uitkomt. Een half uur, meer is het niet."
     />

@@ -28,12 +28,12 @@ export default function DemoPage() {
             No presentation, no sales pitch. Some things are easier to experience than to
             explain.
           </p>
-          <p>Book a tour, or simply get in touch.</p>
         </>
       }
       formulier="demo"
       agenda
       directContactBijTekst
+      directContactKop="Book a tour, or simply get in touch."
       formulierKop="Book your tour"
       formulierUitleg="Pick a moment that suits you. Half an hour, no more than that."
     />
