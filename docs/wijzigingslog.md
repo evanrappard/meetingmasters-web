@@ -2023,3 +2023,35 @@ Nog niet vertaald: dit stuk staat alleen in het Nederlands.
 Engelse versie erbij: `/en/blog/play-is-good-for-nothing`. Het taalpaar staat in
 `lib/talen.ts`, want de schakelaar werkt met een vaste lijst; zonder die regel
 biedt hij op een nieuw artikel geen vertaling aan. Beide kanten gecontroleerd.
+
+
+---
+
+## 26 augustus 2026 — R@venHack-hero: scherper, en waarom niet met het nieuwe bestand
+
+Emilie leverde `Downloads/Erik_en_Dave_HSZ_hero.webp` aan (2560x1327) als
+scherpere versie. Nagemeten: dat bestand heeft meer pixels maar mínder detail.
+Het is namelijk al stevig gecomprimeerd, 139 kB voor 3,4 megapixel. Op dezelfde
+weergavebreedte scoorde het onder wat er al stond, en dat was op ware grootte ook
+te zien: zachtere letterranden, minder textuur in de gezichten.
+
+Wat wél hielp, in twee stappen:
+
+1. **De oorspronkelijke PNG op eigen resolutie.** `Erik_en_Dave_HSZ_scherper.png`
+   is verliesvrij en 2338 px breed; wij schaalden hem eerder terug naar 1920.
+   Nu op eigen formaat als `ravenhack-hero-v3.webp` (180 kB).
+2. **Kwaliteit 90 geprobeerd en weer teruggedraaid.** Next hercomprimeert elk
+   beeld zelf, en op de standaard 75 wordt dit beeld korrelig rond de
+   neonletters en de cijferpatronen. Op 90 was dat zichtbaar beter, maar de hero
+   ging van 66 naar 99 kB (AVIF) en dat is nu juist het beeld dat de laadtijd van
+   die pagina bepaalt. Emilie koos snelheid boven scherpte, dus staat de
+   kwaliteit weer op de sitebrede 75 en is `qualities` uit `next.config.ts`
+   gehaald.
+
+De winst zit dus in de bron: een verliesvrij bestand op eigen resolutie in plaats
+van een al gecomprimeerde versie. De uitgeleverde hero blijft 66 kB.
+
+Wat níét meer helpt: `deviceSizes` in `next.config.ts` gaat tot 1920. Op een
+retina-scherm wordt de band daarboven opgerekt. Een grotere maat toestaan zou
+scherper zijn, maar dat raakt élk beeld op de site en dus de laadtijd. Niet
+gedaan, wel het noemen waard.

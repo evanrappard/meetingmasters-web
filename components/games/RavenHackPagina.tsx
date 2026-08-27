@@ -33,11 +33,12 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <Image
-            src="/images/ravenhack-hero-v2.webp"
+            src="/images/ravenhack-hero-v3.webp"
             alt={t.hero.beeldAlt}
             fill
             className="object-cover"
             priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
