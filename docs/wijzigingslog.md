@@ -2173,3 +2173,30 @@ om het formulier zet. Onze opmaak komt daar niet bij, en de Forms API kent geen
 instelling per veld. Het had gekund door het formulier zonder dat venster te laten
 renderen, maar dan verandert het uiterlijk overal; Emilie koos ervoor het te
 laten zoals het is.
+
+
+---
+
+## 26 augustus 2026 — rondleidingsformulier en één script voor alle formulieren
+
+Het rondleidingsformulier heeft in beide talen dezelfde behandeling gekregen als
+het adviesformulier: logo bovenaan, disclaimer op 11px, knop in MM-geel. De knop
+heet nu "Plan een rondleiding" (Engels: "Book a tour"), in plaats van "Plan mijn
+rondleiding →".
+
+Nieuw daarboven: **"Waarover wil je meer weten en zien?"** met vijf aankruisbare
+opties (Algemeen, Events, Virtueel kantoor, Escape Room, Anders), meerdere keuzes
+mogelijk. Nieuwe contacteigenschap `mm_interesse`.
+
+Onderweg liep dat één keer stuk: de CRM-API noemt dit veldtype `checkbox`, de
+Forms-API `multiple_checkboxes`. Staat nu in `docs/hubspot-forms.md`.
+
+**Eén script voor alle formulieren.** `hubspot-advies-bijwerken.mjs` is opgegaan
+in `hubspot-formulieren-bijwerken.mjs`, dat per formulier beschrijft wat er moet
+staan: labels, extra velden vóór of ná een bestaand veld, knoptekst en
+bedanktekst. Stijl en logo staan er één keer in, dus alle formulieren blijven
+gelijk. Herhaalbaar: staat iets al goed, dan verandert er niets.
+
+**Belangrijk om te weten:** het rondleidingsformulier staat niet op de site.
+`/nl/demo` en `/en/demo` tonen de agenda. Het formulier is dus bijgewerkt, maar
+een bezoeker ziet het alleen via een gedeelde link.

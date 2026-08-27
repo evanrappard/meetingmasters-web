@@ -188,3 +188,26 @@ laat hij ze staan.
 formulieren áán en slaat bestaande over, juist om handwerk in HubSpot niet te
 overschrijven. Wil je een bestaand formulier wijzigen, dan doe je dat gericht,
 zoals hierboven.
+
+
+## Het rondleidingsformulier (26 augustus 2026)
+
+**MM Website — Demo of rondleiding** en **Demo or tour** hebben dezelfde
+huisstijl gekregen als het adviesformulier: logo bovenaan, disclaimer op 11px en
+de knop in MM-geel. De knop heet nu "Plan een rondleiding" (Engels: "Book a
+tour").
+
+Nieuw veld boven "Waar ben je vooral benieuwd naar?": **"Waarover wil je meer
+weten en zien?"**, meerdere keuzes mogelijk. Schrijft naar de contacteigenschap
+`mm_interesse` (type `enumeration`, fieldType `checkbox`), met de waarden
+`algemeen`, `events`, `virtueel-kantoor`, `escape-room` en `anders`. De labels
+verschillen per taal, de waarden niet, dus in HubSpot komt alles in één veld.
+
+> Let op bij het toevoegen van zo'n veld: de CRM-API noemt dit veldtype
+> `checkbox`, de Forms-API `multiple_checkboxes`. Met `checkbox` geeft de
+> Forms-API een 400.
+
+**Dit formulier staat niet op de site.** `/nl/demo` en `/en/demo` tonen de
+HubSpot-agenda, niet dit formulier: bij een rondleiding is zelf een moment kiezen
+sneller dan een voorkeur opgeven en wachten. Het formulier bestaat dus wel, maar
+een bezoeker ziet het alleen als je de link zelf deelt.
