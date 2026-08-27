@@ -2117,3 +2117,28 @@ label goed, uploadveld werkt.
 de melding "This reCAPTCHA is for testing purposes only". Dat wijst op testsleutels
 in de HubSpot-instellingen; dan beschermt hij niet echt tegen spam. Zie de
 formulierinstellingen in HubSpot.
+
+
+---
+
+## 26 augustus 2026 — adviesformulier: knop, disclaimer en bedanktekst
+
+Vervolg op de wijziging van eerder vandaag, opnieuw in beide talen:
+
+- **Bedanktekst**: "Dank je wel. We komen uiterlijk binnen twee dagen bij je
+  terug. Meer haast? Bel ons even: 020 239 03 13." Het nummer staat met spaties,
+  zoals overal op de site.
+- **Disclaimer** van 14px naar 11px, gelijk aan de labels erboven. Hij trok
+  eerder meer aandacht dan de vragen zelf.
+- **Verzendknop**: "Verstuur" (Engels: "Send") in MM-geel met donkere letters,
+  in plaats van "Stuur mijn vraag" in HubSpot-oranje.
+
+Nagemeten op de live site: knop `rgb(238, 190, 61)` met tekst `rgb(45, 45, 45)`,
+disclaimer 11px, in beide talen.
+
+**Alle verwijzingen nagelopen.** Het formulier-ID is niet veranderd, dus elke
+insluiting wijst vanzelf naar de bijgewerkte versie. Ter controle: in HubSpot
+bestaan er precies twee advies-formulieren (NL en EN, geen van beide gearchiveerd),
+in de code wordt alleen `HUBSPOT_FORMS.advies` gebruikt op `/nl/expert-advies` en
+`/en/expert-advice`, en alle 40 links op de site die over advies of een gesprek
+gaan wijzen naar die twee pagina's. Er is dus geen oude versie meer in omloop.

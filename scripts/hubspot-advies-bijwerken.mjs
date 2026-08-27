@@ -18,6 +18,11 @@
  *  3. Een uploadveld eronder, zodat iemand een bestand of foto kan meesturen.
  *     Dat schrijft naar de contacteigenschap `mm_bijlage` (type string,
  *     fieldType file).
+ *  4. De verzendknop: "Verstuur" (Engels: "Send") in MM-geel met donkere
+ *     letters, in plaats van "Stuur mijn vraag" in HubSpot-oranje.
+ *  5. De disclaimer op 11px, gelijk aan de labels erboven.
+ *  6. De bedanktekst na verzenden, met het telefoonnummer erbij voor wie haast
+ *     heeft.
  *
  * Vóór elke wijziging schrijft het script een reservekopie van het formulier
  * naar `schermafdrukken/hubspot-backups/`. Ging er iets mis, dan zet je die
@@ -45,12 +50,31 @@ const FORMULIEREN = {
     id: "02bdc77f-14e3-4826-9d48-96449c8ca062",
     berichtLabel: "Vraag of bericht",
     bijlageLabel: "Bestand of foto meesturen (optioneel)",
+    knop: "Verstuur",
+    dank: "Dank je wel. We komen uiterlijk binnen twee dagen bij je terug. Meer haast? Bel ons even: 020 239 03 13.",
   },
   en: {
     id: "e4d50964-6457-440f-a73c-5f31726c6060",
     berichtLabel: "Question or message",
     bijlageLabel: "Attach a file or photo (optional)",
+    knop: "Send",
+    dank: "Thank you. We will come back to you within two days at the latest. In a hurry? Give us a call: +31 20 239 03 13.",
   },
+};
+
+/**
+ * De stijl van het formulier. HubSpot rendert het in een iframe, dus onze eigen
+ * CSS komt er niet bij: dit zijn de enige knoppen die we hebben.
+ *
+ * - De verzendknop stond op HubSpot-oranje. Nu MM-geel met donkere letters,
+ *   zoals elke knop op de site.
+ * - De disclaimer stond op 14px en schreeuwde daarmee harder dan de labels
+ *   erboven. Nu 11px, gelijk aan die labels.
+ */
+const STIJL = {
+  submitColor: "#EEBE3D",
+  submitFontColor: "#2D2D2D",
+  legalConsentTextSize: "11px",
 };
 
 /**
@@ -123,6 +147,9 @@ for (const [taal, f] of Object.entries(FORMULIEREN)) {
   console.log(`  logo bovenaan:      ${heeftLogo ? "stond er al" : "toegevoegd"}`);
   console.log(`  berichtlabel:       "${f.berichtLabel}"`);
   console.log(`  uploadveld:         ${heeftBijlage ? "stond er al" : "toegevoegd"}`);
+  console.log(`  knop:               "${f.knop}" in ${STIJL.submitColor}`);
+  console.log(`  disclaimer:         ${STIJL.legalConsentTextSize}`);
+  console.log(`  bedanktekst:        "${f.dank.slice(0, 60)}…"`);
   console.log(`  reservekopie:       ${backup.replace(resolve(__dirname, ".."), ".")}`);
 
   if (DRY_RUN) {
@@ -132,7 +159,18 @@ for (const [taal, f] of Object.entries(FORMULIEREN)) {
 
   await hs(`/marketing/v3/forms/${f.id}`, {
     method: "PATCH",
-    body: JSON.stringify({ fieldGroups: uit }),
+    body: JSON.stringify({
+      fieldGroups: uit,
+      displayOptions: {
+        ...form.displayOptions,
+        submitButtonText: f.knop,
+        style: { ...form.displayOptions.style, ...STIJL },
+      },
+      configuration: {
+        ...form.configuration,
+        postSubmitAction: { type: "thank_you", value: f.dank },
+      },
+    }),
   });
   console.log("  bijgewerkt in HubSpot");
 }

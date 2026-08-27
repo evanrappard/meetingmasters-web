@@ -168,6 +168,16 @@ Als enige formulier heeft dit er drie dingen bij:
   op 26 augustus 2026 is aangemaakt.
 - **Het berichtlabel is korter**: "Vraag of bericht" in plaats van "Je vraag of
   bericht" (Engels: "Question or message").
+- **De verzendknop** heet "Verstuur" (Engels: "Send") en staat in MM-geel
+  (`#EEBE3D`) met donkere letters, in plaats van HubSpot-oranje.
+- **De disclaimer** staat op 11px, gelijk aan de labels erboven. Hij stond op
+  14px en schreeuwde daarmee harder dan de vragen zelf.
+- **De bedanktekst** noemt twee dagen en geeft het telefoonnummer voor wie haast
+  heeft.
+
+Stijl gaat via `displayOptions.style` in de Forms API. HubSpot rendert het
+formulier in een iframe, dus onze eigen CSS komt er niet bij: die instellingen
+zijn de enige knoppen die we hebben.
 
 Doorgevoerd met `node scripts/hubspot-advies-bijwerken.mjs`. Dat script maakt
 eerst een reservekopie van het formulier in `schermafdrukken/hubspot-backups/`
