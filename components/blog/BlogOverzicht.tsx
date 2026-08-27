@@ -102,6 +102,7 @@ export default function BlogOverzicht({
             alt={t.beeldAlt}
             fill
             priority
+            quality={90}
             className="object-cover object-[center_78%]"
             sizes="100vw"
           />

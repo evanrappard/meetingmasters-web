@@ -32,7 +32,7 @@ export default function ZaaltjePagina({ taal = "nl" }: { taal?: Taal }) {
           <Image
             src="/images/vo-zaaltje-v2.webp"
             alt={t.hero.beeldAlt}
-            fill priority
+            fill priority quality={90}
             className="object-cover object-center"
             style={{ filter: "contrast(1.03) saturate(1.06)" }}
           />

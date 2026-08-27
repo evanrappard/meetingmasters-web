@@ -39,6 +39,7 @@ export default function EscapeRoomsPage() {
                 alt="EscapeMasters online escape room"
                 fill
                 priority
+                quality={90}
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />

@@ -20,7 +20,7 @@ const T = {
       {
         level: "Interesse",
         title: "Ervaar het verschil",
-        desc: "20 minuten om te zien hoe een platform als SpatialChat iets anders doet dan Zoom of Teams.",
+        desc: "Een half uur om te zien hoe een platform als SpatialChat iets anders doet dan Zoom of Teams.",
         ctaLabel: "Plan een rondleiding →",
         href: "/nl/demo",
         variant: "mid" as const,
@@ -50,7 +50,7 @@ const T = {
       {
         level: "Interested",
         title: "Feel the difference",
-        desc: "20 minutes to see how a platform like SpatialChat does something Zoom and Teams don't.",
+        desc: "Half an hour to see how a platform like SpatialChat does something Zoom and Teams don't.",
         ctaLabel: "Book a tour →",
         href: "/en/demo",
         variant: "mid" as const,

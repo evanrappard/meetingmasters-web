@@ -237,7 +237,15 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     // Standaard gaat Next tot 3840px. Geen enkel beeld op deze site wordt zo
     // groot getoond; dat leverde alleen downloads op die niemand ziet.
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    // Retina-schermen kregen niets groters dan 1920 en rekten dat op: op een
+    // 1440px-scherm met dichtheid 2 vraagt de browser om 2880. Met 2560 erbij
+    // krijgen die schermen een echte grote versie. Kost bandbreedte, maar
+    // scherpte gaat hier voor.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2560],
+    // Next 16 staat alleen de kwaliteiten toe die hier staan. 75 blijft de
+    // standaard voor gewone beelden; 90 is voor de grote beelden bovenaan een
+    // pagina, waar compressie meteen te zien is.
+    qualities: [75, 90],
     remotePatterns: [
       { protocol: "https", hostname: "images.squarespace-cdn.com" },
       { protocol: "https", hostname: "mgkzogvgqpfvsynrfera.supabase.co" },

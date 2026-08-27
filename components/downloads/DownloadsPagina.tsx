@@ -70,7 +70,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
           <Image
             src="/images/downloads-hero.webp"
             alt="Iemand aan een bureau met een laptop waarop een downloadknop staat"
-            fill priority
+            fill priority quality={90}
             className="object-cover object-right"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D] via-[#2D2D2D]/70 lg:via-[#2D2D2D]/40 to-transparent" />

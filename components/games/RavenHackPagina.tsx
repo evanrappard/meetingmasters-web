@@ -38,6 +38,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
             fill
             className="object-cover"
             priority
+            quality={90}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />

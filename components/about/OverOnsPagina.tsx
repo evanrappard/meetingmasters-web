@@ -35,7 +35,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
           <Image
             src="/images/about-hero.webp"
             alt="Iemand in een online bijeenkomst van MeetingMasters — verbinding maken, waar je ook bent"
-            fill priority
+            fill priority quality={90}
             className="object-cover"
             style={{ objectPosition: "62% 58%", transform: "scale(1.16)", transformOrigin: "64% 60%" }}
           />

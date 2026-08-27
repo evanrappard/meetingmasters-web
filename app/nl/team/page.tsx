@@ -32,6 +32,7 @@ export default function TeamPage() {
               alt="Emilie van Rappard"
               fill
               priority
+              quality={90}
               sizes="(min-width: 768px) 384px, 100vw"
               className="object-cover object-top"
             />

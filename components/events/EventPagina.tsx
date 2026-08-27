@@ -169,7 +169,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
           <Image
             src={event.heroSrc ?? "/images/events-bijeenkomst.webp"}
             alt={event.heroAlt ?? `${title} — MeetingMasters Online Events`}
-            fill priority
+            fill priority quality={90}
             className="object-cover object-center"
             style={{ filter: "contrast(1.03) saturate(1.06)", ...event.heroImgStyle }}
           />

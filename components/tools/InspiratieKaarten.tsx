@@ -233,6 +233,7 @@ export default function InspiratieKaarten({ variant = "pagina", taal = "nl" }: P
             width={874}
             height={1240}
             priority
+            quality={90}
             className="h-auto w-auto max-h-full max-w-full rounded-lg shadow-[0_18px_44px_-16px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out"
             style={{ transform: draait ? "rotateY(90deg) scale(0.97)" : "rotateY(0deg) scale(1)" }}
           />

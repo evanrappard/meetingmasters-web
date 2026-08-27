@@ -47,6 +47,7 @@ export default function RemoteOfficePage() {
             fill
             className="object-cover opacity-25"
             priority
+            quality={90}
           />
         </div>
         <div className="relative max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">

@@ -150,7 +150,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
           <Image
             src="/images/spatialchat-hero-v3.webp"
             alt={t.hero.beeldAlt}
-            fill priority
+            fill priority quality={90}
             className="object-cover object-right"
           />
           {/* De tekst staat links, het scherm rechts. De verloop naar rechts

@@ -62,6 +62,7 @@ export default function HeroCarousel() {
               fill
               className="object-cover"
               priority={i === 0}
+              quality={90}
             />
             <div className="absolute inset-0 bg-black/45" />
             <div className="absolute inset-0 flex items-center justify-center px-4">

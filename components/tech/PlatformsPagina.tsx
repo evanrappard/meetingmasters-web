@@ -56,7 +56,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
           <Image
             src="/images/platforms-hero-v2.webp"
             alt={t.hero.videoAlt}
-            fill priority
+            fill priority quality={90}
             className="object-cover object-right"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D]/90 via-[#2D2D2D]/45 lg:via-[#2D2D2D]/20 to-transparent" />

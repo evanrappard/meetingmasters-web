@@ -2249,3 +2249,42 @@ pagina's die dat component gebruiken houden hun eigen kop.
 **De kleinere tekst geldt wel voor alle pagina's met dit component**: naast de
 rondleiding zijn dat boeking en kostenindicatie. Dat is de bedoeling, want daar
 stond de introtekst om dezelfde reden te groot.
+
+
+---
+
+## 26 augustus 2026 — scherpte gaat voor: heroes op kwaliteit 90, retina tot 2560
+
+Correctie op de keuze van eerder vandaag. "Snelheid boven scherpte" pakte
+breder uit dan bedoeld: het raakte niet één hero, maar het uitgangspunt voor
+alle grote beelden. Kwaliteit gaat voor, tenzij het echt te zwaar wordt.
+
+**Twee knoppen omgezet in `next.config.ts`:**
+
+- `deviceSizes` gaat nu tot **2560** in plaats van 1920. Op een scherm met
+  dichtheid 2 vraagt de browser bij een breedte van 1440 om 2880 pixels; die
+  kreeg tot nu toe 1920 en rekte dat op. Dat was de belangrijkste reden dat
+  heroes zacht oogden op een MacBook.
+- `qualities: [75, 90]`, zodat een beeld om 90 mag vragen. 75 blijft de
+  standaard voor gewone beelden.
+
+**24 beelden op kwaliteit 90.** Alles wat met `priority` laadt, oftewel de
+beelden die bovenaan een pagina staan: de hero's van de eventpagina's, de
+virtueel-kantoorpagina's, R@venHack, Over ons, de platformspagina's, downloads
+en de blogartikelen.
+
+**Wat het kost, gemeten per beeld** (AVIF, zoals een browser het krijgt):
+
+| Beeld | Was (1920, q75) | Nu op 1x | Nu op 2x |
+|---|---|---|---|
+| R@venHack-hero | 66 kB | 98 kB | 128 kB |
+| Over ons-hero | 89 kB | 148 kB | 148 kB |
+
+Ongeveer de helft erbij op een gewoon scherm, het dubbele op retina. Voor het
+beeld dat de eerste indruk maakt, is dat de afspraak.
+
+**Niet aangeraakt:** de posterbeelden achter de hero-video's (`HeroAchtergrond`)
+gaan niet door de beeldverwerking van Next, maar staan als bestand op de site.
+Daar verandert kwaliteit 90 dus niets. `events-hero-poster-v2.webp` is met 386 kB
+het zwaarste losse beeld van de site; die is het bekijken waard als de laadtijd
+ooit knelt, maar hij wordt op desktop meteen bedekt door de video.

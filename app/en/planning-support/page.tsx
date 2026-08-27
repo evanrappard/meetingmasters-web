@@ -71,6 +71,7 @@ export default function PlanningSupportPage() {
           fill
           className="object-cover"
           priority
+          quality={90}
         />
         <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
