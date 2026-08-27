@@ -2200,3 +2200,34 @@ gelijk. Herhaalbaar: staat iets al goed, dan verandert er niets.
 **Belangrijk om te weten:** het rondleidingsformulier staat niet op de site.
 `/nl/demo` en `/en/demo` tonen de agenda. Het formulier is dus bijgewerkt, maar
 een bezoeker ziet het alleen via een gedeelde link.
+
+
+---
+
+## 26 augustus 2026 — rondleidingspagina: zelfde opzet als de adviespagina
+
+`/nl/demo` en `/en/demo` hebben nu de indeling van de adviespagina: de directe
+routes (mail, telefoon, WhatsApp) staan in de linkerkolom onder de tekst, in
+plaats van in een sectie onder de agenda. De sectie eronder vervalt daarmee.
+
+Dat gaat via een nieuwe optie `directContactBijTekst` op `FormulierPagina`, die
+standaard uit staat. Boeking en kostenindicatie gebruiken hetzelfde component en
+blijven dus zoals ze waren.
+
+De agenda is hier de hoofdroute en staat rechts; die staat daarom niet nóg een
+keer tussen de contactopties, anders wijs je twee keer naar hetzelfde.
+
+**Nieuwe tekst**, aangeleverd door Emilie: "Kom het zelf eens ervaren." met
+daaronder het verhaal over rondlopen, en als tweede regel "Plan een rondleiding
+of neem even contact op."
+
+**Twintig minuten wordt een half uur.** Dat stond op drie plekken op deze pagina:
+de introtekst, de regel boven de agenda en de meta description. Alle drie
+bijgewerkt, in beide talen.
+
+**Nog niet bijgewerkt:** de CTA-balk onderaan elke pagina noemt nog "20 minuten
+om te zien hoe een platform als SpatialChat iets anders doet dan Zoom of Teams".
+Dat is dezelfde rondleiding, dus die regel klopt niet meer.
+
+Verder is `scripts/hubspot-advies-bijwerken.mjs` verwijderd; dat is opgegaan in
+`hubspot-formulieren-bijwerken.mjs`.

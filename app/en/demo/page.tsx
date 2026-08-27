@@ -4,7 +4,7 @@ import FormulierPagina from "@/components/ui/FormulierPagina";
 export const metadata: Metadata = {
   title: "Book a tour or demo | MeetingMasters",
   description:
-    "Twenty minutes to see how a platform like SpatialChat does something Zoom and Teams don't. No strings attached, in your own diary, with one of our people alongside.",
+    "Half an hour to see how a platform like SpatialChat does something Zoom and Teams do not. No obligation, in your own diary, with one of our people alongside.",
   alternates: {
     canonical: "https://www.meetingmasters.online/en/demo",
     languages: {
@@ -19,22 +19,23 @@ export default function DemoPage() {
     <FormulierPagina
       taal="en"
       label="Tour"
-      titel="Come and have a look around."
+      titel="Come and experience it yourself."
       intro={
         <>
           <p>
-            In twenty minutes we show you how an online environment works where you simply run
+            In half an hour we show you how an online environment works where you simply run
             into each other. You walk around, we walk with you, and you ask whatever comes up.
+            No presentation, no sales pitch. Some things are easier to experience than to
+            explain.
           </p>
-          <p className="text-base">
-            No presentation, no sales pitch. It is a great deal easier to show than to explain.
-          </p>
+          <p>Book a tour, or simply get in touch.</p>
         </>
       }
       formulier="demo"
       agenda
+      directContactBijTekst
       formulierKop="Book your tour"
-      formulierUitleg="Pick a moment that suits you. Twenty minutes, no more than that."
+      formulierUitleg="Pick a moment that suits you. Half an hour, no more than that."
     />
   );
 }

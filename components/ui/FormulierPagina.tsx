@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Smartphone } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import HubSpotAgenda from "@/components/ui/HubSpotAgenda";
 import { HUBSPOT_PORTAL_ID, type HubSpotFormKey, HUBSPOT_AGENDA, formulierVoor } from "@/lib/hubspot-forms";
@@ -13,6 +13,8 @@ const T = {
     nogNiet: "Nog niet zover?",
     nogNietLink: "Houd je idee eerst vrijblijvend tegen ons aan →",
     adviesHref: "/nl/expert-advies",
+    mailKop: "Mail ons",
+    belKop: "Bel ons",
   },
   en: {
     directKop: "Rather talk to someone?",
@@ -20,6 +22,8 @@ const T = {
     nogNiet: "Not quite ready?",
     nogNietLink: "Run your idea past us first, no strings attached →",
     adviesHref: "/en/expert-advice",
+    mailKop: "Email us",
+    belKop: "Call us",
   },
 } as const;
 
@@ -40,6 +44,13 @@ type Props = {
   formulierKop: string;
   /** Regel onder die kop. */
   formulierUitleg: string;
+  /**
+   * Zet de directe routes (mail, telefoon, WhatsApp) in de linkerkolom onder de
+   * tekst, in plaats van in een sectie onder het formulier. Zo ziet iemand die
+   * liever belt dat meteen, zonder eerst langs het formulier te scrollen.
+   * Zelfde opzet als de adviespagina.
+   */
+  directContactBijTekst?: boolean;
   taal?: Taal;
 };
 
@@ -61,6 +72,7 @@ export default function FormulierPagina({
   agenda = false,
   formulierKop,
   formulierUitleg,
+  directContactBijTekst = false,
   taal = "nl",
 }: Props) {
   const t = T[taal];
@@ -77,6 +89,33 @@ export default function FormulierPagina({
                 {titel}
               </h1>
               <div className="text-[#434343] text-lg leading-relaxed space-y-4">{intro}</div>
+
+              {directContactBijTekst && (
+                <div className="mt-10">
+                  <h2 className="text-2xl font-bold text-[#2D2D2D] mb-2">{t.directKop}</h2>
+                  <p className="text-sm text-[#434343] leading-relaxed mb-6">{t.directTekst}</p>
+                  <ul className="space-y-4">
+                    {[
+                      { icoon: Mail, kop: t.mailKop, regel: "contact@meetingmasters.online", href: "mailto:contact@meetingmasters.online" },
+                      { icoon: Phone, kop: t.belKop, regel: "+31 20 239 03 13", href: "tel:+31202390313" },
+                      { icoon: Smartphone, kop: "WhatsApp", regel: "+31 6 4575 2819", href: "tel:+31645752819" },
+                    ].map(({ icoon: Icoon, kop, regel, href }) => (
+                      <li key={href}>
+                        <a
+                          href={href}
+                          className="flex items-start gap-4 rounded-lg border border-[#EBEBEB] p-5 hover:border-[#28A8AA] hover:bg-[#FAFAFA] transition-colors"
+                        >
+                          <Icoon size={22} className="text-[#28A8AA] flex-shrink-0 mt-0.5" />
+                          <span>
+                            <span className="block font-bold text-[#2D2D2D] text-sm">{kop}</span>
+                            <span className="block text-sm text-[#434343]">{regel}</span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* Het formulier meteen in beeld, in een eigen wit kaartje. */}
@@ -93,7 +132,7 @@ export default function FormulierPagina({
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className={`bg-white py-16 ${directContactBijTekst ? "hidden" : ""}`}>
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>

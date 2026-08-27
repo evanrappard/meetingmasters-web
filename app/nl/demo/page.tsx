@@ -6,30 +6,30 @@ export const metadata: Metadata = {
   alternates: taalAlternates("/demo"),
   title: "Plan een rondleiding of demo | MeetingMasters",
   description:
-    "Twintig minuten om te zien hoe een platform als SpatialChat iets anders doet dan Zoom of Teams. Vrijblijvend, in je eigen agenda, met een van onze mensen erbij.",
+    "Een half uur om te zien hoe een platform als SpatialChat iets anders doet dan Zoom of Teams. Vrijblijvend, in je eigen agenda, met een van onze mensen erbij.",
 };
 
 export default function DemoPage() {
   return (
     <FormulierPagina
       label="Rondleiding"
-      titel="Kom eens binnenlopen."
+      titel="Kom het zelf eens ervaren."
       intro={
         <>
           <p>
-            In twintig minuten laten we je zien hoe een online omgeving werkt waarin je elkaar
-            gewoon tegenkomt. Je loopt rond, wij lopen mee en je stelt de vragen die opkomen.
+            In een half uur laten we je zien hoe een online omgeving werkt waarin je elkaar
+            gewoon tegenkomt. Jij loopt rond, wij lopen mee en je stelt de vragen die opkomen.
+            Geen presentatie, geen verkooppraat. Sommige dingen kun je beter ervaren dan
+            uitleggen.
           </p>
-          <p className="text-base">
-            Geen presentatie, geen verkooppraat. Het is vooral makkelijker om te laten zien dan
-            om uit te leggen.
-          </p>
+          <p>Plan een rondleiding of neem even contact op.</p>
         </>
       }
       formulier="demo"
       agenda
+      directContactBijTekst
       formulierKop="Plan je rondleiding"
-      formulierUitleg="Kies zelf een moment dat je uitkomt. Twintig minuten, meer is het niet."
+      formulierUitleg="Kies zelf een moment dat je uitkomt. Een half uur, meer is het niet."
     />
   );
 }
