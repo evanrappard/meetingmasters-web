@@ -16,7 +16,7 @@ de site geëmbed worden. Emilie maakt het formulier aan in HubSpot en levert de
 
 | # | Naam in HubSpot | Doel | Embed-locatie | Velden | Status | formId |
 |---|-----------------|------|---------------|--------|--------|--------|
-| 1 | **MM Website — Vrijblijvend advies** | Idee of vraag vrijblijvend voorleggen | `/nl/expert-advies` — vervangt het mailto-formulier, dat is verwijderd | naam, e-mail, telefoon (optioneel), bericht | ✅ | `02bdc77f-14e3-4826-9d48-96449c8ca062` |
+| 1 | **MM Website — Vrijblijvend advies** | Idee of vraag vrijblijvend voorleggen | `/nl/expert-advies` — vervangt het mailto-formulier, dat is verwijderd | logo, naam, e-mail, telefoon (optioneel), vraag of bericht, bijlage (optioneel) | ✅ | `02bdc77f-14e3-4826-9d48-96449c8ca062` |
 | 2 | **MM Website — Algemeen contact** | Algemene contactvraag | `/nl/contact` — onder de contactgegevens | naam, e-mail, telefoon (optioneel), bericht | ✅ | `c747d7cd-4850-44f4-965f-a87120e55d38` |
 | 3 | **MM Website — Demo of rondleiding** | De "20 minuten ervaren"-CTA | `/nl/demo` — CTA's 'Plan een rondleiding', 'Plan een demo' en 'Ervaar het zelf' wijzen hierheen | naam, e-mail, organisatie, voorkeursmoment, bericht | ✅ | `a052e71e-9ed7-4c11-adc9-36d8e8b26ea8` |
 | 4 | **MM Website — Boeking & beschikbaarheid** | Zaaltje, R@venHack of EscapeMasters boeken | `/nl/boeken` — CTA's 'Boek je zaaltje', 'Check beschikbaarheid', 'Boek R@venHack' en 'Boek EscapeMasters' | naam, e-mail, organisatie, dropdown "wat wil je boeken", datum, aantal deelnemers | ✅ | `ddf3e496-b036-4720-b7b1-44eed87f7506` |
@@ -153,3 +153,28 @@ met `components/ui/HubSpotAgenda.tsx`.
 
 > Direct geboekte afspraken hebben een hoger no-show-percentage dan afspraken die
 > per mail zijn afgestemd. Zet de herinneringen in HubSpot aan.
+
+
+## Het adviesformulier wijkt af (26 augustus 2026)
+
+Als enige formulier heeft dit er drie dingen bij:
+
+- **Het logo bovenaan.** Het formulier opent soms los, en dan is er verder geen
+  verwijzing naar de afzender. Het beeld komt uit de bestandsmanager van HubSpot
+  en is hetzelfde als het nieuwsbriefformulier gebruikt, dus er is één bestand
+  om bij te houden.
+- **Een uploadveld** onder het berichtveld, voor een bestand of foto. Dat schrijft
+  naar de contacteigenschap `mm_bijlage` (type `string`, fieldType `file`), die
+  op 26 augustus 2026 is aangemaakt.
+- **Het berichtlabel is korter**: "Vraag of bericht" in plaats van "Je vraag of
+  bericht" (Engels: "Question or message").
+
+Doorgevoerd met `node scripts/hubspot-advies-bijwerken.mjs`. Dat script maakt
+eerst een reservekopie van het formulier in `schermafdrukken/hubspot-backups/`
+en is veilig opnieuw te draaien: staat het logo of het uploadveld er al, dan
+laat hij ze staan.
+
+**Let op het verschil met `create-hubspot-forms.mjs`.** Dat script maakt
+formulieren áán en slaat bestaande over, juist om handwerk in HubSpot niet te
+overschrijven. Wil je een bestaand formulier wijzigen, dan doe je dat gericht,
+zoals hierboven.

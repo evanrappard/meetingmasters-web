@@ -2089,3 +2089,31 @@ liep niet mee in de back-up en was niet terug te draaien.
 **Engelse eventpagina's:** loos alarm van mijn kant. Alle twintig hebben een eigen
 meta description. Ik had eerder `/en/events/brainstorm` bekeken, maar die pagina
 heet `brainstorm-session`; ik keek dus naar een 404. Alle twintig nagelopen.
+
+
+---
+
+## 26 augustus 2026 — adviesformulier: logo, kortere labeltekst en een bijlage
+
+Drie wijzigingen in **MM Website — Vrijblijvend advies** en de Engelse tegenhanger
+**Free advice**:
+
+1. Het MeetingMasters-logo staat nu bovenaan het formulier. Het opent soms los,
+   en dan was er geen enkele verwijzing naar de afzender. Hergebruikt beeld uit
+   de bestandsmanager van HubSpot, hetzelfde dat het nieuwsbriefformulier al
+   gebruikte.
+2. Het berichtlabel is "Vraag of bericht" geworden (Engels: "Question or
+   message"), zonder het "Je" ervoor.
+3. Daaronder staat een uploadveld voor een bestand of foto. Nieuwe
+   contacteigenschap `mm_bijlage` (type string, fieldType file), zodat de bijlage
+   bij het contact terechtkomt.
+
+Doorgevoerd met het nieuwe `scripts/hubspot-advies-bijwerken.mjs`, dat eerst een
+reservekopie wegschrijft naar `schermafdrukken/hubspot-backups/` en veilig
+opnieuw te draaien is. Nagekeken op de live site, in beide talen: logo zichtbaar,
+label goed, uploadveld werkt.
+
+**Opgemerkt, niet aangeraakt:** onder het formulier staat een reCAPTCHA-badge met
+de melding "This reCAPTCHA is for testing purposes only". Dat wijst op testsleutels
+in de HubSpot-instellingen; dan beschermt hij niet echt tegen spam. Zie de
+formulierinstellingen in HubSpot.
