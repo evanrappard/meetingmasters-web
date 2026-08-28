@@ -31,9 +31,14 @@ import type { Taal } from "@/lib/talen";
  * ruimte. Anders zie je halverwege de bladzijde het formulier van een ander.
  */
 const VORM = `
-  form, input, select, textarea, button, label, p, span, div {
-    font-family: var(--rh-font), "Helvetica Neue", Arial, sans-serif !important;
+  /* Alles in dit venstertje erft van body. Zo pakt ook de bedanktekst die
+     HubSpot ná het versturen neerzet ons lettertype, en niet Times of Arial. */
+  html, body {
+    font-family: var(--rh-font), "Helvetica Neue", Arial, sans-serif;
+    color: #434343;
+    background: transparent;
   }
+  body * { font-family: inherit !important; }
   .hs-form-field { margin-bottom: 1.25rem; }
   .hs-form-field > label { margin-bottom: .5rem; display: block; }
   input[type=text], input[type=email], input[type=tel], input[type=number], select, textarea {
@@ -61,6 +66,20 @@ const VORM = `
   .hs-button:hover { background: #D4A835 !important; }
   .hs-error-msg, .hs-error-msgs label { color: #C64A60 !important; font-size: 14px !important; }
   .legal-consent-container { margin-top: 1.25rem; }
+
+  /* De bedanktekst na het versturen. Zonder dit is het een kale regel op een
+     wit vlak, in het lettertype van HubSpot. */
+  .submitted-message {
+    border: 1px solid #E7E7E3;
+    border-left: 4px solid #EEBE3D;
+    border-radius: .75rem;
+    background: #FFFBEE;
+    padding: 1.5rem 1.75rem;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #2D2D2D;
+  }
+  .submitted-message p { margin: 0; }
 `;
 
 export default function BoekNu({ keuze, taal }: { keuze: Keuze; taal: Taal }) {

@@ -2952,3 +2952,34 @@ Verder in deze ronde:
 
 Van de kop tot "Verstuur aanvraag" is het nu één doorlopend formulier: zelfde
 lettertype, zelfde velden, zelfde ruimte ertussen.
+
+
+---
+
+## 28 augustus 2026 — knop terug, melding korter, lettertype eindelijk goed
+
+- **"Boek nu" staat weer in de prijskaart rechts**, waar hij eerst stond. De
+  melding staat er nu onder in gewone donkere letters in plaats van rood, en is
+  ingekort tot "Selecteer naast deelnemers ook datum en tijd".
+- **Druk je vanuit de hero op "Boek nu" zonder datum en tijd**, dan blijft die
+  wens staan. Vul je ze alsnog in, dan vouwt het tweede deel vanzelf uit — je
+  hoeft de knop niet twee keer aan te klikken. Dat gebeurde eerder al, maar per
+  ongeluk, via het anker in de adresbalk; het is nu een bewuste stap.
+
+### Waarom het lettertype nog niet klopte
+
+De velden stonden wél in Rajdhani, maar de rest van het venstertje niet — en de
+bedanktekst die HubSpot ná het versturen neerzet dus ook niet. Twee oorzaken:
+
+1. **De stijl werd op het formulier gezet, niet op het venstertje.** Na het
+   versturen is dat formulier weg, en daarmee de opmaak. Nu gaat de stijl naar
+   het document zelf, en erft alles binnenin van `body`.
+2. **De verwijzing naar het lettertypebestand was relatief.** In het stijlblad
+   van de site staat iets als `url("../media/rajdhani.woff2")`, en dat telt vanaf
+   dát stijlblad. In het venstertje geldt het adres van de pagina als beginpunt,
+   dus wees diezelfde regel naar een plek die niet bestaat — waarna de browser
+   stilletjes terugviel op Arial. De adressen worden nu volledig gemaakt voordat
+   ze naar binnen gaan.
+
+De bedanktekst heeft nu ook vorm gekregen: een blok in ons geel, met dezelfde
+letter en kleuren als de rest.

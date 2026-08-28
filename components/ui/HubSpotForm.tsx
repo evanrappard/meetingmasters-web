@@ -115,19 +115,48 @@ function lettertypeRegels(): string {
       continue; // stijlblad van een ander domein; daar mogen we niet in kijken
     }
     for (const regel of Array.from(regels)) {
-      if (regel.constructor.name === "CSSFontFaceRule") uit.push(regel.cssText);
+      if (regel.constructor.name !== "CSSFontFaceRule") continue;
+      /*
+       * De verwijzing naar het lettertypebestand staat er relatief in, en die
+       * telt vanaf het stijlblad — iets als "../media/rajdhani.woff2". In het
+       * venstertje van HubSpot geldt het adres van de pagina als beginpunt, en
+       * dan wijst diezelfde regel naar een plek die niet bestaat. Het lettertype
+       * viel dan stilletjes terug op Arial. Daarom maken we het adres hier
+       * volledig.
+       */
+      const basis = blad.href ?? document.baseURI;
+      uit.push(
+        regel.cssText.replace(/url\((['"]?)([^'")]+)\1\)/g, (heel, quote, adres) => {
+          try {
+            return `url("${new URL(adres, basis).href}")`;
+          } catch {
+            return heel;
+          }
+        })
+      );
     }
   }
   const familie = getComputedStyle(document.body).fontFamily;
   return `:root { --rh-font: ${familie}; }\n${uit.join("\n")}`;
 }
 
-/** Zet onze stijl in het formulier, en houdt hem daar. */
-function zetStijl(form: HTMLFormElement | null, css?: string) {
-  if (!form || !css) return;
-  const doc = form.ownerDocument;
-  if (doc === document) return; // staat gewoon in de pagina; onze CSS geldt al
-  if (doc.getElementById("mm-stijl")) return;
+/**
+ * Zet onze stijl in het venstertje waar HubSpot het formulier in zet, en houdt
+ * hem daar. Bewust op het document en niet op het formulier: na het versturen
+ * is dat formulier weg en zet HubSpot er een bedanktekst voor in de plaats. Die
+ * moet er net zo uitzien.
+ */
+function zetStijl(targetId: string, css?: string) {
+  if (!css) return;
+  const houder = document.getElementById(targetId);
+  const iframe = houder?.querySelector("iframe");
+  let doc: Document | null | undefined;
+  try {
+    doc = iframe?.contentDocument;
+  } catch {
+    return; // ander domein; daar kunnen we niet bij
+  }
+  if (!doc?.head || doc.getElementById("mm-stijl")) return;
   const el = doc.createElement("style");
   el.id = "mm-stijl";
   el.textContent = `${lettertypeRegels()}\n${css}`;
@@ -309,7 +338,7 @@ export default function HubSpotForm({
     const kijk = () => {
       const form = zoekFormulier(targetId);
       if (form) formulier.current = form;
-      zetStijl(formulier.current, stijl);
+      zetStijl(targetId, stijl);
       vulVelden(formulier.current, prefill);
     };
     kijk();

@@ -59,6 +59,7 @@ export default function Calculator({
   taal,
   formulierOpen,
   mistMoment,
+  naarFormulier,
   children,
 }: {
   keuze: Keuze;
@@ -68,6 +69,8 @@ export default function Calculator({
   formulierOpen: boolean;
   /** Iemand wilde boeken zonder datum of tijd. */
   mistMoment: boolean;
+  /** Vouwt het tweede deel uit, als datum en tijd er zijn. */
+  naarFormulier: () => void;
   /** Het tweede deel: de gegevens van de bezoeker, onder de keuzes. */
   children?: React.ReactNode;
 }) {
@@ -294,10 +297,6 @@ export default function Calculator({
           )}
         </div>
 
-        {mistMoment && (
-          <p className="text-[15px] text-[#C64A60] font-semibold leading-relaxed">{c.datumNodig}</p>
-        )}
-
         {children}
       </div>
 
@@ -337,6 +336,23 @@ export default function Calculator({
         <p className="mt-5 border-t border-[#E7E7E3] pt-4 text-[15px] text-[#6E7877] leading-relaxed">
           {t.toeslagregel}
         </p>
+
+        {prijs.toonPrijs && !formulierOpen && (
+          <>
+            <button
+              type="button"
+              onClick={naarFormulier}
+              className="mt-5 block w-full rounded bg-[#EEBE3D] px-5 py-3.5 text-center text-base font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
+            >
+              {c.naarFormulier}
+            </button>
+            {mistMoment && (
+              <p className="mt-2.5 text-[15px] font-semibold text-[#2D2D2D] leading-relaxed">
+                {c.datumNodig}
+              </p>
+            )}
+          </>
+        )}
 
         {formulierOpen && (
           <ul className="mt-5 border-t border-[#E7E7E3] pt-4 space-y-2.5">

@@ -127,8 +127,7 @@ export const TEKST = {
       inclBtw: "= {bedrag} incl. 21% btw",
       naarFormulier: "Boek nu",
       terug: "← Terug naar de prijs",
-      datumNodig:
-        "Kies eerst een gewenste datum en tijd. Die hebben we nodig om uw aanvraag te kunnen inplannen.",
+      datumNodig: "Selecteer naast deelnemers ook datum en tijd",
       opbouw: {
         basis: "Basisprijs {variant} (t/m {inbegrepen} deelnemers)",
         extra: "Extra deelnemers: {aantal} × {prijs}",
@@ -177,8 +176,7 @@ export const TEKST = {
       inclBtw: "= {bedrag} incl. 21% VAT",
       naarFormulier: "Book now",
       terug: "← Back to the price",
-      datumNodig:
-        "Please choose a preferred date and time first. We need those to be able to schedule your request.",
+      datumNodig: "Also select a date and a time, not just the number of participants",
       opbouw: {
         basis: "Base price {variant} (up to {inbegrepen} participants)",
         extra: "Extra participants: {aantal} × {prijs}",

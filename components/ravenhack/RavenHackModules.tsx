@@ -32,13 +32,15 @@ export default function RavenHackModules({ taal }: { taal: Taal }) {
     kortingspercentage: 0,
   });
   const [boekenOpen, setBoekenOpen] = useState(false);
-  /** Iemand drukte op "Boek nu" zonder datum of tijd. */
-  const [mistMoment, setMistMoment] = useState(false);
+  /**
+   * Iemand heeft op "Boek nu" gedrukt. Was datum of tijd toen nog leeg, dan
+   * blijft die wens staan: zodra hij ze alsnog invult, vouwt het tweede deel
+   * vanzelf uit. Anders moet hij dezelfde knop twee keer aanklikken.
+   */
+  const [wilBoeken, setWilBoeken] = useState(false);
+  const mistMoment = wilBoeken && !boekenOpen;
 
-  const zet = (deel: Partial<Keuze>) => {
-    setKeuze((was) => ({ ...was, ...deel }));
-    if (deel.datum || deel.tijd) setMistMoment(false);
-  };
+  const zet = (deel: Partial<Keuze>) => setKeuze((was) => ({ ...was, ...deel }));
   const t = TEKST[taal];
   const prijs = berekenPrijs(keuze);
 
@@ -50,36 +52,36 @@ export default function RavenHackModules({ taal }: { taal: Taal }) {
   useEffect(() => {
     const bijKlik = (e: MouseEvent) => {
       const doel = (e.target as HTMLElement | null)?.closest?.("a")?.getAttribute("href");
-      if (doel === "#rh-boeken") probeerTeBoeken();
+      if (doel === "#rh-boeken") setWilBoeken(true);
     };
-    if (window.location.hash === "#rh-boeken") setBoekenOpen(true);
+    if (window.location.hash === "#rh-boeken") setWilBoeken(true);
     document.addEventListener("click", bijKlik);
     return () => document.removeEventListener("click", bijKlik);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [keuze.datum, keuze.tijd]);
+  }, []);
 
-  // Wordt de groep te groot, dan kan er niets verstuurd worden en heeft het
-  // tweede deel geen zin meer.
+  // Zodra de wens er is én het moment compleet, gaat het tweede deel open.
   useEffect(() => {
-    if (!prijs.toonPrijs) setBoekenOpen(false);
-  }, [prijs.toonPrijs]);
-
-  function probeerTeBoeken() {
-    // Zonder moment kunnen we niets inplannen, dus dat vragen we hier af en
-    // niet pas onderaan het formulier.
+    if (!wilBoeken || boekenOpen) return;
     if (!keuze.datum || !keuze.tijd) {
-      setMistMoment(true);
       document.getElementById(!keuze.datum ? "rh-datum" : "rh-tijd")?.focus();
       return;
     }
-    setMistMoment(false);
     setBoekenOpen(true);
     requestAnimationFrame(() => {
       setTimeout(() => {
         document.getElementById("rh-boeken")?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 60);
     });
-  }
+  }, [wilBoeken, boekenOpen, keuze.datum, keuze.tijd]);
+
+  // Wordt de groep te groot, dan kan er niets verstuurd worden en heeft het
+  // tweede deel geen zin meer.
+  useEffect(() => {
+    if (!prijs.toonPrijs) {
+      setBoekenOpen(false);
+      setWilBoeken(false);
+    }
+  }, [prijs.toonPrijs]);
 
   return (
     <section id="rh-prijs" className="bg-[#FAFAFA] py-14 md:py-16 border-b border-[#EBEBEB] scroll-mt-24">
@@ -88,30 +90,19 @@ export default function RavenHackModules({ taal }: { taal: Taal }) {
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
             {t.calculator.kicker}
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
             {t.calculator.kop}
           </h2>
-
-          {/* De knop staat vooraan, zodat je meteen ziet waar dit heen gaat.
-              Wie er te vroeg op drukt, krijgt de vraag om eerst een moment te
-              kiezen — zonder dat er iets verspringt. */}
-          {prijs.toonPrijs && !boekenOpen && (
-            <button
-              type="button"
-              onClick={probeerTeBoeken}
-              className="rounded bg-[#EEBE3D] px-8 py-3.5 text-base font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
-            >
-              {t.calculator.naarFormulier}
-            </button>
-          )}
-          {mistMoment && (
-            <p className="mt-3 text-[15px] text-[#C64A60] font-semibold leading-relaxed">
-              {t.calculator.datumNodig}
-            </p>
-          )}
         </div>
 
-        <Calculator keuze={keuze} zet={zet} taal={taal} formulierOpen={boekenOpen} mistMoment={false}>
+        <Calculator
+          keuze={keuze}
+          zet={zet}
+          taal={taal}
+          formulierOpen={boekenOpen}
+          mistMoment={mistMoment}
+          naarFormulier={() => setWilBoeken(true)}
+        >
           {boekenOpen && prijs.toonPrijs && (
             <div className="pt-2">
               <BoekNu keuze={keuze} taal={taal} />
