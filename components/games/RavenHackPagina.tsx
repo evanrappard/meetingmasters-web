@@ -4,11 +4,19 @@ import CTABlock from "@/components/ui/CTABlock";
 import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
 import VersieKeuze from "@/components/games/VersieKeuze";
+import RavenHackModules from "@/components/ravenhack/RavenHackModules";
 import { versies, stappen, faq, NL } from "@/app/nl/games-tools/ravenhack/data";
 import { RAVENHACK_EN } from "@/app/nl/games-tools/ravenhack/tekst-en";
 import type { Taal } from "@/lib/talen";
 
 /** R@venHack, in beide talen. Beelden en volgorde zijn taalloos. */
+
+/**
+ * De drie modules (beschikbaarheid, prijs, boeken) staan achter een schakelaar,
+ * zodat ze lokaal te bekijken zijn zonder dat ze meteen op de live site staan.
+ * Aanzetten met NEXT_PUBLIC_RAVENHACK_MODULES=aan in .env.local.
+ */
+const MODULES_AAN = process.env.NEXT_PUBLIC_RAVENHACK_MODULES === "aan";
 
 export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
   const engels = taal === "en";
@@ -16,6 +24,11 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
   const fasen = engels ? stappen.map((s, i) => ({ ...s, ...RAVENHACK_EN.hoe.stappen[i] })) : stappen;
   const varianten = engels ? versies.map((v, i) => ({ ...v, ...RAVENHACK_EN.versies.items[i] })) : versies;
   const faqs = engels ? RAVENHACK_EN.faq : faq;
+  // Staan de modules op de pagina, dan springt "Check beschikbaarheid" naar de
+  // agenda en "Kostenindicatie" naar de calculator, in plaats van naar de
+  // algemene formulierpagina's.
+  const naarBoeken = MODULES_AAN ? "#rh-agenda" : t.links.boeken;
+  const naarKosten = MODULES_AAN ? "#rh-prijs" : t.links.offerte;
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -68,13 +81,13 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                  </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
-                    href={t.links.offerte}
+                    href={naarKosten}
                     className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
                   >
                     {t.hero.ctaKosten}
                    </Link>
                   <Link
-                    href={t.links.boeken}
+                    href={naarBoeken}
                     className="text-white text-sm font-semibold px-5 py-3 border border-white/40 rounded hover:border-white/80 hover:bg-white/10 transition-colors"
                   >
                     {t.hero.cta}
@@ -193,11 +206,14 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
             versies={varianten}
             ctaLabel={t.versies.cta}
             kostenLabel={t.versies.kosten}
-            boekenHref={t.links.boeken}
-            offerteHref={t.links.offerte}
+            boekenHref={naarBoeken}
+            offerteHref={naarKosten}
           />
         </div>
       </section>
+
+      {/* ── BESCHIKBAARHEID · PRIJS · BOEKEN ── */}
+      {MODULES_AAN && <RavenHackModules taal={taal} />}
 
       {/* ── BEELD + PRAKTIJK ── */}
       <section className="bg-[#FAFAFA] py-16 border-b border-[#EBEBEB]">

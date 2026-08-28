@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-27
+> Laatst bijgewerkt: 2026-08-28
 
 ---
 
@@ -2450,3 +2450,87 @@ opruimen kan dat later doen.
 
 **C** — `scripts/_vragen-en-bouw.mjs` is als verlopen gemarkeerd: het las uit een
 tijdelijke map die niet meer bestaat, en `vragen-en.ts` is inmiddels zelf de bron.
+
+
+---
+
+## 28 augustus 2026 — R@venHack: beschikbaarheid, calculator en boeking
+
+Drie modules op de R@venHack-pagina, uit de bouwopdracht van 27 augustus. Ze
+staan achter een schakelaar: `NEXT_PUBLIC_RAVENHACK_MODULES=aan` in `.env.local`
+zet ze aan. Op de live site staat die variabele niet, dus daar verandert nog
+niets tot Emilie ja zegt.
+
+### Anders gebouwd dan de opdracht voorschreef
+
+De opdracht wilde een eigen API-route die een contact, een bedrijf en een deal
+in HubSpot aanmaakt, plus twee zelf verstuurde e-mails. Dat vroeg zes nieuwe
+rechten op de HubSpot-sleutel (die er geen enkele van had), een pipeline, tien
+custom deal-eigenschappen en een verzenddienst met DNS-records.
+
+Op aanwijzing van Emilie is dat vervangen door één gewoon HubSpot-formulier.
+HubSpot bewaart de gegevens dan zelf, koppelt ze aan een bestaand contact,
+stuurt de melding en levert de reCAPTCHA mee. Daarmee viel weg: alle nieuwe
+rechten, de mailkoppeling, de deal-schrijfcode en het spamvraagstuk. De sleutel
+mag alleen formulieren en contacteigenschappen — precies genoeg.
+
+Wat we daarvoor opgeven: er wordt geen deal aangemaakt (Emilie regelt de
+pipeline zelf) en de prijs wordt niet op de server herrekend. Dat laatste kan,
+omdat de prijs niets vastlegt: de boeking geldt pas na bevestiging en de offerte
+wordt met de hand gemaakt.
+
+Verder afgeweken:
+
+- **Datum en tijd staan bij de calculator**, niet in het formulier. De toeslag
+  hangt eraan, en een prijs kan niet meebewegen met een veld dat binnen een
+  HubSpot-formulier zit.
+- **Boven 150 deelnemers (en Quick boven 30) kun je niet verzenden**; daar staat
+  een verwijzing naar een gesprek. De opdracht zei daar niets over.
+- **De taal van de sessie volgt de taal van de pagina** in plaats van altijd NL.
+- **`/pages/api/...` bestaat niet** in deze site; de kortingscontrole staat op
+  `app/api/ravenhack/korting/route.ts`.
+- **Btw-nummer is niet verplicht.** Verenigingen en stichtingen hebben er geen.
+- **"Drie werkdagen vooraf" telt maandag tot en met vrijdag**, zonder
+  feestdagenkalender.
+
+### Wat er staat
+
+- `config/ravenhack.ts` — prijzen, grenzen, teksten, formulier-ID's. Eén plek.
+- `config/kortingscodes.json` + `lib/ravenhack/korting.ts` — het percentage komt
+  uit de cijfers aan het eind van de code; boven de 50 procent wordt hij
+  afgewezen en gelogd als configuratiefout.
+- `app/api/ravenhack/korting/route.ts` — de enige serverkant. De codelijst hoort
+  niet in de pagina, anders leest iedereen hem mee. Vijftien pogingen per minuut
+  per IP.
+- `lib/ravenhack/prijs.ts` — de rekenregels, gedeeld door scherm en server.
+- `components/ravenhack/` — Beschikbaarheid, Calculator, BoekNu, PrijsRegel,
+  Disclaimer en de omhullende `RavenHackModules` met de gedeelde keuze.
+- `scripts/ravenhack-formulier.mjs` — maakt de dertien contacteigenschappen en
+  de twee formulieren aan. Herhaalbaar.
+
+`components/ui/HubSpotForm.tsx` kreeg er een eigenschap `prefill` bij. Let op:
+HubSpot zet dit formulier in een eigen iframe (embedType V3), en dan komt
+`onFormReady` niet betrouwbaar door. Het component zoekt het formulier daarom
+zelf op — in de pagina én in het iframe — en houdt de verborgen velden bij
+zolang het blok in beeld is. HubSpot bouwt het formulier soms opnieuw op, en dan
+moeten die velden opnieuw gevuld worden.
+
+### Getoetst
+
+`GET /api/ravenhack/proef` draait de opleveringsgevallen uit de opdracht af:
+5/12/13/30/31/100/150/151 deelnemers per versie, de toeslag op zaterdag 10:00 en
+dinsdag 19:00 (wel) tegenover dinsdag 18:30 (niet), en een geldige, een verlopen
+en een verzonnen kortingscode. Het rekenvoorbeeld uit paragraaf 7 van de
+opdracht komt exact uit: € 875 basis, € 175 toeslag, € 105 korting, € 945 excl.
+btw. In de browser gecontroleerd dat de verborgen velden gevuld worden én
+meebewegen als je daarna nog iets wijzigt.
+
+### Nog te doen
+
+- **De meetings-link.** `MEETINGS_EMBED` in de config is leeg; de agendamodule
+  toont zolang een nette melding. Emilie maakt de link aan in HubSpot met de
+  instellingen uit paragraaf 3.2.
+- **Eén proefinzending.** Die maakt een echt contact in HubSpot aan, en de
+  sleutel mag geen contacten verwijderen — dus dat doen we pas na akkoord.
+- **Privacyverklaring.** Er worden nu adres- en btw-gegevens gevraagd. Dat hoort
+  benoemd te worden bij de juridische controle die nog openstaat.

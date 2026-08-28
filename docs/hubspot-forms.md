@@ -236,3 +236,40 @@ antwoorden blijven in HubSpot staan.
 **Algemeen contact.** Alleen de huisstijl; velden en teksten ongewijzigd.
 
 Nieuwe contacteigenschap: `mm_voorkeurstijd` (string/text).
+
+
+---
+
+## R@venHack — boeking
+
+| | |
+|---|---|
+| Nederlands | `35531a09-73fe-4f3a-b514-423c52c51122` — *MM Website — R@venHack boeking* |
+| Engels | `b049c23c-16db-4fba-8458-11c54b490edb` — *MM Website EN — R@venHack booking* |
+| Waar | `/nl/games-tools/ravenhack` en `/en/games-tools/ravenhack`, onderaan de drie modules |
+| Aangemaakt met | `scripts/ravenhack-formulier.mjs` |
+
+Dit formulier is anders dan de andere zes: het staat niet op een eigen
+formulierpagina, maar onder een calculator. Wat de bezoeker daar kiest — versie,
+taal, aantal deelnemers, datum, tijd, kortingscode en de berekende prijs — gaat
+mee in **verborgen velden**. Die worden gevuld door `components/ui/HubSpotForm.tsx`
+via de eigenschap `prefill`.
+
+Twee dingen om te weten als je hieraan sleutelt:
+
+- **Alle verborgen velden zijn tekst-eigenschappen**, ook het deelnemersaantal,
+  de datum en het bedrag. Een verborgen veld op een datum- of keuzelijst-
+  eigenschap kan bij het versturen stukbreken op de opmaak, en dat zou een
+  boeking kosten. De datum staat als `2026-09-12`, dus alfabetisch sorteren is
+  hier hetzelfde als chronologisch sorteren.
+- **HubSpot laat hoogstens drie velden per veldgroep toe.** De verborgen velden
+  staan daarom in groepjes van drie. Meer in één groep geeft een 400 met
+  `FIELD_GROUP_TOO_MANY_FIELDS`.
+
+Het bedrag in het formulier is een weergave, geen afspraak: de velden staan in
+de pagina en zijn dus aan te passen door wie dat wil. Dat kan geen kwaad, omdat
+de boeking pas geldt na onze bevestiging en de offerte met de hand vanuit
+HubSpot wordt gemaakt. De ingevulde keuzes zijn wat telt.
+
+Btw-nummer is bewust **niet** verplicht: verenigingen, stichtingen en
+particulieren hebben er geen, en die moeten wel kunnen boeken.

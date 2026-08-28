@@ -37,6 +37,12 @@ type HubSpotFormProps = {
   className?: string;
   /** Taal van de terugvalboodschap als het formulier niet laadt. */
   taal?: "nl" | "en";
+  /**
+   * Velden die we alvast invullen, op interne veldnaam. Bedoeld voor verborgen
+   * velden: wat de bezoeker elders op de pagina koos, gaat zo mee met het
+   * formulier. Verandert deze waarde later, dan wordt het formulier bijgewerkt.
+   */
+  prefill?: Record<string, string>;
 };
 
 /** Wat er staat als het formulier er niet komt. */
@@ -60,6 +66,52 @@ const TERUGVAL = {
 } as const;
 
 /**
+ * Het formulier opzoeken, waar HubSpot het ook neerzet.
+ *
+ * Oudere formulieren komen gewoon in de pagina te staan. Nieuwere (embedType
+ * V3, waaronder het R@venHack-formulier) zet HubSpot in een eigen iframe. Dat
+ * iframe heeft geen eigen adres — HubSpot schrijft de inhoud er zelf in — dus
+ * we mogen erin kijken en kunnen de velden gewoon vullen.
+ *
+ * De aangeboden `onFormReady` doen we bewust niet: die komt bij een iframe niet
+ * altijd door. Zelf kijken werkt in beide gevallen.
+ */
+function zoekFormulier(targetId: string): HTMLFormElement | null {
+  const houder = document.getElementById(targetId);
+  if (!houder) return null;
+  const direct = houder.querySelector("form");
+  if (direct) return direct;
+  const iframe = houder.querySelector("iframe");
+  try {
+    return iframe?.contentDocument?.querySelector("form") ?? null;
+  } catch {
+    // Zit het formulier toch op een ander domein, dan kunnen we er niet bij.
+    return null;
+  }
+}
+
+/**
+ * Waarden in de velden van een HubSpot-formulier zetten.
+ *
+ * Alleen de waarde aanpassen is niet genoeg: HubSpot houdt zijn eigen
+ * administratie bij van wat er is ingevuld, en die luistert naar
+ * invoergebeurtenissen. Zonder dat tweede stukje staat de waarde wel op het
+ * scherm, maar wordt hij niet meeverstuurd.
+ */
+function vulVelden(form: HTMLFormElement | null, waarden?: Record<string, string>) {
+  if (!form || !waarden) return;
+  for (const [naam, waarde] of Object.entries(waarden)) {
+    const veld = form.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+      `[name="${CSS.escape(naam)}"]`
+    );
+    if (!veld || veld.value === waarde) continue;
+    veld.value = waarde;
+    veld.dispatchEvent(new Event("input", { bubbles: true }));
+    veld.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+}
+
+/**
  * Herbruikbaar component voor het embedden van een HubSpot-formulier.
  * Laadt het HubSpot embed-script eenmalig en rendert het opgegeven formulier
  * in een eigen target-div. Gebruik:
@@ -71,12 +123,19 @@ export default function HubSpotForm({
   region = "eu1",
   className,
   taal = "nl",
+  prefill,
 }: HubSpotFormProps) {
   const reactId = useId();
   // Geldige CSS/DOM-id (useId bevat ":") voor de target-div.
   const targetId = `hs-form-${reactId.replace(/:/g, "")}`;
   const created = useRef(false);
   const doel = useRef<HTMLDivElement>(null);
+  /** Het formulier zelf, zodra HubSpot het heeft neergezet. */
+  const formulier = useRef<HTMLFormElement | null>(null);
+  // In een ref, zodat het effect dat het formulier aanmaakt niet opnieuw draait
+  // bij elke wijziging van de voorinvulling.
+  const invulling = useRef(prefill);
+  invulling.current = prefill;
   const [inZicht, setInZicht] = useState(false);
   const [mislukt, setMislukt] = useState(false);
   /** Ophogen forceert een nieuwe poging zonder de pagina te herladen. */
@@ -190,6 +249,27 @@ export default function HubSpotForm({
       script?.removeEventListener("error", misgegaan);
     };
   }, [inZicht, portalId, formId, region, targetId, poging]);
+
+  /**
+   * De voorinvulling. Twee dingen tegelijk: wachten tot HubSpot het formulier
+   * heeft neergezet, en daarna blijven bijwerken zolang er nog iets verandert.
+   *
+   * We kijken elke 300 ms. Dat blijft doorgaan zolang dit blok op het scherm
+   * staat, en dat is met opzet: HubSpot bouwt het formulier soms opnieuw op
+   * (bijvoorbeeld na het versturen), en dan moeten de verborgen velden opnieuw
+   * gevuld worden.
+   */
+  useEffect(() => {
+    if (!prefill) return;
+    const kijk = () => {
+      const form = zoekFormulier(targetId);
+      if (form) formulier.current = form;
+      vulVelden(formulier.current, prefill);
+    };
+    kijk();
+    const teller = setInterval(kijk, 300);
+    return () => clearInterval(teller);
+  }, [prefill, targetId]);
 
   // Wijzigt de bezoeker zijn keuze terwijl het formulier op het scherm staat,
   // dan gaat die wijziging meteen mee.
