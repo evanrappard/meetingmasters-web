@@ -113,7 +113,27 @@ async function zorgVoorEigenschappen() {
 
 /* ── Vorm en huisstijl, gelijk aan de andere formulieren ──────────────────── */
 
-const STIJL = { submitColor: "#EEBE3D", submitFontColor: "#2D2D2D", legalConsentTextSize: "11px" };
+/**
+ * HubSpot zet zijn formulieren standaard op 11 px labels en 12 px knoptekst.
+ * Dat is te klein naast onze eigen velden erboven, zeker omdat dit formulier
+ * midden op een pagina staat en niet op een eigen schermpje. Deze maten sluiten
+ * aan bij de calculator: labels 15, hulptekst 14, knop 15.
+ *
+ * De juridische tekst blijft bewust kleiner dan de rest — dat is de afspraak
+ * bij de andere formulieren ook — maar wel leesbaar.
+ */
+const STIJL = {
+  labelTextColor: "#2D2D2D",
+  labelTextSize: "15px",
+  helpTextColor: "#6E7877",
+  helpTextSize: "14px",
+  legalConsentTextColor: "#434343",
+  legalConsentTextSize: "13px",
+  submitColor: "#EEBE3D",
+  submitFontColor: "#2D2D2D",
+  submitSize: "15px",
+  submitAlignment: "left",
+};
 
 const LOGO_BLOK = {
   groupType: "default_group",

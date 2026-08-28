@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import PrijsRegel from "./PrijsRegel";
 import Disclaimer from "./Disclaimer";
@@ -38,47 +38,66 @@ export type Keuze = {
 
 type Codestand = "leeg" | "bezig" | "geldig" | "ongeldig";
 
-const veldRand =
+const veld =
   "w-full rounded-lg border border-[#E2E2DE] bg-white px-4 py-3 text-base text-[#2D2D2D] focus:outline-none focus:border-[#28A8AA] focus:ring-2 focus:ring-[#28A8AA]/25";
-const labelStijl = "block text-sm font-bold text-[#2D2D2D] mb-2";
+const labelStijl = "block text-[15px] font-bold text-[#2D2D2D] mb-2";
+
+/** Hele en halve uren, van de vroegste start tot de laatste die nog past. */
+function starttijden(laatste: string) {
+  const tijden: string[] = [];
+  for (let minuut = VROEGSTE_STARTTIJD_UUR * 60; ; minuut += 30) {
+    const t = `${String(Math.floor(minuut / 60)).padStart(2, "0")}:${String(minuut % 60).padStart(2, "0")}`;
+    if (t > laatste) break;
+    tijden.push(t);
+  }
+  return tijden;
+}
 
 export default function Calculator({
   keuze,
   zet,
   taal,
   naarFormulier,
+  formulierOpen,
+  children,
 }: {
   keuze: Keuze;
   zet: (deel: Partial<Keuze>) => void;
   taal: Taal;
-  /** Zet de sectie op de tweede stap: het formulier. */
+  /** Vouwt het tweede deel van het formulier uit. */
   naarFormulier: () => void;
+  formulierOpen: boolean;
+  /** Het tweede deel: de gegevens van de bezoeker, onder de keuzes. */
+  children?: React.ReactNode;
 }) {
   const t = TEKST[taal];
   const c = t.calculator;
   const prijs = berekenPrijs(keuze);
-  const variant = VARIANTEN[keuze.variant];
 
   const [codestand, setCodestand] = useState<Codestand>("leeg");
+  const laatsteControle = useRef("");
   /** Verschijnt als iemand wil boeken zonder datum of tijd. */
   const [mistMoment, setMistMoment] = useState(false);
-  const laatsteControle = useRef("");
 
-  // Het boekingsvenster wordt in de browser bepaald: op de server is "vandaag"
-  // in UTC, en dan kan de vroegste datum er een dag naast zitten.
-  const [venster, setVenster] = useState<{ min: string; max: string } | null>(null);
-  useEffect(() => {
+  /**
+   * Het boekingsvenster. Bewust niet in een effect ná het monteren: dan stonden
+   * `min` en `max` er nog niet bij de eerste klik, koos de bezoeker een datum
+   * die te dichtbij lag, en gooide de browser die stilletjes weer weg. Precies
+   * het "hij klikt een paar keer weg voordat hij blijft hangen" dat we zagen.
+   *
+   * De server rekent in UTC en de browser in lokale tijd; rond middernacht kan
+   * dat een dag schelen. Vandaar suppressHydrationWarning op het veld.
+   */
+  const venster = useMemo(() => {
     const nu = new Date();
-    setVenster({
+    return {
       min: alsDatumtekst(vroegsteDatum(nu, MIN_WERKDAGEN_VOORAF)),
       max: alsDatumtekst(laatsteDatum(nu, MAX_MAANDEN_VOORUIT)),
-    });
+    };
   }, []);
 
   const laatsteStart = laatsteStarttijd(keuze.variant, LAATSTE_EINDTIJD_UUR);
-  const teLaat = keuze.tijd !== "" && keuze.tijd > laatsteStart;
-  const teVroeg =
-    keuze.tijd !== "" && keuze.tijd < `${String(VROEGSTE_STARTTIJD_UUR).padStart(2, "0")}:00`;
+  const tijden = useMemo(() => starttijden(laatsteStart), [laatsteStart]);
 
   /**
    * De code gaat naar de server, want de lijst met codes hoort niet in de
@@ -117,6 +136,18 @@ export default function Calculator({
     }
   }
 
+  function probeerTeBoeken() {
+    // Zonder moment kunnen we niets inplannen, dus dat vragen we hier af en
+    // niet pas onderaan het formulier.
+    if (!keuze.datum || !keuze.tijd) {
+      setMistMoment(true);
+      document.getElementById(!keuze.datum ? "rh-datum" : "rh-tijd")?.focus();
+      return;
+    }
+    setMistMoment(false);
+    naarFormulier();
+  }
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 lg:gap-12 items-start">
       {/* ── Links: de keuzes ── */}
@@ -143,8 +174,10 @@ export default function Calculator({
                     checked={actief}
                     onChange={() => zet({ variant: sleutel })}
                   />
-                  <span className="block font-bold text-[#2D2D2D] leading-snug">{v.naam[taal]}</span>
-                  <span className="block text-[13px] text-[#7A8483] mt-1">{v.ondertitel[taal]}</span>
+                  <span className="block font-bold text-[#2D2D2D] text-[17px] leading-snug">
+                    {v.naam[taal]}
+                  </span>
+                  <span className="block text-sm text-[#6E7877] mt-1">{v.ondertitel[taal]}</span>
                 </label>
               );
             })}
@@ -163,7 +196,7 @@ export default function Calculator({
                     type="button"
                     onClick={() => zet({ spelTaal: tl })}
                     aria-pressed={actief}
-                    className={`flex-1 rounded-lg border-2 px-4 py-3 text-sm font-semibold transition-colors ${
+                    className={`flex-1 rounded-lg border-2 px-4 py-3 text-[15px] font-semibold transition-colors ${
                       actief
                         ? "border-[#EEBE3D] bg-[#FFFBEE] text-[#2D2D2D]"
                         : "border-[#E2E2DE] bg-white text-[#5F5F5F] hover:bg-[#FFFBEE]"
@@ -191,7 +224,7 @@ export default function Calculator({
                 const n = Number(e.target.value);
                 zet({ deelnemers: Number.isFinite(n) ? Math.max(1, Math.min(999, n)) : 1 });
               }}
-              className={veldRand}
+              className={veld}
             />
           </div>
         </div>
@@ -205,39 +238,40 @@ export default function Calculator({
               id="rh-datum"
               type="date"
               value={keuze.datum}
-              min={venster?.min}
-              max={venster?.max}
+              min={venster.min}
+              max={venster.max}
+              suppressHydrationWarning
               onChange={(e) => {
                 zet({ datum: e.target.value });
                 setMistMoment(false);
               }}
-              className={veldRand}
+              className={veld}
             />
           </div>
           <div>
             <label className={labelStijl} htmlFor="rh-tijd">
               {c.tijd}
             </label>
-            <input
+            {/* Een keuzelijst en geen tijdveld: zo zijn alleen hele en halve
+                uren te kiezen, en zie je meteen tot hoe laat het kan. */}
+            <select
               id="rh-tijd"
-              type="time"
-              step={900}
               value={keuze.tijd}
               onChange={(e) => {
                 zet({ tijd: e.target.value });
                 setMistMoment(false);
               }}
-              className={veldRand}
-            />
+              className={veld}
+            >
+              <option value="">—</option>
+              {tijden.map((tijd) => (
+                <option key={tijd} value={tijd}>
+                  {tijd}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
-        {(teLaat || teVroeg) && (
-          <p className="text-sm text-[#C64A60] font-semibold">
-            {taal === "nl"
-              ? `Een sessie van ${variant.duurMinuten} minuten start tussen ${String(VROEGSTE_STARTTIJD_UUR).padStart(2, "0")}:00 en ${laatsteStart}. Wilt u later beginnen? Neem even contact op.`
-              : `A ${variant.duurMinuten}-minute session starts between ${String(VROEGSTE_STARTTIJD_UUR).padStart(2, "0")}:00 and ${laatsteStart}. Want to start later? Do get in touch.`}
-          </p>
-        )}
 
         <div>
           <label className={labelStijl} htmlFor="rh-korting">
@@ -253,26 +287,32 @@ export default function Calculator({
                 setCodestand("leeg");
               }}
               onBlur={(e) => controleerCode(e.target.value)}
-              className={veldRand}
+              className={veld}
               autoComplete="off"
             />
             <button
               type="button"
               onClick={() => controleerCode(keuze.kortingscode)}
-              className="shrink-0 rounded-lg border border-[#D2D2D0] px-5 text-sm font-bold text-[#2D2D2D] hover:border-[#2D2D2D] transition-colors"
+              className="shrink-0 rounded-lg border border-[#D2D2D0] px-5 text-[15px] font-bold text-[#2D2D2D] hover:border-[#2D2D2D] transition-colors"
             >
               {c.kortingscodeControleer}
             </button>
           </div>
           {codestand === "geldig" && (
-            <p className="text-sm text-[#28A8AA] font-semibold mt-2">
+            <p className="text-[15px] text-[#28A8AA] font-semibold mt-2">
               {c.kortingscodeGeldig} {keuze.kortingspercentage}%
             </p>
           )}
           {codestand === "ongeldig" && (
-            <p className="text-sm text-[#C64A60] mt-2">{c.kortingscodeOngeldig}</p>
+            <p className="text-[15px] text-[#C64A60] mt-2">{c.kortingscodeOngeldig}</p>
           )}
         </div>
+
+        {mistMoment && (
+          <p className="text-[15px] text-[#C64A60] font-semibold leading-relaxed">{c.datumNodig}</p>
+        )}
+
+        {children}
       </div>
 
       {/* ── Rechts: de uitkomst ── */}
@@ -280,7 +320,7 @@ export default function Calculator({
         {prijs.toonPrijs ? (
           <PrijsRegel prijs={prijs} invoer={keuze} taal={taal} />
         ) : (
-          <p className="font-bold text-[#2D2D2D] leading-snug">
+          <p className="font-bold text-[#2D2D2D] text-[17px] leading-snug">
             {prijs.status === "quick-te-groot" ? t.quickTeGroot : t.teGroot}
           </p>
         )}
@@ -289,53 +329,48 @@ export default function Calculator({
           <button
             type="button"
             onClick={() => zet({ variant: "experience" })}
-            className="mt-4 w-full rounded bg-[#EEBE3D] px-5 py-3 text-sm font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
+            className="mt-4 w-full rounded bg-[#EEBE3D] px-5 py-3 text-[15px] font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
           >
             {t.quickOmzetten}
           </button>
         )}
 
         {prijs.status === "onder-minimum" && (
-          <p className="mt-4 text-sm text-[#434343] leading-relaxed">{t.onderMinimum}</p>
+          <p className="mt-4 text-[15px] text-[#434343] leading-relaxed">{t.onderMinimum}</p>
         )}
 
         {prijs.status === "te-groot" && (
           <Link
             href={ADVIES_LINK[taal]}
-            className="mt-4 inline-block text-sm font-bold text-[#28A8AA] hover:underline"
+            className="mt-4 inline-block text-[15px] font-bold text-[#28A8AA] hover:underline"
           >
             {t.overlegLink} →
           </Link>
         )}
 
-        <p className="mt-5 border-t border-[#E7E7E3] pt-4 text-[13px] text-[#7A8483] leading-relaxed">
+        <p className="mt-5 border-t border-[#E7E7E3] pt-4 text-[15px] text-[#6E7877] leading-relaxed">
           {t.toeslagregel}
         </p>
 
-        {prijs.toonPrijs && (
-          <>
-            <button
-              type="button"
-              onClick={() => {
-                // Zonder moment kunnen we niets inplannen, dus dat vragen we
-                // hier af in plaats van pas in het formulier.
-                if (!keuze.datum || !keuze.tijd) {
-                  setMistMoment(true);
-                  const leeg = !keuze.datum ? "rh-datum" : "rh-tijd";
-                  document.getElementById(leeg)?.focus();
-                  return;
-                }
-                setMistMoment(false);
-                naarFormulier();
-              }}
-              className="mt-5 block w-full rounded bg-[#EEBE3D] px-5 py-3 text-center text-sm font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
-            >
-              {c.naarFormulier}
-            </button>
-            {mistMoment && (
-              <p className="mt-2 text-sm text-[#C64A60] leading-relaxed">{c.datumNodig}</p>
-            )}
-          </>
+        {/* Staat het tweede deel al open, dan heeft deze knop geen werk meer. */}
+        {prijs.toonPrijs && !formulierOpen && (
+          <button
+            type="button"
+            onClick={probeerTeBoeken}
+            className="mt-5 block w-full rounded bg-[#EEBE3D] px-5 py-3.5 text-center text-base font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
+          >
+            {c.naarFormulier}
+          </button>
+        )}
+
+        {formulierOpen && (
+          <ul className="mt-5 border-t border-[#E7E7E3] pt-4 space-y-2.5">
+            {t.voorwaarden.map((v) => (
+              <li key={v} className="text-[15px] text-[#434343] leading-relaxed">
+                {v}
+              </li>
+            ))}
+          </ul>
         )}
 
         <Disclaimer taal={taal} />

@@ -8,19 +8,18 @@ import { berekenPrijs } from "@/lib/ravenhack/prijs";
 import type { Taal } from "@/lib/talen";
 
 /**
- * De boekingsmodule: één sectie met twee stappen.
+ * De boekingsmodule: één formulier, van boven naar beneden.
  *
- *   1. Wat kost het — de bezoeker stelt zijn sessie samen en ziet de prijs.
- *   2. Boek nu     — dezelfde plek, maar dan het formulier.
+ * Bovenaan stel je je sessie samen en zie je de prijs meebewegen. Druk je op
+ * "Boek nu", dan vouwt daaronder het tweede deel uit met je gegevens. De
+ * keuzes blijven gewoon staan — het is één blad, geen twee stappen.
+ *
+ * Dat was eerst wél zo, en dat werkte niet: de knop in de hero sprong dan
+ * meteen naar een leeg formulier, met alle waarden op de standaardwaarde. Nu
+ * komt die knop uit bij de calculator, met het tweede deel open.
  *
  * Beschikbaarheid staat er bewust niet meer bij. De bezoeker geeft zijn
- * voorkeursmoment op in de calculator; wij kijken of dat kan en komen erop
- * terug. Dat scheelt hem een agenda waarin hij zelf moet puzzelen, en het
- * scheelt ons afspraken zonder deelnemersaantal of prijs.
- *
- * Waarom het formulier niet meteen zichtbaar is: wie de prijs nog niet heeft
- * gezien, kan zijn keuzes ook nog niet doorgeven. De knop maakt van "kijken"
- * één duidelijke stap naar "aanvragen".
+ * voorkeursmoment op; wij kijken of dat kan en komen erop terug.
  */
 export default function RavenHackModules({ taal }: { taal: Taal }) {
   const [keuze, setKeuze] = useState<Keuze>({
@@ -34,7 +33,7 @@ export default function RavenHackModules({ taal }: { taal: Taal }) {
     kortingscode: "",
     kortingspercentage: 0,
   });
-  const [stap, setStap] = useState<"kosten" | "boeken">("kosten");
+  const [boekenOpen, setBoekenOpen] = useState(false);
 
   const zet = (deel: Partial<Keuze>) => setKeuze((was) => ({ ...was, ...deel }));
   const t = TEKST[taal];
@@ -43,69 +42,55 @@ export default function RavenHackModules({ taal }: { taal: Taal }) {
   /**
    * De knoppen hoger op de pagina wijzen naar #rh-prijs en #rh-boeken. We
    * luisteren naar de klik zelf en niet naar het adres in de balk: staat dat
-   * adres al op #rh-boeken, dan verandert er bij een tweede klik niets en zou
-   * er ook niets gebeuren. Zo werkt elke knop, elke keer.
-   *
-   * De hash blijft wel bruikbaar om er meteen op te landen, bijvoorbeeld vanuit
-   * een mail of een andere pagina.
+   * adres al op #rh-boeken, dan verandert er bij een tweede klik niets.
    */
   useEffect(() => {
     const bijKlik = (e: MouseEvent) => {
-      const link = (e.target as HTMLElement | null)?.closest?.("a");
-      const doel = link?.getAttribute("href");
-      if (doel !== "#rh-boeken" && doel !== "#rh-prijs") return;
-      setStap(doel === "#rh-boeken" ? "boeken" : "kosten");
+      const doel = (e.target as HTMLElement | null)?.closest?.("a")?.getAttribute("href");
+      if (doel === "#rh-boeken") openBoeken();
     };
-    const uitHash = () => {
-      if (window.location.hash === "#rh-boeken") setStap("boeken");
-    };
-    uitHash();
+    if (window.location.hash === "#rh-boeken") setBoekenOpen(true);
     document.addEventListener("click", bijKlik);
-    window.addEventListener("hashchange", uitHash);
-    return () => {
-      document.removeEventListener("click", bijKlik);
-      window.removeEventListener("hashchange", uitHash);
-    };
+    return () => document.removeEventListener("click", bijKlik);
   }, []);
 
-  // Wordt de groep te groot terwijl het formulier openstaat, dan kan er niets
-  // meer verstuurd worden en horen we terug bij de prijs te staan.
+  // Wordt de groep te groot, dan kan er niets verstuurd worden en heeft het
+  // tweede deel geen zin meer.
   useEffect(() => {
-    if (!prijs.toonPrijs) setStap("kosten");
+    if (!prijs.toonPrijs) setBoekenOpen(false);
   }, [prijs.toonPrijs]);
 
-  function naarBoeken() {
-    setStap("boeken");
-    // Na het wisselen staat de kop van de sectie boven in beeld, zodat de
-    // bezoeker ziet dat hij een stap verder is en niet halverwege een formulier
-    // begint te lezen.
+  function openBoeken() {
+    setBoekenOpen(true);
+    // Even wachten tot het blok er staat, en er dan rustig heen scrollen.
     requestAnimationFrame(() => {
-      document.getElementById("rh-prijs")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        document.getElementById("rh-boeken")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 60);
     });
   }
 
-  const kop = stap === "kosten" ? t.calculator : t.formulier;
-
   return (
     <section id="rh-prijs" className="bg-[#FAFAFA] py-14 md:py-16 border-b border-[#EBEBEB] scroll-mt-24">
-      {/* Tweede anker, zodat een link naar #rh-boeken op deze sectie uitkomt. */}
-      <span id="rh-boeken" className="block scroll-mt-24" aria-hidden />
       <div className="max-w-content mx-auto px-6 lg:px-10">
         <div className="mb-9 max-w-[760px]">
           <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">
-            {kop.kicker}
+            {t.calculator.kicker}
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-3">
-            {kop.kop}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug">
+            {t.calculator.kop}
           </h2>
-          <p className="text-[#434343] leading-relaxed">{kop.onder}</p>
         </div>
 
-        {stap === "kosten" ? (
-          <Calculator keuze={keuze} zet={zet} taal={taal} naarFormulier={naarBoeken} />
-        ) : (
-          <BoekNu keuze={keuze} taal={taal} terug={() => setStap("kosten")} />
-        )}
+        <Calculator
+          keuze={keuze}
+          zet={zet}
+          taal={taal}
+          naarFormulier={openBoeken}
+          formulierOpen={boekenOpen}
+        >
+          {boekenOpen && prijs.toonPrijs && <BoekNu keuze={keuze} taal={taal} />}
+        </Calculator>
       </div>
     </section>
   );

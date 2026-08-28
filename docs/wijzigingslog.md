@@ -2891,3 +2891,39 @@ Het blijft de zwaarste hero van de site, en dat zit in het beeld zelf. Wil je er
 nóg een stap af, dan is de volgende de bron op 1920 pixels zetten in plaats van
 2560; dan wordt het op retina ook 247 kB, ten koste van wat scherpte op grote
 schermen.
+
+
+---
+
+## 28 augustus 2026 — de boeking is één formulier geworden
+
+De module bestond uit twee stappen die elkaar vervingen. Dat werkte niet: druk
+je in de hero op "Boek nu", dan sprong je meteen naar een leeg formulier met
+alle waarden op de standaardwaarde — je had de calculator immers overgeslagen.
+
+Het is nu **één blad dat je van boven naar beneden invult**. Bovenaan stel je je
+sessie samen en zie je de prijs meebewegen; druk je op "Boek nu", dan vouwt
+daaronder het tweede deel uit met je gegevens. De keuzes blijven staan en de
+prijs blijft rechts in beeld. De knop in de hero komt nu ook daar uit, met het
+tweede deel open.
+
+De losse samenvatting boven de adresvelden is daarmee vervallen: de ingevulde
+keuzes staan er nu letterlijk boven.
+
+Verder in deze ronde:
+
+- **"Bereken de prijs"** als kop, en de ondertitel eronder is weg.
+- **Alleen hele en halve uren** bij de starttijd. Het was een tijdveld waar je
+  elke minuut kon intypen; het is nu een keuzelijst van 09:00 tot de laatste
+  start die nog past — 19:30 bij de Experience, 20:00 bij de Quick.
+- **Het datumveld hield zijn waarde niet vast.** De grenzen (niet binnen drie
+  werkdagen, niet verder dan een jaar) werden pas ná het laden gezet. Koos je
+  daarvóór een datum die te dichtbij lag, dan gooide de browser die stilletjes
+  weg. Ze staan er nu meteen bij.
+- **De regel over de factuur** is "Offerte en factuur betreffen geboekte
+  deelnemers." geworden.
+- **Grotere letters.** Onze eigen velden gingen van 14 naar 15 px. Belangrijker:
+  HubSpot zet zijn formulieren standaard op 11 px labels en 12 px knoptekst, en
+  dat viel op naast de calculator erboven. Nu 15 px labels, 14 px hulptekst en
+  een knop van 15 px. Alleen op de twee R@venHack-formulieren; de andere zes
+  blijven zoals ze waren.

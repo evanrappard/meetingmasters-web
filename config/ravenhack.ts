@@ -113,8 +113,7 @@ export const TEKST = {
 
     calculator: {
       kicker: "Wat kost het",
-      kop: "Stel uw sessie samen",
-      onder: "De prijs beweegt mee terwijl u kiest. U zit nergens aan vast.",
+      kop: "Bereken de prijs",
       spel: "Welk spel",
       taal: "Taal van de sessie",
       deelnemers: "Aantal deelnemers",
@@ -148,7 +147,7 @@ export const TEKST = {
     },
     voorwaarden: [
       "Wij checken de beschikbaarheid en komen zo spoedig mogelijk terug.",
-      "De factuur betreft het geboekte aantal deelnemers, ongeacht de opkomst.",
+      "Offerte en factuur betreffen geboekte deelnemers.",
       "Annulering is mogelijk tot 5 werkdagen voor de sessie. Daarna brengen wij 50% in rekening.",
       "Alle bedragen zijn exclusief 21 procent btw.",
     ],
@@ -168,8 +167,7 @@ export const TEKST = {
 
     calculator: {
       kicker: "What it costs",
-      kop: "Put your session together",
-      onder: "The price moves along as you choose. Nothing here commits you to anything.",
+      kop: "Calculate the price",
       spel: "Which game",
       taal: "Language of the session",
       deelnemers: "Number of participants",
@@ -203,7 +201,7 @@ export const TEKST = {
     },
     voorwaarden: [
       "We check availability and come back to you as soon as we can.",
-      "The invoice covers the number of participants booked, whatever the turnout.",
+      "The quote and the invoice cover the participants booked.",
       "You can cancel up to 5 working days before the session. After that we charge 50%.",
       "All amounts are excluding 21 per cent VAT.",
     ],
