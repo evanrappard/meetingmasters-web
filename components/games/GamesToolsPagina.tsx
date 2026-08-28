@@ -4,6 +4,7 @@ import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import { JsonLd } from "@/components/ui/JsonLd";
+import GrotereGroepen from "@/components/games/GrotereGroepen";
 import { games, tools, faq, NL } from "@/app/nl/games-tools/data";
 import { GAMES_EN } from "@/app/nl/games-tools/tekst-en";
 import type { Taal } from "@/lib/talen";
@@ -166,6 +167,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
               <p className="text-[#434343] leading-relaxed mb-4">
                 {t.ravenhack.body2}
                </p>
+              <GrotereGroepen taal={taal} className="mb-6" />
               <Link href={t.links.ravenhack} className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
                 {t.ravenhack.cta}
                </Link>

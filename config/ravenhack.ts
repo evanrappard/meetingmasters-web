@@ -5,6 +5,18 @@
  * nergens anders. De rekenregels zelf staan in lib/ravenhack/prijs.ts.
  */
 
+/*
+ * LET OP — de boekingstool loopt nog niet gelijk met de site.
+ *
+ * Sinds 28 augustus 2026 is de claim op de site "5 tot 75 mensen", met een zin
+ * dat het ook met grotere groepen kan na overleg. Hieronder staat de
+ * Experience nog op 5 – 150. Dat is bewust zo gelaten: Emilie wilde de tool
+ * niet in dezelfde ronde omgooien. Bij het finetunen van de tool nog te
+ * bepalen: gaat maxDeelnemers naar 75 (en dan verwijst alles daarboven naar
+ * een gesprek), of blijft 150 staan met 75 als grens waarboven we eerst
+ * overleggen? Ook de ondertitel en de FAQ hangen daaraan.
+ */
+
 export type VariantSleutel = "experience" | "quick";
 export type SpelTaal = "nl" | "en";
 

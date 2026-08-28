@@ -2564,3 +2564,45 @@ wat het is · hoe het werkt · twee versies · video · beschikbaarheid · prijs
 boeken · vragen · vervolgstap.
 
 De alt-teksten zijn met de beelden meegereisd, in beide talen.
+
+
+---
+
+## 28 augustus 2026 — R@venHack: de claim staat op 5 tot 75 mensen
+
+**T** — De groepsgrootte staat nu overal op **5 tot 75 mensen**, met daarbij de
+zin "R@venHack is ook te spelen met nog grotere groepen. Neem daarvoor even
+contact met ons op.", met een link naar Plan een gesprek. Die zin staat in één
+component (`components/games/GrotereGroepen.tsx`) en wordt op drie plekken
+gebruikt: de R@venHack-pagina onder de twee versies, Games & Tools in het
+R@venHack-blok, en de Escape rooms-pagina. Beide talen.
+
+Opvallend bij het nazoeken: de site claimde tot nu toe **nergens** een
+groepsgrootte voor R@venHack. Alleen "tot 30" bij de Quick. De 5 – 150 stond
+alleen in de boekingstool, die nog niet live staat. De claim is dus niet zozeer
+teruggebracht als wel voor het eerst opgeschreven.
+
+**T** — Nieuwe vraag in de FAQ, in de plaats van "Voor welke groepsgrootte is
+het geschikt?" — twee vragen over hetzelfde onderwerp naast elkaar leest als een
+herhaling. De nieuwe: *"Met hoeveel mensen kun je gelijktijdig spelen?"* met het
+antwoord dat het spel technisch tot 150 mensen gaat en standaard is ingericht
+voor 75. Wat er in de oude vraag stond over de Quick en over verbinding als
+eerste afweging, is meegenomen.
+
+**C** — De kenmerken van de versies noemen nu ook het aantal: "5 tot 75
+deelnemers, in meerdere teams tegelijk" bij de Experience, "60 minuten, 5 tot 30
+deelnemers" bij de Quick.
+
+### Twee dingen die nog openstaan
+
+- **De boekingstool loopt nog niet gelijk.** Daar staat de Experience op 5 – 150.
+  Bewust zo gelaten; Emilie wilde de tool niet in dezelfde ronde omgooien. Er
+  staat een aantekening bovenin `config/ravenhack.ts` met de vraag die dan
+  beantwoord moet worden: gaat de grens naar 75, of blijft 150 staan met 75 als
+  punt waarboven we eerst overleggen?
+- **De Engelse escape rooms-pagina is onbereikbaar.** `/en/escape-rooms` wordt in
+  `next.config.ts` doorgestuurd naar het Nederlands, terwijl
+  `app/en/escape-rooms/page.tsx` gewoon bestaat en vertaald is.
+  Doorverwijzingen gaan vóór op routes. De wijziging van vandaag staat er dus
+  wel in, maar niemand ziet hem. Weghalen uit `enPaths` maakt de pagina
+  zichtbaar — dat raakt de indexering, dus niet ongevraagd gedaan.

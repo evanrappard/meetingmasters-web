@@ -4,6 +4,7 @@ import CTABlock from "@/components/ui/CTABlock";
 import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
 import VersieKeuze from "@/components/games/VersieKeuze";
+import GrotereGroepen from "@/components/games/GrotereGroepen";
 import RavenHackModules from "@/components/ravenhack/RavenHackModules";
 import { versies, stappen, faq, NL } from "@/app/nl/games-tools/ravenhack/data";
 import { RAVENHACK_EN } from "@/app/nl/games-tools/ravenhack/tekst-en";
@@ -209,6 +210,11 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
             boekenHref={naarBoeken}
             offerteHref={naarKosten}
           />
+          {/* In een eigen div: de sitebrede regel `main [class*="mx-auto"] > p`
+              centreert anders elke alinea die rechtstreeks in deze kolom staat. */}
+          <div className="mt-8">
+            <GrotereGroepen taal={taal} className="max-w-[760px]" />
+          </div>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import GrotereGroepen from "@/components/games/GrotereGroepen";
 
 export const metadata: Metadata = {
   title: "Online Escape Rooms | MeetingMasters",
@@ -73,11 +74,13 @@ export default function EscapeRoomsPage() {
               to raise security awareness while having fun.
             </p>
             <p className="text-[#525252] leading-relaxed mb-6">
-              The Experience of 90 minutes has the connection built in: time to get to
-              know each other, to get stuck together and to talk it over calmly
-              afterwards. The Quick of 60 minutes leaves that out and is purely the
-              game, for groups of up to 30 who already know each other well.
+              You play with 5 to 75 people, in several teams at once. The Experience
+              of 90 minutes has the connection built in: time to get to know each
+              other, to get stuck together and to talk it over calmly afterwards. The
+              Quick of 60 minutes leaves that out and is purely the game, for groups
+              of up to 30 who already know each other well.
             </p>
+            <GrotereGroepen taal="en" className="mb-6" />
             <Link
               href="/en/contact"
               className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"

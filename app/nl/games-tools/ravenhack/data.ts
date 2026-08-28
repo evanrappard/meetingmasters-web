@@ -14,6 +14,7 @@ export const versies = [
     body: "Hier zit de verbinding in. Er is tijd ingebouwd om elkaar te leren kennen, om samen vast te lopen en er weer uit te komen, en om na afloop rustig na te praten. Mensen die elkaar nog niet kenden, kennen elkaar daarna wel. Daar bovenop komen extra scenario's en securitythema's, met meer puzzels, meer plotwendingen en een nabespreking waarin de lessen echt landen. Dit is de versie die we standaard adviseren.",
     kenmerken: [
       "90 minuten: tijd voor het spel én voor elkaar",
+      "5 tot 75 deelnemers, in meerdere teams tegelijk",
       "Verbinding zit erin, ook als de groep elkaar nog niet kent",
       "Extra scenario's en securitythema's",
       "Uitgebreide nabespreking waarin de lessen landen",
@@ -27,7 +28,7 @@ export const versies = [
     lead: "Kort en puur voor de lol, voor groepen die elkaar al kennen.",
     body: "60 minuten, tot 30 deelnemers, recht op de aanval af. Je stopt samen de hack en dat is het: geen kennismaking vooraf, geen uitgebreide nabespreking. Juist dat verbindende deel slaat de Quick over, en daarom werkt hij alleen als je collega's elkaar al goed kennen. Kennen ze elkaar nog niet, of wil je dat de groep hechter naar buiten loopt dan hij binnenkwam, neem dan de Experience.",
     kenmerken: [
-      "60 minuten, tot 30 deelnemers",
+      "60 minuten, 5 tot 30 deelnemers",
       "De kern van het spel, zonder verdieping",
       "Alleen voor groepen die elkaar al goed kennen",
       "Sterke kick-off voor een teamdag of securityweek",
@@ -76,8 +77,8 @@ export const faq = [
     a: "De Experience duurt 90 minuten, inclusief introductie en een uitgebreide nabespreking. De Quick duurt 60 minuten. Reken bij de Experience op meer verdieping en meer ruimte voor het gesprek na afloop. Samen kijken we welke versie bij je team en je doel past.",
   },
   {
-    q: "Voor welke groepsgrootte is het geschikt?",
-    a: "Allebei de versies worden in meerdere teams tegelijk gespeeld, dus grotere groepen kunnen prima meedoen. Bij de Quick ligt de grens op 30 deelnemers; de Experience gaat verder. Laat de groepsgrootte niet je eerste afweging zijn: kennen de mensen elkaar nog niet goed, dan is de Experience de juiste keuze, hoe klein de groep ook is.",
+    q: "Met hoeveel mensen kun je gelijktijdig spelen?",
+    a: "R@venHack is gelijktijdig te spelen met maximaal 150 mensen. Standaard is deze ingericht voor tot 75 personen. Je speelt in meerdere teams tegelijk. Bij de Quick ligt de grens op 30 deelnemers; de Experience gaat verder. Laat de groepsgrootte niet je eerste afweging zijn: kennen de mensen elkaar nog niet goed, dan is de Experience de juiste keuze, hoe klein de groep ook is.",
   },
   {
     q: "Wat leert mijn team ervan?",
@@ -121,7 +122,7 @@ export const NL = {
   versies: {
     kicker: "Twee versies",
     titel: "De Experience is het uitgangspunt.",
-    onder: "Het verschil zit niet in het aantal deelnemers, maar in de verbinding. In de Experience is tijd ingebouwd om elkaar echt te leren kennen. De Quick slaat dat over en werkt daarom alleen bij groepen die elkaar al goed kennen.",
+    onder: "Je speelt R@venHack met 5 tot 75 mensen, in meerdere teams tegelijk. Het verschil tussen de twee versies zit niet in dat aantal, maar in de verbinding. In de Experience is tijd ingebouwd om elkaar echt te leren kennen. De Quick slaat dat over en werkt daarom alleen bij groepen die elkaar al goed kennen.",
     cta: "Check beschikbaarheid",
     kosten: "Kosten",
     items: versies,

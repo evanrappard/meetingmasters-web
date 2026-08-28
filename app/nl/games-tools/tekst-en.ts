@@ -65,7 +65,7 @@ export const GAMES_EN = {
     kicker: "Escape Room R@venHack",
     titel: "Stop the cyberattack together.",
     body1: "A digital crisis breaks out: data leaks, phishing and systems failing one after another. Your team has to keep a cool head together and bring the attack to a halt. Awareness doesn't come from hearing about it, but from doing it.",
-    body2: "That's how R@venHack combines team building with genuine knowledge about safe digital behaviour. The Experience of 90 minutes has the connection built in: the group gets to know each other along the way. The Quick of 60 minutes is purely the game, for groups of up to 30 who already know each other well.",
+    body2: "That's how R@venHack combines team building with genuine knowledge about safe digital behaviour. You play with 5 to 75 people, in several teams at once. The Experience of 90 minutes has the connection built in: the group gets to know each other along the way. The Quick of 60 minutes is purely the game, for groups of up to 30 who already know each other well.",
     cta: "See R@venHack →",
   },
 

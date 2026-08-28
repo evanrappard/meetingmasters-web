@@ -108,7 +108,7 @@ export const NL = {
     body1:
       "Een digitale crisis breekt uit: datalekken, phishing en systemen die om beurten uitvallen. Je team moet samen het hoofd koel houden en de aanval een halt toeroepen. Awareness ontstaat niet door erover te horen, maar door het te dóen.",
     body2:
-      "Zo combineert R@venHack teambuilding met echte kennisoverdracht over veilig digitaal gedrag. In de Experience van 90 minuten zit de verbinding ingebouwd: de groep leert elkaar onderweg kennen. De Quick van 60 minuten is puur het spel, voor groepen tot 30 die elkaar al goed kennen.",
+      "Zo combineert R@venHack teambuilding met echte kennisoverdracht over veilig digitaal gedrag. Je speelt met 5 tot 75 mensen, in meerdere teams tegelijk. In de Experience van 90 minuten zit de verbinding ingebouwd: de groep leert elkaar onderweg kennen. De Quick van 60 minuten is puur het spel, voor groepen tot 30 die elkaar al goed kennen.",
     cta: "Bekijk R@venHack →",
   },
   tools: {

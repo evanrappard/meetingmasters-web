@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { taalAlternates } from "@/lib/talen";
 import Image from "next/image";
 import Link from "next/link";
+import GrotereGroepen from "@/components/games/GrotereGroepen";
 
 export const metadata: Metadata = {
   alternates: taalAlternates("/escape-rooms"),
@@ -81,11 +82,13 @@ export default function EscapeRoomsPage() {
               op een leuke manier het securitybewustzijn willen vergroten.
             </p>
             <p className="text-[#525252] leading-relaxed mb-6">
-              In de Experience van 90 minuten zit de verbinding ingebouwd: er is tijd
-              om elkaar te leren kennen, samen vast te lopen en na afloop rustig na te
+              Je speelt met 5 tot 75 mensen, in meerdere teams tegelijk. In de
+              Experience van 90 minuten zit de verbinding ingebouwd: er is tijd om
+              elkaar te leren kennen, samen vast te lopen en na afloop rustig na te
               praten. De Quick van 60 minuten slaat dat over en is puur het spel, voor
               groepen tot 30 deelnemers die elkaar al goed kennen.
             </p>
+            <GrotereGroepen className="mb-6" />
             <Link
               href="/nl/boeken"
               className="bg-accent text-white px-6 py-3 text-sm font-semibold rounded hover:bg-accent-dark transition-colors inline-block"
