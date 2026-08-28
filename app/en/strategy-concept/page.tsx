@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 export const metadata: Metadata = {
   title: "Strategy & Concept | MeetingMasters",
@@ -34,7 +35,7 @@ export default function StrategyConceptPage() {
     <>
       {/* Hero banner */}
       <div className="relative w-full h-[50vh] overflow-hidden">
-        <Image
+        <HeroBeeld
           src="/images/strategy-banner.jpg"
           alt="Strategy and concept"
           fill

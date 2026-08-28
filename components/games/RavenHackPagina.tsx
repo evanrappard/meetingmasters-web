@@ -9,6 +9,7 @@ import RavenHackModules from "@/components/ravenhack/RavenHackModules";
 import { versies, stappen, faq, NL } from "@/app/nl/games-tools/ravenhack/data";
 import { RAVENHACK_EN } from "@/app/nl/games-tools/ravenhack/tekst-en";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /** R@venHack, in beide talen. Beelden en volgorde zijn taalloos. */
 
@@ -45,24 +46,18 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
 
       {/* ── HERO ── */}
       <section>
-        {/* De band volgt 44vw, zoals altijd. Alleen het plafond ging omhoog: op
-            560 px hield hij al vanaf zo'n 1270 px schermbreedte op met groeien,
-            en dan valt er te veel van het beeld weg. Gemeten op de bron loopt
-            het deel dat je wilt zien — de kop van het silhouet tot en met de
-            hint-knop — van 26% tot 87,5% van de hoogte. Met lucht eromheen
-            vraagt dat 44vw tot ongeveer 1900 px schermbreedte. */}
-        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[780px]">
-          <Image
-            src="/images/ravenhack-hero-v6.webp"
+        {/* Terug op de lage band. Dat kan met dit beeld: alles wat ertoe doet —
+            de kop van het silhouet, de gezichten en de hint-knop — zit tussen
+            37% en 82% van de hoogte, en dat past ruim binnen de uitsnede. */}
+        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
+          <HeroBeeld
+            src="/images/ravenhack-hero-v7.webp"
             alt={t.hero.beeldAlt}
             fill
             className="object-cover"
-            /* Iets onder het midden uitsnijden, zodat de kop van het silhouet
-               en de hint-knop er allebei met ruimte omheen in vallen. Wat er
-               bovenaan afgaat is de egale gloed. Boven ongeveer 2000 px breed
-               loopt de band tegen zijn plafond aan en verdwijnt de bovenkant van
-               het silhouet alsnog; daar is dit beeld niet op gemaakt. */
-            style={{ objectPosition: "center 72%" }}
+            /* Iets onder het midden: dan valt de egale gloed bovenaan weg en
+               houden de hint-knop en de onderste gezichten ruimte onder zich. */
+            style={{ objectPosition: "center 70%" }}
             priority
             quality={90}
             sizes="100vw"

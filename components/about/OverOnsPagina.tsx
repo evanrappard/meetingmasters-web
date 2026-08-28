@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { klantLogos, rolesVooraf, rolesTijdens, aboutFaq, aboutFaqMore, NL } from "@/app/nl/about/data";
 import { ABOUT_EN } from "@/app/nl/about/tekst-en";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /** Over ons, in beide talen. Logo's en volgorde zijn taalloos. */
 
@@ -32,7 +33,7 @@ export default function OverOnsPagina({ taal = "nl" }: { taal?: Taal }) {
       {/* ── HERO ── */}
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px] overflow-hidden">
-          <Image
+          <HeroBeeld
             src="/images/about-hero.webp"
             alt="Iemand in een online bijeenkomst van MeetingMasters — verbinding maken, waar je ook bent"
             fill priority quality={90}

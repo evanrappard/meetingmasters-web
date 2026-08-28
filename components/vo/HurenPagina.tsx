@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { inbegrepen, faq, NL } from "@/app/nl/virtual-office/huren/data";
 import { HUREN_EN } from "@/app/nl/virtual-office/tekst-en-sub";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /** Een virtueel kantoor huren, in beide talen. */
 
@@ -29,7 +30,7 @@ export default function HurenPagina({ taal = "nl" }: { taal?: Taal }) {
       {/* ── HERO ── */}
       <section>
         <div className="relative w-full md:h-[42vw] md:min-h-[300px] md:max-h-[520px]">
-          <Image
+          <HeroBeeld
             src="/images/vo-huren-v2.webp"
             alt={t.hero.beeldAlt}
             fill priority quality={90}

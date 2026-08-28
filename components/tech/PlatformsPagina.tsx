@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { JsonLd } from "@/components/ui/JsonLd";
 import PlatformKeuze from "@/components/ui/PlatformKeuze";
 import CTABlock from "@/components/ui/CTABlock";
 import { PLATFORMS, TOOLS, PLATFORM_FAQ, PLATFORM_FAQ_MEER, NL_TEKST } from "@/app/nl/technologie/tools/data";
 import { PLATFORMS_EN } from "@/app/nl/technologie/tools/tekst-en";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /**
  * De pagina Meeting Platforms, in beide talen. Merknamen, logo's, volgorde en
@@ -54,7 +54,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative bg-[#2D2D2D] overflow-hidden">
         <div className="absolute inset-0">
-          <Image
+          <HeroBeeld
             src="/images/platforms-hero-v2.webp"
             alt={t.hero.videoAlt}
             fill priority quality={90}

@@ -8,6 +8,7 @@ import GrotereGroepen from "@/components/games/GrotereGroepen";
 import { games, tools, faq, NL } from "@/app/nl/games-tools/data";
 import { GAMES_EN } from "@/app/nl/games-tools/tekst-en";
 import type { Taal } from "@/lib/talen";
+import { vervaging } from "@/lib/hero-vervaging";
 
 /** Games & Tools, in beide talen. Beelden en volgorde zijn taalloos. */
 
@@ -38,6 +39,7 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px] overflow-hidden">
           <HeroAchtergrond
+            vervaging={vervaging("/images/games-hero-v5.jpg")}
             poster="/images/games-hero-v5.jpg"
             posterMobiel="/images/games-hero-v5-mobiel.webp"
             posterDesktop="/images/games-hero-v5-desktop.webp"

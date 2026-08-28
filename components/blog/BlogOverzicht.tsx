@@ -53,6 +53,18 @@ const T = {
   },
 } as const;
 
+/**
+ * De vervaagde miniatuur achter de hero, zodat je geen wit vlak ziet terwijl
+ * het beeld laadt. Hier staat hij als losse regel en niet uit
+ * lib/hero-vervaging.ts, omdat dit een clientcomponent is: een import zou de
+ * hele lijst met miniaturen meesturen naar de browser.
+ *
+ * Opnieuw maken: node scripts/hero-vervagingen.mjs, en dan de regel voor
+ * /images/blog/blog-hero.webp hierheen kopiëren.
+ */
+const BLOG_HERO_VERVAGING =
+  "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoUAAsAPwFqrU8rJiQiMAgBYCAJZQC/OBuCFOjjnlRO7QAAALJN/7dzW7m0aEmnDNspYtAg7H8G2w2RzBgOt9/5aAwBfWSTz/Z9bAtgEGfRnEAnkTEjx4weUE7/veZtd0HUI+6S2AA=";
+
 export default function BlogOverzicht({
   taal = "nl",
   posts,
@@ -101,6 +113,8 @@ export default function BlogOverzicht({
             src="/images/blog/blog-hero.webp"
             alt={t.beeldAlt}
             fill
+            placeholder="blur"
+            blurDataURL={BLOG_HERO_VERVAGING}
             priority
             quality={90}
             className="object-cover object-[center_78%]"

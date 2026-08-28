@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 export const metadata: Metadata = {
   title: "Meeting Formats | MeetingMasters",
@@ -56,7 +57,7 @@ export default function MeetingFormatsPage() {
     <>
       {/* Hero */}
       <div className="relative w-full h-[45vh] overflow-hidden">
-        <Image
+        <HeroBeeld
           src="/images/format-1.jpg"
           alt="Meeting formats"
           fill

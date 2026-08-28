@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 export const metadata: Metadata = {
   title: "Remote Office | MeetingMasters",
@@ -41,7 +42,7 @@ export default function RemoteOfficePage() {
       {/* Hero */}
       <section className="relative bg-primary overflow-hidden">
         <div className="absolute inset-0">
-          <Image
+          <HeroBeeld
             src="/images/planning-3.jpg"
             alt="Virtual office"
             fill

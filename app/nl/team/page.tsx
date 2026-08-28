@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { taalAlternates } from "@/lib/talen";
 import Image from "next/image";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 export const metadata: Metadata = {
   alternates: taalAlternates("/team"),
@@ -27,7 +28,7 @@ export default function TeamPage() {
       <section className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div className="relative w-full aspect-[3/4] max-w-sm mx-auto md:mx-0 overflow-hidden rounded-lg">
-            <Image
+            <HeroBeeld
               src="/images/team-emilie.jpg"
               alt="Emilie van Rappard"
               fill

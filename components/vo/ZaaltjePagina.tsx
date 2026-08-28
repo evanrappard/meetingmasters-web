@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { locaties, faq, NL } from "@/app/nl/virtual-office/zaaltje/data";
 import { ZAALTJE_EN } from "@/app/nl/virtual-office/tekst-en-sub";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /** Een online zaaltje boeken, in beide talen. Beelden komen uit data.ts. */
 
@@ -29,7 +30,7 @@ export default function ZaaltjePagina({ taal = "nl" }: { taal?: Taal }) {
       {/* ── HERO ── */}
       <section>
         <div className="relative w-full md:h-[42vw] md:min-h-[300px] md:max-h-[520px]">
-          <Image
+          <HeroBeeld
             src="/images/vo-zaaltje-v2.webp"
             alt={t.hero.beeldAlt}
             fill priority quality={90}

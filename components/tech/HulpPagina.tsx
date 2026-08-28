@@ -7,6 +7,7 @@ import { HULP_EN } from "@/app/nl/technologie/hulp/tekst-en";
 import { KLEUREN, HANDLEIDINGEN, ALGEMENE_FAQ, DEVICE_FAQ, SUPPORT_FAQ, IT_PLATFORMS, NL_TEKST } from "@/app/nl/technologie/hulp/data";
 import type { Taal } from "@/lib/talen";
 import HeroAchtergrond from "@/components/ui/HeroAchtergrond";
+import { vervaging } from "@/lib/hero-vervaging";
 
 /**
  * De hulppagina, in beide talen. De kleuren, iconen en indeling zijn taalloos
@@ -46,6 +47,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
         {/* Achtergrondvideo: geluidloos, herhaalt zichzelf, start meteen.
             playsInline houdt hem op iOS in de pagina in plaats van fullscreen. */}
         <HeroAchtergrond
+          vervaging={vervaging("/images/tech-hulp-hero-poster.jpg")}
           poster="/images/tech-hulp-hero-poster.jpg"
           posterMobiel="/images/tech-hulp-hero-poster-mobiel.webp"
           posterDesktop="/images/tech-hulp-hero-poster-desktop.webp"

@@ -5,6 +5,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_FORMS } from "@/lib/hubspot-forms";
 import { type Item, NL } from "@/app/nl/downloads/data";
 import { DOWNLOADS_EN } from "@/app/nl/downloads/tekst-en";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /**
  * De Downloads-pagina, in beide talen.
@@ -67,7 +68,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative bg-[#2D2D2D] overflow-hidden">
         <div className="absolute inset-0">
-          <Image
+          <HeroBeeld
             src="/images/downloads-hero.webp"
             alt="Iemand aan een bureau met een laptop waarop een downloadknop staat"
             fill priority quality={90}

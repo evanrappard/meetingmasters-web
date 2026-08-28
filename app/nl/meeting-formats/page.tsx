@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { taalAlternates } from "@/lib/talen";
 import Image from "next/image";
 import Link from "next/link";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 export const metadata: Metadata = {
   alternates: taalAlternates("/meeting-formats"),
@@ -61,7 +62,7 @@ export default function MeetingFormatsPage() {
     <>
       {/* Hero */}
       <div className="relative w-full h-[45vh] overflow-hidden">
-        <Image
+        <HeroBeeld
           src="/images/format-1.jpg"
           alt="Online bijeenkomst van MeetingMasters — verschillende vergaderformats voor groepen van 50 tot 500 mensen"
           fill

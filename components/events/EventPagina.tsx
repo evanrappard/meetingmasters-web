@@ -10,6 +10,7 @@ import { eventFormats } from "@/app/nl/events/page";
 import { EVENT_DATA, HERO_DIM_LICHT } from "@/app/nl/events/[slug]/data";
 import { EVENT_TEKST_EN, engelseEventSlug, nederlandseEventSlug } from "@/app/nl/events/[slug]/tekst-en";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /** De vaste teksten van het sjabloon, per taal. */
 const T = {
@@ -166,7 +167,7 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
       {/* ── HERO ── */}
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[300px] md:max-h-[520px] overflow-hidden">
-          <Image
+          <HeroBeeld
             src={event.heroSrc ?? "/images/events-bijeenkomst.webp"}
             alt={event.heroAlt ?? `${title} — MeetingMasters Online Events`}
             fill priority quality={90}

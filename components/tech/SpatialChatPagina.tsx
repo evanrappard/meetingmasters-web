@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { SPATIALCHAT_EN } from "@/app/nl/technologie/spatialchat/tekst-en";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /**
  * De SpatialChat-pagina, in beide talen. Merknamen en certificeringen blijven
@@ -147,7 +147,7 @@ export default function SpatialChatPagina({ taal = "nl" }: { taal?: Taal }) {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative bg-[#2D2D2D] overflow-hidden">
         <div className="absolute inset-0">
-          <Image
+          <HeroBeeld
             src="/images/spatialchat-hero-v3.webp"
             alt={t.hero.beeldAlt}
             fill priority quality={90}

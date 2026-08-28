@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { POSTS_EN, getPostEN } from "../posts";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 const SITE = "https://www.meetingmasters.online";
 
@@ -110,7 +111,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Herhaling van de visual */}
           <div className="max-w-[920px] mx-auto px-6 md:px-8 mt-8">
             <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-[#EDEDEA]">
-              <Image
+              <HeroBeeld
                 src={post.img}
                 alt={post.imgAlt}
                 fill

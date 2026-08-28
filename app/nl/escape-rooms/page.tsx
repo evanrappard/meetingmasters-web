@@ -3,6 +3,7 @@ import { taalAlternates } from "@/lib/talen";
 import Image from "next/image";
 import Link from "next/link";
 import GrotereGroepen from "@/components/games/GrotereGroepen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 export const metadata: Metadata = {
   alternates: taalAlternates("/escape-rooms"),
@@ -35,7 +36,7 @@ export default function EscapeRoomsPage() {
           {/* EscapeMasters */}
           <div>
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg mb-6">
-              <Image
+              <HeroBeeld
                 src="/images/format-escape.png"
                 alt="EscapeMasters online escape room"
                 fill

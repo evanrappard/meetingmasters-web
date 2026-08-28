@@ -2806,3 +2806,41 @@ gloed.
 
 Boven ongeveer 2000 px loopt de band tegen het plafond aan en verdwijnt de
 bovenkant van het silhouet alsnog. Hoger dan 780 px wilden we de hero niet.
+
+
+---
+
+## 28 augustus 2026 — geen wit vlak meer voor een hero laadt
+
+**C** — Elke hero begon met een wit vlak, precies op de plek waar je het eerst
+kijkt. Dat komt doordat een hero een groot bestand is: zolang dat onderweg is,
+is het vlak leeg, en de pagina eronder is wit.
+
+Er staat nu een **vervaagde miniatuur** achter elke hero. Twintig pixels breed,
+door de browser uitgerekt en vervaagd, dus je ziet meteen de goede kleuren en
+vormen. Zodra het echte beeld er is, valt dat eroverheen.
+
+Hoe het werkt:
+
+- `node scripts/hero-vervagingen.mjs` maakt de miniaturen en schrijft ze naar
+  `lib/hero-vervaging.ts`. Nu 199 stuks, samen 40 kB, gemiddeld 206 bytes per
+  beeld.
+- `components/ui/HeroBeeld.tsx` is de vervanger van `next/image` voor hero's: hij
+  zoekt de miniatuur op en geeft hem mee als `blurDataURL`. Is er geen miniatuur,
+  dan valt hij terug op een donkere ondergrond — ook dan geen wit.
+- De hero's met video (home, events, games, tech hulp, virtueel kantoor) krijgen
+  de miniatuur als achtergrond onder het rustbeeld, via een nieuwe prop op
+  `HeroAchtergrond`.
+
+**Over de zwaarte**, want daarom was het er eerder uit gehaald: er komt geen
+extra verzoek bij en geen extra bestand. De miniatuur reist mee in de HTML van
+de pagina zelf, en kost daar **ongeveer 210 bytes** — een vijfde van een kilobyte.
+De lijst met alle miniaturen blijft op de server: die wordt alleen in
+servercomponenten gelezen, dus per pagina gaat alleen dat ene regeltje mee.
+
+Nagelopen over alle 120 pagina's uit de sitemap: 92 tonen nu een vervaagde
+voorvertoning. De overige 28 hebben helemaal geen herobeeld — dat zijn de
+formulierpagina's, de juridische pagina's, de losse tools en de testimonials.
+
+Twee dingen bewust laten staan: `HeroCarousel.tsx` (staat nergens meer in
+gebruik) en het kaartbeeld in `InspiratieKaarten.tsx` (geen hero).

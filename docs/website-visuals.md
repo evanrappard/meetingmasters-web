@@ -193,7 +193,7 @@ hij een sectie verderop de pagina vast. Draait tegen het netwerk-IP.
 | Tool-cards (4×, volgorde Inspiration→Bingo→Storytelling→Wheel) | `/images/tool-inspiration-cards-v2.webp`, `tool-bingo-v2.webp`, `tool-storytelling-v2.webp`, `tool-wheel-of-fortune-v2.webp` — uniform 400×480, per beeld eigen achtergrondkleur bijgebakken (contain + trim). Oude `tool-*.webp` (zonder `-v2`) niet meer gebruikt. | LOKAAL |
 
 ### NL Games/Escape — subpagina's
-| `/nl/games-tools/ravenhack` | hero `/images/ravenhack-hero-v6.webp` (28 aug 2026, aangeleverd door Emilie: `Downloads/MM Website afbeeldingen (21).png`, 3200×1800. Zelfde beeld als v5, maar met de deelnemers en het silhouet verder naar binnen, zodat ze de uitsnede van de normale heroband overleven — daarom staat de band weer op 44vw / max. 560 px. `objectPosition: center 75%`: gemeten op de bron staan de gezichten tussen 41% en 79% van de hoogte en loopt de hint-knop door tot 88%; met 75% vallen ze allebei binnen de band van 1280 tot 1920 px breed. Boven ongeveer 2000 px wordt de band relatief zo laag dat er hoe dan ook iets afvalt. Opgeslagen op 2560 breed, kwaliteit 88); Hoe-het-werkt stappen `ravenhack-crisis-v2.webp` (play-knop uit het beeld gepoetst met een lap uit een egaal stuk ernaast) / stap 2 = `ravenhack-hero-v3.webp` (de oude hero, `Downloads/Erik_en_Dave_HSZ_scherper.png`, 2338×1212) / `ravenhack-doorbraak.webp` (`UK Designs Escape (2)`); videoblok = YouTube-facade, NL `k8fXvDLmXtg` + poster `ravenhack-video-poster-nl.webp`, EN `_y8yi-YgEhk` + poster `ravenhack-video-poster-en.webp` (posterbeeld = frame 300 uit de bronvideo's in OneDrive, `Wat is RavenHack.mp4` / `What is RavenHack EN.mp4`). **Let op:** stap 2 en het posterbeeld tonen allebei de High Security Zone — twee sterk gelijkende beelden op één pagina. Niet meer in gebruik: `ravenhack-hero-v5.webp` en `ravenhack-hero-v4.webp` (allebei kort hero geweest op 28 aug), `ravenhack-hero.webp`, `ravenhack-onderzoek.webp`, `ravenhack-crisis.webp`, `ravenhack-video-poster.jpg` en de oude trailer `5g3Vv51_hR0` | LOKAAL + YouTube |
+| `/nl/games-tools/ravenhack` | hero `/images/ravenhack-hero-v7.webp` (28 aug 2026, aangeleverd door Emilie: `Downloads/MM Website afbeeldingen (22).png`, 3200×1800. Derde versie van deze wand op één dag; in deze staat alles wat ertoe doet — de kop van het silhouet, de gezichten en de hint-knop — tussen 37% en 82% van de hoogte, en dat past ruim in de gewone heroband van 44vw / max. 560 px. `objectPosition: center 70%`. Opgeslagen op 2560 breed, kwaliteit 88); Hoe-het-werkt stappen `ravenhack-crisis-v2.webp` (play-knop uit het beeld gepoetst met een lap uit een egaal stuk ernaast) / stap 2 = `ravenhack-hero-v3.webp` (de oude hero, `Downloads/Erik_en_Dave_HSZ_scherper.png`, 2338×1212) / `ravenhack-doorbraak.webp` (`UK Designs Escape (2)`); videoblok = YouTube-facade, NL `k8fXvDLmXtg` + poster `ravenhack-video-poster-nl.webp`, EN `_y8yi-YgEhk` + poster `ravenhack-video-poster-en.webp`. **Let op:** stap 2 en het posterbeeld tonen allebei de High Security Zone. Niet meer in gebruik: `ravenhack-hero-v6.webp`, `-v5.webp` en `-v4.webp` (alle drie kort hero geweest op 28 aug), `ravenhack-hero.webp`, `ravenhack-onderzoek.webp`, `ravenhack-crisis.webp`, `ravenhack-video-poster.jpg` en de oude trailer `5g3Vv51_hR0` | LOKAAL + YouTube |
 | `/nl/escape-rooms` | `/images/format-escape.png`, `/images/format-2.png` | LOKAAL |
 | `/nl/games-tools/tools/*` | geen beeld (interactieve tools) | n.v.t. |
 
@@ -258,3 +258,17 @@ Alle EN-beelden zijn LOKAAL; layout wijkt af van NL.
 Nieuwe visuals staan in OneDrive:
 `~/Library/CloudStorage/OneDrive-MeetingMasters/MeetingMasters/Marketing & PR/Website/website 2026/website visuals/`
 (Directe padvariabelen in de shell kunnen falen → eerst `cd` in de map, dan kopiëren.)
+
+
+---
+
+## Vervaagde miniaturen achter de hero's
+
+Sinds 28 augustus 2026 staat achter elke hero een miniatuur van 20 pixels breed,
+zodat je geen wit vlak ziet terwijl het beeld laadt. Ze worden gemaakt met
+`node scripts/hero-vervagingen.mjs` en staan in `lib/hero-vervaging.ts`.
+
+**Voeg je een herobeeld toe of vervang je er een, draai dat script dan opnieuw.**
+Anders valt die ene hero terug op een donkere ondergrond in plaats van een
+voorvertoning. Het script pakt zelf op wat er nieuw is; je hoeft niets in te
+vullen.

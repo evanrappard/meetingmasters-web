@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { stappen, faq, NL } from "@/app/nl/virtual-office/kantoor-cultuur/data";
 import { CULTUUR_EN } from "@/app/nl/virtual-office/tekst-en-sub";
 import type { Taal } from "@/lib/talen";
+import HeroBeeld from "@/components/ui/HeroBeeld";
 
 /** Kantoor + Cultuur, in beide talen. */
 
@@ -32,7 +32,7 @@ export default function KantoorCultuurPagina({ taal = "nl" }: { taal?: Taal }) {
       {/* ── HERO ── */}
       <section>
         <div className="relative w-full md:h-[42vw] md:min-h-[300px] md:max-h-[520px]">
-          <Image
+          <HeroBeeld
             src="/images/vo-fundament-v2.webp"
             alt={t.hero.beeldAlt}
             fill priority quality={90}
