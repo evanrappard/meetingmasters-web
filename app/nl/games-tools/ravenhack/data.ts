@@ -101,7 +101,7 @@ export const NL = {
       "Een cybersecurity escape game waarin je groep al spelend leert over veilig digitaal gedrag. De Experience van 90 minuten verbindt de groep onderweg; de Quick van 60 minuten is puur het spel.",
     ctaKosten: "Check kosten",
     cta: "Boek nu",
-    beeldAlt: "Een silhouet voor een wand vol beeldschermen — in R@venHack zoekt je team naar de sporen van de aanval",
+    beeldAlt: "Deelnemers aan R@venHack in beeld voor een wand vol schermen, met de schaduw van de hacker ernaast",
   },
   wat: {
     kicker: "Wat het is",

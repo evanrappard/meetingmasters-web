@@ -47,7 +47,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <Image
-            src="/images/ravenhack-hero-v4.webp"
+            src="/images/ravenhack-hero-v5.webp"
             alt={t.hero.beeldAlt}
             fill
             className="object-cover"

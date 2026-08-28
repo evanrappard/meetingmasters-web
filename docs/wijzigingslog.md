@@ -2721,3 +2721,21 @@ komen.
 Eén ding om te weten: **de betaaltermijn van 14 dagen staat niet meer in het
 lijstje.** Die viel buiten de vier regels die gevraagd waren. Hij staat nog wel
 in `BETAALTERMIJN_DAGEN` in de config, dus terugzetten is één regel.
+
+
+---
+
+## 28 augustus 2026 — nieuwe hero voor R@venHack
+
+**B** — `ravenhack-hero-v5.webp`, aangeleverd door Emilie. Dezelfde wand vol
+schermen als de hero van vanochtend, maar nu met de deelnemers in beeld, de
+slotjes en de hint-knop erbij — het spel zelf in plaats van alleen de sfeer.
+
+Deze hoefde niet gespiegeld: het silhouet staat al rechts, dus de kop links
+houdt zijn ruimte. Bron 3200×1800, opgeslagen op 2560 breed bij kwaliteit 88.
+Gecontroleerd op 1440, 1280 en 390 pixels breed; de kop blijft overal leesbaar
+en de gezichten vallen niet achter de tekst.
+
+De alt-teksten zijn in beide talen bijgewerkt naar wat er nu te zien is.
+
+`ravenhack-hero-v4.webp` blijft staan maar is niet meer in gebruik.

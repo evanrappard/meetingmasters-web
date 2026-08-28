@@ -17,7 +17,7 @@ export const RAVENHACK_EN = {
     intro: "A cybersecurity escape game in which your group learns about safe digital behaviour by playing. The Experience of 90 minutes connects the group along the way; the Quick of 60 minutes is purely the game.",
     ctaKosten: "Check the cost",
     cta: "Book now",
-    beeldAlt: "A silhouette against a wall of screens — in R@venHack your team looks for the traces of the attack",
+    beeldAlt: "R@venHack participants on screen against a wall of displays, with the hacker's shadow beside them",
   },
 
   wat: {
