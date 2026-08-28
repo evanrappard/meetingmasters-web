@@ -17,7 +17,7 @@ export const RAVENHACK_EN = {
     intro: "A cybersecurity escape game in which your group learns about safe digital behaviour by playing. The Experience of 90 minutes connects the group along the way; the Quick of 60 minutes is purely the game.",
     ctaKosten: "Cost indication",
     cta: "Check availability",
-    beeldAlt: "R@venHack in SpatialChat — a team in the High Security Zone cracking the codes together",
+    beeldAlt: "A silhouette against a wall of screens — in R@venHack your team looks for the traces of the attack",
   },
 
   wat: {
@@ -47,7 +47,7 @@ export const RAVENHACK_EN = {
         tag: "The investigation",
         title: "Together you look for the keys",
         body: "Then your team starts digging. Through a series of puzzles you work out step by step how the attack fits together: talking it through, piecing it together and pushing on.",
-        alt: "Silhouette against a wall of data streams — the team investigating the attack",
+        alt: "A team in the High Security Zone of R@venHack, in the middle of investigating the attack",
       },
       {
         tag: "The breakthrough",
@@ -96,7 +96,7 @@ export const RAVENHACK_EN = {
 
   praktijk: {
     kicker: "Watch the video",
-    titel: "This is how R@venHack works.",
+    titel: "Make cyber-safe behaviour something you can talk about.",
     lead: "A data leak. A suspicious email. And the same name, again and again: R@ven.",
     body: "Teams follow a hacker's trail through a virtual office: cracking passwords, decoding messages, making calls while the clock ticks. Cybersecurity then stops being something you merely hear about.",
     duur: "The Experience takes 90 minutes, with time to get to know each other and to learn together. The Quick takes 60 minutes and is purely the game, for groups of up to 30 who already know each other.",

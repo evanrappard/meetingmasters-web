@@ -49,8 +49,8 @@ export const stappen = [
     tag: "Het onderzoek",
     title: "Samen zoek je naar de sleutels",
     body: "Dan gaat je team op onderzoek. In een reeks puzzels ontdek je stap voor stap hoe de aanval in elkaar zit: overleggen, combineren en doorpakken.",
-    img: "/images/ravenhack-onderzoek.webp",
-    alt: "Silhouet tegen een muur vol datastromen — het team onderzoekt de aanval",
+    img: "/images/ravenhack-hero-v3.webp",
+    alt: "Een team in de High Security Zone van R@venHack, midden in het onderzoek naar de aanval",
   },
   {
     stap: 3,
@@ -100,7 +100,7 @@ export const NL = {
       "Een cybersecurity escape game waarin je groep al spelend leert over veilig digitaal gedrag. De Experience van 90 minuten verbindt de groep onderweg; de Quick van 60 minuten is puur het spel.",
     ctaKosten: "Kostenindicatie",
     cta: "Check beschikbaarheid",
-    beeldAlt: "R@venHack in SpatialChat — een team in de High Security Zone kraakt samen de codes",
+    beeldAlt: "Een silhouet voor een wand vol beeldschermen — in R@venHack zoekt je team naar de sporen van de aanval",
   },
   wat: {
     kicker: "Wat het is",
@@ -128,7 +128,7 @@ export const NL = {
   },
   praktijk: {
     kicker: "Bekijk de video",
-    titel: "Zo werkt R@venHack.",
+    titel: "Maak cyberveilig gedrag bespreekbaar.",
     lead: "Een datalek. Een verdachte mail. En steeds weer dezelfde naam: R@ven.",
     body: "Teams volgen het spoor van een hacker door een virtueel kantoor: wachtwoorden kraken, aanwijzingen ontcijferen, knopen doorhakken terwijl de klok tikt. Cybersecurity blijft zo niet bij erover horen.",
     duur: "De Experience duurt 90 minuten, met tijd om elkaar te leren kennen en om samen te leren. De Quick duurt 60 minuten en is puur het spel, voor groepen tot 30 die elkaar al kennen.",

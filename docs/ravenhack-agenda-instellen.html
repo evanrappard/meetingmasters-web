@@ -1,0 +1,607 @@
+<title>R@venHack-agenda</title>
+
+<style>
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2')}
+
+:root {
+  --grond: #FBFAF6;
+  --vlak: #FFFFFF;
+  --vlak-dof: #F4F2EC;
+  --inkt: #26262B;
+  --tekst: #4C4C52;
+  --stil: #8A8A90;
+  --lijn: #E4E1D8;
+  --geel: #EEBE3D;
+  --geel-zacht: #FDF6E3;
+  --teal: #1E8385;
+  --teal-zacht: #E7F2F2;
+  --alarm: #B03D52;
+  --alarm-zacht: #FBEDF0;
+  --schaduw: 0 1px 2px rgba(38, 38, 43, .05), 0 8px 24px -16px rgba(38, 38, 43, .18);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --grond: #15151A;
+    --vlak: #1D1D23;
+    --vlak-dof: #24242B;
+    --inkt: #F1EFE9;
+    --tekst: #C2C1C7;
+    --stil: #8A8A93;
+    --lijn: #32323A;
+    --geel: #F0C554;
+    --geel-zacht: #2B2417;
+    --teal: #5AC3C5;
+    --teal-zacht: #16292A;
+    --alarm: #E8879A;
+    --alarm-zacht: #2E1B20;
+    --schaduw: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .7);
+  }
+}
+
+:root[data-theme="dark"] {
+  --grond: #15151A;
+  --vlak: #1D1D23;
+  --vlak-dof: #24242B;
+  --inkt: #F1EFE9;
+  --tekst: #C2C1C7;
+  --stil: #8A8A93;
+  --lijn: #32323A;
+  --geel: #F0C554;
+  --geel-zacht: #2B2417;
+  --teal: #5AC3C5;
+  --teal-zacht: #16292A;
+  --alarm: #E8879A;
+  --alarm-zacht: #2E1B20;
+  --schaduw: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .7);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--grond);
+  color: var(--tekst);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.blad {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.1rem, 4vw, 2rem) 6rem;
+}
+
+/* ── Type ─────────────────────────────────────────────────────────── */
+
+h1, h2, h3, .nummer, .oog {
+  font-family: "Rajdhani", -apple-system, "Segoe UI", sans-serif;
+  font-weight: 600;
+  color: var(--inkt);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 7vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.4vw, 1.85rem);
+  line-height: 1.12;
+  letter-spacing: -0.008em;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.06rem;
+  line-height: 1.3;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.oog {
+  font-size: .82rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+p { margin: 0; }
+strong { color: var(--inkt); font-weight: 600; }
+
+/* ── Kop van het blad ─────────────────────────────────────────────── */
+
+.kop { display: flex; flex-direction: column; gap: 1.1rem; }
+
+.kop .lead {
+  font-size: 1.12rem;
+  max-width: 34rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem 1.4rem;
+  font-size: .88rem;
+  color: var(--stil);
+  border-top: 1px solid var(--lijn);
+  padding-top: 1rem;
+  margin-top: .4rem;
+}
+
+.meta b { color: var(--inkt); font-weight: 600; }
+
+/* ── Secties ──────────────────────────────────────────────────────── */
+
+.sectie {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: clamp(2.6rem, 6vw, 3.6rem);
+}
+
+.sectie > .oog + h2 { margin-top: -.7rem; }
+
+/* ── Stappen ──────────────────────────────────────────────────────── */
+
+.stappen {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  counter-reset: stap;
+}
+
+.stap {
+  background: var(--vlak);
+  border: 1px solid var(--lijn);
+  border-radius: 10px;
+  box-shadow: var(--schaduw);
+  padding: 1.4rem 1.5rem 1.5rem;
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: .35rem 1rem;
+  align-items: start;
+}
+
+.nummer {
+  counter-increment: stap;
+  font-size: 1.9rem;
+  line-height: .95;
+  color: var(--geel);
+  text-align: right;
+  padding-top: .06rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.nummer::before { content: counter(stap, decimal-leading-zero); }
+
+/* De twee dingen vooraf zijn geen stap van de zes; ze krijgen een letter,
+   zodat er geen twee keer een 01 op de pagina staat. */
+.vooraf .nummer { color: var(--teal); font-size: 1.7rem; }
+.vooraf .nummer::before { content: counter(stap, upper-alpha); }
+
+.stap > h3 { align-self: center; }
+.stap > .inhoud { grid-column: 2; display: flex; flex-direction: column; gap: .9rem; margin-top: .55rem; }
+
+@media (max-width: 34rem) {
+  .stap { grid-template-columns: 1fr; gap: .3rem; }
+  .nummer { text-align: left; font-size: 1.5rem; }
+  .stap > .inhoud { grid-column: 1; }
+}
+
+/* ── Klikpad ──────────────────────────────────────────────────────── */
+
+.pad {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem .1rem;
+  font-size: .84rem;
+  line-height: 1.4;
+}
+
+.pad .chip {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .8rem;
+  background: var(--vlak-dof);
+  border: 1px solid var(--lijn);
+  border-radius: 5px;
+  padding: .16rem .45rem;
+  color: var(--inkt);
+  white-space: nowrap;
+}
+
+.pad .pijl { color: var(--stil); padding: 0 .35rem; }
+
+/* ── Instellingen ─────────────────────────────────────────────────── */
+
+.zet {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(9rem, 15rem) 1fr;
+  gap: 0;
+  border-top: 1px solid var(--lijn);
+  font-size: .93rem;
+}
+
+.zet > dt,
+.zet > dd {
+  padding: .5rem .2rem;
+  border-bottom: 1px solid var(--lijn);
+  margin: 0;
+}
+
+.zet > dt { color: var(--stil); }
+.zet > dd { color: var(--inkt); font-weight: 600; }
+.zet > dd .bij { display: block; font-weight: 400; color: var(--tekst); font-size: .86rem; margin-top: .1rem; }
+
+@media (max-width: 34rem) {
+  .zet { grid-template-columns: 1fr; }
+  .zet > dt { padding-bottom: 0; border-bottom: 0; }
+}
+
+/* ── Blokjes met aandacht ─────────────────────────────────────────── */
+
+.let, .waarom {
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+
+.let {
+  background: var(--geel-zacht);
+  border-left: 3px solid var(--geel);
+}
+
+.waarom {
+  background: var(--teal-zacht);
+  border-left: 3px solid var(--teal);
+}
+
+.let b, .waarom b { color: var(--inkt); }
+
+.mis {
+  background: var(--alarm-zacht);
+  border-left: 3px solid var(--alarm);
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  font-size: .92rem;
+}
+
+/* ── Te kopiëren tekst ────────────────────────────────────────────── */
+
+.tekstblok {
+  border: 1px solid var(--lijn);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--vlak);
+}
+
+.tekstblok header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .5rem .8rem;
+  background: var(--vlak-dof);
+  border-bottom: 1px solid var(--lijn);
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--stil);
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+}
+
+.tekstblok .body { padding: .85rem 1rem; font-size: .93rem; white-space: pre-wrap; color: var(--tekst); }
+
+.kopieer {
+  font: inherit;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  border: 1px solid var(--lijn);
+  background: var(--vlak);
+  color: var(--inkt);
+  border-radius: 5px;
+  padding: .2rem .6rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.kopieer:hover { border-color: var(--geel); background: var(--geel-zacht); }
+.kopieer:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+/* ── Controlelijst ────────────────────────────────────────────────── */
+
+.check {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.check li {
+  display: grid;
+  grid-template-columns: 1.3rem 1fr;
+  gap: .6rem;
+  align-items: start;
+  font-size: .96rem;
+}
+
+.check li > span { min-width: 0; }
+
+.check li::before {
+  content: "";
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 1.5px solid var(--lijn);
+  border-radius: 3.5px;
+  margin-top: .28rem;
+  background: var(--vlak);
+}
+
+/* ── Slot ─────────────────────────────────────────────────────────── */
+
+.slot {
+  background: var(--vlak);
+  border: 1px solid var(--lijn);
+  border-top: 3px solid var(--geel);
+  border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: var(--schaduw);
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.voorbeeldlink {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .84rem;
+  color: var(--teal);
+  word-break: break-all;
+}
+
+a { color: var(--teal); }
+
+@media print {
+  body { background: #fff; }
+  .stap, .slot { box-shadow: none; break-inside: avoid; }
+}
+</style>
+
+<div class="blad">
+
+  <header class="kop">
+    <p class="oog">Instelblad · HubSpot</p>
+    <h1>De agenda voor<br>R@venHack</h1>
+    <p class="lead">Aan het eind heb je één link. Die stuur je naar mij, en dan staat de agenda op de R@venHack-pagina. Reken op een minuut of tien.</p>
+    <div class="meta">
+      <span><b>Waar:</b> HubSpot, planningspagina's</span>
+      <span><b>Nodig:</b> de agenda van planning@</span>
+      <span><b>Resultaat:</b> een meetings-link</span>
+    </div>
+  </header>
+
+  <section class="sectie">
+    <p class="oog">Voordat je begint</p>
+    <h2>Twee dingen die vaak het struikelblok zijn</h2>
+
+    <div class="let">
+      <b>HubSpot verplaatst deze tool regelmatig en hernoemt de knoppen.</b> Staat er bij jou iets anders dan hieronder, zoek dan op wat het ding <em>doet</em> — de instelling zelf zit er wel. Loop je vast: stuur me een schermafdruk van het tabblad waar je staat.
+    </div>
+
+    <ol class="stappen vooraf">
+      <li class="stap">
+        <span class="nummer" aria-hidden="true"></span>
+        <h3>Koppel de agenda van planning@meetingmasters.online</h3>
+        <div class="inhoud">
+          <p class="pad">
+            <span class="chip">tandwiel rechtsboven</span><span class="pijl">›</span><span class="chip">Algemeen</span><span class="pijl">›</span><span class="chip">Agenda</span><span class="pijl">›</span><span class="chip">Agenda koppelen</span>
+          </p>
+          <p>Zonder gekoppelde agenda kun je geen planningspagina maken — dat is meestal de reden dat de knop er niet is. Koppel je die van planning@, dan komen de uitnodigingen en bevestigingen ook vanaf dat adres.</p>
+          <div class="mis">
+            <b>Zit planning@ niet in jouw HubSpot-gebruiker?</b> Dan moet je óf inloggen als die gebruiker, óf de agenda van planning@ delen met jouw account en hem van daaruit koppelen. Kies je toch je eigen agenda, dan staat jouw adres onder elke uitnodiging — dat kan, maar zeg het even, dan pas ik de tekst op de site erop aan.
+          </div>
+        </div>
+      </li>
+
+      <li class="stap">
+        <span class="nummer" aria-hidden="true"></span>
+        <h3>Zoek de planningspagina's op</h3>
+        <div class="inhoud">
+          <p class="pad">
+            <span class="chip">Bibliotheek</span><span class="pijl">›</span><span class="chip">Vergaderingen</span>
+          </p>
+          <p>Zie je die niet staan, typ dan <strong>vergaderingen</strong> of <strong>meetings</strong> in de zoekbalk bovenin. In oudere accounts staat het onder <em>Verkoop › Vergaderingen</em>. Engelstalige HubSpot: <em>Library › Meetings</em>.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="sectie">
+    <p class="oog">De pagina zelf</p>
+    <h2>Zes stappen, in deze volgorde</h2>
+    <p>De volgorde volgt de tabbladen van HubSpot, dus je hoeft nergens terug.</p>
+
+    <ol class="stappen">
+      <li class="stap">
+        <span class="nummer" aria-hidden="true"></span>
+        <h3>Nieuwe planningspagina aanmaken</h3>
+        <div class="inhoud">
+          <p>Klik rechtsboven op <strong>Planningspagina maken</strong> en kies als type <strong>Eén op één</strong>. Niet <em>groep</em> of <em>round robin</em>: die zijn er om meerdere collega's in dezelfde afspraak te krijgen, en dat willen we hier niet.</p>
+          <dl class="zet">
+            <dt>Interne naam</dt>
+            <dd>R@venHack<span class="bij">Alleen jij ziet deze naam.</span></dd>
+          </dl>
+        </div>
+      </li>
+
+      <li class="stap">
+        <span class="nummer" aria-hidden="true"></span>
+        <h3>Overzicht: wat de bezoeker ziet</h3>
+        <div class="inhoud">
+          <dl class="zet">
+            <dt>Titel</dt>
+            <dd>R@venHack — kies een moment</dd>
+            <dt>Taal</dt>
+            <dd>Nederlands</dd>
+            <dt>Tijdzone</dt>
+            <dd>Amsterdam<span class="bij">Staat soms op dit tabblad, soms bij de beschikbaarheid.</span></dd>
+            <dt>Organisator</dt>
+            <dd>planning@meetingmasters.online</dd>
+          </dl>
+          <div class="waarom">
+            <b>Over het logo en de kleuren:</b> die hoef je niet in te stellen. De agenda komt in een kader op onze eigen pagina te staan, met onze opmaak eromheen.
+          </div>
+        </div>
+      </li>
+
+      <li class="stap">
+        <span class="nummer" aria-hidden="true"></span>
+        <h3>Planning: hier zit het echte werk</h3>
+        <div class="inhoud">
+          <dl class="zet">
+            <dt>Duur</dt>
+            <dd>60 én 90 minuten<span class="bij">Voeg twee duren toe. Staan er standaardwaarden als 15 en 30 minuten, haal die dan weg — anders kan iemand een half uur R@venHack boeken.</span></dd>
+            <dt>Beschikbare dagen</dt>
+            <dd>Maandag tot en met zondag</dd>
+            <dt>Beschikbare tijd</dt>
+            <dd>09:00 – 21:00</dd>
+            <dt>Buffertijd</dt>
+            <dd>30 minuten<span class="bij">Heet soms 'buffer vóór en na de vergadering'. Eén waarde geldt aan beide kanten.</span></dd>
+            <dt>Minimale opzegtermijn</dt>
+            <dd>5 dagen<span class="bij">Zie de opmerking hieronder — dit is bewust niet 3.</span></dd>
+            <dt>Boekbaar tot</dt>
+            <dd>52 weken vooruit<span class="bij">Staat er 'rollende periode' of 'weken in de toekomst', dan is 52 weken twaalf maanden. Kun je alleen uit een lijst kiezen, neem dan de hoogste.</span></dd>
+            <dt>Startintervallen</dt>
+            <dd>30 minuten<span class="bij">Dan krijg je ronde tijden als 10:00 en 10:30 in plaats van 10:07.</span></dd>
+          </dl>
+
+          <div class="let">
+            <b>Je hoeft géén laatste starttijd in te stellen.</b> HubSpot rekent dat zelf uit: als je beschikbaarheid om 21:00 eindigt, biedt hij een sessie van 90 minuten niet later dan 19:30 aan, en een van 60 minuten niet later dan 20:00. Precies wat we wilden. Ga je zelf een eindtijd invullen, dan snijd je er per ongeluk momenten af.
+          </div>
+
+          <div class="waarom">
+            <b>Waarom 5 dagen en niet 3?</b> Wij willen drie wérkdagen voorbereidingstijd, maar HubSpot telt gewone kalenderdagen. Zet je er 3 neer, dan kan iemand op donderdag een sessie voor maandag boeken — en dan heb je één werkdag. Met 5 dagen houd je in elke week van de kalender je drie werkdagen over. Wil je liever sneller kunnen: 3 dagen mag, dan kijk je zelf even mee bij wat er binnenkomt.
+          </div>
+        </div>
+      </li>
+
+      <li class="stap">
+        <span class="nummer" aria-hidden="true"></span>
+        <h3>Formulier: houd het kort</h3>
+        <div class="inhoud">
+          <p>Op dit tabblad staat wat iemand invult vóór hij een moment vastlegt. Laat alleen deze drie staan en verwijder de rest:</p>
+          <dl class="zet">
+            <dt>Velden</dt>
+            <dd>Voornaam · Achternaam · E-mailadres</dd>
+            <dt>Extra vragen</dt>
+            <dd>Geen</dd>
+          </dl>
+          <div class="waarom">
+            <b>Waarom zo kaal?</b> Alles wat we verder nodig hebben — aantal deelnemers, versie, datum, factuurgegevens — vragen we in het boekingsformulier op de site, mét de prijs erbij. Twee keer hetzelfde vragen kost je aanmeldingen.
+          </div>
+        </div>
+      </li>
+
+      <li class="stap">
+        <span class="nummer" aria-hidden="true"></span>
+        <h3>Bevestigingsmail: zet het voorbehoud erin</h3>
+        <div class="inhoud">
+          <p>Iemand die hier een moment kiest, krijgt meteen een agenda-uitnodiging. Die voelt als een bevestiging, terwijl wij het nog moeten inplannen. Zet daarom deze zinnen in de bevestigingstekst.</p>
+
+          <div class="tekstblok">
+            <header>
+              <span>Nederlands</span>
+              <button class="kopieer" type="button">Kopieer</button>
+            </header>
+            <div class="body">Je moment staat gereserveerd. We nemen contact met je op om de sessie af te stemmen: welke versie, met hoeveel mensen en in welke taal. Daarna is de boeking definitief.
+
+Kosten en beschikbaarheid bereken je zelf op meetingmasters.online/nl/games-tools/ravenhack.</div>
+          </div>
+
+          <div class="tekstblok">
+            <header>
+              <span>Engels</span>
+              <button class="kopieer" type="button">Kopieer</button>
+            </header>
+            <div class="body">Your slot is reserved. We will get in touch to agree the details: which version, how many people and in which language. The booking is confirmed after that.
+
+You can work out the cost and check availability yourself at meetingmasters.online/en/games-tools/ravenhack.</div>
+          </div>
+
+          <p>Een herinnering een dag vooraf is geen verplichting, maar scheelt no-shows. Zet hem aan als je hem tegenkomt.</p>
+        </div>
+      </li>
+
+      <li class="stap">
+        <span class="nummer" aria-hidden="true"></span>
+        <h3>De link ophalen</h3>
+        <div class="inhoud">
+          <p class="pad">
+            <span class="chip">Delen</span><span class="pijl">of</span><span class="chip">Insluiten</span>
+          </p>
+          <p>Sla de pagina op en ga naar het laatste tabblad. Daar staan twee dingen: een link en een stuk code. <strong>Ik heb alleen de link nodig</strong> — de code regel ik zelf. Hij ziet er zo uit:</p>
+          <p class="voorbeeldlink">https://meetings-eu1.hubspot.com/planning/ravenhack?uuid=…</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="sectie">
+    <p class="oog">Voordat je hem doorstuurt</p>
+    <h2>Vier dingen om zelf te controleren</h2>
+    <p>Open de link in een privévenster, zodat je ziet wat een bezoeker ziet.</p>
+    <ul class="check">
+      <li><span>Je kunt kiezen tussen <strong>60 en 90 minuten</strong>, en niets anders.</span></li>
+      <li><span>De eerstvolgende dag die je kunt aanklikken ligt <strong>vijf dagen</strong> verderop.</span></li>
+      <li><span>Kies je 90 minuten, dan is <strong>19:30 het laatste moment</strong> van de dag.</span></li>
+      <li><span>Je hoeft alleen <strong>naam en e-mailadres</strong> in te vullen.</span></li>
+    </ul>
+  </section>
+
+  <section class="sectie">
+    <div class="slot">
+      <h2>En dan?</h2>
+      <p>Stuur me de link. Ik zet hem in de instellingen van de site, en dan staat de agenda op de R@venHack-pagina — boven de calculator, precies zoals in de bouwopdracht.</p>
+      <p>Eén ding om te weten: wie daar een moment kiest, boekt dat écht. Je krijgt dus een afspraak in je agenda zonder dat je weet met hoeveel mensen ze komen of wat het gaat kosten. Dat komt pas binnen als ze ook het formulier eronder invullen. Wil je dat anders — bijvoorbeeld de agenda pas ná het formulier — dan schuif ik de blokken om.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.querySelectorAll(".kopieer").forEach((knop) => {
+  knop.addEventListener("click", async () => {
+    const blok = knop.closest(".tekstblok").querySelector(".body");
+    const tekst = blok.textContent;
+    const zeg = (woord) => {
+      knop.textContent = woord;
+      setTimeout(() => { knop.textContent = "Kopieer"; }, 2200);
+    };
+    try {
+      await navigator.clipboard.writeText(tekst);
+      zeg("Gekopieerd");
+    } catch {
+      // Lukt het kopiëren niet, dan selecteren we de tekst zodat ⌘C wel werkt.
+      const bereik = document.createRange();
+      bereik.selectNodeContents(blok);
+      const selectie = window.getSelection();
+      selectie.removeAllRanges();
+      selectie.addRange(bereik);
+      zeg("Selecteer + ⌘C");
+    }
+  });
+});
+</script>

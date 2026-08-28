@@ -46,7 +46,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <Image
-            src="/images/ravenhack-hero-v3.webp"
+            src="/images/ravenhack-hero-v4.webp"
             alt={t.hero.beeldAlt}
             fill
             className="object-cover"
@@ -212,9 +212,6 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
         </div>
       </section>
 
-      {/* ── BESCHIKBAARHEID · PRIJS · BOEKEN ── */}
-      {MODULES_AAN && <RavenHackModules taal={taal} />}
-
       {/* ── BEELD + PRAKTIJK ── */}
       <section className="bg-[#FAFAFA] py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
@@ -244,6 +241,9 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
           </div>
         </div>
       </section>
+
+      {/* ── BESCHIKBAARHEID · PRIJS · BOEKEN ── */}
+      {MODULES_AAN && <RavenHackModules taal={taal} />}
 
       {/* ── FAQ ── */}
       <section className="bg-[#F5F5F5] py-12 border-t border-[#EBEBEB]">

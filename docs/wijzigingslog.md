@@ -2534,3 +2534,33 @@ meebewegen als je daarna nog iets wijzigt.
   sleutel mag geen contacten verwijderen — dus dat doen we pas na akkoord.
 - **Privacyverklaring.** Er worden nu adres- en btw-gegevens gevraagd. Dat hoort
   benoemd te worden bij de juridische controle die nog openstaat.
+
+
+---
+
+## 28 augustus 2026 — R@venHack: beeldwissel en het videoblok verplaatst
+
+**B** — **Hero en stap 2 van Hoe-het-werkt zijn gewisseld.** De hero is nu de
+wand vol beeldschermen met het silhouet; de High Security Zone (de oude hero)
+staat bij stap 2, Het onderzoek.
+
+Het nieuwe herobeeld is **gespiegeld**: het silhouet stond links, precies waar de
+kop en de knoppen staan. Nu staat het rechts en heeft de tekst ruimte.
+
+Dat spiegelen bracht wel iets mee. In de bron van 3200×1800 staat de tekst "Need
+a hint?", die achterstevoren zou lezen. De 900px-versie die op de site stond was
+die tekst al kwijt; daar heb ik een stuk uit genomen, opgeschaald en met een
+zachte rand over de tekst gelegd. Dat vlak ligt in de hero achter de kop en
+onder het verloop, dus de zachtheid valt niet op. Opgeslagen als
+`ravenhack-hero-v4.webp`, 2560 breed.
+
+**Let op:** stap 2 en het posterbeeld van de video tonen nu allebei de High
+Security Zone. Twee sterk gelijkende beelden op één pagina.
+
+**T C** — **Het videoblok heet nu "Maak cyberveilig gedrag bespreekbaar"** (EN:
+"Make cyber-safe behaviour something you can talk about") en staat direct onder
+Twee versies, dus vóór de drie modules. De volgorde van de pagina is nu: hero ·
+wat het is · hoe het werkt · twee versies · video · beschikbaarheid · prijs ·
+boeken · vragen · vervolgstap.
+
+De alt-teksten zijn met de beelden meegereisd, in beide talen.
