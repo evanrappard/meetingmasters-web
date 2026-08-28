@@ -45,16 +45,23 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
 
       {/* ── HERO ── */}
       <section>
-        {/* Hoger dan een gewone heroband, en met opzet: het beeld is 16:9 en
-            wordt door `object-cover` van boven en onder afgesneden. Hoe hoger
-            deze band, hoe meer van de schermenwand en de deelnemers je ziet.
-            Op 1440 px breed schoot dat van 69% van het beeld naar 84%. */}
-        <div className="relative w-full md:h-[53vw] md:min-h-[380px] md:max-h-[680px]">
+        {/* Terug op de oorspronkelijke hoogte. Het beeld is 16:9 en wordt door
+            `object-cover` van boven en onder afgesneden; in deze versie staan de
+            deelnemers en het silhouet zo ver naar binnen dat ze die uitsnede
+            overleven. Hoger maken hoeft dus niet meer. */}
+        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <Image
-            src="/images/ravenhack-hero-v5.webp"
+            src="/images/ravenhack-hero-v6.webp"
             alt={t.hero.beeldAlt}
             fill
             className="object-cover"
+            /* Lager uitsnijden dan het midden. Gemeten op de bron: de
+               gezichten staan tussen 41% en 79% van de hoogte, de hint-knop
+               loopt door tot 88%. Met 75% vallen ze allebei binnen de band op
+               schermen van 1280 tot 1920 px. Wat er bovenaan afgaat is de egale
+               gloed. Op een scherm breder dan ongeveer 2000 px wordt de band
+               relatief zo laag dat er hoe dan ook iets afvalt. */
+            style={{ objectPosition: "center 75%" }}
             priority
             quality={90}
             sizes="100vw"

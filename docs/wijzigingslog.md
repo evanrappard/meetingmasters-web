@@ -2758,3 +2758,25 @@ door de tekst bepaald, niet door deze regels.
 De kop en de introzin blijven leesbaar; ze staan nu wel dichter bij de
 gezichten. Het verloop over het beeld is niet donkerder gemaakt — heroes blijven
 zo licht mogelijk.
+
+
+---
+
+## 28 augustus 2026 — R@venHack-hero: nieuwe versie, oude hoogte terug
+
+**B C** — Emilie leverde `MM Website afbeeldingen (21).png` aan: hetzelfde beeld,
+maar met de deelnemers en het silhouet verder naar binnen, zodat ze de uitsnede
+van een gewone heroband overleven. Het uitzoomen van een uur eerder is daarmee
+teruggedraaid: de band staat weer op `44vw` met een maximum van 560 px.
+
+**Wel een andere uitsnede.** In het midden uitsnijden sneed de hint-knop
+rechtsonder doormidden. Op de bron gemeten: de gezichten staan tussen 41% en 79%
+van de hoogte, de hint-knop loopt door tot 88%. Met `objectPosition: center 75%`
+vallen ze allebei binnen de band. Wat er bovenaan afgaat is de egale gloed.
+
+Gecontroleerd op 1280, 1440 en 1920 px breed. Boven ongeveer 2000 px wordt de
+band relatief zo laag dat er hoe dan ook iets wegvalt — dat gold voor de vorige
+hero net zo goed.
+
+`ravenhack-hero-v5.webp` en `-v4.webp` blijven staan maar zijn niet meer in
+gebruik.
