@@ -2780,3 +2780,29 @@ hero net zo goed.
 
 `ravenhack-hero-v5.webp` en `-v4.webp` blijven staan maar zijn niet meer in
 gebruik.
+
+---
+
+## 28 augustus 2026 — R@venHack-hero: hint en silhouet ruim in beeld
+
+**C** — Nog een correctie op de heroband. Niet het beeld en niet `44vw`, maar
+het **plafond** was de boosdoener: `max-h-[560px]` liet de band al vanaf zo'n
+1270 px schermbreedte niet meer meegroeien, en dan valt er te veel van het beeld
+weg. Het plafond staat nu op 780 px.
+
+Gemeten op de bron loopt het deel dat je wilt zien — de kop van het silhouet tot
+en met de hint-knop — van 26% tot 87,5% van de hoogte. Dat is 61,5% van het
+beeld; met lucht eromheen zo'n 70%. Wat je nu ziet:
+
+| schermbreedte | band | zichtbaar deel van het beeld |
+|---|---|---|
+| 1280 px | 563 px | 78% |
+| 1440 px | 634 px | 78% |
+| 1920 px | 780 px | 72% |
+
+De uitsnede staat op `objectPosition: center 72%`, iets onder het midden, zodat
+allebei er met ruimte omheen in vallen. Wat er bovenaan afgaat is de egale
+gloed.
+
+Boven ongeveer 2000 px loopt de band tegen het plafond aan en verdwijnt de
+bovenkant van het silhouet alsnog. Hoger dan 780 px wilden we de hero niet.

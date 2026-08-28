@@ -45,23 +45,24 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
 
       {/* ── HERO ── */}
       <section>
-        {/* Terug op de oorspronkelijke hoogte. Het beeld is 16:9 en wordt door
-            `object-cover` van boven en onder afgesneden; in deze versie staan de
-            deelnemers en het silhouet zo ver naar binnen dat ze die uitsnede
-            overleven. Hoger maken hoeft dus niet meer. */}
-        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
+        {/* De band volgt 44vw, zoals altijd. Alleen het plafond ging omhoog: op
+            560 px hield hij al vanaf zo'n 1270 px schermbreedte op met groeien,
+            en dan valt er te veel van het beeld weg. Gemeten op de bron loopt
+            het deel dat je wilt zien — de kop van het silhouet tot en met de
+            hint-knop — van 26% tot 87,5% van de hoogte. Met lucht eromheen
+            vraagt dat 44vw tot ongeveer 1900 px schermbreedte. */}
+        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[780px]">
           <Image
             src="/images/ravenhack-hero-v6.webp"
             alt={t.hero.beeldAlt}
             fill
             className="object-cover"
-            /* Lager uitsnijden dan het midden. Gemeten op de bron: de
-               gezichten staan tussen 41% en 79% van de hoogte, de hint-knop
-               loopt door tot 88%. Met 75% vallen ze allebei binnen de band op
-               schermen van 1280 tot 1920 px. Wat er bovenaan afgaat is de egale
-               gloed. Op een scherm breder dan ongeveer 2000 px wordt de band
-               relatief zo laag dat er hoe dan ook iets afvalt. */
-            style={{ objectPosition: "center 75%" }}
+            /* Iets onder het midden uitsnijden, zodat de kop van het silhouet
+               en de hint-knop er allebei met ruimte omheen in vallen. Wat er
+               bovenaan afgaat is de egale gloed. Boven ongeveer 2000 px breed
+               loopt de band tegen zijn plafond aan en verdwijnt de bovenkant van
+               het silhouet alsnog; daar is dit beeld niet op gemaakt. */
+            style={{ objectPosition: "center 72%" }}
             priority
             quality={90}
             sizes="100vw"
