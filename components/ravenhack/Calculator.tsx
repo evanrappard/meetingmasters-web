@@ -51,7 +51,8 @@ export default function Calculator({
   keuze: Keuze;
   zet: (deel: Partial<Keuze>) => void;
   taal: Taal;
-  naarFormulier: string;
+  /** Zet de sectie op de tweede stap: het formulier. */
+  naarFormulier: () => void;
 }) {
   const t = TEKST[taal];
   const c = t.calculator;
@@ -222,7 +223,9 @@ export default function Calculator({
             />
           </div>
         </div>
-        <p className="text-[13px] text-[#7A8483] -mt-2">{c.datumOptioneel}</p>
+        <p className="text-[13px] text-[#7A8483] -mt-2">
+          {c.datumOptioneel} {t.beschikbaarheid}
+        </p>
 
         {(teLaat || teVroeg) && (
           <p className="text-sm text-[#C64A60] font-semibold">
@@ -274,7 +277,7 @@ export default function Calculator({
           <PrijsRegel prijs={prijs} invoer={keuze} taal={taal} />
         ) : (
           <p className="font-bold text-[#2D2D2D] leading-snug">
-            {prijs.status === "quick-te-groot" ? t.quickTeGroot : t.overleg}
+            {prijs.status === "quick-te-groot" ? t.quickTeGroot : t.teGroot}
           </p>
         )}
 
@@ -292,18 +295,13 @@ export default function Calculator({
           <p className="mt-4 text-sm text-[#434343] leading-relaxed">{t.onderMinimum}</p>
         )}
 
-        {(prijs.status === "overleg" || prijs.status === "te-groot") && (
-          <div className="mt-4 rounded-lg border border-[#E7E7E3] bg-white p-4">
-            {prijs.status === "overleg" && (
-              <p className="text-sm text-[#434343] leading-relaxed mb-3">{t.overleg}</p>
-            )}
-            <Link
-              href={ADVIES_LINK[taal]}
-              className="text-sm font-bold text-[#28A8AA] hover:underline"
-            >
-              {t.overlegLink} →
-            </Link>
-          </div>
+        {prijs.status === "te-groot" && (
+          <Link
+            href={ADVIES_LINK[taal]}
+            className="mt-4 inline-block text-sm font-bold text-[#28A8AA] hover:underline"
+          >
+            {t.overlegLink} →
+          </Link>
         )}
 
         <p className="mt-5 border-t border-[#E7E7E3] pt-4 text-[13px] text-[#7A8483] leading-relaxed">
@@ -311,12 +309,13 @@ export default function Calculator({
         </p>
 
         {prijs.toonPrijs && (
-          <a
-            href={naarFormulier}
-            className="mt-5 block rounded bg-[#EEBE3D] px-5 py-3 text-center text-sm font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
+          <button
+            type="button"
+            onClick={naarFormulier}
+            className="mt-5 block w-full rounded bg-[#EEBE3D] px-5 py-3 text-center text-sm font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
           >
             {c.naarFormulier}
-          </a>
+          </button>
         )}
 
         <Disclaimer taal={taal} />

@@ -2630,3 +2630,63 @@ Weggehaald uit `enPaths`. Daarbij, zodat het klopt in beide richtingen:
 
 Nagelopen met een kruip-controle over alle 120 pagina's uit de sitemap: geen
 dode links.
+
+
+---
+
+## 28 augustus 2026 — R@venHack: de agenda eruit, boeken wordt stap twee
+
+De boekingsmodule is omgebouwd. Beschikbaarheid check je niet meer zelf.
+
+### Wat er nu staat
+
+Eén sectie met twee stappen. Eerst **"Stel uw sessie samen"** met de live prijs,
+daarna **"Vraag uw sessie aan"** met het formulier. Je komt bij stap twee via
+elke knop die naar `#rh-boeken` wijst; boven het formulier staat een link terug,
+waarbij je keuzes blijven staan.
+
+De knoppen heten anders: "Check beschikbaarheid" is **"Check kosten"** geworden
+en "Kostenindicatie" is **"Boek nu"**. In het Engels "Check the cost" en "Book
+now".
+
+**De agenda is weg.** Wie daar een moment koos, boekte echt — zonder dat wij
+wisten met hoeveel mensen of tegen welke prijs. Nu geeft de bezoeker zijn
+voorkeursdatum en -tijd op in de calculator. Die sturen de toeslag én komen mee
+als gewenst moment, met de regel erbij: "Wij checken de beschikbaarheid van dit
+moment en komen zo snel mogelijk bij u terug." Dezelfde belofte staat boven het
+formulier en in de bedanktekst na het versturen.
+
+`components/ravenhack/Beschikbaarheid.tsx` is verwijderd; hij staat in de
+geschiedenis van git als we hem ooit terug willen.
+
+**De bovengrens is 75.** `maxDeelnemers` voor de Experience staat nu gelijk aan
+de claim op de rest van de site. Daarboven verdwijnt de prijs en verschijnt
+"Dit kan ook met grotere groepen. Neem contact op over de mogelijkheden." De
+tussenstap bij 100 deelnemers is vervallen — die had geen betekenis meer.
+
+### Twee dingen die stuk waren en nu gerepareerd zijn
+
+**Next's `Link` doet geen `hashchange`.** De knop "Boek nu" in de hero wijst naar
+`#rh-boeken`, maar `Link` behandelt zo'n adres als navigatie en zet het anker met
+pushState in de balk — zonder de gebeurtenis waar het blok op luisterde. Er
+gebeurde dus niets. Nieuw component `components/ui/PaginaLink.tsx` kiest zelf:
+een gewone `<a>` voor een sprong binnen de pagina, `Link` voor de rest.
+
+**Een tweede klik op dezelfde knop deed niets**, want dan verandert het adres
+niet. Het blok luistert nu op de klik zelf in plaats van op het adres. Alle zeven
+routes nagelopen: hero heen en terug, twee keer achter elkaar, de knoppen op de
+versiekaarten en de knop in de prijskaart.
+
+### HubSpot
+
+De bedanktekst van beide formulieren belooft nu wat we doen: we checken de
+beschikbaarheid en komen terug, uiterlijk binnen twee werkdagen, en pas na de
+bevestiging staat de boeking vast. Bijgewerkt met
+`node scripts/ravenhack-formulier.mjs --bijwerken` — dat raakt alleen de knop,
+de bedanktekst en de huisstijl, niet de velden.
+
+### Vervallen
+
+Het instelblad voor de meetings-link (`docs/ravenhack-agenda-instellen.html`) is
+hiermee overbodig geworden. Het staat er nog, mocht er ooit alsnog een agenda
+komen.

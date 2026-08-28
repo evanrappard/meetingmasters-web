@@ -29,7 +29,16 @@ import type { Taal } from "@/lib/talen";
  * boeking geldt pas na onze bevestiging, en de offerte maken we zelf vanuit
  * HubSpot. De ingevulde keuzes zijn wat telt; het bedrag is een weergave.
  */
-export default function BoekNu({ keuze, taal }: { keuze: Keuze; taal: Taal }) {
+export default function BoekNu({
+  keuze,
+  taal,
+  terug,
+}: {
+  keuze: Keuze;
+  taal: Taal;
+  /** Terug naar de prijs, zonder dat de keuzes kwijtraken. */
+  terug: () => void;
+}) {
   const t = TEKST[taal];
   const f = t.formulier;
   const prijs = berekenPrijs(keuze);
@@ -59,7 +68,7 @@ export default function BoekNu({ keuze, taal }: { keuze: Keuze; taal: Taal }) {
     return (
       <div className="rounded-xl border border-[#E7E7E3] bg-[#F7F7F5] p-7 max-w-[640px]">
         <p className="text-[#434343] leading-relaxed mb-4">
-          {prijs.status === "quick-te-groot" ? t.quickTeGroot : f.teGroot}
+          {prijs.status === "quick-te-groot" ? t.quickTeGroot : t.teGroot}
         </p>
         <Link
           href={ADVIES_LINK[taal]}
@@ -74,6 +83,13 @@ export default function BoekNu({ keuze, taal }: { keuze: Keuze; taal: Taal }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-12 items-start">
       <div>
+        <button
+          type="button"
+          onClick={terug}
+          className="mb-5 text-sm font-semibold text-[#28A8AA] hover:underline"
+        >
+          {t.calculator.terug}
+        </button>
         {formId ? (
           <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formId} taal={taal} prefill={velden} />
         ) : (

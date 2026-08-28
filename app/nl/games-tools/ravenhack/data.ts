@@ -99,8 +99,8 @@ export const NL = {
     titel2: "de cyberaanval.",
     intro:
       "Een cybersecurity escape game waarin je groep al spelend leert over veilig digitaal gedrag. De Experience van 90 minuten verbindt de groep onderweg; de Quick van 60 minuten is puur het spel.",
-    ctaKosten: "Kostenindicatie",
-    cta: "Check beschikbaarheid",
+    ctaKosten: "Check kosten",
+    cta: "Boek nu",
     beeldAlt: "Een silhouet voor een wand vol beeldschermen — in R@venHack zoekt je team naar de sporen van de aanval",
   },
   wat: {
@@ -123,8 +123,8 @@ export const NL = {
     kicker: "Twee versies",
     titel: "De Experience is het uitgangspunt.",
     onder: "Je speelt R@venHack met 5 tot 75 mensen, in meerdere teams tegelijk. Het verschil tussen de twee versies zit niet in dat aantal, maar in de verbinding. In de Experience is tijd ingebouwd om elkaar echt te leren kennen. De Quick slaat dat over en werkt daarom alleen bij groepen die elkaar al goed kennen.",
-    cta: "Check beschikbaarheid",
-    kosten: "Kosten",
+    cta: "Check kosten",
+    kosten: "Boek nu",
     items: versies,
   },
   praktijk: {

@@ -246,11 +246,12 @@ Nieuwe contacteigenschap: `mm_voorkeurstijd` (string/text).
 |---|---|
 | Nederlands | `35531a09-73fe-4f3a-b514-423c52c51122` — *MM Website — R@venHack boeking* |
 | Engels | `b049c23c-16db-4fba-8458-11c54b490edb` — *MM Website EN — R@venHack booking* |
-| Waar | `/nl/games-tools/ravenhack` en `/en/games-tools/ravenhack`, onderaan de drie modules |
+| Waar | `/nl/games-tools/ravenhack` en `/en/games-tools/ravenhack`, als tweede stap van de kostencalculator |
 | Aangemaakt met | `scripts/ravenhack-formulier.mjs` |
 
 Dit formulier is anders dan de andere zes: het staat niet op een eigen
-formulierpagina, maar onder een calculator. Wat de bezoeker daar kiest — versie,
+formulierpagina, maar is de tweede stap van de kostencalculator. Je ziet het pas
+nadat je op "Boek nu" hebt geklikt. Wat de bezoeker daar kiest — versie,
 taal, aantal deelnemers, datum, tijd, kortingscode en de berekende prijs — gaat
 mee in **verborgen velden**. Die worden gevuld door `components/ui/HubSpotForm.tsx`
 via de eigenschap `prefill`.
@@ -273,3 +274,12 @@ HubSpot wordt gemaakt. De ingevulde keuzes zijn wat telt.
 
 Btw-nummer is bewust **niet** verplicht: verenigingen, stichtingen en
 particulieren hebben er geen, en die moeten wel kunnen boeken.
+
+
+Teksten bijwerken kan zonder de velden aan te raken:
+
+    node scripts/ravenhack-formulier.mjs --bijwerken
+
+Dat zet alleen de knoptekst, de bedanktekst en de huisstijl opnieuw. De velden
+blijven zoals ze in HubSpot staan, zodat een aanpassing die je daar met de hand
+maakte niet zomaar verdwijnt.

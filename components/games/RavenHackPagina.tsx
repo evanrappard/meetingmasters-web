@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import PaginaLink from "@/components/ui/PaginaLink";
 import CTABlock from "@/components/ui/CTABlock";
 import YouTubeFacade from "@/components/ui/YouTubeFacade";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -25,11 +25,11 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
   const fasen = engels ? stappen.map((s, i) => ({ ...s, ...RAVENHACK_EN.hoe.stappen[i] })) : stappen;
   const varianten = engels ? versies.map((v, i) => ({ ...v, ...RAVENHACK_EN.versies.items[i] })) : versies;
   const faqs = engels ? RAVENHACK_EN.faq : faq;
-  // Staan de modules op de pagina, dan springt "Check beschikbaarheid" naar de
-  // agenda en "Kostenindicatie" naar de calculator, in plaats van naar de
-  // algemene formulierpagina's.
-  const naarBoeken = MODULES_AAN ? "#rh-agenda" : t.links.boeken;
+  // Staan de modules op de pagina, dan blijven de knoppen op de pagina zelf:
+  // "Check kosten" opent de calculator, "Boek nu" opent daar meteen de tweede
+  // stap. Staan ze uit, dan gaan ze naar de losse formulierpagina's.
   const naarKosten = MODULES_AAN ? "#rh-prijs" : t.links.offerte;
+  const naarBoeken = MODULES_AAN ? "#rh-boeken" : t.links.boeken;
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -81,18 +81,18 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
                   {t.hero.intro}
                  </p>
                 <div className="flex flex-wrap gap-3">
-                  <Link
+                  <PaginaLink
                     href={naarKosten}
                     className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
                   >
                     {t.hero.ctaKosten}
-                   </Link>
-                  <Link
+                   </PaginaLink>
+                  <PaginaLink
                     href={naarBoeken}
                     className="text-white text-sm font-semibold px-5 py-3 border border-white/40 rounded hover:border-white/80 hover:bg-white/10 transition-colors"
                   >
                     {t.hero.cta}
-                   </Link>
+                   </PaginaLink>
                 </div>
               </div>
             </div>
@@ -207,8 +207,8 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
             versies={varianten}
             ctaLabel={t.versies.cta}
             kostenLabel={t.versies.kosten}
-            boekenHref={naarBoeken}
-            offerteHref={naarKosten}
+            ctaHref={naarKosten}
+            kostenHref={naarBoeken}
           />
           {/* In een eigen div: de sitebrede regel `main [class*="mx-auto"] > p`
               centreert anders elke alinea die rechtstreeks in deze kolom staat. */}

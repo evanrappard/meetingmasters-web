@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import PaginaLink from "@/components/ui/PaginaLink";
 
 /**
  * De twee R@venHack-versies naast elkaar, om uit te kiezen. Werkt net als
@@ -28,14 +28,14 @@ export default function VersieKeuze({
   versies,
   ctaLabel,
   kostenLabel,
-  boekenHref,
-  offerteHref,
+  ctaHref,
+  kostenHref,
 }: {
   versies: Versie[];
   ctaLabel: string;
   kostenLabel: string;
-  boekenHref: string;
-  offerteHref: string;
+  ctaHref: string;
+  kostenHref: string;
 }) {
   // Standaard staat de aanbevolen versie aan; is er geen, dan de eerste.
   const standaard = (versies.find((v) => v.highlight) ?? versies[0])?.title ?? null;
@@ -95,18 +95,18 @@ export default function VersieKeuze({
               ))}
             </ul>
             <div className="mt-auto flex flex-wrap gap-3">
-              <Link
-                href={boekenHref}
+              <PaginaLink
+                href={ctaHref}
                 className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:bg-[#D4A835] transition-colors"
               >
                 {ctaLabel}
-              </Link>
-              <Link
-                href={offerteHref}
+              </PaginaLink>
+              <PaginaLink
+                href={kostenHref}
                 className="border border-[#D4D4D4] text-[#2D2D2D] text-sm font-bold px-5 py-2.5 rounded hover:border-[#2D2D2D] transition-colors"
               >
                 {kostenLabel}
-              </Link>
+              </PaginaLink>
             </div>
           </div>
         );

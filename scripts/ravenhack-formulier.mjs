@@ -4,6 +4,8 @@
  *
  *   node scripts/ravenhack-formulier.mjs --dry-run   laat zien wat er zou gebeuren
  *   node scripts/ravenhack-formulier.mjs             maakt het echt aan
+ *   node scripts/ravenhack-formulier.mjs --bijwerken haalt de teksten van
+ *                                                    bestaande formulieren op
  *
  * Het script is herhaalbaar: bestaat een eigenschap of een formulier al, dan
  * laat het die met rust en drukt alleen het ID af. Dat ID zet je in
@@ -165,8 +167,9 @@ const TEKST = {
     naam: "MM Website — R@venHack boeking",
     knop: "Verstuur aanvraag",
     dank:
-      "Dank je wel! We hebben je aanvraag binnen en bevestigen binnen twee werkdagen. " +
-      "Pas dan staat de boeking vast. Iets met haast? Bel of mail ons: " +
+      "Dank je wel! We hebben je aanvraag binnen. We checken de beschikbaarheid van je " +
+      "datum en tijd en komen zo snel mogelijk bij je terug, uiterlijk binnen twee werkdagen. " +
+      "Pas na onze bevestiging staat de boeking vast. Iets met haast? Bel of mail ons: " +
       "+31 6 4575 2819 | contact@meetingmasters.online",
     velden: {
       firstname: "Voornaam",
@@ -196,8 +199,9 @@ const TEKST = {
     naam: "MM Website EN — R@venHack booking",
     knop: "Send request",
     dank:
-      "Thank you. We have your request and will confirm within two working days. " +
-      "Only then is the booking fixed. Anything urgent? Call or email us: " +
+      "Thank you. We have your request. We will check whether your date and time are free " +
+      "and come back to you as soon as we can, within two working days at the latest. " +
+      "The booking is fixed only after our confirmation. Anything urgent? Call or email us: " +
       "+31 6 45752819 | contact@meetingmasters.online",
     velden: {
       firstname: "First name",
@@ -331,6 +335,8 @@ console.log(DRY_RUN ? "Proefdraai — er wordt niets gewijzigd.\n" : "");
 console.log("Contacteigenschappen:");
 await zorgVoorEigenschappen();
 
+const BIJWERKEN = process.argv.includes("--bijwerken");
+
 console.log("\nFormulieren:");
 const bestaand = await bestaandeFormulieren();
 const uitkomst = {};
@@ -338,7 +344,32 @@ for (const taal of ["nl", "en"]) {
   const naam = TEKST[taal].naam;
   if (bestaand.has(naam)) {
     uitkomst[taal] = bestaand.get(naam);
-    console.log(`  = ${naam} bestaat al (${uitkomst[taal]})`);
+    if (!BIJWERKEN) {
+      console.log(`  = ${naam} bestaat al (${uitkomst[taal]}) — met --bijwerken haal je de teksten op`);
+      continue;
+    }
+    if (DRY_RUN) {
+      console.log(`  ~ ${naam} zou bijgewerkt worden`);
+      continue;
+    }
+    // Alleen de knop en de bedanktekst; de velden laten we met rust, zodat een
+    // handmatige aanpassing in HubSpot niet zomaar wordt overschreven.
+    const huidig = await hs(`/marketing/v3/forms/${uitkomst[taal]}`);
+    await hs(`/marketing/v3/forms/${uitkomst[taal]}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        configuration: {
+          ...huidig.configuration,
+          postSubmitAction: { type: "thank_you", value: TEKST[taal].dank },
+        },
+        displayOptions: {
+          ...huidig.displayOptions,
+          submitButtonText: TEKST[taal].knop,
+          style: STIJL,
+        },
+      }),
+    });
+    console.log(`  ~ ${naam} bijgewerkt (${uitkomst[taal]})`);
     continue;
   }
   if (DRY_RUN) {

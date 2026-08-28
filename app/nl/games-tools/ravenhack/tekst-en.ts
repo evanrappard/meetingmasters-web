@@ -15,8 +15,8 @@ export const RAVENHACK_EN = {
     titel1: "Stop the cyberattack",
     titel2: "together.",
     intro: "A cybersecurity escape game in which your group learns about safe digital behaviour by playing. The Experience of 90 minutes connects the group along the way; the Quick of 60 minutes is purely the game.",
-    ctaKosten: "Cost indication",
-    cta: "Check availability",
+    ctaKosten: "Check the cost",
+    cta: "Book now",
     beeldAlt: "A silhouette against a wall of screens — in R@venHack your team looks for the traces of the attack",
   },
 
@@ -62,8 +62,8 @@ export const RAVENHACK_EN = {
     kicker: "Two versions",
     titel: "The Experience is the starting point.",
     onder: "You play R@venHack with 5 to 75 people, in several teams at once. The difference between the two versions is not that number but the connection. In the Experience, time is built in to genuinely get to know each other. The Quick leaves that out, which is why it only works for groups who already know each other well.",
-    cta: "Check availability",
-    kosten: "Cost",
+    cta: "Check the cost",
+    kosten: "Book now",
     items: [
       {
         tag: "What we recommend",

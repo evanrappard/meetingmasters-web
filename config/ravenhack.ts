@@ -6,15 +6,10 @@
  */
 
 /*
- * LET OP — de boekingstool loopt nog niet gelijk met de site.
- *
- * Sinds 28 augustus 2026 is de claim op de site "5 tot 75 mensen", met een zin
- * dat het ook met grotere groepen kan na overleg. Hieronder staat de
- * Experience nog op 5 – 150. Dat is bewust zo gelaten: Emilie wilde de tool
- * niet in dezelfde ronde omgooien. Bij het finetunen van de tool nog te
- * bepalen: gaat maxDeelnemers naar 75 (en dan verwijst alles daarboven naar
- * een gesprek), of blijft 150 staan met 75 als grens waarboven we eerst
- * overleggen? Ook de ondertitel en de FAQ hangen daaraan.
+ * De bovengrens staat op 75, gelijk aan de claim op de rest van de site. Het
+ * spel kan technisch tot 150 mensen, maar dat is geen standaardinrichting: daar
+ * gaat een gesprek aan vooraf. Alles boven de 75 krijgt daarom geen prijs maar
+ * een verwijzing naar contact.
  */
 
 export type VariantSleutel = "experience" | "quick";
@@ -24,17 +19,20 @@ export const VARIANTEN = {
   experience: {
     naam: { nl: "R@venHack Experience", en: "R@venHack Experience" },
     ondertitel: {
-      nl: "Teamspel | 5 – 150 deelnemers | 90 min",
-      en: "Team game | 5 – 150 participants | 90 min",
+      nl: "Teamspel | 5 – 75 deelnemers | 90 min",
+      en: "Team game | 5 – 75 participants | 90 min",
     },
     duurMinuten: 90,
     basisprijs: 675,
     inbegrepenDeelnemers: 12,
     prijsPerExtraDeelnemer: 25,
     minDeelnemers: 5,
-    maxDeelnemers: 150,
-    /** Vanaf hier tonen we de prijs nog wél, met de vraag om even te overleggen. */
-    overlegVanaf: 100 as number | null,
+    maxDeelnemers: 75,
+    /**
+     * Geen tussenstap meer: tot 75 boek je gewoon, daarboven is het maatwerk.
+     * Een prijs tonen die we toch moeten omgooien helpt niemand.
+     */
+    overlegVanaf: null as number | null,
   },
   quick: {
     naam: { nl: "R@venHack Quick", en: "R@venHack Quick" },
@@ -75,13 +73,6 @@ export const LAATSTE_EINDTIJD_UUR = 21;
 export const VROEGSTE_STARTTIJD_UUR = 9;
 
 /**
- * De HubSpot meetings-link met 60 en 90 minuten erin. Leeg zolang die niet in
- * HubSpot is aangemaakt; de module toont dan een nette melding in plaats van
- * een leeg vlak.
- */
-export const MEETINGS_EMBED = "";
-
-/**
  * Het boekingsformulier in HubSpot, aangemaakt met
  * scripts/ravenhack-formulier.mjs. Zolang deze leeg is toont de module de
  * gegevens die zouden worden meegestuurd, zodat je lokaal kunt testen.
@@ -115,23 +106,12 @@ export const TEKST = {
     quickTeGroot:
       "Met meer dan 30 deelnemers speelt u R@venHack Experience. Dat spel is gebouwd op grotere groepen.",
     quickOmzetten: "Bereken als Experience",
-    overleg:
-      "Laten we even overleggen, zodat de experience voor alle deelnemers zo goed mogelijk is.",
-    overlegLink: "Plan een gesprek",
+    teGroot: "Dit kan ook met grotere groepen. Neem contact op over de mogelijkheden.",
+    overlegLink: "Neem contact op",
+    beschikbaarheid:
+      "Wij checken de beschikbaarheid van dit moment en komen zo snel mogelijk bij u terug.",
     onderMinimum: "R@venHack speelt u vanaf 5 deelnemers. De basisprijs blijft gelijk.",
-    zonderToestemming: "De agenda laadt pas nadat u marketingcookies heeft geaccepteerd.",
-    zonderToestemmingKnop: "Cookies accepteren",
 
-    beschikbaarheid: {
-      kicker: "Beschikbaarheid",
-      kop: "Kijk wanneer er ruimte is",
-      onder:
-        "Hieronder ziet u onze open momenten. U kunt er meteen een reserveren; wij bevestigen daarna de details.",
-      nogNiet:
-        "De agenda staat nog niet ingesteld. Neem gerust contact op, dan plannen we het samen in.",
-      naarCalculator: "Bereken je prijs",
-      naarFormulier: "Boek nu",
-    },
     calculator: {
       kicker: "Wat kost het",
       kop: "Stel uw sessie samen",
@@ -149,6 +129,7 @@ export const TEKST = {
       exclBtw: "excl. btw",
       inclBtw: "= {bedrag} incl. 21% btw",
       naarFormulier: "Boek nu",
+      terug: "← Terug naar de prijs",
       opbouw: {
         basis: "Basisprijs {variant} (t/m {inbegrepen} deelnemers)",
         extra: "Extra deelnemers: {aantal} × {prijs}",
@@ -161,9 +142,7 @@ export const TEKST = {
       kicker: "Boeken",
       kop: "Vraag uw sessie aan",
       onder:
-        "Uw keuzes hierboven gaan automatisch mee. We bevestigen binnen twee werkdagen; pas dan staat de boeking vast.",
-      teGroot:
-        "Bij deze groepsgrootte kijken we liever eerst even samen. Plan een gesprek, dan regelen we het van daaruit.",
+        "Uw keuzes gaan automatisch mee. Wij checken de beschikbaarheid van uw datum en tijd en komen zo snel mogelijk bij u terug — uiterlijk binnen twee werkdagen. Pas na onze bevestiging staat de boeking vast.",
       nogNiet: "Het formulier staat nog niet ingesteld.",
       samenvatting: "Dit sturen we mee",
     },
@@ -182,22 +161,12 @@ export const TEKST = {
     quickTeGroot:
       "With more than 30 participants you play R@venHack Experience, which is built for larger groups.",
     quickOmzetten: "Calculate as Experience",
-    overleg: "Let's talk it through, so the experience works for everyone taking part.",
-    overlegLink: "Book a conversation",
+    teGroot: "This can be done with larger groups too. Get in touch about what is possible.",
+    overlegLink: "Get in touch",
+    beschikbaarheid:
+      "We check whether that slot is free and come back to you as soon as we can.",
     onderMinimum: "R@venHack is played from 5 participants. The base price stays the same.",
-    zonderToestemming: "The calendar loads once you accept marketing cookies.",
-    zonderToestemmingKnop: "Accept cookies",
 
-    beschikbaarheid: {
-      kicker: "Availability",
-      kop: "See when there is room",
-      onder:
-        "Below are our open slots. You can reserve one straight away; we confirm the details afterwards.",
-      nogNiet:
-        "The calendar isn't set up yet. Do get in touch and we'll plan it together.",
-      naarCalculator: "Calculate your price",
-      naarFormulier: "Book now",
-    },
     calculator: {
       kicker: "What it costs",
       kop: "Put your session together",
@@ -215,6 +184,7 @@ export const TEKST = {
       exclBtw: "excl. VAT",
       inclBtw: "= {bedrag} incl. 21% VAT",
       naarFormulier: "Book now",
+      terug: "← Back to the price",
       opbouw: {
         basis: "Base price {variant} (up to {inbegrepen} participants)",
         extra: "Extra participants: {aantal} × {prijs}",
@@ -227,9 +197,7 @@ export const TEKST = {
       kicker: "Booking",
       kop: "Request your session",
       onder:
-        "Your choices above come along automatically. We confirm within two working days; only then is the booking fixed.",
-      teGroot:
-        "At this group size we'd rather talk it through first. Book a conversation and we'll take it from there.",
+        "Your choices come along automatically. We check whether your date and time are free and come back to you as soon as we can — within two working days at the latest. The booking is fixed only after our confirmation.",
       nogNiet: "The form isn't set up yet.",
       samenvatting: "This is what we send along",
     },
