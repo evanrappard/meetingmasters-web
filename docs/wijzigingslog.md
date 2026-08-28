@@ -2606,3 +2606,27 @@ deelnemers" bij de Quick.
   Doorverwijzingen gaan vóór op routes. De wijziging van vandaag staat er dus
   wel in, maar niemand ziet hem. Weghalen uit `enPaths` maakt de pagina
   zichtbaar — dat raakt de indexering, dus niet ongevraagd gedaan.
+
+
+---
+
+## 28 augustus 2026 — Engelse escape rooms-pagina bereikbaar gemaakt
+
+**C** — `/en/escape-rooms` stuurde door naar het Nederlands, terwijl
+`app/en/escape-rooms/page.tsx` gewoon bestond en vertaald was. In
+`next.config.ts` staat een lijst Engelse adressen die doorverwijzen, en
+doorverwijzingen gaan vóór op routes — dus de Engelse pagina was onbereikbaar.
+Een Engelse bezoeker kreeg geen foutmelding, maar wel Nederlandse tekst.
+
+Weggehaald uit `enPaths`. Daarbij, zodat het klopt in beide richtingen:
+
+- taalpaar `/escape-rooms` toegevoegd in `lib/talen.ts`, zodat de schakelaar
+  linksboven van NL naar EN gaat en terug;
+- de Engelse pagina gebruikt nu `taalAlternates("/escape-rooms", "en")`, net als
+  de andere Engelse pagina's, dus canonical en hreflang staan goed;
+- `robots: { index: false, follow: true }` erbij, gelijk aan de Nederlandse. De
+  pagina staat in `NIET_INDEXEREN` in de sitemap omdat hij nog niet af is; nu
+  gelden voor beide talen dezelfde afspraken.
+
+Nagelopen met een kruip-controle over alle 120 pagina's uit de sitemap: geen
+dode links.

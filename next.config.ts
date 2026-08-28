@@ -21,13 +21,13 @@ const eigenNetwerkAdressen = Object.values(networkInterfaces())
  * het Nederlands. Zodra een pagina wél in het Engels bestaat, haal je hem hier
  * weg — anders is hij onbereikbaar, want doorverwijzingen gaan vóór op routes.
  *
- * Eruit gehaald omdat de Engelse pagina inmiddels bestaat: "blog" en
- * "contact". De pagina's met een eigen Engels adres (/en/quote, /en/booking,
+ * Eruit gehaald omdat de Engelse pagina inmiddels bestaat: "blog", "contact"
+ * en "escape-rooms". De pagina's met een eigen Engels adres (/en/quote, /en/booking,
  * /en/newsletter, /en/expert-advice) stonden hier nooit in.
  */
 const enPaths = [
   "about/team", "about/quality", "about/partners", "about/csr",
-  "csr", "design-preview", "escape-rooms",
+  "csr", "design-preview",
   "games-tools/escape-masters",
   "inspiratie", "layout-preview", "meeting-formats", "partners",
   "quality", "remote-office", "strategy-concept",

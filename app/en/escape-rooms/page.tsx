@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import GrotereGroepen from "@/components/games/GrotereGroepen";
+import { taalAlternates } from "@/lib/talen";
 
 export const metadata: Metadata = {
   title: "Online Escape Rooms | MeetingMasters",
   description:
     "Exciting, team-building online escape room experiences — EscapeMasters and R@venHack Cyber Security.",
+  alternates: taalAlternates("/escape-rooms", "en"),
+  // Zelfde behandeling als de Nederlandse pagina: bereikbaar via een directe
+  // link en via de taalschakelaar, maar niet in de sitemap en niet indexeren.
+  // Die staat in sitemap.ts onder NIET_INDEXEREN omdat de pagina nog niet af is.
+  robots: { index: false, follow: true },
 };
 
 export default function EscapeRoomsPage() {
