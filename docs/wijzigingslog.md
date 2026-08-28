@@ -3020,3 +3020,9 @@ links.
 Nog niet gedaan: **een echte proefinzending.** Die maakt een contact aan in
 HubSpot dat we met deze sleutel niet kunnen verwijderen, dus dat wacht op
 akkoord.
+
+
+**Bijgewerkt:** Emilie heeft een echte inzending door het formulier gestuurd en
+die komt goed binnen in HubSpot. Daarmee is de hele keten getoetst: van de
+keuzes in de calculator, via de verborgen velden, tot het contact in HubSpot en
+de bedanktekst op het scherm.
