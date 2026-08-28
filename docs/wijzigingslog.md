@@ -3002,3 +3002,21 @@ formulier, dus de pagina schoof in elkaar en die tekst kwam boven je beeld te
 staan; je moest omhoog scrollen om te zien dat het gelukt was. `HubSpotForm`
 kijkt nu of HubSpot een bedanktekst heeft neergezet en springt er één keer
 naartoe.
+
+
+---
+
+## 28 augustus 2026 — de boekingsmodule staat LIVE
+
+`NEXT_PUBLIC_RAVENHACK_MODULES` staat op `aan` in Vercel (alleen productie), en
+er is opnieuw gebouwd — die instelling wordt tijdens het bouwen meegebakken, dus
+alleen de variabele zetten was niet genoeg.
+
+Op de live site nagelopen: de calculator rekent (€ 892,50 bij 20 deelnemers op
+een zaterdag met Cyber15), het formulier vouwt uit met ons lettertype en onze
+velden, en de verborgen velden lopen mee. Beide talen staan erop. Geen dode
+links.
+
+Nog niet gedaan: **een echte proefinzending.** Die maakt een contact aan in
+HubSpot dat we met deze sleutel niet kunnen verwijderen, dus dat wacht op
+akkoord.
