@@ -45,7 +45,11 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
 
       {/* ── HERO ── */}
       <section>
-        <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
+        {/* Hoger dan een gewone heroband, en met opzet: het beeld is 16:9 en
+            wordt door `object-cover` van boven en onder afgesneden. Hoe hoger
+            deze band, hoe meer van de schermenwand en de deelnemers je ziet.
+            Op 1440 px breed schoot dat van 69% van het beeld naar 84%. */}
+        <div className="relative w-full md:h-[53vw] md:min-h-[380px] md:max-h-[680px]">
           <Image
             src="/images/ravenhack-hero-v5.webp"
             alt={t.hero.beeldAlt}

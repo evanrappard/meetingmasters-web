@@ -2739,3 +2739,22 @@ en de gezichten vallen niet achter de tekst.
 De alt-teksten zijn in beide talen bijgewerkt naar wat er nu te zien is.
 
 `ravenhack-hero-v4.webp` blijft staan maar is niet meer in gebruik.
+
+
+---
+
+## 28 augustus 2026 — R@venHack-hero verder uitgezoomd
+
+**C** — De heroband is hoger geworden: `md:h-[44vw]` met een maximum van 560 px
+is `md:h-[53vw]` met een maximum van 680 px. Het beeld is 16:9 en wordt door
+`object-cover` van boven en onder afgesneden; hoe hoger de band, hoe meer je
+ziet. Op 1440 px breed ging dat van 69 naar 84 procent van het beeld, op 1280 px
+van 78 naar 94 procent — ruim de 20 procent die gevraagd was.
+
+Je ziet nu de hele kring deelnemers, het silhouet met kop en schouders, en de
+hint-knop rechtsonder. Op de telefoon verandert er niets: daar wordt de hoogte
+door de tekst bepaald, niet door deze regels.
+
+De kop en de introzin blijven leesbaar; ze staan nu wel dichter bij de
+gezichten. Het verloop over het beeld is niet donkerder gemaakt — heroes blijven
+zo licht mogelijk.
