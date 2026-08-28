@@ -262,13 +262,17 @@ Nieuwe visuals staan in OneDrive:
 
 ---
 
-## Vervaagde miniaturen achter de hero's
+## Hero's: donkere ondergrond, en let op het gewicht
 
-Sinds 28 augustus 2026 staat achter elke hero een miniatuur van 20 pixels breed,
-zodat je geen wit vlak ziet terwijl het beeld laadt. Ze worden gemaakt met
-`node scripts/hero-vervagingen.mjs` en staan in `lib/hero-vervaging.ts`.
+Hero's gaan door `components/ui/HeroBeeld.tsx`. Dat zet één ding extra: een
+donkere ondergrond, zodat je geen wit vlak ziet terwijl het beeld laadt.
 
-**Voeg je een herobeeld toe of vervang je er een, draai dat script dan opnieuw.**
-Anders valt die ene hero terug op een donkere ondergrond in plaats van een
-voorvertoning. Het script pakt zelf op wat er nieuw is; je hoeft niets in te
-vullen.
+Een vervaagde miniatuur eronder is geprobeerd en weer weggehaald: je zag de hero
+dan zachtjes scherp worden in plaats van er gewoon te staan.
+
+**Waar het wél in zit: het gewicht.** Meet bij een nieuwe hero wat de browser
+binnenhaalt (netwerktabblad, of `_next/image?url=…&w=1920&q=…` opvragen). Onze
+hero's zitten op 57 tot 127 kB. Zit je daar ver boven, kijk dan eerst naar
+kwaliteit 75 in plaats van 90, en snijd het beeld bij op de band die je ook echt
+toont — bij een brede band valt een derde van een 16:9-beeld buiten beeld, en die
+pixels worden wel gedownload.

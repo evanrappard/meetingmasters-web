@@ -46,20 +46,32 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
 
       {/* ── HERO ── */}
       <section>
-        {/* Terug op de lage band. Dat kan met dit beeld: alles wat ertoe doet —
-            de kop van het silhouet, de gezichten en de hint-knop — zit tussen
-            37% en 82% van de hoogte, en dat past ruim binnen de uitsnede. */}
+        {/* Het beeld is bijgesneden op de band die je hier ook echt ziet: van
+            2560×1440 naar 2560×1152. De egale gloed bovenaan viel toch weg, en
+            zo download niemand pixels die hij nooit te zien krijgt. */}
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <HeroBeeld
-            src="/images/ravenhack-hero-v7.webp"
+            src="/images/ravenhack-hero-v8.webp"
             alt={t.hero.beeldAlt}
             fill
             className="object-cover"
             /* Iets onder het midden: dan valt de egale gloed bovenaan weg en
                houden de hint-knop en de onderste gezichten ruimte onder zich. */
-            style={{ objectPosition: "center 70%" }}
+            style={{ objectPosition: "center 55%" }}
             priority
-            quality={90}
+            /*
+             * Bewust 75 en niet de 90 van onze andere hero's. Dit beeld is een
+             * wand met honderden kleine schermpjes: het slechtst denkbare
+             * materiaal om te comprimeren. Op kwaliteit 90 was het 451 kB op een
+             * gewoon scherm en 722 kB op een retina-scherm — vier tot zeven keer
+             * zwaarder dan elke andere hero op de site, en dat zag je: de hero
+             * kwam zichtbaar later dan de pagina eromheen.
+             *
+             * Op ware grootte naast elkaar gelegd is 75 niet van 90 te
+             * onderscheiden, ook niet op de gezichten. Bij een beeld met zoveel
+             * ruis gaat de extra kwaliteit op aan detail dat niemand ziet.
+             */
+            quality={75}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />

@@ -2844,3 +2844,50 @@ formulierpagina's, de juridische pagina's, de losse tools en de testimonials.
 
 Twee dingen bewust laten staan: `HeroCarousel.tsx` (staat nergens meer in
 gebruik) en het kaartbeeld in `InspiratieKaarten.tsx` (geen hero).
+
+
+---
+
+## 28 augustus 2026 — de vervaging weer eruit, en de echte oorzaak aangepakt
+
+De vervaagde miniatuur van een uur eerder is **teruggedraaid**. Hij vulde het
+witte vlak wel op, maar je zag de hero daardoor zachtjes scherp worden in plaats
+van er gewoon te staan — en dat is erger dan het probleem. `HeroBeeld` zet nu
+alleen nog een donkere ondergrond onder het beeld, zodat er nooit wit staat.
+`lib/hero-vervaging.ts` en `scripts/hero-vervagingen.mjs` zijn weg; ze staan in
+de geschiedenis van git als we er ooit op terugkomen.
+
+### Waar het echt aan lag
+
+Gemeten wat de browser per pagina binnenhaalt voor het herobeeld:
+
+| pagina | herobeeld |
+|---|---|
+| R@venHack | **452 kB** |
+| Virtueel kantoor huren | 127 kB |
+| Events teamuitje | 116 kB |
+| Platforms | 108 kB |
+| SpatialChat | 57 kB |
+
+De R@venHack-hero was vier keer zo zwaar als elke andere. Op een retina-scherm
+zelfs 722 kB, want dan vraagt de browser de variant van 2560 pixels op. Dat is
+waarom juist die pagina traag oogde: de laadopzet is identiek aan de rest —
+zelfde `priority`, zelfde preload in de `<head>` — er moest alleen zeven keer
+zoveel doorheen.
+
+Twee ingrepen, allebei zonder zichtbaar verlies:
+
+1. **Kwaliteit 75 in plaats van 90.** Dit beeld is een wand met honderden kleine
+   schermpjes: het slechtst denkbare materiaal om te comprimeren, ook in AVIF.
+   Op ware grootte naast elkaar gelegd is 75 niet van 90 te onderscheiden, ook
+   niet op de gezichten.
+2. **Het beeld bijgesneden op de band die je ook echt ziet**, van 2560×1440 naar
+   2560×1152 (`ravenhack-hero-v8.webp`). De egale gloed bovenaan viel toch buiten
+   de uitsnede; nu downloadt niemand pixels die hij nooit te zien krijgt.
+
+Resultaat: **452 → 247 kB** op een gewoon scherm en **722 → 400 kB** op retina.
+
+Het blijft de zwaarste hero van de site, en dat zit in het beeld zelf. Wil je er
+nóg een stap af, dan is de volgende de bron op 1920 pixels zetten in plaats van
+2560; dan wordt het op retina ook 247 kB, ten koste van wat scherpte op grote
+schermen.

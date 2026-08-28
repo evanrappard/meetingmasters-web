@@ -12,7 +12,6 @@ import {
 } from "@/app/nl/home/data";
 import { HOME_EN } from "@/app/nl/home/tekst-en";
 import { type Taal, engelsPad } from "@/lib/talen";
-import { vervaging } from "@/lib/hero-vervaging";
 
 /**
  * De homepage, in beide talen.
@@ -149,7 +148,6 @@ export default async function HomePagina({ taal = "nl" }: { taal?: Taal }) {
             oorspronkelijke, vaste beeldformaat. */}
         <div className="relative w-full md:h-[44vw] md:min-h-[340px] md:max-h-[560px]">
           <HeroAchtergrond
-            vervaging={vervaging("/images/home-hero-poster.jpg")}
             poster="/images/home-hero-poster.jpg"
             posterMobiel="/images/home-hero-poster-mobiel.webp"
             posterDesktop="/images/home-hero-poster-desktop.webp"

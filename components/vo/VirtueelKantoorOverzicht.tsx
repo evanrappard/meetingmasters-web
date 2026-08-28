@@ -6,7 +6,6 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { benefits, scenarios, ingangen, faq, faqMore, NL_TEKST } from "@/app/nl/virtual-office/data";
 import { VO_EN } from "@/app/nl/virtual-office/tekst-en";
 import type { Taal } from "@/lib/talen";
-import { vervaging } from "@/lib/hero-vervaging";
 
 /**
  * Het Virtueel Kantoor-overzicht, in beide talen. Beelden, volgorde en de drie
@@ -42,7 +41,6 @@ export default function VirtueelKantoorOverzicht({ taal = "nl" }: { taal?: Taal 
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <HeroAchtergrond
-            vervaging={vervaging("/images/vo-hero-office.jpg")}
             poster="/images/vo-hero-office.jpg"
             posterMobiel="/images/vo-hero-office-mobiel.webp"
             posterDesktop="/images/vo-hero-office-desktop.webp"

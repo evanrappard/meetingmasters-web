@@ -15,14 +15,6 @@ type Props = {
   bronnen: Bron[];
   /** Beschrijving voor wie het beeld niet ziet. Laat leeg als de hero decoratief is. */
   alt?: string;
-  /**
-   * Vervaagde miniatuur die achter het rustbeeld staat tot dat geladen is.
-   * Zonder deze zie je een wit vlak op precies de plek waar je het eerst kijkt.
-   * Haal hem op met `vervaging(poster)` uit lib/hero-vervaging.ts — dat moet in
-   * een servercomponent gebeuren, anders reist de hele lijst mee naar de
-   * browser.
-   */
-  vervaging?: string;
   className?: string;
   style?: React.CSSProperties;
 };
@@ -48,19 +40,13 @@ export default function HeroAchtergrond({
   posterDesktop,
   bronnen,
   alt,
-  vervaging,
   className = "absolute inset-0 w-full h-full object-cover",
   style,
 }: Props) {
-  // De miniatuur ligt als achtergrond onder het rustbeeld. Zodra dat er is,
-  // dekt het de miniatuur af; je ziet dus nooit een leeg wit vlak.
-  const onderlaag: React.CSSProperties = vervaging
-    ? {
-        backgroundImage: `url("${vervaging}")`,
-        backgroundSize: "cover",
-        backgroundPosition: style?.objectPosition ?? "center",
-      }
-    : { backgroundColor: "#2D2D2D" };
+  // Een donkere ondergrond onder het rustbeeld, zodat er nooit een wit vlak
+  // staat. Geen vervaagde miniatuur: dan zie je de hero zachtjes scherp worden
+  // in plaats van er gewoon te staan.
+  const onderlaag: React.CSSProperties = { backgroundColor: "#2D2D2D" };
   const [toonVideo, setToonVideo] = useState(false);
 
   useEffect(() => {

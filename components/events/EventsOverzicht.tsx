@@ -9,7 +9,6 @@ import { eventFaq, eventFaqMore } from "@/app/nl/events/faq";
 import { OVERZICHT_EN } from "@/app/nl/events/tekst-en";
 import { engelseEventSlug } from "@/app/nl/events/[slug]/tekst-en";
 import type { Taal } from "@/lib/talen";
-import { vervaging } from "@/lib/hero-vervaging";
 
 /**
  * Het eventoverzicht, in beide talen. De categorieën, iconen, kleuren en
@@ -95,7 +94,6 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
       <section>
         <div className="relative w-full md:h-[44vw] md:min-h-[320px] md:max-h-[560px]">
           <HeroAchtergrond
-            vervaging={vervaging("/images/events-hero-poster-v3.webp")}
             poster="/images/events-hero-poster-v3.webp"
             posterMobiel="/images/events-hero-poster-v2-mobiel.webp"
             bronnen={[{ src: "/videos/events-hero-v2.mp4", type: "video/mp4" }]}
