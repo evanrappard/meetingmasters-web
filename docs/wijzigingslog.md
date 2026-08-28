@@ -2983,3 +2983,22 @@ bedanktekst die HubSpot ná het versturen neerzet dus ook niet. Twee oorzaken:
 
 De bedanktekst heeft nu ook vorm gekregen: een blok in ons geel, met dezelfde
 letter en kleuren als de rest.
+
+
+---
+
+## 28 augustus 2026 — twee dingen in de calculator recht gezet
+
+**Het deelnemersveld was niet leeg te maken.** Elke tussenstap tijdens het typen
+werd meteen naar minimaal 1 getrokken, dus zodra je wiste stond er een 1 waar je
+alleen nog achteraan kon typen. Het veld houdt nu zijn eigen tekst bij, los van
+het getal waarmee we rekenen: leeg mag terwijl je typt, en bij het verlaten
+zetten we het laatste geldige getal terug. Wordt het aantal van buitenaf
+gewijzigd — de knop "Bereken als Experience" doet dat — dan volgt het veld nog
+steeds.
+
+**Na het versturen sprong de pagina niet mee.** De bedanktekst is korter dan het
+formulier, dus de pagina schoof in elkaar en die tekst kwam boven je beeld te
+staan; je moest omhoog scrollen om te zien dat het gelukt was. `HubSpotForm`
+kijkt nu of HubSpot een bedanktekst heeft neergezet en springt er één keer
+naartoe.

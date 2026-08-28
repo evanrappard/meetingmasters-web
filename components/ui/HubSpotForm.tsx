@@ -164,6 +164,27 @@ function zetStijl(targetId: string, css?: string) {
 }
 
 /**
+ * Na het versturen zet HubSpot een bedanktekst in de plaats van het formulier.
+ * Dat blok is korter dan het formulier, dus de pagina schuift in elkaar en de
+ * tekst komt boven je beeld te staan — je moest omhoog scrollen om te zien dat
+ * het gelukt was. Hier springen we er één keer naartoe.
+ */
+function naarBedanktekst(targetId: string, gezien: { current: boolean }) {
+  if (gezien.current) return;
+  const houder = document.getElementById(targetId);
+  const iframe = houder?.querySelector("iframe");
+  let bedankt: Element | null | undefined;
+  try {
+    bedankt = iframe?.contentDocument?.querySelector(".submitted-message");
+  } catch {
+    return;
+  }
+  if (!bedankt) return;
+  gezien.current = true;
+  houder?.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+/**
  * Waarden in de velden van een HubSpot-formulier zetten.
  *
  * Alleen de waarde aanpassen is niet genoeg: HubSpot houdt zijn eigen
@@ -206,6 +227,8 @@ export default function HubSpotForm({
   const doel = useRef<HTMLDivElement>(null);
   /** Het formulier zelf, zodra HubSpot het heeft neergezet. */
   const formulier = useRef<HTMLFormElement | null>(null);
+  /** Eén keer naar de bedanktekst springen, niet bij elke controle opnieuw. */
+  const bedanktGezien = useRef(false);
   // In een ref, zodat het effect dat het formulier aanmaakt niet opnieuw draait
   // bij elke wijziging van de voorinvulling.
   const invulling = useRef(prefill);
@@ -340,6 +363,7 @@ export default function HubSpotForm({
       if (form) formulier.current = form;
       zetStijl(targetId, stijl);
       vulVelden(formulier.current, prefill);
+      naarBedanktekst(targetId, bedanktGezien);
     };
     kijk();
     const teller = setInterval(kijk, 300);

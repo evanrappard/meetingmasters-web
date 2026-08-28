@@ -82,6 +82,30 @@ export default function Calculator({
   const laatsteControle = useRef("");
 
   /**
+   * Het deelnemersveld houdt zijn eigen tekst bij, los van het getal waarmee we
+   * rekenen. Anders kun je het veld niet leegmaken: elke tussenstap werd meteen
+   * naar minimaal 1 getrokken, en dan stond er een 1 die je niet weg kreeg en
+   * waar je alleen nog achteraan kon typen.
+   */
+  const [aantalTekst, setAantalTekst] = useState(String(keuze.deelnemers));
+  /**
+   * Het getal dat wij zelf voor het laatst doorgaven. Verandert het aantal
+   * buiten dit veld om — de knop "Bereken als Experience" doet dat — dan volgt
+   * het veld. Zonder dit onderscheid overschreef de synchronisatie wat je aan
+   * het typen was.
+   */
+  const zelfGezet = useRef(keuze.deelnemers);
+  if (keuze.deelnemers !== zelfGezet.current) {
+    zelfGezet.current = keuze.deelnemers;
+    setAantalTekst(String(keuze.deelnemers));
+  }
+
+  function zetAantal(n: number) {
+    zelfGezet.current = n;
+    zet({ deelnemers: n });
+  }
+
+  /**
    * Het boekingsvenster. Bewust niet in een effect ná het monteren: dan stonden
    * `min` en `max` er nog niet bij de eerste klik, koos de bezoeker een datum
    * die te dichtbij lag, en gooide de browser die stilletjes weer weg. Precies
@@ -210,10 +234,28 @@ export default function Calculator({
               inputMode="numeric"
               min={1}
               max={999}
-              value={keuze.deelnemers}
+              value={aantalTekst}
               onChange={(e) => {
-                const n = Number(e.target.value);
-                zet({ deelnemers: Number.isFinite(n) ? Math.max(1, Math.min(999, n)) : 1 });
+                const tekst = e.target.value;
+                setAantalTekst(tekst);
+                // Leeg mag, terwijl je typt. Voor de prijs rekenen we dan even
+                // met de basis; zodra er weer een getal staat, telt dat.
+                const n = Number(tekst);
+                if (tekst !== "" && Number.isFinite(n)) {
+                  zetAantal(Math.max(1, Math.min(999, Math.round(n))));
+                }
+              }}
+              onBlur={() => {
+                // Leeg of onzin achtergelaten? Dan zetten we het getal terug dat
+                // we hebben, zodat er nooit een leeg veld blijft staan.
+                const n = Number(aantalTekst);
+                if (aantalTekst === "" || !Number.isFinite(n) || n < 1) {
+                  setAantalTekst(String(keuze.deelnemers));
+                } else {
+                  const net = Math.max(1, Math.min(999, Math.round(n)));
+                  setAantalTekst(String(net));
+                  if (net !== keuze.deelnemers) zetAantal(net);
+                }
               }}
               className={veld}
             />
