@@ -122,7 +122,7 @@ export const NL = {
   versies: {
     kicker: "Twee versies",
     titel: "De Experience is het uitgangspunt.",
-    onder: "Je speelt R@venHack met 5 tot 75 mensen, in meerdere teams tegelijk. Het verschil tussen de twee versies zit niet in dat aantal, maar in de verbinding. In de Experience is tijd ingebouwd om elkaar echt te leren kennen. De Quick slaat dat over en werkt daarom alleen bij groepen die elkaar al goed kennen.",
+    onder: "Je speelt R@venHack met 5 tot 75 mensen, in meerdere teams tegelijk. Het verschil tussen de twee versies zit niet in dat aantal, maar in de verbinding. In de Experience is tijd ingebouwd om elkaar echt te leren kennen. R@venHack Quick slaat dat over en werkt daarom alleen bij groepen die elkaar al goed kennen.",
     cta: "Check kosten",
     kosten: "Boek nu",
     items: versies,

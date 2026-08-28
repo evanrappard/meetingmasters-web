@@ -138,10 +138,6 @@ export const TEKST = {
       },
     },
     formulier: {
-      kicker: "Boeken",
-      kop: "Speel R@venHack",
-      onder:
-        "Uw keuzes gaan automatisch mee. Pas na onze bevestiging staat de boeking vast.",
       nogNiet: "Het formulier staat nog niet ingesteld.",
       samenvatting: "Dit sturen we mee",
     },
@@ -192,10 +188,6 @@ export const TEKST = {
       },
     },
     formulier: {
-      kicker: "Booking",
-      kop: "Play R@venHack",
-      onder:
-        "Your choices come along automatically. The booking is fixed only after our confirmation.",
       nogNiet: "The form isn't set up yet.",
       samenvatting: "This is what we send along",
     },

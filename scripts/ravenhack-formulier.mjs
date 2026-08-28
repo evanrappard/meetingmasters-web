@@ -385,12 +385,16 @@ for (const taal of ["nl", "en"]) {
     await hs(`/marketing/v3/forms/${uitkomst[taal]}`, {
       method: "PATCH",
       body: JSON.stringify({
-        fieldGroups: (huidig.fieldGroups ?? []).map((g) => ({
+        // Het logo eruit: dit formulier staat midden in een pagina die het
+        // logo al bovenaan heeft, en onderbreekt daar alleen de rij velden.
+        fieldGroups: (huidig.fieldGroups ?? [])
+          .filter((g) => !g.richText)
+          .map((g) => ({
           ...g,
-          fields: (g.fields ?? []).map((v) =>
-            perNaam[v.name] ? { ...v, label: perNaam[v.name] } : v
-          ),
-        })),
+            fields: (g.fields ?? []).map((v) =>
+              perNaam[v.name] ? { ...v, label: perNaam[v.name] } : v
+            ),
+          })),
         configuration: {
           ...huidig.configuration,
           postSubmitAction: { type: "thank_you", value: TEKST[taal].dank },

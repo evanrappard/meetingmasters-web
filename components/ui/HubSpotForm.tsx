@@ -43,6 +43,16 @@ type HubSpotFormProps = {
    * formulier. Verandert deze waarde later, dan wordt het formulier bijgewerkt.
    */
   prefill?: Record<string, string>;
+  /**
+   * CSS die in het formulier zelf wordt gezet. HubSpot rendert een formulier in
+   * een eigen iframe met zijn eigen opmaak; onze stijlbladen komen daar niet
+   * binnen. Dat iframe heeft geen eigen adres — HubSpot schrijft de inhoud er
+   * zelf in — dus we mogen erin schrijven.
+   *
+   * Gebruik `var(--rh-font)` voor het lettertype: dat zetten we hieronder mee
+   * naar binnen, met het lettertype van de site erachter.
+   */
+  stijl?: string;
 };
 
 /** Wat er staat als het formulier er niet komt. */
@@ -91,6 +101,40 @@ function zoekFormulier(targetId: string): HTMLFormElement | null {
 }
 
 /**
+ * Het lettertype van de site, zoals de browser het kent. Next zet daar een
+ * @font-face voor in de pagina; die regels nemen we mee naar binnen, anders
+ * kent het iframe het lettertype niet en valt hij terug op Arial.
+ */
+function lettertypeRegels(): string {
+  const uit: string[] = [];
+  for (const blad of Array.from(document.styleSheets)) {
+    let regels: CSSRuleList;
+    try {
+      regels = blad.cssRules;
+    } catch {
+      continue; // stijlblad van een ander domein; daar mogen we niet in kijken
+    }
+    for (const regel of Array.from(regels)) {
+      if (regel.constructor.name === "CSSFontFaceRule") uit.push(regel.cssText);
+    }
+  }
+  const familie = getComputedStyle(document.body).fontFamily;
+  return `:root { --rh-font: ${familie}; }\n${uit.join("\n")}`;
+}
+
+/** Zet onze stijl in het formulier, en houdt hem daar. */
+function zetStijl(form: HTMLFormElement | null, css?: string) {
+  if (!form || !css) return;
+  const doc = form.ownerDocument;
+  if (doc === document) return; // staat gewoon in de pagina; onze CSS geldt al
+  if (doc.getElementById("mm-stijl")) return;
+  const el = doc.createElement("style");
+  el.id = "mm-stijl";
+  el.textContent = `${lettertypeRegels()}\n${css}`;
+  doc.head.appendChild(el);
+}
+
+/**
  * Waarden in de velden van een HubSpot-formulier zetten.
  *
  * Alleen de waarde aanpassen is niet genoeg: HubSpot houdt zijn eigen
@@ -124,6 +168,7 @@ export default function HubSpotForm({
   className,
   taal = "nl",
   prefill,
+  stijl,
 }: HubSpotFormProps) {
   const reactId = useId();
   // Geldige CSS/DOM-id (useId bevat ":") voor de target-div.
@@ -260,16 +305,17 @@ export default function HubSpotForm({
    * gevuld worden.
    */
   useEffect(() => {
-    if (!prefill) return;
+    if (!prefill && !stijl) return;
     const kijk = () => {
       const form = zoekFormulier(targetId);
       if (form) formulier.current = form;
+      zetStijl(formulier.current, stijl);
       vulVelden(formulier.current, prefill);
     };
     kijk();
     const teller = setInterval(kijk, 300);
     return () => clearInterval(teller);
-  }, [prefill, targetId]);
+  }, [prefill, targetId, stijl]);
 
   // Wijzigt de bezoeker zijn keuze terwijl het formulier op het scherm staat,
   // dan gaat die wijziging meteen mee.

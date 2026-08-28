@@ -11,9 +11,9 @@ import type { Taal } from "@/lib/talen";
 /**
  * Het tweede deel van het formulier: de gegevens van de bezoeker.
  *
- * Dit staat ónder de calculator op dezelfde bladzijde, niet op een eigen stap.
- * Wie hier komt heeft zijn sessie al samengesteld en ziet die keuzes gewoon
- * boven zich staan — één formulier dat je van boven naar beneden invult.
+ * Bewust zonder kop, inleiding of logo. Dit is geen apart formulier maar het
+ * vervolg van de velden erboven; alles wat ertussen staat onderbreekt dat
+ * alleen maar.
  *
  * Het formulier zelf is een gewoon HubSpot-formulier, net als de andere op de
  * site: HubSpot bewaart de gegevens, koppelt ze aan een bestaand contact en
@@ -23,9 +23,48 @@ import type { Taal } from "@/lib/talen";
  * passen. Dat kan geen kwaad: de prijs legt niets vast — de boeking geldt pas na
  * onze bevestiging, en de offerte maken we zelf vanuit HubSpot.
  */
+
+/**
+ * HubSpot zet het formulier in een eigen iframe met zijn eigen opmaak. Deze
+ * stijl gaat daar naar binnen, zodat de velden er hetzelfde uitzien als de
+ * velden van de calculator erboven: zelfde lettertype, zelfde randen, zelfde
+ * ruimte. Anders zie je halverwege de bladzijde het formulier van een ander.
+ */
+const VORM = `
+  form, input, select, textarea, button, label, p, span, div {
+    font-family: var(--rh-font), "Helvetica Neue", Arial, sans-serif !important;
+  }
+  .hs-form-field { margin-bottom: 1.25rem; }
+  .hs-form-field > label { margin-bottom: .5rem; display: block; }
+  input[type=text], input[type=email], input[type=tel], input[type=number], select, textarea {
+    width: 100% !important;
+    box-sizing: border-box;
+    border: 1px solid #E2E2DE !important;
+    border-radius: .5rem !important;
+    background: #fff !important;
+    padding: .75rem 1rem !important;
+    font-size: 16px !important;
+    color: #2D2D2D !important;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none !important;
+    border-color: #28A8AA !important;
+    box-shadow: 0 0 0 2px rgba(40,168,170,.25) !important;
+  }
+  .hs-button {
+    border: 0 !important;
+    border-radius: .25rem !important;
+    padding: .85rem 1.75rem !important;
+    font-weight: 700 !important;
+    cursor: pointer;
+  }
+  .hs-button:hover { background: #D4A835 !important; }
+  .hs-error-msg, .hs-error-msgs label { color: #C64A60 !important; font-size: 14px !important; }
+  .legal-consent-container { margin-top: 1.25rem; }
+`;
+
 export default function BoekNu({ keuze, taal }: { keuze: Keuze; taal: Taal }) {
   const t = TEKST[taal];
-  const f = t.formulier;
   const prijs = berekenPrijs(keuze);
   const formId = BOEKINGSFORMULIER[taal];
 
@@ -46,19 +85,23 @@ export default function BoekNu({ keuze, taal }: { keuze: Keuze; taal: Taal }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keuze, taal, prijs.toeslagToegepast, prijs.totaalExclBtw, prijs.kortingspercentage]);
 
-  return (
-    <div id="rh-boeken" className="mt-10 border-t border-[#E2E2DE] pt-9 scroll-mt-24">
-      <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">{f.kicker}</p>
-      <h3 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] leading-snug mb-3">{f.kop}</h3>
-      <p className="text-[#434343] leading-relaxed mb-7 max-w-[640px]">{f.onder}</p>
+  if (!formId) {
+    return (
+      <div id="rh-boeken" className="mt-6 rounded-xl border border-dashed border-[#D6D6D2] bg-[#FAFAF9] p-6 scroll-mt-24">
+        <p className="text-[#434343] leading-relaxed">{t.formulier.nogNiet}</p>
+      </div>
+    );
+  }
 
-      {formId ? (
-        <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formId} taal={taal} prefill={velden} />
-      ) : (
-        <div className="rounded-xl border border-dashed border-[#D6D6D2] bg-[#FAFAF9] p-6">
-          <p className="text-[#434343] leading-relaxed">{f.nogNiet}</p>
-        </div>
-      )}
+  return (
+    <div id="rh-boeken" className="scroll-mt-24">
+      <HubSpotForm
+        portalId={HUBSPOT_PORTAL_ID}
+        formId={formId}
+        taal={taal}
+        prefill={velden}
+        stijl={VORM}
+      />
     </div>
   );
 }

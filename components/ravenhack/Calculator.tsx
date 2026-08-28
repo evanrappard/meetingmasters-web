@@ -57,16 +57,17 @@ export default function Calculator({
   keuze,
   zet,
   taal,
-  naarFormulier,
   formulierOpen,
+  mistMoment,
   children,
 }: {
   keuze: Keuze;
   zet: (deel: Partial<Keuze>) => void;
   taal: Taal;
-  /** Vouwt het tweede deel van het formulier uit. */
-  naarFormulier: () => void;
+  /** Staat het tweede deel open? Dan komen de voorwaarden erbij. */
   formulierOpen: boolean;
+  /** Iemand wilde boeken zonder datum of tijd. */
+  mistMoment: boolean;
   /** Het tweede deel: de gegevens van de bezoeker, onder de keuzes. */
   children?: React.ReactNode;
 }) {
@@ -76,8 +77,6 @@ export default function Calculator({
 
   const [codestand, setCodestand] = useState<Codestand>("leeg");
   const laatsteControle = useRef("");
-  /** Verschijnt als iemand wil boeken zonder datum of tijd. */
-  const [mistMoment, setMistMoment] = useState(false);
 
   /**
    * Het boekingsvenster. Bewust niet in een effect ná het monteren: dan stonden
@@ -136,17 +135,6 @@ export default function Calculator({
     }
   }
 
-  function probeerTeBoeken() {
-    // Zonder moment kunnen we niets inplannen, dus dat vragen we hier af en
-    // niet pas onderaan het formulier.
-    if (!keuze.datum || !keuze.tijd) {
-      setMistMoment(true);
-      document.getElementById(!keuze.datum ? "rh-datum" : "rh-tijd")?.focus();
-      return;
-    }
-    setMistMoment(false);
-    naarFormulier();
-  }
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 lg:gap-12 items-start">
@@ -243,7 +231,6 @@ export default function Calculator({
               suppressHydrationWarning
               onChange={(e) => {
                 zet({ datum: e.target.value });
-                setMistMoment(false);
               }}
               className={veld}
             />
@@ -259,7 +246,6 @@ export default function Calculator({
               value={keuze.tijd}
               onChange={(e) => {
                 zet({ tijd: e.target.value });
-                setMistMoment(false);
               }}
               className={veld}
             >
@@ -351,17 +337,6 @@ export default function Calculator({
         <p className="mt-5 border-t border-[#E7E7E3] pt-4 text-[15px] text-[#6E7877] leading-relaxed">
           {t.toeslagregel}
         </p>
-
-        {/* Staat het tweede deel al open, dan heeft deze knop geen werk meer. */}
-        {prijs.toonPrijs && !formulierOpen && (
-          <button
-            type="button"
-            onClick={probeerTeBoeken}
-            className="mt-5 block w-full rounded bg-[#EEBE3D] px-5 py-3.5 text-center text-base font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
-          >
-            {c.naarFormulier}
-          </button>
-        )}
 
         {formulierOpen && (
           <ul className="mt-5 border-t border-[#E7E7E3] pt-4 space-y-2.5">

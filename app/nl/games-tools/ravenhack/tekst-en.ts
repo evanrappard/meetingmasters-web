@@ -61,7 +61,7 @@ export const RAVENHACK_EN = {
   versies: {
     kicker: "Two versions",
     titel: "The Experience is the starting point.",
-    onder: "You play R@venHack with 5 to 75 people, in several teams at once. The difference between the two versions is not that number but the connection. In the Experience, time is built in to genuinely get to know each other. The Quick leaves that out, which is why it only works for groups who already know each other well.",
+    onder: "You play R@venHack with 5 to 75 people, in several teams at once. The difference between the two versions is not that number but the connection. In the Experience, time is built in to genuinely get to know each other. R@venHack Quick leaves that out, which is why it only works for groups who already know each other well.",
     cta: "Check the cost",
     kosten: "Book now",
     items: [

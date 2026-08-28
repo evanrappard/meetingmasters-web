@@ -2927,3 +2927,28 @@ Verder in deze ronde:
   dat viel op naast de calculator erboven. Nu 15 px labels, 14 px hulptekst en
   een knop van 15 px. Alleen op de twee R@venHack-formulieren; de andere zes
   blijven zoals ze waren.
+
+
+---
+
+## 28 augustus 2026 — het boekingsformulier loopt door van prijs tot verstuur
+
+- **Typo**: "De Quick slaat dat over…" is "R@venHack Quick slaat dat over…"
+  geworden, in beide talen.
+- **De knop "Boek nu" staat nu bovenaan** het blok, direct onder de kop. Druk je
+  erop zonder datum en tijd, dan verschijnt de vraag daar en springt de cursor
+  naar het lege veld.
+- **Alles wat tussen de twee delen stond is weg**: de kicker "Boeken", de kop
+  "Speel R@venHack", de inleiding erboven en het MeetingMasters-logo in het
+  formulier. Het logo staat al bovenaan de pagina; in het formulier onderbrak
+  het alleen de rij velden.
+- **Het formulier heeft nu ons lettertype en onze velden.** Dat vroeg een
+  omweg: HubSpot zet een formulier in een eigen iframe met eigen opmaak, en
+  onze stijlbladen komen daar niet binnen. Dat iframe heeft geen eigen adres —
+  HubSpot schrijft de inhoud er zelf in — dus we mogen erin schrijven.
+  `HubSpotForm` heeft er een eigenschap `stijl` bij die CSS naar binnen zet,
+  inclusief de `@font-face`-regels van de pagina, want anders kent het iframe
+  Rajdhani niet en valt hij terug op Arial.
+
+Van de kop tot "Verstuur aanvraag" is het nu één doorlopend formulier: zelfde
+lettertype, zelfde velden, zelfde ruimte ertussen.
