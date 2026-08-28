@@ -180,8 +180,8 @@ const TEKST = {
       zip: "Postcode",
       city: "Plaats",
       country: "Land",
-      btw: "Btw-nummer",
-      factuurmail: "Factuur-e-mailadres (als dat een ander adres is)",
+      btw: "Btw-nummer (optioneel)",
+      factuurmail: "Factuur-e-mailadres (indien afwijkend)",
       po: "PO- of referentienummer",
     },
     juridisch: {
@@ -212,8 +212,8 @@ const TEKST = {
       zip: "Postcode",
       city: "Town or city",
       country: "Country",
-      btw: "VAT number",
-      factuurmail: "Invoice email address (if that is a different one)",
+      btw: "VAT number (optional)",
+      factuurmail: "Invoice email address (if different)",
       po: "PO or reference number",
     },
     juridisch: {
@@ -352,12 +352,25 @@ for (const taal of ["nl", "en"]) {
       console.log(`  ~ ${naam} zou bijgewerkt worden`);
       continue;
     }
-    // Alleen de knop en de bedanktekst; de velden laten we met rust, zodat een
-    // handmatige aanpassing in HubSpot niet zomaar wordt overschreven.
+    // De knop, de bedanktekst en de labels van de drie velden die hierboven
+    // staan. De rest van de velden laten we met rust, zodat een handmatige
+    // aanpassing in HubSpot niet zomaar wordt overschreven.
     const huidig = await hs(`/marketing/v3/forms/${uitkomst[taal]}`);
+    const labels = TEKST[taal].velden;
+    const perNaam = {
+      mm_btw_nummer: labels.btw,
+      mm_factuur_email: labels.factuurmail,
+      rh_po_nummer: labels.po,
+    };
     await hs(`/marketing/v3/forms/${uitkomst[taal]}`, {
       method: "PATCH",
       body: JSON.stringify({
+        fieldGroups: (huidig.fieldGroups ?? []).map((g) => ({
+          ...g,
+          fields: (g.fields ?? []).map((v) =>
+            perNaam[v.name] ? { ...v, label: perNaam[v.name] } : v
+          ),
+        })),
         configuration: {
           ...huidig.configuration,
           postSubmitAction: { type: "thank_you", value: TEKST[taal].dank },

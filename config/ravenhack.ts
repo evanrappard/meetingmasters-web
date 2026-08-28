@@ -101,8 +101,7 @@ export const TEKST = {
   nl: {
     disclaimer:
       "Aan deze weergave kunnen geen rechten worden ontleend. Uw boeking is definitief zodra u de bevestiging van MeetingMasters heeft ontvangen.",
-    toeslagregel:
-      "Sessies die om 19:00 of later starten en sessies in het weekend zijn mogelijk op aanvraag, met een toeslag van 20 procent.",
+    toeslagregel: "Toeslag 20% voor avond en weekend.",
     quickTeGroot:
       "Met meer dan 30 deelnemers speelt u R@venHack Experience. Dat spel is gebouwd op grotere groepen.",
     quickOmzetten: "Bereken als Experience",
@@ -121,7 +120,6 @@ export const TEKST = {
       deelnemers: "Aantal deelnemers",
       datum: "Gewenste datum",
       tijd: "Gewenste starttijd",
-      datumOptioneel: "Optioneel — vult u het in, dan rekenen we een eventuele toeslag mee.",
       kortingscode: "Kortingscode",
       kortingscodeControleer: "Controleer",
       kortingscodeGeldig: "Code geldig:",
@@ -130,6 +128,8 @@ export const TEKST = {
       inclBtw: "= {bedrag} incl. 21% btw",
       naarFormulier: "Boek nu",
       terug: "← Terug naar de prijs",
+      datumNodig:
+        "Kies eerst een gewenste datum en tijd. Die hebben we nodig om uw aanvraag te kunnen inplannen.",
       opbouw: {
         basis: "Basisprijs {variant} (t/m {inbegrepen} deelnemers)",
         extra: "Extra deelnemers: {aantal} × {prijs}",
@@ -140,24 +140,23 @@ export const TEKST = {
     },
     formulier: {
       kicker: "Boeken",
-      kop: "Vraag uw sessie aan",
+      kop: "Speel R@venHack",
       onder:
-        "Uw keuzes gaan automatisch mee. Wij checken de beschikbaarheid van uw datum en tijd en komen zo snel mogelijk bij u terug — uiterlijk binnen twee werkdagen. Pas na onze bevestiging staat de boeking vast.",
+        "Uw keuzes gaan automatisch mee. Pas na onze bevestiging staat de boeking vast.",
       nogNiet: "Het formulier staat nog niet ingesteld.",
       samenvatting: "Dit sturen we mee",
     },
     voorwaarden: [
-      "Betaling binnen 14 dagen na factuurdatum.",
-      "Kosteloos annuleren tot 5 werkdagen voor de sessie; daarna brengen we 50 procent in rekening.",
-      "Het geboekte aantal deelnemers is de basis voor de factuur; we rekenen niet na op opkomst.",
+      "Wij checken de beschikbaarheid en komen zo spoedig mogelijk terug.",
+      "De factuur betreft het geboekte aantal deelnemers, ongeacht de opkomst.",
+      "Annulering is mogelijk tot 5 werkdagen voor de sessie. Daarna brengen wij 50% in rekening.",
       "Alle bedragen zijn exclusief 21 procent btw.",
     ],
   },
   en: {
     disclaimer:
       "No rights can be derived from this overview. Your booking is confirmed once you receive our confirmation.",
-    toeslagregel:
-      "Sessions starting at 19:00 or later, and sessions at weekends, are available on request with a 20 per cent surcharge.",
+    toeslagregel: "Surcharge of 20% for evenings and weekends.",
     quickTeGroot:
       "With more than 30 participants you play R@venHack Experience, which is built for larger groups.",
     quickOmzetten: "Calculate as Experience",
@@ -176,7 +175,6 @@ export const TEKST = {
       deelnemers: "Number of participants",
       datum: "Preferred date",
       tijd: "Preferred start time",
-      datumOptioneel: "Optional — fill it in and we'll include any surcharge.",
       kortingscode: "Discount code",
       kortingscodeControleer: "Check",
       kortingscodeGeldig: "Code valid:",
@@ -185,6 +183,8 @@ export const TEKST = {
       inclBtw: "= {bedrag} incl. 21% VAT",
       naarFormulier: "Book now",
       terug: "← Back to the price",
+      datumNodig:
+        "Please choose a preferred date and time first. We need those to be able to schedule your request.",
       opbouw: {
         basis: "Base price {variant} (up to {inbegrepen} participants)",
         extra: "Extra participants: {aantal} × {prijs}",
@@ -195,16 +195,16 @@ export const TEKST = {
     },
     formulier: {
       kicker: "Booking",
-      kop: "Request your session",
+      kop: "Play R@venHack",
       onder:
-        "Your choices come along automatically. We check whether your date and time are free and come back to you as soon as we can — within two working days at the latest. The booking is fixed only after our confirmation.",
+        "Your choices come along automatically. The booking is fixed only after our confirmation.",
       nogNiet: "The form isn't set up yet.",
       samenvatting: "This is what we send along",
     },
     voorwaarden: [
-      "Payment within 14 days of the invoice date.",
-      "Free cancellation up to 5 working days before the session; after that we charge 50 per cent.",
-      "The number of participants booked is the basis for the invoice; we don't recount on turnout.",
+      "We check availability and come back to you as soon as we can.",
+      "The invoice covers the number of participants booked, whatever the turnout.",
+      "You can cancel up to 5 working days before the session. After that we charge 50%.",
       "All amounts are excluding 21 per cent VAT.",
     ],
   },

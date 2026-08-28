@@ -2690,3 +2690,34 @@ de bedanktekst en de huisstijl, niet de velden.
 Het instelblad voor de meetings-link (`docs/ravenhack-agenda-instellen.html`) is
 hiermee overbodig geworden. Het staat er nog, mocht er ooit alsnog een agenda
 komen.
+
+
+---
+
+## 28 augustus 2026 — R@venHack-boeking: keuzes zichtbaar, moment verplicht
+
+- **Kortingscode `Cyber15`** toegevoegd, 15 procent. Er was geen einddatum
+  meegegeven; die staat nu op 31 december 2027, zodat hij niet stilletjes
+  verloopt. Eén regel in `config/kortingscodes.json` als dat anders moet.
+- **De toeslagregel is ingekort** tot "Toeslag 20% voor avond en weekend."
+- **De regel onder de gewenste datum is weg.** Die zei dat het optioneel was, en
+  dat klopt niet meer.
+- **Datum en tijd zijn verplicht.** Klikt iemand op "Boek nu" zonder die twee,
+  dan springt de cursor naar het lege veld en verschijnt de melding dat we het
+  moment nodig hebben om te kunnen inplannen. Vult hij het alsnog in, dan gaat
+  de melding vanzelf weg.
+- **De keuzes staan zichtbaar boven de adresvelden.** Spel, taal, aantal, datum,
+  tijd, eventuele toeslag en korting, met het totaal eronder. Ze gingen al
+  ongezien mee in verborgen velden; nu kun je ze ook nalezen voordat je je
+  gegevens invult.
+- **De rechterkolom draagt nu de voorwaarden**: we checken de beschikbaarheid,
+  de factuur betreft het geboekte aantal ongeacht de opkomst, annuleren kan tot
+  vijf werkdagen ervoor en daarna 50 procent, en alles is exclusief btw.
+- **De kop van de tweede stap is "Speel R@venHack"** (EN: "Play R@venHack").
+- **In HubSpot**: "Btw-nummer (optioneel)" en "Factuur-e-mailadres (indien
+  afwijkend)", in beide talen. `--bijwerken` past nu ook die labels aan, zodat
+  ze niet met de hand hoeven.
+
+Eén ding om te weten: **de betaaltermijn van 14 dagen staat niet meer in het
+lijstje.** Die viel buiten de vier regels die gevraagd waren. Hij staat nog wel
+in `BETAALTERMIJN_DAGEN` in de config, dus terugzetten is één regel.

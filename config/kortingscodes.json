@@ -1,4 +1,17 @@
 [
-  { "code": "EscapeMasters20", "geldigTot": "2026-12-31", "actief": true },
-  { "code": "Lente10", "geldigTot": "2026-06-01", "actief": true }
+  {
+    "code": "Cyber15",
+    "geldigTot": "2027-12-31",
+    "actief": true
+  },
+  {
+    "code": "EscapeMasters20",
+    "geldigTot": "2026-12-31",
+    "actief": true
+  },
+  {
+    "code": "Lente10",
+    "geldigTot": "2026-06-01",
+    "actief": true
+  }
 ]

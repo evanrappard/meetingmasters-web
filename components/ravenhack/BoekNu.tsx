@@ -80,6 +80,8 @@ export default function BoekNu({
     );
   }
 
+  const c = t.calculator;
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-12 items-start">
       <div>
@@ -88,8 +90,38 @@ export default function BoekNu({
           onClick={terug}
           className="mb-5 text-sm font-semibold text-[#28A8AA] hover:underline"
         >
-          {t.calculator.terug}
+          {c.terug}
         </button>
+
+        {/* De keuzes staan hier zichtbaar, boven de adresvelden. Ze gaan
+            ongezien mee in verborgen velden, en dan wil je ze ook kunnen
+            nalezen voordat je je gegevens invult. */}
+        <div className="rounded-xl border border-[#E7E7E3] bg-white p-6 mb-6">
+          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#28A8AA] mb-4">
+            {f.samenvatting}
+          </p>
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+            <Regel label={c.spel} waarde={VARIANTEN[keuze.variant].naam[taal]} />
+            <Regel label={c.taal} waarde={keuze.spelTaal === "nl" ? "Nederlands" : "English"} />
+            <Regel label={c.deelnemers} waarde={String(keuze.deelnemers)} />
+            <Regel label={c.datum} waarde={keuze.datum} />
+            <Regel label={c.tijd} waarde={keuze.tijd} />
+            {prijs.toeslagToegepast && (
+              <Regel label={c.opbouw.toeslag} waarde={bedrag(prijs.toeslagBedrag, taal)} />
+            )}
+            {keuze.kortingspercentage > 0 && (
+              <Regel
+                label={c.kortingscode}
+                waarde={`${keuze.kortingscode} (${keuze.kortingspercentage}%)`}
+              />
+            )}
+          </dl>
+          <div className="mt-4 border-t border-[#E7E7E3] pt-3 flex justify-between gap-4 font-bold text-[#2D2D2D]">
+            <span>{c.opbouw.totaal}</span>
+            <span className="tabular-nums">{bedrag(prijs.totaalExclBtw, taal)}</span>
+          </div>
+        </div>
+
         {formId ? (
           <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formId} taal={taal} prefill={velden} />
         ) : (
@@ -100,35 +132,11 @@ export default function BoekNu({
         <Disclaimer taal={taal} />
       </div>
 
-      {/* Wat er meegaat, zichtbaar voor de bezoeker. Dat scheelt hem het gevoel
-          dat er ongezien iets wordt meegestuurd, en het scheelt ons vragen. */}
-      <aside className="rounded-xl border border-[#E7E7E3] bg-[#F7F7F5] p-6">
-        <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#28A8AA] mb-4">
-          {f.samenvatting}
-        </p>
-        <dl className="space-y-2 text-sm">
-          <Regel label={t.calculator.spel} waarde={VARIANTEN[keuze.variant].naam[taal]} />
-          <Regel
-            label={t.calculator.taal}
-            waarde={keuze.spelTaal === "nl" ? "Nederlands" : "English"}
-          />
-          <Regel label={t.calculator.deelnemers} waarde={String(keuze.deelnemers)} />
-          {keuze.datum && <Regel label={t.calculator.datum} waarde={keuze.datum} />}
-          {keuze.tijd && <Regel label={t.calculator.tijd} waarde={keuze.tijd} />}
-          {keuze.kortingspercentage > 0 && (
-            <Regel
-              label={t.calculator.kortingscode}
-              waarde={`${keuze.kortingscode} (${keuze.kortingspercentage}%)`}
-            />
-          )}
-          <div className="flex justify-between gap-4 border-t border-[#E7E7E3] pt-2.5 mt-2.5 font-bold text-[#2D2D2D]">
-            <dt>{t.calculator.opbouw.totaal}</dt>
-            <dd className="shrink-0 tabular-nums">{bedrag(prijs.totaalExclBtw, taal)}</dd>
-          </div>
-        </dl>
-        <ul className="mt-5 border-t border-[#E7E7E3] pt-4 space-y-2">
+      {/* Wat er na het versturen gebeurt, en waar iemand aan vastzit. */}
+      <aside className="rounded-xl border border-[#E7E7E3] bg-[#F7F7F5] p-6 lg:sticky lg:top-24">
+        <ul className="space-y-3">
           {t.voorwaarden.map((v) => (
-            <li key={v} className="text-[13px] text-[#7A8483] leading-relaxed">
+            <li key={v} className="text-sm text-[#434343] leading-relaxed">
               {v}
             </li>
           ))}

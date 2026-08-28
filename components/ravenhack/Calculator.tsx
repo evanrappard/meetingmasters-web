@@ -60,6 +60,8 @@ export default function Calculator({
   const variant = VARIANTEN[keuze.variant];
 
   const [codestand, setCodestand] = useState<Codestand>("leeg");
+  /** Verschijnt als iemand wil boeken zonder datum of tijd. */
+  const [mistMoment, setMistMoment] = useState(false);
   const laatsteControle = useRef("");
 
   // Het boekingsvenster wordt in de browser bepaald: op de server is "vandaag"
@@ -205,7 +207,10 @@ export default function Calculator({
               value={keuze.datum}
               min={venster?.min}
               max={venster?.max}
-              onChange={(e) => zet({ datum: e.target.value })}
+              onChange={(e) => {
+                zet({ datum: e.target.value });
+                setMistMoment(false);
+              }}
               className={veldRand}
             />
           </div>
@@ -218,15 +223,14 @@ export default function Calculator({
               type="time"
               step={900}
               value={keuze.tijd}
-              onChange={(e) => zet({ tijd: e.target.value })}
+              onChange={(e) => {
+                zet({ tijd: e.target.value });
+                setMistMoment(false);
+              }}
               className={veldRand}
             />
           </div>
         </div>
-        <p className="text-[13px] text-[#7A8483] -mt-2">
-          {c.datumOptioneel} {t.beschikbaarheid}
-        </p>
-
         {(teLaat || teVroeg) && (
           <p className="text-sm text-[#C64A60] font-semibold">
             {taal === "nl"
@@ -309,13 +313,29 @@ export default function Calculator({
         </p>
 
         {prijs.toonPrijs && (
-          <button
-            type="button"
-            onClick={naarFormulier}
-            className="mt-5 block w-full rounded bg-[#EEBE3D] px-5 py-3 text-center text-sm font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
-          >
-            {c.naarFormulier}
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={() => {
+                // Zonder moment kunnen we niets inplannen, dus dat vragen we
+                // hier af in plaats van pas in het formulier.
+                if (!keuze.datum || !keuze.tijd) {
+                  setMistMoment(true);
+                  const leeg = !keuze.datum ? "rh-datum" : "rh-tijd";
+                  document.getElementById(leeg)?.focus();
+                  return;
+                }
+                setMistMoment(false);
+                naarFormulier();
+              }}
+              className="mt-5 block w-full rounded bg-[#EEBE3D] px-5 py-3 text-center text-sm font-bold text-[#2D2D2D] hover:bg-[#D4A835] transition-colors"
+            >
+              {c.naarFormulier}
+            </button>
+            {mistMoment && (
+              <p className="mt-2 text-sm text-[#C64A60] leading-relaxed">{c.datumNodig}</p>
+            )}
+          </>
         )}
 
         <Disclaimer taal={taal} />
