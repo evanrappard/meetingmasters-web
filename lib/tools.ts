@@ -90,5 +90,8 @@ export const embedVoor = (key: string, taal: "nl" | "en" = "nl") => {
   }
   if (taal === "en" && key === "inspiration-cards") return "/embed/inspiratiekaarten?taal=en";
   if (taal === "en" && key === "bingo") return "/tools/bingo/en/index.html";
+  // Het rad draait op Netlify en kent zijn taal uit het adres. Zonder deze
+  // parameter staat er "Optie 1" op een Engelse pagina.
+  if (taal === "en" && key === "wheel-of-fortune") return `${t.embedUrl}?lang=en`;
   return t.embedUrl;
 };

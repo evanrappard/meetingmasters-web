@@ -3034,3 +3034,29 @@ de bedanktekst op het scherm.
 
 **C** — "Kies een moment in de agenda" stond onderaan het rijtje onder "Liever
 direct contact?" en staat nu bovenaan, boven mailen en bellen. In beide talen.
+
+
+---
+
+## 30 augustus 2026 — vragenblok grijs, en het rad in het Engels
+
+**C** — Het vragenblok op `/nl/games-tools` stond als enige op wit; op tien
+andere pagina's is dat vlak grijs. Nu `bg-[#F5F5F5]`, gelijk aan de rest.
+
+**C** — Het rad van fortuin toonde op de Engelse pagina "Optie 1, Optie 2".
+Dat rad draait niet op deze site maar als losse app op Netlify
+(`mm-wheel-of-fortune.netlify.app`, bron in
+`~/spelenmetclaude/Wheel of Fortune/wheel-app`). Die app kent nu een taal uit
+het adres: `?lang=en` geeft "Option 1" en een Engelse voorbeeldtekst in het
+plakvak. `embedVoor()` in `lib/tools.ts` zet die parameter erbij op de Engelse
+pagina.
+
+**Let op — dit werkt pas na een handmatige stap.** De app staat niet in deze
+repository en wordt met de hand op Netlify gezet. Er ligt een nieuwe zip klaar:
+`~/spelenmetclaude/Wheel of Fortune/wheel-app-nieuw.zip`. Die moet naar
+https://app.netlify.com/sites/mm-wheel-of-fortune/deploys gesleept worden.
+Zolang dat niet gebeurd is, negeert de app de parameter en blijft er "Optie 1"
+staan.
+
+De rest van de interface van het rad — de instellingenpanelen, de knoppen voor
+opslaan en importeren — is nog Nederlands. Dat viel buiten de vraag.

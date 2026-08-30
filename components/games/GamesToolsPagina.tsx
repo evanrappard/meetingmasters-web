@@ -248,7 +248,9 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="bg-white py-16 border-b border-[#EBEBEB]">
+      {/* Grijs, zoals op de tien andere pagina's met een vragenblok. Deze stond
+          als enige op wit en viel daardoor uit de toon. */}
+      <section className="bg-[#F5F5F5] py-12 border-t border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
           <div className="text-center mb-10">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-3">FAQ</p>
