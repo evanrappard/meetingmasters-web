@@ -222,7 +222,7 @@ const TEKST = {
       "Thank you. We have your request. We will check whether your date and time are free " +
       "and come back to you as soon as we can, within two working days at the latest. " +
       "The booking is fixed only after our confirmation. Anything urgent? Call or email us: " +
-      "+31 6 45752819 | contact@meetingmasters.online",
+      "+31 6 4575 2819 | contact@meetingmasters.online",
     velden: {
       firstname: "First name",
       lastname: "Last name",

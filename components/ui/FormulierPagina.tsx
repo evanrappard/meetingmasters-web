@@ -4,6 +4,7 @@ import HubSpotForm from "@/components/ui/HubSpotForm";
 import HubSpotAgenda from "@/components/ui/HubSpotAgenda";
 import { HUBSPOT_PORTAL_ID, type HubSpotFormKey, HUBSPOT_AGENDA, formulierVoor } from "@/lib/hubspot-forms";
 import type { Taal } from "@/lib/talen";
+import { FORMULIERVORM } from "@/lib/hubspot-vorm";
 
 /** De vaste teksten naast het formulier, per taal. */
 const T = {
@@ -135,7 +136,7 @@ export default function FormulierPagina({
               {agenda ? (
                 <HubSpotAgenda link={HUBSPOT_AGENDA} taal={taal} />
               ) : (
-                <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor(formulier, taal)} taal={taal} />
+                <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor(formulier, taal)} taal={taal} stijl={FORMULIERVORM} />
               )}
             </div>
           </div>

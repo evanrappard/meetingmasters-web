@@ -131,6 +131,16 @@ const boekingVeld = (taal, label) =>
  *   velden        vervangt een bestaand veld door een nieuwe versie
  *   weg           haalt een veld uit het formulier (de gegevens in HubSpot
  *                 blijven bestaan)
+ *   knop          de tekst op de verzendknop; laat je hem weg, dan blijft
+ *                 staan wat er stond
+ *   logo          zet dit op false bij een formulier waar het MM-logo niet
+ *                 boven hoort, bijvoorbeeld omdat het in een eigen kader staat
+ *   taalCode      de taal van HubSpots eigen teksten (foutmeldingen, de
+ *                 toestemmingsregels) — alleen nodig als die niet klopt
+ *   embed         het venstertype. "V3" zet het formulier in een venster van
+ *                 onze eigen pagina, en dat is precies wat onze opmaak nodig
+ *                 heeft: bij V4 staat het op een adres van HubSpot en komt
+ *                 onze CSS er niet bij (zie components/ui/HubSpotForm.tsx)
  */
 const FORMULIEREN = {
   advies: {
@@ -179,7 +189,7 @@ const FORMULIEREN = {
     en: {
       id: "d2cce099-ab58-4753-915c-0d1c20a00eb1",
       knop: "Check availability",
-      dank: "Thank you. We will confirm your request within 2 working days. Anything urgent? Call or email us: +31 6 45752819 | contact@meetingmasters.online",
+      dank: "Thank you. We will confirm your request within 2 working days. Anything urgent? Call or email us: +31 6 4575 2819 | contact@meetingmasters.online",
       velden: { mm_boeking_type: () => boekingVeld("en", "What would you like to book?") },
       opDezelfdeRegel: {
         mm_gewenste_datum: () => veld("mm_voorkeurstijd", "Preferred time (from … to)", "single_line_text", { placeholder: "for example 10:00 to 12:00" }),
@@ -205,7 +215,7 @@ const FORMULIEREN = {
     en: {
       id: "ae15b8b5-de37-40eb-8172-52da38e2cff2",
       knop: "Request an estimate",
-      dank: "Thank you! We will get back to you as soon as we can. In a hurry? Call or email us: +31 6 45752819 | contact@meetingmasters.online",
+      dank: "Thank you! We will get back to you as soon as we can. In a hurry? Call or email us: +31 6 4575 2819 | contact@meetingmasters.online",
       voorVeld: { mm_aantal_deelnemers: () => boekingVeld("en", "What is your question about?") },
       labels: {
         message:
@@ -231,6 +241,40 @@ const FORMULIEREN = {
       id: "e7294822-87d4-4759-97fc-532b52a4c9e2",
       knop: "Book a tour",
       voorVeld: { message: () => interesseVeld("en", "What would you like to know and see more about?") },
+    },
+  },
+  /**
+   * Hieronder drie formulieren die eerder buiten dit script vielen en daardoor
+   * uit de pas liepen: de knop stond nog op HubSpot-oranje. Alleen de huisstijl
+   * dus, geen logo — nieuwsbrief en calculator staan al in een eigen kader met
+   * onze naam erboven.
+   */
+  nieuwsbrief: {
+    nl: { id: "0992ca5c-97ed-4940-a45d-55357d69f57a", logo: false },
+    en: { id: "d6c9525f-7b57-46b2-bd74-243c30c3250e", logo: false },
+  },
+  calculator: {
+    nl: { id: "229f1966-fafc-4929-bfae-173a27b5edee", logo: false },
+    en: { id: "77dffdf4-e911-49d3-ace3-8bc77b9c2cc7", logo: false },
+  },
+  /**
+   * Het downloadformulier van Vergadermacht, op /nl/downloads. Dit is het
+   * oudste formulier van de site en het liep op vier punten uit de pas: geen
+   * tekst op de knop, geen bedanktekst, HubSpots eigen teksten in het Engels,
+   * en een venster op een adres van HubSpot zelf. Dat laatste is de reden dat
+   * het lettertype er anders uitzag dan bij de andere formulieren.
+   *
+   * De velden blijven zoals ze zijn: aan dit formulier hangt in HubSpot de
+   * mail die de publicatie verstuurt.
+   */
+  vergadermacht: {
+    nl: {
+      id: "cbf9b66f-20d8-4dae-86d4-f85b1dda4331",
+      knop: "Stuur mij Vergadermacht",
+      dank: "Dank je wel! Vergadermacht komt eraan in je mail. Niets ontvangen? Kijk even in je spam of mail ons: contact@meetingmasters.online",
+      logo: false,
+      taalCode: "nl",
+      embed: "V3",
     },
   },
 };
@@ -263,9 +307,10 @@ for (const [sleutel, talen] of Object.entries(FORMULIEREN)) {
     const groepen = [...form.fieldGroups];
     const aanwezig = (naam) => groepen.some((g) => (g.fields ?? []).some((v) => v.name === naam));
 
-    // Logo bovenaan, alleen als het er nog niet staat.
+    // Logo bovenaan, alleen als het er nog niet staat en het formulier het wil.
     const heeftLogo = groepen.some((g) => (g.richText ?? "").includes("LogoMM"));
-    if (!heeftLogo) groepen.unshift(LOGO_BLOK);
+    const wilLogo = f.logo !== false;
+    if (!heeftLogo && wilLogo) groepen.unshift(LOGO_BLOK);
 
     const uit = [];
     const toegevoegd = [];
@@ -317,12 +362,16 @@ for (const [sleutel, talen] of Object.entries(FORMULIEREN)) {
       }
     }
 
+    const knop = f.knop ?? form.displayOptions.submitButtonText;
+
     console.log(`\n${sleutel} · ${taal.toUpperCase()} — ${form.name}`);
-    console.log(`  logo:        ${heeftLogo ? "stond er al" : "toegevoegd"}`);
+    console.log(`  logo:        ${!wilLogo ? "niet gewenst" : heeftLogo ? "stond er al" : "toegevoegd"}`);
     console.log(`  velden:      ${toegevoegd.length ? toegevoegd.join(", ") : "geen nieuwe"}`);
     if (f.labels) console.log(`  labels:      ${Object.values(f.labels).join(", ")}`);
-    console.log(`  knop:        "${f.knop}" in ${STIJL.submitColor}`);
+    console.log(`  knop:        "${knop}" in ${STIJL.submitColor}`);
     console.log(`  disclaimer:  ${STIJL.legalConsentTextSize}`);
+    if (f.taalCode) console.log(`  taal:        ${form.configuration.language} → ${f.taalCode}`);
+    if (f.embed) console.log(`  venster:     ${form.configuration.embedType} → ${f.embed}`);
 
     if (DRY_RUN) {
       console.log("  (proefdraai, niets gewijzigd)");
@@ -335,13 +384,15 @@ for (const [sleutel, talen] of Object.entries(FORMULIEREN)) {
         fieldGroups: uit,
         displayOptions: {
           ...form.displayOptions,
-          submitButtonText: f.knop,
+          submitButtonText: knop,
           style: { ...form.displayOptions.style, ...STIJL },
         },
-        ...(f.dank && {
+        ...((f.dank || f.taalCode || f.embed) && {
           configuration: {
             ...form.configuration,
-            postSubmitAction: { type: "thank_you", value: f.dank },
+            ...(f.dank && { postSubmitAction: { type: "thank_you", value: f.dank } }),
+            ...(f.taalCode && { language: f.taalCode }),
+            ...(f.embed && { embedType: f.embed }),
           },
         }),
       }),

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Mail, Phone, Smartphone, MapPin } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_PORTAL_ID, formulierVoor } from "@/lib/hubspot-forms";
+import { FORMULIERVORM } from "@/lib/hubspot-vorm";
 
 export const metadata: Metadata = {
   title: "Contact — plan your online gathering | MeetingMasters",
@@ -100,7 +101,7 @@ export default function ContactPage() {
             as we can.
           </p>
           <div className="max-w-lg">
-            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("contact", "en")} />
+            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("contact", "en")} stijl={FORMULIERVORM} />
           </div>
         </div>
       </section>

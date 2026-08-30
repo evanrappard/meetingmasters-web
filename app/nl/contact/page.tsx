@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Mail, Phone, Smartphone, MapPin } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
+import { FORMULIERVORM } from "@/lib/hubspot-vorm";
 
 export const metadata: Metadata = {
   alternates: taalAlternates("/contact"),
@@ -97,7 +98,7 @@ export default function ContactPage() {
             mogelijk.
           </p>
           <div className="max-w-lg">
-            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.contact} />
+            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.contact} stijl={FORMULIERVORM} />
           </div>
         </div>
       </section>

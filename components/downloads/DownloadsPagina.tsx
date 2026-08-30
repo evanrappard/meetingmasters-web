@@ -6,6 +6,7 @@ import { type Item, NL } from "@/app/nl/downloads/data";
 import { DOWNLOADS_EN } from "@/app/nl/downloads/tekst-en";
 import type { Taal } from "@/lib/talen";
 import HeroBeeld from "@/components/ui/HeroBeeld";
+import { FORMULIERVORM } from "@/lib/hubspot-vorm";
 
 /**
  * De Downloads-pagina, in beide talen.
@@ -136,7 +137,7 @@ export default function DownloadsPagina({ taal = "nl" }: { taal?: Taal }) {
 
             <div className="w-full rounded-lg border border-[#EBEBEB] bg-[#F7F7F5] p-6 sm:p-7">
               <p className="font-bold text-[#2D2D2D] mb-4">Ontvang Vergadermacht</p>
-              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.vergadermacht} />
+              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.vergadermacht} stijl={FORMULIERVORM} />
             </div>
           </div>
         </div>

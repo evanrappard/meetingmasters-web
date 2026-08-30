@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-28
+> Laatst bijgewerkt: 2026-08-30
 
 ---
 
@@ -63,6 +63,7 @@ leeft in de paginacode, niet in een apart bestand).
 | 9 | Schermafdrukken van de mobiele controle staan in `.gitignore` — werkmateriaal, opnieuw te maken met `npm run mobiel:shots` | C | bouwer | besloten |
 | 10 | De site draait lokaal in **ontwikkelmodus** (`next dev -H 0.0.0.0`), bereikbaar op het netwerk-IP. Wijzigingen zijn meteen zichtbaar, zonder bouwen of herstarten (gewijzigd 15 aug 2026) | C | bouwer | let op |
 | 11 | **Aanleverroute nog niet afgesproken:** hoe komen copy en visuals bij de bouwer binnen — geplakt in het gesprek of als bestand in `docs/`? Zolang dat niet vastligt, kan werk blijven liggen | T B | Emilie | open |
+| 35 | **Vergadermacht-formulier (`/nl/downloads`) valt buiten de huisstijl.** Het is in HubSpot een V4-formulier: het staat in een venster op een adres van HubSpot zelf, dus onze opmaak komt er niet bij, en de API weigert wijzigingen. Twee routes: (a) Emilie zet knoptekst, knopkleur, taal en bedanktekst met de hand in de HubSpot-formuliereditor — dan klopt de kleur, het lettertype blijft dat van HubSpot; (b) de bouwer maakt een nieuw formulier zoals de andere en Emilie hangt de mail met de publicatie eraan — dan is alles gelijk | C | Emilie | open |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -3102,3 +3103,44 @@ De opmaak die daarvoor nodig is stond in `BoekNu.tsx` en is verhuisd naar
 `lib/hubspot-vorm.ts`, zodat beide formulieren dezelfde gebruiken. Wil je dit
 ook op de andere vijf formulieren, dan is dat één regel per pagina:
 `stijl={FORMULIERVORM}` bij `<HubSpotForm>`.
+
+
+---
+
+## 30 augustus 2026 — alle formulieren geven nu dezelfde bedanktekst
+
+- **C** — `stijl={FORMULIERVORM}` staat nu bij élk formulier op de site:
+  `FormulierPagina.tsx` (rondleiding, boeken, offerte, nieuwsbrief, in beide
+  talen), de twee contactpagina's en het downloadblok. Ze stonden eerder in
+  Arial op een wit vlak; nu in ons eigen lettertype, in hetzelfde gele blok als
+  bij R@venHack en de adviespagina.
+- **T** — De verzendknop van de nieuwsbrief (NL en EN) en van de
+  vergaderkosten-calculator (NL en EN) stond nog op HubSpot-oranje. Nu
+  MM-geel met donkere letters, gelijk aan de rest. De toestemmingsregel eronder
+  staat overal op 11px.
+- **C** — `scripts/hubspot-formulieren-bijwerken.mjs` kent er vier instellingen
+  bij: `logo: false` (voor formulieren die al in een eigen kader met onze naam
+  staan), een `knop` die je mag weglaten als de tekst goed is, `taalCode` en
+  `embed`.
+- **T** — Het mobiele nummer in de bedankteksten is overal `+31 6 4575 2819`.
+  Over alle formulieren heen komen nu nog twee nummers voor: dat en
+  `+31 20 239 03 13`.
+
+Nagelopen in een echte browser: contact, advies, boeken, offerte, nieuwsbrief en
+downloads in het Nederlands, en contact, quote, newsletter, booking en advice in
+het Engels. Overal Rajdhani en onze opmaak. De rondleidingspagina heeft geen
+formulier maar de agenda — daar valt niets te stylen.
+
+### Eén formulier blijft anders: Vergadermacht
+
+Het downloadformulier op `/nl/downloads` is het oudste van de site en is in
+HubSpot van een nieuwer soort (`embedType: V4`). Dat betekent twee dingen:
+
+1. HubSpot zet het in een venster op een eigen adres, dus onze opmaak komt er
+   niet bij — het lettertype en de bedanktekst blijven die van HubSpot.
+2. De API weigert élke wijziging: *"The client is not allowlisted to perform an
+   operation to v4 forms"*. Ik kan er dus ook geen knopkleur of bedanktekst in
+   zetten.
+
+Het formulier heeft nu geen tekst op de knop, geen bedanktekst en HubSpots eigen
+teksten staan in het Engels. Zie het openstaand-punt hieronder.
