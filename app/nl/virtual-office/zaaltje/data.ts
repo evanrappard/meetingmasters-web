@@ -40,6 +40,8 @@ export const NL = {
     titel: "Kies je locatie. Kies je tijd. Boek meteen.",
     onder: "Van een strandhuis tot een creatieve ruimte — kies de plek die bij je bijeenkomst past.",
     cta: "Boek je zaaltje →",
+    // Staat sinds 30 aug 2026 niet meer op de pagina; de prijsvermeldingen
+    // worden later in één keer over de hele site opnieuw ingericht.
     vanaf: "Vanaf € 189",
   },
   meer: {

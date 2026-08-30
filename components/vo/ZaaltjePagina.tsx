@@ -104,14 +104,15 @@ export default function ZaaltjePagina({ taal = "nl" }: { taal?: Taal }) {
               </div>
             ))}
           </div>
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-6">
-            <Link href={t.links.boeken} className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors self-start">
+          {/* De prijs stond hier ("Vanaf € 189", met de onboarding-sessie als
+              onderregel). Die is er op 30 augustus 2026 uit gehaald: de
+              prijsvermeldingen worden later in één keer over de hele site
+              opnieuw ingericht. Het bedrag staat nog wel in de teksten, bij
+              `locaties.vanaf`, zodat het niet kwijtraakt. */}
+          <div className="mt-8">
+            <Link href={t.links.boeken} className="inline-block bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors">
               {t.locaties.cta}
              </Link>
-            <p className="leading-tight">
-              <span className="text-2xl sm:text-3xl font-bold text-[#2D2D2D]">{t.locaties.vanaf}</span>
-              <span className="block text-sm text-[#434343] mt-1">inclusief korte onboarding-sessie</span>
-            </p>
           </div>
         </div>
       </section>

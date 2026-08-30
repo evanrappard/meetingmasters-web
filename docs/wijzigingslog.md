@@ -3060,3 +3060,24 @@ staan.
 
 De rest van de interface van het rad — de instellingenpanelen, de knoppen voor
 opslaan en importeren — is nog Nederlands. Dat viel buiten de vraag.
+
+
+---
+
+## 30 augustus 2026 — twee kleine tekstwijzigingen
+
+- **T** — Het gele labeltje bij SpatialChat op Meeting Platforms zegt nu
+  "Favoriet" (Engels: "Favourite") in plaats van "Innovatief".
+- **T** — De prijs is van de zaaltjespagina af. Er stond "Vanaf € 189" naast de
+  boekknop, met "inclusief korte onboarding-sessie" eronder; allebei weg. Het
+  bedrag staat nog in de teksten bij `locaties.vanaf`, met een opmerking erbij,
+  zodat het niet kwijtraakt voor de ronde waarin de prijzen in één keer over de
+  hele site worden ingericht.
+
+Die onderregel over de onboarding stond overigens hard in het Nederlands in de
+component en verscheen dus ook op de Engelse pagina. Dat lost zichzelf hiermee
+op.
+
+Nagelopen: op geen van beide zaaltjespagina's staat nog een bedrag. De
+antwoorden in de vragenlijst noemen wel kosten, maar zonder getallen ("vraag
+gerust naar de mogelijkheden") — die heb ik laten staan.

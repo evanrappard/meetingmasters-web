@@ -30,6 +30,7 @@ export const ZAALTJE_EN = {
     titel: "Choose your location. Choose your time. Book straight away.",
     onder: "From a beach house to a creative space — pick the place that suits your gathering.",
     cta: "Book your room →",
+    // Zie de opmerking bij de Nederlandse tekst: staat niet meer op de pagina.
     vanaf: "From € 189",
     items: [
       { title: "Beach house", alt: "Virtual beach house with an open fire and a view of the sea" },
