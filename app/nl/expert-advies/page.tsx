@@ -53,6 +53,20 @@ export default function ExpertAdviesPage() {
             <ul className="space-y-4">
               <li>
                 <a
+                  href={HUBSPOT_AGENDA}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 rounded-lg border border-[#EBEBEB] p-5 hover:border-[#28A8AA] hover:bg-[#FAFAFA] transition-colors"
+                >
+                  <CalendarDays size={22} className="text-[#28A8AA] flex-shrink-0 mt-0.5" />
+                  <span>
+                    <span className="block font-bold text-[#2D2D2D] text-sm">Kies een moment in de agenda</span>
+                    <span className="block text-sm text-[#434343]">Je prikt zelf een tijd die je uitkomt</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
                   href="mailto:contact@meetingmasters.online"
                   className="flex items-start gap-4 rounded-lg border border-[#EBEBEB] p-5 hover:border-[#28A8AA] hover:bg-[#FAFAFA] transition-colors"
                 >
@@ -86,20 +100,6 @@ export default function ExpertAdviesPage() {
                   <span>
                     <span className="block font-bold text-[#2D2D2D] text-sm">WhatsApp / mobiel</span>
                     <span className="block text-sm text-[#434343]">+31 6 4575 2819</span>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={HUBSPOT_AGENDA}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-4 rounded-lg border border-[#EBEBEB] p-5 hover:border-[#28A8AA] hover:bg-[#FAFAFA] transition-colors"
-                >
-                  <CalendarDays size={22} className="text-[#28A8AA] flex-shrink-0 mt-0.5" />
-                  <span>
-                    <span className="block font-bold text-[#2D2D2D] text-sm">Kies een moment in de agenda</span>
-                    <span className="block text-sm text-[#434343]">Je prikt zelf een tijd die je uitkomt</span>
                   </span>
                 </a>
               </li>

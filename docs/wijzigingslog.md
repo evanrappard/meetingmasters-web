@@ -3026,3 +3026,11 @@ akkoord.
 die komt goed binnen in HubSpot. Daarmee is de hele keten getoetst: van de
 keuzes in de calculator, via de verborgen velden, tot het contact in HubSpot en
 de bedanktekst op het scherm.
+
+
+---
+
+## 30 augustus 2026 — agenda bovenaan op de adviespagina
+
+**C** — "Kies een moment in de agenda" stond onderaan het rijtje onder "Liever
+direct contact?" en staat nu bovenaan, boven mailen en bellen. In beide talen.
