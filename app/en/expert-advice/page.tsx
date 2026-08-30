@@ -3,6 +3,7 @@ import { Mail, Phone, Smartphone, CalendarDays } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_PORTAL_ID, HUBSPOT_AGENDA, formulierVoor } from "@/lib/hubspot-forms";
 import CTABlock from "@/components/ui/CTABlock";
+import { FORMULIERVORM } from "@/lib/hubspot-vorm";
 
 export const metadata: Metadata = {
   title: "Free advice on your online gathering | MeetingMasters",
@@ -26,7 +27,7 @@ export default function ExpertAdvicePage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,520px)] gap-10 lg:gap-16 items-start">
           <div className="max-w-2xl lg:pt-2">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
-              Expert advice
+              Free advice
             </p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
               Talking it through makes a difference.
@@ -118,7 +119,7 @@ export default function ExpertAdvicePage() {
                 Leave your question or idea and we&rsquo;ll think it through. You&rsquo;re not
                 committing to anything.
               </p>
-              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("advies", "en")} taal="en" />
+              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor("advies", "en")} taal="en" stijl={FORMULIERVORM} />
             </div>
           </div>
         </div>

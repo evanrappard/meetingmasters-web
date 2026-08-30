@@ -4,6 +4,7 @@ import { Mail, Phone, Smartphone, CalendarDays } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID, HUBSPOT_AGENDA } from "@/lib/hubspot-forms";
 import CTABlock from "@/components/ui/CTABlock";
+import { FORMULIERVORM } from "@/lib/hubspot-vorm";
 
 export const metadata: Metadata = {
   alternates: taalAlternates("/expert-advies"),
@@ -21,7 +22,7 @@ export default function ExpertAdviesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,520px)] gap-10 lg:gap-16 items-start">
           <div className="max-w-2xl lg:pt-2">
             <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">
-              Expert advies
+              Vrijblijvend advies
             </p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#2D2D2D] leading-[1.08] mb-6">
               Even sparren maakt veel verschil.
@@ -117,7 +118,7 @@ export default function ExpertAdviesPage() {
                 Laat je vraag of idee achter, dan denken we met je mee. Je zit
                 nergens aan vast.
               </p>
-              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.advies} taal="nl" />
+              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.advies} taal="nl" stijl={FORMULIERVORM} />
             </div>
           </div>
         </div>

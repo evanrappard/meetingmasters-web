@@ -137,16 +137,33 @@ const FORMULIEREN = {
     nl: {
       id: "02bdc77f-14e3-4826-9d48-96449c8ca062",
       knop: "Verstuur",
-      dank: "Dank je wel. We komen uiterlijk binnen twee dagen bij je terug. Meer haast? Bel ons even: 020 239 03 13.",
+      dank: "Dank je wel. We komen uiterlijk binnen twee dagen bij je terug. Meer haast? Bel ons even: +31 20 239 03 13.",
       labels: { message: "Vraag of bericht" },
-      naVeld: { message: () => veld("mm_bijlage", "Bestand of foto meesturen (optioneel)", "file") },
+      naVeld: {
+        // Na het telefoonnummer, want het hoort bij hoe we je bereiken.
+        phone: () =>
+          veld(
+            "mm_voorkeursmoment",
+            "Als we even bellen hierna, wanneer komt dat het beste uit? Geef 2 of 3 opties.",
+            "multi_line_text"
+          ),
+        message: () => veld("mm_bijlage", "Bestand of foto meesturen (optioneel)", "file"),
+      },
     },
     en: {
       id: "e4d50964-6457-440f-a73c-5f31726c6060",
       knop: "Send",
       dank: "Thank you. We will come back to you within two days at the latest. In a hurry? Give us a call: +31 20 239 03 13.",
       labels: { message: "Question or message" },
-      naVeld: { message: () => veld("mm_bijlage", "Attach a file or photo (optional)", "file") },
+      naVeld: {
+        phone: () =>
+          veld(
+            "mm_voorkeursmoment",
+            "If we give you a call after this, when suits you best? Give us 2 or 3 options.",
+            "multi_line_text"
+          ),
+        message: () => veld("mm_bijlage", "Attach a file or photo (optional)", "file"),
+      },
     },
   },
   boeking: {

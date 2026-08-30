@@ -3081,3 +3081,24 @@ op.
 Nagelopen: op geen van beide zaaltjespagina's staat nog een bedrag. De
 antwoorden in de vragenlijst noemen wel kosten, maar zonder getallen ("vraag
 gerust naar de mogelijkheden") — die heb ik laten staan.
+
+
+---
+
+## 30 augustus 2026 — adviespagina: kicker, extra vraag en een leesbare bedanktekst
+
+- **T** — De kicker boven het formulier is "Vrijblijvend advies" (Engels: "Free
+  advice") in plaats van "Expert advies".
+- **T** — Nieuw veld in het formulier, na het telefoonnummer: *"Als we even
+  bellen hierna, wanneer komt dat het beste uit? Geef 2 of 3 opties."* Een
+  meerregelig veld, niet verplicht, op de bestaande eigenschap
+  `mm_voorkeursmoment`. Ook in het Engels.
+- **T** — Het telefoonnummer in de bedanktekst is `+31 20 239 03 13` geworden.
+- **C** — De bedanktekst na het versturen staat nu in hetzelfde gele blok als
+  bij R@venHack, in ons eigen lettertype. Hij stond in Arial op een wit vlak en
+  was makkelijk over het hoofd te zien.
+
+De opmaak die daarvoor nodig is stond in `BoekNu.tsx` en is verhuisd naar
+`lib/hubspot-vorm.ts`, zodat beide formulieren dezelfde gebruiken. Wil je dit
+ook op de andere vijf formulieren, dan is dat één regel per pagina:
+`stijl={FORMULIERVORM}` bij `<HubSpotForm>`.
