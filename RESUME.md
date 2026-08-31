@@ -1,6 +1,11 @@
 # MeetingMasters — Project Resume
 *Gebruik dit document om een nieuwe Claude Code-sessie op te starten waar je gebleven was.*
-*Laatst bijgewerkt: 27 mei 2026*
+*Laatst bijgewerkt: 27 mei 2026 — Supabase eruit gehaald op 31 augustus 2026*
+
+> **Let op: dit document is van mei 2026 en op meer punten ingehaald.** De
+> poortnummers, de opmerking dat er alleen `/nl/`-routes zijn en de
+> preview-pagina's kloppen niet meer. Leidend zijn `CLAUDE.md` (wat er draait)
+> en `docs/wijzigingslog.md` (wat er is gebeurd en wat er nog openstaat).
 
 ---
 
@@ -34,7 +39,7 @@ Deze staan in `~/.claude/settings.json` en zijn al actief — je hoeft ze niet o
 We werken aan de MeetingMasters Online website in /Users/emilievanrappard/meetingmasters-web.
 
 PROJECTCONTEXT:
-- Next.js 16 App Router + TypeScript + Tailwind CSS + Sanity CMS + Supabase
+- Next.js 16 App Router + TypeScript + Tailwind CSS + Sanity CMS (alleen homepage-cijfers)
 - Dev server draait op poort 3001: npm run dev -- --port 3001
 - Taal: Nederlands. Routes zijn /nl/ (niet /en/)
 - Productie-homepage: localhost:3001/nl/home
@@ -56,7 +61,7 @@ WAT AL GEDAAN IS:
 4. Sanity seed-script gedraaid — alle content staat in de CMS (stats, services, cases, logos)
 5. cdn.sanity.io toegevoegd aan next.config.ts remotePatterns
 6. Grey-variant besloten NIET te gebruiken — productie-homepage (/nl/home) is de basis
-7. Supabase-migratie-infrastructuur opgezet (zie Supabase-sectie hieronder)
+7. ~~Supabase-migratie-infrastructuur opgezet~~ — nooit gebruikt, er kwam geen database en geen inloggen. Op 31 augustus 2026 helemaal verwijderd
 8. CLAUDE.md aangemaakt met projectinstructies voor toekomstige sessies
 9. Homepage volledig gerond qua design, tekst, SEO en toegankelijkheid (sessie 27 mei 2026)
 
@@ -102,14 +107,6 @@ STIJLREGELS:
 - "Remote Office" heet op de homepage "Virtual Office" in de inspiratiesectie — consequent doorvoeren op nieuwe pagina's
 - Merkpositionering NIET 100% aan SpatialChat koppelen — wij zijn de specialist, SpatialChat is het platform
 
-SUPABASE (BELANGRIJK — wijziging per 30 mei 2026):
-- Project: mgkzogvgqpfvsynrfera ("evanrappard's Project")
-- Supabase vereist vanaf 30 mei 2026 expliciete GRANTs voor ELKE nieuwe tabel in public schema
-- Zonder GRANT geeft PostgREST een 42501-fout
-- Gebruik altijd /supabase/migrations/00000000000000_template.sql als startpunt voor nieuwe migraties
-- Verplichte volgorde: CREATE TABLE → GRANT → ALTER TABLE (RLS) → CREATE POLICY
-- Service role key staat in .env.local als SUPABASE_SERVICE_ROLE_KEY — nooit hardcoden
-
 BESTANDEN OM TE KENNEN:
 - /app/nl/home/page.tsx — productiehomepage (met Sanity-koppeling)
 - /app/nl/home/page.saved.tsx — backup van homepage vóór Sanity
@@ -118,10 +115,8 @@ BESTANDEN OM TE KENNEN:
 - /sanity/schemas/ — CMS-schemas (homepageContent, service, caseStudy, testimonial, logo)
 - /components/layout/Navbar.tsx — navigatie
 - /components/layout/Footer.tsx — footer
-- /supabase/migrations/ — SQL-migraties (altijd GRANT + RLS + policies per tabel)
 - /CLAUDE.md — projectinstructies voor Claude Code
-- /.env.local — bevat Sanity project ID, token, Supabase keys (niet committen)
-- /scripts/upload-to-supabase.mjs — asset-upload script (leest keys uit .env.local via dotenv)
+- /.env.local — bevat de Sanity- en HubSpot-sleutels (niet committen)
 - /scripts/seed-sanity.mjs — script om Sanity te vullen met startdata
 
 SANITY-TOKEN: staat in .env.local als SANITY_API_TOKEN (niet hardcoden in nieuwe bestanden)
@@ -141,30 +136,6 @@ Poort 3000 is bezet — altijd poort 3001 gebruiken.
 
 ---
 
-## SUPABASE — NIEUWE TABEL AANMAKEN
-
-Kopieer dit patroon elke keer (verplicht vanaf 30 mei 2026):
-
-```sql
--- Migration: YYYYMMDDHHmmss_tabel_naam.sql
-
-create table public.tabel_naam (
-  id uuid primary key default gen_random_uuid(),
-  created_at timestamptz not null default now()
-);
-
--- VERPLICHT: expliciete grants voor Data API-toegang
-grant select on public.tabel_naam to anon;
-grant select, insert, update, delete on public.tabel_naam to authenticated;
-
-alter table public.tabel_naam enable row level security;
-
-create policy "..." on public.tabel_naam
-  for select to authenticated using (auth.uid() = user_id);
-```
-
----
-
 ## HANDIGE URLS TIJDENS SESSIE
 
 | URL | Wat |
@@ -175,15 +146,6 @@ create policy "..." on public.tabel_naam
 | `localhost:3001/studio` | Sanity CMS editor |
 | `sanity.io/manage` | Sanity projectbeheer (members, tokens, CORS) |
 | `github.com/evanrappard/meetingmasters-web` | GitHub repo |
-| `supabase.com/dashboard/project/mgkzogvgqpfvsynrfera` | Supabase dashboard |
-
----
-
-## TWEEDE PROJECT: /website
-
-Als je ook in `/Users/emilievanrappard/website` werkt (Supabase CLI, statische bestanden):
-- Supabase CLI is hier gelinkt aan project `mgkzogvgqpfvsynrfera`
-- Supabase push: `cd /Users/emilievanrappard/website && supabase db push`
 
 ---
 

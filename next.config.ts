@@ -246,11 +246,14 @@ const nextConfig: NextConfig = {
     // standaard voor gewone beelden; 90 is voor de grote beelden bovenaan een
     // pagina, waar compressie meteen te zien is.
     qualities: [75, 90],
-    remotePatterns: [
-      { protocol: "https", hostname: "images.squarespace-cdn.com" },
-      { protocol: "https", hostname: "mgkzogvgqpfvsynrfera.supabase.co" },
-      { protocol: "https", hostname: "cdn.sanity.io" },
-    ],
+    // Vrijwel élk beeld op de site staat in public/images. De uitzondering is
+    // Sanity: de logobalk en de cases op de Nederlandse homepage komen uit het
+    // CMS en staan dus op cdn.sanity.io. Haal die hostnaam hier niet weg, dan
+    // verdwijnen de klantlogo's van de homepage.
+    //
+    // Squarespace (de oude site) en Supabase stonden hier ook nog; die werden
+    // nergens meer gebruikt en zijn er op 31 augustus 2026 uit gehaald.
+    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
   },
 };
 

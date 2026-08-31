@@ -64,6 +64,7 @@ leeft in de paginacode, niet in een apart bestand).
 | 10 | De site draait lokaal in **ontwikkelmodus** (`next dev -H 0.0.0.0`), bereikbaar op het netwerk-IP. Wijzigingen zijn meteen zichtbaar, zonder bouwen of herstarten (gewijzigd 15 aug 2026) | C | bouwer | let op |
 | 11 | **Aanleverroute nog niet afgesproken:** hoe komen copy en visuals bij de bouwer binnen — geplakt in het gesprek of als bestand in `docs/`? Zolang dat niet vastligt, kan werk blijven liggen | T B | Emilie | open |
 | 35 | **Vergadermacht-formulier (`/nl/downloads`) valt buiten de huisstijl.** Het is in HubSpot een V4-formulier: het staat in een venster op een adres van HubSpot zelf, dus onze opmaak komt er niet bij, en de API weigert wijzigingen. Twee routes: (a) Emilie zet knoptekst, knopkleur, taal en bedanktekst met de hand in de HubSpot-formuliereditor — dan klopt de kleur, het lettertype blijft dat van HubSpot; (b) de bouwer maakt een nieuw formulier zoals de andere en Emilie hangt de mail met de publicatie eraan — dan is alles gelijk | C | Emilie | open |
+| 36 | **Supabase-project `mgkzogvgqpfvsynrfera` staat nog bij supabase.com** terwijl de site het nergens meer gebruikt (opgeruimd 31 aug 2026). Nakijken of er een abonnement aan hangt en of er nog bestanden in staan die je wilt bewaren; daarna pauzeren of opheffen. Het oude punt over aanmeldingen uitzetten vervalt daarmee | C | Emilie | open |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -3144,3 +3145,52 @@ HubSpot van een nieuwer soort (`embedType: V4`). Dat betekent twee dingen:
 
 Het formulier heeft nu geen tekst op de knop, geen bedanktekst en HubSpots eigen
 teksten staan in het Engels. Zie het openstaand-punt hieronder.
+
+
+---
+
+## 31 augustus 2026 — Supabase eruit
+
+De site gebruikte Supabase nergens meer: geen pagina importeerde het, er was
+geen `middleware.ts`, er kwam geen tekst uit een database en alle beelden staan
+lokaal. Wat er stond was restmateriaal uit de begintijd, toen dit project nog op
+de Next.js/Supabase-startsjabloon draaide. Dat is nu weg.
+
+- **C** — Verwijderd: `lib/supabase/` (client, server, proxy),
+  `scripts/upload-to-supabase.mjs`, `supabase/migrations/` met de lege
+  voorbeeldmigratie, de pakketten `@supabase/ssr` en `@supabase/supabase-js`,
+  en de ongebruikte `hasEnvVars` uit `lib/utils.ts`.
+- **T** — `CLAUDE.md` beschreef Supabase nog als de stack van de site, mét
+  migratie-instructies. Dat bestand krijg ik elke sessie als waarheid mee, dus
+  daar stond het meest misleidende stuk. Herschreven naar wat er echt draait.
+- **T** — `README.md` was nog letterlijk de README van het
+  Supabase-startsjabloon ("Next.js and Supabase Starter Kit"), inclusief
+  demo-links en een deploy-knop. Dat is de voorpagina van een **openbare**
+  repository. Vervangen door een korte, kloppende beschrijving van dit project.
+- **T** — `.env.example` noemde alleen Supabase-sleutels. Nu de namen die er
+  echt toe doen: Sanity, HubSpot en de R@venHack-schakelaar. Zonder waarden.
+- **T** — `RESUME.md` (het opstartdocument van mei) is van de
+  Supabase-instructies ontdaan, met een waarschuwing bovenaan dat de rest van
+  dat document op meer punten is ingehaald.
+
+### Bijna een fout gemaakt: de klantlogo's
+
+In `next.config.ts` stonden drie externe beeldadressen bij `remotePatterns`:
+Squarespace, Supabase en Sanity. Ik wilde ze alle drie weghalen — ze leken alle
+drie dood. Voor de eerste twee klopte dat. **Sanity niet:** de logobalk op de
+Nederlandse homepage haalt zestien klantlogo's uit het CMS, en die staan op
+`cdn.sanity.io`. Zonder die regel had `next/image` ze geweigerd en was de
+logobalk leeg geweest.
+
+Nagemeten in een echte browser op de productiebouw: zestien logo's, allemaal
+geladen, geen mislukte beeldverzoeken. In `next.config.ts` en `CLAUDE.md` staat
+nu een opmerking bij die regel, zodat de volgende opruimronde er vanaf blijft.
+
+### Wat er expres blijft staan
+
+- De sleutels in `.env.local` (vier stuks). Die staan niet in de repo en doen
+  geen kwaad; weghalen kan in één regel zodra je zegt dat het mag.
+- Het Supabase-project `mgkzogvgqpfvsynrfera` bestaat nog bij supabase.com. Daar
+  kan ik niet bij en dat is ook niet aan mij. Zie het openstaand-punt.
+- De verwijzingen in `docs/livegang.md` en `docs/open-punten.html`: dat zijn
+  verslagen van toen, geen instructies voor nu.
