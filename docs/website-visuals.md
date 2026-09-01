@@ -276,3 +276,65 @@ hero's zitten op 57 tot 127 kB. Zit je daar ver boven, kijk dan eerst naar
 kwaliteit 75 in plaats van 90, en snijd het beeld bij op de band die je ook echt
 toont — bij een brede band valt een derde van een 16:9-beeld buiten beeld, en die
 pixels worden wel gedownload.
+
+---
+
+## Deelnemerspagina R@venHack — `/nl/games-tools/ravenhack/deelnemers` en `/en/games-tools/ravenhack/participants`
+
+Nagebouwd van de oude Squarespace-pagina (1 september 2026). Staat niet in het
+menu en niet in de sitemap; deelnemers krijgen de link in de uitnodiging. Beide
+talen gebruiken dezelfde vier beelden.
+
+| Plek | Bestand | Bron |
+|---|---|---|
+| Hero | `/images/deelnemers-hero.webp` (2560×1440) | OneDrive → `Commercie/Escape Rooms/Achtergronden NL/Designs New Product - Escape (1)/51.png` (3200×1800) |
+| EscapeMasters-logo op de hero | `/images/logos/escape-masters-wit.webp` | OneDrive → `Commercie/Escape Rooms/EscapeMasters logo/witte tekst.png` |
+| Spelbeeld, zwarte sectie | `/images/deelnemers-spel.webp` (632×606) | uitsnede uit het bestaande `/images/ravenhack-hero.webp` |
+| Sloten boven de stad, crèmesectie | `/images/deelnemers-veilig.webp` (1450×1200) | OneDrive → dezelfde map, `48.png` (3200×1800), midden bijgesneden naar 1.21:1 |
+
+**Let op bij de hero:** het beeld dat de site al had (`inspiratie-escape.webp`)
+is dezelfde foto, maar met het oude EscapeMasters-logo eríngebakken, in een
+verwassen grijs. Daarom staat hier de schone versie uit OneDrive, met het goede
+logo er als los beeld overheen. Gebruik `inspiratie-escape.webp` dus niet op
+deze pagina.
+
+Gewicht van de hero: 202 kB op 1920 breed bij kwaliteit 75 (op 90 was dat 344 kB
+zonder zichtbaar verschil). Binaire code comprimeert slecht; dit zit onder de
+R@venHack-hero, die op 278 kB zit.
+
+
+---
+
+## 1klik — `/nl/games-tools/ravenhack/1klik` en `/en/games-tools/ravenhack/1click`
+
+Nagebouwd van de oude Squarespace-pagina (1 september 2026). Buiten het menu en
+buiten de sitemap.
+
+| Plek | Bestand | Bron |
+|---|---|---|
+| Hero | `/images/1klik-hero.webp` (2560×1440) | OneDrive → `Commercie/Escape Rooms/Achtergronden NL/Designs New Product - Escape (1)/36.png` |
+| Logoblokje in de hero | `/images/logos/escape-masters.webp` | OneDrive → `Commercie/Escape Rooms/EscapeMasters logo/1.png` |
+| VPN-beeld bij de basisregels | `/images/1klik-vpn.webp` (1800×1013) | dezelfde map, `37.png` |
+| Slotbeeld NL | `/images/1klik-scene.webp` (2560×1440) | dezelfde map, `8.png` + aantekeningen, zie hieronder |
+| Slotbeeld EN | `/images/1klik-scene-en.webp` (2560×1440) | Downloads → `(Engels) (6).png` |
+
+**Let op bij het hero-beeld:** in Downloads staat `(Engels) (4).png` met dezelfde
+foto, maar met het Cyber Security Month-zegel en de tekst "Cybersecurity? Ga het
+gesprek aan!" eríngebakken. Gebruik die niet; `36.png` is de schone versie.
+
+### Het slotbeeld: de aantekeningen zijn samengesteld
+
+De scène bestond in twee versies: `8.png` is de Nederlandse werkplek zónder
+aantekeningen, en `(Engels) (6).png` is de Engelse mét de rode cirkel, de rode
+pijl en de WORD-blokjes. Een Nederlandse versie mét aantekeningen bestond niet.
+
+Die is gemaakt door de aantekeningen uit de Engelse over te zetten op de
+Nederlandse: de rode pixels zijn met een kleurmasker uit de Engelse gelicht en
+op dezelfde plek geplakt (de twee foto's staan bijna gelijk: de pop-up begint op
+x 1447 tegen x 1480), en de WORD-blokjes zijn als rechthoek overgezet met een
+zachte rand. De Engelse "UNLOCK" binnen de cirkel is bewust uitgesloten, anders
+lag die dubbel over de Nederlandse.
+
+Komt er ooit een échte Nederlandse versie mét aantekeningen, vervang dan
+`1klik-scene.webp` — verder hoeft er niets te veranderen.
+

@@ -3194,3 +3194,152 @@ nu een opmerking bij die regel, zodat de volgende opruimronde er vanaf blijft.
   kan ik niet bij en dat is ook niet aan mij. Zie het openstaand-punt.
 - De verwijzingen in `docs/livegang.md` en `docs/open-punten.html`: dat zijn
   verslagen van toen, geen instructies voor nu.
+
+
+---
+
+## 1 september 2026 — deelnemerspagina R@venHack nagebouwd
+
+De oude Squarespace-pagina die deelnemers vlak vóór een spel te zien krijgen,
+staat nu in de site. Nog alleen lokaal, om aan de details te knutselen.
+
+- **C** — Nieuwe route `/nl/games-tools/ravenhack/deelnemers`, met
+  `components/games/DeelnemersPagina.tsx`. Bewust buiten het menu én buiten de
+  sitemap (`NIET_INDEXEREN` plus `robots: index false`): je komt hier via de
+  link in de uitnodiging.
+- **T** — Dezelfde drie secties en dezelfde teksten als op Squarespace: de hero
+  met "Zodra het startsein klinkt, tikt de klok.", de zwarte sectie over wat je
+  te wachten staat, en de crèmesectie met wat je nodig hebt.
+- **T** — Beide FAQ-verwijzingen (de knop in de hero en de laatste opsomming)
+  wijzen nu naar onze eigen technische hulppagina `/nl/technologie/hulp`, niet
+  meer naar de oude Squarespace-FAQ.
+- **B** — Het EscapeMasters-logo op de hero is vervangen. Zie hieronder.
+- **B** — Drie beelden toegevoegd, alle drie in `docs/website-visuals.md`
+  vastgelegd: `deelnemers-hero.webp`, `deelnemers-spel.webp`,
+  `deelnemers-veilig.webp`, plus `logos/escape-masters-wit.webp`.
+
+### Het logo zat vást in de foto
+
+Het beeld dat de site al had (`inspiratie-escape.webp`) is precies de foto van
+de oude hero — inclusief het oude EscapeMasters-logo, ingebakken in het midden
+van de foto in een verwassen grijs. Dat is er niet uit te halen zonder de lucht
+en de skyline eronder te beschadigen.
+
+In OneDrive stond de schone versie van dezelfde foto, zonder logo
+(`Achtergronden NL/Designs New Product - Escape (1)/51.png`). Die is nu de hero,
+met het goede logo — de versie met witte letters — er als los beeld overheen. Dat
+heeft een prettige bijkomstigheid: wil je het logo later anders, dan is het één
+bestand en hoeft de foto niet opnieuw.
+
+### Twee dingen waarin ik ben afgeweken
+
+1. **Het spelbeeld in de zwarte sectie.** Op Squarespace stak datzelfde beeld
+   links buiten de kolom, waardoor er drie halve blauwe mapjes tegen de rand van
+   de pagina zweefden. Dat las als een ongelukje; ik toon nu de uitsnede die er
+   ook echt toe doet. Zal ik de overstekende rand alsnog nabouwen, dan kan dat.
+2. **De tekstkleur** in de crèmesectie is ons eigen `#2D2D2D` in plaats van
+   zuiver zwart. Het crème (`#F4F1E7`) en het goud (`#D69322`) zijn wél met de
+   pipet van de oude pagina overgenomen.
+
+### Tweede ronde, dezelfde dag
+
+- **C** — De teksten stonden te klein. Alles een maat groter: de alinea's in de
+  donkere sectie en de opsomming in de crèmesectie gaan van 14px naar 16px op
+  een telefoon en 18px op een breed scherm. Kleinste tekst op de hele pagina is
+  nu 16px.
+- **C** — De hero was onnodig hoog (760px). Nu 520px op een breed scherm en
+  430px op een telefoon, met de knop naar de hulp meteen in beeld.
+- **C** — Het blok onder de hero was zwart; dat is nu ons donkergrijs
+  `#2D2D2D`, gelijk aan de footer.
+- **C** — Mobiel: in de crèmesectie staat het beeld nu bóven de opsomming, zodat
+  je meteen ziet waar de sectie over gaat. Op een breed scherm staat het weer
+  rechts. Nagemeten op 390 en 320px breed: geen zijwaarts schuiven.
+- **T C** — Engelse versie erbij: `/en/games-tools/ravenhack/participants`. Het
+  taalpaar staat in `lib/talen.ts`, dus de NL/EN-schakelaar in het menu werkt op
+  beide pagina's. De FAQ-knop wijst daar naar `/en/help`. Ook deze staat op
+  `noindex` en buiten de sitemap.
+
+Nagemeten: geen zijwaarts schuiven op 390 en 320px breed, alle vier de FAQ-links
+komen uit op een pagina die bestaat, de taalwissel springt op beide pagina's naar
+de goede tegenhanger, geen van beide staat in de sitemap en allebei dragen ze
+`noindex, nofollow`.
+
+### Derde ronde: twee secties in plaats van één, en de taalfoutjes eruit
+
+- **C** — De donkere sectie is gesplitst. De aanhef onder de hero is nu een
+  eigen sectie in **zwart**; het blok eronder, "Dit is geen gewone escape", staat
+  in **nachtblauw** (`#0A1E33`). Die kleur komt uit de beelden zelf: de donkere
+  tinten in de hero zitten rond rgb(13, 44, 72), en dit is een slag donkerder
+  zodat het spelbeeld — dat een zwarte achtergrond heeft — er niet als een los
+  blok op ligt.
+- **T** — De taalfoutjes uit de oude pagina zijn eruit (Emilie, 1 sept): *"niet
+  meer aanstaan in een andere platform"* → *"op een ander platform"*, en *"Je
+  zoomt in op kleinste details"* → *"op de kleinste details"*. Ook het
+  koppelteken dat als gedachtestreepje dienstdeed is nu een echt streepje, en
+  "Dit is geen gewone escape…." heeft nu drie puntjes in plaats van vier.
+- **C** — De URL blijft `/nl/games-tools/ravenhack/deelnemers`: de oude
+  Squarespace-link is nergens meer in gebruik, dus er hoeft niets door te
+  verwijzen.
+
+
+---
+
+## 1 september 2026 — "1klik" nagebouwd
+
+De tweede losse Squarespace-pagina staat in de site: de pagina over digitaal
+gezond verstand. Nog alleen lokaal.
+
+- **C** — Nieuwe routes `/nl/games-tools/ravenhack/1klik` en
+  `/en/games-tools/ravenhack/1click`, met
+  `components/games/EenKlikPagina.tsx`. Net als de deelnemerspagina buiten het
+  menu, buiten de sitemap en op `noindex`. Het taalpaar staat in `lib/talen.ts`,
+  dus de NL/EN-schakelaar werkt.
+- **T** — Dezelfde vier secties als op Squarespace: de hero met "Druk nooit
+  zomaar op een link" en het blokje "speel het spel slim", de crèmesectie met
+  "De meeste digitale aanvallen beginnen met één klik.", de zeven basisregels
+  naast het vpn-beeld, en het beeldvullende slot met "Cyberveiligheid begint met
+  doorkijken, niet doorklikken."
+- **T** — Twee kleine tekstcorrecties: de komma vóór "en elkaar aanspreken" is
+  weg (Engelse komma in een Nederlandse opsomming), en "direct bij IT/security"
+  is "direct bij IT of security" geworden — een schuine streep leest hardop niet.
+- **B** — Vier beelden erbij, alle vier vastgelegd in `docs/website-visuals.md`.
+  Het slotbeeld mét de rode cirkel, de pijl en de WORD-blokjes bestond alleen in
+  het Engels; de Nederlandse versie is samengesteld. Hoe, staat in het register.
+- **C** — De teksten staan een maat groter dan op de oude pagina; daar stond de
+  opsomming op 14px.
+
+### De hero zei tien, het waren er zeven
+
+Op Squarespace stond **"10 regels voor digitaal gezond verstand"** boven een
+lijst van zeven. Op verzoek van Emilie is het getal naar **zeven** gegaan, in
+beide talen — niet de lijst aangevuld.
+
+Nagemeten: geen zijwaarts schuiven op 390 en 320px breed, kleinste tekst 12px,
+beide pagina's dragen `noindex, nofollow` en staan niet in de sitemap, de
+taalwissel springt naar de goede tegenhanger. Het contrast van de onderregel in
+de hero is 9,7 : 1 — ruim boven de norm van 4,5.
+
+### Tweede ronde, dezelfde dag
+
+Vier dingen bijgesteld, op aanwijzing van Emilie:
+
+- **C** — **Het slotbeeld staat er nu helemaal op**, inclusief het toetsenbord.
+  Het stond in een hoge band met `object-cover`, waardoor de onderkant wegviel.
+  Nu staat het op ware verhouding (16:9) en is de sectie precies zo hoog als het
+  beeld. Dat is hier belangrijker dan een filmische band: er valt iets te zoeken
+  in dat beeld.
+- **C** — **De kop bij dat beeld stond over het beeldscherm** en was daar slecht
+  te lezen. Hij staat nu in de donkere strook bóven het scherm, met ruimte
+  eronder. Nagemeten: contrast 17 : 1. Op een telefoon is die strook te smal
+  voor twee regels; daar staat de kop boven het beeld, op de achtergrond van de
+  sectie.
+- **C** — **De zeven basisregels staan dichter op elkaar** en de sectie heeft
+  minder lucht boven en onder. Het tekstblok is nu 312px hoog naast een beeld
+  van 297px: ze staan als één geheel in plaats van een korte lijst naast een
+  groot beeld.
+- **C** — **De hero-kop is groter** (van 51 naar 58px) en staat verder naar
+  rechts, helemaal in het donkere deel van de foto. De echte verandering zat in
+  de uitlijning: de kop stond links uitgelijnd, terwijl de oude pagina hem
+  **gecentreerd** heeft. Nu is het midden van de kop op 72% van de breedte —
+  op de oude pagina was dat 74%.
+

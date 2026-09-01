@@ -24,6 +24,12 @@ const BASE = "https://www.meetingmasters.online";
  * af, of ze zijn vervangen. Ze blijven bereikbaar via een directe link.
  */
 export const NIET_INDEXEREN = new Set([
+  // Voorbereidingspagina voor deelnemers aan een R@venHack: de link staat in de
+  // uitnodiging, niet in het menu.
+  "/nl/games-tools/ravenhack/deelnemers",
+  "/en/games-tools/ravenhack/participants",
+  "/nl/games-tools/ravenhack/1klik",
+  "/en/games-tools/ravenhack/1click",
   "/nl/csr",
   "/nl/escape-rooms",
   "/nl/meeting-formats",
