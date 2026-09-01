@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-08-30
+> Laatst bijgewerkt: 2026-09-01
 
 ---
 
@@ -3201,7 +3201,7 @@ nu een opmerking bij die regel, zodat de volgende opruimronde er vanaf blijft.
 ## 1 september 2026 — deelnemerspagina R@venHack nagebouwd
 
 De oude Squarespace-pagina die deelnemers vlak vóór een spel te zien krijgen,
-staat nu in de site. Nog alleen lokaal, om aan de details te knutselen.
+staat nu in de site. **Live sinds 1 september 2026**, commit 1402f7c.
 
 - **C** — Nieuwe route `/nl/games-tools/ravenhack/deelnemers`, met
   `components/games/DeelnemersPagina.tsx`. Bewust buiten het menu én buiten de
@@ -3287,7 +3287,7 @@ de goede tegenhanger, geen van beide staat in de sitemap en allebei dragen ze
 ## 1 september 2026 — "1klik" nagebouwd
 
 De tweede losse Squarespace-pagina staat in de site: de pagina over digitaal
-gezond verstand. Nog alleen lokaal.
+gezond verstand. **Live sinds 1 september 2026**, commit 1402f7c.
 
 - **C** — Nieuwe routes `/nl/games-tools/ravenhack/1klik` en
   `/en/games-tools/ravenhack/1click`, met
