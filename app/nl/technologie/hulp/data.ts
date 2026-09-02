@@ -4,14 +4,30 @@
  * de Engelse in tekst-en.ts.
  */
 
+/**
+ * De vier categorieën op "Wat is je probleem?".
+ *
+ * `vlakHex` is de lichte tint die over het tekstvlak van de kaart ligt;
+ * `randHex` is dezelfde kleur, donkerder, waarin het icoontje is getekend. Het
+ * icoon staat op wit, met de grijze rand van de kaart eromheen.
+ *
+ * Video werkt met de olijf uit het MM-pakket (#C4CBBD): de lichte tint en het
+ * icoon zijn daar allebei uit afgeleid. Die tint houdt de lage verzadiging van
+ * de olijf zelf aan (12%) en is daarmee groengrijs, niet grasgroen.
+ *
+ * De beelden heten `-v2` omdat ze zijn hertekend. Vervang je ze ooit, geef ze
+ * dan een nieuwe naam — Next bewaart geoptimaliseerde beelden dertig dagen met
+ * het pad als sleutel, dus onder dezelfde naam bereikt een nieuwe versie geen
+ * enkele browser.
+ */
 export const KLEUREN: Record<
   string,
   { rand: string; vlak: string; randHex: string; vlakHex: string; beeld: string }
 > = {
-  link: { rand: "border-[#EEBE3D]", vlak: "bg-[#FDF6E3]", randHex: "#EEBE3D", vlakHex: "#FDF6E3", beeld: "/images/hulp-link.webp" },
-  audio: { rand: "border-[#28A8AA]", vlak: "bg-[#D3EDED]", randHex: "#28A8AA", vlakHex: "#D3EDED", beeld: "/images/hulp-audio.webp" },
-  video: { rand: "border-[#8FBFA6]", vlak: "bg-[#DCEEE2]", randHex: "#8FBFA6", vlakHex: "#DCEEE2", beeld: "/images/hulp-video.webp" },
-  overig: { rand: "border-[#C74B60]", vlak: "bg-[#FAEBEE]", randHex: "#C74B60", vlakHex: "#FAEBEE", beeld: "/images/hulp-overig.webp" },
+  link: { rand: "border-[#C39822]", vlak: "bg-[#F5F1E6]", randHex: "#C39822", vlakHex: "#F5F1E6", beeld: "/images/hulp-link-v3.webp" },
+  audio: { rand: "border-[#218B8C]", vlak: "bg-[#E6F4F5]", randHex: "#218B8C", vlakHex: "#E6F4F5", beeld: "/images/hulp-audio-v3.webp" },
+  video: { rand: "border-[#6B8156]", vlak: "bg-[#EDEFEB]", randHex: "#6B8156", vlakHex: "#EDEFEB", beeld: "/images/hulp-video-v3.webp" },
+  overig: { rand: "border-[#A43749]", vlak: "bg-[#F5E6E8]", randHex: "#A43749", vlakHex: "#F5E6E8", beeld: "/images/hulp-overig-v3.webp" },
 };
 
 export const HANDLEIDINGEN = [

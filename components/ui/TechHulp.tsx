@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Categorie, Vraag } from "@/app/nl/technologie/hulp/vragen";
 import type { Taal } from "@/lib/talen";
 
@@ -57,7 +57,6 @@ const T = {
   nl: {
     kicker: "Support voor meetings",
     kop: "Wat is je probleem?",
-    onder: "De meeste dingen zijn in drie stappen opgelost.",
     waar: "Waar vindt je meeting plaats?",
     waarOnder: "We beginnen met de algemene antwoorden. Kies je platform en het wordt specifieker.",
     weetNiet: "Dat weet ik niet",
@@ -75,7 +74,6 @@ const T = {
   en: {
     kicker: "Support for meetings",
     kop: "What is the problem?",
-    onder: "Most things are sorted in three steps.",
     waar: "Where is your meeting taking place?",
     waarOnder: "We start with the general answers. Choose your platform and they get more specific.",
     weetNiet: "I do not know",
@@ -130,6 +128,24 @@ export default function TechHulp({
     return () => window.removeEventListener("hashchange", uitHash);
   }, [categorieen, algemeen]);
 
+  /**
+   * Bij elke stap schuift de volgende stap in beeld. Dat is hier geen tierelantijn:
+   * wie op deze pagina komt heeft haast en zit vaak al in een meeting. Kies je
+   * een categorie, dan komt "Waar vindt je meeting plaats?" naar boven; kies je
+   * daar een platform, dan zak je door naar de antwoorden zelf. Zonder dat
+   * bleef je onderin de pagina zoeken naar wat er zojuist was bijgekomen.
+   */
+  const stap2 = useRef<HTMLDivElement>(null);
+  const stap3 = useRef<HTMLDivElement>(null);
+
+  function schuifNaar(ref: React.RefObject<HTMLDivElement | null>) {
+    // Een frame wachten: het blok bestaat pas nadat React opnieuw getekend heeft.
+    requestAnimationFrame(() => {
+      const zacht = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      ref.current?.scrollIntoView({ behavior: zacht ? "smooth" : "auto", block: "start" });
+    });
+  }
+
   const zoekend = zoek.trim().length > 1;
 
   const resultaten = useMemo(() => {
@@ -169,7 +185,9 @@ export default function TechHulp({
   const huidigeCategorie = categorieen.find((c) => c.id === symptoom);
 
   function kiesSymptoom(id: string) {
+    const opent = symptoom !== id;
     setSymptoom((was) => (was === id ? null : id));
+    if (opent) schuifNaar(stap2);
     // Elke categorie opent op de algemene antwoorden. Zonder die stand stond
     // er eerst een lege lijst, en moest je eerst een platform kiezen om iets
     // te zien te krijgen — terwijl de meeste antwoorden overal gelden.
@@ -182,8 +200,7 @@ export default function TechHulp({
     <div>
       {/* ── Stap 1: wat gaat er mis? ───────────────────────────────── */}
       <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">{t.kicker}</p>
-      <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-1">{t.kop}</h2>
-      <p className="text-[#5F5F5F] text-sm mb-5">{t.onder}</p>
+      <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-4">{t.kop}</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-3">
         {categorieen.map((c) => {
@@ -194,20 +211,27 @@ export default function TechHulp({
               key={c.id}
               onClick={() => kiesSymptoom(c.id)}
               aria-pressed={actief}
+              /* De kleur zit in het tekstvlak, niet in de rand: elke categorie
+                 heeft daar zijn eigen lichte tint. Het icoon staat links op wit.
+                 Vandaar dat de gekozen kaart hier niet lichtgeel wordt zoals
+                 elders op de site — dat zou de tint juist wegpoetsen. De keuze
+                 blijkt uit de rand en uit een iets steviger tint. */
               className={`group flex items-stretch overflow-hidden text-left rounded-xl border-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
-                actief ? "border-[#EEBE3D] bg-[#FFFBEE]" : "border-[#E7E7E3] bg-white hover:bg-[#FFFBEE]"
+                actief ? "border-[#EEBE3D]" : "border-[#E7E7E3] hover:border-[#C9C9C4]"
               }`}
+              style={{ backgroundColor: k?.vlakHex }}
             >
-              {/* Eerste kwart is beeld, de rest tekst. */}
-              <span className="w-1/4 shrink-0 self-stretch" style={{ background: k?.vlakHex }}>
+              {/* Eerste kwart is het icoon, op wit. De grijze rand van de kaart
+                  loopt eromheen; de streep ertussen scheidt wit van de tint. */}
+              <span className="w-[86px] sm:w-[104px] shrink-0 self-stretch bg-white border-r border-[#E7E7E3] flex items-center justify-center">
                 {k?.beeld && (
-                  <img src={k.beeld} alt="" aria-hidden loading="lazy" className="w-full h-full object-cover" />
+                  <img src={k.beeld} alt="" aria-hidden loading="lazy" className="w-full h-auto max-h-full object-contain" />
                 )}
               </span>
-              <span className="flex-1 min-w-0 px-5 py-4">
-                <span className="block font-bold text-[#2D2D2D] text-base leading-snug">{c.label}</span>
+              <span className="flex-1 min-w-0 px-4 sm:px-5 py-4">
+                <span className="block font-bold text-[#1A1A1A] text-[17px] leading-snug">{c.label}</span>
                 {c.intro && (
-                  <span className="block text-[13px] text-[#7A8483] leading-snug mt-1">{c.intro}</span>
+                  <span className="block text-[15px] text-[#3D3D3D] leading-snug mt-1">{c.intro}</span>
                 )}
               </span>
             </button>
@@ -230,7 +254,7 @@ export default function TechHulp({
 
       {/* ── Stap 2: waar vindt je meeting plaats? ─────────────────────── */}
       {symptoom && !zoekend && (
-        <div className="mt-6 rounded-xl border border-[#EBEBEB] overflow-hidden">
+        <div ref={stap2} className="mt-6 rounded-xl border border-[#EBEBEB] overflow-hidden scroll-mt-24">
           <div className="bg-[#F7F7F5] px-5 py-3.5 border-b border-[#EBEBEB]">
             <p className="font-bold text-[#2D2D2D]">{t.waar}</p>
             <p className="text-[13px] text-[#7A8483]">{t.waarOnder}</p>
@@ -243,7 +267,11 @@ export default function TechHulp({
               return (
                 <button
                   key={naam}
-                  onClick={() => { setTool(actief && naam !== algemeen ? algemeen : naam); setWeetNiet(false); }}
+                  onClick={() => {
+                    setTool(actief && naam !== algemeen ? algemeen : naam);
+                    setWeetNiet(false);
+                    schuifNaar(stap3);
+                  }}
                   aria-pressed={actief}
                   aria-label={naam}
                   className={`px-4 py-3 rounded-lg border-2 bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
@@ -299,7 +327,7 @@ export default function TechHulp({
 
       {/* ── Stap 3: het antwoord ─────────────────────────────────────── */}
       {(symptoom || zoekend) && (
-        <div className="mt-7">
+        <div ref={stap3} className="mt-7 scroll-mt-24">
           {zoekend ? (
             <p className="text-sm text-[#6D6D6D] mb-4">
               {resultaten.length} {resultaten.length === 1 ? t.resultaat : t.resultaten} {t.resultatenVoor} “{zoek.trim()}”

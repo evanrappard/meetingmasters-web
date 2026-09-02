@@ -387,3 +387,27 @@ in `BeeldKolom`: een kolom die de hoogte van de tekst ernaast volgt, met
 zo hoog als de tekst en wordt er nooit iets uitgerekt. Wil je een ander deel van
 een foto zien, verander dan de `positie` op de `BeeldKolom` — niet het bestand.
 
+
+---
+
+## Hulppagina — de vier categorie-illustraties
+
+| Bestand | Waar |
+|---|---|
+| `/images/hulp-link-v3.webp` | Ik kom er niet in |
+| `/images/hulp-audio-v3.webp` | Mijn audio werkt niet |
+| `/images/hulp-video-v3.webp` | Mijn video doet het niet |
+| `/images/hulp-overig-v3.webp` | Er gaat iets anders mis |
+
+Hertekend op 2 september 2026 uit de oude versies (zonder achtervoegsel): de gekleurde
+achtergrond is wit geworden en de laptop staat nu in de donkere tint van de
+categorie. Het rode verbodsteken is onveranderd gebleven — dat is het teken dat
+zegt dat er iets níét werkt.
+
+In `-v3` zijn ze bovendien bijgesneden op de tekening zelf en vierkant gemaakt,
+zodat het icoon zijn vlak vult in plaats van in een zee van wit te zweven.
+
+De tinten staan in `app/nl/technologie/hulp/data.ts` bij `KLEUREN`. Wil je een
+kleur wijzigen, pas daar `randHex` en `vlakHex` aan én teken het beeld opnieuw;
+de kleur van de laptop zit in het bestand, niet in de CSS.
+

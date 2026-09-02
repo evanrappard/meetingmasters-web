@@ -3622,3 +3622,99 @@ met CSS verborgen. De browser haalde ze dan allebei op — 268 kB voor een beeld
 waarvan je er één ziet. Nu staat er één `<picture>` met een media-query, zoals
 in `HeroAchtergrond.tsx`. Nagemeten: op een breed scherm één verzoek van 133 kB,
 op een telefoon één van 135 kB.
+
+
+---
+
+## 2 september 2026 — kleuren van "Wat is je probleem?" op de hulppagina
+
+- **B C** — De vier kaarten onder *Wat is je probleem?* zijn omgedraaid. Het
+  gekleurde vlak zat eerst achter het icoon; nu ligt een **lichte tint van
+  dezelfde kleur over het tekstvlak** en staat het **icoon in de donkere tint
+  op wit**, met de grijze rand van de kaart eromheen en een streepje tussen wit
+  en tint.
+- **B** — De vier illustraties zijn hertekend: achtergrond wit, de laptop in de
+  donkere tint, het rode verbodsteken onveranderd. Ze heten nu
+  `hulp-link-v2.webp` en zo verder.
+- **T B** — *Mijn video doet het niet* werkt met de **olijf uit het MM-pakket**
+  (`#C4CBBD`). Daar zijn allebei de tinten uit afgeleid: `#EDF5E6` voor het
+  tekstvlak, `#6B8156` voor het icoon.
+
+| Categorie | Tekstvlak | Icoon |
+|---|---|---|
+| Ik kom er niet in | `#F5F1E6` | `#C39822` |
+| Mijn audio werkt niet | `#E6F4F5` | `#218B8C` |
+| Mijn video doet het niet | `#EDEFEB` | `#6B8156` |
+| Er gaat iets anders mis | `#F5E6E8` | `#A43749` |
+
+### Eén afwijking van de hover-afspraak
+
+Klikbare kaarten vullen zich elders op de site lichtgeel (`#FFFBEE`) als je
+erover gaat. Dat kan hier niet: de kaart heeft nu zijn eigen tint, en die zou
+door het geel worden weggepoetst. De terugkoppeling zit daarom in de rand —
+grijs, donkerder bij hover, geel als de kaart gekozen is.
+
+Geldt voor beide talen: de kleuren staan in `data.ts` en de Engelse pagina
+gebruikt dezelfde.
+
+### Tweede ronde, dezelfde dag
+
+- **B** — Het lichtgroen van *Mijn video doet het niet* is groengrijs geworden
+  (`#EDEFEB` in plaats van `#EDF5E6`). Het houdt nu de lage verzadiging van de
+  MM-olijf zelf aan (12%), en dat is precies wat die olijf groengrijs maakt.
+- **B** — De iconen zijn groter. Ze stonden met veel lucht eromheen in een beeld
+  van 800×450; nu zijn ze bijgesneden op de tekening zelf en vierkant gemaakt,
+  zodat ze het witte vlak vullen. Nieuwe bestanden: `hulp-…-v3.webp`.
+- **T** — De teksten in de kaarten waren te klein en te licht en vielen weg in
+  de tint. De kop staat nu op 17px in bijna-zwart (`#1A1A1A`), de toelichting op
+  15px in donkergrijs (`#3D3D3D`) in plaats van 13px in `#7A8483`.
+
+### De pagina landt nu op de vier blokken
+
+Wie hier komt heeft haast en zit vaak al in een meeting. De vier blokken én de
+grijze zoekbalk staan daarom nu **zonder scrollen** in beeld: de hero is van 333
+naar 190px gegaan, met een kleinere kop en minder lucht boven de blokken.
+Gemeten: op 1440×900 blijft er 176px over, op 1440×800 nog 76px. Op een venster
+van 1280×720 komt het 4px tekort, en op een telefoon past het niet — vier
+gestapelde kaarten plus een zoekbalk gaan daar nu eenmaal niet in één scherm.
+
+### En de pagina neemt je nu bij de hand
+
+- Klik je een categorie aan, dan schuift **"Waar vindt je meeting plaats?"** naar
+  boven, net onder de menubalk.
+- Kies je daar een platform, dan zak je door naar **de antwoorden zelf**.
+
+Dat gebeurt met een zachte beweging, en zonder beweging als iemand in zijn
+systeem heeft ingesteld dat hij daar last van heeft (`prefers-reduced-motion`).
+Zonder dit bleef je onderin de pagina zoeken naar wat er zojuist bij was
+gekomen — precies het tegenovergestelde van wat een helpdeskpagina moet doen.
+
+### De hero van de hulppagina: een gezicht, en leesbare tekst
+
+- **B** — De video is opnieuw uitgesneden: `objectPosition: center 68%`, tegen
+  `88%` daarvoor. Op 88% zag je alleen een bureau, op 35% een heel gezicht (te
+  veel voor zo'n smalle band). Nu valt de kin bovenin, daaronder de witte bloes
+  en onderin de bovenrand van de laptop.
+- **T C** — De onderregel *"De meeste dingen zijn in drie stappen opgelost."* is
+  weg. Die ruimte is naar de hero gegaan: de band is van 190 naar 232px
+  gegroeid, en juist dat extra stukje maakt de laptop zichtbaar. Let op: het
+  percentage van de uitsnede hoort bij die bandhoogte. Verander je de een,
+  bekijk dan de ander.
+- **C** — **De donkere laag over de hero heeft er nooit gezeten.** Er stond
+  `bg-gradient-to-r from-[#2D2D2D]/85 …`, maar Tailwind maakt voor een
+  doorzichtigheid op een losse hexkleur in een verloop geen CSS aan: die klasse
+  is in het gebouwde stylesheet nergens te vinden. De klasse stond er dus wel en
+  deed niets, en daardoor stond de witte tekst al die tijd op een veel te licht
+  beeld. Het verloop staat nu als inline-stijl, met een echte
+  `linear-gradient()`.
+- **T** — De onderregel stond op 80% wit; die is nu vol wit, met een lichte
+  schaduw eronder.
+
+Nagemeten na de wijziging: de kop haalt 9,8 : 1 en de onderregel 7,0 : 1, tegen
+een norm van 4,5. Daarvóór kwam de onderregel niet boven 1,9 : 1 uit — dat is
+onleesbaar, en precies wat Emilie zag.
+
+**Om te onthouden:** schrijf een verloop met doorzichtigheid over een eigen
+kleur niet als `from-[#hex]/85`. Dat lijkt te werken maar levert geen CSS op.
+Gebruik een inline `linear-gradient()`, of een hexwaarde met alfa (`#2D2D2DD9`).
+

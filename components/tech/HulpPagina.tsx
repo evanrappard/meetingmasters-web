@@ -53,22 +53,49 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
             { src: "/videos/tech-hulp-hero.webm", type: "video/webm" },
             { src: "/videos/tech-hulp-hero.mp4", type: "video/mp4" },
           ]}
-          style={{ objectPosition: "center 88%" }}
+          /* De band is smal, dus de uitsnede is precisiewerk. Op 88% zag je
+              alleen een bureau, op 35% een heel gezicht. Bij deze bandhoogte
+              (232px) valt op 68% de kin bovenin, daaronder de witte bloes, en
+              onderaan de bovenrand van de laptop. Verander je de hoogte van de
+              band, dan verschuift dit percentage mee. */
+          style={{ objectPosition: "center 68%" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2D2D2D]/85 via-[#2D2D2D]/45 to-[#2D2D2D]/15" />
+        {/* Links donker genoeg om witte tekst te dragen, rechts licht genoeg om
+            het gezicht te laten zien. De onderregel stond op 80% wit en viel
+            weg tegen de lichte muur; die is nu vol wit met een verloop dat
+            links steviger is. */}
+        {/* Het verloop staat hier als inline-stijl en niet als Tailwind-klasse.
+            Reden: `from-[#2D2D2D]/85` werd door Tailwind niet aangemaakt — een
+            doorzichtigheid op een losse hexkleur in een verloop levert hier geen
+            CSS op. De klasse stond er dus wel, maar deed niets, en daardoor
+            stond de witte tekst al die tijd op een veel te lichte achtergrond.
+            Links donker genoeg om tekst te dragen, rechts licht genoeg om het
+            gezicht te laten zien. */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(30,30,30,0.92) 0%, rgba(30,30,30,0.80) 34%, rgba(30,30,30,0.45) 62%, rgba(30,30,30,0.15) 100%)",
+          }}
+        />
 
-        {/* Bewust lager dan onze andere hero's: wie hier komt heeft haast en
-            moet "Wat is je probleem?" meteen zien staan, zonder te scrollen. */}
-        <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-12 md:py-14 lg:py-16 min-h-[280px] md:min-h-[320px] flex items-center">
+        {/* Bewust veel lager dan onze andere hero's. Wie hier komt heeft haast,
+            zit vaak al in een meeting, en moet de vier blokken én de zoekbalk
+            meteen zien staan zonder te scrollen. Alles wat deze hero hoger
+            maakt, duwt dat uit beeld. */}
+        <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-7 md:py-9 min-h-[210px] md:min-h-[232px] flex items-center">
           <div className="max-w-[620px]">
-            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-5">{t.hero.kicker}</p>
+            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">{t.hero.kicker}</p>
             <h1
-              className="font-bold text-white leading-[1.05] text-balance mb-5"
-              style={{ fontSize: "clamp(1.9rem, 4.2vw, 2.9rem)" }}
+              className="font-bold text-white leading-[1.05] text-balance mb-3"
+              style={{ fontSize: "clamp(1.6rem, 3.4vw, 2.3rem)" }}
             >
               {t.hero.titel}
             </h1>
-            <p className="text-white/80 text-base leading-relaxed">
+            <p
+              className="text-white text-base leading-relaxed"
+              style={{ textShadow: "0 1px 6px rgba(0,0,0,0.55)" }}
+            >
               {t.hero.intro1}
               <br />
               {t.hero.intro2}
@@ -78,7 +105,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
       </section>
 
       {/* ── WAT IS JE PROBLEEM? ──────────────────────────────────────── */}
-      <section id="hulp" className="bg-white py-12 md:py-16 scroll-mt-24">
+      <section id="hulp" className="bg-white py-8 md:py-10 scroll-mt-24">
         <div className="max-w-content mx-auto px-8 md:px-16 lg:px-20">
           <div className="max-w-[880px]">
             <TechHulp
