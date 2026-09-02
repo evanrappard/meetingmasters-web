@@ -65,6 +65,7 @@ leeft in de paginacode, niet in een apart bestand).
 | 11 | **Aanleverroute nog niet afgesproken:** hoe komen copy en visuals bij de bouwer binnen — geplakt in het gesprek of als bestand in `docs/`? Zolang dat niet vastligt, kan werk blijven liggen | T B | Emilie | open |
 | 35 | **Vergadermacht-formulier (`/nl/downloads`) valt buiten de huisstijl.** Het is in HubSpot een V4-formulier: het staat in een venster op een adres van HubSpot zelf, dus onze opmaak komt er niet bij, en de API weigert wijzigingen. Twee routes: (a) Emilie zet knoptekst, knopkleur, taal en bedanktekst met de hand in de HubSpot-formuliereditor — dan klopt de kleur, het lettertype blijft dat van HubSpot; (b) de bouwer maakt een nieuw formulier zoals de andere en Emilie hangt de mail met de publicatie eraan — dan is alles gelijk | C | Emilie | open |
 | 36 | **Supabase-project `mgkzogvgqpfvsynrfera` staat nog bij supabase.com** terwijl de site het nergens meer gebruikt (opgeruimd 31 aug 2026). Nakijken of er een abonnement aan hangt en of er nog bestanden in staan die je wilt bewaren; daarna pauzeren of opheffen. Het oude punt over aanmeldingen uitzetten vervalt daarmee | C | Emilie | open |
+| 38 | **Bezoekerherkenning strds.nl: privacyverklaring en verwerkersovereenkomst.** Het script leest ook mee met wat mensen in de formulieren invullen. Dat hoort in de privacyverklaring te staan, en er hoort een verwerkersovereenkomst met de leverancier te zijn. Navragen wat er precies wordt bewaard en hoe lang | T | Emilie | open |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -3372,3 +3373,55 @@ Nagelopen: het artikel staat bovenaan het overzicht in beide talen, de
 taalwissel springt naar de goede tegenhanger, beide staan in de sitemap, de knop
 komt uit op een pagina die bestaat, geen mislukte beeldverzoeken en geen
 zijwaarts schuiven op 390px breed.
+
+
+---
+
+## 2 september 2026 — bezoekerherkenning van strds.nl, achter de toestemming
+
+Emilie kreeg van een leverancier het verzoek om twee regels in de `<head>` te
+zetten, "vóór de cookiebanner": een stylesheet van `css.jsapis.com` en een
+script van `k.strds.nl`. Vóór het plaatsen heb ik dat script uitgelezen.
+
+**Wat het doet.** Het maakt een vingerafdruk van de browser (scherm, venster,
+tijdzone, zomertijd, processorkernen, werkgeheugen, plug-ins, taal, platform,
+lengte van de user agent). Het zet een eigen blijvend kenmerk `_stfv` in
+localStorage én als cookie. Het leest bestaande marketingcookies uit — Google
+(`_ga`, `_gcl_au`), Facebook (`_fbp`), TikTok (`_ttp`), Reddit (`_rdt_uuid`),
+Microsoft (`_uetvid`, `_clck`), Quantcast (`__qca`) en **`hubspotutk`** — en
+stuurt die mee. Het leest mee met wat bezoekers in formuliervelden typen en
+haalt daar domeinen uit, inclusief het deel achter de @ van een e-mailadres. En
+het is expliciet gebouwd op HubSpot: het luistert op
+`hs-form-event:on-submission:success` en op berichten van `hubspot.com` en
+`hsforms`, leest de inhoud van iframes uit, en stuurt bij een verzending de
+ingevulde waarden door. Alles vertrekt via een 1×1-pixel naar `k.strds.nl`.
+
+Het bijbehorende `controls.css` is een leeg bestand van vijf tekens.
+
+**Wat we hebben gedaan.** Niet vóór de banner. Emilie koos ervoor het achter de
+toestemming te hangen, net als Google Analytics:
+
+- **C** — Nieuw component `components/ui/Bezoekerherkenning.tsx`, gemonteerd in
+  `app/nl/layout.tsx` en `app/en/layout.tsx`, naast `<Analytics />`. Het laadt
+  alleen bij "Alles accepteren". Zonder keuze of bij "alleen noodzakelijk" gaat
+  er geen enkel verzoek naar strds.nl of jsapis.com.
+- **C** — Trekt iemand de toestemming in, dan wissen we `_stfv` uit localStorage
+  én als cookie, en na een herlading laadt het script niet meer.
+- **C** — Een domeincheck zorgt dat het alleen op meetingmasters.online draait:
+  lokaal en op preview-omgevingen stuurt niemand per ongeluk testverkeer door.
+- **T** — `_stfv` staat nu in de cookieverklaring in beide talen, in de tabel
+  "alleen na Alles accepteren", met wat het uitleest.
+
+Nagemeten in een echte browser, met de domeincheck tijdelijk op localhost:
+
+| Situatie | Verzoek naar strds/jsapis | `_stfv` gezet |
+|---|---|---|
+| Geen keuze gemaakt | nee | nee |
+| Alleen noodzakelijk | nee | nee |
+| Alles accepteren | ja, beide | ja |
+| Daarna toestemming ingetrokken | — | gewist, en na herladen geen verzoek meer |
+
+**Nog te doen door Emilie:** de privacyverklaring noemt deze verwerking nog
+niet, en er hoort een verwerkersovereenkomst met de leverancier te zijn — het
+gaat om gegevens uit formulieren, niet alleen om een bezoekersteller. Zie de
+openstaand-lijst.

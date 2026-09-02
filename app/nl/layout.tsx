@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/ui/CookieBanner";
 import Analytics from "@/components/ui/Analytics";
+import Bezoekerherkenning from "@/components/ui/Bezoekerherkenning";
 
 export default function NlLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +14,7 @@ export default function NlLayout({ children }: { children: React.ReactNode }) {
           iframe bij klanten en horen geen banner te tonen. */}
       <CookieBanner />
       <Analytics />
+      <Bezoekerherkenning />
     </>
   );
 }

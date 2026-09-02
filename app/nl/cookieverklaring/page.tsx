@@ -157,6 +157,12 @@ export default function CookieverklaringPage() {
               doel: "herkent terugkerende bezoekers en koppelt een formulier aan eerdere bezoeken",
               termijn: "6 maanden tot sessie",
             },
+            {
+              naam: "_stfv",
+              plaatser: "strds.nl",
+              doel: "herkent welk bedrijf een bezoeker is; leest daarvoor de bovenstaande cookies uit, kenmerken van je browser en wat je in onze formulieren invult",
+              termijn: "1 jaar",
+            },
           ]}
         />
         <p>

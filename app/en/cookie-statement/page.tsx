@@ -170,6 +170,12 @@ export default function CookieStatementPage() {
               doel: "recognises returning visitors and links a form to earlier visits",
               termijn: "6 months to session",
             },
+            {
+              naam: "_stfv",
+              plaatser: "strds.nl",
+              doel: "identifies which company a visitor belongs to; to do so it reads the cookies above, characteristics of your browser and what you enter in our forms",
+              termijn: "1 year",
+            },
           ]}
         />
         <p>
