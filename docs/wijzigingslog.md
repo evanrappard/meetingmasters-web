@@ -3347,10 +3347,12 @@ Vier dingen bijgesteld, op aanwijzing van Emilie:
 
 ---
 
-## 2 september 2026 — blog: "Wat kost dat?"
+## 2 september 2026 — blog: "Zo'n meeting, wat kost dat?"
 
 - **T** — Nieuw artikel in beide talen: `/nl/blog/wat-kost-dat` en
-  `/en/blog/what-does-that-cost`. Rubriek **Online ontmoeten**, 4 minuten
+  `/en/blog/what-does-that-cost`. De kop is later dezelfde dag "Zo'n meeting,
+  wat kost dat?" geworden (Engels: "A meeting like that, what does it cost?");
+  het adres bleef staan, want dat stond al live en in de sitemap. Rubriek **Online ontmoeten**, 4 minuten
   lezen. Tekst van Emilie, letterlijk overgenomen.
 - **B** — Beeld `/images/blog/wat-kost-dat.webp` (1600×900, 55 kB), uit
   `~/Downloads/Kantoorruimte.png`: een lege vergaderzaal met de

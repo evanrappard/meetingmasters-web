@@ -52,7 +52,7 @@ const ONGESORTEERD: BlogPost[] = [
   {
     "slug": "wat-kost-dat",
     "rubriek": "online-ontmoeten",
-    "title": "Wat kost dat?",
+    "title": "Zo'n meeting, wat kost dat?",
     "date": "2 september 2026",
     "iso": "2026-09-02",
     "img": "/images/blog/wat-kost-dat.webp",

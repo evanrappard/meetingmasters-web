@@ -35,7 +35,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "slug": "what-does-that-cost",
     "nlSlug": "wat-kost-dat",
     "rubriek": "online-ontmoeten",
-    "title": "What does that cost?",
+    "title": "A meeting like that, what does it cost?",
     "date": "September 2, 2026",
     "iso": "2026-09-02",
     "img": "/images/blog/wat-kost-dat.webp",
