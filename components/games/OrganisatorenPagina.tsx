@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import HeroBeeld from "@/components/ui/HeroBeeld";
 import VoorbereidingBlok from "@/components/games/VoorbereidingBlok";
 import type { Taal } from "@/lib/talen";
 
@@ -221,28 +220,23 @@ export default function OrganisatorenPagina({ taal = "nl" }: { taal?: Taal }) {
             zoekbalk aan beide kanten wegvalt. Vandaar een staande uitsnede voor
             smalle schermen, waarin de hele balk, de bol en de klikkende hand
             passen. */}
-        <div className="absolute inset-x-0 top-0 aspect-[1460/1670] md:hidden">
-          <HeroBeeld
-            src="/images/organisatoren-hero-mobiel-v2.webp"
-            alt={t.heroAlt}
-            fill
-            className="object-cover"
-            priority
-            quality={75}
-            sizes="100vw"
-          />
-        </div>
-        <div className="absolute inset-x-0 top-0 aspect-[2560/959] hidden md:block">
-          <HeroBeeld
-            src="/images/organisatoren-hero-v2.webp"
-            alt=""
-            aria-hidden
-            fill
-            className="object-cover"
-            priority
-            quality={75}
-            sizes="100vw"
-          />
+        <div className="absolute inset-x-0 top-0 aspect-[1460/1670] md:aspect-[2560/959]">
+          {/* Bewust <picture> met een media-query en niet twee <Image>-en die
+              elkaar met CSS verbergen: dan haalt de browser ze allebéí op en
+              betaalt iedere bezoeker voor een beeld dat hij niet ziet. Zelfde
+              aanpak als in HeroAchtergrond.tsx. */}
+          <picture className="contents">
+            <source media="(max-width: 767px)" srcSet="/images/organisatoren-hero-mobiel-v2.webp" />
+            <source media="(min-width: 768px)" srcSet="/images/organisatoren-hero-v2.webp" />
+            <img
+              src="/images/organisatoren-hero-v2.webp"
+              alt={t.heroAlt}
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ backgroundColor: "#0B1622" }}
+            />
+          </picture>
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
 

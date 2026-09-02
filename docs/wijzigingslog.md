@@ -3616,3 +3616,9 @@ je onderin de donkere ondergrond — zoals op 1024px.
 
 Nagemeten op tien breedtes van 320 tot 1600px, in beide talen: de kop begint
 overal 16 tot 38px ónder de zoekbalk. Geen enkele overlap meer.
+
+Nog één correctie: de twee hero-uitsnedes stonden eerst allebei in de pagina,
+met CSS verborgen. De browser haalde ze dan allebei op — 268 kB voor een beeld
+waarvan je er één ziet. Nu staat er één `<picture>` met een media-query, zoals
+in `HeroAchtergrond.tsx`. Nagemeten: op een breed scherm één verzoek van 133 kB,
+op een telefoon één van 135 kB.
