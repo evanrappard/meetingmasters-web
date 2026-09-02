@@ -3634,8 +3634,8 @@ op een telefoon één van 135 kB.
   op wit**, met de grijze rand van de kaart eromheen en een streepje tussen wit
   en tint.
 - **B** — De vier illustraties zijn hertekend: achtergrond wit, de laptop in de
-  donkere tint, het rode verbodsteken onveranderd. Ze heten nu
-  `hulp-link-v2.webp` en zo verder.
+  donkere tint, het rode verbodsteken onveranderd. Ze heten `hulp-link-v3.webp`
+  en zo verder — de v2-tussenversies zijn dezelfde dag weer opgeruimd.
 - **T B** — *Mijn video doet het niet* werkt met de **olijf uit het MM-pakket**
   (`#C4CBBD`). Daar zijn allebei de tinten uit afgeleid: `#EDF5E6` voor het
   tekstvlak, `#6B8156` voor het icoon.
