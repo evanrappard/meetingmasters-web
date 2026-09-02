@@ -66,6 +66,7 @@ const PAREN: Array<[nl: string, en: string]> = [
   // Voorbereidingspagina voor deelnemers: buiten het menu, link staat in de uitnodiging.
   ["/games-tools/ravenhack/deelnemers", "/games-tools/ravenhack/participants"],
   ["/games-tools/ravenhack/1klik", "/games-tools/ravenhack/1click"],
+  ["/games-tools/ravenhack/organisatoren", "/games-tools/ravenhack/organisers"],
   ["/games-tools/tools/inspiration-cards", "/games-tools/tools/inspiration-cards"],
   ["/games-tools/tools/bingo", "/games-tools/tools/bingo"],
   ["/games-tools/tools/storytelling", "/games-tools/tools/storytelling"],

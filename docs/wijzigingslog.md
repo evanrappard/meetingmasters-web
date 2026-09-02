@@ -3581,3 +3581,38 @@ haar browser ze niet opnieuw op.
 Alle vier de beelden op deze pagina heten daarom nu `organisatoren-…-v2.webp`.
 Dat is meteen de afspraak voor de toekomst: een vervangen beeld krijgt een
 nieuwe naam, geen nieuwe inhoud onder de oude naam.
+
+### Engelse versie en mobiel
+
+- **T C** — Engelse versie: `/en/games-tools/ravenhack/organisers`. Het taalpaar
+  staat in `lib/talen.ts`, dus de NL/EN-schakelaar werkt op beide pagina's. Ook
+  deze staat op `noindex` en buiten de sitemap. De Engelse kop is korter
+  gehouden ("Playing the R@venHack escape room?") omdat de letterlijke vertaling
+  drie regels werd.
+- **C** — Twee Engelse voorbeeldteksten:
+  `ravenhack-example-invitation.txt` en `ravenhack-example-calendar-text.txt`.
+- **B** — Aparte hero-uitsnede voor telefoons,
+  `organisatoren-hero-mobiel-v2.webp` (1460×1670). De brede band van 2,67:1
+  werd op een smal scherm zo hard bijgesneden dat de zoekbalk aan beide kanten
+  wegviel. In de staande uitsnede past de hele balk, met de bol en de hand.
+- **C** — Elk beeld naast de tekst heeft nu zijn eigen verhouding op een
+  telefoon: 16:9 bij de teams, 2:1 bij de uitnodiging en 4:5 bij de agenda. Eén
+  vaste hoogte voor alle drie maakte van die staande schaduwfiguur een reepje.
+- **C** — Kleinere koppen, knoppen en marges op smalle schermen; het
+  e-mailadres breekt af waar nodig, het telefoonnummer juist niet.
+
+### De hero is structureel anders opgebouwd
+
+De kop viel bij tussenbreedtes (768 tot 1280px) tegen de zoekbalk in de foto
+aan, en in het Engels bij nog meer breedtes, omdat die kop daar op drie regels
+komt. Per breedte bijsturen werkte niet: er was altijd wel een maat waarop het
+weer botste.
+
+Nu staat de foto bovenaan op ware verhouding en begint de tekst eronder, gemeten
+in **procenten van de breedte** (`pt-[52%]` op een telefoon, `pt-[20%]` daarboven).
+Omdat de hoogte van de foto óók uit de breedte volgt, klopt die verhouding op
+elke maat. Loopt de tekst een keer langer door, dan groeit de sectie mee en zie
+je onderin de donkere ondergrond — zoals op 1024px.
+
+Nagemeten op tien breedtes van 320 tot 1600px, in beide talen: de kop begint
+overal 16 tot 38px ónder de zoekbalk. Geen enkele overlap meer.

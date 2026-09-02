@@ -341,13 +341,14 @@ Komt er ooit een échte Nederlandse versie mét aantekeningen, vervang dan
 
 ---
 
-## Organisatorenpagina R@venHack — `/nl/games-tools/ravenhack/organisatoren`
+## Organisatorenpagina R@venHack — `/nl/games-tools/ravenhack/organisatoren` en `/en/…/organisers`
 
 Gebouwd 2 september 2026. Buiten het menu en buiten de sitemap.
 
 | Plek | Bestand | Bron |
 |---|---|---|
-| Hero | `/images/organisatoren-hero-v2.webp` (2560×1440) | Downloads → `UK Designs Escape (14).png` |
+| Hero, breed scherm | `/images/organisatoren-hero-v2.webp` (2560×959) | Downloads → `UK Designs Escape (14).png`, y 300–1499 |
+| Hero, telefoon | `/images/organisatoren-hero-mobiel-v2.webp` (1460×1670) | dezelfde foto, staande uitsnede x 730–2190, y 120–1790 |
 | Logo op de hero | `/images/logos/escape-masters-wit.webp` | zelfde als op de deelnemerspagina |
 | Teamindeling | `/images/organisatoren-teams-v2.webp` (1800×1013) | Downloads → `(Engels) (7).png` |
 | Uitnodiging | `/images/organisatoren-uitnodiging-v2.webp` (2560×1252) | Downloads → `UK Designs Escape (12).png`, liggende band x 420–2980, y 520–1772 (2,04:1) |

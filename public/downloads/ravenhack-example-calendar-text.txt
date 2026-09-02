@@ -1,0 +1,44 @@
+EXAMPLE TEXT - R@VENHACK CALENDAR INVITATION
+Fill in the parts between [ ] and put this text in the appointment.
+
+
+APPOINTMENT TITLE
+R@venHack | Online escape room
+
+
+LOCATION
+Online - SpatialChat
+
+
+TEXT OF THE CALENDAR INVITATION
+
+On [date] at [time] we are playing R@venHack together.
+
+
+Link to the game
+[LINK TO R@VENHACK]
+
+Be on time. We start straight away.
+
+
+Team line-up
+Yellow: [names]
+Green:  [names]
+Blue:   [names]
+Red:    [names]
+Pink:   [names]
+Orange: [names]
+Purple: [names]
+
+
+Preparing
+Have a look at the participants page beforehand:
+https://www.meetingmasters.online/en/games-tools/ravenhack/participants
+
+
+Please note: join on your own laptop or computer. This does not work if
+you take part together through one screen: 1 player = 1 screen. There is
+nothing to download. Open the link in your browser in Chrome, Edge or
+Firefox. Enter your name and a short description. Give permission for
+cookies - choose "always allow" - and for the use of your camera and
+microphone.

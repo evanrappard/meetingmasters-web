@@ -31,6 +31,7 @@ export const NIET_INDEXEREN = new Set([
   "/nl/games-tools/ravenhack/1klik",
   "/en/games-tools/ravenhack/1click",
   "/nl/games-tools/ravenhack/organisatoren",
+  "/en/games-tools/ravenhack/organisers",
   "/nl/csr",
   "/nl/escape-rooms",
   "/nl/meeting-formats",
