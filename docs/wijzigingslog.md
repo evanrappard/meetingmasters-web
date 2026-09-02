@@ -3426,3 +3426,158 @@ Nagemeten in een echte browser, met de domeincheck tijdelijk op localhost:
 niet, en er hoort een verwerkersovereenkomst met de leverancier te zijn — het
 gaat om gegevens uit formulieren, niet alleen om een bezoekersteller. Zie de
 openstaand-lijst.
+
+
+---
+
+## 2 september 2026 — landingspagina voor organisatoren van R@venHack
+
+De tegenhanger van de deelnemerspagina, nu voor de bedrijfskant: wie het spel
+organiseert. Nog alleen lokaal.
+
+- **C** — Nieuwe route `/nl/games-tools/ravenhack/organisatoren`, met
+  `components/games/OrganisatorenPagina.tsx`. Buiten het menu, buiten de sitemap
+  en op `noindex`, net als de andere losse R@venHack-pagina's.
+- **T** — Zes blokken: de hero met de helpdeskknop en het logo, de aanhef in een
+  lichtblauwgrijs vlak, de teamindeling, de uitnodiging, de agenda-afspraak, en
+  "Vragen?" in één kolom zonder beeld. Tekst van Emilie.
+- **B** — Vier beelden uit Downloads, vastgelegd in `docs/website-visuals.md`.
+  Het beeld naast de uitnodiging is een uitsnede.
+- **C** — Twee voorbeeldteksten om te downloaden:
+  `public/downloads/ravenhack-voorbeeld-uitnodiging.txt` en
+  `-agendatekst.txt`. Bewust platte tekst en geen pdf: een organisator moet dit
+  in een mail of een agenda-afspraak kunnen plakken.
+
+### Het tips-blok staat nu in één bestand
+
+"Dit heb je nodig voor de beste ervaring" staat op de deelnemerspagina én op
+deze pagina. Dat is nu één component, `components/games/VoorbereidingBlok.tsx`,
+in beide talen. Anders lopen die twee lijstjes vroeg of laat uiteen en krijgen
+deelnemers andere instructies dan hun organisator. De deelnemerspagina is
+daarvoor omgebouwd; die ziet er hetzelfde uit als daarvoor (nagekeken).
+
+### Twee keuzes die ik heb gemaakt
+
+1. **De zeven teamkleuren staan als gekleurde stipjes**, niet als opsomming in
+   lopende tekst. Je ziet zo in één blik dat het er zeven zijn en welke.
+2. **De hero-uitsnede staat laag in de foto.** De zoekbalk met
+   "escapemasters.online" zit bovenin het beeld en botste met de kop; nu blijft
+   de hand met het netwerk over als achtergrond.
+
+Nagemeten: geen zijwaarts schuiven op 390px breed, kleinste tekst 16px, beide
+downloadbestanden zijn bereikbaar, geen mislukte beeldverzoeken.
+
+### Tweede ronde, dezelfde dag
+
+- **C** — De hero is hoger (620 in plaats van 540px) en het beeld staat op
+  `center 42%`, zodat de wijzende vinger ongeveer in het midden valt en de kop
+  op de helft van de band staat.
+- **T** — "escape room" is in de aanhef "escaperoom" geworden, één woord.
+- **B** — Het beeld bij de uitnodiging is opnieuw uitgesneden, nu rond het
+  HELPDESK-scherm midden achterin, en op ware verhouding (1600×1200 = 4:3). De
+  eerste versie was 1400×1400 en dus platgeslagen.
+- **T** — Bij "De uitnodiging" is de alinea over de deelnemerspagina eruit; de
+  verwijzing zit nu als link op het woord *deelnemerspagina* in de laatste
+  opsomming. Diezelfde link staat ook bij de agenda-afspraak.
+- **T** — De korte technische instructie is ingekort tot drie zinnen, met
+  toestemming voor cookies erin.
+- **T** — "Kom op tijd" staat als opsommingspunt direct onder de link naar
+  R@venHack.
+- **T** — De voorbeeldteksten dragen geen contactgegevens van MeetingMasters
+  meer: die uitnodigingen zijn van de organisator, niet van ons. In de
+  agendatekst staat nu ook het akkoord op cookies, met "altijd toestaan".
+
+### Iets om te onthouden: de beeldcache van Next
+
+Tijdens het bijstellen bleek de pagina lokaal nog de oude, vierkante uitsnede te
+tonen terwijl het bestand allang vervangen was. Next bewaart geoptimaliseerde
+beelden in `.next/cache/images` met het **pad** als sleutel, niet de inhoud.
+Vervang je een beeld onder dezelfde naam, dan blijft de oude versie hangen.
+Oplossing: `rm -rf .next/cache/images` en opnieuw starten. Op de live site speelt
+dit niet — daar is nagemeten dat de goede versies staan.
+
+### Derde ronde: de vlakverdeling
+
+- **C** — **De hero is verder uitgezoomd.** De band is nu 740px hoog tegen 620;
+  daarmee wordt er nauwelijks nog bijgesneden en valt de zoekbalk met
+  "escapemasters.online" rustig binnen de hero, met de wijzende vinger in het
+  midden. Kop, hulpknop en logo staan verder uit elkaar, zodat de drie
+  elementen het vlak verdelen in plaats van tegen elkaar aan te staan.
+- **C** — **De drie blokken staan nu op 2/3 tekst en 1/3 beeld**, met een beeld
+  dat precies zo hoog is als de tekst ernaast. Gemeten: teams 340 om 340,
+  uitnodiging 328 om 328, agenda 516 om 516. Beeld en tekst wisselen per blok
+  van kant, zodat de pagina een ritme krijgt.
+- **C** — **De beelden worden bijgesneden, niet samengeduwd.** Dat gebeurt met
+  `object-cover` in een kolom die de rijhoogte volgt; per beeld staat met
+  `objectPosition` ingesteld welk deel in beeld blijft. Zie `BeeldKolom` in de
+  component. De vorige versies waren wél uitgerekt.
+- **C** — De teamsectie heeft weinig tekst; zonder ondergrens werd het beeld
+  ernaast een postzegel. Die rij is nu minimaal 340px hoog, met de tekst
+  verticaal gecentreerd.
+
+Het blok met de technische tips onderaan staat nog op halve kolommen. Dat is het
+gedeelde blok met de deelnemerspagina; aanpassen verandert die pagina mee.
+
+### Vierde ronde: nieuwe hero-foto en een andere verdeling
+
+- **B** — Nieuwe hero-foto (Downloads → `UK Designs Escape (14).png`): de
+  zoekbalk staat daar midden in de bol, met lucht eromheen, dus er valt beter
+  uit te snijden.
+- **C** — **De hero is terug naar 540px.** Bij 740 was hij onnodig hoog.
+- **C** — **De tekst staat nu onderin de band, niet in het midden.** Dat moest
+  wel: de zoekbalk zit precies op halve hoogte in de foto, dus een uitsnede uit
+  het midden zette de kop er pal bovenop en was allebei onleesbaar. Nu staat de
+  balk in de bovenste strook en heeft de tekst het onderste deel voor zich. De
+  ruimte onder het logo is daarmee 48px in plaats van 126.
+- **C** — **Bij "De uitnodiging" is de verhouding omgedraaid:** 1/3 tekst, 2/3
+  beeld. De andere twee blokken houden 1/3 beeld en 2/3 tekst, waardoor de
+  pagina afwisselt tussen een klein en een groot beeld in plaats van drie keer
+  hetzelfde.
+
+### Vijfde ronde: de hand in beeld en een nieuw agendabeeld
+
+- **B** — **De hero-foto is nu vooraf bijgesneden op de vorm van de band**
+  (2163×810, precies 2,67:1) in plaats van door de browser te laten bijsnijden.
+  Daardoor staat de hele klikkende hand erin: de vinger die de zoekbalk raakt,
+  de vuist en de pols. In de component staat `objectPosition: center center`;
+  daar hoeft niets meer verschoven te worden.
+- **C** — Het egale schermpje over de hero is een verloop geworden: donker
+  onderin waar de tekst staat, bijna doorzichtig bovenin waar de vinger en de
+  zoekbalk zitten. Zo zijn allebei goed te zien.
+- **B** — **Nieuw beeld bij de agenda** (Downloads → `(Engels) (8).png`),
+  bijgesneden tot 1200×1800 rond de staande schaduwfiguur, zodat die over de
+  volle hoogte van de kolom staat. Het laptopbeeld is vervallen. Als bijvangst
+  brengt dit beeld kleur op een pagina die verder blauwgrijs is.
+
+### Zesde ronde: gewoon uitzoomen
+
+De vorige uitsnede was te krap. Nu de volle breedte van de foto (3200×1199,
+y 240–1439): de hele bol, de zoekbalk en de klikkende hand passen erin, en de
+vingertop komt op 45% van de band uit — net boven het midden. De band is 600px;
+de tekst begint op 48%, direct onder de zoekbalk, en eindigt 40px boven de
+onderrand.
+
+### Zevende ronde
+
+- **B** — Hero een fractie hoger: de vingertop staat nu op 40% van de band in
+  plaats van 45%.
+- **B** — Het beeld bij de uitnodiging is opnieuw uit de originele foto
+  gesneden, nu als liggende band van 2560×1252 (2,04:1) — dezelfde vorm als het
+  kader waarin het staat. De vorige versie was een 4:3-uitsnede in een
+  2:1-kader; technisch alleen bijgesneden, maar het oogde samengeduwd.
+- **B** — Het beeld bij de agenda is al vervangen door de schaduwfiguur
+  (1200×1800, volle hoogte van de foto). Verder dan dit gaat niet: in de
+  originele foto loopt de figuur onderaan zelf uit beeld.
+
+### En de reden dat de oude beelden bleven staan
+
+De nieuwe beelden stonden allang goed op de server — nagemeten: de uitnodiging
+kwam als 1080×528 (2,05) binnen en de agenda als 1080×1620 (0,67). Toch zag
+Emilie de oude versies. Oorzaak: Next stuurt geoptimaliseerde beelden mee met
+`Cache-Control: max-age=2592000` en het **pad** als sleutel. Omdat ik de
+bestanden onder dezelfde naam verving, veranderde het webadres niet en haalde
+haar browser ze niet opnieuw op.
+
+Alle vier de beelden op deze pagina heten daarom nu `organisatoren-…-v2.webp`.
+Dat is meteen de afspraak voor de toekomst: een vervangen beeld krijgt een
+nieuwe naam, geen nieuwe inhoud onder de oude naam.

@@ -338,3 +338,51 @@ lag die dubbel over de Nederlandse.
 Komt er ooit een échte Nederlandse versie mét aantekeningen, vervang dan
 `1klik-scene.webp` — verder hoeft er niets te veranderen.
 
+
+---
+
+## Organisatorenpagina R@venHack — `/nl/games-tools/ravenhack/organisatoren`
+
+Gebouwd 2 september 2026. Buiten het menu en buiten de sitemap.
+
+| Plek | Bestand | Bron |
+|---|---|---|
+| Hero | `/images/organisatoren-hero-v2.webp` (2560×1440) | Downloads → `UK Designs Escape (14).png` |
+| Logo op de hero | `/images/logos/escape-masters-wit.webp` | zelfde als op de deelnemerspagina |
+| Teamindeling | `/images/organisatoren-teams-v2.webp` (1800×1013) | Downloads → `(Engels) (7).png` |
+| Uitnodiging | `/images/organisatoren-uitnodiging-v2.webp` (2560×1252) | Downloads → `UK Designs Escape (12).png`, liggende band x 420–2980, y 520–1772 (2,04:1) |
+| Agenda-afspraak | `/images/organisatoren-agenda-v2.webp` (1200×1800) | Downloads → `(Engels) (8).png`, staande uitsnede rond de schaduwfiguur op x 814 |
+| Technische tips | `/images/deelnemers-veilig.webp` | gedeeld met de deelnemerspagina |
+
+**De hero is vooraf bijgesneden op de vorm van de band**: 3200×1199 uit
+`UK Designs Escape (14).png` (y 300–1499), precies 2,67:1. Dat is de volle
+breedte van de foto — zo ver uitgezoomd als deze bandvorm toelaat — waardoor de
+hele bol, de zoekbalk en de klikkende hand erin passen. De vingertop die klikt
+komt daarmee op 40% van de band uit, net boven het midden.
+
+In de component staat daarom `objectPosition: center center`. Wil je het anders,
+snijd dan het bestand anders uit; ga niet schuiven met `objectPosition`, want dan
+verlies je juist wat je wilt laten zien.
+
+De tekst staat onderin de band (`items-end`), met een verloop dat onderin donker
+is en bovenin bijna doorzichtig. Zo blijft de klikkende vinger zichtbaar en heeft
+de tekst toch een leesbare ondergrond.
+
+**Waarom `-v2` in de bestandsnamen staat.** Next stuurt geoptimaliseerde
+beelden mee met een cache van dertig dagen, met het pad als sleutel. Vervang je
+een beeld onder dezelfde naam, dan blijven browsers de oude versie tonen — ook al
+staat de nieuwe allang op de server, en ook al gooi je `.next/cache/images` weg.
+Een nieuwe bestandsnaam is de enige zekere manier. Vervang je hier ooit een
+beeld, hernoem het dan naar `-v3`.
+
+**Elk beeld is vooraf uitgesneden op ongeveer de vorm van zijn kader.** Dat is
+de les van deze pagina: laat je de browser een 4:3-foto in een 2:1-kader
+bijsnijden, dan ziet dat er samengeduwd uit, ook al ís het technisch alleen
+bijgesneden. Snijd het bestand op maat, dan klopt het beeld.
+
+**De drie beelden naast de tekst worden bijgesneden, niet geschaald.** Ze zitten
+in `BeeldKolom`: een kolom die de hoogte van de tekst ernaast volgt, met
+`object-cover` en een `objectPosition` per beeld. Zo is het beeld altijd precies
+zo hoog als de tekst en wordt er nooit iets uitgerekt. Wil je een ander deel van
+een foto zien, verander dan de `positie` op de `BeeldKolom` — niet het bestand.
+

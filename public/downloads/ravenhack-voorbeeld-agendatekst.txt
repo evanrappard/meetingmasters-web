@@ -1,0 +1,43 @@
+VOORBEELDTEKST - AGENDA-UITNODIGING R@VENHACK
+Vul de delen tussen [ ] in en zet deze tekst in de afspraak.
+
+
+TITEL AFSPRAAK
+R@venHack | Online escape room
+
+
+LOCATIE
+Online - SpatialChat
+
+
+TEKST AGENDA-UITNODIGING
+
+Op [datum] om [tijd] spelen we samen R@venHack.
+
+
+Link naar de game
+[LINK NAAR R@VENHACK]
+
+Kom op tijd. We starten meteen.
+
+
+Teamindeling
+Geel:   [namen]
+Groen:  [namen]
+Blauw:  [namen]
+Rood:   [namen]
+Roze:   [namen]
+Oranje: [namen]
+Paars:  [namen]
+
+
+Voorbereiden
+Bekijk vooraf de deelnemerspagina:
+https://www.meetingmasters.online/nl/games-tools/ravenhack/deelnemers
+
+
+Let op: kom op je eigen laptop of computer. Dit werkt niet als je samen
+via een scherm deelneemt: 1 speler = 1 scherm. Je hoeft niets te
+downloaden. Open de link in je browser via Chrome, Edge of Firefox. Vul
+je naam in, met een korte beschrijving. Geef toestemming voor cookies -
+kies "altijd toestaan" - en voor het gebruik van je camera en microfoon.
