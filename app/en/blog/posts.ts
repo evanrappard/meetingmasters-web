@@ -32,6 +32,80 @@ export type BlogPostEN = BlogPost & { nlSlug: string };
 
 const ONGESORTEERD: BlogPostEN[] = [
   {
+    "slug": "what-does-that-cost",
+    "nlSlug": "wat-kost-dat",
+    "rubriek": "online-ontmoeten",
+    "title": "What does that cost?",
+    "date": "September 2, 2026",
+    "iso": "2026-09-02",
+    "img": "/images/blog/wat-kost-dat.webp",
+    "imgAlt": "An empty meeting room with the meeting cost calculator on the projection screen",
+    "excerpt": "“Roughly what does that cost?” is one of the hardest questions we get. The largest cost is not the room or the catering — it is the people.",
+    "dek": "The price of a gathering depends on many things. But the largest cost is always the same: the number of participants times the time they put in.",
+    "metaDescription": "What does a meeting cost? The largest cost is people’s hours, not the room. On budget, the choice between online and in person, and the difference it makes.",
+    "readingMinutes": 4,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "“Roughly what does that cost?”, often with nothing more to go on, is one of the hardest questions that reaches us. The price of a gathering depends on so many things. What kind of meeting? With what purpose? Where? For how long? And with whom?"
+      },
+      {
+        "type": "h2",
+        "text": "People make meetings"
+      },
+      {
+        "type": "p",
+        "text": "The largest cost of a gathering is the people. The number of participants times the time they put in. Ten people, two hours together, is twenty working hours. That does not yet include the hours of preparation. Or the ones for the next steps. Twenty hours, before anyone has travelled anywhere or poured a coffee. And hours like that add up fast."
+      },
+      {
+        "type": "h2",
+        "text": "Budget mostly decides the form"
+      },
+      {
+        "type": "p",
+        "text": "The biggest effort in organising a special meeting or event does not go into limiting those hours. Nor into sharpening the purpose, the preparation and the next steps. The attention and the discussion go, surprisingly often, to the venue and the catering. That is where the budget pinches. The cost of time is already hidden in the salaries."
+      },
+      {
+        "type": "h2",
+        "text": "Choose your colour and your channel"
+      },
+      {
+        "type": "p",
+        "text": "When the question of where comes up, the option of holding even the meetings that really matter online presents itself more and more. For many people it is simply easier to be there. You can take part from wherever you are. Someone working from home for the day, or unable to travel just now, joins in anyway. International colleagues are present without a flight. And you can come together more often, in short sessions rather than one big day a quarter. On the other hand, meeting in person is traditionally the safe choice. And eating together at length, preferably with a hotel, is still thought of as attractive. More luxurious. But with a hefty price tag."
+      },
+      {
+        "type": "h2",
+        "text": "Online is not free, but it is a lot cheaper"
+      },
+      {
+        "type": "p",
+        "text": "The cost of online is easy to survey. A platform, some data traffic… Real, but modest. Put that next to a physical gathering and it fades into nothing. No travel time, no kilometres, no hotel, no catering for a whole room. Research in Nature Communications also shows that switching entirely to online lowers the footprint of a conference by 94 percent. On cost, the difference runs just as high."
+      },
+      {
+        "type": "p",
+        "text": "And the longer the gathering lasts, the harder that counts. One online hour saves a journey. An online two-day event saves two hotel nights, two dinners and an extra day away from home. Times everyone who would otherwise have had to come."
+      },
+      {
+        "type": "h2",
+        "text": "Put them side by side"
+      },
+      {
+        "type": "p",
+        "text": "Not every gathering belongs online, and not every gathering justifies a room full of travellers. It depends on your purpose, your group and your programme. What the difference roughly costs, in time, money and CO₂, is quickest to see when you put online and in person side by side."
+      },
+      {
+        "type": "cta",
+        "text": "The meeting cost calculator does that for you. It helps you get your bearings faster, and to back up your choices.",
+        "label": "Go to the meeting cost calculator",
+        "href": "/en/meeting-calculator"
+      },
+      {
+        "type": "p",
+        "text": "PS. The largest invisible slip in terms of cost? Shaky quality. An unclear purpose, too many people, too little involvement, and decisions so wobbly that you have to take them again later. Employees themselves call almost a third of their meetings unnecessary, as organisational psychologist Steven Rogelberg calculated. The most expensive meeting is the one you hold twice."
+      }
+    ]
+  },
+  {
     "slug": "play-is-good-for-nothing",
     "nlSlug": "spel-is-nergens-goed-voor",
     "rubriek": "meetingontwerp",

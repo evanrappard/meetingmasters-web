@@ -44,6 +44,7 @@ const PAREN: Array<[nl: string, en: string]> = [
   ["/blog/acht-grens", "/blog/the-rule-of-eight"],
   ["/blog/stok-om-mee-te-slaan", "/blog/blaming-online"],
   ["/blog/olympiers", "/blog/an-online-home-for-olympians"],
+  ["/blog/wat-kost-dat", "/blog/what-does-that-cost"],
 
   // ── Contact en formulieren ──
   ["/contact", "/contact"],

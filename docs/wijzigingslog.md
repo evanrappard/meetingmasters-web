@@ -3343,3 +3343,30 @@ Vier dingen bijgesteld, op aanwijzing van Emilie:
   **gecentreerd** heeft. Nu is het midden van de kop op 72% van de breedte —
   op de oude pagina was dat 74%.
 
+
+
+---
+
+## 2 september 2026 — blog: "Wat kost dat?"
+
+- **T** — Nieuw artikel in beide talen: `/nl/blog/wat-kost-dat` en
+  `/en/blog/what-does-that-cost`. Rubriek **Online ontmoeten**, 4 minuten
+  lezen. Tekst van Emilie, letterlijk overgenomen.
+- **B** — Beeld `/images/blog/wat-kost-dat.webp` (1600×900, 55 kB), uit
+  `~/Downloads/Kantoorruimte.png`: een lege vergaderzaal met de
+  vergaderkosten-calculator op het projectiescherm.
+- **C** — Het taalpaar staat in `lib/talen.ts`, dus de NL/EN-schakelaar springt
+  van het ene artikel naar het andere in plaats van naar de blogpagina.
+
+### Eén ding aangepast aan de aangeleverde tekst
+
+De tekst noemde de tool twee keer "de Meeting Cost Calculator". Op de site heet
+hij **vergaderkosten-calculator** (Engels: *meeting cost calculator*) en staat
+hij op `/nl/meeting-calculator` en `/en/meeting-calculator`. In het artikel staat
+nu die naam, en de knop eronder wijst naar de juiste pagina per taal. Wil je in
+de lopende tekst tóch "Meeting Cost Calculator" aanhouden, dan is dat één regel.
+
+Nagelopen: het artikel staat bovenaan het overzicht in beide talen, de
+taalwissel springt naar de goede tegenhanger, beide staan in de sitemap, de knop
+komt uit op een pagina die bestaat, geen mislukte beeldverzoeken en geen
+zijwaarts schuiven op 390px breed.

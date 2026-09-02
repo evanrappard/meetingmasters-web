@@ -50,6 +50,79 @@ export type BlogPost = {
  */
 const ONGESORTEERD: BlogPost[] = [
   {
+    "slug": "wat-kost-dat",
+    "rubriek": "online-ontmoeten",
+    "title": "Wat kost dat?",
+    "date": "2 september 2026",
+    "iso": "2026-09-02",
+    "img": "/images/blog/wat-kost-dat.webp",
+    "imgAlt": "Een lege vergaderzaal met de vergaderkosten-calculator op het projectiescherm",
+    "excerpt": "‘Wat kost dat ongeveer?’ is één van de lastigste vragen die bij ons binnenkomen. De grootste kostenpost zit namelijk niet in de zaal of de catering, maar in de mensen.",
+    "dek": "De prijs van een bijeenkomst hangt af van veel factoren. Maar de grootste kostenpost is altijd dezelfde: het aantal deelnemers keer de tijd die ze erin steken.",
+    "metaDescription": "Wat kost een bijeenkomst? De grootste kostenpost zijn de mensuren, niet de zaal. Over budget, de keuze tussen online en fysiek, en het verschil dat dat maakt.",
+    "readingMinutes": 4,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "‘Wat kost dat ongeveer’, vaak zonder verdere toelichting, is één van de lastigste vragen die bij ons binnenkomen. De prijs van een bijeenkomst is namelijk afhankelijk van veel factoren. Wat voor een meeting? Met welk doel? Waar? Hoe lang? En met wie?"
+      },
+      {
+        "type": "h2",
+        "text": "Mensen maken meetings"
+      },
+      {
+        "type": "p",
+        "text": "De grootste kostenpost van een bijeenkomst zijn de mensen. Het aantal deelnemers keer de tijd die ze erin steken. Tien mensen, twee uur samen, zijn twintig werkuren. De uren voor de voorbereiding zitten er dan nog niet in. Of die voor de next steps. Twintig uur, nog voordat iemand heeft gereisd of koffie heeft ingeschonken. En dat soort uren tikt snel door."
+      },
+      {
+        "type": "h2",
+        "text": "Budget bepaalt vooral vorm"
+      },
+      {
+        "type": "p",
+        "text": "De grootste inspanning bij de organisatie van bijzondere meetings en events ligt niet in het begrenzen van de mensuren. Niet in het scherpstellen van doel, voorbereiding en next steps. De aandacht en de discussies gaan verrassend vaak over locatie en catering. Dat is waar het budget voelbaar knelt. De kosten van tijd zitten namelijk al verstopt in de lonen."
+      },
+      {
+        "type": "h2",
+        "text": "Kies kleur en kanaal"
+      },
+      {
+        "type": "p",
+        "text": "Bij de locatievraag dient zich steeds vaker de keuze aan om ook bijeenkomsten die er echt toe doen online te houden. Het is voor veel mensen eenvoudiger aanwezig te zijn. Meedoen kan vanaf je eigen plek. Wie een dag thuiswerkt of even niet kan reizen, schuift toch aan. Internationale collega’s zijn erbij zonder vliegtuig. En je kunt vaker samenkomen, in korte sessies in plaats van één grote dag per kwartaal. Daar staat tegenover dat fysiek contact traditioneel de veilige keuze is. En dat samen uitgebreid eten, liefst met een hotel, nog steeds aantrekkelijk wordt gevonden. Luxer. Maar met een stevig prijskaartje."
+      },
+      {
+        "type": "h2",
+        "text": "Online is niet gratis, maar veel goedkoper"
+      },
+      {
+        "type": "p",
+        "text": "De kosten van online zijn overzichtelijk. Een platform, dataverkeer… Reëel, maar bescheiden. Zet dat naast een fysieke bijeenkomst en het valt in het niet. Geen reistijd, geen kilometers, geen hotel, geen catering voor een hele zaal. Onderzoek in Nature Communications laat bovendien zien dat volledig online schakelen de voetafdruk van een congres met 94 procent verlaagt. Op de kosten loopt het verschil net zo hoog op."
+      },
+      {
+        "type": "p",
+        "text": "En hoe langer de bijeenkomst duurt, hoe harder dat telt. Eén online uur scheelt een reis. Een online tweedaagse scheelt twee hotelnachten, twee diners en een dag extra van huis. Keer iedereen die anders had moeten komen."
+      },
+      {
+        "type": "h2",
+        "text": "Zet ze naast elkaar"
+      },
+      {
+        "type": "p",
+        "text": "Niet elke bijeenkomst hoort online en niet elke bijeenkomst rechtvaardigt een zaal vol reizigers. Het hangt af van je doel, je groep en je programma. Wat het verschil grofweg kost, in tijd, geld en CO₂, zie je het snelst als je online en offline naast elkaar legt."
+      },
+      {
+        "type": "cta",
+        "text": "De vergaderkosten-calculator doet dat voor je. Dat helpt om je sneller te oriënteren en keuzes ook te onderbouwen.",
+        "label": "Naar de vergaderkosten-calculator",
+        "href": "/nl/meeting-calculator"
+      },
+      {
+        "type": "p",
+        "text": "PS. De grootste onzichtbare uitglijder in termen van kosten? Wankwaliteit. Een onduidelijk doel, te veel mensen, te weinig betrokkenheid en besluiten die zo wankel zijn dat je ze later opnieuw moet nemen. Werknemers noemen zelf bijna een derde van hun vergaderingen overbodig, berekende organisatiepsycholoog Steven Rogelberg. De duurste meeting is de meeting die je twee keer houdt."
+      }
+    ]
+  },
+  {
     "slug": "spel-is-nergens-goed-voor",
     "rubriek": "meetingontwerp",
     "title": "Spel is nergens goed voor. Dat is erg nuttig.",
