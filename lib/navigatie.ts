@@ -127,7 +127,9 @@ export const NAV_ITEMS: NavItem[] = [
     },
     children: [
       { label: "Meeting Platforms", labelEn: "Meeting platforms", href: "/nl/technologie/tools" },
-      { label: "SpatialChat", labelEn: "SpatialChat", href: "/nl/technologie/spatialchat" },
+      // SpatialChat staat er tijdelijk niet in: die pagina is nog niet af.
+      // De route bestaat wél nog — zie app/sitemap.ts (NIET_INDEXEREN) en de
+      // robots-regel op de pagina zelf. Terugzetten is deze regel terugzetten.
     ],
   },
   {

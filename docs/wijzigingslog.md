@@ -67,6 +67,7 @@ leeft in de paginacode, niet in een apart bestand).
 | 36 | **Supabase-project `mgkzogvgqpfvsynrfera` staat nog bij supabase.com** terwijl de site het nergens meer gebruikt (opgeruimd 31 aug 2026). Nakijken of er een abonnement aan hangt en of er nog bestanden in staan die je wilt bewaren; daarna pauzeren of opheffen. Het oude punt over aanmeldingen uitzetten vervalt daarmee | C | Emilie | open |
 | 38 | **Verwerkersovereenkomst met strds.nl opvragen.** Het script leest mee met wat mensen in onze HubSpot-formulieren invullen, dus er gaan persoonsgegevens naar een derde partij. Vraag bij de leverancier op: (a) een verwerkersovereenkomst, (b) wélke formuliervelden ze bewaren, (c) hoe lang, (d) waar de gegevens staan (binnen of buiten de EU), (e) of ze de gegevens ook voor zichzelf gebruiken. Hun bedrijfsnaam en KvK horen daar ook bij — `strds.nl` zegt op zichzelf niets | T | Emilie | open — Emilie vraagt op |
 | 39 | **Privacyverklaring aanvullen met de bezoekerherkenning.** De cookieverklaring noemt `_stfv` al; de privacyverklaring nog niet. Emilie verzamelt de gegevens (zie punt 38), daarna schrijft de bouwer het stuk in beide talen | T | bouwer | wacht op punt 38 |
+| 40 | **SpatialChat-pagina staat tijdelijk uit beeld** (3 sept 2026): uit het menu, uit de sitemap en op noindex, omdat de pagina nog niet goed genoeg is. De inhoud staat er nog. Afmaken en weer aanzetten — hoe, staat in het wijzigingslog bij die datum | T C | Emilie | open |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -3718,3 +3719,38 @@ onleesbaar, en precies wat Emilie zag.
 kleur niet als `from-[#hex]/85`. Dat lijkt te werken maar levert geen CSS op.
 Gebruik een inline `linear-gradient()`, of een hexwaarde met alfa (`#2D2D2DD9`).
 
+
+
+---
+
+## 3 september 2026 — SpatialChat-pagina tijdelijk uit beeld
+
+De pagina is nog niet goed genoeg en moest weg voor bezoekers, maar wel bewaard
+blijven. Daarom niet verwijderd: onzichtbaar gemaakt. De route bestaat nog, dus
+oude links en gedeelde adressen geven geen foutmelding.
+
+- **C** — Uit het menu (`lib/navigatie.ts`), onder Tech hulp.
+- **C** — Uit de sitemap (`NIET_INDEXEREN`) en `robots: index false, follow
+  false` op beide pagina's, zodat Google ze loslaat.
+- **C** — Het gele **Favoriet**-label bij SpatialChat op Meeting Platforms was
+  een link naar die pagina; dat is nu een gewoon labeltje. `PlatformKeuze` kan
+  daarvoor sinds nu een badge zonder `href` aan.
+- **C** — Twee doorverwijzingen wézen naar die pagina: `/nl/spatialchat` en
+  `/nl/technologie/hoe-het-werkt`. Die gaan nu naar `/nl/technologie/tools`, en
+  **tijdelijk** (307 in plaats van 308) — zo begrijpt Google dat het geen
+  blijvende verhuizing is.
+
+Nagemeten: beide pagina's geven nog gewoon 200 met `noindex, nofollow`, staan
+niet meer in de sitemap, en er linkt niets meer naartoe vanaf het menu, de
+homepage of de platformspagina.
+
+### Terugzetten is vier dingen
+
+1. de `robots`-regel uit `app/nl/technologie/spatialchat/page.tsx` en
+   `app/en/spatialchat/page.tsx`;
+2. de twee adressen uit `NIET_INDEXEREN` in `app/sitemap.ts`;
+3. de menuregel terug in `lib/navigatie.ts`;
+4. de `href` terug op het Favoriet-label in `app/nl/technologie/tools/data.ts`,
+   en de twee doorverwijzingen in `next.config.ts` weer op de pagina zetten.
+
+Dat staat ook als opmerking bovenaan allebei de pagina's.

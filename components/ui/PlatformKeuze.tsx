@@ -22,7 +22,8 @@ export type Platform = {
   wanneer: string;
   body: string;
   accent: string;
-  badge?: { label: string; href: string };
+  /** Het gele labeltje rechtsboven. Zonder `href` is het alleen een label. */
+  badge?: { label: string; href?: string };
 };
 
 export default function PlatformKeuze({
@@ -50,15 +51,20 @@ export default function PlatformKeuze({
               actief ? "border-[#EEBE3D] bg-[#FFFBEE]" : "border-[#EBEBEB] bg-white hover:bg-[#FFFBEE]"
             }`}
           >
-            {p.badge && (
-              <Link
-                href={p.badge.href}
-                onClick={(e) => e.stopPropagation()}
-                className="absolute top-4 right-4 bg-[#EEBE3D] text-[#2D2D2D] text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded hover:bg-[#D4A835] transition-colors"
-              >
-                {p.badge.label}
-              </Link>
-            )}
+            {p.badge &&
+              (p.badge.href ? (
+                <Link
+                  href={p.badge.href}
+                  onClick={(e) => e.stopPropagation()}
+                  className="absolute top-4 right-4 bg-[#EEBE3D] text-[#2D2D2D] text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded hover:bg-[#D4A835] transition-colors"
+                >
+                  {p.badge.label}
+                </Link>
+              ) : (
+                <span className="absolute top-4 right-4 bg-[#EEBE3D] text-[#2D2D2D] text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded">
+                  {p.badge.label}
+                </span>
+              ))}
 
             <img
               src={`/images/logos/tools/${p.bestand}.webp`}

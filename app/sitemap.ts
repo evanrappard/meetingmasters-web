@@ -32,6 +32,10 @@ export const NIET_INDEXEREN = new Set([
   "/en/games-tools/ravenhack/1click",
   "/nl/games-tools/ravenhack/organisatoren",
   "/en/games-tools/ravenhack/organisers",
+  // SpatialChat staat tijdelijk uit beeld: de pagina is nog niet af. De route
+  // blijft bestaan, dus oude links geven geen foutmelding.
+  "/nl/technologie/spatialchat",
+  "/en/spatialchat",
   "/nl/csr",
   "/nl/escape-rooms",
   "/nl/meeting-formats",

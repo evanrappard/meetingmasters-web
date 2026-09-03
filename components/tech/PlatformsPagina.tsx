@@ -28,7 +28,7 @@ export default function PlatformsPagina({ taal = "nl" }: { taal?: Taal }) {
       wanneer: en?.wanneer ?? p.wanneer,
       body: en?.body ?? p.body,
       badge: p.badge
-        ? { label: engels ? PLATFORMS_EN.platforms.badge : p.badge.label, href: engels ? t.links.spatialchat : p.badge.href }
+        ? { label: engels ? PLATFORMS_EN.platforms.badge : p.badge.label, href: p.badge.href }
         : undefined,
     };
   });

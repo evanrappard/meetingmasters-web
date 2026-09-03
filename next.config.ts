@@ -140,7 +140,7 @@ const nextConfig: NextConfig = {
       // wél nog in Google staan mét omschrijving. Elke oude ranking en elke
       // gedeelde link liep dus dood. Doelen gekozen op wat er inhoudelijk het
       // dichtst bij ligt.
-      { source: "/nl/spatialchat", destination: "/nl/technologie/spatialchat", permanent: true },
+      { source: "/nl/spatialchat", destination: "/nl/technologie/tools", permanent: false },
       { source: "/nl/webinar", destination: "/nl/events/webinar", permanent: true },
       { source: "/nl/zoom", destination: "/nl/technologie/tools", permanent: true },
       { source: "/nl/zoom-events", destination: "/nl/technologie/tools", permanent: true },
@@ -189,7 +189,7 @@ const nextConfig: NextConfig = {
       { source: "/nl/technologie/faq", destination: "/nl/technologie/hulp", permanent: true },
       { source: "/nl/technologie/helpdesk", destination: "/nl/technologie/hulp", permanent: true },
       { source: "/nl/technologie/platforms", destination: "/nl/technologie/tools", permanent: true },
-      { source: "/nl/technologie/hoe-het-werkt", destination: "/nl/technologie/spatialchat", permanent: true },
+      { source: "/nl/technologie/hoe-het-werkt", destination: "/nl/technologie/tools", permanent: false },
       { source: "/nl/technologie/support", destination: "/nl/technologie/tools", permanent: true },
       // De losse platformpagina's en de oude hub zijn opgegaan in het
       // overzicht op /tools. SpatialChat houdt wel een eigen pagina.
