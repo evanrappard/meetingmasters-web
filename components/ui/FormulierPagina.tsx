@@ -16,6 +16,15 @@ const T = {
     adviesHref: "/nl/expert-advies",
     mailKop: "Mail ons",
     belKop: "Bel ons",
+    duurKop: "We maken graag tijd voor een goed gesprek. Kies wat jou past:",
+    duren: [
+      { duur: "20 minuten", wat: "Eén vraag, of een korte rondleiding door de ruimte.", wanneer: "Als de vraag scherp is." },
+      { duur: "30 minuten", wat: "Kort kennismaken, of een gesprek met een concreet doel.", wanneer: "Als er iets speelt." },
+      { duur: "50 minuten", wat: "Een gesprek dat verder komt dan de eerste vraag.", wanneer: "Als het gesprek net begint." },
+    ],
+    anders: "Andere tijden nodig, of niets vrij op korte termijn? ",
+    andersLink: "Neem gewoon even contact op",
+    andersHref: "/nl/contact",
   },
   en: {
     directKop: "Rather talk to someone?",
@@ -25,6 +34,15 @@ const T = {
     adviesHref: "/en/expert-advice",
     mailKop: "Email us",
     belKop: "Call us",
+    duurKop: "We are glad to make time for a proper conversation. Pick what suits you:",
+    duren: [
+      { duur: "20 minutes", wat: "One question, or a short tour of the space.", wanneer: "When the question is sharp." },
+      { duur: "30 minutes", wat: "A short introduction, or a conversation with a clear aim.", wanneer: "When something is going on." },
+      { duur: "50 minutes", wat: "A conversation that gets past the first question.", wanneer: "When the conversation is only starting." },
+    ],
+    anders: "Need a different length, or nothing free soon? ",
+    andersLink: "Just get in touch",
+    andersHref: "/en/contact",
   },
 } as const;
 
@@ -134,7 +152,32 @@ export default function FormulierPagina({
               <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-2">{formulierKop}</h2>
               <p className="text-sm text-[#434343] leading-relaxed mb-6">{formulierUitleg}</p>
               {agenda ? (
-                <HubSpotAgenda link={HUBSPOT_AGENDA} taal={taal} />
+                <>
+                  {/* Uitleg bóven de kalender, niet erin: HubSpot toont bij de
+                      duurknoppen alleen "20 min" en "30 min", zonder een woord
+                      over wat je in die tijd kunt verwachten. Wie zelf moet
+                      inschatten hoe lang hij nodig heeft, weet dat niet. */}
+                  <div className="mb-6 rounded-lg border border-[#EBEBEB] bg-[#F7F7F5] p-5 sm:p-6">
+                    <p className="font-bold text-[#2D2D2D] mb-4">{t.duurKop}</p>
+                    <ul className="space-y-3">
+                      {t.duren.map((d) => (
+                        <li key={d.duur} className="text-[15px] leading-snug">
+                          <span className="font-bold text-[#2D2D2D]">{d.duur}</span>
+                          <span className="text-[#2D2D2D]"> — {d.wat}</span>
+                          <span className="block text-[#6E6E6E]">{d.wanneer}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-sm text-[#434343] mt-5">
+                      {t.anders}
+                      <Link href={t.andersHref} className="text-[#28A8AA] font-semibold hover:underline">
+                        {t.andersLink}
+                      </Link>
+                      .
+                    </p>
+                  </div>
+                  <HubSpotAgenda link={HUBSPOT_AGENDA} taal={taal} />
+                </>
               ) : (
                 <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor(formulier, taal)} taal={taal} stijl={FORMULIERVORM} />
               )}

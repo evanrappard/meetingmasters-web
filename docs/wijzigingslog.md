@@ -68,6 +68,7 @@ leeft in de paginacode, niet in een apart bestand).
 | 38 | **Verwerkersovereenkomst met strds.nl opvragen.** Het script leest mee met wat mensen in onze HubSpot-formulieren invullen, dus er gaan persoonsgegevens naar een derde partij. Vraag bij de leverancier op: (a) een verwerkersovereenkomst, (b) wélke formuliervelden ze bewaren, (c) hoe lang, (d) waar de gegevens staan (binnen of buiten de EU), (e) of ze de gegevens ook voor zichzelf gebruiken. Hun bedrijfsnaam en KvK horen daar ook bij — `strds.nl` zegt op zichzelf niets | T | Emilie | open — Emilie vraagt op |
 | 39 | **Privacyverklaring aanvullen met de bezoekerherkenning.** De cookieverklaring noemt `_stfv` al; de privacyverklaring nog niet. Emilie verzamelt de gegevens (zie punt 38), daarna schrijft de bouwer het stuk in beide talen | T | bouwer | wacht op punt 38 |
 | 40 | **SpatialChat-pagina staat tijdelijk uit beeld** (3 sept 2026): uit het menu, uit de sitemap en op noindex, omdat de pagina nog niet goed genoeg is. De inhoud staat er nog. Afmaken en weer aanzetten — hoe, staat in het wijzigingslog bij die datum | T C | Emilie | open |
+| 41 | **Boekingsagenda in HubSpot: twee instellingen.** (a) De duurknoppen staan op 30 / 20 / 50; zet ze op 20 / 30 / 50 en kies welke de standaard is. (b) Wil je op de Engelse pagina een gegarandeerd Engelse agenda, maak dan een tweede boekingslink met de taal op Engels — dan zet de bouwer die op /en/demo. Onze token heeft geen rechten op de agenda, dus dit kan alleen in de HubSpot-interface | C | Emilie | open |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -3754,3 +3755,45 @@ homepage of de platformspagina.
    en de twee doorverwijzingen in `next.config.ts` weer op de pagina zetten.
 
 Dat staat ook als opmerking bovenaan allebei de pagina's.
+
+
+---
+
+## 3 september 2026 — uitleg boven de boekingsagenda
+
+- **T C** — Boven de kalender op `/nl/demo` en `/en/demo` staat nu een blok dat
+  uitlegt wat je in 20, 30 of 50 minuten kunt verwachten. Tekst van Emilie. In
+  de volgorde 20 – 30 – 50, dus van kort naar lang. Eronder een regel voor wie
+  iets anders nodig heeft, met een link naar het contactformulier.
+
+Reden: HubSpot toont bij de duurknoppen alleen "20 min" en "30 min", zonder een
+woord over wat dat inhoudt. Wie zelf moet inschatten hoeveel tijd hij nodig
+heeft, weet dat niet.
+
+### Wat we in HubSpot zelf níét kunnen regelen
+
+Onze token heeft geen rechten op de agenda (`scheduler.meetings.meeting-link.read`
+ontbreekt), dus dit staat in de HubSpot-interface, bij de boekingspagina:
+
+1. **De volgorde van de duurknoppen** staat nog op 30 / 20 / 50. De eerste is
+   ook de standaardkeuze. Wil je 20 vooraan, dan zet je dat daar om.
+2. **Zelf een tijd kiezen (max 120 min) kan niet.** HubSpot werkt met vaste
+   duurknoppen, geen vrij in te vullen tijd. Vandaar de regel "Andere tijden
+   nodig?" met de link naar contact.
+
+### Twee dingen nagemeten die geen probleem blijken
+
+**De taal van de agenda volgt de browser, niet de site.** Dezelfde
+boekingslink, twee browsers: met een Nederlandse browser staat er "Meeting met
+Emilie van Rappard / Selecteer een dag in september", met een Engelse "Meet with
+Emilie van Rappard / Select a day in September". Een Engelstalige bezoeker krijgt
+dus vanzelf een Engelse agenda. Emilie ziet Nederlands omdat haar eigen computer
+Nederlands staat. Wil je het op de Engelse pagina afdwingen, dan is dat een
+instelling op de boekingspagina in HubSpot (of een tweede, Engelse boekingslink);
+in de site is er dan één regel nodig.
+
+**De tijdzone klopt en volgt de zomer- en wintertijd.** Gemeten met vier
+browsertijdzones: Amsterdam UTC+02:00, Londen UTC+01:00, Tokio UTC+09:00, New
+York UTC−04:00 — allemaal juist voor begin september. Het label komt uit de
+tijdzone van de bezoeker zelf, dus op 25 oktober springt Amsterdam vanzelf naar
+UTC+01:00. Daar hoeft niets voor te gebeuren.
