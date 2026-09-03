@@ -3,7 +3,6 @@ import { taalAlternates } from "@/lib/talen";
 import { Mail, Phone, Smartphone, CalendarDays } from "lucide-react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { HUBSPOT_FORMS, HUBSPOT_PORTAL_ID, HUBSPOT_AGENDA } from "@/lib/hubspot-forms";
-import AgendaUitleg from "@/components/ui/AgendaUitleg";
 import CTABlock from "@/components/ui/CTABlock";
 import { FORMULIERVORM } from "@/lib/hubspot-vorm";
 
@@ -66,12 +65,6 @@ export default function ExpertAdviesPage() {
                     <span className="block text-sm text-[#434343]">Je prikt zelf een tijd die je uitkomt</span>
                   </span>
                 </a>
-              </li>
-              <li>
-                {/* De link hierboven opent HubSpots eigen boekingspagina in een
-                    nieuw tabblad; onze uitleg gaat daar niet mee. Daarom staat
-                    hij hier, vóór de klik. */}
-                <AgendaUitleg taal="nl" />
               </li>
               <li>
                 <a

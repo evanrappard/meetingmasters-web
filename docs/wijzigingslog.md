@@ -68,7 +68,7 @@ leeft in de paginacode, niet in een apart bestand).
 | 38 | **Verwerkersovereenkomst met strds.nl opvragen.** Het script leest mee met wat mensen in onze HubSpot-formulieren invullen, dus er gaan persoonsgegevens naar een derde partij. Vraag bij de leverancier op: (a) een verwerkersovereenkomst, (b) wélke formuliervelden ze bewaren, (c) hoe lang, (d) waar de gegevens staan (binnen of buiten de EU), (e) of ze de gegevens ook voor zichzelf gebruiken. Hun bedrijfsnaam en KvK horen daar ook bij — `strds.nl` zegt op zichzelf niets | T | Emilie | open — Emilie vraagt op |
 | 39 | **Privacyverklaring aanvullen met de bezoekerherkenning.** De cookieverklaring noemt `_stfv` al; de privacyverklaring nog niet. Emilie verzamelt de gegevens (zie punt 38), daarna schrijft de bouwer het stuk in beide talen | T | bouwer | wacht op punt 38 |
 | 40 | **SpatialChat-pagina staat tijdelijk uit beeld** (3 sept 2026): uit het menu, uit de sitemap en op noindex, omdat de pagina nog niet goed genoeg is. De inhoud staat er nog. Afmaken en weer aanzetten — hoe, staat in het wijzigingslog bij die datum | T C | Emilie | open |
-| 41 | **Boekingsagenda in HubSpot: twee instellingen.** (a) De duurknoppen staan op 30 / 20 / 50; zet ze op 20 / 30 / 50 en kies welke de standaard is. (b) Wil je op de Engelse pagina een gegarandeerd Engelse agenda, maak dan een tweede boekingslink met de taal op Engels — dan zet de bouwer die op /en/demo. Onze token heeft geen rechten op de agenda, dus dit kan alleen in de HubSpot-interface. (c) Eventueel de uitleg over 20/30/50 minuten in de omschrijving van de boekingspagina zetten, zodat hij ook ín de agenda staat | C | Emilie | open |
+| 41 | **Boekingsagenda in HubSpot: twee instellingen.** (a) ~~De duurknoppen~~ **opgelost 3 sept: staan nu op 20 / 30 / 50 met 20 als standaard.** (b) Wil je op de Engelse pagina een gegarandeerd Engelse agenda, maak dan een tweede boekingslink met de taal op Engels — dan zet de bouwer die op /en/demo. Onze token heeft geen rechten op de agenda, dus dit kan alleen in de HubSpot-interface. (c) Eventueel de uitleg over 20/30/50 minuten in de omschrijving van de boekingspagina zetten, zodat hij ook ín de agenda staat | C | Emilie | open |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -3813,3 +3813,18 @@ daar hebben wij niets te zeggen, dus onze uitleg ging niet mee.
 Wil je die tekst óók ín de agenda zelf zien, dan kan dat alleen in HubSpot, in
 de omschrijving van de boekingspagina. Dat is dezelfde plek als de volgorde van
 de duurknoppen; zie het openstaand-punt.
+
+### En weer eruit op de adviespagina
+
+Emilie heeft het in HubSpot opgelost — de duurknoppen staan daar nu op
+**20 / 30 / 50** met 20 als standaard, en de titel is "Connect with Emilie van
+Rappard". Het uitlegblok verstoorde het ritme van de contactkolom en is daarom
+weer weg van `/nl/expert-advies` en `/en/expert-advice`. Daar staat weer wat er
+hoort te staan: vier gelijke kaartjes onder elkaar — agenda, mail, kantoor,
+mobiel.
+
+Het blok staat nog wél boven de ingesloten kalender op `/nl/demo` en
+`/en/demo`. Daar zit het niet in de weg, en het is de enige plek waar de uitleg
+vóór de duurknoppen langskomt. `components/ui/AgendaUitleg.tsx` blijft dus
+bestaan.
+
