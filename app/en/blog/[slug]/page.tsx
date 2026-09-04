@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { deelBeeldVanBron, ogBeeld } from "@/lib/deelbeelden";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -17,7 +18,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPostEN(slug);
   if (!post) return { title: "Blog | MeetingMasters" };
   const url = `${SITE}/en/blog/${post.slug}`;
-  const image = `${SITE}${post.img}`;
+  // Het deelbeeld, niet de webp van het artikel zelf: LinkedIn gaat niet
+  // betrouwbaar om met webp en laat dan een leeg vlak zien.
+  const image = deelBeeldVanBron(post.img);
   return {
     title: `${post.metaTitle ?? post.title} | MeetingMasters`,
     description: post.metaDescription,
@@ -39,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: "en_GB",
       publishedTime: post.iso,
       authors: ["Emilie van Rappard"],
-      images: [{ url: image, alt: post.imgAlt }],
+      images: ogBeeld(image, post.imgAlt),
     },
     twitter: {
       card: "summary_large_image",

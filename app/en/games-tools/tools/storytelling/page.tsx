@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import ToolKader from "@/components/tools/ToolKader";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 import { embedVoor } from "@/lib/tools";
@@ -6,6 +7,8 @@ import { embedVoor } from "@/lib/tools";
 const SITE = "https://www.meetingmasters.online";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/games-tools/tools/storytelling")!, "Someone holding up a frame with participants and playing cards — Games & Tools by MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/games-tools/tools/storytelling")!] },
   title: "Storytelling — free online tool for teams | MeetingMasters",
   description:
     "Take turns drawing a card with a question and tell your story within the time. Free tool for teams, in Zoom, Teams or SpatialChat.",

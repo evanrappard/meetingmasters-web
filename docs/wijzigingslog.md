@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-01
+> Laatst bijgewerkt: 2026-09-04
 
 ---
 
@@ -3828,3 +3828,54 @@ Het blok staat nog wél boven de ingesloten kalender op `/nl/demo` en
 vóór de duurknoppen langskomt. `components/ui/AgendaUitleg.tsx` blijft dus
 bestaan.
 
+---
+
+## 4 september 2026 — het codeplaatje bij een gedeelde link is weg
+
+Emilie deelde de link naar `/nl/games-tools/ravenhack/deelnemers` en kreeg een
+screenshot met programmeercode als voorbeeldje te zien in plaats van de hero.
+
+**Wat er aan de hand was.** In `app/opengraph-image.png` en
+`app/twitter-image.png` stond nog het voorbeeldbeeld van de Next.js-startset
+waar dit project ooit mee begonnen is: het "Next.js Starter Kit"-scherm van
+Supabase. Next.js gebruikt die twee bestanden voor **élke** pagina die zelf geen
+`openGraph.images` meegeeft. Dat waren er nogal wat, want alleen de grote
+pagina's stonden in `lib/deelbeelden.ts`.
+
+- **B C** — Het terugvalbeeld is nu de hero van de homepage:
+  `app/opengraph-image.jpg` en `app/twitter-image.jpg` (1200×630, 120 kB).
+  De oude `.png`-bestanden zijn weg — jpg weegt een tiende, en twee bestanden
+  met dezelfde naam maar een andere extensie kunnen niet naast elkaar staan.
+  `scripts/deelbeelden-maken.mjs` maakt ze voortaan mee, dus ze kunnen niet
+  meer stiekem terugvallen op iets vreemds.
+- **B C** — De drie R@venHack-vervolgpagina's hebben nu hun eigen hero als
+  deelbeeld, in beide talen: deelnemers/participants, organisatoren/organisers
+  en 1klik/1click. Ze staan op noindex, maar dat gaat over Google — bij het
+  delen van een link telt het `og:image` gewoon mee.
+- **B** — Nieuw beeld: `public/images/organisatoren-hero-share.webp`. De hero
+  van de organisatorenpagina is een brede banner (2560×959) met donkere
+  vulranden; die kwamen in het deelbeeld als balken naast de foto te staan.
+  Dit is een uitsnede van alleen het fotovlak. Staat niet op de site zelf.
+- **B C** — De vier losse tools (bingo, rad van fortuin, storytelling,
+  inspiratiekaarten) en de vergaderkosten-calculator hebben geen eigen hero.
+  Ze krijgen nu het beeld van Games & Tools mee, in beide talen, in plaats van
+  het algemene terugvalbeeld.
+- **B C** — De blogartikelen deelden hun eigen **webp** als `og:image`, op volle
+  grootte en zonder afmetingen. Precies wat `lib/deelbeelden.ts` bovenaan
+  afraadt: LinkedIn laat bij webp een leeg vlak zien. Alle 14 artikelen
+  (NL en EN delen dezelfde beelden) hebben nu een 1200×630 jpg-deelbeeld.
+  De `image` in de JSON-LD blijft het originele webp — Google kan daar prima
+  mee overweg en heeft liever het grote beeld.
+
+**Nagelopen: de hele site.** Alle 120 routes uit de sitemap plus de pagina's
+die er bewust buiten staan, opgevraagd op de productiebouw en het `og:image`
+uitgelezen. Elke pagina met een eigen hero deelt nu die hero; de rest deelt het
+homepage-beeld. Geen enkele pagina wijst nog naar het codeplaatje. De routes
+zonder uitkomst in die controle zijn allemaal doorverwijzingen
+(`/nl/technologie/*`, `/en/team` en dergelijke) — die leveren geen HTML.
+
+**Voor later.** LinkedIn en Facebook bewaren wat ze eerder ophaalden. Een link
+die al eens gedeeld is, kan dus nog even het oude beeld tonen tot hun cache
+verloopt. Wil je het meteen bijgewerkt zien: LinkedIn Post Inspector
+(`https://www.linkedin.com/post-inspector/`) en de Facebook Sharing Debugger
+halen de pagina op verzoek opnieuw op.

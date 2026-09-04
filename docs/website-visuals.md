@@ -4,7 +4,7 @@ Eén overzicht van álle beelden en video's op de site: waar ze staan, waar ze
 vandaan komen en (waar bekend) welk bronbestand ze zijn. Dit is de plek om te
 kijken vóór je een visual wijzigt.
 
-> Laatst bijgewerkt: 2026-08-26
+> Laatst bijgewerkt: 2026-09-04
 
 ## Hoe het werkt (belangrijk)
 
@@ -411,3 +411,36 @@ De tinten staan in `app/nl/technologie/hulp/data.ts` bij `KLEUREN`. Wil je een
 kleur wijzigen, pas daar `randHex` en `vlakHex` aan én teken het beeld opnieuw;
 de kleur van de laptop zit in het bestand, niet in de CSS.
 
+---
+
+## Deelbeelden (og:image) — het beeld bij een gedeelde link
+
+Deelt iemand een link op LinkedIn, in een mail of in een chat, dan toont die
+app het `og:image` van de pagina. Dat is **niet** de hero zelf, maar een
+uitsnede ervan: 1200×630 **jpg** in `public/images/share/`.
+
+- Waarom een aparte uitsnede: die verhouding (1,91:1) verwachten LinkedIn,
+  Facebook en WhatsApp. Een hero is meestal veel breder of veel hoger.
+- Waarom jpg en niet webp: LinkedIn gaat niet betrouwbaar om met webp en laat
+  dan een leeg vlak zien.
+- Ze worden **gemaakt, niet met de hand bijgehouden**:
+  `node scripts/deelbeelden-maken.mjs`. Draai dat opnieuw zodra een hero,
+  een event-beeld of een blogbeeld verandert.
+
+Welke pagina welk beeld krijgt staat in `lib/deelbeelden.ts`
+(`HERO_PER_ROUTE`). De event- en blogpagina's leiden het af uit hun eigen
+beeld, dus die staan niet in dat register.
+
+**Terugvalbeeld.** Pagina's zonder eigen hero (contact, offerte, nieuwsbrief,
+de juridische pagina's) krijgen `app/opengraph-image.jpg` en
+`app/twitter-image.jpg`. Dat is de hero van de homepage. Tot 4 september 2026
+stond daar nog het voorbeeldbeeld van de Next.js-startset in — een screenshot
+met programmeercode — en dát kwam omhoog bij het delen van zulke links. Beide
+bestanden worden nu door hetzelfde script gemaakt, dus ze kunnen niet meer
+terugvallen op iets vreemds.
+
+### Eén beeld dat apart wordt bijgesneden
+
+| Bestand | Waarom |
+|---|---|
+| `/images/organisatoren-hero-share.webp` | De hero van de organisatorenpagina is 2560×959 met donkere vulranden links en rechts. Die vielen in het deelbeeld als balken op. Dit is een uitsnede van alleen het fotovlak (1103×579) uit `organisatoren-hero-v2.webp`; hij staat nergens op de site zelf. |

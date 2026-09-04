@@ -29,6 +29,20 @@ export const HERO_PER_ROUTE: Record<string, string> = {
   "/virtual-office/kantoor-cultuur": "/images/vo-fundament-v2.webp",
   "/games-tools": "/images/games-hero-v5.jpg",
   "/games-tools/ravenhack": "/images/ravenhack-hero.webp",
+  "/games-tools/ravenhack/deelnemers": "/images/deelnemers-hero.webp",
+  // De brede hero van de organisatorenpagina (2560×959) heeft donkere
+  // vulranden links en rechts; die vielen in het deelbeeld als balken op.
+  // Daarom een eigen uitsnede uit diezelfde hero.
+  "/games-tools/ravenhack/organisatoren": "/images/organisatoren-hero-share.webp",
+  "/games-tools/ravenhack/1klik": "/images/1klik-hero.webp",
+  // De losse tools hebben zelf geen hero — alleen een speelveld. Ze krijgen
+  // het beeld van de sectie waar ze onder hangen, zodat een gedeelde link
+  // naar de bingo niet het algemene terugvalbeeld laat zien.
+  "/games-tools/tools/bingo": "/images/games-hero-v5.jpg",
+  "/games-tools/tools/wheel-of-fortune": "/images/games-hero-v5.jpg",
+  "/games-tools/tools/storytelling": "/images/games-hero-v5.jpg",
+  "/games-tools/tools/inspiration-cards": "/images/games-hero-v5.jpg",
+  "/meeting-calculator": "/images/games-hero-v5.jpg",
   "/about": "/images/about-hero.webp",
   "/downloads": "/images/downloads-hero.webp",
   "/technologie/spatialchat": "/images/spatialchat-hero-v3.webp",

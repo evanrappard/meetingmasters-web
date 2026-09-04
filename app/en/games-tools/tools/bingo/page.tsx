@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import ToolKader from "@/components/tools/ToolKader";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 import { embedVoor } from "@/lib/tools";
@@ -6,6 +7,8 @@ import { embedVoor } from "@/lib/tools";
 const SITE = "https://www.meetingmasters.online";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/games-tools/tools/bingo")!, "Someone holding up a frame with participants and playing cards — Games & Tools by MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/games-tools/tools/bingo")!] },
   title: "Bingo — free online bingo for meetings | MeetingMasters",
   description:
     "Interactive bingo for your online meeting, training or conference. Participants cross off words as the session goes on. Free, with your own word list.",

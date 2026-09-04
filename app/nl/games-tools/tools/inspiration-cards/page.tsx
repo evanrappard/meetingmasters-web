@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import { taalAlternates } from "@/lib/talen";
 import InspiratieKaarten from "@/components/tools/InspiratieKaarten";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/games-tools/tools/inspiration-cards")!, "Iemand houdt een lijst omhoog met deelnemers en speelkaarten — Games & Tools van MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/games-tools/tools/inspiration-cards")!] },
   alternates: taalAlternates("/games-tools/tools/inspiration-cards"),
   title: "Inspiratiekaarten — gratis online tool | MeetingMasters",
   description:

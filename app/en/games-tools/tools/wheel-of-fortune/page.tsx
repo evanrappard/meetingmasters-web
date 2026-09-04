@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import ToolKader from "@/components/tools/ToolKader";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 import { embedVoor } from "@/lib/tools";
@@ -6,6 +7,8 @@ import { embedVoor } from "@/lib/tools";
 const SITE = "https://www.meetingmasters.online";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/games-tools/tools/wheel-of-fortune")!, "Someone holding up a frame with participants and playing cards — Games & Tools by MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/games-tools/tools/wheel-of-fortune")!] },
   title: "Wheel of Fortune — free online wheel | MeetingMasters",
   description:
     "Spin a wheel that picks a name, question or task at random. Share your screen and let chance decide. Free, fully adjustable, up to three wheels.",

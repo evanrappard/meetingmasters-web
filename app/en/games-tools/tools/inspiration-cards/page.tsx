@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import InspiratieKaarten from "@/components/tools/InspiratieKaarten";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 
 const SITE = "https://www.meetingmasters.online";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/games-tools/tools/inspiration-cards")!, "Someone holding up a frame with participants and playing cards — Games & Tools by MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/games-tools/tools/inspiration-cards")!] },
   title: "Inspiration Cards — free online tool | MeetingMasters",
   description:
     "Draw a digital inspiration card with a theme and an image. Share your screen, draw a card and the conversation begins. Free, no account, works on your phone.",

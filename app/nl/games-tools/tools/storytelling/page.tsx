@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
 import { taalAlternates } from "@/lib/talen";
 import ToolKader from "@/components/tools/ToolKader";
 import ToolPagina, { type FaqItem } from "@/components/tools/ToolPagina";
 import { tool } from "@/lib/tools";
 
 export const metadata: Metadata = {
+  openGraph: { images: ogBeeld(deelBeeld("/games-tools/tools/storytelling")!, "Iemand houdt een lijst omhoog met deelnemers en speelkaarten — Games & Tools van MeetingMasters") },
+  twitter: { card: "summary_large_image", images: [deelBeeld("/games-tools/tools/storytelling")!] },
   alternates: taalAlternates("/games-tools/tools/storytelling"),
   title: "Storytelling — gratis online tool voor teams | MeetingMasters",
   description:
