@@ -3874,6 +3874,11 @@ homepage-beeld. Geen enkele pagina wijst nog naar het codeplaatje. De routes
 zonder uitkomst in die controle zijn allemaal doorverwijzingen
 (`/nl/technologie/*`, `/en/team` en dergelijke) — die leveren geen HTML.
 
+**Live sinds 4 september 2026**, commit `1747cdb`, met de hand gedeployd
+(`vercel --prod`). Op de live site nagemeten: de vervolgpagina's, de blog en
+de tools tonen hun eigen deelbeeld, `/opengraph-image.jpg` geeft 200 en de
+oude `/opengraph-image.png` geeft 404.
+
 **Voor later.** LinkedIn en Facebook bewaren wat ze eerder ophaalden. Een link
 die al eens gedeeld is, kan dus nog even het oude beeld tonen tot hun cache
 verloopt. Wil je het meteen bijgewerkt zien: LinkedIn Post Inspector
