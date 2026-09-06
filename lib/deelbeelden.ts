@@ -42,7 +42,6 @@ export const HERO_PER_ROUTE: Record<string, string> = {
   "/games-tools/tools/wheel-of-fortune": "/images/games-hero-v5.jpg",
   "/games-tools/tools/storytelling": "/images/games-hero-v5.jpg",
   "/games-tools/tools/inspiration-cards": "/images/games-hero-v5.jpg",
-  "/meeting-calculator": "/images/games-hero-v5.jpg",
   "/about": "/images/about-hero.webp",
   "/downloads": "/images/downloads-hero.webp",
   "/technologie/spatialchat": "/images/spatialchat-hero-v3.webp",
@@ -50,6 +49,22 @@ export const HERO_PER_ROUTE: Record<string, string> = {
   "/technologie/hulp": "/images/tech-hulp-hero-poster.jpg",
   "/blog": "/images/blog/blog-hero.webp",
 };
+
+/**
+ * Pagina's waar het deelbeeld per taal verschilt, omdat de tool zélf in beeld
+ * staat en die Nederlands of Engels is. `HERO_PER_ROUTE` kan dat niet
+ * uitdrukken: dat register kent alleen de route zonder taaldeel.
+ *
+ * Deze beelden staan nergens op de site zelf — ze bestaan alleen om gedeeld te
+ * worden. Ze worden, net als de rest, tot 1200x630 jpg gemaakt door
+ * `node scripts/deelbeelden-maken.mjs`.
+ */
+export const DEELBEELD_PER_TAAL = {
+  "/meeting-calculator": {
+    nl: "/images/meeting-calculator-deelbeeld.webp",
+    en: "/images/meeting-calculator-deelbeeld-en.webp",
+  },
+} as const;
 
 /** Van bronbeeld naar de naam van het deelbeeld. */
 export function deelBeeldNaam(bron: string): string {

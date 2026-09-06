@@ -473,5 +473,35 @@ staan nog in `scripts/download-assets.sh`.
 | Bestand | Waarom |
 |---|---|
 | `vo-hero-office.jpg`, `games-hero-v5.jpg` | Posters van de hero-video's, met een fallback-keten eromheen. Besparen samen 0,24 MB — niet de moeite waard om aan te komen. |
-| `meeting-calculator-share.png` | Deelbeeld van de calculator-tool. Deelbeelden moeten jpg of png blijven; bij webp laat LinkedIn een leeg vlak zien. |
 | alles in `public/images/share/` | Zie hierboven: dat zijn allemaal deelbeelden. |
+
+---
+
+## Deelbeeld van de vergaderkosten-calculator (6 september 2026)
+
+De calculator deelt niet de hero van zijn pagina, maar **de tool zelf**: een
+schermafdruk van de calculator op een projectiescherm in een lege vergaderzaal.
+Wie de link deelt, laat daarmee meteen zien wát het is.
+
+| Bestand | Taal | Bron |
+|---|---|---|
+| `/images/meeting-calculator-deelbeeld.webp` | NL | `~/Downloads/Kantoorruimte.png` (3200×1800) |
+| `/images/meeting-calculator-deelbeeld-en.webp` | EN | `~/Downloads/MM Website afbeeldingen (25).png` (3200×1800) |
+
+Bewerking: 60 px van boven en 60 px van onder weggenomen (16:9 → 1,91:1, de
+verhouding die LinkedIn wil), daarna terug naar 2400×1260. Zo hoeft
+`deelbeelden-maken.mjs` alleen nog te verkleinen en snijdt het niets weg.
+
+Ze staan **nergens op de site zelf** — ze bestaan alleen om gedeeld te worden.
+Daarom zijn ze het enige paar in `lib/deelbeelden.ts` dat in
+`DEELBEELD_PER_TAAL` staat en niet in `HERO_PER_ROUTE`: dat register kent
+alleen de route zonder taaldeel, en hier verschilt het beeld juist per taal.
+
+Ze gelden op vier plekken: `/nl/meeting-calculator`, `/en/meeting-calculator`
+en de twee losse tool-bestanden in
+`public/tools/vergaderkosten-calculator/{,en/}index.html`.
+
+**Weg:** `meeting-calculator-share.png`. Dat was — net als het oude
+`app/opengraph-image.png` — het voorbeeldbeeld van de Next.js-startset, een
+screenshot met programmeercode. Het stond als deelbeeld in beide losse
+tool-bestanden. Daarmee is dat plaatje nu overal van de site verdwenen.

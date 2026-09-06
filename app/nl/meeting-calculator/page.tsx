@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import { deelBeeld, ogBeeld } from "@/lib/deelbeelden";
+import { deelBeeldVanBron, ogBeeld, DEELBEELD_PER_TAAL } from "@/lib/deelbeelden";
 import MeetingCalculatorPagina from "@/components/meeting-calculator/MeetingCalculatorPagina";
 import { NL } from "./data";
 
 const SITE = "https://www.meetingmasters.online";
+const DEELBEELD = deelBeeldVanBron(DEELBEELD_PER_TAAL["/meeting-calculator"].nl);
 
 export const metadata: Metadata = {
-  openGraph: { images: ogBeeld(deelBeeld("/meeting-calculator")!, "Iemand houdt een lijst omhoog met deelnemers en speelkaarten — Games & Tools van MeetingMasters") },
-  twitter: { card: "summary_large_image", images: [deelBeeld("/meeting-calculator")!] },
+  // Niet de hero van de pagina, maar de calculator zelf: wie de link deelt,
+  // laat daarmee meteen zien wát het is.
+  openGraph: { images: ogBeeld(DEELBEELD, "De vergaderkosten-calculator op een projectiescherm in een lege vergaderzaal") },
+  twitter: { card: "summary_large_image", images: [DEELBEELD] },
   title: NL.metaTitle,
   description: NL.metaDescription,
   alternates: {

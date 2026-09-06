@@ -3936,6 +3936,8 @@ opvraagt bestaat ook echt.
   maar 0,24 MB en er hangt een fallback-keten aan; niet aan zitten.
 - `meeting-calculator-share.png` — dat is het deelbeeld van de calculator-tool.
   Deelbeelden moeten jpg of png blijven; webp breekt bij LinkedIn.
+  *(Achterhaald op 6 september: dat bestand bleek zélf het codeplaatje te zijn
+  en is vervangen — zie de volgende log-post.)*
 - De jpg's in `public/images/share/` — om precies dezelfde reden.
 
 De oude bestanden staan gewoon in git, dus alles is terug te halen.
@@ -3952,3 +3954,34 @@ dashboard is het laatste woord — dat kan een dag achterlopen.
 
 **Reken maar mee.** Straks: ~72 MB per deploy, hooguit een stuk of tien tegelijk
 = ruim onder een gigabyte. Was: 91 MB × onbeperkt.
+
+---
+
+## 6 september 2026 — de calculator deelt nu zichzelf
+
+Emilie leverde twee beelden aan: de vergaderkosten-calculator op een
+projectiescherm in een lege vergaderzaal, in het Nederlands en in het Engels.
+Vraag: laat dát zien als iemand de link naar de tool deelt, niet de hero van de
+pagina.
+
+- **B** — Nieuw: `/images/meeting-calculator-deelbeeld.webp` en
+  `-en.webp` (2400×1260). Ze staan nergens op de site zelf; ze bestaan alleen
+  om gedeeld te worden. Details en bronbestanden staan in
+  `docs/website-visuals.md`.
+- **C** — `lib/deelbeelden.ts` heeft er een tweede register bij:
+  `DEELBEELD_PER_TAAL`. `HERO_PER_ROUTE` kon dit niet aan, want dat kent alleen
+  de route zónder taaldeel — en hier verschilt het beeld juist per taal.
+  De calculator stond daar sinds 4 september op het Games & Tools-beeld; die
+  regel is eruit.
+- **C** — Het geldt op vier plekken: `/nl/meeting-calculator`,
+  `/en/meeting-calculator` en de twee losse tool-bestanden in
+  `public/tools/vergaderkosten-calculator/`. Die laatste twee wezen allebei naar
+  hetzelfde Nederlandse beeld; nu krijgt de Engelse tool het Engelse.
+
+**En passant: nóg een codeplaatje gevonden.** De losse tool deelde
+`meeting-calculator-share.png`, en dat bleek — net als het oude
+`app/opengraph-image.png` — het voorbeeldbeeld van de Next.js-startset te zijn:
+een screenshot met programmeercode. Het viel buiten de controle van 4 september,
+want die liep over de routes van de site en niet over de losse html-bestanden in
+`public/tools/`. Nu weg. Daarmee is dat plaatje overal van de site verdwenen —
+`grep` op de hele repo geeft geen treffer meer.
