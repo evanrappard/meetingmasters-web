@@ -23,7 +23,7 @@ export default function TeamPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div className="relative w-full aspect-[3/4] max-w-sm mx-auto md:mx-0 overflow-hidden rounded-lg">
             <Image
-              src="/images/team-emilie.jpg"
+              src="/images/team-emilie.webp"
               alt="Emilie van Rappard"
               fill
               className="object-cover object-top"
@@ -64,7 +64,7 @@ export default function TeamPage() {
           </p>
           <div className="relative w-full aspect-[16/7] overflow-hidden rounded-lg mb-8">
             <Image
-              src="/images/team-group.jpg"
+              src="/images/team-group.webp"
               alt="MeetingMasters team"
               fill
               className="object-cover"

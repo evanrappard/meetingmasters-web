@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const slides = [
   {
-    img: "/images/hero-1.jpg",
+    img: "/images/hero-1.webp",
     headline: "Refreshing online meeting concepts. Better results.",
     sub: "How we meet matters. Our surprising virtual meeting formats increase energy and involvement.",
     cta: { text: "This is how we work", href: "/nl/strategy-concept" },
@@ -25,7 +25,7 @@ const slides = [
     cta: { text: "How we create effortless experiences", href: "/nl/planning-support" },
   },
   {
-    img: "/images/hero-4.jpg",
+    img: "/images/hero-4.webp",
     headline: "We are online meeting specialists.",
     sub: "We make virtual meetings more interesting, more participative, and more effective.",
     cta: { text: "Request a free quote", href: "/nl/contact" },

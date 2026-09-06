@@ -4,7 +4,7 @@ Eén overzicht van álle beelden en video's op de site: waar ze staan, waar ze
 vandaan komen en (waar bekend) welk bronbestand ze zijn. Dit is de plek om te
 kijken vóór je een visual wijzigt.
 
-> Laatst bijgewerkt: 2026-09-04
+> Laatst bijgewerkt: 2026-09-06
 
 ## Hoe het werkt (belangrijk)
 
@@ -444,3 +444,34 @@ terugvallen op iets vreemds.
 | Bestand | Waarom |
 |---|---|
 | `/images/organisatoren-hero-share.webp` | De hero van de organisatorenpagina is 2560×959 met donkere vulranden links en rechts. Die vielen in het deelbeeld als balken op. Dit is een uitsnede van alleen het fotovlak (1103×579) uit `organisatoren-hero-v2.webp`; hij staat nergens op de site zelf. |
+
+---
+
+## WebP-opruiming van 6 september 2026
+
+`public/` woog 86 MB en dat telt bij Vercel per deployment mee. Nu 66 MB.
+
+Bij achttien beelden bestond de `.webp` al náást het zware origineel; de code
+wees alleen nog naar de `.png` of `.jpg`. Die originelen zijn weg — de `.webp`
+met dezelfde naam en dezelfde afmetingen staat er nog. Verwijderd:
+
+`format-escape.png` · `format-party.png` · `planning-1.png` · `strategy-1.png`
+· `planning-3.jpg` · `format-2.png` · `planning-2.jpg` · `team-emilie.jpg` ·
+`planning-4.jpg` · `hero-4.jpg` · `hero-1.jpg` · `team-group.jpg` ·
+`remote-office-virtual.png` · `spatial-entree.png` · `events-bijeenkomst.jpg` ·
+`logos/gemeente-utrecht.png` · `logos/roosendaal.jpg` · `logos/ing.png`
+
+Nieuw omgezet (het origineel is weg, de `.webp` is nieuw): `hero-v2.jpg` en de
+vier beelden van de storytelling-tool
+(`public/tools/storytelling/themes/default{,-en}/cover.png` en `logo.png`).
+
+Alles is terug te halen uit git. De bronadressen op de oude Squarespace-site
+staan nog in `scripts/download-assets.sh`.
+
+**Deze drie blijven met opzet jpg of png:**
+
+| Bestand | Waarom |
+|---|---|
+| `vo-hero-office.jpg`, `games-hero-v5.jpg` | Posters van de hero-video's, met een fallback-keten eromheen. Besparen samen 0,24 MB — niet de moeite waard om aan te komen. |
+| `meeting-calculator-share.png` | Deelbeeld van de calculator-tool. Deelbeelden moeten jpg of png blijven; bij webp laat LinkedIn een leeg vlak zien. |
+| alles in `public/images/share/` | Zie hierboven: dat zijn allemaal deelbeelden. |

@@ -43,7 +43,7 @@ export default function RemoteOfficePage() {
       <section className="relative bg-primary overflow-hidden">
         <div className="absolute inset-0">
           <HeroBeeld
-            src="/images/planning-3.jpg"
+            src="/images/planning-3.webp"
             alt="Virtual office"
             fill
             className="object-cover opacity-25"
@@ -108,7 +108,7 @@ export default function RemoteOfficePage() {
             </div>
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/strategy-1.png"
+                src="/images/strategy-1.webp"
                 alt="SpatialChat virtual office interface"
                 fill
                 className="object-cover"

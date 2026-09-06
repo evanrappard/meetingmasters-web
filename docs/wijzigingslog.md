@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-04
+> Laatst bijgewerkt: 2026-09-06
 
 ---
 
@@ -3884,3 +3884,61 @@ die al eens gedeeld is, kan dus nog even het oude beeld tonen tot hun cache
 verloopt. Wil je het meteen bijgewerkt zien: LinkedIn Post Inspector
 (`https://www.linkedin.com/post-inspector/`) en de Facebook Sharing Debugger
 halen de pagina op verzoek opnieuw op.
+
+---
+
+## 6 september 2026 — Vercel zat aan de 10 GB, en waarom
+
+Vercel meldde dat de gratis opslag voor deployments (10 GB) vol zat.
+
+**Wat de meter volmaakte.** Er stonden **110 productie-deployments**, de oudste
+van 8 mei. 10 GB gedeeld door 110 is ongeveer 91 MB per stuk — en dat klopt met
+wat erin zat: `public/` woog 86 MB. Elke deploy bewaart een volledige kopie.
+
+Twee dingen maakten het onnodig erg:
+
+1. **We deployden dubbel.** GitHub en Vercel *zijn* wel degelijk gekoppeld —
+   elke push naar `main` start vanzelf een deploy. `CLAUDE.md` beweerde het
+   tegenovergestelde, dus draaide de bouwer er daarna óók nog `vercel --prod`
+   achteraan. Op 3 en 4 september staan telkens twee deployments op dezelfde
+   minuut, met dezelfde commit. Dat is nu rechtgezet in `CLAUDE.md`.
+2. **De opruimregel stond te ruim** (30 dagen, minimaal 10 bewaren). Bij 110
+   deployments in drie weken is 30 dagen te lang; de regel greep pas in als het
+   al vol was. Staat nu op **7 dagen, minimaal 5 bewaren**.
+
+**B — 23 beelden vervangen door hun WebP-versie.** `public/` ging van 86 MB naar
+66 MB, dus elke toekomstige deploy is 20 MB lichter. Bij achttien ervan bestond
+de `.webp` al lang naast het origineel; de code wees alleen nog naar de zware
+`.png`/`.jpg`. Denk aan `format-escape.png` (3,4 MB) naast
+`format-escape.webp` (0,14 MB) — hetzelfde beeld, precies dezelfde afmetingen.
+
+| Weg | Was | Nu |
+|---|---|---|
+| 12 beelden waar de code nog naar wees | 11,0 MB | de bestaande `.webp` |
+| 6 beelden die nergens meer gebruikt werden | 4,9 MB | — |
+| `hero-v2.jpg` (ongebruikt) | 0,3 MB | omgezet naar `.webp` |
+| 4 beelden van de storytelling-tool | 4,9 MB | omgezet naar `.webp` (0,4 MB) |
+
+De omzetting raakte deze pagina's: meeting formats, escape rooms, strategy
+concept, planning support, team, remote office, de homepage-carrousel
+(`components/ui/HeroCarousel.tsx`) en de storytelling-tool in `public/tools/`.
+Alle beelden op die pagina's zijn na de bouw nagelopen: elk pad dat de site
+opvraagt bestaat ook echt.
+
+**Bewust níét omgezet:**
+
+- `vo-hero-office.jpg` en `games-hero-v5.jpg` — dat zijn de *posters* van de
+  hero-video's, de stilstaande beelden vóór de video speelt. Ze besparen samen
+  maar 0,24 MB en er hangt een fallback-keten aan; niet aan zitten.
+- `meeting-calculator-share.png` — dat is het deelbeeld van de calculator-tool.
+  Deelbeelden moeten jpg of png blijven; webp breekt bij LinkedIn.
+- De jpg's in `public/images/share/` — om precies dezelfde reden.
+
+De oude bestanden staan gewoon in git, dus alles is terug te halen.
+
+**Opgeruimd.** De oude deployments zijn verwijderd op de vijf nieuwste na. Dat
+raakt de live site niet — die draait op de nieuwste — maar terugzetten naar een
+versie van vóór september kan nu alleen nog door opnieuw te bouwen uit git.
+
+**Reken maar mee.** Straks: ~72 MB per deploy, hooguit een stuk of tien tegelijk
+= ruim onder een gigabyte. Was: 91 MB × onbeperkt.

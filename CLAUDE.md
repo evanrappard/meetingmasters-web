@@ -12,8 +12,11 @@
 - **Sanity** — alleen voor de cijfers, logo's en cases op de homepage, en alleen
   áls het is ingesteld. Zonder `NEXT_PUBLIC_SANITY_PROJECT_ID` is `client` null
   en gebruiken die blokken hun vaste tekst (`sanity/client.ts`).
-- **Vercel** — hosting. Pushen naar GitHub start géén deploy; die gaat met de
-  hand via de commandoregel.
+- **Vercel** — hosting. GitHub en Vercel **zijn** gekoppeld: elke push naar
+  `main` start vanzelf een productie-deploy. Draai er dus **niet** ook nog
+  `vercel --prod` achteraan — dan krijg je twee deployments van dezelfde
+  commit, en die tellen allebei mee voor de opslaglimiet (10 GB gratis).
+  Dat is precies wat er tussen 19 augustus en 4 september 2026 gebeurde.
 
 **Géén database, géén inloggen.** Er is geen Supabase, geen andere backend en
 geen gebruikersaccount. Alles wat een bezoeker invult gaat naar HubSpot. Kom je

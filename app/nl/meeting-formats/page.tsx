@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 
 const featured = [
   {
-    img: "/images/format-party.png",
+    img: "/images/format-party.webp",
     alt: "Online bedrijfsfeest",
     title: "Fantastische feesten",
     desc: "Eenvoudig of op maat — online feesten die verbinden en vieren. Van een virtuele borrel tot een compleet kerstevenement.",
     cta: "Neem contact op",
   },
   {
-    img: "/images/format-escape.png",
+    img: "/images/format-escape.webp",
     alt: "Online escape room",
     title: "Spannende Escape Rooms",
     desc: "Meeslepende, teambuildende escape-ervaringen. Online. Onze EscapeMasters- en R@venHack-formats garanderen energie en interactie.",

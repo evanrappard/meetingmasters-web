@@ -37,7 +37,7 @@ export default function EscapeRoomsPage() {
           <div>
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg mb-6">
               <Image
-                src="/images/format-escape.png"
+                src="/images/format-escape.webp"
                 alt="EscapeMasters online escape room"
                 fill
                 className="object-cover"
@@ -64,7 +64,7 @@ export default function EscapeRoomsPage() {
           <div>
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg mb-6">
               <Image
-                src="/images/format-2.png"
+                src="/images/format-2.webp"
                 alt="R@venHack cyber security escape room"
                 fill
                 className="object-cover"

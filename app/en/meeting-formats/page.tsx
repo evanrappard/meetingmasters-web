@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 
 const featured = [
   {
-    img: "/images/format-party.png",
+    img: "/images/format-party.webp",
     alt: "Online company party",
     title: "Fantastic parties",
     desc: "Easy or custom-made — online parties that connect and celebrate. From a virtual borrel to a full Christmas experience.",
     cta: "Get in touch",
   },
   {
-    img: "/images/format-escape.png",
+    img: "/images/format-escape.webp",
     alt: "Online escape room",
     title: "Exciting Escape Rooms",
     desc: "Engaging, team-building escape experiences. Online. Our EscapeMasters and R@venHack formats guarantee energy and interaction.",

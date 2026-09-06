@@ -54,7 +54,7 @@ export default function EscapeMastersPage() {
             </div>
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/format-escape.png"
+                src="/images/format-escape.webp"
                 alt="EscapeMasters online escape room"
                 fill
                 className="object-cover"

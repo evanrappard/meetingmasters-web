@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const cards = [
   {
-    img: "/images/strategy-1.png",
+    img: "/images/strategy-1.webp",
     alt: "Goal and direction",
     title: "Goal & direction",
     body: "We formulate meeting strategies that stimulate engagement and contribute to reaching your goals. What is the context of your meetings? What is the envisioned result, both in terms of content and relationships?",
@@ -23,7 +23,7 @@ const cards = [
     body: "What fits the objectives? How surprising can the online setting be? We advise on platform, formats, and concepts that stimulate interaction and give ideas space and direction.",
   },
   {
-    img: "/images/planning-1.png",
+    img: "/images/planning-1.webp",
     alt: "Structure and design",
     title: "Structure & design",
     body: "We translate plans into detailed playbooks: a guideline for organizers, speakers, and facilitators — and an important anchor for supporting Masters.",

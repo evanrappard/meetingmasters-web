@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const phases = [
   {
-    img: "/images/planning-3.jpg",
+    img: "/images/planning-3.webp",
     title: "Voor je meeting",
     alt: "Voorbereiding van een online meeting — MeetingMasters ontwerpt het meetingdesign en de briefing",
     body: "Een heldere intentie en een sterk plan maken meetings interessanter en effectiever. Wij zijn specialisten in het ontwerpen van inspirerende meetingdesigns en vertalen je wensen naar een briefing met duidelijke rollen en taken.",
@@ -33,7 +33,7 @@ const phases = [
     ],
   },
   {
-    img: "/images/planning-4.jpg",
+    img: "/images/planning-4.webp",
     title: "Tijdens je meeting",
     alt: "Live begeleiding tijdens een online meeting door de Meeting Masters — ondersteuning en co-facilitatie",
     body: "Meeting Masters ondersteunen de voorzitter en zorgen ervoor dat deelnemers zich geholpen voelen — van gastenontvangst en technische assistentie tot co-facilitatie, interactiebewaking en begeleiding van break-outs.",
@@ -51,7 +51,7 @@ const phases = [
     ],
   },
   {
-    img: "/images/planning-1.png",
+    img: "/images/planning-1.webp",
     title: "Na je meeting",
     alt: "Na afloop van een online meeting — MeetingMasters verzorgt evaluatie, verslag en opvolging",
     body: "De afsluitende sessie is het einde van de meeting — vaak is het pas het begin van meer contact in de toekomst. MeetingMasters ondersteunt met gestructureerd advies, rapportages en deelnemersevaluaties.",
@@ -70,7 +70,7 @@ export default function PlanningSupportPage() {
       {/* Hero */}
       <div className="relative w-full h-[50vh] overflow-hidden">
         <HeroBeeld
-          src="/images/planning-2.jpg"
+          src="/images/planning-2.webp"
           alt="Planning en ondersteuning"
           fill
           className="object-cover"

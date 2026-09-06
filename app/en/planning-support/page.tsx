@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const phases = [
   {
-    img: "/images/planning-3.jpg",
+    img: "/images/planning-3.webp",
     title: "Before your meeting",
     body: "Clear intention and a strong plan make meetings more interesting and effective. We are specialists in creating inspiring meeting designs and translate your wishes into a briefing with clear roles and tasks.",
     services: [
@@ -32,7 +32,7 @@ const phases = [
     ],
   },
   {
-    img: "/images/planning-4.jpg",
+    img: "/images/planning-4.webp",
     title: "During your meeting",
     body: "Meeting Masters support the chairman and ensure that participants feel assisted — from guest reception and technical assistance to co-facilitation, interaction monitoring, and break-out guidance.",
     services: [
@@ -49,7 +49,7 @@ const phases = [
     ],
   },
   {
-    img: "/images/planning-1.png",
+    img: "/images/planning-1.webp",
     title: "After your meeting",
     body: "Leave session is the end of the meeting — it is often only the beginning of more contact in the future. MeetingMasters supports with structured advice, reports, and participant evaluations.",
     services: [
@@ -67,7 +67,7 @@ export default function PlanningSupportPage() {
       {/* Hero */}
       <div className="relative w-full h-[50vh] overflow-hidden">
         <HeroBeeld
-          src="/images/planning-2.jpg"
+          src="/images/planning-2.webp"
           alt="Planning and support"
           fill
           className="object-cover"
