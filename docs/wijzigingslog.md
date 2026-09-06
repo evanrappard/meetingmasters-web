@@ -3904,7 +3904,11 @@ Twee dingen maakten het onnodig erg:
    minuut, met dezelfde commit. Dat is nu rechtgezet in `CLAUDE.md`.
 2. **De opruimregel stond te ruim** (30 dagen, minimaal 10 bewaren). Bij 110
    deployments in drie weken is 30 dagen te lang; de regel greep pas in als het
-   al vol was. Staat nu op **7 dagen, minimaal 5 bewaren**.
+   al vol was. De termijn staat nu op **7 dagen** — voor productie, geannuleerd
+   en mislukt allemaal. Het aantal dat Vercel hoe dan ook bewaart blijft 10;
+   dat veld zit niet in dezelfde instelling en kan alleen in het Vercel-scherm
+   (Project → Settings → Deployment Retention). Tien stuks à ~72 MB is nog
+   geen driekwart gigabyte, dus dat mag zo blijven.
 
 **B — 23 beelden vervangen door hun WebP-versie.** `public/` ging van 86 MB naar
 66 MB, dus elke toekomstige deploy is 20 MB lichter. Bij achttien ervan bestond
@@ -3936,9 +3940,15 @@ opvraagt bestaat ook echt.
 
 De oude bestanden staan gewoon in git, dus alles is terug te halen.
 
-**Opgeruimd.** De oude deployments zijn verwijderd op de vijf nieuwste na. Dat
-raakt de live site niet — die draait op de nieuwste — maar terugzetten naar een
-versie van vóór september kan nu alleen nog door opnieuw te bouwen uit git.
+**Opgeruimd.** 106 van de 110 deployments verwijderd; de vijf nieuwste staan er
+nog (de oudste daarvan is van 3 september). Dat raakt de live site niet — die
+draait op de nieuwste — maar terugzetten naar een versie van vóór september kan
+nu alleen nog door opnieuw te bouwen uit git. Na afloop gecontroleerd: de
+homepage, de R@venHack-deelnemerspagina, `/nl/team` en de storytelling-tool
+geven alle vier gewoon 200.
+
+Vercel heeft geen openbare teller die je kunt uitlezen, dus het cijfer in het
+dashboard is het laatste woord — dat kan een dag achterlopen.
 
 **Reken maar mee.** Straks: ~72 MB per deploy, hooguit een stuk of tien tegelijk
 = ruim onder een gigabyte. Was: 91 MB × onbeperkt.
