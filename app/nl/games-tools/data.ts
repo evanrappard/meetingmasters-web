@@ -127,6 +127,11 @@ export const NL = {
     calculatorBody:
       "Een uur vergaderen met twintig mensen is geen uur — het is twintig uur, plus reistijd. Reken uit wat een bijeenkomst kost aan tijd, geld en CO₂, en zie wat online zou schelen.",
     calculatorCta: "Open de calculator →",
+    // Het enige beeld op deze pagina dat per taal verschilt: de calculator
+    // staat er zelf op, en die spreekt Nederlands of Engels.
+    calculatorBeeld: "/images/meeting-calculator-scherm.webp",
+    calculatorBeeldAlt:
+      "De vergaderkosten-calculator op een projectiescherm in een lege vergaderzaal",
   },
   faqKop: "Veelgestelde vragen over de games & tools",
   meerAntwoorden: "Meer antwoorden?",

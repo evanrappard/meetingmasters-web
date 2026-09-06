@@ -477,28 +477,34 @@ staan nog in `scripts/download-assets.sh`.
 
 ---
 
-## Deelbeeld van de vergaderkosten-calculator (6 september 2026)
+## De calculator in beeld (6 september 2026)
 
-De calculator deelt niet de hero van zijn pagina, maar **de tool zelf**: een
-schermafdruk van de calculator op een projectiescherm in een lege vergaderzaal.
-Wie de link deelt, laat daarmee meteen zien wát het is.
+Een schermafdruk van de vergaderkosten-calculator op een projectiescherm in een
+lege vergaderzaal. Eén bestand met **twee rollen**: het staat naast de
+calculator-kaart op Games & Tools, én het is het deelbeeld van de tool. Vandaar
+de neutrale naam "scherm".
 
 | Bestand | Taal | Bron |
 |---|---|---|
-| `/images/meeting-calculator-deelbeeld.webp` | NL | `~/Downloads/Kantoorruimte.png` (3200×1800) |
-| `/images/meeting-calculator-deelbeeld-en.webp` | EN | `~/Downloads/MM Website afbeeldingen (25).png` (3200×1800) |
+| `/images/meeting-calculator-scherm.webp` | NL | `~/Downloads/Kantoorruimte.png` (3200×1800) |
+| `/images/meeting-calculator-scherm-en.webp` | EN | `~/Downloads/MM Website afbeeldingen (25).png` (3200×1800) |
 
 Bewerking: 60 px van boven en 60 px van onder weggenomen (16:9 → 1,91:1, de
 verhouding die LinkedIn wil), daarna terug naar 2400×1260. Zo hoeft
 `deelbeelden-maken.mjs` alleen nog te verkleinen en snijdt het niets weg.
 
-Ze staan **nergens op de site zelf** — ze bestaan alleen om gedeeld te worden.
-Daarom zijn ze het enige paar in `lib/deelbeelden.ts` dat in
-`DEELBEELD_PER_TAAL` staat en niet in `HERO_PER_ROUTE`: dat register kent
-alleen de route zonder taaldeel, en hier verschilt het beeld juist per taal.
+Ze zijn het enige paar in `lib/deelbeelden.ts` dat in `DEELBEELD_PER_TAAL`
+staat en niet in `HERO_PER_ROUTE`: dat register kent alleen de route zónder
+taaldeel, en hier verschilt het beeld juist per taal.
 
-Ze gelden op vier plekken: `/nl/meeting-calculator`, `/en/meeting-calculator`
-en de twee losse tool-bestanden in
+**Waar ze staan.** Op de pagina: het blok "Voor je begint" op
+`/nl/games-tools` en `/en/games-tools` — tekst links, dit beeld rechts, samen
+één klikbare kaart (`components/games/GamesToolsPagina.tsx`; het pad staat bij
+de teksten in `app/nl/games-tools/data.ts` en `tekst-en.ts`). Dit is het enige
+beeld op die pagina dat per taal verschilt.
+
+Als deelbeeld: `/nl/meeting-calculator`, `/en/meeting-calculator` en de twee
+losse tool-bestanden in
 `public/tools/vergaderkosten-calculator/{,en/}index.html`.
 
 **Weg:** `meeting-calculator-share.png`. Dat was — net als het oude

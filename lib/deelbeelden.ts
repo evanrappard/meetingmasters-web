@@ -55,14 +55,15 @@ export const HERO_PER_ROUTE: Record<string, string> = {
  * staat en die Nederlands of Engels is. `HERO_PER_ROUTE` kan dat niet
  * uitdrukken: dat register kent alleen de route zonder taaldeel.
  *
- * Deze beelden staan nergens op de site zelf — ze bestaan alleen om gedeeld te
- * worden. Ze worden, net als de rest, tot 1200x630 jpg gemaakt door
- * `node scripts/deelbeelden-maken.mjs`.
+ * Deze twee beelden staan óók op de pagina zelf, naast de calculator-kaart op
+ * Games & Tools (`components/games/GamesToolsPagina.tsx`). Vandaar de neutrale
+ * naam "scherm" en niet "deelbeeld": één bestand, twee rollen. De 1200x630
+ * jpg-versie maakt `node scripts/deelbeelden-maken.mjs`.
  */
 export const DEELBEELD_PER_TAAL = {
   "/meeting-calculator": {
-    nl: "/images/meeting-calculator-deelbeeld.webp",
-    en: "/images/meeting-calculator-deelbeeld-en.webp",
+    nl: "/images/meeting-calculator-scherm.webp",
+    en: "/images/meeting-calculator-scherm-en.webp",
   },
 } as const;
 

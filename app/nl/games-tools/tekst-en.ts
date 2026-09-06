@@ -88,6 +88,9 @@ export const GAMES_EN = {
     calculatorTitel: "Meeting cost calculator",
     calculatorBody: "An hour of meeting with twenty people isn't an hour — it's twenty hours, plus travel. Work out what a gathering costs in time, money and CO₂, and see what online would save.",
     calculatorCta: "Open the calculator →",
+    calculatorBeeld: "/images/meeting-calculator-scherm-en.webp",
+    calculatorBeeldAlt:
+      "The meeting cost calculator on a projection screen in an empty meeting room",
   },
 
   faqKop: "Frequently asked questions about the games & tools",

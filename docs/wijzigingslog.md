@@ -3964,10 +3964,10 @@ projectiescherm in een lege vergaderzaal, in het Nederlands en in het Engels.
 Vraag: laat dát zien als iemand de link naar de tool deelt, niet de hero van de
 pagina.
 
-- **B** — Nieuw: `/images/meeting-calculator-deelbeeld.webp` en
-  `-en.webp` (2400×1260). Ze staan nergens op de site zelf; ze bestaan alleen
-  om gedeeld te worden. Details en bronbestanden staan in
-  `docs/website-visuals.md`.
+- **B** — Nieuw: `/images/meeting-calculator-scherm.webp` en `-en.webp`
+  (2400×1260). Details en bronbestanden staan in `docs/website-visuals.md`.
+  *(Heetten die dag eerst `-deelbeeld`; hernoemd toen ze ook op de pagina zelf
+  kwamen te staan — zie de volgende post.)*
 - **C** — `lib/deelbeelden.ts` heeft er een tweede register bij:
   `DEELBEELD_PER_TAAL`. `HERO_PER_ROUTE` kon dit niet aan, want dat kent alleen
   de route zónder taaldeel — en hier verschilt het beeld juist per taal.
@@ -3985,3 +3985,29 @@ een screenshot met programmeercode. Het viel buiten de controle van 4 september,
 want die liep over de routes van de site en niet over de losse html-bestanden in
 `public/tools/`. Nu weg. Daarmee is dat plaatje overal van de site verdwenen —
 `grep` op de hele repo geeft geen treffer meer.
+
+---
+
+## 6 september 2026 — de calculator staat niet meer alleen
+
+Emilie: het blok van de vergaderkosten-calculator op `/nl/games-tools` is kaal
+zonder beeld. Maak het grijze vlak smaller, dan past de visual er rechts naast.
+
+- **C** — Het blok "Voor je begint" was één grijze kaart van 760 px breed.
+  Nu is het een raster van twee kolommen over de volle inhoudsbreedte: tekst
+  links op het grijs, de calculator in beeld rechts. De tekstkolom is daarmee
+  smaller dan hij was (van ~690 naar ~530 px), precies de bedoeling.
+  Het beeld zit **binnen** de `Link`, dus de hele kaart blijft één klikvlak en
+  kleurt bij hover in zijn geheel lichtgeel — de vaste afspraak voor klikbare
+  propositie-kaarten.
+- **C** — Op mobiel gaat het beeld bovenaan en de tekst eronder, net als bij de
+  vier tool-tegels erboven. Nagemeten op 390 px en 1440 px.
+- **B** — De twee beelden van vanochtend zijn hernoemd van
+  `meeting-calculator-deelbeeld*` naar `meeting-calculator-scherm*`. Ze hebben
+  nu twee rollen — op de pagina én als deelbeeld — en "deelbeeld" klopte dan
+  niet meer. Eén bestand voor allebei, dus geen tweede kopie op de schijf.
+  De losse tool-bestanden wijzen mee naar de nieuwe naam.
+- **T** — `calculatorBeeld` en `calculatorBeeldAlt` erbij in
+  `app/nl/games-tools/data.ts` en `tekst-en.ts`. Dit is het enige beeld op die
+  pagina dat per taal verschilt: de calculator staat er zelf op, en die spreekt
+  Nederlands of Engels.

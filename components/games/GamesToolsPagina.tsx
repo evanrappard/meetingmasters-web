@@ -230,19 +230,35 @@ export default function GamesToolsPagina({ taal = "nl" }: { taal?: Taal }) {
              </p>
           </div>
 
+          {/* Tekst links, de tool in beeld rechts. Het grijze vlak was eerst
+              760px breed en helemaal alleen; met de calculator ernaast zie je
+              meteen waar je op klikt. Eén kaart, dus één klikvlak: het beeld
+              hoort binnen de Link. Op mobiel gaat het beeld bovenaan, net als
+              bij de tool-tegels hierboven. */}
           <Link
             href={t.links.calculator}
-            className="group block rounded border border-[#EBEBEB] bg-[#F7F7F5] p-7 sm:p-9 hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all max-w-[760px]"
+            className="group grid md:grid-cols-2 rounded overflow-hidden border border-[#EBEBEB] bg-[#F7F7F5] hover:bg-[#FFFBEE] hover:border-[#EEBE3D]/50 hover:shadow-md transition-all"
           >
-            <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">
-              {t.voorJeBegint.calculatorTitel}
-             </h3>
-            <p className="text-[#434343] leading-relaxed mb-5">
-              {t.voorJeBegint.calculatorBody}
-             </p>
-            <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide">
-              {t.voorJeBegint.calculatorCta}
-             </span>
+            <div className="p-7 sm:p-9 flex flex-col justify-center">
+              <h3 className="font-bold text-[#2D2D2D] text-xl mb-2 leading-snug group-hover:text-[#EEBE3D] transition-colors">
+                {t.voorJeBegint.calculatorTitel}
+               </h3>
+              <p className="text-[#434343] leading-relaxed mb-5">
+                {t.voorJeBegint.calculatorBody}
+               </p>
+              <span className="text-[#28A8AA] text-sm font-bold transition-all group-hover:text-[#D4A835] group-hover:tracking-wide self-start">
+                {t.voorJeBegint.calculatorCta}
+               </span>
+            </div>
+            <div className="relative order-first md:order-none aspect-[16/9] md:aspect-auto md:min-h-[260px]">
+              <Image
+                src={t.voorJeBegint.calculatorBeeld}
+                alt={t.voorJeBegint.calculatorBeeldAlt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
           </Link>
         </div>
       </section>
