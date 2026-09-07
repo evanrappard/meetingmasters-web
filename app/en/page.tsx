@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 export default function EnRoot() {
-  redirect("/nl/home");
+  permanentRedirect("/nl/home");
 }

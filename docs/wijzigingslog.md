@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-06
+> Laatst bijgewerkt: 2026-09-07
 
 ---
 
@@ -69,6 +69,8 @@ leeft in de paginacode, niet in een apart bestand).
 | 39 | **Privacyverklaring aanvullen met de bezoekerherkenning.** De cookieverklaring noemt `_stfv` al; de privacyverklaring nog niet. Emilie verzamelt de gegevens (zie punt 38), daarna schrijft de bouwer het stuk in beide talen | T | bouwer | wacht op punt 38 |
 | 40 | **SpatialChat-pagina staat tijdelijk uit beeld** (3 sept 2026): uit het menu, uit de sitemap en op noindex, omdat de pagina nog niet goed genoeg is. De inhoud staat er nog. Afmaken en weer aanzetten — hoe, staat in het wijzigingslog bij die datum | T C | Emilie | open |
 | 41 | **Boekingsagenda in HubSpot: twee instellingen.** (a) ~~De duurknoppen~~ **opgelost 3 sept: staan nu op 20 / 30 / 50 met 20 als standaard.** (b) Wil je op de Engelse pagina een gegarandeerd Engelse agenda, maak dan een tweede boekingslink met de taal op Engels — dan zet de bouwer die op /en/demo. Onze token heeft geen rechten op de agenda, dus dit kan alleen in de HubSpot-interface. (c) Eventueel de uitleg over 20/30/50 minuten in de omschrijving van de boekingspagina zetten, zodat hij ook ín de agenda staat | C | Emilie | open |
+| 42 | **Bevestigingsmail bij een R@venHack-boeking.** Nu ziet de bezoeker alleen het gele blok op het scherm; een mail krijgt hij niet. Teksten (NL en EN) en instructie staan klaar in `docs/ravenhack-bevestigingsmail.md`. Emilie kijkt in HubSpot bij beide R@venHack-formulieren onder Opties of *Vervolgmail versturen* er staat — dat is de enige stap die de bouwer niet zelf kan zetten, want de Forms API kent die instelling niet. Staat hij er niet (hoort bij Marketing Hub Starter en hoger), dan bouwt de bouwer de mail vanaf de site zelf via een verzendaccount, met één DNS-regel bij VIP Internet | T C | Emilie | open — er is een lósse marketinge-mail gemaakt, die verstuurt niets vanzelf. Nodig: e-mailsoort **Geautomatiseerd**, knop *Opslaan voor automatisering*, en de koppeling leggen bij het formulier onder **Automatisering**. Uitgewerkt in §2b van het document |
+| 43 | **Bedanktekst aanvullen zodra de mail aanstaat.** In het gele blok komt dan een regel dat de bevestiging ook per e-mail onderweg is. Wacht op punt 42 | T | bouwer | wacht op punt 42 |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -93,6 +95,117 @@ leeft in de paginacode, niet in een apart bestand).
 ---
 
 ## 5. Log
+
+### 2026-09-07 — Search Console: wat overgangspijn is en wat een fout is
+
+**Vraag.** Google stuurde veertien meldingen over pagina's die niet in de index
+komen. Welke gaan vanzelf over, en welke moeten gerepareerd?
+
+**Uitgezocht.** Negen categorieën, en ze vallen in drie stapels.
+
+*Vanzelf over — niets doen.* "Page with redirect" (28) is precies wat er hoort te
+gebeuren: elk oud adres dat doorverwijst komt hier terecht. "Excluded by noindex"
+(11) klopt ook: dat zijn `/nl/team`, `/nl/partners`, `/nl/csr`, `/nl/quality`,
+`/nl/planning-support`, `/nl/strategy-concept`, `/nl/meeting-formats` en
+`/nl/escape-rooms` — allemaal met opzet uit de index, ze staan in
+`NIET_INDEXEREN` in `app/sitemap.ts`. "Blocked by robots.txt" (2) gaat over twee
+oude blog-adressen met een querystring, laatst bekeken op 15 augustus — vóór de
+verhuizing, toen de robots.txt van Squarespace nog gold. Onze robots.txt blokkeert
+niets. "Alternate page with proper canonical" (3) betekent dat de canonical zijn
+werk doet. En bij "Crawled — currently not indexed" (16) staan vooral
+lettertypebestanden, het manifest en de favicon: die horen niet in de index.
+
+*Echt mis — gerepareerd.* Zie hieronder.
+
+**Gedaan — 1. De homepage verwees tijdelijk door.** `/` en `/nl` gebruikten
+`redirect()` uit `next/navigation`, en dat is een 307: *tijdelijk*. Google leest
+dat als "het origineel blijft `/`" en koos `/` dan ook als canonical, terwijl
+`/nl/home` naar zichzelf wees. Dat is precies de melding "Duplicate, Google chose
+different canonical than user" op de belangrijkste pagina van de site. Alle
+dertien doorverwijspagina's staan nu op `permanentRedirect()` (308): `/`, `/nl`,
+`/en`, `/nl/inspiratie`, `/en/inspiratie` en de acht onder `/nl/about/` en
+`/en/about/`.
+
+**Gedaan — 2. Zeventien adressen gaven nog steeds een foutmelding.** De
+validatie van "Not found (404)" stond op *Failed*. Van de 26 adressen waren er
+acht al opgelost op 23 augustus — Google had ze alleen nog niet opnieuw bekeken
+(laatste bezoek april tot juni). De rest werd wél recent bezocht, tot 5 september
+aan toe, en gaf elke keer een fout. Die verdwijnen niet vanzelf zolang ze in de
+index staan. Nieuwe doorverwijzingen in `next.config.ts`:
+
+| Oud adres | Gaat naar |
+|---|---|
+| `/nl/vacatures`, `/nl/kwaliteit` | `/nl/about` |
+| `/nl/klanten`, `/nl/klantenlijst` | `/nl/testimonials` |
+| `/nl/online-klankbord` | `/nl/events/klankbordgroep` |
+| `/nl/online-alv` | `/nl/events/alv` |
+| `/nl/online-brainstorms` | `/nl/events/brainstormen` |
+| `/en/online-brainstorms` | `/en/events/brainstorm-session` |
+| `/nl/zoom-1` | `/nl/technologie/tools` |
+| `/en/themagame-raven-hack(-1)` | `/en/games-tools/ravenhack` |
+| `/en/wheel-of-fortune` | `/en/games-tools/tools/wheel-of-fortune` |
+| `/nl/spatialchat-faq` | `/nl/technologie/hulp` |
+| `/en/spatialchat-faq`, `/en/spatialchat-faq-esp-1` | `/en/help` |
+| `/nl/spatialchat-remote-office` | `/nl/virtual-office` |
+| `/en/spatialchat-remote-office` | `/en/virtual-office` |
+| `/nl/escape-room`, `/nl/voorbereiding-escapemasters` | `/nl/games-tools#games` |
+| `/rsvp-3`, `/rsvp-3-1` | `/nl/home` |
+| `/s/:bestand*` | `/nl/downloads` |
+
+`/s/` was de bestandsmap van de oude site: de SpatialChat-instructies in vier
+talen. Die pdf's bestaan niet meer, dus gaat alles onder `/s/` in één keer naar
+de downloadpagina. `/rsvp-3` was een aanmeldpagina van een los event; welk event
+is niet meer te achterhalen, vandaar de homepage.
+
+**Gecontroleerd.** Lokaal een productiebuild gedraaid en alle dertig adressen
+nagelopen: allemaal 308 naar het juiste doel.
+
+**Nog te doen.** Na de deploy in Search Console op *Validate fix* drukken bij
+"Not found (404)" en bij "Duplicate, Google chose different canonical than user".
+Een validatieronde duurt een paar weken.
+
+
+### 2026-09-06 — Bevestiging van een R@venHack-boeking ook per e-mail
+
+**Vraag.** Na het versturen van het boekingsformulier verschijnt de bevestiging
+in een geel blok op het scherm. Kan die bevestiging ook in de mailbox van de
+bezoeker komen?
+
+**Uitgezocht.** Het gele blok is de bedanktekst van HubSpot
+(`configuration.postSubmitAction`), opgemaakt via `.submitted-message` in
+`lib/hubspot-vorm.ts`. Er gaat nu alleen een melding naar Emilie
+(`notifyRecipients`), niet naar de bezoeker. Alle gekozen gegevens — versie,
+taal, deelnemers, datum, tijd, toeslag, korting, prijsopbouw en totaal — staan
+al als contacteigenschappen (`rh_*`) in HubSpot, dus een mail kan ze zo
+invoegen.
+
+**Route.** Via HubSpot zelf, want de gegevens en de afzender zijn er al en er
+komt geen partij bij. De schakelaar voor een vervolgmail zit alleen in de
+interface: de Forms API kent die instelling niet. Emilie kijkt of de knop er is;
+zo niet, dan stuurt de site de mail zelf via een verzendaccount.
+
+**Gedaan.** `docs/ravenhack-bevestigingsmail.md` aangemaakt: de gegevens die
+meegaan, de klikroute in HubSpot, en de volledige mailtekst in het Nederlands en
+het Engels met de juiste personalisatietokens. Twee valkuilen erbij: `rh_prijsopbouw`
+is een tekstvak waarvan de regelovergangen in een mail kunnen wegvallen, en
+`rh_po_nummer` en de kortingsvelden zijn vaak leeg en hebben een standaardwaarde
+nodig.
+
+**Nog te doen.** Punt 42 (Emilie checkt de knop) en punt 43 (bedanktekst
+aanvullen zodra de mail aanstaat).
+
+**Later die dag.** In HubSpot is een lósse marketinge-mail gemaakt; die
+verstuurt niets vanzelf. De legacy Forms API bevestigt het: `followUpId` op het
+formulier is leeg, er hangt geen mail aan. Twee dingen moeten kloppen — het
+e-mailsoort moet **Geautomatiseerd** zijn (een normale e-mail gaat alleen met de
+hand naar een lijst, en het soort is achteraf niet te wijzigen), en de e-mail
+moet zijn opgeslagen met **Opslaan voor automatisering**. Daarna wordt de
+koppeling gelegd bij het formulier onder **Automatisering** → *E-mail versturen*.
+Uitgewerkt in §2b van `docs/ravenhack-bevestigingsmail.md`.
+
+Onze private app heeft geen `marketing.email.read`, dus ik kan de e-mails zelf
+niet inzien — vandaar dat dit een kijkopdracht voor Emilie is.
+
 
 ### 2026-08-17 — Downloads met voorbladen, en de ALV-checklist bij het event
 

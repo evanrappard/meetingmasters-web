@@ -1,2 +1,2 @@
-import { redirect } from "next/navigation";
-export default function TeamPage() { redirect("/en/about"); }
+import { permanentRedirect } from "next/navigation";
+export default function TeamPage() { permanentRedirect("/en/about"); }

@@ -1,2 +1,2 @@
-import { redirect } from "next/navigation";
-export default function QualityRedirectPage() { redirect("/en/quality"); }
+import { permanentRedirect } from "next/navigation";
+export default function QualityRedirectPage() { permanentRedirect("/en/quality"); }

@@ -1,2 +1,2 @@
-import { redirect } from "next/navigation";
-export default function CsrRedirectPage() { redirect("/nl/csr"); }
+import { permanentRedirect } from "next/navigation";
+export default function CsrRedirectPage() { permanentRedirect("/nl/csr"); }

@@ -1,2 +1,2 @@
-import { redirect } from "next/navigation";
-export default function PartnersRedirectPage() { redirect("/en/partners"); }
+import { permanentRedirect } from "next/navigation";
+export default function PartnersRedirectPage() { permanentRedirect("/en/partners"); }

@@ -176,6 +176,43 @@ const nextConfig: NextConfig = {
       // Er staat geen vacaturepagina; wie hem zoekt, wil weten wie wij zijn.
       { source: "/vacature", destination: "/nl/about", permanent: true },
 
+      // ── 404's uit Search Console, 7 sep 2026 ──
+      // Google crawlt deze adressen van de oude site nog stééds (de laatste op
+      // 5 september) en kreeg elke keer een foutmelding. Ze verdwijnen niet
+      // vanzelf zolang ze in de index staan, dus krijgt elk adres de pagina die
+      // er inhoudelijk het dichtst bij ligt.
+      { source: "/nl/vacatures", destination: "/nl/about", permanent: true },
+      { source: "/nl/kwaliteit", destination: "/nl/about", permanent: true },
+      { source: "/nl/klanten", destination: "/nl/testimonials", permanent: true },
+      { source: "/nl/klantenlijst", destination: "/nl/testimonials", permanent: true },
+      // Oude losse pagina's per bijeenkomstvorm; die staan nu onder /nl/events.
+      { source: "/nl/online-klankbord", destination: "/nl/events/klankbordgroep", permanent: true },
+      { source: "/nl/online-alv", destination: "/nl/events/alv", permanent: true },
+      { source: "/nl/online-brainstorms", destination: "/nl/events/brainstormen", permanent: true },
+      { source: "/en/online-brainstorms", destination: "/en/events/brainstorm-session", permanent: true },
+      { source: "/nl/zoom-1", destination: "/nl/technologie/tools", permanent: true },
+      { source: "/en/themagame-raven-hack", destination: "/en/games-tools/ravenhack", permanent: true },
+      { source: "/en/themagame-raven-hack-1", destination: "/en/games-tools/ravenhack", permanent: true },
+      { source: "/en/wheel-of-fortune", destination: "/en/games-tools/tools/wheel-of-fortune", permanent: true },
+      // De SpatialChat-pagina's van de oude site. De FAQ is opgegaan in de
+      // hulppagina, het virtuele kantoor heeft een eigen sectie gekregen.
+      { source: "/nl/spatialchat-faq", destination: "/nl/technologie/hulp", permanent: true },
+      { source: "/en/spatialchat-faq", destination: "/en/help", permanent: true },
+      { source: "/en/spatialchat-faq-esp-1", destination: "/en/help", permanent: true },
+      { source: "/nl/spatialchat-remote-office", destination: "/nl/virtual-office", permanent: true },
+      { source: "/en/spatialchat-remote-office", destination: "/en/virtual-office", permanent: true },
+      // "escaperoom" stond er al, "escape-room" met streepje nog niet.
+      { source: "/nl/escape-room", destination: "/nl/games-tools#games", permanent: true },
+      { source: "/nl/voorbereiding-escapemasters", destination: "/nl/games-tools#games", permanent: true },
+      // Aanmeldpagina's van losse events uit het oude systeem. Welk event het
+      // was, is niet meer te achterhalen; de homepage is dan het eerlijkst.
+      { source: "/rsvp-3", destination: "/nl/home", permanent: true },
+      { source: "/rsvp-3-1", destination: "/nl/home", permanent: true },
+      // /s/ was de bestandsmap van de oude site: pdf's met instructies, in vier
+      // talen. Die bestanden zijn er niet meer; de downloads staan nu op een
+      // eigen pagina.
+      { source: "/s/:bestand*", destination: "/nl/downloads", permanent: true },
+
       // Het overzicht en al het overige onder /nl/blogs.
       { source: "/nl/blogs", destination: "/nl/blog", permanent: true },
       { source: "/nl/blogs/category/:tak", destination: "/nl/blog", permanent: true },
