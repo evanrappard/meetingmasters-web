@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/ui/CookieBanner";
 import Analytics from "@/components/ui/Analytics";
 import Bezoekerherkenning from "@/components/ui/Bezoekerherkenning";
+import HubSpotTracking from "@/components/ui/HubSpotTracking";
 
 export default function NlLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +16,7 @@ export default function NlLayout({ children }: { children: React.ReactNode }) {
       <CookieBanner />
       <Analytics />
       <Bezoekerherkenning />
+      <HubSpotTracking />
     </>
   );
 }

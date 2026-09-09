@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/ui/CookieBanner";
 import Analytics from "@/components/ui/Analytics";
 import Bezoekerherkenning from "@/components/ui/Bezoekerherkenning";
+import HubSpotTracking from "@/components/ui/HubSpotTracking";
 
 /**
  * De Engelse sectie. De `lang` staat in de root-layout op "nl", want dat is de
@@ -23,6 +24,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
       <CookieBanner />
       <Analytics />
       <Bezoekerherkenning />
+      <HubSpotTracking />
     </div>
   );
 }

@@ -168,7 +168,9 @@ export default function PrivacyStatementPage() {
         <Lijst>
           <li>
             <strong className="text-dark-grey">HubSpot</strong> — our forms, the newsletter
-            and our client contact. Our HubSpot environment is in the European data centre.
+            and our client contact. If you give consent in the cookie bar, HubSpot also
+            records which pages you view and links them to your details the moment you fill
+            in a form. Our HubSpot environment is in the European data centre.
           </li>
           <li>
             <strong className="text-dark-grey">Vercel</strong> — the hosting of this

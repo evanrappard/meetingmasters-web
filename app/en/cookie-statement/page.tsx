@@ -64,8 +64,10 @@ export default function CookieStatementPage() {
           </li>
           <li>
             <strong className="text-dark-grey">Pages without a form</strong> — there we do
-            not load HubSpot at all. Open the home page, an event page or the blog and there
-            is not a single cookie in your browser until you make a choice.
+            not load HubSpot as long as you have made no choice or allow only what is
+            essential. Open the home page, an event page or the blog and there is not a
+            single cookie in your browser. Choose &ldquo;Accept all&rdquo; and HubSpot&rsquo;s
+            tracking code is added — see below.
           </li>
         </Lijst>
       </Blok>
@@ -79,6 +81,14 @@ export default function CookieStatementPage() {
           &ldquo;do not track&rdquo; before the script loads. The form works perfectly well
           that way. Choose &ldquo;Accept all&rdquo; and we switch it on; withdraw your
           consent later and it goes back off, and we delete what was there.
+        </p>
+        <p>
+          What that adds: only after that choice do we load HubSpot&rsquo;s tracking code on
+          every page. It records which pages you view and attaches that history to your
+          details the moment you fill in a form — so we can see what someone was looking for
+          before they wrote to us. Make no choice, or choose &ldquo;Essential only&rdquo;,
+          and that script is not loaded: no request goes to HubSpot from a page without a
+          form.
         </p>
         <p>
           One thing is outside our hands: the calendar in which you book an appointment is a

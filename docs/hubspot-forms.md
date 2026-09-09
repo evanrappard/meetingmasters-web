@@ -283,3 +283,28 @@ Teksten bijwerken kan zonder de velden aan te raken:
 Dat zet alleen de knoptekst, de bedanktekst en de huisstijl opnieuw. De velden
 blijven zoals ze in HubSpot staan, zodat een aanpassing die je daar met de hand
 maakte niet zomaar verdwijnt.
+
+## Trackingcode (9 september 2026)
+
+Naast de formulieren staat nu ook de algemene **trackingcode** van HubSpot in de
+site: `components/ui/HubSpotTracking.tsx`, opgehangen in `app/nl/layout.tsx` en
+`app/en/layout.tsx`. Adres: `https://js-eu1.hs-scripts.com/147433380.js` (portal-ID
+en region komen uit `lib/hubspot-forms.ts`).
+
+Wat hij doet dat de formulieren níét doen: hij herkent een bezoeker over meerdere
+bezoeken heen en houdt bij welke pagina's hij bekeek. Vult diezelfde bezoeker
+later een formulier in, dan hangt die geschiedenis aan het contact.
+
+Drie dingen om te onthouden:
+
+1. **Alleen ná "Alles accepteren".** Zonder toestemming laden we het script niet
+   en gaat er geen verzoek naar HubSpot vanaf een pagina zonder formulier. Trekt
+   iemand de toestemming in, dan zet `lib/hubspot-toestemming.ts` de code op
+   "niet volgen" en wist het `hubspotutk`, `__hstc`, `__hssc` en `__hssrc`.
+2. **Alleen op `meetingmasters.online`.** Lokaal werk en preview-omgevingen komen
+   niet in de cijfers.
+3. **De controleknop in HubSpot ziet hem alleen mét toestemming.** *Instellingen →
+   Tracking & Analytics → Trackingcode → Controleer installatie* haalt de pagina
+   op zonder cookiekeuze te maken, en dan is het script er met opzet niet. Wil je
+   zeker weten dat hij werkt: open de site, kies "Alles accepteren", en kijk in
+   HubSpot bij de bezoekcijfers of je eigen bezoek verschijnt.

@@ -51,8 +51,10 @@ export default function CookieverklaringPage() {
           </li>
           <li>
             <strong className="text-dark-grey">Pagina&rsquo;s zonder formulier</strong> —
-            daar laden we HubSpot helemaal niet. Open je de home, een eventpagina of het
-            blog, dan staat er geen enkele cookie in je browser tot je een keuze maakt.
+            daar laden we HubSpot niet, zolang je geen keuze hebt gemaakt of alleen het
+            noodzakelijke toestaat. Open je de home, een eventpagina of het blog, dan staat
+            er geen enkele cookie in je browser. Kies je &ldquo;Alles accepteren&rdquo;, dan
+            komt de trackingcode van HubSpot er wél bij — die staat hieronder.
           </li>
         </Lijst>
       </Blok>
@@ -66,6 +68,14 @@ export default function CookieverklaringPage() {
           HubSpot vóór het laden op &ldquo;niet volgen&rdquo;. Het formulier werkt daar
           gewoon mee. Kies je &ldquo;Alles accepteren&rdquo;, dan zetten we hem om; trek je
           je toestemming later in, dan gaat hij terug én wissen we wat er stond.
+        </p>
+        <p>
+          Wat er dan bij komt: pas ná die keuze laden we de trackingcode van HubSpot op alle
+          pagina&rsquo;s. Die houdt bij welke pagina&rsquo;s je bekijkt, en zet die
+          geschiedenis bij je gegevens zodra je een formulier invult — zo zien we waar
+          iemand naar op zoek was voordat hij ons schreef. Maak je geen keuze, of kies je
+          &ldquo;Alleen noodzakelijk&rdquo;, dan wordt dat script niet geladen en gaat er
+          geen enkel verzoek naar HubSpot vanaf een pagina zonder formulier.
         </p>
         <p>
           Eén ding valt buiten onze hand: de agenda waarin je een afspraak inplant, is een

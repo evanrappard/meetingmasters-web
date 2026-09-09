@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-07
+> Laatst bijgewerkt: 2026-09-09
 
 ---
 
@@ -69,8 +69,9 @@ leeft in de paginacode, niet in een apart bestand).
 | 39 | **Privacyverklaring aanvullen met de bezoekerherkenning.** De cookieverklaring noemt `_stfv` al; de privacyverklaring nog niet. Emilie verzamelt de gegevens (zie punt 38), daarna schrijft de bouwer het stuk in beide talen | T | bouwer | wacht op punt 38 |
 | 40 | **SpatialChat-pagina staat tijdelijk uit beeld** (3 sept 2026): uit het menu, uit de sitemap en op noindex, omdat de pagina nog niet goed genoeg is. De inhoud staat er nog. Afmaken en weer aanzetten — hoe, staat in het wijzigingslog bij die datum | T C | Emilie | open |
 | 41 | **Boekingsagenda in HubSpot: twee instellingen.** (a) ~~De duurknoppen~~ **opgelost 3 sept: staan nu op 20 / 30 / 50 met 20 als standaard.** (b) Wil je op de Engelse pagina een gegarandeerd Engelse agenda, maak dan een tweede boekingslink met de taal op Engels — dan zet de bouwer die op /en/demo. Onze token heeft geen rechten op de agenda, dus dit kan alleen in de HubSpot-interface. (c) Eventueel de uitleg over 20/30/50 minuten in de omschrijving van de boekingspagina zetten, zodat hij ook ín de agenda staat | C | Emilie | open |
-| 42 | **Bevestigingsmail bij een R@venHack-boeking.** Nu ziet de bezoeker alleen het gele blok op het scherm; een mail krijgt hij niet. Teksten (NL en EN) en instructie staan klaar in `docs/ravenhack-bevestigingsmail.md`. Emilie kijkt in HubSpot bij beide R@venHack-formulieren onder Opties of *Vervolgmail versturen* er staat — dat is de enige stap die de bouwer niet zelf kan zetten, want de Forms API kent die instelling niet. Staat hij er niet (hoort bij Marketing Hub Starter en hoger), dan bouwt de bouwer de mail vanaf de site zelf via een verzendaccount, met één DNS-regel bij VIP Internet | T C | Emilie | open — er is een lósse marketinge-mail gemaakt, die verstuurt niets vanzelf. Nodig: e-mailsoort **Geautomatiseerd**, knop *Opslaan voor automatisering*, en de koppeling leggen bij het formulier onder **Automatisering**. Uitgewerkt in §2b van het document |
+| 42 | **Bevestigingsmail bij een R@venHack-boeking.** De HubSpot-route is verlaten: een e-mail uit HubSpot is een marketingbericht en gaat alleen naar wie zich voor een abonnementstype heeft aangemeld — een bevestiging van je eigen aanvraag hoort iedereen te bereiken. De site verstuurt de mail nu zelf; code staat er en is getest. Nodig van Emilie: (a) account op resend.com, (b) `meetingmasters.online` aanmelden en de DKIM-regels bij VIP Internet zetten, (c) `RESEND_API_KEY` en `MAIL_AFZENDER` in Vercel én opnieuw laten bouwen. Zolang dat niet staat, verstuurt de site niets en gaat er niets stuk. Zie `docs/ravenhack-bevestigingsmail.md` | T C | Emilie | open — wacht op verzendaccount |
 | 43 | **Bedanktekst aanvullen zodra de mail aanstaat.** In het gele blok komt dan een regel dat de bevestiging ook per e-mail onderweg is. Wacht op punt 42 | T | bouwer | wacht op punt 42 |
+| 44 | **Trackingcode van HubSpot staat in de site** (9 sept 2026), maar hij meet pas als de site opnieuw gebouwd en uitgerold is. Daarna in HubSpot controleren: *Instellingen → Tracking & Analytics → Trackingcode*, knop **Controleer installatie** op `www.meetingmasters.online`. Let op: HubSpot ziet de code alleen als je op die site zelf "Alles accepteren" kiest — zonder toestemming laden we hem bewust niet, en dan meldt HubSpot dat de code ontbreekt | C | Emilie | open — na de eerstvolgende deploy |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -95,6 +96,71 @@ leeft in de paginacode, niet in een apart bestand).
 ---
 
 ## 5. Log
+
+### 2026-09-09 — Trackingcode van HubSpot geïnstalleerd
+
+**Vraag.** De trackingcode van HubSpot op de nieuwe site zetten, volgens
+[hun handleiding](https://knowledge.hubspot.com/nl/reports/install-the-hubspot-tracking-code).
+
+**Wat er al stond, en wat erbij komt.** De formulieren van HubSpot draaiden al op
+de site, maar dat is iets anders dan de trackingcode. De formulieren tonen een
+formulier; de trackingcode herkent een bezoeker over meerdere bezoeken heen,
+houdt bij welke pagina's hij bekeek en plakt die geschiedenis aan het contact
+zodra iemand iets invult. In HubSpot zie je vanaf nu bij een lead welke pagina's
+daaraan voorafgingen.
+
+**Gedaan — het script.** Nieuw component
+`components/ui/HubSpotTracking.tsx`, opgehangen in `app/nl/layout.tsx` en
+`app/en/layout.tsx`, naast Google Analytics en de bezoekerherkenning. Het portal-ID
+(147433380) en het datacentrum (eu1) komen uit `lib/hubspot-forms.ts`, zodat ze op
+één plek staan. Het adres van het script is daarmee
+`https://js-eu1.hs-scripts.com/147433380.js` — een EU-account heeft een ander
+adres dan een Amerikaans.
+
+**Gedaan — de toestemming.** Dezelfde regel als bij Google Analytics: het script
+laadt pas ná &ldquo;Alles accepteren&rdquo;. Zonder keuze, of bij &ldquo;Alleen
+noodzakelijk&rdquo;, gaat er geen enkel verzoek naar hs-scripts.com en staat er
+geen `hubspotutk` of `__hstc` in de browser. Trek je je toestemming in, dan zet
+`lib/hubspot-toestemming.ts` de code op &ldquo;niet volgen&rdquo; en wist het de
+cookies. Dat lag er al klaar — de opmerking in dat bestand ("voegt iemand later
+alsnog het algemene trackingscript toe, dan is de toestemming daarmee al goed
+geregeld") gaat precies over vandaag.
+
+**Twee dingen die anders stilletjes fout gaan.**
+
+1. *Paginawissels.* De site laadt bij een klik geen nieuwe pagina, dus HubSpot zou
+   alleen de pagina zien waarop iemand binnenkwam. Elke wissel wordt nu apart
+   doorgegeven met `setPath` en `trackPageView`, net als bij Analytics. De eerste
+   pagina slaan we daarbij over: die telt de trackingcode zelf al, en anders staat
+   hij dubbel in de cijfers.
+2. *Cookies wissen op het verkeerde moment.* Bij het openen van een pagina is de
+   cookiekeuze nog niet uitgelezen, en dat ziet er hetzelfde uit als "geen
+   toestemming". Zonder onderscheid zouden we bij élke paginalading de cookies
+   wissen van iemand die wél toestemming gaf — die is dan bij elk bezoek weer een
+   onbekende, en dan meet je niets zinnigs. Daar zit nu een vlag tussen.
+   (`Analytics.tsx` heeft ditzelfde patroon voor de `_ga`-cookies; daar is het
+   minder erg omdat Google zelf een nieuwe zet, maar het mag daar ook nog weg.)
+
+**Alleen op de echte site.** Net als bij de bezoekerherkenning: het script laadt
+alleen op `meetingmasters.online`. Lokaal werk en preview-omgevingen komen zo niet
+in de cijfers terecht.
+
+**Gedaan — de verklaringen bijgewerkt.** In de cookieverklaring stond dat we op
+pagina's zonder formulier &ldquo;HubSpot helemaal niet&rdquo; laden. Dat klopt nu
+alleen nog zolang je geen toestemming geeft, dus die zin is aangepast en er staat
+een alinea bij over wat de trackingcode doet. In de privacyverklaring is de
+HubSpot-regel aangevuld. In beide talen: `app/nl/cookieverklaring/page.tsx`,
+`app/en/cookie-statement/page.tsx`, `app/nl/privacy-statement/page.tsx`,
+`app/en/privacy-statement/page.tsx`.
+
+**Nog te doen.** Zie punt 44 bij Openstaand: uitrollen en daarna de installatie in
+HubSpot laten controleren. En bij de juridische check (punt 32) dit meenemen: de
+verklaring zegt dat we geen profielen maken, terwijl HubSpot met toestemming wél
+een bezoekgeschiedenis aan een contact hangt. Dat is geen geautomatiseerd besluit,
+maar het is wel het bespreken waard.
+
+**Status:** ingebouwd, gecontroleerd met `npx tsc --noEmit`, `npx eslint` en
+`npm run build`.
 
 ### 2026-09-07 — Search Console: wat overgangspijn is en wat een fout is
 
@@ -205,6 +271,92 @@ Uitgewerkt in §2b van `docs/ravenhack-bevestigingsmail.md`.
 
 Onze private app heeft geen `marketing.email.read`, dus ik kan de e-mails zelf
 niet inzien — vandaar dat dit een kijkopdracht voor Emilie is.
+
+### 2026-09-07 — Eerste bevestigingsmail echt bezorgd
+
+Resend-account aangemaakt, `meetingmasters.online` aangemeld in regio
+`eu-west-1`, DNS-regels gezet bij VIP Internet. Bij alle drie de nameservers
+(`be.ns.vip.nl`, `nl.ns.vip.nl`, `dns.resolver.domains`) staan de DKIM-TXT op
+`resend._domainkey` en de CNAME's op `rsend` en `send`, gelijk aan wat Resend
+verwacht. De MX van het hoofddomein wijst nog gewoon naar Microsoft 365.
+
+Twee dingen rechtgezet in `.env.local`: de sleutel stond er als losse regel
+zonder `RESEND_API_KEY=` ervoor, en `MAIL_AFZENDER` moet tussen aanhalingstekens
+omdat de punthaken in het adres anders de terminal breken bij `source`.
+
+Getest met de testafzender van Resend (`onboarding@resend.dev`) door de échte
+keten: POST op `/api/ravenhack/bevestiging` → `lib/mail/verzend.ts` → Resend →
+inbox. Resend meldt `delivered`. De mailtekst, de prijsopbouw en het logo komen
+dus goed aan.
+
+Ook de Engelse kant getest, met de andere variant en zonder korting en zonder
+PO-nummer: R@venHack Quick, 14 deelnemers, 5 november 14:00. Ook `delivered`. De
+Engelse pagina gebruikt hetzelfde component met `taal="en"`, en het Engelse
+HubSpot-formulier heeft dezelfde interne veldnamen, dus er is geen tweede
+koppeling die apart kan stukgaan. Lege regels (PO-nummer, korting) vallen zoals
+bedoeld weg uit de mail.
+
+**Nog niet af:** Resend heeft het domein nog op `pending` staan voor de DKIM en
+één CNAME. Zolang dat zo is, kan er niet vanaf `contact@meetingmasters.online`
+worden verstuurd. Er is aan onze kant niets meer te doen — Resend heeft
+waarschijnlijk gekeken vóór de regels er stonden en onthoudt dat een uur.
+
+### 2026-09-07 — De bevestigingsmail gaat buiten HubSpot om
+
+**Waar het op stukliep.** Een e-mail uit HubSpot is een *marketing*bericht: hij
+gaat alleen naar marketingcontacten die zijn aangemeld voor een abonnementstype.
+Het vinkje "Ik ontvang graag ook andere berichten" staat op het formulier bewust
+niet verplicht, dus wie dat laat staan zou ook de bevestiging niet krijgen. Dat
+is geen instelling maar hoe HubSpot werkt, en het vinkje verplicht maken zou
+marketingtoestemming afdwingen voor een bericht dat geen marketing is. Een
+boekingsbevestiging is transactioneel: nodig om de afspraak uit te voeren, geen
+toestemming vereist, geen afmeldlink nodig. HubSpots eigen antwoord is de losse
+Transactional Email add-on van enkele honderden euro's per maand — niet te
+verdedigen voor één mail.
+
+**Gebouwd.** De site verstuurt de bevestiging nu zelf.
+
+| Bestand | Wat |
+|---|---|
+| `lib/mail/verzend.ts` | nieuw — de enige plek waar de site mail verstuurt, via de REST-API van Resend, zonder npm-pakket |
+| `lib/ravenhack/bevestigingsmail.ts` | nieuw — onderwerp, HTML en platte tekst, NL en EN |
+| `app/api/ravenhack/bevestiging/route.ts` | nieuw — controleert, rekent de prijs opnieuw uit, verstuurt; met een dev-only voorbeeldweergave |
+| `components/ui/HubSpotForm.tsx` | eigenschap `bijVerzonden`: meldt één keer dat het formulier verstuurd is, met wat er in de velden stond |
+| `components/ravenhack/BoekNu.tsx` | koppelt die melding aan de route |
+
+**Bewust zo.** Alleen de keuzes gaan mee vanuit de browser; de prijs wordt op de
+server opnieuw uitgerekend en de kortingscode daar opnieuw beoordeeld. Niemand
+kan dus een eigen bedrag of eigen tekst de mail in schrijven. Op het aanroepen
+van de route staat een rem: vijf per IP-adres en twee per ontvanger per tien
+minuten. Mislukt het versturen, dan blijft dat stil — de aanvraag staat allang in
+HubSpot. Staat het verzendaccount nog niet ingesteld, dan gebeurt er niets en
+werkt de site gewoon zoals nu.
+
+**Tekstkeuzes.** De mail staat in de je-vorm. Het voorbehoud van de site staat in
+de u-vorm en is daarom voor de mail apart geschreven; de eerste voorwaarde
+("wij checken de beschikbaarheid") is weggelaten omdat die er twee alinea's
+boven al staat.
+
+**Nog te doen.** Punt 42 (verzendaccount, DNS en twee instellingen) en punt 43
+(bedanktekst aanvullen zodra de mail echt verstuurt).
+
+**Logo erbij (zelfde dag).** Op verzoek van Emilie staat het logo nu bovenaan de
+mail, in plaats van de naam in geel. Het wordt opgehaald van
+`https://www.meetingmasters.online/images/logo.png`: een mailprogramma kan niets
+met een bestand uit `public/`, dus het moet een volledig adres zijn. Mét `www.`,
+want zonder dat verwijst de site door en niet elk mailprogramma volgt dat voor
+een plaatje. PNG en geen WebP, want Outlook kent WebP niet. Staat beeld uit bij
+de ontvanger, dan valt de alt-tekst in, opgemaakt in het geel van de huisstijl.
+Het logo linkt naar de site in de taal van de mail. Genoteerd in
+`docs/website-visuals.md`, met de waarschuwing dat `logo.png` nu ook buiten de
+site wordt opgehaald.
+
+**Naam in de aftiteling.** Emilie: "wij heten MeetingMasters Online". De mail
+ondertekent nu met *Emilie van Rappard / MeetingMasters Online*, in beide talen,
+en de alt-tekst van het logo zegt hetzelfde. Dat sluit aan op de rest van de
+site: de footer en de gestructureerde gegevens op de homepage gebruiken die naam
+al.
+
 
 
 ### 2026-08-17 — Downloads met voorbladen, en de ALV-checklist bij het event

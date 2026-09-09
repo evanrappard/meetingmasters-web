@@ -158,8 +158,10 @@ export default function PrivacyStatementPage() {
         <Lijst>
           <li>
             <strong className="text-dark-grey">HubSpot</strong> — onze formulieren, de
-            nieuwsbrief en ons klantcontact. Onze HubSpot-omgeving staat in het Europese
-            datacentrum.
+            nieuwsbrief en ons klantcontact. Geef je in de cookiebalk toestemming, dan houdt
+            HubSpot ook bij welke pagina&rsquo;s je bekijkt en koppelt het die aan je
+            gegevens zodra je een formulier invult. Onze HubSpot-omgeving staat in het
+            Europese datacentrum.
           </li>
           <li>
             <strong className="text-dark-grey">Vercel</strong> — de hosting van deze
