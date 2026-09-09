@@ -140,7 +140,8 @@ export default function CookieverklaringPage() {
             {
               naam: "__cf_bm",
               plaatser: "Cloudflare, via HubSpot",
-              doel: "botfilter voor onze formulieren; staat op het domein van HubSpot, niet op het onze",
+              doel:
+                "botfilter van HubSpot; staat op hun eigen domeinen, niet op het onze. Na \u201cAlles accepteren\u201d komt hij ook op de domeinen van de trackingcode",
               termijn: "30 minuten",
             },
           ]}

@@ -193,6 +193,13 @@ staat in `TEKST` in dat script, zodat code en HubSpot niet uit elkaar lopen. Van
 beide formulieren staat een kopie van vóór de wijziging in
 `schermafdrukken/hubspot-backups/ravenhack-{nl,en}-voor-20260909.json`.
 
+**Nog één regel scherper gezet.** De meting liet zien dat `__cf_bm` na "Alles
+accepteren" óók op `hs-scripts.com`, `hs-analytics.net`, `hs-banner.com` en
+`hubspot.com` staat — de trackingcode brengt zijn eigen botfilter mee. In de
+tabel stond alleen "het domein van HubSpot", in de context van de formulieren.
+Aangevuld in beide talen; het blijft een cookie op hún domeinen, niet op het
+onze.
+
 ### 2026-09-07 — Search Console: wat overgangspijn is en wat een fout is
 
 **Vraag.** Google stuurde veertien meldingen over pagina's die niet in de index

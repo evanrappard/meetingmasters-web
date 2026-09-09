@@ -153,7 +153,8 @@ export default function CookieStatementPage() {
             {
               naam: "__cf_bm",
               plaatser: "Cloudflare, via HubSpot",
-              doel: "bot filter for our forms; sits on HubSpot's domain, not on ours",
+              doel:
+                "HubSpot's bot filter; sits on their own domains, not on ours. After \u201cAccept all\u201d it also appears on the tracking code's domains",
               termijn: "30 minutes",
             },
           ]}
