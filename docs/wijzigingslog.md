@@ -70,7 +70,7 @@ leeft in de paginacode, niet in een apart bestand).
 | 40 | **SpatialChat-pagina staat tijdelijk uit beeld** (3 sept 2026): uit het menu, uit de sitemap en op noindex, omdat de pagina nog niet goed genoeg is. De inhoud staat er nog. Afmaken en weer aanzetten — hoe, staat in het wijzigingslog bij die datum | T C | Emilie | open |
 | 41 | **Boekingsagenda in HubSpot: twee instellingen.** (a) ~~De duurknoppen~~ **opgelost 3 sept: staan nu op 20 / 30 / 50 met 20 als standaard.** (b) Wil je op de Engelse pagina een gegarandeerd Engelse agenda, maak dan een tweede boekingslink met de taal op Engels — dan zet de bouwer die op /en/demo. Onze token heeft geen rechten op de agenda, dus dit kan alleen in de HubSpot-interface. (c) Eventueel de uitleg over 20/30/50 minuten in de omschrijving van de boekingspagina zetten, zodat hij ook ín de agenda staat | C | Emilie | open |
 | 42 | ~~Bevestigingsmail bij een R@venHack-boeking~~ | T C | bouwer | **afgerond 9 sept 2026** — Resend-account staat, `meetingmasters.online` is **verified** (eu-west-1), en `RESEND_API_KEY` en `MAIL_AFZENDER` staan nu ook in Vercel op Production. De code is mee uitgerold. Nog niet gedaan: één échte boeking op de live site doen om te zien dat de mail ook daar aankomt |
-| 43 | **Bedanktekst aanvullen nu de mail aanstaat.** In het gele blok na een R@venHack-boeking komt een regel dat de bevestiging ook per e-mail onderweg is. Punt 42 is af, dus dit kan nu — zeg het en de bouwer schrijft het in beide talen | T | bouwer | open — kan nu |
+| 43 | ~~Bedanktekst aanvullen nu de mail aanstaat~~ | T | bouwer | **afgerond 9 sept 2026** — de zin over de bevestigingsmail staat in het gele blok, in beide talen. Zit in HubSpot zelf, dus zonder deploy meteen zichtbaar |
 | 44 | ~~Trackingcode van HubSpot~~ | C | bouwer | **afgerond 9 sept 2026** — uitgerold en nagemeten op de live site. Wil je hem in HubSpot zelf controleren: de knop *Controleer installatie* (Instellingen → Tracking & Analytics → Trackingcode) haalt de pagina op zónder cookiekeuze en zal zeggen dat de code ontbreekt — dat is met opzet. Kijk in plaats daarvan bij de bezoekcijfers |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
@@ -182,6 +182,16 @@ de deur uit. Zie punt 42.
 
 **Status:** live. Gecontroleerd met `npx tsc --noEmit`, `npx eslint`,
 `npm run build` en `scripts/cookie-inventaris.mjs` op de echte site.
+
+**Later die dag — de bedanktekst (punt 43).** Nu de bevestigingsmail echt
+verstuurt, hoort het gele blok na een boeking dat ook te zeggen. Toegevoegd, in
+beide talen: *"Je krijgt er ook een bevestiging van per e-mail, met je keuzes en
+de prijsopbouw erin."* Die tekst staat niet in onze code maar in HubSpot
+(`configuration.postSubmitAction`), dus hij is meteen zichtbaar, zonder deploy.
+Bijgewerkt met `node scripts/ravenhack-formulier.mjs --bijwerken`; de tekst zelf
+staat in `TEKST` in dat script, zodat code en HubSpot niet uit elkaar lopen. Van
+beide formulieren staat een kopie van vóór de wijziging in
+`schermafdrukken/hubspot-backups/ravenhack-{nl,en}-voor-20260909.json`.
 
 ### 2026-09-07 — Search Console: wat overgangspijn is en wat een fout is
 

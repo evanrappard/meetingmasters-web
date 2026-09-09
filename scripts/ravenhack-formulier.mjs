@@ -187,7 +187,9 @@ const TEKST = {
     naam: "MM Website — R@venHack boeking",
     knop: "Verstuur aanvraag",
     dank:
-      "Dank je wel! We hebben je aanvraag binnen. We checken de beschikbaarheid van je " +
+      "Dank je wel! We hebben je aanvraag binnen. Je krijgt er ook een bevestiging van " +
+      "per e-mail, met je keuzes en de prijsopbouw erin. " +
+      "We checken de beschikbaarheid van je " +
       "datum en tijd en komen zo snel mogelijk bij je terug, uiterlijk binnen twee werkdagen. " +
       "Pas na onze bevestiging staat de boeking vast. Iets met haast? Bel of mail ons: " +
       "+31 6 4575 2819 | contact@meetingmasters.online",
@@ -219,7 +221,9 @@ const TEKST = {
     naam: "MM Website EN — R@venHack booking",
     knop: "Send request",
     dank:
-      "Thank you. We have your request. We will check whether your date and time are free " +
+      "Thank you. We have your request. You will also receive a confirmation by email, " +
+      "with your choices and the price breakdown. " +
+      "We will check whether your date and time are free " +
       "and come back to you as soon as we can, within two working days at the latest. " +
       "The booking is fixed only after our confirmation. Anything urgent? Call or email us: " +
       "+31 6 4575 2819 | contact@meetingmasters.online",
