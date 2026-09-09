@@ -80,6 +80,36 @@ zodat je het in het gesprek kunt terugvinden zonder de tool-regels te lezen.
 
 ---
 
+## Het sleutelbestand `.env.local` — waarom je het niet ziet
+
+Het staat hier:
+
+```
+~/meetingmasters-web/.env.local
+```
+
+**Je ziet het niet in Finder, en dat klopt.** Een bestandsnaam die met een punt
+begint, verbergt de Mac standaard. Dat is met opzet: het gaat om bestanden waar
+je normaal niet in hoeft.
+
+Wil je het toch zien: open de map `meetingmasters-web` in Finder en druk op
+**cmd + shift + punt**. De verborgen bestanden verschijnen, `.env.local` staat
+er tussen. Nog een keer die toetsen en ze zijn weer weg.
+
+Openen kan met TextEdit (rechtermuisknop → Openen met). Of vraag het mij — dat
+is meestal sneller en dan gaat er zeker geen regel per ongeluk stuk.
+
+**Wat erin hoort:** één regel per sleutel, `NAAM=waarde`, geen spaties om het
+`=` heen en geen aanhalingstekens. Naast `.env.local` staat `.env.example`: dat
+is hetzelfde bestand zónder de echte waarden, alleen om te laten zien welke
+namen er bestaan. Dat mag wel gewoon in de repo.
+
+**Let op:** wat hier in staat, gebruikt alleen de site op jouw eigen computer.
+Wat er live moet, zet je apart in Vercel onder Settings → Environment Variables.
+Twee plekken dus, geen van beide vervangt de ander.
+
+---
+
 ## Controle op sleutels
 
 Deze repository is **openbaar** op GitHub. Alles wat je commit, is dus publiek.

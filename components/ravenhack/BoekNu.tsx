@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import HubSpotForm from "@/components/ui/HubSpotForm";
 import { BOEKINGSFORMULIER, FORMULIERVELDEN, TEKST, VARIANTEN } from "@/config/ravenhack";
 import { HUBSPOT_PORTAL_ID } from "@/lib/hubspot-forms";
@@ -23,6 +23,13 @@ import type { Taal } from "@/lib/talen";
  * Die verborgen velden staan in de pagina en zijn dus in principe aan te
  * passen. Dat kan geen kwaad: de prijs legt niets vast — de boeking geldt pas na
  * onze bevestiging, en de offerte maken we zelf vanuit HubSpot.
+ *
+ * Zodra het formulier verstuurd is, sturen we de bezoeker ook een bevestiging
+ * per e-mail. Dat gaat níét via HubSpot: een e-mail daaruit is een marketing-
+ * bericht en gaat alleen naar wie zich voor een nieuwsbrief heeft aangemeld,
+ * terwijl een bevestiging van je eigen aanvraag iedereen hoort te bereiken. De
+ * route `/api/ravenhack/bevestiging` doet het daarom zelf, en rekent de prijs
+ * daar opnieuw uit — we sturen alleen de keuzes mee, geen bedragen.
  */
 
 
@@ -48,6 +55,37 @@ export default function BoekNu({ keuze, taal }: { keuze: Keuze; taal: Taal }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keuze, taal, prijs.toeslagToegepast, prijs.totaalExclBtw, prijs.kortingspercentage]);
 
+  /**
+   * Het formulier is de deur uit. De naam, het e-mailadres en het PO-nummer
+   * komen uit de velden zelf; wat er gekozen is, staat hier al. Lukt het
+   * versturen niet, dan laten we dat stil: de aanvraag staat allang in HubSpot
+   * en een foutmelding zou de bezoeker alleen maar laten twijfelen.
+   */
+  const bijVerzonden = useCallback(
+    (velden: Record<string, string>) => {
+      const email = velden.email ?? "";
+      if (!email) return;
+      fetch("/api/ravenhack/bevestiging", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        keepalive: true,
+        body: JSON.stringify({
+          taal,
+          voornaam: velden.firstname ?? "",
+          email,
+          variant: keuze.variant,
+          spelTaal: keuze.spelTaal,
+          deelnemers: keuze.deelnemers,
+          datum: keuze.datum,
+          tijd: keuze.tijd,
+          kortingscode: keuze.kortingspercentage > 0 ? keuze.kortingscode : "",
+          poNummer: velden.rh_po_nummer ?? "",
+        }),
+      }).catch(() => {});
+    },
+    [keuze, taal]
+  );
+
   if (!formId) {
     return (
       <div id="rh-boeken" className="mt-6 rounded-xl border border-dashed border-[#D6D6D2] bg-[#FAFAF9] p-6 scroll-mt-24">
@@ -64,6 +102,7 @@ export default function BoekNu({ keuze, taal }: { keuze: Keuze; taal: Taal }) {
         taal={taal}
         prefill={velden}
         stijl={FORMULIERVORM}
+        bijVerzonden={bijVerzonden}
       />
     </div>
   );

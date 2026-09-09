@@ -53,6 +53,16 @@ type HubSpotFormProps = {
    * naar binnen, met het lettertype van de site erachter.
    */
   stijl?: string;
+  /**
+   * Wordt één keer aangeroepen zodra HubSpot de bedanktekst neerzet, met wat er
+   * op dat moment in de velden stond (op interne veldnaam). Bedoeld om er zelf
+   * nog iets mee te doen — bij R@venHack: een bevestiging mailen.
+   *
+   * Het formulier staat in een venstertje dat HubSpot zelf vult, dus zonder
+   * eigen adres; we mogen er daarom bij. Lukt dat toch niet, dan krijgt deze
+   * functie een lege verzameling en gebeurt er verder niets.
+   */
+  bijVerzonden?: (velden: Record<string, string>) => void;
 };
 
 /** Wat er staat als het formulier er niet komt. */
@@ -169,19 +179,20 @@ function zetStijl(targetId: string, css?: string) {
  * tekst komt boven je beeld te staan — je moest omhoog scrollen om te zien dat
  * het gelukt was. Hier springen we er één keer naartoe.
  */
-function naarBedanktekst(targetId: string, gezien: { current: boolean }) {
-  if (gezien.current) return;
+function naarBedanktekst(targetId: string, gezien: { current: boolean }): boolean {
+  if (gezien.current) return false;
   const houder = document.getElementById(targetId);
   const iframe = houder?.querySelector("iframe");
   let bedankt: Element | null | undefined;
   try {
     bedankt = iframe?.contentDocument?.querySelector(".submitted-message");
   } catch {
-    return;
+    return false;
   }
-  if (!bedankt) return;
+  if (!bedankt) return false;
   gezien.current = true;
   houder?.scrollIntoView({ behavior: "smooth", block: "center" });
+  return true;
 }
 
 /**
@@ -206,6 +217,26 @@ function vulVelden(form: HTMLFormElement | null, waarden?: Record<string, string
 }
 
 /**
+ * Wat er nu in de velden staat, op interne veldnaam. Het wachtwoordachtige
+ * spul dat HubSpot zelf toevoegt (velden zonder naam, knoppen) slaan we over.
+ */
+function leesVelden(form: HTMLFormElement | null): Record<string, string> {
+  const uit: Record<string, string> = {};
+  if (!form) return uit;
+  const velden = form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+    "input[name], select[name], textarea[name]"
+  );
+  for (const veld of velden) {
+    if (veld instanceof HTMLInputElement && (veld.type === "checkbox" || veld.type === "radio")) {
+      if (!veld.checked) continue;
+    }
+    if (!veld.name || veld.value === "") continue;
+    uit[veld.name] = veld.value;
+  }
+  return uit;
+}
+
+/**
  * Herbruikbaar component voor het embedden van een HubSpot-formulier.
  * Laadt het HubSpot embed-script eenmalig en rendert het opgegeven formulier
  * in een eigen target-div. Gebruik:
@@ -219,6 +250,7 @@ export default function HubSpotForm({
   taal = "nl",
   prefill,
   stijl,
+  bijVerzonden,
 }: HubSpotFormProps) {
   const reactId = useId();
   // Geldige CSS/DOM-id (useId bevat ":") voor de target-div.
@@ -229,6 +261,16 @@ export default function HubSpotForm({
   const formulier = useRef<HTMLFormElement | null>(null);
   /** Eén keer naar de bedanktekst springen, niet bij elke controle opnieuw. */
   const bedanktGezien = useRef(false);
+  /**
+   * Wat er in de velden stond vlak voordat het formulier verdween. Na het
+   * versturen haalt HubSpot het formulier weg, dus op dat moment is er niets
+   * meer te lezen — vandaar dat we het bij elke ronde bewaren.
+   */
+  const laatsteVelden = useRef<Record<string, string>>({});
+  // In een ref, zodat het effect niet opnieuw draait als de pagina een nieuwe
+  // functie doorgeeft bij elke render.
+  const melden = useRef(bijVerzonden);
+  melden.current = bijVerzonden;
   // In een ref, zodat het effect dat het formulier aanmaakt niet opnieuw draait
   // bij elke wijziging van de voorinvulling.
   const invulling = useRef(prefill);
@@ -357,13 +399,19 @@ export default function HubSpotForm({
    * gevuld worden.
    */
   useEffect(() => {
-    if (!prefill && !stijl) return;
+    if (!prefill && !stijl && !melden.current) return;
     const kijk = () => {
       const form = zoekFormulier(targetId);
-      if (form) formulier.current = form;
+      if (form) {
+        formulier.current = form;
+        // Alleen bewaren als er echt iets in stond: bij het versturen maakt
+        // HubSpot de velden soms eerst leeg voordat het formulier verdwijnt.
+        const gelezen = leesVelden(form);
+        if (Object.keys(gelezen).length > 0) laatsteVelden.current = gelezen;
+      }
       zetStijl(targetId, stijl);
       vulVelden(formulier.current, prefill);
-      naarBedanktekst(targetId, bedanktGezien);
+      if (naarBedanktekst(targetId, bedanktGezien)) melden.current?.(laatsteVelden.current);
     };
     kijk();
     const teller = setInterval(kijk, 300);

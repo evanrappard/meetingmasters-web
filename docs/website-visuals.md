@@ -4,7 +4,7 @@ Eén overzicht van álle beelden en video's op de site: waar ze staan, waar ze
 vandaan komen en (waar bekend) welk bronbestand ze zijn. Dit is de plek om te
 kijken vóór je een visual wijzigt.
 
-> Laatst bijgewerkt: 2026-09-06
+> Laatst bijgewerkt: 2026-09-07
 
 ## Hoe het werkt (belangrijk)
 
@@ -242,12 +242,19 @@ Alle EN-beelden zijn LOKAAL; layout wijkt af van NL.
 ## Gedeelde componenten
 | Navbar (`components/layout/Navbar.tsx`) | `/images/logo.webp` | LOKAAL (UI) — 🚧 andere Claude |
 | Footer (`components/layout/Footer.tsx`) | `/images/logo-diapositief.webp` | LOKAAL (UI) |
+| Bevestigingsmail R@venHack (`lib/ravenhack/bevestigingsmail.ts`) | `/images/logo.png` — via het **volledige adres** `https://www.meetingmasters.online/images/logo.png` | LOKAAL, maar door de mail van buitenaf opgehaald |
 | TestimonialsCarousel | `/images/logos/{roosendaal,bergman-clinics,pharmaccess,pbcf}.webp` | LOKAAL |
 | YouTubeEmbed | `youtube-nocookie.com/embed/{id}` + `ytimg.com` thumbnail | EXTERN |
 | HeroCarousel | `/images/hero-1..4.jpg` | **NIET in productie gebruikt** (dode code) |
 | HeroVideo | props `src`/`startImage` | **NIET meer in productie gebruikt** (Home-hero is nu plain `<video>`) |
 
 ---
+
+> **Let op bij `logo.png`.** Dat bestand wordt niet alleen op de site gebruikt
+> maar ook opgehaald door de bevestigingsmail van R@venHack, bij een ontvanger
+> in zijn mailprogramma. Vervang je het, verwijder het of hernoem je het, dan
+> staat er in reeds verstuurde mail een gebroken plaatje. Geen WebP gebruiken
+> voor dat doel: Outlook en een aantal andere mailprogramma's kennen dat niet.
 
 ## Opschonen (kandidaten)
 - **Dode componenten/assets:** `HeroCarousel`, `HeroVideo`, `components/hero.tsx` + `hero-1.jpg … hero-4.jpg`, `hero-v2.jpg`, `hero-v2.mp4` (oude home-hero). Niet meer geïmporteerd.
