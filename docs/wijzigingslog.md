@@ -97,6 +97,39 @@ leeft in de paginacode, niet in een apart bestand).
 
 ## 5. Log
 
+### 2026-09-09 — Proefboeking: de keten klopt, één ding niet
+
+**Wat Emilie deed.** Een echte proefboeking op de live site (R@venHack
+Experience, Engelstalige sessie, 15 deelnemers, 24 september 11:30, kortingscode
+Cyber15), en daarna de site bezocht mét cookies geaccepteerd.
+
+**De keten deed wat hij moet.** Om 07:06:47 staat het contact in HubSpot met alle
+`rh_*`-velden erbij (variant, deelnemers, datum, tijd, PO-nummer, korting, totaal
+€ 637,50). Eén seconde later, om 07:06:48, meldt Resend `delivered` op de
+bevestigingsmail, verstuurd vanaf `contact@meetingmasters.online`. Formulier →
+HubSpot → onze eigen route → Resend → inbox, in één seconde.
+
+**En de trackingcode werkt.** Dat is te zien aan het contact zelf. Bij álle
+contacten van vóór vandaag staat `hs_analytics_source` op `OFFLINE` met nul
+bezoeken: HubSpot zag een formulier binnenkomen en wist niet waar die persoon
+vandaan kwam. Bij dit contact staat `DIRECT_TRAFFIC`, één bezoek, en
+`hs_analytics_first_url` = `/nl/games-tools/ravenhack`. Precies waarvoor de
+trackingcode er is: de bezoekgeschiedenis hangt nu aan de lead.
+
+**Eén ding klopte niet: de bedragen stonden in de mail met een punt.** "€ 675.00"
+in plaats van "€ 675,00", in een Nederlandse mail. Oorzaak: de prijsopbouw kreeg
+de taal van de *sessie* mee (Engels) in plaats van de taal van de *mail*
+(Nederlands). Die twee lopen bijna altijd gelijk op — vandaar dat het bij de
+tests van 7 september niet opviel; daar was de speltaal gelijk aan de mailtaal.
+Emilie boekte nu een Engelstalige sessie via de Nederlandse pagina, en dat is
+precies de combinatie die het zichtbaar maakt.
+
+Op het scherm ging het altijd al goed: `PrijsRegel.tsx` geeft de paginataal door.
+Alleen `opbouwRegels` in `lib/ravenhack/bevestigingsmail.ts` gaf `b.spelTaal`
+door; dat is nu `b.taal`. De naam van de variant is in beide talen gelijk, dus
+daar verandert niets. Nagerekend met de gegevens van de proefboeking: Nederlandse
+mail € 675,00, Engelse mail € 675.00.
+
 ### 2026-09-09 — Trackingcode van HubSpot geïnstalleerd
 
 **Vraag.** De trackingcode van HubSpot op de nieuwe site zetten, volgens

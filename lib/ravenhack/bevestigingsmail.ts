@@ -163,7 +163,13 @@ function opbouwRegels(b: Bevestiging) {
       kortingscode: b.kortingscode,
       kortingspercentage: b.prijs.kortingspercentage,
     },
-    b.spelTaal,
+    // De taal van de mail, niet die van de sessie. Die twee kunnen verschillen:
+    // een Nederlandse aanvraag voor een Engelstalige sessie is heel gewoon. Het
+    // is de lézer die bepaalt of er "€ 675,00" of "€ 675.00" hoort te staan, en
+    // stond hier eerst de speltaal, dan kreeg een Nederlandse mail Engelse
+    // getallen. De naam van de variant is in beide talen gelijk, dus daar
+    // verandert niets aan.
+    b.taal,
     TEKST[b.taal].calculator.opbouw
   );
 }
