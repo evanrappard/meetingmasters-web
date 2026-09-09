@@ -69,9 +69,9 @@ leeft in de paginacode, niet in een apart bestand).
 | 39 | **Privacyverklaring aanvullen met de bezoekerherkenning.** De cookieverklaring noemt `_stfv` al; de privacyverklaring nog niet. Emilie verzamelt de gegevens (zie punt 38), daarna schrijft de bouwer het stuk in beide talen | T | bouwer | wacht op punt 38 |
 | 40 | **SpatialChat-pagina staat tijdelijk uit beeld** (3 sept 2026): uit het menu, uit de sitemap en op noindex, omdat de pagina nog niet goed genoeg is. De inhoud staat er nog. Afmaken en weer aanzetten — hoe, staat in het wijzigingslog bij die datum | T C | Emilie | open |
 | 41 | **Boekingsagenda in HubSpot: twee instellingen.** (a) ~~De duurknoppen~~ **opgelost 3 sept: staan nu op 20 / 30 / 50 met 20 als standaard.** (b) Wil je op de Engelse pagina een gegarandeerd Engelse agenda, maak dan een tweede boekingslink met de taal op Engels — dan zet de bouwer die op /en/demo. Onze token heeft geen rechten op de agenda, dus dit kan alleen in de HubSpot-interface. (c) Eventueel de uitleg over 20/30/50 minuten in de omschrijving van de boekingspagina zetten, zodat hij ook ín de agenda staat | C | Emilie | open |
-| 42 | **Bevestigingsmail bij een R@venHack-boeking.** De HubSpot-route is verlaten: een e-mail uit HubSpot is een marketingbericht en gaat alleen naar wie zich voor een abonnementstype heeft aangemeld — een bevestiging van je eigen aanvraag hoort iedereen te bereiken. De site verstuurt de mail nu zelf; code staat er en is getest. Nodig van Emilie: (a) account op resend.com, (b) `meetingmasters.online` aanmelden en de DKIM-regels bij VIP Internet zetten, (c) `RESEND_API_KEY` en `MAIL_AFZENDER` in Vercel én opnieuw laten bouwen. Zolang dat niet staat, verstuurt de site niets en gaat er niets stuk. Zie `docs/ravenhack-bevestigingsmail.md` | T C | Emilie | open — wacht op verzendaccount |
-| 43 | **Bedanktekst aanvullen zodra de mail aanstaat.** In het gele blok komt dan een regel dat de bevestiging ook per e-mail onderweg is. Wacht op punt 42 | T | bouwer | wacht op punt 42 |
-| 44 | **Trackingcode van HubSpot staat in de site** (9 sept 2026), maar hij meet pas als de site opnieuw gebouwd en uitgerold is. Daarna in HubSpot controleren: *Instellingen → Tracking & Analytics → Trackingcode*, knop **Controleer installatie** op `www.meetingmasters.online`. Let op: HubSpot ziet de code alleen als je op die site zelf "Alles accepteren" kiest — zonder toestemming laden we hem bewust niet, en dan meldt HubSpot dat de code ontbreekt | C | Emilie | open — na de eerstvolgende deploy |
+| 42 | ~~Bevestigingsmail bij een R@venHack-boeking~~ | T C | bouwer | **afgerond 9 sept 2026** — Resend-account staat, `meetingmasters.online` is **verified** (eu-west-1), en `RESEND_API_KEY` en `MAIL_AFZENDER` staan nu ook in Vercel op Production. De code is mee uitgerold. Nog niet gedaan: één échte boeking op de live site doen om te zien dat de mail ook daar aankomt |
+| 43 | **Bedanktekst aanvullen nu de mail aanstaat.** In het gele blok na een R@venHack-boeking komt een regel dat de bevestiging ook per e-mail onderweg is. Punt 42 is af, dus dit kan nu — zeg het en de bouwer schrijft het in beide talen | T | bouwer | open — kan nu |
+| 44 | ~~Trackingcode van HubSpot~~ | C | bouwer | **afgerond 9 sept 2026** — uitgerold en nagemeten op de live site. Wil je hem in HubSpot zelf controleren: de knop *Controleer installatie* (Instellingen → Tracking & Analytics → Trackingcode) haalt de pagina op zónder cookiekeuze en zal zeggen dat de code ontbreekt — dat is met opzet. Kijk in plaats daarvan bij de bezoekcijfers |
 | 12 | Copy van `/nl/nieuwsbrief` is door de bouwer geschreven, niet door de copy-Claude. Mag alsnog langs de merkstem worden gelegd | T | Copy-Claude | open |
 | 14 | ~~Drie events zonder eigen hero~~ | B | Emilie | **afgerond 15 aug 2026** — alle 20 events hebben nu een hero |
 | 15 | Twee hero's zijn te licht achter de witte kop: `events-allhands-hero` (53,7%) en `events-community-hero-v2` (16,9%) | B | visuals | **geparkeerd** — goed zo voor nu (17 aug 2026) |
@@ -159,8 +159,29 @@ verklaring zegt dat we geen profielen maken, terwijl HubSpot met toestemming wé
 een bezoekgeschiedenis aan een contact hangt. Dat is geen geautomatiseerd besluit,
 maar het is wel het bespreken waard.
 
-**Status:** ingebouwd, gecontroleerd met `npx tsc --noEmit`, `npx eslint` en
-`npm run build`.
+**Uitgerold en nagemeten (zelfde dag).** Twee commits naar `main` (`953709c`
+R@venHack-bevestigingsmail, `e2c6faa` trackingcode); Vercel bouwde ze in twee
+minuten. Daarna `node scripts/cookie-inventaris.mjs` op de live site gedraaid, de
+drie scenario's:
+
+| Scenario | Wat er staat |
+|---|---|
+| geen keuze | alleen `__cf_bm` op de domeinen van HubSpot zelf — géén contact met hs-scripts.com |
+| alleen noodzakelijk | idem, plus de eigen cookiekeuze in localStorage |
+| alles accepteren | `hubspotutk` (180 dagen), `__hstc` (180 dagen), `__hssc`, `__hssrc` — de trackingcode draait |
+
+Dat is precies wat de cookieverklaring belooft, en de tabel daarin klopt met wat
+er gemeten is.
+
+**Meegenomen bij dezelfde deploy.** `RESEND_API_KEY` en `MAIL_AFZENDER` stonden
+wel in `.env.local` maar niet in Vercel — die gelden alleen voor de site op
+Emilies eigen computer. Ze staan nu op Production. En Resend heeft
+`meetingmasters.online` inmiddels op **verified** staan (was twee dagen geleden
+nog `pending`), dus de bevestigingsmail kan vanaf `contact@meetingmasters.online`
+de deur uit. Zie punt 42.
+
+**Status:** live. Gecontroleerd met `npx tsc --noEmit`, `npx eslint`,
+`npm run build` en `scripts/cookie-inventaris.mjs` op de echte site.
 
 ### 2026-09-07 — Search Console: wat overgangspijn is en wat een fout is
 
