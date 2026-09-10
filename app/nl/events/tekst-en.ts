@@ -22,8 +22,8 @@ export const OVERZICHT_EN = {
     titel: "Online gatherings where people are genuinely present.",
     intro1: "An important gathering for 5, 50 or 500 people:",
     intro2: "when it matters, the standard won't do.",
+    jouwEvent: "Your event",
     cta: "Tailored advice →",
-    formats: "See the event formats",
     videoAlt:
       "Participants at an online event in an atmospheric virtual garden with video participants, MeetingMasters Events on SpatialChat",
   },
@@ -52,6 +52,29 @@ export const OVERZICHT_EN = {
     slotCta: "Book a conversation →",
     kicker: "Every kind of event has its own shape and its own logic.",
     titel: "The form follows the purpose. What do you want to achieve?",
+  },
+
+  /**
+   * Het keuzeblok onder de drie waardeblokken. De namen van de doelen komen uit
+   * `categorieen` hieronder; hier staat alleen wat er nieuw bij komt.
+   */
+  kiezer: {
+    kicker: "What are you looking for?",
+    kop: "Choose or describe the kind of event you are working on.",
+    andersLabel: "Something else",
+    kiesHint: "Choose whichever comes closest.",
+    andersTekst:
+      "None of these five? Tell us below what you have in mind, and we will think it through with you.",
+    legendaDoel: "What are you looking for?",
+    legendaFormat: "Choose an event format",
+    bekijkTitel: "Read about %s",
+    veldLabel: "Could you tell us something about this gathering?",
+    placeholder:
+      "E.g. how many people are you expecting, why are they coming together, and what result do you have in mind?",
+    ga: "Go",
+    gaHint: "Choose an event first, then we know where to take you.",
+    alle: "View all events",
+    advies: "Advice, no strings attached",
   },
 
   categorieen: {

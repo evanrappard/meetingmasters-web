@@ -33,6 +33,7 @@ export default function QuotePage() {
         </>
       }
       formulier="kostenindicatie"
+      vulEventwens
       formulierKop="Request an estimate"
       formulierUitleg="Tell us what you want to organise and for how many people. You're not committing to anything."
     />

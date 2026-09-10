@@ -155,6 +155,74 @@ met `components/ui/HubSpotAgenda.tsx`.
 > per mail zijn afgestemd. Zet de herinneringen in HubSpot aan.
 
 
+## De keuzelijst weet waar je vandaan komt (10 september 2026)
+
+Het offerteformulier (`kostenindicatie`) en het boekingsformulier (`boeking`)
+openen met de keuzelijst **`mm_boeking_type`**: "Waarover gaat deze vraag?" met
+vier waarden: `zaaltje` (Online zaaltje), `event` (Event), `ravenhack`
+(Escape Room R@venHack) en `anders`. Wie via de knop **Vrijblijvende offerte**
+in de header van een eventpagina komt, heeft die vraag al beantwoord. Die
+keuzelijst staat daarom vooringevuld, en de naam van het format komt boven in
+het berichtveld te staan.
+
+Hoe: `components/ui/Herkomst.tsx` staat op de pagina en onthoudt waar de
+bezoeker was (zie `lib/eventwens.ts`). Dat staat nu op:
+
+| Pagina | Keuzelijst | Naam in het berichtveld |
+|---|---|---|
+| De 20 event-formatpagina's, beide talen | `event` | "Online strategiedag", "Online strategy day" … |
+| `/nl/escape-rooms`, `/en/escape-rooms` | `ravenhack` | Escape Room R@venHack |
+| De R@venHack-pagina, beide talen | `ravenhack` | Escape Room R@venHack |
+
+De naam komt met een komma erachter in het veld te staan ("Online strategiedag,
+"), zodat de regel openstaat als uitnodiging om verder te vertellen.
+
+Het vullen gebeurt **één keer en alleen in een leeg veld**, dus de bezoeker kan
+alles omzetten. Zonder JavaScript staat het formulier er gewoon leeg bij.
+
+**Bewust niet gedaan** (besluit Emilie, 10 sept 2026): het specifieke event in de
+keuzelijst zelf zetten, of de bestaande eigenschap `mm_type_event` ("Type event")
+als verborgen veld op het formulier hangen. Het event zit dus in vrije tekst en
+is in HubSpot niet filterbaar. Wil je dat later wel, dan is dat verborgen veld de
+route; de eigenschap bestaat nog.
+
+> **Let op bij `scripts/create-hubspot-forms.mjs`:** dat script kent
+> `mm_boeking_type` alleen op het boekingsformulier en zet op het
+> offerteformulier nog een tekstveld `mm_type_event`. In HubSpot is dat veld er
+> niet meer; daar staat op beide formulieren dezelfde keuzelijst, en de opties
+> zijn `zaaltje / event / ravenhack / anders` (in het script staat nog
+> `escapemasters`). Het script is idempotent en slaat bestaande formulieren over,
+> dus er gaat nu niets mis. Maak je er een nieuw formulier mee aan, werk dan
+> eerst de velddefinitie bij, anders wijkt dat formulier af van de rest.
+
+---
+
+## Het berichtveld kan vóóringevuld binnenkomen (10 september 2026)
+
+Op de events-pagina staat een tekstveld: "Kun je wat over deze bijeenkomst
+vertellen?" Wat iemand daar typt, reist mee naar de volgende pagina en komt
+terecht in het veld `message` van het formulier dat daar staat. Dat gebeurt op
+vier plekken, in beide talen: `/nl/offerte`, `/nl/expert-advies`, `/nl/contact`
+en hun Engelse tegenhangers. De knop "Vrijblijvend advies" in het blok wijst naar
+de adviespagina; daar komt de tekst in "Je vraag of bericht" te staan. Aanzetten doe je met `vulEventwens` op
+`<HubSpotForm>` of op `<FormulierPagina>`.
+
+Drie dingen om te weten:
+
+- Het veld wordt **één keer** gevuld en alleen als het nog leeg is. De bezoeker
+  kan zijn tekst daarna gewoon aanpassen of weghalen.
+- De tekst staat in `sessionStorage` (`lib/eventwens.ts`), niet in de URL: hij
+  kan over een reorganisatie of een fusie gaan en hoort dan niet in de adresbalk
+  of in de paden die Google Analytics meekrijgt. Opent iemand de link in een
+  nieuw tabblad, dan is het veld gewoon leeg.
+- Na twee uur, en na het versturen, is hij weg.
+
+Er komt dus vaker een gevuld `message`-veld binnen dan voorheen, ook bij
+kostenindicaties. Dat is de bedoeling: het is de meest bruikbare informatie die
+we van een bezoeker krijgen.
+
+---
+
 ## Het adviesformulier wijkt af (26 augustus 2026)
 
 Als enige formulier heeft dit er drie dingen bij:

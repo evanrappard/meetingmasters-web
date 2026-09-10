@@ -10,6 +10,7 @@ import { versies, stappen, faq, NL } from "@/app/nl/games-tools/ravenhack/data";
 import { RAVENHACK_EN } from "@/app/nl/games-tools/ravenhack/tekst-en";
 import type { Taal } from "@/lib/talen";
 import HeroBeeld from "@/components/ui/HeroBeeld";
+import Herkomst from "@/components/ui/Herkomst";
 
 /** R@venHack, in beide talen. Beelden en volgorde zijn taalloos. */
 
@@ -42,6 +43,7 @@ export default function RavenHackPagina({ taal = "nl" }: { taal?: Taal }) {
   };
   return (
     <div className="bg-white">
+      <Herkomst soort="Escape Room R@venHack" herkomst="ravenhack" />
       <JsonLd data={faqSchema} />
 
       {/* ── HERO ── */}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import TestimonialsCarousel from "@/components/ui/TestimonialsCarousel";
 import { JsonLd } from "@/components/ui/JsonLd";
+import EventKiezer, { type KiezerDoel } from "@/components/events/EventKiezer";
 import { eventCategories } from "@/app/nl/events/page";
 import { eventFaq, eventFaqMore } from "@/app/nl/events/faq";
 import { OVERZICHT_EN } from "@/app/nl/events/tekst-en";
@@ -26,8 +27,8 @@ const NL = {
     titel: "Online bijeenkomsten waar mensen echt aanwezig zijn.",
     intro1: "Een belangrijke bijeenkomst voor 5, 50 of 500 mensen:",
     intro2: "als het erop aankomt, voldoet de standaard niet.",
+    jouwEvent: "Jouw event",
     cta: "Advies op maat →",
-    formats: "Bekijk event formats",
     videoAlt:
       "Deelnemers bij een online event in een sfeervolle virtuele tuinomgeving met video-deelnemers, MeetingMasters Events op SpatialChat",
   },
@@ -39,6 +40,28 @@ const NL = {
       { title: "Meer betrokkenheid", body: "Relevante interactie versterkt vertrouwen, verbinding en reputatie." },
       { title: "Meer impact", body: "Strategiedagen, webinars en events die echt iets opleveren. Meer draagvlak, scherpere keuzes en betere opvolging." },
     ],
+  },
+  /**
+   * Het keuzeblok onder de drie waardeblokken. De namen van de doelen komen uit
+   * `eventCategories`; hier staat alleen wat er nieuw bij komt.
+   */
+  kiezer: {
+    kicker: "Waar ben je naar op zoek?",
+    kop: "Kies of beschrijf het soort evenement waar je mee bezig bent.",
+    andersLabel: "Anders",
+    kiesHint: "Kies wat er het dichtst bij komt.",
+    andersTekst:
+      "Geen van deze vijf? Vertel hieronder wat je voor ogen hebt, dan denken we met je mee.",
+    legendaDoel: "Waar ben je naar op zoek?",
+    legendaFormat: "Kies een event format",
+    bekijkTitel: "Lees over %s",
+    veldLabel: "Kun je wat over deze bijeenkomst vertellen?",
+    placeholder:
+      "Bijv. hoeveel mensen verwacht je, waarom komen ze samen, met welk beoogd resultaat?",
+    ga: "Ga",
+    gaHint: "Kies eerst een event, dan weten we waar je heen wilt.",
+    alle: "Bekijk alle events",
+    advies: "Vrijblijvend advies",
   },
   formats: {
     kicker: "Elk type event heeft zijn eigen opbouw en logica.",
@@ -76,6 +99,26 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
   type FaqItem = { q: string; a: string; href?: string; hrefLabel?: string };
   const faqs: FaqItem[] = taal === "en" ? OVERZICHT_EN.faq : eventFaq;
   const faqsMeer: FaqItem[] = taal === "en" ? OVERZICHT_EN.faqMore : eventFaqMore;
+  /** Titel en adres van een format in de juiste taal. */
+  const formatLink = (f: { slug: string; title: string }) => ({
+    slug: f.slug,
+    titel: (taal === "en" ? OVERZICHT_EN.formatTeksten[f.slug]?.title : undefined) ?? f.title,
+    href: taal === "en" ? `/en/events/${engelseEventSlug(f.slug)}` : `/nl/events/${f.slug}`,
+  });
+  /**
+   * De zes tegels van het keuzeblok: de vijf categorieën plus "Anders". De
+   * zesde heeft geen formats, en dus ook geen lijst die openklapt.
+   */
+  const doelen: KiezerDoel[] = [
+    ...eventCategories.map((cat) => ({
+      id: cat.id,
+      label: label(cat),
+      formats: cat.formats
+        .filter((f) => taal === "nl" || Boolean(engelseEventSlug(f.slug)))
+        .map(formatLink),
+    })),
+    { id: "anders", label: t.kiezer.andersLabel, formats: [] },
+  ];
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -121,19 +164,21 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
                   {t.hero.intro1}<br />
                   {t.hero.intro2}
                 </p>
+                {/* Eerst het keuzeblok op deze pagina zelf, dan de adviespagina.
+                    Geen pijl op de eerste: die blijft op deze pagina. */}
                 <div className="flex flex-wrap gap-3">
+                  <a
+                    href="#jouw-event"
+                    className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
+                  >
+                    {t.hero.jouwEvent}
+                  </a>
                   <Link
                     href={t.adviesHref}
-                    className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors"
+                    className="text-white/80 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors"
                   >
                     {t.hero.cta}
                   </Link>
-                  <a
-                    href="#formats"
-                    className="text-white/80 text-sm font-semibold px-5 py-3 border border-white/30 rounded hover:border-white/60 transition-colors"
-                  >
-                    {t.hero.formats}
-                  </a>
                 </div>
               </div>
             </div>
@@ -164,8 +209,60 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
         </div>
       </section>
 
+      {/* ── KEUZEBLOK ──
+          De begeleide ingang: eerst een doel, dan je eigen woorden. De volledige
+          formatlijst staat verderop, direct boven de FAQ. */}
+      <EventKiezer doelen={doelen} t={t.kiezer} adviesHref={t.adviesHref} />
+
+      {/* ── TESTIMONIALS ── */}
+      <section className="bg-white py-10 border-b border-[#EBEBEB]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <TestimonialsCarousel taal={taal} />
+        </div>
+      </section>
+
+      {/* ── VISIE ── */}
+      <section className="bg-[#F0F0EA] py-16 border-b border-[#E5E5DF]">
+        <div className="max-w-content mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <div>
+              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">{t.visie.kicker}</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
+                {t.visie.titel}
+              </h2>
+              <p className="text-sm text-[#434343] leading-relaxed mb-8">
+                {t.visie.intro}
+              </p>
+              <ul className="space-y-5 mb-8">
+                {t.visie.punten.map((p) => (
+                  <li key={p.kop} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#EEBE3D] mt-2 flex-shrink-0" />
+                    <p className="text-sm text-[#434343] leading-relaxed">
+                      <strong className="text-[#2D2D2D] font-bold">{p.kop}</strong>{" "}{p.desc}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href={t.adviesHref}
+                className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
+              >
+                {t.visie.cta}
+              </Link>
+            </div>
+            <div className="relative aspect-video rounded overflow-hidden shadow-md">
+              <Image
+                src="/images/events-spatial.webp"
+                alt={t.visie.beeldAlt}
+                fill className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FORMATS: CATEGORIEËN ── */}
-      <section id="formats" className="scroll-mt-28 bg-[#F7F7F5] py-16 border-b border-[#EBEBEB]">
+      <section id="formats" className="scroll-mt-28 bg-white py-16 border-b border-[#EBEBEB]">
         <div className="max-w-content mx-auto px-6 lg:px-10">
 
           {/* Intro + categorie-ankers */}
@@ -257,53 +354,6 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
             >
               {t.formats.slotCta}
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ── */}
-      <section className="bg-white py-10 border-b border-[#EBEBEB]">
-        <div className="max-w-content mx-auto px-6 lg:px-10">
-          <TestimonialsCarousel taal={taal} />
-        </div>
-      </section>
-
-      {/* ── VISIE ── */}
-      <section className="bg-[#F0F0EA] py-16 border-b border-[#E5E5DF]">
-        <div className="max-w-content mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <div>
-              <p className="text-[#28A8AA] text-xs font-bold tracking-widest uppercase mb-4">{t.visie.kicker}</p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2D2D] leading-snug mb-5">
-                {t.visie.titel}
-              </h2>
-              <p className="text-sm text-[#434343] leading-relaxed mb-8">
-                {t.visie.intro}
-              </p>
-              <ul className="space-y-5 mb-8">
-                {t.visie.punten.map((p) => (
-                  <li key={p.kop} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#EEBE3D] mt-2 flex-shrink-0" />
-                    <p className="text-sm text-[#434343] leading-relaxed">
-                      <strong className="text-[#2D2D2D] font-bold">{p.kop}</strong>{" "}{p.desc}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={t.adviesHref}
-                className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-7 py-3 rounded hover:bg-[#D4A835] transition-colors inline-block"
-              >
-                {t.visie.cta}
-              </Link>
-            </div>
-            <div className="relative aspect-video rounded overflow-hidden shadow-md">
-              <Image
-                src="/images/events-spatial.webp"
-                alt={t.visie.beeldAlt}
-                fill className="object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>

@@ -27,6 +27,7 @@ export default function BoekenPage() {
         </>
       }
       formulier="boeking"
+      vulEventwens
       formulierKop="Check de beschikbaarheid"
       formulierUitleg="Vertel wat je wilt boeken, met welke groep en wanneer. Je zit nergens aan vast."
     />

@@ -118,7 +118,7 @@ export default function ExpertAdviesPage() {
                 Laat je vraag of idee achter, dan denken we met je mee. Je zit
                 nergens aan vast.
               </p>
-              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.advies} taal="nl" stijl={FORMULIERVORM} />
+              <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.advies} taal="nl" stijl={FORMULIERVORM} vulEventwens />
             </div>
           </div>
         </div>

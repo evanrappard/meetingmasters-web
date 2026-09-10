@@ -60,6 +60,12 @@ type Props = {
    */
   directContactKop?: string;
   taal?: Taal;
+  /**
+   * Neem mee wat de bezoeker op de events-pagina over zijn bijeenkomst
+   * vertelde. Staat aan op de offertepagina: dat is waar de eventpagina's naar
+   * toe wijzen. Zie `lib/eventwens.ts`.
+   */
+  vulEventwens?: boolean;
 };
 
 /**
@@ -83,6 +89,7 @@ export default function FormulierPagina({
   directContactBijTekst = false,
   directContactKop,
   taal = "nl",
+  vulEventwens = false,
 }: Props) {
   const t = T[taal];
   return (
@@ -140,7 +147,13 @@ export default function FormulierPagina({
                   <HubSpotAgenda link={HUBSPOT_AGENDA} taal={taal} />
                 </>
               ) : (
-                <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={formulierVoor(formulier, taal)} taal={taal} stijl={FORMULIERVORM} />
+                <HubSpotForm
+                  portalId={HUBSPOT_PORTAL_ID}
+                  formId={formulierVoor(formulier, taal)}
+                  taal={taal}
+                  stijl={FORMULIERVORM}
+                  vulEventwens={vulEventwens}
+                />
               )}
             </div>
           </div>

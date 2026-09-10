@@ -26,6 +26,7 @@ export default function OffertePage() {
         </>
       }
       formulier="kostenindicatie"
+      vulEventwens
       formulierKop="Vraag een indicatie aan"
       formulierUitleg="Hoe meer je invult, hoe scherper de indicatie. Je zit nergens aan vast."
     />

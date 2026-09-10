@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { leesKeuze, TOESTEMMING_EVENT } from "@/lib/cookie-toestemming";
 import { zetHubSpotTracking } from "@/lib/hubspot-toestemming";
+import { leesEventwens, wisEventwens, type Eventwens } from "@/lib/eventwens";
 
 declare global {
   interface Window {
@@ -43,6 +44,17 @@ type HubSpotFormProps = {
    * formulier. Verandert deze waarde later, dan wordt het formulier bijgewerkt.
    */
   prefill?: Record<string, string>;
+  /**
+   * Neem mee wat de bezoeker op de events-pagina over zijn bijeenkomst
+   * vertelde, en zet het in het berichtveld. Zie `lib/eventwens.ts`.
+   *
+   * Dit gaat bewust ánders dan `prefill` hierboven: dat is voor verborgen
+   * velden en wordt daarom blijvend gelijkgehouden. Dit veld is zichtbaar en
+   * van de bezoeker, dus we vullen het één keer, alleen als het nog leeg is.
+   * Anders zou hij zijn eigen tekst niet kunnen wijzigen: elke aanpassing werd
+   * driehonderd milliseconden later teruggedraaid.
+   */
+  vulEventwens?: boolean;
   /**
    * CSS die in het formulier zelf wordt gezet. HubSpot rendert een formulier in
    * een eigen iframe met zijn eigen opmaak; onze stijlbladen komen daar niet
@@ -216,6 +228,46 @@ function vulVelden(form: HTMLFormElement | null, waarden?: Record<string, string
   }
 }
 
+/** Eén veld vullen, mits het er is en nog leeg. Geeft terug of het veld bestond. */
+function vulEenmalig(form: HTMLFormElement, naam: string, waarde: string): boolean {
+  const veld = form.querySelector<
+    HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
+  >(`[name="${naam}"]`);
+  if (!veld) return false;
+  if (veld.value.trim() !== "") return true; // de bezoeker was ons voor
+  veld.value = waarde;
+  veld.dispatchEvent(new Event("input", { bubbles: true }));
+  veld.dispatchEvent(new Event("change", { bubbles: true }));
+  return true;
+}
+
+/**
+ * Het formulier één keer vullen met wat we al van de bezoeker weten: waar hij
+ * vandaan komt (de keuzelijst "Waarover gaat deze vraag?" en de naam van het
+ * format) en wat hij op de events-pagina over zijn bijeenkomst vertelde.
+ *
+ * Alleen velden die er zijn en nog leeg zijn. Staat er al iets, dan is dat van
+ * de bezoeker zelf en blijven we eraf. Lukt het, dan geeft de functie `true`
+ * terug en wordt er niet meer naar gekeken.
+ */
+function vulWens(form: HTMLFormElement | null, wens: Eventwens): boolean {
+  if (!form) return false;
+  const tekst = wens.tekst.trim();
+  /*
+   * De naam van het format vooraan: het berichtveld vraagt om het soort event,
+   * en dat weten we al. Met een komma erachter, zodat de regel openstaat als
+   * uitnodiging om verder te vertellen. Typte de bezoeker eerder zelf iets, dan
+   * loopt dat achter die komma door in dezelfde zin.
+   */
+  const bericht = wens.soort
+    ? `${wens.soort}, ${tekst}`
+    : tekst;
+  let gezien = false;
+  if (wens.herkomst) gezien = vulEenmalig(form, "mm_boeking_type", wens.herkomst) || gezien;
+  if (bericht) gezien = vulEenmalig(form, "message", bericht) || gezien;
+  return gezien;
+}
+
 /**
  * Wat er nu in de velden staat, op interne veldnaam. Het wachtwoordachtige
  * spul dat HubSpot zelf toevoegt (velden zonder naam, knoppen) slaan we over.
@@ -249,6 +301,7 @@ export default function HubSpotForm({
   className,
   taal = "nl",
   prefill,
+  vulEventwens = false,
   stijl,
   bijVerzonden,
 }: HubSpotFormProps) {
@@ -275,6 +328,13 @@ export default function HubSpotForm({
   // bij elke wijziging van de voorinvulling.
   const invulling = useRef(prefill);
   invulling.current = prefill;
+  /**
+   * Wat we van de bezoeker weten, en of het al in het formulier staat. We lezen
+   * het één keer bij het opbouwen: haalt de bezoeker het daarna weg, dan komt
+   * het niet terug.
+   */
+  const eventwens = useRef<Eventwens | null | undefined>(undefined);
+  const wensGevuld = useRef(false);
   const [inZicht, setInZicht] = useState(false);
   const [mislukt, setMislukt] = useState(false);
   /** Ophogen forceert een nieuwe poging zonder de pagina te herladen. */
@@ -399,7 +459,10 @@ export default function HubSpotForm({
    * gevuld worden.
    */
   useEffect(() => {
-    if (!prefill && !stijl && !melden.current) return;
+    if (!prefill && !stijl && !melden.current && !vulEventwens) return;
+    if (vulEventwens && eventwens.current === undefined) {
+      eventwens.current = leesEventwens();
+    }
     const kijk = () => {
       const form = zoekFormulier(targetId);
       if (form) {
@@ -411,12 +474,19 @@ export default function HubSpotForm({
       }
       zetStijl(targetId, stijl);
       vulVelden(formulier.current, prefill);
-      if (naarBedanktekst(targetId, bedanktGezien)) melden.current?.(laatsteVelden.current);
+      if (vulEventwens && !wensGevuld.current && eventwens.current) {
+        wensGevuld.current = vulWens(formulier.current, eventwens.current);
+      }
+      if (naarBedanktekst(targetId, bedanktGezien)) {
+        // Verstuurd: de tekst is aangekomen en hoeft niet nog een keer mee.
+        if (vulEventwens) wisEventwens();
+        melden.current?.(laatsteVelden.current);
+      }
     };
     kijk();
     const teller = setInterval(kijk, 300);
     return () => clearInterval(teller);
-  }, [prefill, targetId, stijl]);
+  }, [prefill, targetId, stijl, vulEventwens]);
 
   // Wijzigt de bezoeker zijn keuze terwijl het formulier op het scherm staat,
   // dan gaat die wijziging meteen mee.

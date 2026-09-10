@@ -98,7 +98,7 @@ export default function ContactPage() {
             mogelijk.
           </p>
           <div className="max-w-lg">
-            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.contact} stijl={FORMULIERVORM} />
+            <HubSpotForm portalId={HUBSPOT_PORTAL_ID} formId={HUBSPOT_FORMS.contact} stijl={FORMULIERVORM} vulEventwens />
           </div>
         </div>
       </section>

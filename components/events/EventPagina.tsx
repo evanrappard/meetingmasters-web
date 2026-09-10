@@ -3,12 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import CTABlock from "@/components/ui/CTABlock";
+import Herkomst from "@/components/ui/Herkomst";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { GETUIGENISSEN } from "@/lib/getuigenissen";
 import { kruimelSchema, HOME_KRUIMEL } from "@/lib/kruimels";
 import { eventFormats } from "@/app/nl/events/page";
 import { EVENT_DATA, HERO_DIM_LICHT } from "@/app/nl/events/[slug]/data";
 import { EVENT_TEKST_EN, engelseEventSlug, nederlandseEventSlug } from "@/app/nl/events/[slug]/tekst-en";
+import { OVERZICHT_EN } from "@/app/nl/events/tekst-en";
 import type { Taal } from "@/lib/talen";
 import HeroBeeld from "@/components/ui/HeroBeeld";
 
@@ -116,6 +118,16 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
   // Zichtbare kop = titel zonder het SEO-werkwoord op het eind (de volledige
   // titel blijft staan voor de <title>/metadata).
   const displayTitle = title.replace(/\s+(organiseren|geven|opbouwen|houden)$/i, "");
+  /*
+   * De naam van het format zoals hij op het overzicht staat: "Online
+   * strategiedag", "Online strategy day". Dat is een schonere naam voor het
+   * formulier dan de kop van deze pagina, want die heeft er in het Engels een
+   * werkwoord bij ("Running an online strategy day").
+   */
+  const formatNaam =
+    (taal === "en" ? OVERZICHT_EN.formatTeksten[slug]?.title : undefined) ??
+    eventFormats.find((f) => f.slug === slug)?.title ??
+    displayTitle;
   const getuigenis = event.getuigenis
     ? GETUIGENISSEN.find((x) => x.company === event.getuigenis)
     : undefined;
@@ -160,6 +172,11 @@ export default function EventPagina({ slug, taal = "nl" }: { slug: string; taal?
 
   return (
     <div className="bg-white">
+
+      {/* "Vrijblijvende offerte" staat in de header van deze pagina, en dat
+          formulier opent met "Waarover gaat deze vraag?". Die vraag is hier al
+          beantwoord: het gaat over een event, en over dit event. */}
+      <Herkomst soort={formatNaam} herkomst="event" />
 
       <JsonLd data={kruimels} />
       {faqSchema && <JsonLd data={faqSchema} />}

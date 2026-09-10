@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import GrotereGroepen from "@/components/games/GrotereGroepen";
 import HeroBeeld from "@/components/ui/HeroBeeld";
+import Herkomst from "@/components/ui/Herkomst";
 
 export const metadata: Metadata = {
   alternates: taalAlternates("/escape-rooms"),
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
 export default function EscapeRoomsPage() {
   return (
     <div className="bg-white">
+      {/* De boek- en offerteformulieren hoeven niet meer te vragen
+          waarover deze vraag gaat. */}
+      <Herkomst soort="Escape Room R@venHack" herkomst="ravenhack" />
       <div className="bg-gray-50 py-16 text-center border-b border-gray-200">
         <p className="text-accent text-sm font-semibold mb-2 tracking-widest uppercase">
           🆕 Nieuw

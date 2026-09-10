@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-09
+> Laatst bijgewerkt: 2026-09-10
 
 ---
 
@@ -96,6 +96,150 @@ leeft in de paginacode, niet in een apart bestand).
 ---
 
 ## 5. Log
+
+### 2026-09-10 — Events-pagina: een begeleide ingang, catalogus naar onderen
+
+**Waarom.** De events-hub was compleet maar overweldigend: twintig formats
+meteen in beeld, en wie niet precies weet hoe zijn bijeenkomst heet, kiest dan
+niets. Er is nu eerst een begeleide ingang; de volledige lijst staat er nog,
+maar verderop.
+
+**Nieuwe paginavolgorde.** Hero → de drie waardeblokken → **keuzeblok (nieuw)** →
+testimonial → "Bijeenkomsten waar echt iets gebeurt" → **volledige formatlijst
+(verplaatst)** → FAQ → CTA-blok. Er is niets weggehaald en geen enkel adres
+gewijzigd. Het anker `#formats` staat nog op de formatlijst, dus de hero-knop,
+de CTA-kaart en de twintig eventpagina's wijzen nog goed. Achtergrond van die
+sectie is van lichtgrijs (`#F7F7F5`) naar wit gegaan, het keuzeblok staat op een
+donkerder grijs (`#E3E2DA`).
+
+**Het keuzeblok** (`components/events/EventKiezer.tsx`). Kop "Waar ben je naar
+op zoek?", daaronder zes lichte knopjes: de vijf categorieën plus "Anders". Eén
+knopje opent een **popup** die eronder hangt met de formats van dat doel; kies je
+er een, dan gaat de popup dicht en blijft je keuze als **geel bolletje** onder de
+knopjes staan, met een link naar die eventpagina. "Anders" heeft geen lijst en
+wijst naar het tekstveld.
+
+**Zesde ronde, 10 sept: de knoppen in de hero.** Waren "Advies op maat →" (geel)
+en "Bekijk event formats"; zijn nu **"Jouw event"** (geel, naar het keuzeblok op
+deze pagina, anker `#jouw-event`) en **"Advies op maat →"** (omlijnd, naar de
+adviespagina). Daarmee verschuift het gewicht in de hero naar de begeleide
+ingang, en dat is precies de bedoeling van de herinrichting. Geen pijl op de
+eerste knop: die blijft op deze pagina. De link naar `#formats` is uit de hero
+verdwenen; de catalogus blijft bereikbaar via "Bekijk alle events" in het
+keuzeblok, via het CTA-blok onderaan en vanaf de twintig eventpagina's.
+
+**Vijfde ronde, 10 sept.** Achter de naam van het format in het berichtveld
+staat nu een komma: "Online strategiedag, ". De regel blijft zo openstaan als
+uitnodiging om verder te vertellen, en wat iemand in het keuzeblok typte loopt
+achter die komma door in dezelfde zin ("Online kerstfeest, 200 man, kerstborrel,
+half december").
+
+**Besluit van Emilie, 10 sept: HubSpot blijft ongemoeid.** Het specifieke event
+staat in het berichtveld en niet in de keuzelijst. Ik legde twee alternatieven
+voor: de eigenschap "Type event" (`mm_type_event`, bestaat nog in HubSpot maar
+staat niet meer op het formulier) als verborgen veld toevoegen, of de twintig
+formats als opties in de keuzelijst zetten. Beide zouden meteen live staan, want
+de formulieren komen rechtstreeks uit HubSpot en niet uit onze bouw. Emilie koos
+voor laten zoals het is. Gevolg om te weten: de naam van het event zit in vrije
+tekst, dus je kunt er in HubSpot niet op filteren of rapporteren. Wil je dat
+later wel, dan is het verborgen veld de route.
+
+**Vierde ronde, 10 sept: de formulieren weten waar je vandaan komt.** Klik je op
+een eventpagina op **Vrijblijvende offerte** in de header, dan staat de
+keuzelijst "Waarover gaat deze vraag?" op **Event** en staat de naam van het
+format al boven in het berichtveld; typte je eerder iets in het keuzeblok, dan
+staat dat eronder. Hetzelfde voor de escaperoom-pagina's en de R@venHack-pagina,
+die zetten de keuzelijst op **Escape Room R@venHack**; daarom staat de
+voorinvulling nu ook aan op `/nl/boeken` en `/en/booking`, want dat is waar die
+pagina's naartoe wijzen. Nieuw: `components/ui/Herkomst.tsx`, dat op een pagina
+onthoudt waar de bezoeker was.
+
+Onderweg bleek de werkelijkheid in HubSpot af te wijken van
+`scripts/create-hubspot-forms.mjs`: het offerteformulier heeft daar geen tekstveld
+`mm_type_event` meer maar dezelfde keuzelijst `mm_boeking_type` als het
+boekingsformulier, met de opties `zaaltje / event / ravenhack / anders`. Ik heb
+de waarden uit HubSpot zelf opgehaald in plaats van uit het script, want een
+keuzelijst bewaart de wáárde en een gok landt dan in het niets. Dat verschil
+staat nu als waarschuwing in `docs/hubspot-forms.md`; het script is niet
+aangepast, dat is een besluit voor Emilie.
+
+**Derde ronde, 10 sept.** Het turkoois van de kicker was donkerder gezet
+(`#1F8688`) toen de achtergrond nog donkerder grijs was; op het lichte grijs is
+dat onnodig en staat nu weer de huisstijlkleur `#28A8AA`, net als elders op de
+site. De pijltjes in de popup volgen de linkkleur van de FAQ (`#28A8AA`, hover
+`#1E8E90`). En het gekozen event hing nog als los bolletje onder het knopje; nu
+zijn knopje en keuze **één vlak** dat aan de onderkant uitklapt: één omhulsel met
+de gele rand en vulling, het knopje staat zijn eigen rand daaraan af, en een
+haarlijn (`#F2E4B5`) laat zien dat het uitgeklapt is. De hoekafronding is 22px,
+de halve hoogte van het knopje, zodat de bovenkant een pil blijft. Nagemeten: 0px
+tussen knopje en keuze, gelijke breedte, één doorlopende rand.
+
+**Tweede ronde, 10 sept.** Bladspiegel gelijkgetrokken met de rest van de site:
+het blok stond in een eigen kolom van 880px en dus 120px naar binnen; nu loopt
+alles vanaf dezelfde linkermarge als elke andere sectie (nagemeten op x=80 bij
+1280px, gelijk aan de waardeblokken en de formatsectie). Achtergrond van
+donkerder grijs naar heel lichtgrijs (`#F7F7F5`). "Waar ben je naar op zoek?"
+is nu de turkooizen kicker, met daaronder als kop "Kies of beschrijf het soort
+evenement waar je mee bezig bent."; de introregel eronder zei hetzelfde en is
+weg. Het gele bolletje met het gekozen event hangt niet meer onder het hele
+rooster maar **onder zijn eigen doel**, zodat te zien is waar de keuze bij hoort;
+de categorieën staan daarvoor iets verder uit elkaar. De knopjes zijn wit met de
+gele mouse-over van de rest van de site (op de vorige, half-transparante vulling
+was dat geel te weinig verschil). De derde route gaat niet meer naar
+`/nl/contact` maar naar **`/nl/expert-advies`**, en de getypte tekst landt daar
+in "Je vraag of bericht".
+
+**Eerste bijstelling op 10 sept na Emilie's eerste blik** (het stond toen lokaal, dus dit
+is nooit anders live geweest). Eerst waren het zes witte kaarten met een regel
+uitleg eronder, en klapte de formatlijst open in een nieuw vlak onder de
+kaarten. Haar bezwaar: te heftig. "Het is een startpunt voor keuze, geen
+categorieverplichting." Dus: lichte knopjes zonder tekst eronder, de formats in
+een popup in plaats van in een vlak dat de pagina openbreekt, en het gele
+bolletje als oplossing voor wat er dan overblijft, namelijk dat je moet kunnen
+zien wát je gekozen hebt terwijl de popup dicht is. De ondertitel bij "Kun je wat
+over deze bijeenkomst vertellen?" is weg en de voorbeeldtekst in het veld vraagt
+nu naar aantal, reden en beoogd resultaat.
+
+**Het tekstveld is de kern, niet een extraatje.** "Kun je wat over deze
+bijeenkomst vertellen?" Niet iedereen noemt zijn event hetzelfde, en
+"strategiedag voor 120 mensen uit 9 kantoren, oktober" zegt meer dan welke tegel
+er is aangeklikt. Daarom stuurt een klik op een format je niet meteen weg: hij
+kiest het format. Pas op "Ga" ga je naar de eventpagina, en dan reist de tekst
+mee (`lib/eventwens.ts`, in `sessionStorage`, twee uur houdbaar en bewust niet in
+de URL). Komt er verderop een formulier in beeld, dan staat de tekst al in het
+berichtveld: op `/nl/offerte`, `/nl/expert-advies` en `/nl/contact` en hun
+Engelse tegenhangers. De adviespagina is de route uit het blok zelf; de andere
+twee vangen wie via een eigen weg bij een formulier komt. Het veld wordt één keer gevuld en alleen als het nog leeg
+is, zodat de bezoeker zijn eigen tekst kan bijschaven.
+
+**Drie routes, drie metingen** (`lib/meten.ts`): `events_goal_select` (met doel,
+format en welke route), `events_view_all` en `events_contact` (met of het
+tekstveld gevuld was). Gemeten en gecontroleerd; `gtag` bestaat alleen ná
+"Alles accepteren", dus zonder toestemming gaat er niets weg.
+
+**Werkt ook zonder JavaScript.** Het open- en dichtklappen doet CSS met echte
+radioknoppen, dus alle twintig formatlinks staan in de HTML die de server
+verstuurt, ook de dichtgeklapte, en elke regel heeft naast de keuze een pijltje
+dat gewoon een link naar de pagina zelf is. Zonder JavaScript blijft de popup
+openstaan (daar is je keuze dan te zien) en werkt alles behalve de "Ga"-knop.
+Sluiten met Escape of een klik ernaast is een JavaScript-toevoeging.
+
+**Twee dingen die de globale leesbreedte-regel deed.** `globals.css` geeft
+`main p` en `main li` een leesbreedte van 60vw en centreert een `<p>` die
+rechtstreeks in een `mx-auto`-blok hangt. Daardoor stond de regel onder de
+knoppen scheef en hielden de formatregels rechts een gat over. Opgelost door de
+regel in een eigen houder te zetten en voor de rijen geen `ul/li` te gebruiken.
+
+**Nagemeten** (headless, lokaal): 35 gedragscontroles op het keuzeblok, 10 op de
+herkomst en 12 op de hero groen, waaronder de hele
+keten van tekstveld tot gevuld berichtveld op de offerte- en contactpagina, de
+houdbaarheid van twee uur, één doel tegelijk open, geen horizontale schuif op
+375 en 390px, en alle 44 interne links op beide events-pagina's. Alle twintig
+Engelse eventpagina's bestaan en zijn met hun bestaande slug gelinkt
+(`strategy-day`, `general-meeting`, `networking-event` en zo verder), niet
+gegokt.
+
+**Staat lokaal, nog niet live.** Op verzoek niet gecommit en niet uitgerold.
 
 ### 2026-09-09 — Proefboeking: de keten klopt, één ding niet
 

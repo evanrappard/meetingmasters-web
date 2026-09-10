@@ -32,6 +32,7 @@ export default function BookingPage() {
         </>
       }
       formulier="boeking"
+      vulEventwens
       formulierKop="Check availability"
       formulierUitleg="Tell us what you want to book, for which group and when. You're not committing to anything."
     />
