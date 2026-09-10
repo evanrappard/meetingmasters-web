@@ -239,7 +239,12 @@ Engelse eventpagina's bestaan en zijn met hun bestaande slug gelinkt
 (`strategy-day`, `general-meeting`, `networking-event` en zo verder), niet
 gegokt.
 
-**Staat lokaal, nog niet live.** Op verzoek niet gecommit en niet uitgerold.
+**Live sinds 10 september 2026**, commit `7e67a01`. Nagemeten op de echte site:
+11 doorloopcontroles groen (hero-knop naar het keuzeblok, popup, keuze die
+uitklapt binnen de categorie, "Ga" naar de eventpagina, en de hele keten tot een
+gevulde keuzelijst en een gevuld berichtveld op `/nl/offerte`), plus
+`npm run livecheck` (35 controles) en `npm run linkcheck` (120 pagina's, 132
+links, niets kapot).
 
 ### 2026-09-09 — Proefboeking: de keten klopt, één ding niet
 
