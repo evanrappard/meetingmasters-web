@@ -138,25 +138,59 @@ export default function EventKiezer({ doelen, t, adviesHref }: Props) {
   };
 
   /**
-   * Een popup hoort te sluiten als je ernaast klikt of op Escape drukt. Zonder
-   * JavaScript blijft hij openstaan; dat is geen fout, alleen minder handig.
+   * Een popup hoort te sluiten als je er ergens naast klikt of op Escape drukt.
+   *
+   * Dit ging eerst mis: er stond "sluit als de klik buiten het blok valt", en
+   * het tekstveld, de kop en de grijze ruimte om de knopjes horen bij dat blok.
+   * Klikte je daar, dan bleef de popup staan, en omdat hij over het tekstveld
+   * heen hangt kon je dat veld niet in. Alleen een ánder knopje hielp.
+   *
+   * Nu is de grens de popup zelf: alles daarbuiten sluit hem. De klik doet
+   * daarna gewoon zijn werk, dus één klik op het tekstveld sluit de popup én
+   * zet de cursor in het veld. Het knopje van de open popup is de uitzondering:
+   * dat handelt zijn eigen klik af (zie `wisselDoel`), want anders zou de
+   * radioknop er meteen weer aangaan.
+   *
+   * Zonder JavaScript blijft de popup openstaan; dat is geen fout, alleen
+   * minder handig.
    */
   useEffect(() => {
     if (!doel) return;
-    const bijKlik = (e: MouseEvent) => {
-      if (!blok.current?.contains(e.target as Node)) sluit();
+    const buitenom = (doelwit: Node) => {
+      const popup = blok.current?.querySelector(`[data-paneel="${doel}"]`);
+      if (popup?.contains(doelwit)) return false;
+      const knop = blok.current?.querySelector(`#${doelId(doel)}`)?.closest("label");
+      if (knop?.contains(doelwit)) return false;
+      return true;
+    };
+    const bijKlik = (e: Event) => {
+      const doelwit = e.target as Node | null;
+      if (doelwit && buitenom(doelwit)) sluit();
     };
     const bijToets = (e: KeyboardEvent) => {
       if (e.key === "Escape") sluit();
     };
-    document.addEventListener("mousedown", bijKlik);
+    // In de opvangfase, zodat we er zijn vóórdat iets anders de klik opslokt.
+    document.addEventListener("pointerdown", bijKlik, true);
     document.addEventListener("keydown", bijToets);
     return () => {
-      document.removeEventListener("mousedown", bijKlik);
+      document.removeEventListener("pointerdown", bijKlik, true);
       document.removeEventListener("keydown", bijToets);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doel]);
+
+  /**
+   * Een klik op een knopje. Staat de popup van dit knopje al open, dan klapt hij
+   * dicht. Dat moet hier gebeuren en niet via de radioknop: die staat al aan, dus
+   * er komt geen wijziging meer. `preventDefault` houdt tegen dat het label de
+   * radioknop opnieuw aanzet, want dan zou de popup meteen terugkomen.
+   */
+  const wisselDoel = (id: string, e: React.MouseEvent) => {
+    if (doel !== id) return;
+    e.preventDefault();
+    sluit();
+  };
 
   const kiesDoel = (id: string) => {
     setDoel(id);
@@ -223,6 +257,7 @@ export default function EventKiezer({ doelen, t, adviesHref }: Props) {
                     }
                   >
                     <label
+                      onClick={(e) => wisselDoel(d.id, e)}
                       className={`mm-knop cursor-pointer px-5 py-2.5 flex items-center justify-between gap-2 text-left transition-colors hover:bg-[#FFFBEE] hover:border-[#EEBE3D] ${
                         keuzeDoel === d.id && format
                           ? "rounded-[22px] border border-transparent bg-transparent"
@@ -353,6 +388,8 @@ export default function EventKiezer({ doelen, t, adviesHref }: Props) {
               name="eventwens"
               rows={3}
               value={tekst}
+              // Kom je er met Tab in, dan hoort de popup ook dicht te gaan.
+              onFocus={() => sluit()}
               onChange={(e) => {
                 setTekst(e.target.value);
                 // Meteen bewaren, zodat de tekst ook meereist als iemand op de

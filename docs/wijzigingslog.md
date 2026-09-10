@@ -97,6 +97,33 @@ leeft in de paginacode, niet in een apart bestand).
 
 ## 5. Log
 
+### 2026-09-10 (later) — Popup ging niet dicht, tekstveld zat vast
+
+**Wat Emilie zag op de live site.** Maak je geen keuze in een popup, dan ging hij
+niet dicht door ergens op de achtergrond te klikken. Alleen een ánder knopje
+hielp. En omdat de popup over het tekstveld heen hangt, kon je daardoor niet in
+het beschrijvingsveld typen.
+
+**Wat er fout was.** De controle stond op "sluit als de klik buiten het blok
+valt", en het tekstveld, de kop en de grijze ruimte om de knopjes horen bij dat
+blok. Al die klikken werden dus genegeerd. Mijn eigen test klikte op x=1200,
+buiten het blok, en die ging groen: de test bewees precies het geval dat wél
+werkte.
+
+**Hoe het nu werkt.** De grens is de popup zelf, niet het blok: alles daarbuiten
+sluit hem, en de klik doet daarna gewoon zijn werk. Eén klik op het tekstveld
+sluit de popup én zet de cursor in het veld. Verder: nog een klik op hetzelfde
+knopje klapt hem dicht (dat moet in de klik van het label zelf, want een
+radioknop die al aanstaat geeft geen wijziging meer), en het veld sluit de popup
+ook als het met Tab focus krijgt. De luisteraar zit nu op `pointerdown` in de
+opvangfase, zodat hij er is voordat iets anders de klik opslokt.
+
+**Nagemeten, 17 controles groen**, waaronder het geval van Emilie zelf: popup
+open zonder keuze, één klik in het veld, cursor staat er en typen werkt. Ook
+nagekeken wat moest blijven: klikken ín de popup, een format kiezen, wisselen
+naar een ander knopje, Escape, het pijltje naar de eventpagina, en hetzelfde op
+een telefoon.
+
 ### 2026-09-10 — Events-pagina: een begeleide ingang, catalogus naar onderen
 
 **Waarom.** De events-hub was compleet maar overweldigend: twintig formats
