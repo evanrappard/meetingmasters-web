@@ -4557,7 +4557,7 @@ zonder beeld. Maak het grijze vlak smaller, dan past de visual er rechts naast.
 
 Nagelopen op de dev-server: beide artikelen en het overzicht geven 200, de
 taalwissel wijst heen en terug, de knop komt uit op een bestaande pagina, het
-beeld laadt. Nog niet gecommit.
+beeld laadt. Gecommit en gepusht als d6ac5da (live).
 
 Gewicht van de blogbeelden bekeken: alles is WebP, 24–172 kB op schijf, en
 Next/Image levert ze verkleind naar het scherm. Herencoderen op kwaliteit 78
