@@ -35,6 +35,8 @@ export type BlogPost = {
   iso: string;
   img: string;
   imgAlt: string;
+  /** Bijschrift onder het beeld in het artikel, bijvoorbeeld een bronvermelding. Blijft weg als het leeg is. */
+  imgCaption?: string;
   excerpt: string;
   dek: string;
   metaDescription: string;
@@ -49,6 +51,72 @@ export type BlogPost = {
  * verkeerde plek zetten is anders zo gebeurd, en dan klopt het overzicht niet.
  */
 const ONGESORTEERD: BlogPost[] = [
+  {
+    "slug": "geen-webinar-zonder-koffie",
+    "rubriek": "online-ontmoeten",
+    "title": "Geen webinar zonder koffie",
+    "date": "16 september 2026",
+    "iso": "2026-09-16",
+    "img": "/images/blog/geen-webinar-zonder-koffie.webp",
+    "imgAlt": "Learning Circle voor webinars en online leren, met comfortzone, leerzone en paniekzone, naast vijf manieren van leren: handleiding lezen, instructievideo kijken, collega vragen, workshop volgen en gewoon proberen.",
+    "imgCaption": "Learning Circle - onderdeel van het leertraject van Digital Fitness",
+    "excerpt": "De webinar is razend populair: schaalbaar, beheersbaar en makkelijk te organiseren. Maar kennis delen in de hoop dat de ander er iets mee doet, vraagt meer dan zenden.",
+    "dek": "Een webinar is een comfortabele format voor de organisator, maar voor de kijker lonkt de afleiding. Om van informatie zenden naar kennis delen en tot leren te komen, organiseren wij bij iedere webinar minimaal een koffiemoment.",
+    "metaDescription": "Een webinar zendt kennis, maar leren vraagt interactie. Over breakouts, de Learning Circle en waarom wij bij iedere webinar een koffiemoment organiseren.",
+    "readingMinutes": 3,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "De webinar is razend populair. Online update? Webinar. Productlancering? Webinar. College? Webinar. Schaalbaar, beheersbaar en makkelijk te organiseren. Maar kennis delen in de hoop dat de ander er iets mee doet? Dat vraagt meer dan zenden. Dat vraagt om interactie, al is het maar een praatje na afloop. Daarom organiseren wij bij iedere webinar minimaal een koffiemoment."
+      },
+      {
+        "type": "p",
+        "text": "Dat de webinar de standaard werd voor online kennis delen, is begrijpelijk. Voor de organisator is het een prettig format: planbaar en controleerbaar. De spreker heeft het verhaal in handen, de techniek is voorspelbaar en er komt geen onverwacht weerwoord. Interactie voelt vaak gekunsteld. Het hoort niet echt bij het ontwerp: en.. dat merkt de kijker ook. Afleiding lonkt en afhaken ligt op de loer."
+      },
+      {
+        "type": "h2",
+        "text": "Kennis delen gaat om inhoud, maar de vorm doet ertoe"
+      },
+      {
+        "type": "p",
+        "text": "Een goede webinar begint bij een spreker met een helder verhaal. Daaraan verandert niets. Het verschil zit in wat je eromheen ontwerpt. Q&A en polls zijn een goed begin, breakouts gaan een stap verder. In kleine groepjes bespreken deelnemers wat ze hebben gehoord, wat ze herkennen en wat ze er morgen mee doen. Hun vragen en inzichten gaan terug naar de spreker, die erop reageert. Zo maken deelnemers zelf de vertaalslag van kennis naar praktijk. En de spreker hoort wat er werkelijk leeft in de zaal. Dat is het verschil tussen kennis zenden en kennis delen."
+      },
+      {
+        "type": "h2",
+        "text": "Informeren is het begin, leren komt daarna"
+      },
+      {
+        "type": "p",
+        "text": "Informeren is de basis. Zonder goed verhaal valt er niets te leren. Maar informatie wordt pas kennis als er iets mee gebeurt. Een oude spreuk, vaak aan Confucius toegeschreven, zegt het in drie zinnen. Vertel het me en ik vergeet het. Toon het me en ik onthoud het misschien. Betrek me erbij en ik begrijp het. Het koffiemoment bij de webinar, slaat een eerste bruggetje naar die derde trap. Iets uitleggen aan een ander dwingt je om te ordenen wat je net hoorde. Een inzicht van een ander laat zien waar je eigen begrip ophoudt."
+      },
+      {
+        "type": "h2",
+        "text": "Van comfortabel achteroverhangen naar actief luisteren"
+      },
+      {
+        "type": "p",
+        "text": "In de pedagogiek wordt vaak verwezen naar de Learning Circle. In het midden ligt de comfortzone: vertrouwd, prettig en weinig leerzaam. Aan de buitenkant ligt de paniekzone, waar alles te veel wordt. De leerzone ligt daartussen. Daar zit net genoeg spanning om iets op te steken."
+      },
+      {
+        "type": "p",
+        "text": "Wij ontwerpen onze bijeenkomsten om deelnemers precies daar te brengen. De comfortzone verfrissen we met verrassende interactie die toch weer aan het denken zet. Een poll met een onverwachte uitkomst, een vraag die even schuurt, een gesprek met iemand die het anders aanpakt. Paniek over de techniek vangen we op met live begeleiding, zodat niemand de draad kwijtraakt door een knop die niet werkt. Wat overblijft is de goede spanning. Net genoeg om scherp te blijven, veilig genoeg om iets te durven zeggen."
+      },
+      {
+        "type": "h2",
+        "text": "Online kan dit beter dan je denkt"
+      },
+      {
+        "type": "p",
+        "text": "Voor grote groepen lijkt de webinar de enige logische vorm. Toch biedt online juist meer ruimte. In een fysieke zaal kost het veel tijd om tweehonderd mensen in groepjes te verdelen en weer bij elkaar te krijgen. Online gaat dat in een paar seconden, van de zaal naar een tafeltje en weer terug. Informeren en activeren passen zo gewoon in één uur. Zo wordt een webinar een bijeenkomst waar mensen echt iets van meenemen."
+      },
+      {
+        "type": "cta",
+        "text": "Meer weten? Lees hoe wij webinars organiseren.",
+        "label": "Zo organiseren wij webinars",
+        "href": "/nl/events/webinar"
+      }
+    ]
+  },
   {
     "slug": "wat-kost-dat",
     "rubriek": "online-ontmoeten",
@@ -183,7 +251,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "14 augustus 2026",
     "iso": "2026-08-14",
     "img": "/images/blog/terug-naar-kantoor.webp",
-    "imgAlt": "Illustratie bij blog over de discussie tussen thuiswerken en terug naar kantoor",
+    "imgAlt": "Thuiswerker in videogesprek met een scherm waarop collega's touwtrekken tussen autonomie, flexibiliteit, controle en verbondenheid – over thuiswerken versus terug naar kantoor",
     "excerpt": "Steeds meer werkgevers leggen kantoordagen vast. Maar de discussie gaat niet over waar mensen werken — hij gaat over samenhang. En daar praat niemand meer over.",
     "dek": "Bij ABN AMRO ligt een cao-voorstel om kantoordagen vast te leggen. Beide partijen willen hetzelfde, en toch loopt het gesprek vast. Omdat het over het verkeerde onderwerp gaat.",
     "metaDescription": "Kantoordagen vastleggen in de cao: het middel is het doel geworden. De vraag is niet wáár mensen werken, maar hóé ze samenwerken.",
@@ -306,7 +374,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "30 juni 2026",
     "iso": "2026-06-30",
     "img": "/images/blog/heen-en-weer.webp",
-    "imgAlt": "Illustratie bij blog over thuiswerken versus terug naar kantoor",
+    "imgAlt": "Leeg kantoor met een bord 'Open for business' en de tekst 'The importance of staying connected' – over verbinding houden bij hybride werken",
     "excerpt": "Thuiswerken of kantoorplicht? De discussie slingert heen en weer. Maar de plek is bijzaak — het gaat erom hoe je mensen écht verbindt, waar ze ook werken.",
     "dek": "De discussie over thuiswerken versus kantoor beweegt heen en weer als eb en vloed. Tijd voor een derde weg, waar niet de locatie centraal staat maar de mate van samenwerking.",
     "metaDescription": "Thuis of op kantoor? De discussie draait rond. Ontdek de derde weg: niet de locatie van werk telt, maar de mate van samenwerking en samen aanwezig zijn.",
@@ -357,7 +425,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "10 juni 2026",
     "iso": "2026-06-10",
     "img": "/images/blog/online-beheersen.webp",
-    "imgAlt": "Illustratie bij blog over online contact maken als vak",
+    "imgAlt": "Laptop met een virtueel kantoor in SpatialChat en het logo van MeetingMasters Academy – online ontmoeten als vak",
     "excerpt": "Online contact maken is een vak apart. En dat is goed nieuws, want er is zoveel meer mogelijk dan de meeste mensen denken.",
     "dek": "Met een goed ontworpen online bijeenkomst krijg je dingen voor elkaar die fysiek niet zouden lukken. Het grid van vierkante hoofdjes is maar één manier van online samenkomen, en de wereld erbuiten is groter dan veel mensen weten.",
     "metaDescription": "Online contact maken is een vak: met het juiste ontwerp, werkvormen en omgeving breng je verspreide mensen echt samen, verder dan een grid vol hoofdjes.",
@@ -429,7 +497,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "27 mei 2026",
     "iso": "2026-05-27",
     "img": "/images/blog/wat-gamers-weten.webp",
-    "imgAlt": "Persoon achter een bureau met computer en een hond — bij blog over gamers en online samenzijn",
+    "imgAlt": "Gamer met koptelefoon achter twee beeldschermen – wat online meetings kunnen leren van gamers",
     "excerpt": "Gamers weten al jaren hoe online samenzijn werkt — met eigen omgangsvormen en verrassend veel verbinding. Organisaties kunnen daar nog een hoop van leren.",
     "dek": "Gamers onderhouden vriendschappen volledig online. Ze hangen op een virtueel hoekje, ze gamen, ze kletsen, ze zijn er gewoon. Geen agenda, geen actiepunten, geen 'zijn er nog vragen?' Gewoon samenzijn, rond een gedeeld doel of een gedeelde interesse. Een werkvorm waar we in organisaties nog weinig mee doen. Althans, niet online.",
     "metaDescription": "Gamers onderhouden vriendschappen puur online: samenzijn zonder agenda. Wat organisaties daarvan kunnen leren voor cultuur en het virtuele tussendoor.",
@@ -508,7 +576,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "13 mei 2026",
     "iso": "2026-05-13",
     "img": "/images/blog/rondjes-versus-vierkantjes.webp",
-    "imgAlt": "Illustratie bij blog over de vorm van online omgevingen: rondjes versus vierkantjes",
+    "imgAlt": "Virtuele tuin in SpatialChat waar deelnemers als ronde video-bubbels vrij rondlopen – rondjes in plaats van vierkantjes in online bijeenkomsten",
     "excerpt": "De vorm van je online omgeving bepaalt het gedrag van je deelnemers. Vakjes zetten aan tot zenden en wachten; rondjes tot bewegen, kiezen en elkaar tegenkomen.",
     "dek": "Zoom, Teams of Meet: een strakke grid met vierkante vakjes, keurig naast elkaar. Iedereen even groot, iedereen even ver weg, iedereen even stil. En toch verwachten we dat zo'n setting energie oplevert.",
     "metaDescription": "Waarom een grid van vierkante vakjes je online bijeenkomst stil maakt en een open ruimte met rondjes juist gesprek en energie oplevert. Zit of loop?",
@@ -596,7 +664,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "15 april 2026",
     "iso": "2026-04-15",
     "img": "/images/blog/systeemwoede.webp",
-    "imgAlt": "Illustratie bij blog over technologische frustratie in online meetings",
+    "imgAlt": "Vrouw met haar hoofd in haar handen achter een laptop – frustratie over techniek in online meetings",
     "excerpt": "Technologische frustratie is een onderschatte factor bij online bijeenkomsten. Wie nog bijkomt van een technisch gevecht, verbindt zich niet met de inhoud — betrokkenheid begint bij het inloggen, niet bij het eerste agendapunt.",
     "dek": "Woede over technologie die niet meewerkt is een van de meest onderschatte factoren in online bijeenkomsten. De oplossing zit niet in betere spulletjes, maar in meer menselijkheid.",
     "metaDescription": "Systeemwoede in online meetings blokkeert betrokkenheid. Ontdek waarom de oplossing niet in betere tech zit, maar in meer menselijkheid en in-meeting service.",
@@ -696,7 +764,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "1 april 2026",
     "iso": "2026-04-01",
     "img": "/images/blog/ai-paradox.webp",
-    "imgAlt": "Emilie van Rappard van MeetingMasters — bij blog over de AI-paradox",
+    "imgAlt": "Emilie van Rappard van MeetingMasters groot in beeld, met het team in een raster van videovakjes op de achtergrond – over de AI-paradox in online meetings",
     "excerpt": "AI neemt het routinewerk over. Maar het moment waarop iemand zegt 'wacht, ik zie dit anders' en een gesprek de hele richting verandert? Daar schieten machines tekort. Dat gebeurt alleen wanneer mensen elkaar écht ontmoeten.",
     "dek": "Een tijdlijn vol met AI: slimmere prompts, betere tools, snellere output. Ondertussen verdwijnen de eerste banen. De komst van de machine verandert de waarde van werk. Toch ben ik optimistisch, want de waarde van samenwerken is groter dan ooit. Tijd om extra te investeren in het menselijk perspectief.",
     "metaDescription": "AI neemt routinewerk over, maar juist daardoor groeit de waarde van samenwerken. Waarom meetings met echt menselijk contact belangrijker zijn dan ooit.",
@@ -755,7 +823,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "13 juli 2026",
     "iso": "2026-07-13",
     "img": "/images/blog/niet-hetzelfde-wel-goed.webp",
-    "imgAlt": "Illustratie bij blog 'Niet hetzelfde. Wel goed.' over online versus offline bijeenkomsten",
+    "imgAlt": "Vegetarische burger op een gele achtergrond met de tekst 'Niet standaard. Wel lekker.' – online bijeenkomsten zijn niet hetzelfde als fysiek, maar wel goed",
     "excerpt": "De meeste bijeenkomsten waren al ineffectief voordat ze online gingen. Online maakte dat alleen zichtbaarder. Succes hangt af van de methodiek, niet van het medium — de vraag is nooit 'online of offline?' maar 'wat moet hier gebeuren?'",
     "dek": "De meeste bijeenkomsten waren al niet goed voordat ze online gingen. Online maakte het alleen zichtbaarder: het probleem is zelden het medium, maar de vorm en het ontwerp.",
     "metaDescription": "Online vergaderen is geen surrogaat van offline. Het probleem is zelden het medium, maar de vorm. Zo ontwerp je een bijeenkomst bewust.",
@@ -899,7 +967,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "25 maart 2026",
     "iso": "2026-03-25",
     "img": "/images/blog/acht-grens.webp",
-    "imgAlt": "Groep vrienden in een koffiebar — bij blog over groepsdynamiek en de acht-grens",
+    "imgAlt": "Vier collega's lachend rond één laptop en telefoon – groepsdynamiek in kleine groepen en de grens van acht",
     "excerpt": "Groepen tot acht personen reguleren zichzelf op natuurlijke wijze. Voorbij die omvang verandert de dynamiek ingrijpend. Elke meeting met meer dan een handvol mensen is een ontwerpvraagstuk — niet alleen een logistiek vraagstuk.",
     "dek": "Iedereen kent het: een vergadering met dertig mensen waar drie praten en de rest zwijgt. Het probleem zit niet in de mensen, maar in de mismatch tussen doel, groep en aanpak.",
     "metaDescription": "Waarom valt een grote vergadering stil? De acht-grens verklaart wanneer groepsdynamiek kantelt en welke werkvormen wel werken, online en offline.",
@@ -1018,7 +1086,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "4 maart 2026",
     "iso": "2026-03-04",
     "img": "/images/blog/stok-om-mee-te-slaan.webp",
-    "imgAlt": "Illustratie bij blog 'De stok om mee te slaan' over meetingontwerp",
+    "imgAlt": "Virtueel kantoor van MeetingMasters in SpatialChat met ruimtes, planten en deelnemers – meetingontwerp online",
     "excerpt": "Online beperkingen creëren juist kansen. Ze dwingen tot bewust meetingontwerp. Wie zich richt op echte interactie in plaats van te leunen op sociale elementen, verbetert de effectiviteit in alle formats.",
     "dek": "Je moet een strategiedag organiseren voor tweehonderd mensen, en dan hoor je: het moet online. Maar is online echt het probleem, of geven we het medium de schuld voor bijeenkomsten die nooit goed ontworpen waren?",
     "metaDescription": "Online krijgt de schuld als een strategiedag of all-hands mislukt. Maar ligt het aan het medium, of aan bijeenkomsten die nooit goed ontworpen waren?",
@@ -1082,7 +1150,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "7 februari 2026",
     "iso": "2026-02-07",
     "img": "/images/blog/olympiers.webp",
-    "imgAlt": "e-OLY House in SpatialChat — het virtuele clubhuis voor de World Olympians Association",
+    "imgAlt": "Gouden gordijnen openen op een besneeuwd berglandschap met het e-OLY House, het virtuele clubhuis van de World Olympians Association in SpatialChat",
     "excerpt": "Een videocall is een hulpmiddel. Een online ontmoetingsplek is iets heel anders. De World Olympians Association bouwde met MeetingMasters e-OLY House — een digitale ontmoetingsruimte die echte verbinding mogelijk maakt zonder verplicht programma.",
     "dek": "Afgelopen vrijdag gingen de Olympische Winterspelen Milaan Cortina 2026 van start. Terwijl in Noord-Italië de openingsceremonies plaatsvonden, opende ergens op het internet een bijzondere plek zijn deuren: e-OLY House, de exclusieve ontmoetingsplek voor olympiërs tijdens de Spelen.",
     "metaDescription": "Tijdens Milaan Cortina 2026 opende e-OLY House, de digitale ontmoetingsplek voor olympiërs. Online samenkomen is meer dan een vakje op je scherm.",

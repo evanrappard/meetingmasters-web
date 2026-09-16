@@ -124,6 +124,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 sizes="(max-width: 920px) 100vw, 920px"
               />
             </div>
+            {post.imgCaption && (
+              <p className="mt-3 text-sm text-[#999999] text-center">{post.imgCaption}</p>
+            )}
           </div>
         </header>
 

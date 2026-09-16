@@ -32,6 +32,73 @@ export type BlogPostEN = BlogPost & { nlSlug: string };
 
 const ONGESORTEERD: BlogPostEN[] = [
   {
+    "slug": "no-webinar-without-coffee",
+    "nlSlug": "geen-webinar-zonder-koffie",
+    "rubriek": "online-ontmoeten",
+    "title": "No webinar without coffee",
+    "date": "September 16, 2026",
+    "iso": "2026-09-16",
+    "img": "/images/blog/geen-webinar-zonder-koffie.webp",
+    "imgAlt": "Learning Circle for webinars and online learning, with comfort zone, learning zone and panic zone, next to five ways of learning: read a manual, watch an instruction video, ask a colleague, join a workshop and just try.",
+    "imgCaption": "Learning Circle - part of the Digital Fitness learning programme",
+    "excerpt": "The webinar is hugely popular: scalable, manageable and easy to organise. But sharing knowledge in the hope that people do something with it takes more than broadcasting.",
+    "dek": "A webinar is a comfortable format for the organiser, but for the viewer distraction beckons. To move from broadcasting information to sharing knowledge, and on to learning, we organise at least one coffee moment at every webinar.",
+    "metaDescription": "A webinar broadcasts knowledge, but learning takes interaction. On breakouts, the Learning Circle and why we build a coffee moment into every webinar.",
+    "readingMinutes": 3,
+    "blocks": [
+      {
+        "type": "p",
+        "text": "The webinar is hugely popular. Online update? Webinar. Product launch? Webinar. Lecture? Webinar. Scalable, manageable and easy to organise. But sharing knowledge in the hope that people do something with it? That takes more than broadcasting. It takes interaction, even if it is just a chat afterwards. That is why we organise at least one coffee moment at every webinar."
+      },
+      {
+        "type": "p",
+        "text": "It is understandable that the webinar became the standard for sharing knowledge online. For the organiser it is a comfortable format: easy to plan and easy to control. The speaker owns the story, the technology is predictable and no unexpected objection comes back. Interaction often feels forced. It is not really part of the design — and the viewer notices. Distraction beckons and dropping out is only a click away."
+      },
+      {
+        "type": "h2",
+        "text": "Sharing knowledge is about content, but form matters"
+      },
+      {
+        "type": "p",
+        "text": "A good webinar starts with a speaker who has a clear story. That does not change. The difference lies in what you design around it. Q&A and polls are a good start; breakouts go a step further. In small groups, participants discuss what they heard, what they recognise and what they will do with it tomorrow. Their questions and insights go back to the speaker, who responds. That way participants make the translation from knowledge to practice themselves. And the speaker hears what is really going on in the room. That is the difference between broadcasting knowledge and sharing it."
+      },
+      {
+        "type": "h2",
+        "text": "Informing is the start, learning comes next"
+      },
+      {
+        "type": "p",
+        "text": "Informing is the foundation. Without a good story there is nothing to learn. But information only becomes knowledge when something is done with it. An old saying, often attributed to Confucius, puts it in three lines. Tell me and I forget. Show me and I may remember. Involve me and I understand. The coffee moment at a webinar builds a first small bridge to that third step. Explaining something to someone else forces you to organise what you just heard. Someone else’s insight shows you where your own understanding stops."
+      },
+      {
+        "type": "h2",
+        "text": "From leaning back to active listening"
+      },
+      {
+        "type": "p",
+        "text": "Educational theory often refers to the Learning Circle. In the middle is the comfort zone: familiar, pleasant and not very instructive. On the outside is the panic zone, where everything becomes too much. The learning zone lies in between. That is where there is just enough tension to pick something up."
+      },
+      {
+        "type": "p",
+        "text": "We design our gatherings to bring participants exactly there. We freshen up the comfort zone with surprising interaction that still gets people thinking. A poll with an unexpected result, a question that chafes a little, a conversation with someone who does it differently. Panic about the technology we catch with live support, so nobody loses the thread because a button does not work. What remains is the good kind of tension. Just enough to stay sharp, safe enough to dare to say something."
+      },
+      {
+        "type": "h2",
+        "text": "Online does this better than you think"
+      },
+      {
+        "type": "p",
+        "text": "For large groups, the webinar seems the only logical form. Yet online actually offers more room. In a physical room it takes a lot of time to split two hundred people into groups and bring them back together. Online it takes a few seconds, from the plenary to a small table and back. Informing and activating fit comfortably into a single hour. That is how a webinar becomes a gathering people really take something away from."
+      },
+      {
+        "type": "cta",
+        "text": "Want to know more? Read how we organise webinars.",
+        "label": "How we organise webinars",
+        "href": "/en/events/webinar"
+      }
+    ]
+  },
+  {
     "slug": "what-does-that-cost",
     "nlSlug": "wat-kost-dat",
     "rubriek": "online-ontmoeten",
@@ -167,7 +234,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "August 14, 2026",
     "iso": "2026-08-14",
     "img": "/images/blog/terug-naar-kantoor.webp",
-    "imgAlt": "Illustration for an article on the argument between working from home and returning to the office",
+    "imgAlt": "Remote worker on a video call with a screen showing colleagues in a tug of war between autonomy, flexibility, control and connection – on working from home versus returning to the office",
     "excerpt": "More and more employers are fixing the number of office days. But the argument isn't about where people work — it's about cohesion. And nobody talks about that any more.",
     "dek": "At ABN AMRO there's a proposal to write office days into the collective labour agreement. Both sides want the same thing, and still the conversation is stuck. Because it's about the wrong subject.",
     "metaDescription": "Writing office days into a labour agreement: the means has become the end. The question isn't where people work, but how they work together.",
@@ -291,7 +358,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "July 13, 2026",
     "iso": "2026-07-13",
     "img": "/images/blog/niet-hetzelfde-wel-goed.webp",
-    "imgAlt": "Illustration for the article 'Not the same. Still good.' on online versus offline gatherings",
+    "imgAlt": "Vegetarian burger on a yellow background with the words 'Not standard. Still tasty.' – online gatherings are not the same as in person, but still good",
     "excerpt": "Most gatherings were already ineffective before they went online. Online only made it more visible. Success depends on the method, not the medium — the question is never 'online or offline?' but 'what has to happen here?'",
     "dek": "Most gatherings weren't good before they went online. Online only made it more visible: the problem is rarely the medium, but the form and the design.",
     "metaDescription": "Meeting online isn't a substitute for offline. The problem is rarely the medium, but the form. Here's how you design a gathering on purpose.",
@@ -435,7 +502,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "June 30, 2026",
     "iso": "2026-06-30",
     "img": "/images/blog/heen-en-weer.webp",
-    "imgAlt": "Illustration for an article on working from home versus returning to the office",
+    "imgAlt": "Empty office with an 'Open for business' sign and the words 'The importance of staying connected' – on staying connected in hybrid work",
     "excerpt": "Work from home, or a duty to come in? The argument swings back and forth. But the place is a side issue — what counts is how you really connect people, wherever they work.",
     "dek": "The argument about home versus office moves back and forth like the tide. Time for a third way, where the point isn't location but how much people actually work together.",
     "metaDescription": "Home or office? The debate keeps circling. Discover the third way: what counts isn't where work happens, but how much people work together and are present.",
@@ -488,7 +555,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "June 10, 2026",
     "iso": "2026-06-10",
     "img": "/images/blog/online-beheersen.webp",
-    "imgAlt": "Illustration for an article on making contact online as a craft in its own right",
+    "imgAlt": "Laptop showing a virtual office in SpatialChat and the MeetingMasters Academy logo – meeting online as a craft",
     "excerpt": "Making contact online is a craft of its own. And that's good news, because far more is possible than most people think.",
     "dek": "A well-designed online session gets things done that would never work in a room. The grid of little square faces is only one way of meeting online, and the world beyond it's bigger than most people know.",
     "metaDescription": "Making contact online is a craft: with the right design, formats and environment you really bring scattered people together, well beyond a grid of faces.",
@@ -560,7 +627,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "May 27, 2026",
     "iso": "2026-05-27",
     "img": "/images/blog/wat-gamers-weten.webp",
-    "imgAlt": "Person at a desk with a computer and a dog — for an article on gamers and being together online",
+    "imgAlt": "Gamer wearing headphones at two monitors – what online meetings can learn from gamers",
     "excerpt": "Gamers have known for years how being together online works — with their own etiquette and a surprising amount of connection. Organisations still have plenty to learn from them.",
     "dek": "Gamers keep friendships going entirely online. They hang around a virtual corner, they play, they chat, they're simply there. No agenda, no action points, no 'any questions?' Just being together, around a shared goal or a shared interest. A format we do very little with in organisations. Online, at least.",
     "metaDescription": "Gamers keep friendships going purely online: together without an agenda. What organisations can learn from that for culture and the virtual in-between.",
@@ -641,7 +708,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "May 13, 2026",
     "iso": "2026-05-13",
     "img": "/images/blog/rondjes-versus-vierkantjes.webp",
-    "imgAlt": "Illustration for an article on the shape of online environments: circles versus squares",
+    "imgAlt": "Virtual garden in SpatialChat where participants move around freely as round video bubbles – circles instead of squares in online gatherings",
     "excerpt": "The shape of your online environment shapes how people behave. Boxes invite broadcasting and waiting; circles invite moving, choosing and running into each other.",
     "dek": "Zoom, Teams or Meet: a tidy grid of square boxes, neatly side by side. Everyone the same size, everyone the same distance away, everyone equally quiet. And still we expect that setting to produce energy.",
     "metaDescription": "Why a grid of square boxes makes your online session go quiet, and an open space with circles produces conversation and energy. Sit, or walk?",
@@ -729,7 +796,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "April 15, 2026",
     "iso": "2026-04-15",
     "img": "/images/blog/systeemwoede.webp",
-    "imgAlt": "Illustration for an article on technical frustration in online meetings",
+    "imgAlt": "Woman with her head in her hands at a laptop – frustration with technology in online meetings",
     "excerpt": "Frustration with technology is an underrated factor in online sessions. Anyone still recovering from a technical fight isn't connecting with the content — engagement starts at the login, not at the first agenda item.",
     "dek": "Rage at technology that won't cooperate is one of the most underrated factors in online gatherings. The answer isn't better kit, but more humanity.",
     "metaDescription": "System rage in online meetings blocks engagement. Why the answer isn't better tech, but more humanity and real in-meeting service.",
@@ -830,7 +897,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "April 1, 2026",
     "iso": "2026-04-01",
     "img": "/images/blog/ai-paradox.webp",
-    "imgAlt": "Emilie van Rappard of MeetingMasters — for an article on the AI paradox",
+    "imgAlt": "Emilie van Rappard of MeetingMasters in close-up, with the team in a grid of video tiles behind her – on the AI paradox in online meetings",
     "excerpt": "AI is taking over the routine work. But the moment someone says 'hold on, I see this differently' and a conversation changes the whole direction? That's where machines fall short. It only happens when people genuinely meet.",
     "dek": "A timeline full of AI: sharper prompts, better tools, faster output. Meanwhile the first jobs are disappearing. The arrival of the machine changes what work is worth. Even so I am optimistic, because the value of working together is greater than ever. Time to invest in the human side.",
     "metaDescription": "AI takes over routine work, but that's precisely why working together grows in value. Why meetings with real human contact matter more than ever.",
@@ -891,7 +958,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "March 25, 2026",
     "iso": "2026-03-25",
     "img": "/images/blog/acht-grens.webp",
-    "imgAlt": "Group of friends in a coffee bar — for an article on group dynamics and the rule of eight",
+    "imgAlt": "Four colleagues laughing around a single laptop and phone – group dynamics in small groups and the rule of eight",
     "excerpt": "Groups of up to eight people regulate themselves naturally. Beyond that the dynamic changes completely. Every meeting with more than a handful of people is a design question — not just a logistical one.",
     "dek": "Everyone knows the scene: a meeting with thirty people where three talk and the rest stay quiet. The problem isn't the people, but the mismatch between the goal, the group and the approach.",
     "metaDescription": "Why does a large meeting fall silent? The rule of eight explains when group dynamics tip over, and which formats do work, online and off.",
@@ -1012,7 +1079,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "March 4, 2026",
     "iso": "2026-03-04",
     "img": "/images/blog/stok-om-mee-te-slaan.webp",
-    "imgAlt": "Illustration for the article 'Blaming online' on meeting design",
+    "imgAlt": "MeetingMasters' virtual office in SpatialChat with rooms, plants and participants – meeting design online",
     "excerpt": "The limits of online actually create opportunities. They force you to design a meeting on purpose. Focus on real interaction rather than leaning on the social extras, and every format gets better.",
     "dek": "You have to organise a strategy day for two hundred people, and then you hear: it has to be online. But is online really the problem, or are we blaming the medium for gatherings that were never well designed?",
     "metaDescription": "Online gets the blame when a strategy day or all-hands falls flat. But is it the medium, or gatherings that were never properly designed in the first place?",
@@ -1076,7 +1143,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "February 7, 2026",
     "iso": "2026-02-07",
     "img": "/images/blog/olympiers.webp",
-    "imgAlt": "e-OLY House in SpatialChat — the virtual clubhouse for the World Olympians Association",
+    "imgAlt": "Golden curtains opening onto a snowy mountain landscape with the e-OLY House, the World Olympians Association's virtual clubhouse in SpatialChat",
     "excerpt": "A video call is a tool. An online meeting place is something else entirely. Together with MeetingMasters, the World Olympians Association built e-OLY House — a digital space where real connection happens without a compulsory programme.",
     "dek": "Last Friday the Milan Cortina 2026 Winter Olympics began. While the opening ceremonies took place in northern Italy, somewhere on the internet a remarkable place opened its doors: e-OLY House, the exclusive meeting place for Olympians during the Games.",
     "metaDescription": "During Milan Cortina 2026, e-OLY House opened as the digital meeting place for Olympians. Meeting online is more than a box on your screen.",

@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-10
+> Laatst bijgewerkt: 2026-09-16
 
 ---
 
@@ -4523,3 +4523,50 @@ zonder beeld. Maak het grijze vlak smaller, dan past de visual er rechts naast.
   `app/nl/games-tools/data.ts` en `tekst-en.ts`. Dit is het enige beeld op die
   pagina dat per taal verschilt: de calculator staat er zelf op, en die spreekt
   Nederlands of Engels.
+
+---
+
+## 16 september 2026 — blog: "Geen webinar zonder koffie"
+
+- **T** — Nieuw artikel in beide talen: `/nl/blog/geen-webinar-zonder-koffie` en
+  `/en/blog/no-webinar-without-coffee`. Rubriek **Online ontmoeten**, 4 minuten
+  lezen. Nederlandse tekst van Emilie, letterlijk overgenomen; de slotregel
+  "Meer weten? Lees hoe wij webinars organiseren" is een `cta`-blok met een knop
+  naar `/nl/events/webinar` (Engels: `/en/events/webinar`). De Engelse versie is
+  mijn vertaling — nog niet door Emilie nagelezen.
+- **B** — Beeld `/images/blog/geen-webinar-zonder-koffie.webp` (1600×900, 63 kB),
+  uit `~/Downloads/MM Website afbeeldingen (26).png`: de Learning Circle
+  (comfort-, leer- en paniekzone) naast vijf manieren van leren. Bevat Engelse
+  tekst; wordt in beide talen gebruikt.
+- **C** — Nieuw optioneel veld `imgCaption` op `BlogPost`: een bijschrift onder
+  het artikelbeeld (grijs, gecentreerd). Hier: "Learning Circle, Digital
+  Fitness". Beide artikelpagina's tonen het alleen als het is ingevuld; oudere
+  posts veranderen niet.
+- **C** — Taalpaar in `lib/talen.ts`.
+
+- **T** — Later dezelfde dag: Emilie leverde een opgefriste tekst (o.a. "meer
+  dan zenden", "Interactie voelt vaak gekunsteld", het rijtje leermanieren uit
+  de tekst, "eerste bruggetje") plus haar eigen intro onder de kop en het
+  bijschrift "Learning Circle - onderdeel van het leertraject van Digital
+  Fitness". Verwerkt in NL en EN; leestijd nu 3 minuten (546 woorden).
+- **T** — Alt-teksten van elf oudere blogbeelden herschreven, NL en EN. De
+  oude waren van het type "Illustratie bij blog over …" (en één noemde een hond
+  die er niet op staat). Nu beschrijven ze wat er echt te zien is, met het
+  onderwerp van het artikel erin. Op de hero, "Spel is nuttig" en "Wat kost
+  dat" stonden ze al goed.
+
+Nagelopen op de dev-server: beide artikelen en het overzicht geven 200, de
+taalwissel wijst heen en terug, de knop komt uit op een bestaande pagina, het
+beeld laadt. Nog niet gecommit.
+
+Gewicht van de blogbeelden bekeken: alles is WebP, 24–172 kB op schijf, en
+Next/Image levert ze verkleind naar het scherm. Herencoderen op kwaliteit 78
+levert weinig op (10–25 kB per beeld), behalve `blog-hero.webp`: 140 → 63 kB
+bij 1600 px breed. Met Emilie's "ja" vervangen: `blog-hero.webp` is nu 1600×901, 63 kB.
+- **B** — Beeld van het artikel vervangen door een nieuwe versie uit
+  `~/Downloads/MM Website afbeeldingen (27).png`: links een virtueel kantoor in
+  SpatialChat met deelnemers, rechts de Learning Circle. Zelfde pad, bijschrift
+  en alt-tekst (op Emilie's verzoek).
+- **T** — Intro onder de kop nogmaals aangepast: "…comfortabele format voor de
+  organisator, maar voor de kijker lonkt de afleiding. Om van informatie zenden
+  naar kennis delen…".

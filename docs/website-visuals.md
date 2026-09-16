@@ -210,8 +210,9 @@ hij een sectie verderop de pagina vast. Draait tegen het netwerk-IP.
 | Kaarten | `/images/planning-3.jpg`, `planning-4.jpg`, `planning-1.png` | LOKAAL |
 
 ## NL Blog — `app/nl/blog/page.tsx` + `app/nl/blog/[slug]/page.tsx`
-| Hero (overzicht) | `/images/blog/blog-hero.webp` | LOKAAL |
+| Hero (overzicht) | `/images/blog/blog-hero.webp` (1600×901, 63 kB sinds 16 sep 2026) | LOKAAL |
 | Overzichtskaarten (10) | `/images/blog/{heen-en-weer,online-beheersen,wat-gamers-weten,rondjes-versus-vierkantjes,systeemwoede,ai-paradox,niet-hetzelfde-wel-goed,acht-grens,stok-om-mee-te-slaan,olympiers}.webp` | LOKAAL |
+| Artikelbeeld "Geen webinar zonder koffie" (16 sep 2026) | `/images/blog/geen-webinar-zonder-koffie.webp` (1600×900) | LOKAAL — bron `~/Downloads/MM Website afbeeldingen (27).png`, virtueel kantoor + Learning Circle van Digital Fitness, bijschrift via `imgCaption` |
 | Detailpagina | herhaalt de kaart-visual als 16:9 hero (zelfde bestand per slug) | LOKAAL |
 
 Data-bron: `app/nl/blog/posts.ts` (gedeeld door overzicht + detail).

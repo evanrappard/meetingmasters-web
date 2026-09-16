@@ -32,6 +32,7 @@ const PAREN: Array<[nl: string, en: string]> = [
 
   // ── Blog ──
   ["/blog", "/blog"],
+  ["/blog/geen-webinar-zonder-koffie", "/blog/no-webinar-without-coffee"],
   ["/blog/spel-is-nergens-goed-voor", "/blog/play-is-good-for-nothing"],
   ["/blog/terug-naar-kantoor", "/blog/back-to-the-office"],
   ["/blog/niet-hetzelfde-wel-goed", "/blog/not-the-same-still-good"],
