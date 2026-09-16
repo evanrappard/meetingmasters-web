@@ -4565,8 +4565,9 @@ levert weinig op (10–25 kB per beeld), behalve `blog-hero.webp`: 140 → 63 kB
 bij 1600 px breed. Met Emilie's "ja" vervangen: `blog-hero.webp` is nu 1600×901, 63 kB.
 - **B** — Beeld van het artikel vervangen door een nieuwe versie uit
   `~/Downloads/MM Website afbeeldingen (27).png`: links een virtueel kantoor in
-  SpatialChat met deelnemers, rechts de Learning Circle. Zelfde pad, bijschrift
-  en alt-tekst (op Emilie's verzoek).
+  SpatialChat met deelnemers, rechts de Learning Circle. Zelfde pad en bijschrift;
+  de alt-tekst is daarna aangepast aan het nieuwe beeld (de vijf leermanieren
+  staan er niet meer op).
 - **T** — Intro onder de kop nogmaals aangepast: "…comfortabele format voor de
   organisator, maar voor de kijker lonkt de afleiding. Om van informatie zenden
   naar kennis delen…".

@@ -58,7 +58,7 @@ const ONGESORTEERD: BlogPost[] = [
     "date": "16 september 2026",
     "iso": "2026-09-16",
     "img": "/images/blog/geen-webinar-zonder-koffie.webp",
-    "imgAlt": "Learning Circle voor webinars en online leren, met comfortzone, leerzone en paniekzone, naast vijf manieren van leren: handleiding lezen, instructievideo kijken, collega vragen, workshop volgen en gewoon proberen.",
+    "imgAlt": "Learning Circle met comfortzone, leerzone en paniekzone, naast een virtueel kantoor waar deelnemers van een webinar elkaar in kleine groepjes ontmoeten",
     "imgCaption": "Learning Circle - onderdeel van het leertraject van Digital Fitness",
     "excerpt": "De webinar is razend populair: schaalbaar, beheersbaar en makkelijk te organiseren. Maar kennis delen in de hoop dat de ander er iets mee doet, vraagt meer dan zenden.",
     "dek": "Een webinar is een comfortabele format voor de organisator, maar voor de kijker lonkt de afleiding. Om van informatie zenden naar kennis delen en tot leren te komen, organiseren wij bij iedere webinar minimaal een koffiemoment.",

@@ -39,7 +39,7 @@ const ONGESORTEERD: BlogPostEN[] = [
     "date": "September 16, 2026",
     "iso": "2026-09-16",
     "img": "/images/blog/geen-webinar-zonder-koffie.webp",
-    "imgAlt": "Learning Circle for webinars and online learning, with comfort zone, learning zone and panic zone, next to five ways of learning: read a manual, watch an instruction video, ask a colleague, join a workshop and just try.",
+    "imgAlt": "Learning Circle with comfort zone, learning zone and panic zone, next to a virtual office where webinar participants meet in small groups",
     "imgCaption": "Learning Circle - part of the Digital Fitness learning programme",
     "excerpt": "The webinar is hugely popular: scalable, manageable and easy to organise. But sharing knowledge in the hope that people do something with it takes more than broadcasting.",
     "dek": "A webinar is a comfortable format for the organiser, but for the viewer distraction beckons. To move from broadcasting information to sharing knowledge, and on to learning, we organise at least one coffee moment at every webinar.",
