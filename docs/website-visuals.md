@@ -217,9 +217,21 @@ hij een sectie verderop de pagina vast. Draait tegen het netwerk-IP.
 
 Data-bron: `app/nl/blog/posts.ts` (gedeeld door overzicht + detail).
 
+## Ervaringen — `/nl/testimonials` + `/en/testimonials`
+Nagebouwd van de oude Squarespace-pagina (17 september 2026), één gedeeld
+component `components/ervaringen/ErvaringenOverzicht.tsx`; teksten en logo's
+in `lib/ervaringen.ts`.
+
+| Plek | Bestand | Bron |
+|---|---|---|
+| Hero | `/images/ervaringen-hero-v3.webp` (1920×1080, 119 kB) | LOKAAL — `~/Downloads/Vrouw laptop betrokken licht .png` (3200×1800): vrouw lachend achter haar laptop. Uitsnede laag (80%) zodat gezicht én laptop in beeld blijven; opzet als de andere hero's maar lager (34vw) |
+| 12 logo's in witte cirkels | `/images/logos/ervaringen/{roc-top,bergman-clinics,zonmw,roosendaal,pharmaccess,oranje-fonds,woa,bouw-infra,omron,rode-kruis,cultuurfonds,digital-fitness}.webp` (480×480, 4–15 kB) | LOKAAL — van de oude Squarespace-pagina, bijgesneden en in een vierkant gezet |
+
+De vier logo's van de homepage-carrousel (`/images/logos/{roosendaal,bergman-clinics,pharmaccess,pbcf}.webp`) blijven apart.
+
 ## NL pagina's zónder beeld (tekst/UI-only)
 `cases`, `inspiratie`, `partners`, `quality`, `csr`, `contact`,
-`expert-advies`, `about/{csr,team,partners,quality}`, `testimonials`.
+`expert-advies`, `about/{csr,team,partners,quality}`.
 
 ---
 

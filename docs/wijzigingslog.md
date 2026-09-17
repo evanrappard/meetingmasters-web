@@ -4646,3 +4646,33 @@ Christmas party; klik in popup landt op de eventpagina met de keuze in
 sessionStorage; geen consolefouten, geen zijwaarts schuiven. Gecommit en
 gepusht op 17 september 2026 (live).
 
+---
+
+## 17 september 2026 — Ervaringen: de oude pagina terug, met logo's
+
+Emilie: op de oude site zag "Ervaringen" er mooi uit (logo erbij, duidelijke
+begrenzing); op de nieuwe was het een plat lijstje, en ingekort. De oude
+Squarespace-site staat nog op `polygon-dory-f9tf.squarespace.com`; daar
+vandaan opnieuw gebouwd.
+
+- **C** — Nieuw gedeeld component `components/ervaringen/ErvaringenOverzicht.tsx`;
+  `app/nl/testimonials/page.tsx` en `app/en/testimonials/page.tsx` zijn dunne
+  wikkels. Opbouw als de oude pagina: beeld bovenaan, intro, twaalf kaarten in
+  vier kolommen (twee op tablet, één op telefoon), elk licht beige met het logo
+  in een witte cirkel, de naam en de hele tekst.
+- **T** — De **volledige** teksten terug, NL en EN, uit de oude site
+  (`lib/ervaringen.ts`). De nieuwe site had ingekorte versies. Twee tikfouten
+  in de Omron-tekst verbeterd ("kwamwn", "boeieid"); verder letterlijk.
+- **B** — Twaalf logo's van de oude pagina, `/images/logos/ervaringen/*.webp`,
+  en de hero `/images/ervaringen-hero-v3.webp` (nieuw beeld van Emilie, vrouw lachend achter haar laptop; opzet als de andere hero's). Zie het
+  visuals-register.
+- **T** — Meta-omschrijvingen van beide pagina's aangescherpt.
+
+- **B** — De hero is drie keer van beeld gewisseld: eerst het laptopbeeld van
+  de oude pagina, toen een laptop vol gezichten (te zwaar), nu een vrouw die
+  lachend achter haar laptop zit. Het vlak is lager dan bij de andere hero's
+  (34vw in plaats van 44vw), want de ervaringen zijn hier de pagina.
+
+Nagelopen headless: 1440 en 390 breed, NL en EN, geen consolefouten, geen
+zijwaarts schuiven. Gecommit en gepusht op 17 september 2026 (live).
+
