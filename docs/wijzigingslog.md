@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-16
+> Laatst bijgewerkt: 2026-09-17
 
 ---
 
@@ -4571,3 +4571,26 @@ bij 1600 px breed. Met Emilie's "ja" vervangen: `blog-hero.webp` is nu 1600×901
 - **T** — Intro onder de kop nogmaals aangepast: "…comfortabele format voor de
   organisator, maar voor de kijker lonkt de afleiding. Om van informatie zenden
   naar kennis delen…".
+
+---
+
+## 17 september 2026 — Vercel: beeldomzettingen op 75% van het gratis tegoed
+
+Vercel meldde dat het project 75% van de 5.000 gratis "Image Optimization
+Transformations" per maand had gebruikt. Elke omzetting van een beeld (per
+breedte × kwaliteit × formaat) telt één keer, en telt opnieuw zodra de cache
+verloopt. Twee oorzaken in `next.config.ts`:
+
+- `minimumCacheTTL` stond op de standaard van vier uur, dus een druk bekeken
+  beeld werd elke vier uur opnieuw omgezet.
+- `formats` had AVIF én WebP: browsers die AVIF vragen (Chrome, Safari 16+)
+  kostten een aparte omzetting naast de WebP voor de rest.
+
+- **C** — `images.minimumCacheTTL: 2678400` (31 dagen, het advies van Vercel)
+  en `formats: ["image/webp"]`. De rest (deviceSizes tot 2560, kwaliteiten 75 en
+  90) blijft staan; dat is een bewuste keuze voor scherpte.
+
+Gevolg voor het werk: vervang je een beeld onder dezelfde bestandsnaam, dan kan
+de oude versie tot 31 dagen in de beeldcache blijven. Geef een vervangend beeld
+dus een nieuwe naam (zoals de `-v2`-varianten die er al zijn).
+

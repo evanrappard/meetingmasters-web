@@ -269,9 +269,23 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    // AVIF eerst: dat is 9 tot 25% kleiner dan WebP op onze eigen beelden.
-    // Browsers die het niet aankunnen krijgen gewoon WebP.
-    formats: ["image/avif", "image/webp"],
+    // Vercel telt elke omzetting van een beeld (per breedte, kwaliteit en
+    // formaat) als een "transformation"; gratis zijn er 5.000 per maand. Een
+    // omgezet beeld blijft in de cache zolang deze TTL loopt, daarna telt het
+    // opnieuw. De standaard is vier uur, en daarmee liep de teller in
+    // september 2026 naar 75% van het gratis tegoed. Onze beelden veranderen
+    // zelden, dus 31 dagen (het advies van Vercel zelf).
+    //
+    // Let op: vervang je een beeld, geef het dan een nieuwe bestandsnaam
+    // (bijvoorbeeld -v2), want de oude versie kan tot 31 dagen in de cache
+    // blijven hangen.
+    minimumCacheTTL: 2678400,
+    // Alleen WebP. AVIF stond hier ook (9 tot 25% kleiner), maar elk formaat
+    // verdubbelt het aantal omzettingen; een browser die AVIF vraagt kost een
+    // aparte transformation naast de WebP voor de rest. Sinds 17 september 2026
+    // eruit om binnen het gratis tegoed te blijven. De bronbestanden zijn al
+    // WebP en handmatig licht gehouden, dus het verschil is klein.
+    formats: ["image/webp"],
     // Standaard gaat Next tot 3840px. Geen enkel beeld op deze site wordt zo
     // groot getoond; dat leverde alleen downloads op die niemand ziet.
     // Retina-schermen kregen niets groters dan 1920 en rekten dat op: op een
