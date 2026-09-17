@@ -4594,3 +4594,55 @@ Gevolg voor het werk: vervang je een beeld onder dezelfde bestandsnaam, dan kan
 de oude versie tot 31 dagen in de beeldcache blijven. Geef een vervangend beeld
 dus een nieuwe naam (zoals de `-v2`-varianten die er al zijn).
 
+---
+
+## 17 september 2026 — events: keuzeblok zonder volgorde, met zoeken over alle events
+
+Emilie: het blok "Waar ben je naar op zoek?" voelde als een randvoorwaarde
+(eerst een soort kiezen, dan pas iets zeggen), "Anders" was een uitklapper
+zonder functie, en wie "webinar" typte kreeg niets terug. Gewenst: óf een event
+kiezen en erheen, óf beschrijven en naar het best passende event geleid worden,
+met de woorden waarop dat is gebaseerd.
+
+- **C** — `components/events/EventKiezer.tsx` herbouwd. Een format in een popup
+  is nu een gewone link: klikken is gaan. De "Ga"-knop en het gele
+  keuzebolletje zijn weg. "Anders" is een vinkje; aanvinken zet de cursor in
+  het tekstveld en toont één regel uitleg erboven. Het tekstveld staat los van
+  de knopjes en zoekt terwijl je typt.
+- **C** — Nieuw: `lib/eventzoek.ts` (het zoeken, draait in de browser, geen
+  imports) en `lib/eventzoek-index.ts` (bouwt op de server per event een
+  woordenlijst met gewicht: titel en handgeschreven zoekwoorden zwaar, tagline
+  en doelgroep middel, intro/uitkomsten/FAQ-vragen licht). Woorden raken ook op
+  voorvoegsel ("strategie" → strategiedag) en deelwoord ("kerstborrel" →
+  borrel, met lager gewicht). Stopwoorden en losse getallen tellen niet mee;
+  "online", "bijeenkomst" en "deelnemers" zijn ook stopwoorden, anders raken
+  ze alles. Resultaten onder de drempel (score < 2 of < 40% van de beste)
+  blijven weg, zodat "webinar" één suggestie geeft en niet ook de townhall
+  omdat het woord in een FAQ-antwoord staat.
+- **C** — De zoekresultaten zijn dezelfde bollen als in de catalogus verderop
+  (gekleurde bol, icoon, omschrijving bij mouseover, naam eronder), een maat
+  kleiner. Daarvoor is de tegel uit de catalogus een eigen component geworden:
+  `components/events/FormatBol.tsx`, gebruikt op beide plekken. Het icoon gaat
+  als gerenderd element naar het keuzeblok, want een component reist niet van
+  server naar client. Eerst stond er "past bij: …" onder elk resultaat; Emilie
+  vond dat niet fijn en wilde de bol met kleur.
+- **T** — De rake woorden staan nu in de regel boven de bollen: "Dit komt er
+  het dichtst bij, op basis van: kennissessie, klanten". Nieuwe regels in NL
+  (`EventsOverzicht.tsx`) en EN (`tekst-en.ts`): veldlabel "Of beschrijf je
+  bijeenkomst in je eigen woorden" en een regel voor als niets raakt. De
+  `ga`/`gaHint`-teksten zijn weg.
+- **C** — De getypte tekst reist nog steeds mee (`lib/eventwens.ts`) via elke
+  weg: formatlink, zoekresultaat en "Vrijblijvend advies", die nu de gele knop
+  is. Meten: `events_goal_select` met route `direct` (popup) of `zoek`
+  (resultaat, met de rake woorden), `events_contact`, `events_view_all`.
+
+Zoekwoorden per event staan in `ZOEKWOORDEN` in `lib/eventzoek-index.ts`,
+NL en EN naast elkaar. Mist een treffer ("vrijmibo" bij het bedrijfsfeest,
+"ledenvergadering" bij de ALV), dan is dat de plek.
+
+Nagelopen headless (1280 en 390 breed, NL en EN): "webinar" → Webinar;
+"kerstborrel voor 80 collega's" → kerstfeest bovenaan; "christmas drinks" →
+Christmas party; klik in popup landt op de eventpagina met de keuze in
+sessionStorage; geen consolefouten, geen zijwaarts schuiven. Gecommit en
+gepusht op 17 september 2026 (live).
+

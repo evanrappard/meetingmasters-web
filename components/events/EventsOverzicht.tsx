@@ -4,7 +4,9 @@ import Link from "next/link";
 import CTABlock from "@/components/ui/CTABlock";
 import TestimonialsCarousel from "@/components/ui/TestimonialsCarousel";
 import { JsonLd } from "@/components/ui/JsonLd";
-import EventKiezer, { type KiezerDoel } from "@/components/events/EventKiezer";
+import EventKiezer, { type KiezerBol, type KiezerDoel } from "@/components/events/EventKiezer";
+import FormatBol from "@/components/events/FormatBol";
+import { bouwEventIndex } from "@/lib/eventzoek-index";
 import { eventCategories } from "@/app/nl/events/page";
 import { eventFaq, eventFaqMore } from "@/app/nl/events/faq";
 import { OVERZICHT_EN } from "@/app/nl/events/tekst-en";
@@ -51,15 +53,15 @@ const NL = {
     andersLabel: "Anders",
     kiesHint: "Kies wat er het dichtst bij komt.",
     andersTekst:
-      "Geen van deze vijf? Vertel hieronder wat je voor ogen hebt, dan denken we met je mee.",
+      "Geen van deze vijf? Vertel hier wat je voor ogen hebt, dan denken we met je mee.",
     legendaDoel: "Waar ben je naar op zoek?",
-    legendaFormat: "Kies een event format",
     bekijkTitel: "Lees over %s",
-    veldLabel: "Kun je wat over deze bijeenkomst vertellen?",
+    veldLabel: "Of beschrijf je bijeenkomst in je eigen woorden",
     placeholder:
       "Bijv. hoeveel mensen verwacht je, waarom komen ze samen, met welk beoogd resultaat?",
-    ga: "Ga",
-    gaHint: "Kies eerst een event, dan weten we waar je heen wilt.",
+    resultaatKop: "Dit komt er het dichtst bij, op basis van: %s",
+    geenResultaat:
+      "Hier vinden we niet meteen een format bij. Bekijk alle events, of vraag vrijblijvend advies: je beschrijving reist mee.",
     alle: "Bekijk alle events",
     advies: "Vrijblijvend advies",
   },
@@ -107,7 +109,7 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
   });
   /**
    * De zes tegels van het keuzeblok: de vijf categorieën plus "Anders". De
-   * zesde heeft geen formats, en dus ook geen lijst die openklapt.
+   * zesde heeft geen formats: dat is een vinkje, geen lijst die openklapt.
    */
   const doelen: KiezerDoel[] = [
     ...eventCategories.map((cat) => ({
@@ -119,6 +121,23 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
     })),
     { id: "anders", label: t.kiezer.andersLabel, formats: [] },
   ];
+  /**
+   * De bol van elk format, voor de zoekresultaten in het keuzeblok. Het icoon
+   * gaat als gerenderd element mee, want een component kan niet van de server
+   * naar een client-component reizen.
+   */
+  const bollen: Record<string, KiezerBol> = {};
+  for (const cat of eventCategories) {
+    for (const f of cat.formats) {
+      const en = taal === "en" ? OVERZICHT_EN.formatTeksten[f.slug] : undefined;
+      bollen[f.slug] = {
+        bg: f.bg,
+        iconSrc: f.iconSrc,
+        omschrijving: en?.desc ?? f.desc,
+        icoon: <f.Icon className={`w-12 h-12 ${f.ic}`} strokeWidth={1} />,
+      };
+    }
+  }
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -210,9 +229,16 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
       </section>
 
       {/* ── KEUZEBLOK ──
-          De begeleide ingang: eerst een doel, dan je eigen woorden. De volledige
-          formatlijst staat verderop, direct boven de FAQ. */}
-      <EventKiezer doelen={doelen} t={t.kiezer} adviesHref={t.adviesHref} />
+          De begeleide ingang: kies een doel, of beschrijf je bijeenkomst en zie
+          welke formats erbij passen. De volledige formatlijst staat verderop,
+          direct boven de FAQ. */}
+      <EventKiezer
+        doelen={doelen}
+        t={t.kiezer}
+        adviesHref={t.adviesHref}
+        index={bouwEventIndex(taal)}
+        bollen={bollen}
+      />
 
       {/* ── TESTIMONIALS ── */}
       <section className="bg-white py-10 border-b border-[#EBEBEB]">
@@ -302,42 +328,15 @@ export default function EventsOverzicht({ taal = "nl" }: { taal?: Taal }) {
                   const desc = en?.desc ?? nlDesc;
                   const href = taal === "en" ? `/en/events/${engelseEventSlug(slug)}` : `/nl/events/${slug}`;
                   return (
-                  <Link
-                    key={slug}
-                    href={href}
-                    className="group flex flex-col items-center text-center rounded-2xl p-2 sm:p-3 hover:bg-[#FFFBEE] transition-colors"
-                  >
-                    <div
-                      className="relative w-full aspect-square max-w-[176px] mx-auto rounded-full overflow-hidden flex items-center justify-center mb-3 group-hover:scale-[1.06] transition-transform duration-200"
-                      style={{ background: bg, boxShadow: "0 6px 20px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.08)" }}
-                    >
-                      {iconSrc ? (
-                        <Image
-                          src={iconSrc}
-                          alt={title}
-                          fill
-                          sizes="(min-width: 640px) 176px, 45vw"
-                          className="object-cover transition-opacity duration-200 group-hover:opacity-0"
-                        />
-                      ) : (
-                        <Icon
-                          className={`w-16 h-16 sm:w-[72px] sm:h-[72px] ${ic} transition-opacity duration-200 group-hover:opacity-0`}
-                          strokeWidth={1}
-                        />
-                      )}
-                      {desc && (
-                        <div
-                          className="absolute inset-0 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                          style={{ backgroundColor: "rgba(0,0,0,0.52)" }}
-                        >
-                          <p className="text-white text-[11px] leading-snug font-medium text-center">{desc}</p>
-                        </div>
-                      )}
-                    </div>
-                    <p className="font-bold text-[#2D2D2D] text-sm leading-snug group-hover:text-[#EEBE3D] transition-colors px-1 max-w-[160px]">
-                      {title}
-                    </p>
-                  </Link>
+                    <FormatBol
+                      key={slug}
+                      href={href}
+                      titel={title}
+                      omschrijving={desc}
+                      bg={bg}
+                      iconSrc={iconSrc}
+                      icoon={<Icon className={`w-16 h-16 sm:w-[72px] sm:h-[72px] ${ic}`} strokeWidth={1} />}
+                    />
                   );
                 })}
               </div>

@@ -64,15 +64,15 @@ export const OVERZICHT_EN = {
     andersLabel: "Something else",
     kiesHint: "Choose whichever comes closest.",
     andersTekst:
-      "None of these five? Tell us below what you have in mind, and we will think it through with you.",
+      "None of these five? Tell us here what you have in mind, and we will think it through with you.",
     legendaDoel: "What are you looking for?",
-    legendaFormat: "Choose an event format",
     bekijkTitel: "Read about %s",
-    veldLabel: "Could you tell us something about this gathering?",
+    veldLabel: "Or describe your gathering in your own words",
     placeholder:
       "E.g. how many people are you expecting, why are they coming together, and what result do you have in mind?",
-    ga: "Go",
-    gaHint: "Choose an event first, then we know where to take you.",
+    resultaatKop: "This comes closest, based on: %s",
+    geenResultaat:
+      "We cannot match this to a format straight away. View all events, or ask for advice: your description travels with you.",
     alle: "View all events",
     advies: "Advice, no strings attached",
   },

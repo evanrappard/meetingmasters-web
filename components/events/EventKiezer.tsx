@@ -1,65 +1,77 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { bewaarEventwens } from "@/lib/eventwens";
+import FormatBol, { type FormatBolProps } from "@/components/events/FormatBol";
+import { zoekEvents, type EventIndexItem } from "@/lib/eventzoek";
 import { meet } from "@/lib/meten";
 
 /**
  * Het keuzeblok op de events-pagina: "Waar ben je naar op zoek?"
  *
- * Waarom dit blok bestaat: de volledige lijst met twintig formats staat verderop
- * en is voor wie precies weet wat hij zoekt. Wie dat niet weet, kiest hier eerst
- * een doel en vertelt daarna in eigen woorden wat er speelt. Die eigen woorden
- * zijn het punt van het hele blok. Niet iedereen noemt zijn bijeenkomst
- * hetzelfde, en "strategiedag voor 120 mensen uit 9 kantoren" zegt ons meer dan
- * welk knopje er is aangeklikt.
+ * Twee ingangen, naast elkaar en los van elkaar:
  *
- * Daarom klik je hier ook niet meteen door: een format aanklikken kiest het,
- * het stuurt je niet weg. Pas op "Ga" ga je naar de eventpagina, en dan reist
- * de getypte tekst mee (zie `lib/eventwens.ts`), zodat hij al in het berichtveld
- * staat als er verderop een formulier in beeld komt.
+ * 1. **Kiezen.** Vijf knopjes met een doel; elk klapt een lijstje formats
+ *    uit, en een klik op een format brengt je meteen naar die pagina. Het
+ *    zesde knopje, "Anders", is geen lijstje maar een vinkje: "geen van
+ *    deze vijf".
+ * 2. **Beschrijven.** Een open tekstveld waarin je in eigen woorden vertelt
+ *    wat je voor ogen hebt. Terwijl je typt zoekt het blok over alle events
+ *    heen en toont de formats die daar het dichtst bij komen als dezelfde
+ *    bollen als in de catalogus verderop, met erboven de woorden waarop dat
+ *    is gebaseerd (zie `lib/eventzoek.ts`). Wie "webinar"
+ *    typt, ziet Webinar; wie "kerstborrel voor 80 collega's" typt, ziet het
+ *    kerstfeest.
+ *
+ * Er was eerst een volgorde in: eerst een doel kiezen, dan pas typen, dan op
+ * "Ga". Dat voelde als een randvoorwaarde en dat was het niet bedoeld te zijn
+ * (Emilie, 17 september 2026). Nu is er geen "Ga" meer: kiezen is gaan, en de
+ * zoekresultaten zijn zelf de links.
+ *
+ * De getypte tekst blijft de kern van het blok. Hij reist mee naar de
+ * volgende pagina (`lib/eventwens.ts`), zodat hij al in het berichtveld staat
+ * als er verderop een formulier in beeld komt. Dat geldt voor elke weg
+ * hiervandaan: een format, een zoekresultaat of "Vrijblijvend advies".
  *
  * ── Licht houden is hier een eis, geen smaak ──
  * Dit is een startpunt voor een keuze, geen categorie waar je je aan vastlegt.
  * Vandaar lichte knopjes zonder tekst eronder, en de formats in een popup die
  * onder het knopje hangt in plaats van in een vlak dat de pagina openbreekt.
- * Wat je koos blijft daarna als geel bolletje onder de knopjes staan, zodat de
- * popup dicht kan zonder dat je keuze uit beeld verdwijnt.
  *
  * ── Werkt ook zonder JavaScript ──
  * Het open- en dichtklappen doet CSS, niet React: elk knopje is een `<label>`
  * met een echte radioknop erin, en de bijbehorende popup wordt zichtbaar met
- * `:has(...:checked)`. Alle twintig formatlinks staan dus in de HTML die de
- * server verstuurt, ook de dichtgeklapte, en elke regel heeft naast de keuze een
- * gewone link naar de pagina zelf. Zonder JavaScript blijft de popup gewoon
- * openstaan (daar is je keuze dan te zien) en werkt alles behalve de "Ga"-knop.
+ * `:has(...:checked)`. Alle formatlinks staan dus in de HTML die de server
+ * verstuurt, ook de dichtgeklapte. Zonder JavaScript blijft de popup gewoon
+ * openstaan en werkt alles behalve het zoeken.
  */
 
 export type KiezerFormat = { slug: string; titel: string; href: string };
 export type KiezerDoel = { id: string; label: string; formats: KiezerFormat[] };
+/** Wat een zoekresultaat nodig heeft om als bol te verschijnen; de rest komt uit de index. */
+export type KiezerBol = Pick<FormatBolProps, "bg" | "iconSrc" | "omschrijving" | "icoon">;
 
 export type KiezerTeksten = {
   kicker: string;
   kop: string;
-  /** Het zesde knopje, dat geen formats heeft. */
+  /** Het zesde knopje, dat geen formats heeft maar een vinkje is. */
   andersLabel: string;
   /** Eén regel boven de formats in de popup. Houdt de keuze laagdrempelig. */
   kiesHint: string;
-  /** Staat in de popup van "Anders", die geen formats heeft. */
+  /** Verschijnt boven het tekstveld zodra "Anders" is aangevinkt. */
   andersTekst: string;
-  /** Onzichtbare namen van de keuzegroepen, voor schermlezers. */
+  /** Onzichtbare naam van de keuzegroep, voor schermlezers. */
   legendaDoel: string;
-  legendaFormat: string;
   /** Voor schermlezers en de tooltip: "%s" wordt de naam van het format. */
   bekijkTitel: string;
   veldLabel: string;
   placeholder: string;
-  ga: string;
-  /** Onzichtbaar; vertelt een schermlezer waarom "Ga" nog uit staat. */
-  gaHint: string;
+  /** Boven de zoekresultaten: "%s" wordt de lijst met getypte woorden die raak waren. */
+  resultaatKop: string;
+  /** Als er wel getypt is, maar niets raakt. */
+  geenResultaat: string;
   alle: string;
   advies: string;
 };
@@ -69,10 +81,15 @@ type Props = {
   t: KiezerTeksten;
   /** Waar "Vrijblijvend advies" heen gaat: de adviespagina in de juiste taal. */
   adviesHref: string;
+  /** De zoekindex over alle events, gebouwd op de server. */
+  index: EventIndexItem[];
+  /** Per slug de bol (kleur, icoon, mouseover-tekst) voor de zoekresultaten. */
+  bollen: Record<string, KiezerBol>;
 };
 
 /** Het id van de radioknop bij een doel. Staat ook in de CSS hieronder. */
 const doelId = (id: string) => `mm-doel-${id}`;
+const ANDERS = "anders";
 
 /**
  * De stijlregels die het open- en dichtklappen doen. Dit staat met opzet niet
@@ -82,6 +99,7 @@ const doelId = (id: string) => `mm-doel-${id}`;
  */
 function stijl(doelen: KiezerDoel[]) {
   const popups = doelen
+    .filter((d) => d.formats.length > 0)
     .map(
       (d) =>
         `.mm-kiezer:has(#${doelId(d.id)}:checked) [data-paneel="${d.id}"]{display:block}`,
@@ -92,67 +110,55 @@ function stijl(doelen: KiezerDoel[]) {
 ${popups}
 .mm-knop:has(input:checked){background:#FFFBEE;border-color:#EEBE3D}
 .mm-knop:has(input:checked) .mm-pijl{transform:rotate(180deg);color:#2D2D2D}
-.mm-format:has(input:checked){background:#FFFBEE;box-shadow:inset 0 0 0 2px #EEBE3D}
+.mm-knop:has(input:checked) .mm-vinkje{background:#EEBE3D;border-color:#EEBE3D;color:#2D2D2D}
 /* Een focusring hoort bij het toetsenbord, niet bij de muis: met
    focus-within kreeg je hem ook na een gewone klik, en dan ziet een
    aangeklikt knopje er twee ringen dik uit. */
-.mm-knop:has(:focus-visible),.mm-format:has(:focus-visible){outline:2px solid #EEBE3D;outline-offset:2px}
+.mm-knop:has(:focus-visible){outline:2px solid #EEBE3D;outline-offset:2px}
 `.trim();
 }
 
-export default function EventKiezer({ doelen, t, adviesHref }: Props) {
-  const router = useRouter();
+export default function EventKiezer({ doelen, t, adviesHref, index, bollen }: Props) {
   const blok = useRef<HTMLDivElement>(null);
+  const veld = useRef<HTMLTextAreaElement>(null);
+  /** Welke popup openstaat. */
   const [doel, setDoel] = useState<string | null>(null);
-  const [format, setFormat] = useState<KiezerFormat | null>(null);
-  /** Bij welk doel het gekozen format hoort: het bolletje hangt daaronder. */
-  const [keuzeDoel, setKeuzeDoel] = useState<string | null>(null);
+  const [anders, setAnders] = useState(false);
   const [tekst, setTekst] = useState("");
 
-  const gekozenDoel = doelen.find((d) => d.id === doel);
-  /**
-   * Waar "Ga" heen gaat. Koos iemand een format, dan dat. Staat er alleen een
-   * popup open, dan het eerste format van dat doel: dat is het format waar het
-   * doel om draait. Bij "Anders" is er niets om heen te gaan.
-   */
-  const bestemming = format ?? gekozenDoel?.formats[0] ?? null;
   const gevuld = tekst.trim().length > 0;
+  const treffers = useMemo(() => zoekEvents(index, tekst), [index, tekst]);
 
   /** De tekst en de keuze bewaren voor de volgende pagina. */
-  const bewaar = (slug?: string) =>
-    bewaarEventwens({ tekst, doel: doel ?? undefined, format: slug });
+  const bewaar = (slug?: string, keuze?: string) =>
+    bewaarEventwens({
+      tekst,
+      doel: keuze ?? (anders ? ANDERS : undefined),
+      format: slug,
+    });
 
-  /** Alle radioknoppen van een groep uitzetten. Die staan buiten React. */
-  const zetUit = (naam: string) => {
+  /** Alle radioknoppen van de doelen uitzetten. Die staan buiten React. */
+  const zetUit = () => {
     for (const el of blok.current?.querySelectorAll<HTMLInputElement>(
-      `input[name="${naam}"]`,
+      'input[name="mm-doel"]',
     ) ?? []) {
       el.checked = false;
     }
   };
 
-  /** De popup sluiten. Wat er gekozen is, blijft eronder staan. */
+  /** De popup sluiten. */
   const sluit = () => {
-    zetUit("mm-doel");
+    zetUit();
     setDoel(null);
   };
 
   /**
-   * Een popup hoort te sluiten als je er ergens naast klikt of op Escape drukt.
-   *
-   * Dit ging eerst mis: er stond "sluit als de klik buiten het blok valt", en
-   * het tekstveld, de kop en de grijze ruimte om de knopjes horen bij dat blok.
-   * Klikte je daar, dan bleef de popup staan, en omdat hij over het tekstveld
-   * heen hangt kon je dat veld niet in. Alleen een ánder knopje hielp.
-   *
-   * Nu is de grens de popup zelf: alles daarbuiten sluit hem. De klik doet
-   * daarna gewoon zijn werk, dus één klik op het tekstveld sluit de popup én
-   * zet de cursor in het veld. Het knopje van de open popup is de uitzondering:
-   * dat handelt zijn eigen klik af (zie `wisselDoel`), want anders zou de
-   * radioknop er meteen weer aangaan.
-   *
-   * Zonder JavaScript blijft de popup openstaan; dat is geen fout, alleen
-   * minder handig.
+   * Een popup hoort te sluiten als je er ergens naast klikt of op Escape
+   * drukt. De grens is de popup zelf: alles daarbuiten sluit hem, en de klik
+   * doet daarna gewoon zijn werk. Zo sluit één klik op het tekstveld de popup
+   * én zet hij de cursor in het veld. Het knopje van de open popup is de
+   * uitzondering: dat handelt zijn eigen klik af (zie `wisselDoel`), want
+   * anders zou de radioknop er meteen weer aangaan.
    */
   useEffect(() => {
     if (!doel) return;
@@ -207,15 +213,18 @@ export default function EventKiezer({ doelen, t, adviesHref }: Props) {
     });
   };
 
-  const kiesFormat = (id: string, f: KiezerFormat) => {
-    setFormat(f);
-    setKeuzeDoel(id);
-    bewaarEventwens({ tekst, doel: id, format: f.slug });
-    meet("events_goal_select", { doel: id, format: f.slug, route: "kies" });
-    // Gekozen is gekozen: de popup mag dicht. Het gele bolletje eronder houdt
-    // zichtbaar wát er gekozen is.
-    sluit();
+  /** "Anders" aan of uit. Aan: de popup dicht en de cursor in het tekstveld. */
+  const wisselAnders = (aan: boolean) => {
+    setAnders(aan);
+    bewaarEventwens({ tekst, doel: aan ? ANDERS : undefined });
+    if (aan) {
+      sluit();
+      meet("events_goal_select", { doel: ANDERS, format: "", route: "doel" });
+      veld.current?.focus();
+    }
   };
+
+  const formatLabel = (titel: string) => t.bekijkTitel.replace("%s", titel);
 
   return (
     <section
@@ -239,30 +248,37 @@ export default function EventKiezer({ doelen, t, adviesHref }: Props) {
           <fieldset className="border-0 p-0 m-0">
             <legend className="sr-only">{t.legendaDoel}</legend>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-4">
-              {doelen.map((d) => (
-                <div key={d.id} className="relative">
-                  {/*
-                   * Het knopje en het gekozen event zijn samen één vlak: is er
-                   * iets gekozen, dan klapt het onderaan het knopje uit in
-                   * plaats van eronder los te komen hangen. Vandaar één omhulsel
-                   * met de rand en de gele vulling, en een knopje dat zijn eigen
-                   * rand dan afstaat. De hoekafronding is precies de halve
-                   * hoogte van het knopje, zodat de bovenkant een pil blijft.
-                   */}
-                  <div
-                    className={
-                      keuzeDoel === d.id && format
-                        ? "rounded-[22px] border border-[#EEBE3D] bg-[#FFFBEE]"
-                        : ""
-                    }
+              {doelen.map((d) =>
+                d.formats.length === 0 ? (
+                  /* "Anders": een vinkje, geen lijstje. */
+                  <label
+                    key={d.id}
+                    className="mm-knop cursor-pointer rounded-full border border-[#D8D7CE] bg-white px-5 py-2.5 flex items-center justify-between gap-2 text-left transition-colors hover:bg-[#FFFBEE] hover:border-[#EEBE3D]"
                   >
+                    <input
+                      type="checkbox"
+                      name="mm-anders"
+                      className="sr-only"
+                      checked={anders}
+                      onChange={(e) => wisselAnders(e.target.checked)}
+                    />
+                    <span className="text-sm font-bold text-[#2D2D2D] leading-snug">
+                      {d.label}
+                    </span>
+                    <span
+                      className="mm-vinkje w-4 h-4 flex-shrink-0 rounded border border-[#B4B3A8] bg-white text-transparent flex items-center justify-center transition-colors"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 16 16" className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3 8.5l3 3 7-7" />
+                      </svg>
+                    </span>
+                  </label>
+                ) : (
+                  <div key={d.id} className="relative">
                     <label
                       onClick={(e) => wisselDoel(d.id, e)}
-                      className={`mm-knop cursor-pointer px-5 py-2.5 flex items-center justify-between gap-2 text-left transition-colors hover:bg-[#FFFBEE] hover:border-[#EEBE3D] ${
-                        keuzeDoel === d.id && format
-                          ? "rounded-[22px] border border-transparent bg-transparent"
-                          : "rounded-full border border-[#D8D7CE] bg-white"
-                      }`}
+                      className="mm-knop cursor-pointer rounded-full border border-[#D8D7CE] bg-white px-5 py-2.5 flex items-center justify-between gap-2 text-left transition-colors hover:bg-[#FFFBEE] hover:border-[#EEBE3D]"
                     >
                       <input
                         type="radio"
@@ -281,97 +297,46 @@ export default function EventKiezer({ doelen, t, adviesHref }: Props) {
                     </label>
 
                     {/* De popup onder het knopje. Alle popups staan in de HTML;
-                      CSS laat er één zien. */}
+                      CSS laat er één zien. Elke regel is een gewone link. */}
                     <div
                       data-paneel={d.id}
                       className="absolute left-0 top-full z-30 mt-2 w-full min-w-[240px] scroll-mt-24 rounded-xl border border-[#D8D7CE] bg-white p-3 shadow-xl"
                     >
-                      {d.formats.length === 0 ? (
-                        <p className="text-sm text-[#434343] leading-relaxed">
-                          {t.andersTekst}
-                        </p>
-                      ) : (
-                        <fieldset className="border-0 p-0 m-0">
-                          <legend className="sr-only">{t.legendaFormat}</legend>
-                          <p className="text-xs text-[#8C8B80] leading-snug mb-2 px-1">
-                            {t.kiesHint}
-                          </p>
-                          {/* Bewust geen ul/li: `main li` krijgt in globals.css een
-                            leesbreedte mee (60vw), en dan houdt elke regel
-                            rechts een gat over. */}
-                          <div className="space-y-1">
-                            {d.formats.map((f) => (
-                              <div
-                                key={f.slug}
-                                className="flex items-center gap-1"
-                              >
-                                <label className="mm-format flex-1 cursor-pointer rounded-lg px-3 py-2 flex items-center transition-colors hover:bg-[#FFFBEE]">
-                                  <input
-                                    type="radio"
-                                    name="mm-format"
-                                    className="sr-only"
-                                    onChange={() => kiesFormat(d.id, f)}
-                                  />
-                                  <span className="text-sm font-bold text-[#2D2D2D] leading-snug">
-                                    {f.titel}
-                                  </span>
-                                </label>
-                                <Link
-                                  href={f.href}
-                                  title={t.bekijkTitel.replace("%s", f.titel)}
-                                  aria-label={t.bekijkTitel.replace(
-                                    "%s",
-                                    f.titel,
-                                  )}
-                                  onClick={() => {
-                                    bewaar(f.slug);
-                                    meet("events_goal_select", {
-                                      doel: d.id,
-                                      format: f.slug,
-                                      route: "direct",
-                                    });
-                                  }}
-                                  className="flex-shrink-0 p-2 rounded-lg text-[#28A8AA] hover:text-[#1E8E90] hover:bg-[#FFFBEE] transition-colors"
-                                >
-                                  <ArrowRight
-                                    className="w-4 h-4"
-                                    aria-hidden="true"
-                                  />
-                                </Link>
-                              </div>
-                            ))}
-                          </div>
-                        </fieldset>
-                      )}
+                      <p className="text-xs text-[#8C8B80] leading-snug mb-2 px-1">
+                        {t.kiesHint}
+                      </p>
+                      {/* Bewust geen ul/li: `main li` krijgt in globals.css een
+                        leesbreedte mee (60vw), en dan houdt elke regel
+                        rechts een gat over. */}
+                      <div className="space-y-1">
+                        {d.formats.map((f) => (
+                          <Link
+                            key={f.slug}
+                            href={f.href}
+                            title={formatLabel(f.titel)}
+                            onClick={() => {
+                              bewaar(f.slug, d.id);
+                              meet("events_goal_select", {
+                                doel: d.id,
+                                format: f.slug,
+                                route: "direct",
+                                tekst_gevuld: gevuld,
+                              });
+                            }}
+                            className="flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm font-bold text-[#2D2D2D] leading-snug transition-colors hover:bg-[#FFFBEE]"
+                          >
+                            {f.titel}
+                            <ArrowRight
+                              className="w-4 h-4 flex-shrink-0 text-[#28A8AA]"
+                              aria-hidden="true"
+                            />
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-
-                    {/* De uitgeklapte onderkant: wát er binnen dit doel gekozen
-                        is. Zit vast aan het knopje erboven, met een haarlijn
-                        ertussen zodat te zien blijft dat het uitgeklapt is. */}
-                    {format && keuzeDoel === d.id && (
-                      <Link
-                        href={format.href}
-                        onClick={() => {
-                          bewaar(format.slug);
-                          meet("events_goal_select", {
-                            doel: d.id,
-                            format: format.slug,
-                            route: "keuze",
-                            tekst_gevuld: gevuld,
-                          });
-                        }}
-                        className="mm-keuze flex items-center justify-between gap-2 border-t border-[#F2E4B5] px-5 py-2.5 text-sm font-bold text-[#2D2D2D] rounded-b-[22px] hover:bg-[#FFF5D6] transition-colors"
-                      >
-                        {format.titel}
-                        <ArrowRight
-                          className="w-4 h-4 text-[#8C8B80]"
-                          aria-hidden="true"
-                        />
-                      </Link>
-                    )}
                   </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
           </fieldset>
 
@@ -383,61 +348,79 @@ export default function EventKiezer({ doelen, t, adviesHref }: Props) {
             >
               {t.veldLabel}
             </label>
+            {anders && (
+              <p className="text-sm text-[#434343] leading-relaxed mb-3">
+                {t.andersTekst}
+              </p>
+            )}
             <textarea
               id="mm-eventwens"
               name="eventwens"
+              ref={veld}
               rows={3}
               value={tekst}
               // Kom je er met Tab in, dan hoort de popup ook dicht te gaan.
               onFocus={() => sluit()}
               onChange={(e) => {
                 setTekst(e.target.value);
-                // Meteen bewaren, zodat de tekst ook meereist als iemand op de
+                // Meteen bewaren, zodat de tekst ook meereist als iemand op een
                 // link in een popup klikt.
                 bewaarEventwens({
                   tekst: e.target.value,
-                  doel: doel ?? undefined,
-                  format: format?.slug,
+                  doel: anders ? ANDERS : undefined,
                 });
               }}
               placeholder={t.placeholder}
+              aria-controls="mm-zoekresultaat"
               className="w-full rounded-xl border border-[#CFCEC4] bg-white px-4 py-3 text-[#2D2D2D] leading-relaxed placeholder:text-[#8C8B80] focus:outline-none focus:ring-2 focus:ring-[#EEBE3D] focus:border-[#EEBE3D]"
             />
+
+            {/* ── Wat er bij past ──
+                Verschijnt terwijl je typt. `aria-live` laat een schermlezer
+                weten dat er iets is veranderd, zonder elke letter voor te lezen. */}
+            <div id="mm-zoekresultaat" aria-live="polite" className="mt-3">
+              {treffers.length > 0 && (
+                <>
+                  <p className="text-xs text-[#8C8B80] leading-snug mb-1">
+                    {t.resultaatKop.replace(
+                      "%s",
+                      Array.from(new Set(treffers.flatMap((tr) => tr.woorden))).join(", "),
+                    )}
+                  </p>
+                  {/* Dezelfde bollen als in de catalogus verderop, een maat kleiner. */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+                    {treffers.map((tr) => (
+                      <FormatBol
+                        key={tr.item.slug}
+                        href={tr.item.href}
+                        titel={tr.item.titel}
+                        maat="klein"
+                        {...bollen[tr.item.slug]}
+                        onClick={() => {
+                          bewaar(tr.item.slug);
+                          meet("events_goal_select", {
+                            doel: anders ? ANDERS : "",
+                            format: tr.item.slug,
+                            route: "zoek",
+                            tekst_gevuld: true,
+                            woorden: tr.woorden.join(" "),
+                          });
+                        }}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+              {treffers.length === 0 && tekst.trim().length >= 4 && (
+                <p className="text-sm text-[#434343] leading-relaxed">
+                  {t.geenResultaat}
+                </p>
+              )}
+            </div>
           </div>
 
-          {/* ── De drie routes ── */}
+          {/* ── De twee andere wegen ── */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              disabled={!bestemming}
-              /* Met een bestemming vertelt de knop waar hij heen gaat; zonder
-                 bestemming blijft de naam "Ga" en komt de uitleg erbij als
-                 beschrijving. Zet je de uitleg als naam, dan heet de knop voor
-                 een schermlezer niet meer "Ga". */
-              aria-label={
-                bestemming ? `${t.ga}: ${bestemming.titel}` : undefined
-              }
-              aria-describedby={bestemming ? undefined : "mm-ga-hint"}
-              onClick={() => {
-                if (!bestemming) return;
-                bewaar(bestemming.slug);
-                meet("events_goal_select", {
-                  doel: doel ?? "",
-                  format: bestemming.slug,
-                  route: "ga",
-                  tekst_gevuld: gevuld,
-                });
-                router.push(bestemming.href);
-              }}
-              className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-8 py-3 rounded hover:bg-[#D4A835] transition-colors disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:bg-[#EEBE3D]"
-            >
-              {t.ga}
-            </button>
-            {!bestemming && (
-              <span id="mm-ga-hint" className="sr-only">
-                {t.gaHint}
-              </span>
-            )}
             <a
               href="#formats"
               onClick={() => meet("events_view_all")}
@@ -448,13 +431,13 @@ export default function EventKiezer({ doelen, t, adviesHref }: Props) {
             <Link
               href={adviesHref}
               onClick={() => {
-                bewaar(format?.slug);
+                bewaar();
                 meet("events_contact", {
                   tekst_gevuld: gevuld,
-                  doel: doel ?? "",
+                  doel: anders ? ANDERS : "",
                 });
               }}
-              className="border border-[#B4B3A8] text-[#2D2D2D] text-sm font-bold px-6 py-3 rounded hover:bg-[#FFFBEE] hover:border-[#EEBE3D] transition-colors"
+              className="bg-[#EEBE3D] text-[#2D2D2D] text-sm font-bold px-8 py-3 rounded hover:bg-[#D4A835] transition-colors"
             >
               {t.advies}
             </Link>
