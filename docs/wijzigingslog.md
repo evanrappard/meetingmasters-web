@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-17
+> Laatst bijgewerkt: 2026-09-19
 
 ---
 
@@ -4675,4 +4675,38 @@ vandaan opnieuw gebouwd.
 
 Nagelopen headless: 1440 en 390 breed, NL en EN, geen consolefouten, geen
 zijwaarts schuiven. Gecommit en gepusht op 17 september 2026 (live).
+
+---
+
+## 19 september 2026 — Vercel: opslag voor deployments opnieuw op 100%
+
+Vercel meldde weer 100% van de 10 GB Deployment Storage. Emilie's screenshot
+van *Usage → Deployment Storage* (20 aug – 19 sep): de lijn loopt van 2,5 GB
+naar 13,8 GB en is **niet gedaald** toen op 6 september 106 deployments werden
+verwijderd. Wat er die dag wel stond: 13 productie-deployments van elk ~85 MB
+unieke inhoud (lokaal nagebouwd met `vercel build`: 75 MB statisch, waarvan
+66 MB `public/`, plus een functiebundel van 9,5 MB die 1.689 keer als symlink
+voorkomt). Dat is 1,1 GB, geen 13,8. De teller meet dus iets anders dan "wat
+er nu staat": waarschijnlijk opgeteld over de periode, en dan zakt hij pas
+als de zware dagen van eind augustus uit het venster lopen.
+
+- **C** — 10 van de 13 deployments verwijderd via de API; de drie van
+  17 september staan er nog, waaronder de live versie (gecontroleerd: de site
+  geeft 200). Terugzetten naar iets ouders kan alleen nog door opnieuw te
+  bouwen uit git.
+- **B** — 16 beelden uit `public/` verwijderd die nergens meer in code werden
+  gebruikt (4,4 MB): `ravenhack-hero-v2/v4/v5/v6/v7`, `ravenhack-onderzoek`,
+  `hero-lobby`, `inspiratie-olyhouse-2026`, `events-hero-poster-mobiel`,
+  `about-hero-desktop/-mobiel`, `downloads-hero-desktop/-mobiel`,
+  `blog/blog-hero-desktop/-mobiel`, `icons/innovatietrajecten.png`. Staan in
+  git. `public/` is nu 61 MB. De losse tools en pdf's zijn met rust gelaten:
+  die laden bestanden op naam, dus "nergens genoemd" zegt daar niets.
+
+**De opruimregel (7 dagen, minimaal 10) is niet aangescherpt.** Uit de grafiek
+blijkt dat verwijderen de teller niet direct laat zakken, dus een strengere
+regel helpt nu niet; opnieuw beoordelen als de grafiek over een week nog niet
+daalt. De andere gratis grenzen zijn nagelopen: alle pagina's zijn statisch
+voorgebouwd (alleen de R@venHack-API's en de inspiratiekaarten-embed draaien
+code), dataverkeer en edge requests zijn bij dit bezoek geen risico, een build
+duurt 2 minuten. Beeldomzettingen: zie 17 september.
 
