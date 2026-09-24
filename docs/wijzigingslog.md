@@ -4825,8 +4825,11 @@ dat mag niet. Het is daarom opgebouwd als `Analytics.tsx`.
   altijd, dus ook vóórdat iemand iets heeft kunnen kiezen. Zonder JavaScript
   werkt onze banner sowieso niet; dan meten we liever niets.
 - **T** — De cookiebanner vroeg toestemming voor "statistieken"; dat dekt een
-  advertentietag niet. Nu: "statistieken en marketing … en zien we welke
-  advertenties je hier brachten" (beide talen).
+  advertentietag niet. Nu: "Geef je ook toestemming voor statistieken en
+  marketing, dan leren we wat werkt en maken we de site beter" (beide talen).
+  Eerst stond er "…en zien we welke advertenties je hier brachten"; Emilie vond
+  dat te hard voor een popup. Het woord *marketing* blijft staan — dat is waar
+  iemand toestemming voor geeft, dus dat mag niet verdwijnen.
 - **T** — Cookieverklaring, beide talen: nieuw blok "Marketingcookies: de
   LinkedIn Insight Tag". De zin **"Marketing- of advertentiecookies gebruiken we
   niet"** is eruit — die werd onwaar. Het blok "Social media" zei dat er geen
