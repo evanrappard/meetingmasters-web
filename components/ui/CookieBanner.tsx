@@ -24,7 +24,7 @@ const T = {
   nl: {
     titel: "MeetingMasters maakt gebruik van cookies",
     tekst:
-      "Een deel van de cookies is nodig om de site en onze formulieren te laten werken. Geef je ook toestemming voor statistieken, dan maken we de site daar beter mee. Meer in onze ",
+      "Een deel van de cookies is nodig om de site en onze formulieren te laten werken. Geef je ook toestemming voor statistieken en marketing, dan maken we de site daar beter mee en zien we welke advertenties je hier brachten. Meer in onze ",
     link: "cookieverklaring",
     href: "/nl/cookieverklaring",
     noodzakelijk: "Alleen noodzakelijk",
@@ -33,7 +33,7 @@ const T = {
   en: {
     titel: "MeetingMasters uses cookies",
     tekst:
-      "Some cookies are needed to make the site and our forms work. Give us permission for statistics as well and we can make the site better with it. More in our ",
+      "Some cookies are needed to make the site and our forms work. Give us permission for statistics and marketing as well, and we can make the site better with it and see which adverts brought you here. More in our ",
     link: "cookie statement",
     href: "/en/cookie-statement",
     noodzakelijk: "Essential only",

@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/ui/CookieBanner";
 import Analytics from "@/components/ui/Analytics";
+import LinkedInInsight from "@/components/ui/LinkedInInsight";
 import Bezoekerherkenning from "@/components/ui/Bezoekerherkenning";
 import HubSpotTracking from "@/components/ui/HubSpotTracking";
 
@@ -15,6 +16,7 @@ export default function NlLayout({ children }: { children: React.ReactNode }) {
           iframe bij klanten en horen geen banner te tonen. */}
       <CookieBanner />
       <Analytics />
+      <LinkedInInsight />
       <Bezoekerherkenning />
       <HubSpotTracking />
     </>

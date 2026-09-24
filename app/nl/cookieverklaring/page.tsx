@@ -112,12 +112,32 @@ export default function CookieverklaringPage() {
           we de cookies die Google had gezet.
         </p>
         <p>
-          <strong className="text-dark-grey">Marketing- of advertentiecookies gebruiken
-          we niet.</strong> We volgen je dus niet over andere websites heen.
-        </p>
-        <p>
           Kies je &ldquo;Alleen noodzakelijk&rdquo;, of maak je geen keuze, dan gebeurt
           dat niet en plaatsen we deze cookies ook niet.
+        </p>
+      </Blok>
+
+      <Blok kop="Marketingcookies: de LinkedIn Insight Tag">
+        <p>
+          Wij adverteren op LinkedIn. Om te zien of dat iets oplevert, staat op onze site
+          de <strong className="text-dark-grey">LinkedIn Insight Tag</strong>. Die laat ons
+          zien hoeveel mensen na een advertentie op onze site iets doen &mdash; een
+          formulier invullen bijvoorbeeld. We krijgen daarvan groepscijfers, geen lijst met
+          namen.
+        </p>
+        <p>
+          Ook dit script laadt <strong className="text-dark-grey">alleen na &ldquo;Alles
+          accepteren&rdquo;</strong>. Kies je dat niet, dan gaat er geen enkel verzoek naar
+          LinkedIn en weet LinkedIn dus ook niet dat je hier was. Het pixelbeeldje dat
+          LinkedIn standaard meelevert voor bezoekers zonder JavaScript hebben we bewust
+          weggelaten: dat zou laden vóórdat je iets hebt kunnen kiezen.
+        </p>
+        <p>
+          Ben je op dat moment ingelogd bij LinkedIn, dan kan LinkedIn je herkennen. De
+          cookies die daarbij horen staan op de domeinen van LinkedIn zelf, niet op het
+          onze. Trek je je toestemming in, dan stopt het meten en verwijderen wij wat er op
+          ons eigen domein staat; wat LinkedIn op zijn eigen domein zet, beheer je via je
+          browser of via je LinkedIn-account.
         </p>
       </Blok>
 
@@ -174,6 +194,13 @@ export default function CookieverklaringPage() {
               doel: "herkent welk bedrijf een bezoeker is; leest daarvoor de bovenstaande cookies uit, kenmerken van je browser en wat je in onze formulieren invult",
               termijn: "1 jaar",
             },
+            {
+              naam: "bcookie, li_gc, lidc, __cf_bm",
+              plaatser: "LinkedIn (Insight Tag)",
+              doel:
+                "meten of onze advertenties op LinkedIn bezoek opleveren. Deze cookies staan op linkedin.com, niet op ons eigen domein. Ben je ingelogd bij LinkedIn, dan komen daar er nog een paar van hen bij",
+              termijn: "30 minuten tot 1 jaar",
+            },
           ]}
         />
         <p>
@@ -196,8 +223,10 @@ export default function CookieverklaringPage() {
       <Blok kop="Social media">
         <p>
           Op onze site staan geen like- of deelknoppen die code van sociale netwerken
-          binnenhalen. Je vindt alleen een gewone link naar onze LinkedIn-pagina. Klik je
-          daarop, dan ben je op LinkedIn en geldt hun beleid.
+          binnenhalen. Je vindt een gewone link naar onze LinkedIn-pagina; klik je daarop,
+          dan ben je op LinkedIn en geldt hun beleid. De enige code van een sociaal netwerk
+          op onze site is de LinkedIn Insight Tag hierboven, en die laadt alleen als je
+          &ldquo;Alles accepteren&rdquo; hebt gekozen.
         </p>
       </Blok>
 

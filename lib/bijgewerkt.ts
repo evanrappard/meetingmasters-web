@@ -23,6 +23,6 @@ export const SITE_BIJGEWERKT: Record<Taalcode, string> = {
 
 /** Bijwerken zodra de tekst van het privacy statement of de cookieverklaring wijzigt. */
 export const JURIDISCH_BIJGEWERKT: Record<Taalcode, string> = {
-  nl: "22 augustus 2026",
-  en: "22 August 2026",
+  nl: "24 september 2026",
+  en: "24 September 2026",
 };

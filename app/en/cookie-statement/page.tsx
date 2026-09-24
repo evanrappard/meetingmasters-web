@@ -125,12 +125,31 @@ export default function CookieStatementPage() {
           the cookies Google had set.
         </p>
         <p>
-          <strong className="text-dark-grey">We do not use marketing or advertising
-          cookies.</strong> So we do not follow you around other websites.
-        </p>
-        <p>
           If you choose &ldquo;Essential only&rdquo;, or make no choice at all, none of
           that happens and we do not place these cookies either.
+        </p>
+      </Blok>
+
+      <Blok kop="Marketing cookies: the LinkedIn Insight Tag">
+        <p>
+          We advertise on LinkedIn. To see whether that is worth anything, our site carries
+          the <strong className="text-dark-grey">LinkedIn Insight Tag</strong>. It shows us
+          how many people do something on our site after seeing an advert &mdash; fill in a
+          form, for instance. What we get back are group figures, not a list of names.
+        </p>
+        <p>
+          This script too is loaded <strong className="text-dark-grey">only after
+          &ldquo;Accept all&rdquo;</strong>. If you do not choose that, no request goes to
+          LinkedIn at all, so LinkedIn does not know you were here. We deliberately left out
+          the pixel image LinkedIn supplies for visitors without JavaScript: it would load
+          before you had the chance to choose anything.
+        </p>
+        <p>
+          If you are signed in to LinkedIn at that moment, LinkedIn can recognise you. The
+          cookies involved sit on LinkedIn&rsquo;s own domains, not on ours. If you withdraw
+          your consent, measuring stops and we delete what sits on our own domain; what
+          LinkedIn sets on its own domain you manage through your browser or your LinkedIn
+          account.
         </p>
       </Blok>
 
@@ -187,6 +206,13 @@ export default function CookieStatementPage() {
               doel: "identifies which company a visitor belongs to; to do so it reads the cookies above, characteristics of your browser and what you enter in our forms",
               termijn: "1 year",
             },
+            {
+              naam: "bcookie, li_gc, lidc, __cf_bm",
+              plaatser: "LinkedIn (Insight Tag)",
+              doel:
+                "measure whether our adverts on LinkedIn bring visitors here. These cookies sit on linkedin.com, not on our own domain. If you are signed in to LinkedIn, a few more of theirs are added",
+              termijn: "30 minutes to 1 year",
+            },
           ]}
         />
         <p>
@@ -208,9 +234,11 @@ export default function CookieStatementPage() {
 
       <Blok kop="Social media">
         <p>
-          Our site carries no like or share buttons that pull in code from social
-          networks. You will only find an ordinary link to our LinkedIn page. Click it and
-          you are on LinkedIn, where their policy applies.
+          Our site carries no like or share buttons that pull in code from social networks.
+          You will find an ordinary link to our LinkedIn page; click it and you are on
+          LinkedIn, where their policy applies. The only code from a social network on our
+          site is the LinkedIn Insight Tag above, and that loads only if you have chosen
+          &ldquo;Accept all&rdquo;.
         </p>
       </Blok>
 

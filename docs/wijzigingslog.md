@@ -4809,3 +4809,42 @@ op 24 september 2026 (live).
 Gevraagd of er "Provincie Flevoland" moest staan in plaats van "Flevoland" (het
 logo is dat van de provincie). Emilie: goed zo.
 
+---
+
+## 24 september 2026 — LinkedIn Insight Tag, achter de toestemming
+
+Emilie leverde het knipsel van LinkedIn aan (partner-id 9780754) met de
+instructie "plak dit in de global footer". Zo ingebouwd zou het script bij
+iedere bezoeker laden, ook zonder toestemming — en dat is een marketingtag, dus
+dat mag niet. Het is daarom opgebouwd als `Analytics.tsx`.
+
+- **C** — Nieuw `components/ui/LinkedInInsight.tsx`, in beide layouts naast
+  `<Analytics />`. Laadt alleen bij `leesKeuze() === "alles"`. Partner-id komt
+  uit `NEXT_PUBLIC_LINKEDIN_PARTNER_ID`, zodat lokaal en op previews niets meet.
+- **C** — De `<noscript>`-pixel uit het knipsel is bewust weggelaten: die laadt
+  altijd, dus ook vóórdat iemand iets heeft kunnen kiezen. Zonder JavaScript
+  werkt onze banner sowieso niet; dan meten we liever niets.
+- **T** — De cookiebanner vroeg toestemming voor "statistieken"; dat dekt een
+  advertentietag niet. Nu: "statistieken en marketing … en zien we welke
+  advertenties je hier brachten" (beide talen).
+- **T** — Cookieverklaring, beide talen: nieuw blok "Marketingcookies: de
+  LinkedIn Insight Tag". De zin **"Marketing- of advertentiecookies gebruiken we
+  niet"** is eruit — die werd onwaar. Het blok "Social media" zei dat er geen
+  code van sociale netwerken op de site staat; ook aangepast.
+- **T** — `JURIDISCH_BIJGEWERKT` op 24 september 2026.
+
+**Gemeten** (drie scenario's, lokaal): zonder keuze en bij "alleen
+noodzakelijk" gaat er géén enkel verzoek naar LinkedIn. Na "alles accepteren"
+laadt `insight.min.js` en staan er vier cookies, alle vier op `.linkedin.com`:
+`bcookie`, `li_gc`, `lidc` en `__cf_bm`. Op ons eigen domein zet de tag niets.
+Die vier staan nu in de tabel; de eerdere aanname (UserMatchHistory, li_sugr)
+is vervangen door wat er werkelijk stond.
+
+`NEXT_PUBLIC_LINKEDIN_PARTNER_ID=9780754` staat in Vercel, alleen op Production
+— zo meet een preview-deploy niet mee in de campagnecijfers. Gecommit en
+gepusht op 24 september 2026 (live).
+
+Nog te doen door Emilie: in LinkedIn Campaign Manager onder Tools de status
+controleren. Kies op de site eerst zelf "Alles accepteren", anders laadt de tag
+niet en ziet LinkedIn niets.
+
