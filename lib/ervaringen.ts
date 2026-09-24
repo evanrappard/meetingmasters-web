@@ -1,15 +1,24 @@
 /**
- * De klantervaringen op /nl/testimonials en /en/testimonials: twaalf
+ * De klantervaringen op /nl/testimonials en /en/testimonials: zestien
  * opdrachtgevers, elk met logo en de volledige tekst.
  *
- * Overgenomen van de oude Squarespace-pagina (17 september 2026). De site
- * had daarvóór ingekorte versies zonder logo; Emilie wilde de oude pagina
- * terug: logo in een witte cirkel, de naam, en de hele tekst in een kaart.
- * De Engelse teksten stonden ook op de oude site; alleen de World Olympians
- * Association gaf haar tekst oorspronkelijk in het Engels.
+ * De eerste twaalf komen van de oude Squarespace-pagina (17 september 2026).
+ * De site had daarvóór ingekorte versies zonder logo; Emilie wilde de oude
+ * pagina terug: logo in een witte cirkel, de naam, en de hele tekst in een
+ * kaart. De Engelse teksten stonden ook op de oude site; alleen de World
+ * Olympians Association gaf haar tekst oorspronkelijk in het Engels.
  *
- * Twee tikfouten uit de oude Omron-tekst ("kwamwn", "boeieid") zijn
- * verbeterd; verder staan de teksten er zoals ze waren.
+ * Op 24 september 2026 kwamen RepairCare, Stem op een Vrouw, Parkos en
+ * Flevoland erbij, aangeleverd door Emilie. Parkos gaf zijn tekst in het
+ * Engels; die staat hier in zijn eigen woorden en is naar het Nederlands
+ * vertaald. Bij de andere drie is het andersom.
+ *
+ * De volgorde is de volgorde op de pagina: nieuwe namen komen eronder.
+ *
+ * Kleine correcties in aangeleverde teksten (tikfouten, een ontbrekend woord)
+ * mogen; de inhoud blijft van de klant. Zo zijn "kwamwn" en "boeieid" uit de
+ * oude Omron-tekst verbeterd, en is "de facilitair" bij RepairCare
+ * "de facilitator" geworden.
  *
  * De vier korte quotes in de carrousel op de homepage staan apart, in
  * `lib/getuigenissen.ts`; die zijn met opzet ingekort.
@@ -125,5 +134,37 @@ export const ERVARINGEN: Ervaring[] = [
     quoteEn:
       "MeetingMasters has been tremendously helpful in designing fun, inventive and interactive online training sessions. But creating a strong run-of-show is only part of their added value. In online meetings, success depends on not being ‘held up’ by technical issues. MeetingMasters takes care of that and also handles all the additional tasks, so that as a trainer you can focus fully on the content. If you want your online session to be a real success, it’s well worth having a conversation with MeetingMasters.",
     logo: `${LOGO}/digital-fitness.webp`,
+  },
+  {
+    bedrijf: "RepairCare",
+    quote:
+      "De meeting was heel gevarieerd en interessant. Jullie wilden een ontspannen sfeer neerzetten, en dat is echt gelukt. De facilitator deed het fantastisch: vriendelijk, en ook in het Duits deed ze het uitstekend.",
+    quoteEn:
+      "The meeting was varied and interesting. You set out to create a relaxed atmosphere, and you really pulled that off. The facilitator was fantastic: friendly, and excellent in German as well.",
+    logo: `${LOGO}/repaircare.webp`,
+  },
+  {
+    bedrijf: "Stem op een Vrouw",
+    quote:
+      "We hebben met veel plezier gewerkt met MeetingMasters voor een interactief online evenement, waar zowel sprekers, spelvormen en een onderling gesprek met deelnemers plaatsvond. Dat wordt al snel ingewikkeld online, maar het platform dat zij hebben maakt het visueel leuk en inzichtelijk. Ook hun enthousiasme over de inhoud was fijn! We raden samenwerking van harte aan.",
+    quoteEn:
+      "We really enjoyed working with MeetingMasters on an interactive online event with speakers, games and a conversation among the participants. That quickly gets complicated online, but the platform they use makes it visually enjoyable and easy to follow. Their enthusiasm about the subject was a pleasure too. We warmly recommend working with them.",
+    logo: `${LOGO}/stem-op-een-vrouw.webp`,
+  },
+  {
+    bedrijf: "Parkos",
+    quote:
+      "Ik heb hier als teamactiviteit erg van genoten; het was echt boeiend. Ik heb eerder online escape rooms gedaan, maar in deze vond ik het vooral mooi hoe gesprekken vanzelf ontstaan als je je icoon dichter naar mensen toe beweegt. Daardoor voelt alles echter en meer als samen bezig zijn. Ook de muziekkamer was een mooie toevoeging: die gaf het geheel een vrolijke sfeer.",
+    quoteEn:
+      "I really enjoyed the experience as a team activity, and it felt very engaging. I have played other online escape rooms before, but in this one I especially liked how conversations happen naturally when you move your icon closer to people — it makes everything feel more real and interactive. The music enigma room was a great addition too: it added a fun vibe to the whole experience.",
+    logo: `${LOGO}/parkos.webp`,
+  },
+  {
+    bedrijf: "Flevoland",
+    quote:
+      "Meeting Masters heeft de regio Flevoland ondersteund in het opzetten en uitvoeren van online informatiebijeenkomsten over de wet van school naar duurzaam werk. Het thema was inspireren en dat is gelukt! De online omgeving waar wij gebruik van maakten was inspirerend en nodigde de deelnemers uit om in diverse themakamers met elkaar in gesprek te gaan. Emilie en haar team hebben ons hier geweldig in geadviseerd en geholpen!",
+    quoteEn:
+      "Meeting Masters supported the Flevoland region in setting up and running online information sessions about the act on moving from school to lasting work. The theme was to inspire, and that is exactly what happened. The online environment we used was inspiring and invited participants to talk to one another in a range of themed rooms. Emilie and her team advised and helped us brilliantly along the way.",
+    logo: `${LOGO}/flevoland.webp`,
   },
 ];

@@ -4785,3 +4785,27 @@ Nagelopen: beide talen geven 200, de regels verschijnen onder de stappen, geen
 consolefouten, geen zijwaarts schuiven op 390px. `npm run hulpcheck` is schoon.
 Gecommit en gepusht op 24 september 2026 (live).
 
+---
+
+## 24 september 2026 — vier nieuwe ervaringen op de testimonials-pagina
+
+Emilie leverde vier quotes met logo aan. Ze staan als nieuwe, vierde rij onder
+de bestaande twaalf, in dezelfde stijl.
+
+- **T** — RepairCare, Stem op een Vrouw, Parkos en Flevoland in
+  `lib/ervaringen.ts`, elk in beide talen. Parkos gaf zijn tekst in het Engels:
+  die staat in het Engels zoals hij was en is naar het Nederlands vertaald; bij
+  de andere drie is het andersom. Eén woord aangepast: "de facilitair" is bij
+  RepairCare "de facilitator" geworden.
+- **B** — Vier logo's naar `/images/logos/ervaringen/`, 480×480 WebP. RepairCare
+  kwam uit een PDF in OneDrive (omgezet met `qlmanage -t`). Stem op een Vrouw
+  stond op een grijs vlak: rond uitgesneden, zodat in de witte cirkel alleen de
+  sticker overblijft. Parkos is een wit logo op blauw en houdt dus zijn blauwe
+  vlak, met lucht eromheen — net als Omron in de bestaande set.
+
+Nagelopen: 16 kaarten in beide talen, geen consolefouten. Gecommit en gepusht
+op 24 september 2026 (live).
+
+Gevraagd of er "Provincie Flevoland" moest staan in plaats van "Flevoland" (het
+logo is dat van de provincie). Emilie: goed zo.
+

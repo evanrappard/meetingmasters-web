@@ -225,7 +225,8 @@ in `lib/ervaringen.ts`.
 | Plek | Bestand | Bron |
 |---|---|---|
 | Hero | `/images/ervaringen-hero-v3.webp` (1920×1080, 119 kB) | LOKAAL — `~/Downloads/Vrouw laptop betrokken licht .png` (3200×1800): vrouw lachend achter haar laptop. Uitsnede laag (80%) zodat gezicht én laptop in beeld blijven; opzet als de andere hero's maar lager (34vw) |
-| 12 logo's in witte cirkels | `/images/logos/ervaringen/{roc-top,bergman-clinics,zonmw,roosendaal,pharmaccess,oranje-fonds,woa,bouw-infra,omron,rode-kruis,cultuurfonds,digital-fitness}.webp` (480×480, 4–15 kB) | LOKAAL — van de oude Squarespace-pagina, bijgesneden en in een vierkant gezet |
+| 16 logo's in witte cirkels | `/images/logos/ervaringen/{roc-top,bergman-clinics,zonmw,roosendaal,pharmaccess,oranje-fonds,woa,bouw-infra,omron,rode-kruis,cultuurfonds,digital-fitness}.webp` (480×480, 4–15 kB) | LOKAAL — van de oude Squarespace-pagina, bijgesneden en in een vierkant gezet |
+| Erbij op 24 sep 2026 | `/images/logos/ervaringen/{repaircare,stem-op-een-vrouw,parkos,flevoland}.webp` (480×480, 5–17 kB) | LOKAAL — aangeleverd door Emilie. RepairCare uit de PDF in OneDrive (`Customer Portfolio's/EazyFix/Huisstijl/LOGO REPAIR CARE FC.pdf`, omgezet met `qlmanage -t`), de andere drie van het bureaublad. Stem op een Vrouw stond op een grijs vlak: rond uitgesneden zodat alleen de sticker overblijft. Parkos is wit-op-blauw en houdt dus zijn blauwe vlak, met lucht eromheen |
 
 De vier logo's van de homepage-carrousel (`/images/logos/{roosendaal,bergman-clinics,pharmaccess,pbcf}.webp`) blijven apart.
 
