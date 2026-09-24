@@ -5,7 +5,7 @@ Centraal overzicht van álle ontwikkelingen aan de site: **tekst**, **beeld** en
 veranderd, wanneer, door wie, en of het al live staat.*
 
 > Bijgehouden door: Claude Code (de bouwer).
-> Laatst bijgewerkt: 2026-09-19
+> Laatst bijgewerkt: 2026-09-24
 
 ---
 
@@ -4709,4 +4709,79 @@ daalt. De andere gratis grenzen zijn nagelopen: alle pagina's zijn statisch
 voorgebouwd (alleen de R@venHack-API's en de inspiratiekaarten-embed draaien
 code), dataverkeer en edge requests zijn bij dit bezoek geen risico, een build
 duurt 2 minuten. Beeldomzettingen: zie 17 september.
+
+---
+
+## 24 september 2026 — hulpvragen: wat er op een telefoon anders gaat
+
+Emilie: de tech-hulpvragen lopen goed, maar de antwoorden gaan allemaal uit van
+een laptop of computer. Wie op zijn telefoon meedoet leest instructies die daar
+niet bestaan — een adresbalk met een slotje, een pijltje naast het
+microfoon-icoon, "deelnemen via de browser". En: check ook waar Windows en Mac
+echt uit elkaar lopen, ook in de bestaande antwoorden.
+
+- **C** — Nieuw bestand `app/nl/technologie/hulp/notities.ts`: per vraag een
+  optionele regel `mobiel` en `os`, met NL en EN naast elkaar. `vragen.ts` en
+  `vragen-en.ts` halen ze op via het id van de vraag, dus die twee bestanden
+  blijven de plek voor de stappen zelf en de talen lopen gelijk op.
+- **T** — **53 van de 77 vragen** hebben nu een 📱-regel onder de stappen.
+  Alleen waar het echt afwijkt. De grootste: Zoom en Teams hebben op een
+  telefoon hun app nodig (browser bestaat daar niet), toestemming staat per app
+  in de telefooninstellingen in plaats van in de adresbalk, schermdelen kan
+  vanuit een mobiele browser helemaal niet, en een link uit Outlook, Gmail of
+  LinkedIn opent in een ingebouwd browservenster waar camera en microfoon vaak
+  niet werken.
+- **T** — Windows tegenover Mac staat **tussen de stappen**, niet in een blokje
+  ernaast, met de naam vooraan in de zin: "Mac: Systeeminstellingen → …".
+  Waar het verschil groot is, zijn het twee losse stappen (één Windows, één
+  Mac). Wat eerder ontbrak: de schermopname-toestemming die macOS eist stond
+  alleen bij Zoom en bij het algemene antwoord, niet bij Teams en SpatialChat.
+  Verder: op een Mac moet je de browser of app ná het geven van toestemming
+  helemaal afsluiten en opnieuw openen (op Windows niet), Windows heeft twee
+  schakelaars voor camera en microfoon die allebei aan moeten, en op macOS 12
+  en ouder heten de Systeeminstellingen nog Systeemvoorkeuren.
+- **C** — `components/ui/TechHulp.tsx` toont het mobiele blokje onder de
+  stappen: een 📱, dan **Mobiel:** met een korte regel, en waar iPhone en
+  Android van elkaar verschillen twee losse regels eronder met **iPhone:** en
+  **Android:** ervoor. De namen Windows, Mac, macOS, iPhone, iPad, Android en
+  Chromebook worden overal in de tekst iets zwaarder gezet, zodat je in een rij
+  stappen meteen ziet welke regel over jouw apparaat gaat. Het zoekveld
+  doorzoekt de nieuwe regels mee, dus "iPhone" of "Android" vindt nu de juiste
+  vragen.
+
+### Tweede en derde ronde, dezelfde dag
+
+Emilie vond de eerste versie te wijdlopig: lange zinnen achter het
+mobieltje-icoon, en een tweede grijs blok voor Windows en Mac. Aangepast:
+de mobiele regels zijn ingekort, de iPhone/Android-verschillen staan als losse
+regels in datzelfde blokje, en het Windows/Mac-blok is opgegaan in de stappen
+zelf.
+
+Daarna nog: het woord "Mobiel:" en de 📱-emoji zijn weg. Er staat nu een
+telefoontje in een gevuld rondje, in dezelfde vorm als de nummers van de
+stappen — een emoji rendert op elk apparaat anders en was slecht te herkennen.
+Het blokje heeft een lichte teal ondergrond met een accentrand links.
+
+- **C — leesbaarheid nagemeten.** De regels in het blokje waren 13px in
+  lichtgrijs; dat is nu 14px in #333333, gelijk aan de stappen (contrast 11,7
+  tegen 1). Daarna de hele hulppagina doorgemeten op contrast: **twaalf plekken
+  haalden de norm niet**, vooral de merk-teal #28A8AA als tekstkleur (2,9 tegen
+  1 op wit, terwijl 4,5 de eis is). Voor tekst en voor de nummerbolletjes staat
+  daar nu een donkere variant, **#197678** (5,4 tegen 1). Op de donkere hero
+  juist andersom: daar staat een lichte variant #5FD0D2, want de donkere valt
+  daar weg. Grijstinten #7A8483 en #6E7877 zijn #5F6968 geworden. Na de
+  aanpassing haalt alles op deze twee pagina's de norm.
+
+**Let op:** die lichte merk-teal wordt sitebreed als linkkleur gebruikt, dus
+hetzelfde contrastprobleem staat op meer pagina's. Hier alleen de hulppagina's
+aangepast; de rest is een aparte ronde.
+- **C** — `npm run hulpcheck` (`scripts/hulpcheck.mjs`) controleert of elke
+  notitie bij een bestaande vraag hoort, of NL en EN dezelfde regels hebben,
+  en of Windows en Mac in een stap vooraan in de zin staan. Dat eerste is
+  nodig omdat de sleutel het volgnummer van een vraag bevat: verschuif je een
+  vraag, dan hangt de notitie zonder waarschuwing onder een andere.
+
+Nagelopen: beide talen geven 200, de regels verschijnen onder de stappen, geen
+consolefouten, geen zijwaarts schuiven op 390px. `npm run hulpcheck` is schoon.
+Gecommit en gepusht op 24 september 2026 (live).
 

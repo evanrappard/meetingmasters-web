@@ -1,4 +1,5 @@
 import type { Vraag, Categorie } from "./vragen";
+import { NOTITIES } from "./notities";
 
 /**
  * De Engelse versie van de hulpvragen.
@@ -85,7 +86,8 @@ const DATA_EN: Record<string, ToolBlock> = {
           "Check that your microphone isn't off: there should be no line through the microphone icon.",
           "Choose the right microphone in the meeting; speak and see whether the level bar moves.",
           "Give your browser permission: click the icon just before the web address in the address bar — two sliders in Chrome, a padlock in Firefox, Edge and Safari. Set Microphone to “Allow” and refresh the page.",
-          "Still silent? Then your operating system is blocking it. Mac: System Settings → Privacy & Security → Microphone, and tick your browser. Windows: Settings → Privacy & security → Microphone."
+          "Windows: Settings → Privacy & security → Microphone. Switch your browser on there.",
+          "Mac: System Settings → Privacy & Security → Microphone. Switch your browser on, then quit it completely (Cmd+Q) and open it again — otherwise it stays silent. (On macOS 12 and older this is called System Preferences.)"
         ]
       },
       {
@@ -120,7 +122,8 @@ const DATA_EN: Record<string, ToolBlock> = {
           "Check that your camera isn't off: there should be no line through the camera icon.",
           "Choose the right camera in the meeting; laptops sometimes have more than one.",
           "Give your browser permission: click the icon just before the web address in the address bar — two sliders in Chrome, a padlock in Firefox, Edge and Safari. Set Camera to “Allow” and refresh the page.",
-          "If that doesn't help, your operating system is blocking it. Mac: System Settings → Privacy & Security → Camera, and tick your browser. Windows: Settings → Privacy & security → Camera.",
+          "Windows: Settings → Privacy & security → Camera. Switch your browser on there.",
+          "Mac: System Settings → Privacy & Security → Camera. Switch your browser on, then quit it completely and open it again.",
           "Is another programme already using your camera? Close it completely — including when it's only running in the background — and refresh the page.",
           "Finally, check that there's no shutter or cap over your camera lens."
         ]
@@ -147,7 +150,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "q": "I can't share my screen.",
         "stappen": [
           "Click “Share screen” and choose what you want to show: your whole screen, one window or one tab.",
-          "On a Mac you have to give your browser permission first: System Settings → Privacy & Security → Screen Recording. After that you have to quit the browser and open it again.",
+          "Mac: give your browser permission first via System Settings → Privacy & Security → Screen Recording. Then quit it completely and open it again, otherwise the button stays greyed out. On Windows this isn't needed.",
           "Sharing a video with sound? Tick “Share sound”."
         ]
       },
@@ -262,7 +265,8 @@ const DATA_EN: Record<string, ToolBlock> = {
           "Look at the bar at the bottom: if there's a red line through the microphone icon, click it so that it turns green.",
           "Click the icon just before the web address in the address bar — two sliders in Chrome, a padlock in Firefox, Edge and Safari — and set the microphone to Allow. Also if you accidentally clicked Block earlier — that's by far the most common cause.",
           "Reload the page.",
-          "If it stays silent, access is switched off on your computer. Windows: Settings → Privacy & security → Microphone. Mac: System Settings → Privacy & Security → Microphone. Switch your browser on there and restart it."
+          "Windows: Settings → Privacy & security → Microphone. Switch your browser on there.",
+          "Mac: System Settings → Privacy & Security → Microphone. Switch your browser on and restart it afterwards."
         ]
       },
       {
@@ -289,7 +293,8 @@ const DATA_EN: Record<string, ToolBlock> = {
           "Look at the bottom bar: if there's a red line through the camera icon, click it so that it turns green.",
           "Click the icon just before the web address in the address bar — two sliders in Chrome, a padlock in Firefox, Edge and Safari — and set the camera to Allow.",
           "Reload the page.",
-          "If you still can't see yourself, access is switched off on your computer. Windows: Settings → Privacy & security → Camera. Mac: System Settings → Privacy & Security → Camera. Switch your browser on there and restart it."
+          "Windows: Settings → Privacy & security → Camera. Switch your browser on there.",
+          "Mac: System Settings → Privacy & Security → Camera. Switch your browser on and restart it afterwards."
         ]
       },
       {
@@ -314,6 +319,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Use a laptop or computer; every feature works there.",
           "Choose Chrome, Firefox or Edge. Safari doesn't always work properly.",
+          "Mac: Safari is your default browser there, so deliberately copy the link into Chrome, Firefox or Edge.",
           "On a phone or tablet — an iPad included — not everything works and the screen is small."
         ]
       },
@@ -330,7 +336,8 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Click the screen icon in the bottom bar, next to the microphone and the camera.",
           "Choose whether you share a tab, a window or your whole screen.",
-          "Prefer to share one tab or window; that's calmer for everyone. Going to present? Have your presentation open beforehand."
+          "Prefer to share one tab or window; that's calmer for everyone. Going to present? Have your presentation open beforehand.",
+          "Mac: if the button stays greyed out, give your browser permission via System Settings → Privacy & Security → Screen Recording and restart it."
         ]
       },
       {
@@ -402,7 +409,9 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "If you see a red line through the camera icon, click Start Video.",
           "Click the arrow next to the icon and choose the right camera.",
-          "Give your browser permission for the camera. If the picture stays black, access is switched off on your computer. Windows: Settings → Privacy & security → Camera. Mac: System Settings → Privacy & Security → Camera. Switch your browser on there.",
+          "Give your browser permission for the camera.",
+          "Windows: if the picture stays black, go to Settings → Privacy & security → Camera and switch your browser on.",
+          "Mac: System Settings → Privacy & Security → Camera. Switch your browser on and restart it afterwards.",
           "Close other programmes using the camera; Zoom can't switch it on while another programme is holding it."
         ]
       },
@@ -528,7 +537,8 @@ const DATA_EN: Record<string, ToolBlock> = {
       {
         "q": "I get no picture at all.",
         "stappen": [
-          "Access is probably switched off. Windows: Settings → Privacy → Camera. Mac: System Settings → Privacy & Security → Camera.",
+          "Windows: Settings → Privacy & security → Camera. Switch Zoom on there.",
+          "Mac: System Settings → Privacy & Security → Camera. Switch Zoom on, then quit it completely (right-click the icon in the Dock → Quit) and open it again.",
           "Switch Zoom on there.",
           "If that doesn't help, restart your computer."
         ]
@@ -556,7 +566,7 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Click the green Share Screen button at the bottom.",
           "Choose the window you want to show and click Share. Going to present? Have your presentation open beforehand.",
-          "On a Mac you give Zoom permission once through System Settings → Privacy & Security → Screen Recording.",
+          "Mac: give Zoom permission once via System Settings → Privacy & Security → Screen Recording, and restart it afterwards. On Windows this isn't needed.",
           "If it doesn't work, the host may have restricted sharing; do ask."
         ]
       },
@@ -626,7 +636,8 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Using a separate Bluetooth or USB microphone? Then choose the computer's own microphone for the moment.",
           "In the Teams settings, under Permissions, switch Media on.",
-          "Switch access on in your computer's settings. Windows: Settings → Privacy & security → Microphone. Mac: System Settings → Privacy & Security → Microphone. Switch Teams on there, and allow access for apps as well."
+          "Windows: Settings → Privacy & security → Microphone. Switch two things on here: “Microphone access” and “Let apps access your microphone”.",
+          "Mac: System Settings → Privacy & Security → Microphone. Switch Teams on and restart the app afterwards."
         ]
       },
       {
@@ -651,7 +662,8 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Using a separate webcam? Then choose the computer's own camera for the moment.",
           "In the Teams settings, under Permissions, switch Media on.",
-          "Switch access on in your computer's settings. Windows: Settings → Privacy & security → Camera. Mac: System Settings → Privacy & Security → Camera. Switch Teams on there, and allow access for apps as well."
+          "Windows: Settings → Privacy & security → Camera. Switch two things on here: “Camera access” and “Let apps access your camera”.",
+          "Mac: System Settings → Privacy & Security → Camera. Switch Teams on and restart the app afterwards."
         ]
       },
       {
@@ -693,7 +705,8 @@ const DATA_EN: Record<string, ToolBlock> = {
         "stappen": [
           "Click the screen sharing icon in the meeting bar, the upward arrow.",
           "Choose your whole desktop or a single window.",
-          "Want to send the sound of a video along? Switch Include computer sound on before you choose the screen."
+          "Want to send the sound of a video along? Switch Include computer sound on before you choose the screen.",
+          "Mac: give Teams permission once via System Settings → Privacy & Security → Screen Recording and restart the app afterwards. On Windows this isn't needed."
         ]
       }
     ]
@@ -711,13 +724,17 @@ const TOOL_SLEUTELS = ["Algemeen", "SpatialChat", "Zoom Events", "Zoom", "Micros
 
 export const VRAGEN_EN: Vraag[] = TOOL_SLEUTELS.flatMap((sleutel, t) =>
   CAT_IDS.flatMap((cat) =>
-    (DATA_EN[sleutel]?.[cat] ?? []).map((qa, i) => ({
-      id: `${sleutel}-${cat}-${i}`.replace(/\s+/g, "-").toLowerCase(),
-      categorie: cat,
-      tool: TOOLS_EN[t],
-      vraag: qa.q,
-      antwoord: qa.a ?? (qa.stappen ?? []).join(" "),
-      stappen: qa.stappen,
-    }))
+    (DATA_EN[sleutel]?.[cat] ?? []).map((qa, i) => {
+      const id = `${sleutel}-${cat}-${i}`.replace(/\s+/g, "-").toLowerCase();
+      return {
+        id,
+        categorie: cat,
+        tool: TOOLS_EN[t],
+        vraag: qa.q,
+        antwoord: qa.a ?? (qa.stappen ?? []).join(" "),
+        stappen: qa.stappen,
+        ...NOTITIES[id]?.en,
+      };
+    })
   )
 );

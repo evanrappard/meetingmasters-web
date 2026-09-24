@@ -1,3 +1,5 @@
+import { NOTITIES } from "./notities";
+
 /**
  * De vragen achter /nl/technologie/hulp.
  *
@@ -16,6 +18,14 @@ export type Vraag = {
   vraag: string;
   antwoord: string;
   stappen?: string[];
+  /**
+   * Wat er op een telefoon anders gaat. Staat in `notities.ts`, met het id
+   * hierboven als sleutel — zie de uitleg daar. Windows en Mac staan niet
+   * hier maar gewoon tussen de stappen, met de naam vooraan in de zin.
+   */
+  mobiel?: string;
+  iphone?: string;
+  android?: string;
 };
 
 export type Categorie = { id: string; label: string; icoon: string; intro?: string };
@@ -94,7 +104,8 @@ const DATA: Record<string, ToolBlock> = {
 "Kijk of je microfoon niet uitstaat: er mag geen streepje door het microfoon-icoon staan.",
 "Kies in de meeting de juiste microfoon; praat en kijk of het balkje beweegt.",
 "Geef je browser toestemming: klik links in de adresbalk op het icoon vóór het webadres — in Chrome zijn dat twee schuifjes, in Firefox, Edge en Safari een slotje. Zet microfoon op “toestaan” en ververs de pagina.",
-"Blijft het stil, dan blokkeert je besturingssysteem het. Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon, en vink je browser aan. Windows: Instellingen → Privacy en beveiliging → Microfoon.",
+"Windows: Instellingen → Privacy en beveiliging → Microfoon. Zet je browser daar aan.",
+"Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon. Zet je browser aan, sluit hem daarna helemaal af (Cmd+Q) en open hem opnieuw — anders blijft het stil. (Op macOS 12 en ouder heet dit Systeemvoorkeuren.)",
         ],
       },
       {
@@ -129,7 +140,8 @@ const DATA: Record<string, ToolBlock> = {
 "Kijk of je camera niet uitstaat: er mag geen streepje door het camera-icoon staan.",
 "Kies in de meeting de juiste camera; laptops hebben er soms meer dan één.",
 "Geef je browser toestemming: klik links in de adresbalk op het icoon vóór het webadres — in Chrome zijn dat twee schuifjes, in Firefox, Edge en Safari een slotje. Zet camera op “toestaan” en ververs de pagina.",
-"Helpt dat niet, dan blokkeert je besturingssysteem het. Mac: Systeeminstellingen → Privacy en beveiliging → Camera, en vink je browser aan. Windows: Instellingen → Privacy en beveiliging → Camera.",
+"Windows: Instellingen → Privacy en beveiliging → Camera. Zet je browser daar aan.",
+"Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet je browser aan, sluit hem daarna helemaal af en open hem opnieuw.",
 "Gebruikt een ander programma je camera al? Sluit dat volledig af — ook als het alleen nog op de achtergrond draait — en ververs de pagina.",
 "Controleer tot slot of er geen schuifje of dopje voor je cameralens zit.",
         ],
@@ -156,7 +168,7 @@ const DATA: Record<string, ToolBlock> = {
         q: "Ik kan mijn scherm niet delen.",
         stappen: [
 "Klik op “scherm delen” en kies wat je wilt tonen: je hele scherm, één venster of één tabblad.",
-"Op een Mac moet je je browser eerst toestemming geven: Systeeminstellingen → Privacy en beveiliging → Schermopname. Daarna moet je de browser afsluiten en opnieuw openen.",
+"Mac: geef je browser eerst toestemming via Systeeminstellingen → Privacy en beveiliging → Schermopname. Sluit hem daarna helemaal af en open hem opnieuw, anders blijft de knop grijs. Op Windows hoeft dit niet.",
 "Deel je een video met geluid, vink dan “geluid delen” aan.",
         ],
       },
@@ -271,7 +283,8 @@ const DATA: Record<string, ToolBlock> = {
           "Kijk in de balk onderin: staat er een rode streep door het microfoon-icoon, klik erop zodat het groen wordt.",
           "Klik links in de adresbalk op het icoon vóór het webadres — in Chrome zijn dat twee schuifjes, in Firefox, Edge en Safari een slotje — en zet de microfoon op Toestaan. Ook als je eerder per ongeluk op Blokkeren klikte — dat is verreweg de meest voorkomende oorzaak.",
           "Herlaad de pagina.",
-          "Blijft het stil, dan staat de toegang op je computer uit. Windows: Instellingen → Privacy en beveiliging → Microfoon. Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon. Zet je browser daar aan en start hem opnieuw.",
+          "Windows: Instellingen → Privacy en beveiliging → Microfoon. Zet je browser daar aan.",
+          "Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon. Zet je browser aan en start hem daarna opnieuw.",
         ],
       },
       {
@@ -298,7 +311,8 @@ const DATA: Record<string, ToolBlock> = {
           "Kijk in de onderbalk: staat er een rode streep door het camera-icoon, klik erop zodat het groen wordt.",
           "Klik links in de adresbalk op het icoon vóór het webadres — in Chrome zijn dat twee schuifjes, in Firefox, Edge en Safari een slotje — en zet de camera op Toestaan.",
           "Herlaad de pagina.",
-          "Zie je jezelf nog niet, dan staat de toegang op je computer uit. Windows: Instellingen → Privacy en beveiliging → Camera. Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet je browser daar aan en start hem opnieuw.",
+          "Windows: Instellingen → Privacy en beveiliging → Camera. Zet je browser daar aan.",
+          "Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet je browser aan en start hem daarna opnieuw.",
         ],
       },
       {
@@ -323,6 +337,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Gebruik een laptop of computer; daar werken alle functies.",
           "Kies Chrome, Firefox of Edge. Safari werkt niet altijd goed.",
+          "Mac: Safari is daar je standaardbrowser, dus kopieer de link bewust naar Chrome, Firefox of Edge.",
           "Op een telefoon of tablet — ook een iPad — werkt niet alles en is het scherm klein.",
         ],
       },
@@ -340,6 +355,7 @@ const DATA: Record<string, ToolBlock> = {
           "Klik in de onderbalk op het scherm-icoon, naast de microfoon en de camera.",
           "Kies of je een tabblad, een venster of je hele scherm deelt.",
           "Deel liever één tabblad of venster; dat is rustiger voor iedereen. Ga je presenteren, zet je presentatie dan vooraf al klaar.",
+          "Mac: blijft de knop grijs, geef je browser dan toestemming via Systeeminstellingen → Privacy en beveiliging → Schermopname, en start hem opnieuw.",
         ],
       },
       {
@@ -411,7 +427,9 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Zie je een rode streep door het camera-icoon, klik dan op Start video.",
           "Klik op het pijltje naast het icoon en kies de juiste camera.",
-          "Geef je browser toestemming voor de camera. Blijft het zwart, dan staat de toegang op je computer uit. Windows: Instellingen → Privacy en beveiliging → Camera. Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet je browser daar aan.",
+          "Geef je browser toestemming voor de camera.",
+          "Windows: blijft het zwart, ga dan naar Instellingen → Privacy en beveiliging → Camera en zet je browser aan.",
+          "Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet je browser aan en start hem daarna opnieuw.",
           "Sluit andere programma's die de camera gebruiken; Zoom kan hem niet aanzetten als een ander programma hem vasthoudt.",
         ],
       },
@@ -537,7 +555,8 @@ const DATA: Record<string, ToolBlock> = {
       {
         q: "Ik krijg helemaal geen beeld.",
         stappen: [
-          "Waarschijnlijk staat de toegang uit. Windows: Instellingen → Privacy → Camera. Mac: Systeeminstellingen → Privacy en beveiliging → Camera.",
+          "Windows: Instellingen → Privacy en beveiliging → Camera. Zet Zoom daar aan.",
+          "Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet Zoom aan, sluit het daarna helemaal af (rechtermuisknop op het icoon in de Dock → Stoppen) en open het opnieuw.",
           "Zet Zoom daar aan.",
           "Helpt dat niet, herstart dan je computer.",
         ],
@@ -565,7 +584,7 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Klik onderin op de groene knop Scherm delen.",
           "Kies het venster dat je wilt tonen en klik op Delen. Ga je presenteren, zet je presentatie dan vooraf al klaar.",
-          "Op een Mac geef je Zoom eenmalig toestemming via Systeeminstellingen → Privacy en beveiliging → Schermopname.",
+          "Mac: geef Zoom eenmalig toestemming via Systeeminstellingen → Privacy en beveiliging → Schermopname, en start het daarna opnieuw. Op Windows hoeft dit niet.",
           "Lukt het niet, dan heeft de host het delen misschien beperkt; vraag het even.",
         ],
       },
@@ -635,7 +654,8 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Gebruik je een losse Bluetooth- of USB-microfoon? Kies dan tijdelijk de microfoon van de computer zelf.",
           "Zet in de Teams-instellingen onder Machtigingen de optie Media aan.",
-          "Zet de toegang aan in de instellingen van je computer. Windows: Instellingen → Privacy en beveiliging → Microfoon. Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon. Zet Teams daar aan, en ook de toegang voor apps.",
+          "Windows: Instellingen → Privacy en beveiliging → Microfoon. Zet hier twee dingen aan: “Microfoontoegang” én “Apps toegang geven tot uw microfoon”.",
+          "Mac: Systeeminstellingen → Privacy en beveiliging → Microfoon. Zet Teams aan en start de app daarna opnieuw.",
         ],
       },
       {
@@ -660,7 +680,8 @@ const DATA: Record<string, ToolBlock> = {
         stappen: [
           "Gebruik je een losse webcam? Kies dan tijdelijk de camera van de computer zelf.",
           "Zet in de Teams-instellingen onder Machtigingen de optie Media aan.",
-          "Zet de toegang aan in de instellingen van je computer. Windows: Instellingen → Privacy en beveiliging → Camera. Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet Teams daar aan, en ook de toegang voor apps.",
+          "Windows: Instellingen → Privacy en beveiliging → Camera. Zet hier twee dingen aan: “Cameratoegang” én “Apps toegang geven tot uw camera”.",
+          "Mac: Systeeminstellingen → Privacy en beveiliging → Camera. Zet Teams aan en start de app daarna opnieuw.",
         ],
       },
       {
@@ -703,6 +724,7 @@ const DATA: Record<string, ToolBlock> = {
           "Klik in de meetingbalk op het scherm-delen-icoon, het pijltje omhoog.",
           "Kies je hele bureaublad of één venster.",
           "Wil je het geluid van een filmpje meesturen, zet dan Met computergeluid aan vóórdat je het scherm kiest.",
+          "Mac: geef Teams eenmalig toestemming via Systeeminstellingen → Privacy en beveiliging → Schermopname en start de app daarna opnieuw. Op Windows hoeft dit niet.",
         ],
       },
     ],
@@ -713,16 +735,20 @@ const DATA: Record<string, ToolBlock> = {
 const CAT_IDS: (keyof ToolBlock)[] = ["link", "audio", "video", "overig"];
 export const VRAGEN: Vraag[] = TOOLS.flatMap((tool) =>
   CAT_IDS.flatMap((cat) =>
-    (DATA[tool]?.[cat] ?? []).map((qa, i) => ({
-      id: `${tool}-${cat}-${i}`.replace(/\s+/g, "-").toLowerCase(),
-      categorie: cat,
-      tool,
-      vraag: qa.q,
-      // Zonder dit is antwoord leeg zodra een vraag stappen heeft, en zoekt
-      // de hulppagina alleen nog in de vraagtitel.
-      antwoord: qa.a ?? (qa.stappen ?? []).join(" "),
-      stappen: qa.stappen,
-    }))
+    (DATA[tool]?.[cat] ?? []).map((qa, i) => {
+      const id = `${tool}-${cat}-${i}`.replace(/\s+/g, "-").toLowerCase();
+      return {
+        id,
+        categorie: cat,
+        tool,
+        vraag: qa.q,
+        // Zonder dit is antwoord leeg zodra een vraag stappen heeft, en zoekt
+        // de hulppagina alleen nog in de vraagtitel.
+        antwoord: qa.a ?? (qa.stappen ?? []).join(" "),
+        stappen: qa.stappen,
+        ...NOTITIES[id]?.nl,
+      };
+    })
   )
 );
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Smartphone } from "lucide-react";
 import type { Categorie, Vraag } from "@/app/nl/technologie/hulp/vragen";
 import type { Taal } from "@/lib/talen";
 
@@ -52,6 +53,29 @@ function woorden(s: string) {
 
 type Kleur = { rand: string; vlak: string; randHex: string; vlakHex: string; beeld: string };
 
+/**
+ * Zet de naam van een besturingssysteem of toestel iets aan in de tekst.
+ *
+ * In een lijst met stappen wil je in één oogopslag zien welke regel over jouw
+ * apparaat gaat. De namen staan daarom vooraan in de zin én worden hier net
+ * iets zwaarder gezet — niet vet, dat zou schreeuwen in een rij van vijf
+ * stappen. `macOS` staat vóór `Mac` in de lijst, anders zou "Mac" er eerst
+ * uitgeknipt worden.
+ */
+const PLATFORMS = /\b(Windows|macOS|Mac|iPhone|iPad|Android|Chromebook)\b/g;
+
+function metAccent(tekst: string) {
+  return tekst.split(PLATFORMS).map((deel, i) =>
+    i % 2 === 1 ? (
+      <span key={i} className="font-semibold text-[#2D2D2D]">
+        {deel}
+      </span>
+    ) : (
+      deel
+    ),
+  );
+}
+
 /** De vaste teksten van het hulpblok, per taal. */
 const T = {
   nl: {
@@ -70,6 +94,8 @@ const T = {
     resultatenVoor: "voor",
     zoekPlaceholder: "Of typ hier je probleem, bijvoorbeeld “ik hoor niets”",
     zoekLabel: "Zoek in de hulpvragen",
+    // Het label vóór de mobiele regel; het mobieltje ernaast is versiering.
+    opMobiel: "Mobiel",
   },
   en: {
     kicker: "Support for meetings",
@@ -87,6 +113,7 @@ const T = {
     resultatenVoor: "for",
     zoekPlaceholder: "Or type your problem here, for instance “I cannot hear anything”",
     zoekLabel: "Search the help questions",
+    opMobiel: "On mobile",
   },
 } as const;
 
@@ -156,7 +183,11 @@ export default function TechHulp({
       // Eerst de hele zin proberen; dat is het meest precies. Levert dat niets
       // op, dan per woord — zodat "ik hoor niets" ook "Ik hoor niemand" vindt.
       const scoor = (v: Vraag) => {
-        const tekst = normaliseer([v.vraag, v.antwoord, ...(v.stappen ?? [])].join(" "));
+        // Ook de mobiele regels tellen mee: wie "iPhone" of "Android" typt
+        // hoort de vragen te vinden waar dat in staat.
+        const tekst = normaliseer(
+          [v.vraag, v.antwoord, ...(v.stappen ?? []), v.mobiel ?? "", v.iphone ?? "", v.android ?? ""].join(" "),
+        );
         const titel = normaliseer(v.vraag);
         if (q.length > 2 && tekst.includes(q)) return 100 + (titel.includes(q) ? 10 : 0);
         if (termen.length === 0) return 0;
@@ -199,7 +230,7 @@ export default function TechHulp({
   return (
     <div>
       {/* ── Stap 1: wat gaat er mis? ───────────────────────────────── */}
-      <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">{t.kicker}</p>
+      <p className="text-[#197678] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">{t.kicker}</p>
       <h2 className="text-xl sm:text-2xl font-bold text-[#2D2D2D] mb-4">{t.kop}</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-3">
@@ -257,7 +288,7 @@ export default function TechHulp({
         <div ref={stap2} className="mt-6 rounded-xl border border-[#EBEBEB] overflow-hidden scroll-mt-24">
           <div className="bg-[#F7F7F5] px-5 py-3.5 border-b border-[#EBEBEB]">
             <p className="font-bold text-[#2D2D2D]">{t.waar}</p>
-            <p className="text-[13px] text-[#7A8483]">{t.waarOnder}</p>
+            <p className="text-[13px] text-[#5F6968]">{t.waarOnder}</p>
           </div>
 
           <div className="flex flex-wrap items-stretch gap-2 px-5 py-4">
@@ -298,7 +329,7 @@ export default function TechHulp({
               onClick={() => { setWeetNiet((w) => !w); setTool(algemeen); }}
               aria-expanded={weetNiet}
               className={`text-sm font-semibold px-4 py-3 rounded-lg border-2 border-dashed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2D2D]/25 ${
-                weetNiet ? "border-[#EEBE3D] bg-[#FFFBEE] text-[#2D2D2D]" : "border-[#C4CBCA] bg-white text-[#6E7877] hover:bg-[#FFFBEE]"
+                weetNiet ? "border-[#EEBE3D] bg-[#FFFBEE] text-[#2D2D2D]" : "border-[#C4CBCA] bg-white text-[#5F6968] hover:bg-[#FFFBEE]"
               }`}
             >
               {t.weetNiet}
@@ -312,7 +343,7 @@ export default function TechHulp({
                 <span key={naam}>
                   <button
                     onClick={() => { setTool(naam); setWeetNiet(false); }}
-                    className="text-[#28A8AA] font-semibold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 rounded"
+                    className="text-[#197678] font-semibold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#28A8AA]/40 rounded"
                   >
                     {i.adres}
                   </button>
@@ -335,14 +366,14 @@ export default function TechHulp({
           ) : (
             <h3 className="text-lg font-bold text-[#2D2D2D] mb-4">
               {huidigeCategorie?.label}
-              {tool && <span className="text-[#7A8483] font-semibold"> · {tool}</span>}
+              {tool && <span className="text-[#5F6968] font-semibold"> · {tool}</span>}
             </h3>
           )}
 
           {resultaten.length === 0 ? (
             <div className="rounded-xl border border-[#E8E8E8] bg-[#F9F9F7] p-6">
               <p className="font-bold text-[#2D2D2D] mb-1">{t.nietGevonden}</p>
-              <p className="text-sm text-[#5F5F5F]">{t.nietGevondenUitleg}</p>
+              <p className="text-sm text-[#4F5857]">{t.nietGevondenUitleg}</p>
             </div>
           ) : (
             <div className="border-t border-[#F0F0F0]">
@@ -351,26 +382,64 @@ export default function TechHulp({
                   <summary className="flex justify-between items-start gap-4 list-none cursor-pointer">
                     <span className="font-semibold text-[#2D2D2D] text-[15px] leading-snug">
                       {zoekend && v.tool !== algemeen && (
-                        <span className="inline-block align-middle mr-2 text-[10px] font-bold uppercase tracking-wide text-[#6E7877] bg-[#F0F3F3] rounded px-2 py-0.5">
+                        <span className="inline-block align-middle mr-2 text-[10px] font-bold uppercase tracking-wide text-[#5F6968] bg-[#F0F3F3] rounded px-2 py-0.5">
                           {v.tool}
                         </span>
                       )}
                       {v.vraag}
                     </span>
-                    <span className="text-[#28A8AA] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden>+</span>
+                    <span className="text-[#197678] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden>+</span>
                   </summary>
 
                   {v.stappen ? (
                     <ol className="mt-3 space-y-2.5">
                       {v.stappen.map((s, j) => (
                         <li key={j} className="grid grid-cols-[auto_1fr] gap-3 items-start">
-                          <span className="w-6 h-6 rounded-full bg-[#28A8AA] text-white text-xs font-bold grid place-items-center mt-0.5">{j + 1}</span>
-                          <span className="text-sm text-[#434343] leading-relaxed">{s}</span>
+                          <span className="w-6 h-6 rounded-full bg-[#197678] text-white text-xs font-bold grid place-items-center mt-0.5">{j + 1}</span>
+                          <span className="text-sm text-[#434343] leading-relaxed">{metAccent(s)}</span>
                         </li>
                       ))}
                     </ol>
                   ) : (
                     <p className="text-sm text-[#444444] leading-relaxed mt-3 whitespace-pre-line">{v.antwoord}</p>
+                  )}
+
+                  {/* Wat er op een telefoon anders gaat. Eén blok, met een
+                      telefoon-icoon in plaats van het woord "Mobiel" ervoor:
+                      een emoji rendert op elk apparaat anders en was slecht te
+                      herkennen (Emilie, 24 september 2026). Zelfde tekstgrootte
+                      en -kleur als de stappen, want dit moet net zo goed
+                      leesbaar zijn. Windows en Mac staan niet hier maar gewoon
+                      tussen de stappen: dat hoort bij de oplossing zelf. */}
+                  {(v.mobiel || v.iphone || v.android) && (
+                    <div className="mt-4 rounded-lg border-l-[3px] border-[#197678] bg-[#F2F7F7] px-4 py-3.5 grid grid-cols-[auto_1fr] gap-3 items-start">
+                      {/* Het telefoontje in een gevuld rondje, net als de
+                          nummers van de stappen: los lijnwerk van 20 pixels
+                          viel weg naast de tekst. */}
+                      <span className="w-7 h-7 rounded-full bg-[#197678] grid place-items-center shrink-0">
+                        <Smartphone className="w-4 h-4 text-white" strokeWidth={2.25} aria-hidden />
+                      </span>
+                      <div className="text-sm text-[#333333] leading-relaxed">
+                        <span className="sr-only">{t.opMobiel}: </span>
+                        {v.mobiel && <p>{metAccent(v.mobiel)}</p>}
+                        {(v.iphone || v.android) && (
+                          <div className={v.mobiel ? "mt-2 space-y-1.5" : "space-y-1.5"}>
+                            {v.iphone && (
+                              <p>
+                                <span className="font-semibold text-[#2D2D2D]">iPhone:</span>{" "}
+                                {metAccent(v.iphone)}
+                              </p>
+                            )}
+                            {v.android && (
+                              <p>
+                                <span className="font-semibold text-[#2D2D2D]">Android:</span>{" "}
+                                {metAccent(v.android)}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   )}
 
                 </details>

@@ -12,7 +12,8 @@
     "mobiel:console": "node scripts/mobiel-console.mjs",
     "mobiel:shots": "node scripts/mobiel-shots.mjs",
     "altcheck": "node scripts/altcheck.mjs",
-    "sleutelcheck": "node scripts/sleutelcheck.mjs --alles"
+    "sleutelcheck": "node scripts/sleutelcheck.mjs --alles",
+    "hulpcheck": "tsx scripts/hulpcheck.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.1",

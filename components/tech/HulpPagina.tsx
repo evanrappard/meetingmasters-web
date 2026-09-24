@@ -85,7 +85,9 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
             maakt, duwt dat uit beeld. */}
         <div className="relative max-w-content mx-auto px-8 md:px-16 lg:px-20 py-7 md:py-9 min-h-[210px] md:min-h-[232px] flex items-center">
           <div className="max-w-[620px]">
-            <p className="text-[#28A8AA] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">{t.hero.kicker}</p>
+            {/* Op de donkere hero juist de lichte merk-teal: die leest daar
+                goed, de donkere variant (die voor tekst op wit is) niet. */}
+            <p className="text-[#5FD0D2] text-[10px] font-bold tracking-[0.2em] uppercase mb-3">{t.hero.kicker}</p>
             <h1
               className="font-bold text-white leading-[1.05] text-balance mb-3"
               style={{ fontSize: "clamp(1.6rem, 3.4vw, 2.3rem)" }}
@@ -149,7 +151,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
                   className="h-11 w-auto max-w-full object-contain object-left"
                 />
                 <p className="text-[#434343] text-sm mt-6">{h.soort}</p>
-                <span className="inline-block mt-2 text-[#28A8AA] text-sm font-bold group-hover:underline">
+                <span className="inline-block mt-2 text-[#197678] text-sm font-bold group-hover:underline">
                   {h.actie} →
                 </span>
               </a>
@@ -218,7 +220,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
                     className="h-9 w-auto max-w-full object-contain object-left"
                   />
                   <span
-                    className="text-[#28A8AA] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0"
+                    className="text-[#197678] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0"
                     aria-hidden
                   >
                     +
@@ -230,7 +232,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
                   <ul className="space-y-2.5">
                     {p.punten.map((punt) => (
                       <li key={punt} className="flex gap-2.5 items-start text-sm text-[#434343] leading-relaxed">
-                        <span className="text-[#28A8AA] shrink-0 mt-0.5" aria-hidden>✓</span>
+                        <span className="text-[#197678] shrink-0 mt-0.5" aria-hidden>✓</span>
                         {punt}
                       </li>
                     ))}
@@ -242,7 +244,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#28A8AA] text-sm font-bold hover:underline"
+                        className="text-[#197678] text-sm font-bold hover:underline"
                       >
                         {l.label} ↗
                       </a>
@@ -257,7 +259,7 @@ export default function HulpPagina({ taal = "nl" }: { taal?: Taal }) {
               {t.it.platformsIntro}{" "}
               <Link
                 href={taal === "en" ? "/en/platforms" : "/nl/technologie/tools"}
-                className="text-[#28A8AA] font-semibold hover:underline"
+                className="text-[#197678] font-semibold hover:underline"
               >
                 {t.it.platformsKnop}
               </Link>
@@ -278,7 +280,7 @@ function FaqLijst({ items }: { items: { q: string; a: string }[] }) {
         <details key={f.q} className="group border-b border-[#EDEDEA] py-4">
           <summary className="flex justify-between items-start gap-4 list-none cursor-pointer">
             <span className="font-semibold text-[#2D2D2D] text-[15px] leading-snug">{f.q}</span>
-            <span className="text-[#28A8AA] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden>+</span>
+            <span className="text-[#197678] font-bold text-lg leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden>+</span>
           </summary>
           <p className="text-sm text-[#444444] leading-relaxed mt-3">{f.a}</p>
         </details>
